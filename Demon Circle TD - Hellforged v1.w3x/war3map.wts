@@ -2068,51 +2068,21 @@ Dmg: 10 |nCooldown: 0.2s |nRange: 800
 }
 
 STRING 617
-// Units: u001 (Ghost Tower Level 6), Ubertip (Tooltip - Extended)
+// Units: u003 (Ghost Tower Level 3), Ubertip (Tooltip - Extended)
 {
 Dmg: 60 |nCooldown: 0.2s |nRange: 800
 }
 
-STRING 618
-// Units: u002 (Ghost Tower Level 2), Ubertip (Tooltip - Extended)
-{
-Dmg: 20 |nCooldown: 0.2s |nRange: 800
-}
-
 STRING 619
-// Units: u003 (Ghost Tower Level 3), Ubertip (Tooltip - Extended)
+// Units: u002 (Ghost Tower Level 2), Ubertip (Tooltip - Extended)
 {
 Dmg: 30 |nCooldown: 0.2s |nRange: 800
 }
 
-STRING 620
+STRING 621
 // Units: u004 (Ghost Tower Level 4), Ubertip (Tooltip - Extended)
 {
-Dmg: 40 |nCooldown: 0.2s |nRange: 800
-}
-
-STRING 621
-// Units: u00E (Ghost Tower Level 8), Ubertip (Tooltip - Extended)
-{
 Dmg: 100 |nCooldown: 0.2s |nRange: 800
-}
-
-STRING 622
-// Units: u00F (Ghost Tower Level 7), Ubertip (Tooltip - Extended)
-{
-Dmg: 70 |nCooldown: 0.2s |nRange: 800
-}
-
-STRING 623
-// Units: u00G (Ghost Tower Level 5), Ubertip (Tooltip - Extended)
-{
-Dmg: 50 |nCooldown: 0.2s |nRange: 800
-}
-
-STRING 624
-// Units: u010 (Ultimate Ghost Tower), Ubertip (Tooltip - Extended)
-{
-Dmg: 200 |nCooldown: 0.1s |nRange: 800
 }
 
 STRING 625
@@ -2311,5 +2281,197 @@ STRING 672
 // Units: u01A (Ultimate Chaos Tower), Ubertip (Tooltip - Extended)
 {
 Dmg: 500|nCooldown: 1.0s |nRange: 1200|nMultishot
+}
+
+STRING 673
+// Units: u001 (Ghost Tower Level 6), Ubertip (Tooltip - Extended)
+{
+Dmg: 210 |nCooldown: 0.2s |nRange: 800
+}
+
+STRING 674
+// Units: u00E (Ghost Tower Level 8), Ubertip (Tooltip - Extended)
+{
+Dmg: 360 |nCooldown: 0.2s |nRange: 800
+}
+
+STRING 675
+// Units: u00F (Ghost Tower Level 7), Ubertip (Tooltip - Extended)
+{
+Dmg: 280 |nCooldown: 0.2s |nRange: 800
+}
+
+STRING 676
+// Units: u00G (Ghost Tower Level 5), Ubertip (Tooltip - Extended)
+{
+Dmg: 150 |nCooldown: 0.2s |nRange: 800
+}
+
+STRING 677
+// Units: u010 (Ultimate Ghost Tower), Ubertip (Tooltip - Extended)
+{
+Dmg: 500 |nCooldown: 0.1s |nRange: 800
+}
+
+STRING 678
+// Abilities: A007 (Incinerate 2), Tip (Tooltip - Normal)
+{
+Incinerate
+}
+
+STRING 679
+// Abilities: A007 (Incinerate 2), Ubertip (Tooltip - Normal - Extended)
+{
+If a unit dies while under this effect, it is incinerated, causing up to 200 damage to all nearby hostile units.
+}
+
+STRING 680
+// Abilities: A007 (Incinerate 2), Name (Name)
+{
+Incinerate 2
+}
+
+STRING 681
+// Abilities: A008 (Incinerate 3), Tip (Tooltip - Normal)
+{
+Incinerate
+}
+
+STRING 682
+// Abilities: A008 (Incinerate 3), Ubertip (Tooltip - Normal - Extended)
+{
+If a unit dies while under this effect, it is incinerated, causing up to 300 damage to all nearby hostile units.
+}
+
+STRING 683
+// Abilities: A008 (Incinerate 3), Name (Name)
+{
+Incinerate 3
+}
+
+STRING 684
+// Abilities: A009 (Incinerate 4), Tip (Tooltip - Normal)
+{
+Incinerate
+}
+
+STRING 685
+// Abilities: A009 (Incinerate 4), Ubertip (Tooltip - Normal - Extended)
+{
+If a unit dies while under this effect, it is incinerated, causing up to 400 damage to all nearby hostile units.
+}
+
+STRING 686
+// Abilities: A009 (Incinerate 4), Name (Name)
+{
+Incinerate 4
+}
+
+STRING 687
+// Abilities: A00A (Incinerate 5), Tip (Tooltip - Normal)
+{
+Incinerate
+}
+
+STRING 688
+// Abilities: A00A (Incinerate 5), Ubertip (Tooltip - Normal - Extended)
+{
+If a unit dies while under this effect, it is incinerated, causing up to 500 damage to all nearby hostile units.
+}
+
+STRING 689
+// Abilities: A00A (Incinerate 5), Name (Name)
+{
+Incinerate 5
+}
+
+STRING 690
+// Abilities: A00B (Incinerate 1), Tip (Tooltip - Normal)
+{
+Incinerate
+}
+
+STRING 691
+// Abilities: A00B (Incinerate 1), Ubertip (Tooltip - Normal - Extended)
+{
+If a unit dies while under this effect, it is incinerated, causing up to 100 damage to all nearby hostile units.
+}
+
+STRING 692
+// Abilities: A00B (Incinerate 1), Name (Name)
+{
+Incinerate 1
+}
+
+STRING 693
+// Abilities: A00C (Incinerate 7), Tip (Tooltip - Normal)
+{
+Incinerate
+}
+
+STRING 694
+// Abilities: A00C (Incinerate 7), Ubertip (Tooltip - Normal - Extended)
+{
+If a unit dies while under this effect, it is incinerated, causing up to 700 damage to all nearby hostile units.
+}
+
+STRING 695
+// Abilities: A00C (Incinerate 7), Name (Name)
+{
+Incinerate 7
+}
+
+STRING 696
+// Abilities: A00D (Incinerate 8), Tip (Tooltip - Normal)
+{
+Incinerate
+}
+
+STRING 697
+// Abilities: A00D (Incinerate 8), Ubertip (Tooltip - Normal - Extended)
+{
+If a unit dies while under this effect, it is incinerated, causing up to 800 damage to all nearby hostile units.
+}
+
+STRING 698
+// Abilities: A00D (Incinerate 8), Name (Name)
+{
+Incinerate 8
+}
+
+STRING 699
+// Abilities: A00E (Incinerate 9), Tip (Tooltip - Normal)
+{
+Incinerate
+}
+
+STRING 700
+// Abilities: A00E (Incinerate 9), Ubertip (Tooltip - Normal - Extended)
+{
+If a unit dies while under this effect, it is incinerated, causing up to 1000 damage to all nearby hostile units.
+}
+
+STRING 701
+// Abilities: A00E (Incinerate 9), Name (Name)
+{
+Incinerate 9
+}
+
+STRING 702
+// Abilities: A00G (Incinerate 6), Tip (Tooltip - Normal)
+{
+Incinerate
+}
+
+STRING 703
+// Abilities: A00G (Incinerate 6), Ubertip (Tooltip - Normal - Extended)
+{
+If a unit dies while under this effect, it is incinerated, causing up to 600 damage to all nearby hostile units.
+}
+
+STRING 704
+// Abilities: A00G (Incinerate 6), Name (Name)
+{
+Incinerate 6
 }
 
