@@ -1,0 +1,10 @@
+[Misc]
+BoneDecayTime=15.0
+ConstructionRefundRate=1.0
+MaxBldgSpeed=522.0
+MaxUnitSpeed=522.0
+MinUnitSpeed=50.0
+TradingIncLarge=50
+TradingIncSmall=10
+UpgradeRefundRate=1.0
+

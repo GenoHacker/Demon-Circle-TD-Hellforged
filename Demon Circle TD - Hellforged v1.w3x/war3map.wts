@@ -1,0 +1,2315 @@
+﻿STRING 1
+{
+Demon Circle TD Hellforged
+}
+
+STRING 2
+{
+8
+}
+
+STRING 3
+{
+GenoHacker
+}
+
+STRING 13
+{
+Defenders
+}
+
+STRING 14
+// Units: u000 (Ghost Tower Level 1), Name (Name)
+{
+Ghost Tower Level 1
+}
+
+STRING 15
+// Units: u000 (Ghost Tower Level 1), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 16
+// Units: u000 (Ghost Tower Level 1), Tip (Tooltip - Basic)
+{
+Build Ghost Tower (|cffffcc00Q|r)
+}
+
+STRING 18
+// Units: u00G (Ghost Tower Level 5), Name (Name)
+{
+Ghost Tower Level 5
+}
+
+STRING 19
+// Units: u001 (Ghost Tower Level 6), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 22
+// Units: u002 (Ghost Tower Level 2), Name (Name)
+{
+Ghost Tower Level 2
+}
+
+STRING 23
+// Units: u002 (Ghost Tower Level 2), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 26
+// Units: u003 (Ghost Tower Level 3), Name (Name)
+{
+Ghost Tower Level 3
+}
+
+STRING 27
+// Units: u003 (Ghost Tower Level 3), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 30
+// Units: u004 (Ghost Tower Level 4), Name (Name)
+{
+Ghost Tower Level 4
+}
+
+STRING 31
+// Units: u004 (Ghost Tower Level 4), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 38
+{
+|cffff9622Player Kills:|r
+------------------------------
+}
+
+STRING 39
+{
+Demons:
+}
+
+STRING 40
+{
+Round:
+}
+
+STRING 41
+{
+|cffffcc00You lost! Try again!|r
+}
+
+STRING 42
+{
+Original Demon Circle TD created by Varimathras
+Additions by Siryan and Stutt
+
+|cffff0000Demon Circle TD: Hellforged|r is based on Demon Circle TD -Better by Siryan
+
+Refer to the |cffffcc00Game Help|r [|cffffcc00F9|r] to view game fixes.
+}
+
+STRING 63
+{
+Congratulations! You won!
+}
+
+STRING 65
+// Units: u00B (Frost Tower), Hotkey (Hotkey)
+{
+W
+}
+
+STRING 69
+// Units: u007 (Skull Tower Level 2), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 73
+// Units: u008 (Skull Tower Level 3), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 77
+// Units: u009 (Skull Tower Level 4), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 81
+// Units: u00A (Skull Tower Level 5), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 94
+// Units: u00B (Frost Tower), Name (Name)
+{
+Frost Tower
+}
+
+STRING 95
+// Units: u006 (Skull Tower Level 1), Hotkey (Hotkey)
+{
+E
+}
+
+STRING 98
+// Abilities: A001 (Frost), Name (Name)
+{
+Frost
+}
+
+STRING 99
+// Abilities: A001 (Frost), Tip (Tooltip - Normal)
+{
+Frost
+}
+
+STRING 100
+// Abilities: A001 (Frost), Ubertip (Tooltip - Normal - Extended)
+{
+Slows an enemy unit for 3 seconds.
+}
+
+STRING 101
+// Units: u005 (Demon), Name (Name)
+{
+Demon
+}
+
+STRING 104
+// Units: u00C (Freezer Tower), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 107
+// Abilities: A001 (Frost), EditorSuffix (Editor Suffix)
+{
+ (frost tower)
+}
+
+STRING 108
+// Abilities: A002 (Frost), Name (Name)
+{
+Frost
+}
+
+STRING 109
+// Abilities: A002 (Frost), Tip (Tooltip - Normal)
+{
+Frost
+}
+
+STRING 110
+// Abilities: A002 (Frost), Ubertip (Tooltip - Normal - Extended)
+{
+Slows an enemy unit for 4 seconds.
+}
+
+STRING 111
+// Abilities: A002 (Frost), EditorSuffix (Editor Suffix)
+{
+ (freezer)
+}
+
+STRING 112
+{
+has left the game
+}
+
+STRING 114
+{
+|cffff0000Genohacker|r Presents:
+}
+
+STRING 115
+{
+|cffff0000Demon Circle TD: Hellforged|r
+}
+
+STRING 116
+{
+is not playing
+}
+
+STRING 117
+// Units: u001 (Ghost Tower Level 6), Name (Name)
+{
+Ghost Tower Level 6
+}
+
+STRING 121
+// Units: u00B (Frost Tower), Tip (Tooltip - Basic)
+{
+Build Frost Tower (|cffffcc00W|r)
+}
+
+STRING 122
+// Units: u00M (Chaos Tower Level 1), Name (Name)
+{
+Chaos Tower Level 1
+}
+
+STRING 123
+// Units: u00M (Chaos Tower Level 1), Hotkey (Hotkey)
+{
+R
+}
+
+STRING 126
+// Units: u00E (Ghost Tower Level 8), Name (Name)
+{
+Ghost Tower Level 8
+}
+
+STRING 127
+// Units: u00D (Chaos Tower Level 4), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 130
+// Units: u00F (Ghost Tower Level 7), Name (Name)
+{
+Ghost Tower Level 7
+}
+
+STRING 131
+// Units: u00E (Ghost Tower Level 8), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 134
+// Units: u00F (Ghost Tower Level 7), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 136
+// Units: u00G (Ghost Tower Level 5), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 140
+// Units: u00H (Skull Tower Level 6), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 144
+// Units: u00I (Skull Tower Level 7), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 147
+// Units: u00D (Chaos Tower Level 4), Name (Name)
+{
+Chaos Tower Level 4
+}
+
+STRING 150
+// Units: u00J (Skull Tower Level 8), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 151
+// Units: u00K (Chaos Tower Level 3), Name (Name)
+{
+Chaos Tower Level 3
+}
+
+STRING 152
+// Units: u00K (Chaos Tower Level 3), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 155
+// Units: u00L (Chaos Tower Level 2), Name (Name)
+{
+Chaos Tower Level 2
+}
+
+STRING 156
+// Units: u00L (Chaos Tower Level 2), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 159
+// Units: u017 (Chaos Tower Level 5), Name (Name)
+{
+Chaos Tower Level 5
+}
+
+STRING 160
+// Units: u00N (Chaos Tower Level 7), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 163
+// Units: h000 (Level 02 (Demon)), Name (Name)
+{
+Level 02 (Demon)
+}
+
+STRING 164
+// Units: h001 (Level 03 (Dark Demon)), Name (Name)
+{
+Level 03 (Dark Demon)
+}
+
+STRING 165
+// Units: h002 (Level 04 (Little Felhound)), Name (Name)
+{
+Level 04 (Little Felhound)
+}
+
+STRING 166
+// Units: h003 (Level 05 (Felhound)), Name (Name)
+{
+Level 05 (Felhound)
+}
+
+STRING 167
+// Units: h004 (Level 06 (Dark Felhound)), Name (Name)
+{
+Level 06 (Dark Felhound)
+}
+
+STRING 168
+// Units: h005 (Level 07 (Felguard)), Name (Name)
+{
+Level 07 (Felguard)
+}
+
+STRING 169
+// Units: h006 (Level 08 (Dark Felguard)), Name (Name)
+{
+Level 08 (Dark Felguard)
+}
+
+STRING 170
+// Units: h007 (Level 09 (Blue Felguard)), Name (Name)
+{
+Level 09 (Blue Felguard)
+}
+
+STRING 171
+// Units: h009 (Level 01 (Little Demon)), Name (Name)
+{
+Level 01 (Little Demon)
+}
+
+STRING 172
+// Units: h00U (Level 32 (Green Scorpion)), Name (Name)
+{
+Level 32 (Green Scorpion)
+}
+
+STRING 173
+// Units: h00V (Level 33 (Black Scorpion)), Name (Name)
+{
+Level 33 (Black Scorpion)
+}
+
+STRING 174
+// Units: h00W (Level 34 (Scorpion Lord)), Name (Name)
+{
+Level 34 (Scorpion Lord)
+}
+
+STRING 175
+// Units: h00X (Level 35 (Bug)), Name (Name)
+{
+Level 35 (Bug)
+}
+
+STRING 176
+// Units: h00Y (Level 36 (Green Bug)), Name (Name)
+{
+Level 36 (Green Bug)
+}
+
+STRING 177
+// Units: h00Z (Level 37 (Black Bug)), Name (Name)
+{
+Level 37 (Black Bug)
+}
+
+STRING 178
+// Units: h010 (Level 38 (Crypt Fiend)), Name (Name)
+{
+Level 38 (Crypt Fiend)
+}
+
+STRING 179
+// Units: h011 (Level 39 (Black Crypt Fiend)), Name (Name)
+{
+Level 39 (Black Crypt Fiend)
+}
+
+STRING 180
+// Units: h012 (Level 40 (Crypt Lord)), Name (Name)
+{
+Level 40 (Crypt Lord)
+}
+
+STRING 181
+// Units: h013 (Level 31 (Scorpion)), Name (Name)
+{
+Level 31 (Scorpion)
+}
+
+STRING 182
+// Units: h008 (Level 10 (Dark Blue Felguard)), Name (Name)
+{
+Level 10 (Dark Blue Felguard)
+}
+
+STRING 184
+// Units: h00B (Level 13 (Chaos Ghost)), Name (Name)
+{
+Level 13 (Chaos Ghost)
+}
+
+STRING 185
+// Units: h00C (Level 14 (Hell Ghost)), Name (Name)
+{
+Level 14 (Hell Ghost)
+}
+
+STRING 186
+// Units: h00D (Level 15 (Faceless Demon)), Name (Name)
+{
+Level 15 (Faceless Demon)
+}
+
+STRING 187
+// Units: h028 (Level 16 (Faceless One)), Name (Name)
+{
+Level 16 (Faceless One)
+}
+
+STRING 188
+// Units: h00F (Level 17 (Doom Guard)), Name (Name)
+{
+Level 17 (Doom Guard)
+}
+
+STRING 189
+// Units: h00G (Level 18 (Infernal)), Name (Name)
+{
+Level 18 (Infernal)
+}
+
+STRING 190
+// Units: h00H (Level 19 (Demon Runner)), Name (Name)
+{
+Level 19 (Demon Runner)
+}
+
+STRING 191
+// Units: h00I (Level 20 (Demon Lord)), Name (Name)
+{
+Level 20 (Demon Lord)
+}
+
+STRING 192
+// Units: h00J (Level 11 (Revenant)), Name (Name)
+{
+Level 11 (Revenant)
+}
+
+STRING 193
+// Units: h00K (Level 22 (Necromancer)), Name (Name)
+{
+Level 22 (Necromancer)
+}
+
+STRING 194
+// Units: h00L (Level 23 (Lich)), Name (Name)
+{
+Level 23 (Lich)
+}
+
+STRING 195
+// Units: h00M (Level 24 (Death Knight)), Name (Name)
+{
+Level 24 (Death Knight)
+}
+
+STRING 196
+// Units: h00N (Level 25 (Dread Lord)), Name (Name)
+{
+Level 25 (Dread Lord)
+}
+
+STRING 197
+// Units: h00O (Level 26 (Doom Lord)), Name (Name)
+{
+Level 26 (Doom Lord)
+}
+
+STRING 198
+// Units: h00P (Level 27 (Succubus)), Name (Name)
+{
+Level 27 (Succubus)
+}
+
+STRING 199
+// Units: h00Q (Level 28 (Demoness)), Name (Name)
+{
+Level 28 (Demoness)
+}
+
+STRING 202
+// Units: h00T (Level 21 (Ghost)), Name (Name)
+{
+Level 21 (Ghost)
+}
+
+STRING 203
+// Units: u00O (Inferno Gate Level 3), Name (Name)
+{
+Inferno Gate Level 3
+}
+
+STRING 204
+// Units: u00O (Inferno Gate Level 3), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 207
+// Units: u00P (Inferno Gate Level 2), Name (Name)
+{
+Inferno Gate Level 2
+}
+
+STRING 208
+// Units: u00P (Inferno Gate Level 2), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 211
+// Units: u00Q (Inferno Gate Level 1), Name (Name)
+{
+Inferno Gate Level 1
+}
+
+STRING 212
+// Units: u00Q (Inferno Gate Level 1), Hotkey (Hotkey)
+{
+A
+}
+
+STRING 215
+// Units: u00R (Inferno Gate Level 4), Name (Name)
+{
+Inferno Gate Level 4
+}
+
+STRING 216
+// Units: u00R (Inferno Gate Level 4), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 219
+// Units: u00Q (Inferno Gate Level 1), Tip (Tooltip - Basic)
+{
+Build Inferno Gate (|cffffcc00A|r)
+}
+
+STRING 220
+{
+End in:
+}
+
+STRING 223
+{
+ 
+}
+
+STRING 225
+{
+ 
+}
+
+STRING 226
+{
+ 
+}
+
+STRING 228
+// Units: u00S (Carrion Tower Level 2), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 232
+// Units: u016 (Speed Aura Tower), Hotkey (Hotkey)
+{
+S
+}
+
+STRING 236
+// Units: u00U (Carrion Tower Level 3), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 239
+{
+ 
+}
+
+STRING 240
+{
+ 
+}
+
+STRING 241
+// Units: u00S (Carrion Tower Level 2), Name (Name)
+{
+Carrion Tower Level 2
+}
+
+STRING 242
+// Units: u00T (Carrion Tower Level 1), Name (Name)
+{
+Carrion Tower Level 1
+}
+
+STRING 243
+// Units: u00U (Carrion Tower Level 3), Name (Name)
+{
+Carrion Tower Level 3
+}
+
+STRING 244
+// Units: h014 (Level 42 (Poison Gargoyle)), Name (Name)
+{
+Level 42 (Poison Gargoyle)
+}
+
+STRING 245
+// Units: h015 (Level 43 (Black Gargoyle)), Name (Name)
+{
+Level 43 (Black Gargoyle)
+}
+
+STRING 246
+// Units: h016 (Level 44 (Zerg)), Name (Name)
+{
+Level 44 (Zerg)
+}
+
+STRING 247
+// Units: h017 (Level 45 (Poison Zerg)), Name (Name)
+{
+Level 45 (Poison Zerg)
+}
+
+STRING 248
+// Units: h018 (Level 46 (Black Zerg)), Name (Name)
+{
+Level 46 (Black Zerg)
+}
+
+STRING 249
+// Units: h019 (Level 47 (Hydralisk)), Name (Name)
+{
+Level 47 (Hydralisk)
+}
+
+STRING 250
+// Units: h01A (Level 48 (Poison Hydralisk)), Name (Name)
+{
+Level 48 (Poison Hydralisk)
+}
+
+STRING 251
+// Units: h01B (Level 49 (Black Hydralisk)), Name (Name)
+{
+Level 49 (Black Hydralisk)
+}
+
+STRING 252
+// Units: h027 (Level 50 (Warlock)), Name (Name)
+{
+Level 50 (Warlock)
+}
+
+STRING 253
+// Units: h01D (Level 41 (Gargoyle)), Name (Name)
+{
+Level 41 (Gargoyle)
+}
+
+STRING 255
+// Units: h00R (Level 29 (Dark Ranger)), Name (Name)
+{
+Level 29 (Dark Ranger)
+}
+
+STRING 256
+// Units: h00S (Level 30 (Black Ranger)), Name (Name)
+{
+Level 30 (Black Ranger)
+}
+
+STRING 257
+// Units: h01C (Level 51 (Ghost)), Name (Name)
+{
+Level 51 (Ghost)
+}
+
+STRING 258
+// Units: h01E (Level 52 (Red Ghost)), Name (Name)
+{
+Level 52 (Red Ghost)
+}
+
+STRING 259
+// Units: h01F (Level 53 (Green Ghost)), Name (Name)
+{
+Level 53 (Green Ghost)
+}
+
+STRING 260
+// Units: h01G (Level 54 (Blue Ghost)), Name (Name)
+{
+Level 54 (Blue Ghost)
+}
+
+STRING 261
+// Units: h01H (Level 55 (Black Ghost)), Name (Name)
+{
+Level 55 (Black Ghost)
+}
+
+STRING 262
+// Units: h01I (Level 56 (Banshee)), Name (Name)
+{
+Level 56 (Banshee)
+}
+
+STRING 263
+// Units: h01J (Level 57 (Red Banshee)), Name (Name)
+{
+Level 57 (Red Banshee)
+}
+
+STRING 264
+// Units: h01K (Level 58 (Green Banshee)), Name (Name)
+{
+Level 58 (Green Banshee)
+}
+
+STRING 265
+// Units: h01L (Level 59 (Blue Banshee)), Name (Name)
+{
+Level 59 (Blue Banshee)
+}
+
+STRING 266
+// Units: h01M (Level 60 (Black Banshee)), Name (Name)
+{
+Level 60 (Black Banshee)
+}
+
+STRING 290
+// Units: h01N (Level 61 (Chaos Troll)), Name (Name)
+{
+Level 61 (Chaos Troll)
+}
+
+STRING 291
+// Units: h01O (Level 62 (Dark Chaos Troll)), Name (Name)
+{
+Level 62 (Dark Chaos Troll)
+}
+
+STRING 292
+// Units: h01P (Level 63 (Black Chaos Troll)), Name (Name)
+{
+Level 63 (Black Chaos Troll)
+}
+
+STRING 293
+// Units: h01Q (Level 64 (Chaos Troll Trapper)), Name (Name)
+{
+Level 64 (Chaos Troll Trapper)
+}
+
+STRING 294
+// Units: h01R (Level 65 (Dark Chaos Troll Trapper)), Name (Name)
+{
+Level 65 (Dark Chaos Troll Trapper)
+}
+
+STRING 295
+// Units: h01S (Level 66 (Black Chaos Troll Trapper)), Name (Name)
+{
+Level 66 (Black Chaos Troll Trapper)
+}
+
+STRING 296
+// Units: h01T (Level 67 (Chaos Troll Priest)), Name (Name)
+{
+Level 67 (Chaos Troll Priest)
+}
+
+STRING 297
+// Units: h01U (Level 68 (Dark Chaos Troll Priest)), Name (Name)
+{
+Level 68 (Dark Chaos Troll Priest)
+}
+
+STRING 298
+// Units: h01V (Level 69 (Black Chaos Troll Priest)), Name (Name)
+{
+Level 69 (Black Chaos Troll Priest)
+}
+
+STRING 299
+// Units: h01W (Level 70 (Chaos Troll Warlord)), Name (Name)
+{
+Level 70 (Chaos Troll Warlord)
+}
+
+STRING 300
+// Units: h01X (Level 71 (Dark Elf)), Name (Name)
+{
+Level 71 (Dark Elf)
+}
+
+STRING 301
+// Units: h01Y (Level 72 (Black Elf)), Name (Name)
+{
+Level 72 (Black Elf)
+}
+
+STRING 302
+// Units: h01Z (Level 73 (Dark Archer)), Name (Name)
+{
+Level 73 (Dark Archer)
+}
+
+STRING 303
+// Units: h020 (Level 74 (Black Archer)), Name (Name)
+{
+Level 74 (Black Archer)
+}
+
+STRING 304
+// Units: h021 (Level 75 (Dark Guard)), Name (Name)
+{
+Level 75 (Dark Guard)
+}
+
+STRING 305
+// Units: h022 (Level 76 (Black Guard)), Name (Name)
+{
+Level 76 (Black Guard)
+}
+
+STRING 306
+// Units: h023 (Level 77 (Dark Huntress)), Name (Name)
+{
+Level 77 (Dark Huntress)
+}
+
+STRING 307
+// Units: h024 (Level 78 (Black Huntress)), Name (Name)
+{
+Level 78 (Black Huntress)
+}
+
+STRING 308
+// Units: h025 (Level 79 (Dark Warden)), Name (Name)
+{
+Level 79 (Dark Warden)
+}
+
+STRING 309
+// Units: h026 (Level 80 (Black Warden)), Name (Name)
+{
+Level 80 (Black Warden)
+}
+
+STRING 311
+// Units: u00V (Ultimate Skull Tower), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 314
+// Units: u00W (Inferno Gate Level 5), Name (Name)
+{
+Inferno Gate Level 5
+}
+
+STRING 315
+// Units: u00W (Inferno Gate Level 5), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 318
+// Units: u00X (Inferno Gate Level 6), Name (Name)
+{
+Inferno Gate Level 6
+}
+
+STRING 319
+// Units: u00X (Inferno Gate Level 6), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 322
+// Units: u00Y (Inferno Gate Level 7), Name (Name)
+{
+Inferno Gate Level 7
+}
+
+STRING 323
+// Units: u00Y (Inferno Gate Level 7), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 326
+// Units: u00Z (Inferno Gate Level 8), Name (Name)
+{
+Inferno Gate Level 8
+}
+
+STRING 327
+// Units: u00Z (Inferno Gate Level 8), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 331
+// Units: u010 (Ultimate Ghost Tower), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 334
+// Units: h00A (Level 12 (Fire Revenant)), Name (Name)
+{
+Level 12 (Fire Revenant)
+}
+
+STRING 336
+// Units: u011 (Ultimate Inferno Gate), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 339
+// Units: u012 (Glacier Tower), Name (Name)
+{
+Glacier Tower
+}
+
+STRING 340
+// Units: u012 (Glacier Tower), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 343
+// Abilities: A003 (Frost), Name (Name)
+{
+Frost
+}
+
+STRING 344
+// Abilities: A003 (Frost), Tip (Tooltip - Normal)
+{
+Frost
+}
+
+STRING 345
+// Abilities: A003 (Frost), Ubertip (Tooltip - Normal - Extended)
+{
+Slows an enemy unit for 5 seconds.
+}
+
+STRING 346
+// Abilities: A003 (Frost), EditorSuffix (Editor Suffix)
+{
+ (Glacier Tower)
+}
+
+STRING 347
+// Units: u012 (Glacier Tower), Tip (Tooltip - Basic)
+{
+Upgrade to Glacier Tower (|cffffcc00Q|r)
+}
+
+STRING 350
+// Units: u014 (Diablo), Hotkey (Hotkey)
+{
+Z
+}
+
+STRING 354
+// Units: u015 (Lucifer), Hotkey (Hotkey)
+{
+X
+}
+
+STRING 362
+// Buffs/Effects: B000 (포이즌), EditorName (Name (Editor Only))
+{
+포이즌
+}
+
+STRING 376
+// Abilities: S000 (Speed Aura), Name (Name)
+{
+Speed Aura
+}
+
+STRING 378
+// Units: u016 (Speed Aura Tower), Name (Name)
+{
+Speed Aura Tower
+}
+
+STRING 381
+// Abilities: S000 (Speed Aura), Ubertip (Tooltip - Normal - Extended)
+{
+Increases attack rate by <SCae,DataB1,%>%.
+}
+
+STRING 382
+// Abilities: A004 (Speed Aura), Name (Name)
+{
+Speed Aura
+}
+
+STRING 383
+// Abilities: A004 (Speed Aura), Tip (Tooltip - Normal)
+{
+Speed Aura
+}
+
+STRING 385
+{
+Original map by |cff76dbf8Varimathras|r
+Better Version by |cffff0000Siryan|r
+Hellforged Version by GenoHacker
+}
+
+STRING 390
+// Units: u013 (Zombie), Name (Name)
+{
+Zombie
+}
+
+STRING 392
+// Units: u014 (Diablo), Name (Name)
+{
+Diablo
+}
+
+STRING 393
+// Units: u015 (Lucifer), Name (Name)
+{
+Lucifer
+}
+
+STRING 396
+{
+Player 1
+}
+
+STRING 397
+{
+Player 2
+}
+
+STRING 398
+{
+Player 3
+}
+
+STRING 399
+{
+Player 4
+}
+
+STRING 400
+{
+Player 5
+}
+
+STRING 401
+{
+Player 6
+}
+
+STRING 402
+{
+Player 7
+}
+
+STRING 403
+{
+Player 8
+}
+
+STRING 404
+// Units: u006 (Skull Tower Level 1), Name (Name)
+{
+Skull Tower Level 1
+}
+
+STRING 405
+// Units: u007 (Skull Tower Level 2), Name (Name)
+{
+Skull Tower Level 2
+}
+
+STRING 406
+// Units: u008 (Skull Tower Level 3), Name (Name)
+{
+Skull Tower Level 3
+}
+
+STRING 407
+// Units: u009 (Skull Tower Level 4), Name (Name)
+{
+Skull Tower Level 4
+}
+
+STRING 408
+// Units: u00A (Skull Tower Level 5), Name (Name)
+{
+Skull Tower Level 5
+}
+
+STRING 409
+// Units: u00H (Skull Tower Level 6), Name (Name)
+{
+Skull Tower Level 6
+}
+
+STRING 410
+// Units: u00I (Skull Tower Level 7), Name (Name)
+{
+Skull Tower Level 7
+}
+
+STRING 411
+// Units: u00J (Skull Tower Level 8), Name (Name)
+{
+Skull Tower Level 8
+}
+
+STRING 412
+// Units: u001 (Ghost Tower Level 6), Tip (Tooltip - Basic)
+{
+Upgrade to Level 6 (|cffffcc00Q|r)
+}
+
+STRING 413
+// Units: u002 (Ghost Tower Level 2), Tip (Tooltip - Basic)
+{
+Upgrade to Level 2 (|cffffcc00Q|r)
+}
+
+STRING 414
+// Units: u003 (Ghost Tower Level 3), Tip (Tooltip - Basic)
+{
+Upgrade to Level 3 (|cffffcc00Q|r)
+}
+
+STRING 415
+// Units: u004 (Ghost Tower Level 4), Tip (Tooltip - Basic)
+{
+Upgrade to Level 4 (|cffffcc00Q|r)
+}
+
+STRING 416
+// Units: u006 (Skull Tower Level 1), Tip (Tooltip - Basic)
+{
+Build Skull Tower (|cffffcc00E|r)
+}
+
+STRING 417
+// Units: u007 (Skull Tower Level 2), Tip (Tooltip - Basic)
+{
+Upgrade to Level 2 (|cffffcc00Q|r)
+}
+
+STRING 418
+// Units: u008 (Skull Tower Level 3), Tip (Tooltip - Basic)
+{
+Upgrade to Level 3 (|cffffcc00Q|r)
+}
+
+STRING 419
+// Units: u009 (Skull Tower Level 4), Tip (Tooltip - Basic)
+{
+Upgrade to Level 4 (|cffffcc00Q|r)
+}
+
+STRING 420
+// Units: u00A (Skull Tower Level 5), Tip (Tooltip - Basic)
+{
+Upgrade to Level 5 (|cffffcc00Q|r)
+}
+
+STRING 421
+// Units: u00R (Inferno Gate Level 4), Tip (Tooltip - Basic)
+{
+Upgrade to Level 4 (|cffffcc00Q|r)
+}
+
+STRING 422
+// Units: u00E (Ghost Tower Level 8), Tip (Tooltip - Basic)
+{
+Upgrade to Level 8 (|cffffcc00Q|r)
+}
+
+STRING 423
+// Units: u00F (Ghost Tower Level 7), Tip (Tooltip - Basic)
+{
+Upgrade to Level 7 (|cffffcc00Q|r)
+}
+
+STRING 424
+// Units: u00G (Ghost Tower Level 5), Tip (Tooltip - Basic)
+{
+Upgrade to Level 5 (|cffffcc00Q|r)
+}
+
+STRING 425
+// Units: u00H (Skull Tower Level 6), Tip (Tooltip - Basic)
+{
+Upgrade to Level 6 (|cffffcc00Q|r)
+}
+
+STRING 426
+// Units: u00I (Skull Tower Level 7), Tip (Tooltip - Basic)
+{
+Upgrade to Level 7 (|cffffcc00Q|r)
+}
+
+STRING 427
+// Units: u00J (Skull Tower Level 8), Tip (Tooltip - Basic)
+{
+Upgrade to Level 8 (|cffffcc00Q|r)
+}
+
+STRING 428
+// Units: u00O (Inferno Gate Level 3), Tip (Tooltip - Basic)
+{
+Upgrade to Level 3 (|cffffcc00Q|r)
+}
+
+STRING 429
+// Units: u00P (Inferno Gate Level 2), Tip (Tooltip - Basic)
+{
+Upgrade to Level 2 (|cffffcc00Q|r)
+}
+
+STRING 430
+// Units: u00W (Inferno Gate Level 5), Tip (Tooltip - Basic)
+{
+Upgrade to Level 5 (|cffffcc00Q|r)
+}
+
+STRING 431
+// Units: u00U (Carrion Tower Level 3), Tip (Tooltip - Basic)
+{
+Upgrade to Level 3 (|cffffcc00Q|r)
+}
+
+STRING 432
+// Units: u00S (Carrion Tower Level 2), Tip (Tooltip - Basic)
+{
+Upgrade to Level 2 (|cffffcc00Q|r)
+}
+
+STRING 438
+// Units: u00X (Inferno Gate Level 6), Tip (Tooltip - Basic)
+{
+Upgrade to Level 6 (|cffffcc00Q|r)
+}
+
+STRING 439
+// Units: u00Y (Inferno Gate Level 7), Tip (Tooltip - Basic)
+{
+Upgrade to Level 7 (|cffffcc00Q|r)
+}
+
+STRING 440
+// Units: u00Z (Inferno Gate Level 8), Tip (Tooltip - Basic)
+{
+Upgrade to Level 8 (|cffffcc00Q|r)
+}
+
+STRING 443
+// Units: u00V (Ultimate Skull Tower), Name (Name)
+{
+Ultimate Skull Tower
+}
+
+STRING 444
+// Units: u00V (Ultimate Skull Tower), Tip (Tooltip - Basic)
+{
+Upgrade to Ultimate Skull Tower (|cffffcc00Q|r)
+}
+
+STRING 445
+// Units: u010 (Ultimate Ghost Tower), Name (Name)
+{
+Ultimate Ghost Tower
+}
+
+STRING 446
+// Units: u010 (Ultimate Ghost Tower), Tip (Tooltip - Basic)
+{
+Upgrade to Ultimate Ghost Tower (|cffffcc00Q|r)
+}
+
+STRING 447
+// Units: u011 (Ultimate Inferno Gate), Name (Name)
+{
+Ultimate Inferno Gate
+}
+
+STRING 448
+// Units: u011 (Ultimate Inferno Gate), Tip (Tooltip - Basic)
+{
+Upgrade to Ultimate Inferno Gate (|cffffcc00Q|r)
+}
+
+STRING 449
+// Units: u00C (Freezer Tower), Name (Name)
+{
+Freezer Tower
+}
+
+STRING 450
+// Units: u00C (Freezer Tower), Tip (Tooltip - Basic)
+{
+Upgrade to Freezer Tower (|cffffcc00Q|r)
+}
+
+STRING 457
+{
+|cff76dbf8Work together. This is a Team TD!|r
+}
+
+STRING 458
+// Units: u00T (Carrion Tower Level 1), Hotkey (Hotkey)
+{
+D
+}
+
+STRING 459
+// Units: u00T (Carrion Tower Level 1), Tip (Tooltip - Basic)
+{
+Build Carrion Tower (|cffffcc00D|r)
+}
+
+STRING 460
+// Units: u013 (Zombie), Hotkey (Hotkey)
+{
+F
+}
+
+STRING 461
+// Units: u013 (Zombie), Tip (Tooltip - Basic)
+{
+Zombie (|cffffcc00F|r)
+}
+
+STRING 462
+// Units: u014 (Diablo), Tip (Tooltip - Basic)
+{
+Summon Diablo (|cffffcc00Z|r)
+}
+
+STRING 463
+// Units: u015 (Lucifer), Tip (Tooltip - Basic)
+{
+Summon Lucifer (|cffffcc00X|r)
+}
+
+STRING 464
+// Units: u016 (Speed Aura Tower), Tip (Tooltip - Basic)
+{
+Build Speed Aura Tower (|cffffcc00S|r)
+}
+
+STRING 466
+// Abilities: A000 (Sell Tower), Name (Name)
+{
+Sell Tower
+}
+
+STRING 469
+// Abilities: A000 (Sell Tower), Hotkey (Hotkey - Normal)
+{
+V
+}
+
+STRING 470
+// Abilities: A000 (Sell Tower), Tip (Tooltip - Normal)
+{
+Sell Tower (|cffffcc00V|r)
+}
+
+STRING 477
+{
+|c00FF0000You cannot Zoom-In less than 200 or Zoom-Out past 2800.|r
+}
+
+STRING 479
+{
+Map made by |cff76dbf8Varimathras|r |cffffcc00/|r Map re-mastered by |cffff0000Siryan|r
+
+|cffffcc00Use this time to set your Cameras:|r
+
+|cffffcc00Zoom|r-|cffffcc00In|r/|cffffcc00Zoom|r-|cffffcc00Out|r: Type -|cffff9622zoom 200|r through |cffff96222800|r.
+-|cffff9622zoom 2400|r/|cffff96222800|r recommend
+}
+
+STRING 482
+{
+Game Fixes
+}
+
+STRING 483
+{
+|cffffcc00Game Fixes:|r
+
+|cffffcc00---|r Fixed all Region leaks (lag reduced)
+|cffffcc00---|r Made Demons just a little tougher.
+|cffffcc00---|r Made some Icons and Unit Models
+more relevant to what they represent.
+|cffffcc00---|r Made more space for Players |cff0000ffBlue|r,
+|cffff80ffPink|r, |cffff8000Orange|r, and |cff8000ffPurple|r to build towers.
+|cffffcc00---|r Added a |cffffcc00Zoom|r-|cffffcc00In|r/|cffffcc00Zoom|r-|cffffcc00Out|r
+system to view things at a broader scope.
+|cffffcc00---|r Fixed a few Hotkeys that were
+the same as other hotkeys.
+
+Minor edit by |c00106246Stutt|r on the EU realm
+|cffffcc00---|r Removed code causing all players to target any tower that was constructed
+|cffffcc00---|r Removed Zombie and Skull tower friendly fire damage
+|cffffcc00---|r Fixed zombie sell price
+
+}
+
+STRING 484
+{
+|cffffcc00Gold:|r
+}
+
+STRING 486
+{
+Movement Speed:
+}
+
+STRING 487
+{
+%s - |cffffcc00Level:|r %d
+}
+
+STRING 488
+{
+Parties
+}
+
+STRING 489
+{
+|c00959697Armor:|r
+}
+
+STRING 490
+{
+Game Time Played:
+}
+
+STRING 491
+{
+|cffffcc00Level:|r
+}
+
+STRING 492
+{
+|cffffcc00Level:|r %d
+}
+
+STRING 493
+{
+|cff32cd32Lumber|r Income Rate:
+}
+
+STRING 494
+{
+|cff32cd32Lumber:|r
+}
+
+STRING 495
+{
+Stock will be coming soon.
+}
+
+STRING 496
+{
+You tied! Continue playing?
+}
+
+STRING 497
+{
+You won! Continue playing?
+}
+
+STRING 498
+{
+|cffffcc00Gold|r
+}
+
+STRING 499
+{
+HEROES USED
+}
+
+STRING 500
+{
+HEROES SLAIN
+}
+
+STRING 501
+{
+ITEMS OBTAINED
+}
+
+STRING 502
+{
+MERCENARIES HIRED
+}
+
+STRING 503
+{
+EXPERIENCE GAINED
+}
+
+STRING 504
+{
+|cffffcc00Level:|r %u
+}
+
+STRING 505
+{
+|cffffcc00Level:|r %u %s
+}
+
+STRING 507
+{
+|cff32cd32Give Up|r? [|Cfffed312F10|R]
+}
+
+STRING 508
+{
+|cffffcc00Game Help|r [|Cfffed312F9|R]
+}
+
+STRING 509
+{
+|cffffcc00Level:|r
+}
+
+STRING 510
+{
+|cff32cd32Lumber|r
+}
+
+STRING 511
+{
+UNIT SCORE(S)
+}
+
+STRING 512
+{
+PLAYER SCORE(S)
+}
+
+STRING 513
+{
+RESOURCE SCORE(S)
+}
+
+STRING 514
+{
+TOTAL SCORE(S)
+}
+
+STRING 515
+{
+|cffffcc00Game Help|r
+}
+
+STRING 516
+{
+Information
+}
+
+STRING 517
+{
+Additional Information
+}
+
+STRING 518
+{
+|cffffcc00Gold|r is aquired by slaying Demons.
+}
+
+STRING 519
+{
+|cff32cd32Lumber|r is not harvested here.
+}
+
+STRING 520
+{
+|cffffcc00GOLD|r MINED
+}
+
+STRING 521
+{
+|cff32cd32LUMBER|r HARVESTED
+}
+
+STRING 522
+{
+RESOURCES TRADED
+}
+
+STRING 523
+{
+TECH PERCENTAGE
+}
+
+STRING 524
+{
+|cffffcc00GOLD|r LOST TO UPKEEP
+}
+
+STRING 525
+{
+|cffFFFFFFOverview|r
+}
+
+STRING 526
+{
+|cffFFFFFFUnit Results|r
+}
+
+STRING 527
+{
+|cffFFFFFFPlayer Results|r
+}
+
+STRING 528
+{
+|cffFFFFFFResources|r
+}
+
+STRING 529
+{
+|cff40E0D0TEAMS|r
+}
+
+STRING 530
+{
+This dialog provides easy access to
+several |cffffcc00in|r -|cffffcc00game|r options including
+but not limited to giving up/Q|cffffcc00uit|r.
+}
+
+STRING 531
+{
+UNITS TRAINED
+}
+
+STRING 532
+{
+UNITS SLAIN
+}
+
+STRING 533
+{
+BUILDINGS PRODUCED
+}
+
+STRING 534
+{
+BUILDINGS RAZED
+}
+
+STRING 535
+{
+LARGEST ARMY
+}
+
+STRING 536
+{
+|cffffcc00The|r |cff32cd32Give Up|r? |cffffcc00Dialog|r [|Cfffed312F10|R]
+}
+
+STRING 538
+{
+|cffffcc00Game Help Dialog|r [|Cfffed312F9|R]
+}
+
+STRING 539
+{
+|cffffcc00CREDITS|r
+}
+
+STRING 540
+{
+Map made by |cff76dbf8Varimathras|r
+Map re-mastered by |cffff0000Siryan|r
+
+Minor edit by Stutt
+}
+
+STRING 542
+{
+|c22222222
+}
+
+STRING 543
+{
+|cffFFFFFFRefer to the |cffffcc00Game Help Dialog|r
+|cffFFFFFFto view the game fixes.|r
+}
+
+STRING 544
+{
+The current time is Demon slaying time!
+}
+
+STRING 545
+{
+This dialog displays in-depth information about the game.
+}
+
+STRING 546
+{
+|cff76dbf8Varimathras|r
+}
+
+STRING 548
+// Destructibles: IOt0 (Ice Throne), Name (Name)
+{
+Ice Throne
+}
+
+STRING 549
+{
+Demons
+}
+
+STRING 551
+// Units: ninf (|cffff0000Demon Circle TD|r), Name (Name)
+{
+|cffff0000Demon Circle TD|r
+}
+
+STRING 552
+{
+Parties [|Cfffed312F11|R]
+}
+
+STRING 575
+// Units: u006 (Skull Tower Level 1), Ubertip (Tooltip - Extended)
+{
+Dmg: 11-13 |nCooldown: 1.2s |nRange: 600 |nSplash (125)
+}
+
+STRING 576
+// Units: u007 (Skull Tower Level 2), Ubertip (Tooltip - Extended)
+{
+Dmg: 23-29 |nCooldown: 1.2s |nRange: 600 |nSplash (125)
+}
+
+STRING 577
+// Units: u008 (Skull Tower Level 3), Ubertip (Tooltip - Extended)
+{
+Dmg: 39-47 |nCooldown: 1.2s |nRange: 600 |nSplash (125)
+}
+
+STRING 578
+// Units: u009 (Skull Tower Level 4), Ubertip (Tooltip - Extended)
+{
+Dmg: 51-63 |nCooldown: 1.2s |nRange: 600 |nSplash (125)
+}
+
+STRING 579
+// Units: u00A (Skull Tower Level 5), Ubertip (Tooltip - Extended)
+{
+Dmg: 69-85 |nCooldown: 1.2s |nRange: 600 |nSplash (125)
+}
+
+STRING 580
+// Units: u00B (Frost Tower), Ubertip (Tooltip - Extended)
+{
+Dmg: 11-13 |nCooldown: 1.0s |nRange: 650 |nFrost (3s)
+}
+
+STRING 581
+// Units: u00C (Freezer Tower), Ubertip (Tooltip - Extended)
+{
+Dmg: 25-33 |nCooldown: 1.0s |nRange: 650 |nFrost (4s) |nSplash (150)
+}
+
+STRING 586
+// Units: u00H (Skull Tower Level 6), Ubertip (Tooltip - Extended)
+{
+Dmg: 85-105 |nCooldown: 1.2s |nRange: 600 |nSplash (125)
+}
+
+STRING 587
+// Units: u00I (Skull Tower Level 7), Ubertip (Tooltip - Extended)
+{
+Dmg: 111-137 |nCooldown: 1.2s |nRange: 600 |nSplash (125)
+}
+
+STRING 588
+// Units: u00J (Skull Tower Level 8), Ubertip (Tooltip - Extended)
+{
+Dmg: 143-175 |nCooldown: 1.2s |nRange: 600 |nSplash (125)
+}
+
+STRING 593
+// Units: u00O (Inferno Gate Level 3), Ubertip (Tooltip - Extended)
+{
+Dmg: 144-160 |nCooldown: 1.0s |nRange: 950
+}
+
+STRING 594
+// Units: u00P (Inferno Gate Level 2), Ubertip (Tooltip - Extended)
+{
+Dmg: 84-100 |nCooldown: 1.0s |nRange: 950
+}
+
+STRING 595
+// Units: u00Q (Inferno Gate Level 1), Ubertip (Tooltip - Extended)
+{
+Dmg: 34-50 |nCooldown: 1.0s |nRange: 950
+}
+
+STRING 596
+// Units: u00R (Inferno Gate Level 4), Ubertip (Tooltip - Extended)
+{
+Dmg: 256-272 |nCooldown: 1.0s |nRange: 950
+}
+
+STRING 597
+// Units: u00S (Carrion Tower Level 2), Ubertip (Tooltip - Extended)
+{
+Dmg: 200-232 |nCooldown: 1.0s |nRange: 700 |nSplash (140)
+}
+
+STRING 598
+// Units: u00T (Carrion Tower Level 1), Ubertip (Tooltip - Extended)
+{
+Dmg: 76-104 |nCooldown: 1.0s |nRange: 700 |nSplash (140)
+}
+
+STRING 599
+// Units: u00U (Carrion Tower Level 3), Ubertip (Tooltip - Extended)
+{
+Dmg: 276-312 |nCooldown: 1.0s |nRange: 700 |nSplash (140)
+}
+
+STRING 600
+// Units: u00V (Ultimate Skull Tower), Ubertip (Tooltip - Extended)
+{
+Dmg: 500-550 |nCooldown: 1.2s |nRange: 600 |nSplash (125)
+}
+
+STRING 601
+// Units: u00W (Inferno Gate Level 5), Ubertip (Tooltip - Extended)
+{
+Dmg: 356-372 |nCooldown: 1.0s |nRange: 950
+}
+
+STRING 602
+// Units: u00X (Inferno Gate Level 6), Ubertip (Tooltip - Extended)
+{
+Dmg: 538-560 |nCooldown: 1.0s |nRange: 950
+}
+
+STRING 603
+// Units: u00Y (Inferno Gate Level 7), Ubertip (Tooltip - Extended)
+{
+Dmg: 778-800 |nCooldown: 1.0s |nRange: 950
+}
+
+STRING 604
+// Units: u00Z (Inferno Gate Level 8), Ubertip (Tooltip - Extended)
+{
+Dmg: 1200-1250 |nCooldown: 1.0s |nRange: 950
+}
+
+STRING 606
+// Units: u011 (Ultimate Inferno Gate), Ubertip (Tooltip - Extended)
+{
+Dmg: 2000-2050 |nCooldown: 1.4s |nRange: 950
+}
+
+STRING 607
+// Units: u012 (Glacier Tower), Ubertip (Tooltip - Extended)
+{
+Dmg: 50-60 |nCooldown: 1.0s |nRange: 650 |nFrost (5s) |nSplash (200)
+}
+
+STRING 608
+// Units: u013 (Zombie), Ubertip (Tooltip - Extended)
+{
+Dmg: 1000-1033 |nCooldown: 1.2s |nRange: 600 |nSplash (200)
+}
+
+STRING 609
+// Units: u014 (Diablo), Ubertip (Tooltip - Extended)
+{
+Dmg: 1700-1750
+Cooldown: 1.4s
+Range: 1200
+}
+
+STRING 610
+// Units: u015 (Lucifer), Ubertip (Tooltip - Extended)
+{
+Dmg: 1500-1550 |nCooldown: 1.2s |nRange: 600 |nSplash (400)
+}
+
+STRING 611
+// Units: u016 (Speed Aura Tower), Ubertip (Tooltip - Extended)
+{
+Increases Attack Speed by 35%
+}
+
+STRING 612
+{
+GenoHacker Edit
+}
+
+STRING 613
+{
+v2 Changes
+
+Fixed sell value of Speed Aura
+Fixed a Couple of spots that you couldnt build on
+Splash Damage will no longer hit your own towers
+Several towers had different attack speeds than what was shown in the tooltip, some upgrades actually made a tower slower, this is now corrected. Towers now have consistent attack speeds, some towers had their attack speed increased to make them more viable
+Frost Tower was changed to Magic Damage
+Skull Tower was changed to Artilery and projectile speed was increased
+Chaos Tower now deals Chaos Damage across all its towers
+Dmg/s has been removed from all tooltips because most of them were wrong
+
+v2.1 Changes
+
+Every tower now cost less gold
+Towers now sell for 100% instead of 75%, multiple towers didnt have the correct sell value so i just made them all sell for 100%
+Removed Pathing Blockers around each players area
+Change Builder movement type to Foot
+}
+
+STRING 614
+// Abilities: A000 (Sell Tower), Ubertip (Tooltip - Normal - Extended)
+{
+Sell Tower to get back 100% of its cost.
+}
+
+STRING 615
+// Abilities: A004 (Speed Aura), Ubertip (Tooltip - Normal - Extended)
+{
+Increase attack speed of nearby towers by 35%
+}
+
+STRING 616
+// Units: u000 (Ghost Tower Level 1), Ubertip (Tooltip - Extended)
+{
+Dmg: 10 |nCooldown: 0.2s |nRange: 800
+}
+
+STRING 617
+// Units: u001 (Ghost Tower Level 6), Ubertip (Tooltip - Extended)
+{
+Dmg: 60 |nCooldown: 0.2s |nRange: 800
+}
+
+STRING 618
+// Units: u002 (Ghost Tower Level 2), Ubertip (Tooltip - Extended)
+{
+Dmg: 20 |nCooldown: 0.2s |nRange: 800
+}
+
+STRING 619
+// Units: u003 (Ghost Tower Level 3), Ubertip (Tooltip - Extended)
+{
+Dmg: 30 |nCooldown: 0.2s |nRange: 800
+}
+
+STRING 620
+// Units: u004 (Ghost Tower Level 4), Ubertip (Tooltip - Extended)
+{
+Dmg: 40 |nCooldown: 0.2s |nRange: 800
+}
+
+STRING 621
+// Units: u00E (Ghost Tower Level 8), Ubertip (Tooltip - Extended)
+{
+Dmg: 100 |nCooldown: 0.2s |nRange: 800
+}
+
+STRING 622
+// Units: u00F (Ghost Tower Level 7), Ubertip (Tooltip - Extended)
+{
+Dmg: 70 |nCooldown: 0.2s |nRange: 800
+}
+
+STRING 623
+// Units: u00G (Ghost Tower Level 5), Ubertip (Tooltip - Extended)
+{
+Dmg: 50 |nCooldown: 0.2s |nRange: 800
+}
+
+STRING 624
+// Units: u010 (Ultimate Ghost Tower), Ubertip (Tooltip - Extended)
+{
+Dmg: 200 |nCooldown: 0.1s |nRange: 800
+}
+
+STRING 625
+// Units: u00D (Chaos Tower Level 4), Tip (Tooltip - Basic)
+{
+Upgrade to Level 4
+}
+
+STRING 627
+// Units: u00K (Chaos Tower Level 3), Tip (Tooltip - Basic)
+{
+Upgrade to Level 3
+}
+
+STRING 629
+// Units: u00L (Chaos Tower Level 2), Tip (Tooltip - Basic)
+{
+Upgrade to Level 2
+}
+
+STRING 631
+// Units: u00M (Chaos Tower Level 1), Tip (Tooltip - Basic)
+{
+Build Chaos Tower
+}
+
+STRING 633
+// Units: u00N (Chaos Tower Level 7), Name (Name)
+{
+Chaos Tower Level 7
+}
+
+STRING 634
+// Units: u00N (Chaos Tower Level 7), Tip (Tooltip - Basic)
+{
+Upgrade to Level 5
+}
+
+STRING 636
+// Units: u017 (Chaos Tower Level 5), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 637
+// Units: u017 (Chaos Tower Level 5), Tip (Tooltip - Basic)
+{
+Upgrade to Level 5
+}
+
+STRING 639
+// Units: u018 (Chaos Tower Level 6), Name (Name)
+{
+Chaos Tower Level 6
+}
+
+STRING 640
+// Units: u018 (Chaos Tower Level 6), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 641
+// Units: u018 (Chaos Tower Level 6), Tip (Tooltip - Basic)
+{
+Upgrade to Level 6
+}
+
+STRING 643
+// Units: u019 (Chaos Tower Level 8), Name (Name)
+{
+Chaos Tower Level 8
+}
+
+STRING 644
+// Units: u019 (Chaos Tower Level 8), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 645
+// Units: u019 (Chaos Tower Level 8), Tip (Tooltip - Basic)
+{
+Upgrade to Level 8
+}
+
+STRING 647
+// Units: u01A (Ultimate Chaos Tower), Name (Name)
+{
+Ultimate Chaos Tower
+}
+
+STRING 648
+// Units: u01A (Ultimate Chaos Tower), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 649
+// Units: u01A (Ultimate Chaos Tower), Tip (Tooltip - Basic)
+{
+Upgrade to Level 8
+}
+
+STRING 651
+// Abilities: A005 (Multishot), Tip (Tooltip - Normal)
+{
+Multishot
+}
+
+STRING 652
+// Abilities: A005 (Multishot), Ubertip (Tooltip - Normal - Extended)
+{
+Allows the tower to attack up to 3 targets.
+}
+
+STRING 653
+// Abilities: A005 (Multishot), Name (Name)
+{
+Multishot
+}
+
+STRING 656
+// Units: u00L (Chaos Tower Level 2), Ubertip (Tooltip - Extended)
+{
+Dmg: 70|nCooldown: 1.5s |nRange: 1000|nMultishot (3)
+}
+
+STRING 657
+// Units: u00M (Chaos Tower Level 1), Ubertip (Tooltip - Extended)
+{
+Dmg: 50|nCooldown: 1.5s |nRange: 1000|nMultishot (3)
+}
+
+STRING 662
+// Abilities: A006 (Multishot), Tip (Tooltip - Normal)
+{
+Multishot
+}
+
+STRING 663
+// Abilities: A006 (Multishot), Ubertip (Tooltip - Normal - Extended)
+{
+Allows the tower to attack up to 3 targets.
+}
+
+STRING 664
+// Abilities: A006 (Multishot), Name (Name)
+{
+Multishot
+}
+
+STRING 665
+// Abilities: A006 (Multishot), EditorSuffix (Editor Suffix)
+{
+[Ultimate Chaos Tower]
+}
+
+STRING 666
+// Units: u00D (Chaos Tower Level 4), Ubertip (Tooltip - Extended)
+{
+Dmg: 140|nCooldown: 1.5s |nRange: 1000|nMultishot (3)
+}
+
+STRING 667
+// Units: u00K (Chaos Tower Level 3), Ubertip (Tooltip - Extended)
+{
+Dmg: 100|nCooldown: 1.5s |nRange: 1000|nMultishot (3)
+}
+
+STRING 668
+// Units: u00N (Chaos Tower Level 7), Ubertip (Tooltip - Extended)
+{
+Dmg: 320|nCooldown: 1.5s |nRange: 1000|nMultishot (3)
+}
+
+STRING 669
+// Units: u017 (Chaos Tower Level 5), Ubertip (Tooltip - Extended)
+{
+Dmg: 190|nCooldown: 1.5s |nRange: 1000|nMultishot (3)
+}
+
+STRING 670
+// Units: u018 (Chaos Tower Level 6), Ubertip (Tooltip - Extended)
+{
+Dmg: 250|nCooldown: 1.5s |nRange: 1000|nMultishot (3)
+}
+
+STRING 671
+// Units: u019 (Chaos Tower Level 8), Ubertip (Tooltip - Extended)
+{
+Dmg: 400|nCooldown: 1.5s |nRange: 1000|nMultishot (3)
+}
+
+STRING 672
+// Units: u01A (Ultimate Chaos Tower), Ubertip (Tooltip - Extended)
+{
+Dmg: 500|nCooldown: 1.0s |nRange: 1200|nMultishot
+}
+
