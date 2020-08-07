@@ -30,12 +30,6 @@ STRING 15
 Q
 }
 
-STRING 16
-// Units: u000 (Ghost Tower Level 1), Tip (Tooltip - Basic)
-{
-Build Ghost Tower (|cffffcc00Q|r)
-}
-
 STRING 18
 // Units: u00G (Ghost Tower Level 5), Name (Name)
 {
@@ -1232,25 +1226,25 @@ Skull Tower Level 8
 }
 
 STRING 412
-// Units: u001 (Ghost Tower Level 6), Tip (Tooltip - Basic)
+// Units: u00H (Skull Tower Level 6), Tip (Tooltip - Basic)
 {
 Upgrade to Level 6 (|cffffcc00Q|r)
 }
 
 STRING 413
-// Units: u002 (Ghost Tower Level 2), Tip (Tooltip - Basic)
+// Units: u007 (Skull Tower Level 2), Tip (Tooltip - Basic)
 {
 Upgrade to Level 2 (|cffffcc00Q|r)
 }
 
 STRING 414
-// Units: u003 (Ghost Tower Level 3), Tip (Tooltip - Basic)
+// Units: u008 (Skull Tower Level 3), Tip (Tooltip - Basic)
 {
 Upgrade to Level 3 (|cffffcc00Q|r)
 }
 
 STRING 415
-// Units: u004 (Ghost Tower Level 4), Tip (Tooltip - Basic)
+// Units: u009 (Skull Tower Level 4), Tip (Tooltip - Basic)
 {
 Upgrade to Level 4 (|cffffcc00Q|r)
 }
@@ -1262,19 +1256,19 @@ Build Skull Tower (|cffffcc00E|r)
 }
 
 STRING 417
-// Units: u007 (Skull Tower Level 2), Tip (Tooltip - Basic)
+// Units: u00P (Inferno Gate Level 2), Tip (Tooltip - Basic)
 {
 Upgrade to Level 2 (|cffffcc00Q|r)
 }
 
 STRING 418
-// Units: u008 (Skull Tower Level 3), Tip (Tooltip - Basic)
+// Units: u00O (Inferno Gate Level 3), Tip (Tooltip - Basic)
 {
 Upgrade to Level 3 (|cffffcc00Q|r)
 }
 
 STRING 419
-// Units: u009 (Skull Tower Level 4), Tip (Tooltip - Basic)
+// Units: u00R (Inferno Gate Level 4), Tip (Tooltip - Basic)
 {
 Upgrade to Level 4 (|cffffcc00Q|r)
 }
@@ -1285,94 +1279,52 @@ STRING 420
 Upgrade to Level 5 (|cffffcc00Q|r)
 }
 
-STRING 421
-// Units: u00R (Inferno Gate Level 4), Tip (Tooltip - Basic)
-{
-Upgrade to Level 4 (|cffffcc00Q|r)
-}
-
 STRING 422
-// Units: u00E (Ghost Tower Level 8), Tip (Tooltip - Basic)
-{
-Upgrade to Level 8 (|cffffcc00Q|r)
-}
-
-STRING 423
-// Units: u00F (Ghost Tower Level 7), Tip (Tooltip - Basic)
-{
-Upgrade to Level 7 (|cffffcc00Q|r)
-}
-
-STRING 424
-// Units: u00G (Ghost Tower Level 5), Tip (Tooltip - Basic)
-{
-Upgrade to Level 5 (|cffffcc00Q|r)
-}
-
-STRING 425
-// Units: u00H (Skull Tower Level 6), Tip (Tooltip - Basic)
-{
-Upgrade to Level 6 (|cffffcc00Q|r)
-}
-
-STRING 426
-// Units: u00I (Skull Tower Level 7), Tip (Tooltip - Basic)
-{
-Upgrade to Level 7 (|cffffcc00Q|r)
-}
-
-STRING 427
 // Units: u00J (Skull Tower Level 8), Tip (Tooltip - Basic)
 {
 Upgrade to Level 8 (|cffffcc00Q|r)
 }
 
-STRING 428
-// Units: u00O (Inferno Gate Level 3), Tip (Tooltip - Basic)
+STRING 423
+// Units: u00I (Skull Tower Level 7), Tip (Tooltip - Basic)
 {
-Upgrade to Level 3 (|cffffcc00Q|r)
+Upgrade to Level 7 (|cffffcc00Q|r)
 }
 
-STRING 429
-// Units: u00P (Inferno Gate Level 2), Tip (Tooltip - Basic)
-{
-Upgrade to Level 2 (|cffffcc00Q|r)
-}
-
-STRING 430
+STRING 424
 // Units: u00W (Inferno Gate Level 5), Tip (Tooltip - Basic)
 {
 Upgrade to Level 5 (|cffffcc00Q|r)
 }
 
-STRING 431
-// Units: u00U (Carrion Tower Level 3), Tip (Tooltip - Basic)
-{
-Upgrade to Level 3 (|cffffcc00Q|r)
-}
-
-STRING 432
-// Units: u00S (Carrion Tower Level 2), Tip (Tooltip - Basic)
-{
-Upgrade to Level 2 (|cffffcc00Q|r)
-}
-
-STRING 438
+STRING 425
 // Units: u00X (Inferno Gate Level 6), Tip (Tooltip - Basic)
 {
 Upgrade to Level 6 (|cffffcc00Q|r)
 }
 
-STRING 439
+STRING 426
 // Units: u00Y (Inferno Gate Level 7), Tip (Tooltip - Basic)
 {
 Upgrade to Level 7 (|cffffcc00Q|r)
 }
 
-STRING 440
+STRING 427
 // Units: u00Z (Inferno Gate Level 8), Tip (Tooltip - Basic)
 {
 Upgrade to Level 8 (|cffffcc00Q|r)
+}
+
+STRING 428
+// Units: u00U (Carrion Tower Level 3), Tip (Tooltip - Basic)
+{
+Upgrade to Level 3 (|cffffcc00Q|r)
+}
+
+STRING 429
+// Units: u00S (Carrion Tower Level 2), Tip (Tooltip - Basic)
+{
+Upgrade to Level 2 (|cffffcc00Q|r)
 }
 
 STRING 443
@@ -1393,34 +1345,16 @@ STRING 445
 Ultimate Ghost Tower
 }
 
-STRING 446
-// Units: u010 (Ultimate Ghost Tower), Tip (Tooltip - Basic)
-{
-Upgrade to Ultimate Ghost Tower (|cffffcc00Q|r)
-}
-
 STRING 447
 // Units: u011 (Ultimate Inferno Gate), Name (Name)
 {
 Ultimate Inferno Gate
 }
 
-STRING 448
-// Units: u011 (Ultimate Inferno Gate), Tip (Tooltip - Basic)
-{
-Upgrade to Ultimate Inferno Gate (|cffffcc00Q|r)
-}
-
 STRING 449
 // Units: u00C (Freezer Tower), Name (Name)
 {
 Freezer Tower
-}
-
-STRING 450
-// Units: u00C (Freezer Tower), Tip (Tooltip - Basic)
-{
-Upgrade to Freezer Tower (|cffffcc00Q|r)
 }
 
 STRING 457
@@ -1883,18 +1817,6 @@ STRING 579
 Dmg: 69-85 |nCooldown: 1.2s |nRange: 600 |nSplash (125)
 }
 
-STRING 580
-// Units: u00B (Frost Tower), Ubertip (Tooltip - Extended)
-{
-Dmg: 11-13 |nCooldown: 1.0s |nRange: 650 |nFrost (3s)
-}
-
-STRING 581
-// Units: u00C (Freezer Tower), Ubertip (Tooltip - Extended)
-{
-Dmg: 25-33 |nCooldown: 1.0s |nRange: 650 |nFrost (4s) |nSplash (150)
-}
-
 STRING 586
 // Units: u00H (Skull Tower Level 6), Ubertip (Tooltip - Extended)
 {
@@ -1911,30 +1833,6 @@ STRING 588
 // Units: u00J (Skull Tower Level 8), Ubertip (Tooltip - Extended)
 {
 Dmg: 143-175 |nCooldown: 1.2s |nRange: 600 |nSplash (125)
-}
-
-STRING 593
-// Units: u00O (Inferno Gate Level 3), Ubertip (Tooltip - Extended)
-{
-Dmg: 144-160 |nCooldown: 1.0s |nRange: 950
-}
-
-STRING 594
-// Units: u00P (Inferno Gate Level 2), Ubertip (Tooltip - Extended)
-{
-Dmg: 84-100 |nCooldown: 1.0s |nRange: 950
-}
-
-STRING 595
-// Units: u00Q (Inferno Gate Level 1), Ubertip (Tooltip - Extended)
-{
-Dmg: 34-50 |nCooldown: 1.0s |nRange: 950
-}
-
-STRING 596
-// Units: u00R (Inferno Gate Level 4), Ubertip (Tooltip - Extended)
-{
-Dmg: 256-272 |nCooldown: 1.0s |nRange: 950
 }
 
 STRING 597
@@ -1959,42 +1857,6 @@ STRING 600
 // Units: u00V (Ultimate Skull Tower), Ubertip (Tooltip - Extended)
 {
 Dmg: 500-550 |nCooldown: 1.2s |nRange: 600 |nSplash (125)
-}
-
-STRING 601
-// Units: u00W (Inferno Gate Level 5), Ubertip (Tooltip - Extended)
-{
-Dmg: 356-372 |nCooldown: 1.0s |nRange: 950
-}
-
-STRING 602
-// Units: u00X (Inferno Gate Level 6), Ubertip (Tooltip - Extended)
-{
-Dmg: 538-560 |nCooldown: 1.0s |nRange: 950
-}
-
-STRING 603
-// Units: u00Y (Inferno Gate Level 7), Ubertip (Tooltip - Extended)
-{
-Dmg: 778-800 |nCooldown: 1.0s |nRange: 950
-}
-
-STRING 604
-// Units: u00Z (Inferno Gate Level 8), Ubertip (Tooltip - Extended)
-{
-Dmg: 1200-1250 |nCooldown: 1.0s |nRange: 950
-}
-
-STRING 606
-// Units: u011 (Ultimate Inferno Gate), Ubertip (Tooltip - Extended)
-{
-Dmg: 2000-2050 |nCooldown: 1.4s |nRange: 950
-}
-
-STRING 607
-// Units: u012 (Glacier Tower), Ubertip (Tooltip - Extended)
-{
-Dmg: 50-60 |nCooldown: 1.0s |nRange: 650 |nFrost (5s) |nSplash (200)
 }
 
 STRING 608
@@ -2086,19 +1948,19 @@ Dmg: 100 |nCooldown: 0.2s |nRange: 800
 }
 
 STRING 625
-// Units: u00D (Chaos Tower Level 4), Tip (Tooltip - Basic)
+// Units: u004 (Ghost Tower Level 4), Tip (Tooltip - Basic)
 {
 Upgrade to Level 4
 }
 
 STRING 627
-// Units: u00K (Chaos Tower Level 3), Tip (Tooltip - Basic)
+// Units: u003 (Ghost Tower Level 3), Tip (Tooltip - Basic)
 {
 Upgrade to Level 3
 }
 
 STRING 629
-// Units: u00L (Chaos Tower Level 2), Tip (Tooltip - Basic)
+// Units: u002 (Ghost Tower Level 2), Tip (Tooltip - Basic)
 {
 Upgrade to Level 2
 }
@@ -2116,7 +1978,7 @@ Chaos Tower Level 7
 }
 
 STRING 634
-// Units: u00N (Chaos Tower Level 7), Tip (Tooltip - Basic)
+// Units: u00G (Ghost Tower Level 5), Tip (Tooltip - Basic)
 {
 Upgrade to Level 5
 }
@@ -2146,7 +2008,7 @@ Q
 }
 
 STRING 641
-// Units: u018 (Chaos Tower Level 6), Tip (Tooltip - Basic)
+// Units: u001 (Ghost Tower Level 6), Tip (Tooltip - Basic)
 {
 Upgrade to Level 6
 }
@@ -2164,7 +2026,7 @@ Q
 }
 
 STRING 645
-// Units: u019 (Chaos Tower Level 8), Tip (Tooltip - Basic)
+// Units: u00E (Ghost Tower Level 8), Tip (Tooltip - Basic)
 {
 Upgrade to Level 8
 }
@@ -2182,7 +2044,7 @@ Q
 }
 
 STRING 649
-// Units: u01A (Ultimate Chaos Tower), Tip (Tooltip - Basic)
+// Units: u019 (Chaos Tower Level 8), Tip (Tooltip - Basic)
 {
 Upgrade to Level 8
 }
@@ -2473,5 +2335,143 @@ STRING 704
 // Abilities: A00G (Incinerate 6), Name (Name)
 {
 Incinerate 6
+}
+
+STRING 705
+// Units: u000 (Ghost Tower Level 1), Tip (Tooltip - Basic)
+{
+Build Ghost Towet
+}
+
+STRING 706
+// Units: u00D (Chaos Tower Level 4), Tip (Tooltip - Basic)
+{
+Upgrade to Level 4
+}
+
+STRING 707
+// Units: u00F (Ghost Tower Level 7), Tip (Tooltip - Basic)
+{
+Upgrade to Level 7
+}
+
+STRING 708
+// Units: u00K (Chaos Tower Level 3), Tip (Tooltip - Basic)
+{
+Upgrade to Level 3
+}
+
+STRING 709
+// Units: u00L (Chaos Tower Level 2), Tip (Tooltip - Basic)
+{
+Upgrade to Level 2
+}
+
+STRING 710
+// Units: u00N (Chaos Tower Level 7), Tip (Tooltip - Basic)
+{
+Upgrade to Level 7
+}
+
+STRING 711
+// Units: u00O (Inferno Gate Level 3), Ubertip (Tooltip - Extended)
+{
+Dmg: 400 - 500 |nCooldown: 2.5s |nRange: 1200|nIncinerate
+}
+
+STRING 712
+// Units: u00P (Inferno Gate Level 2), Ubertip (Tooltip - Extended)
+{
+Dmg: 200 - 300 |nCooldown: 2.5s |nRange: 1200|nIncinerate
+}
+
+STRING 713
+// Units: u00Q (Inferno Gate Level 1), Ubertip (Tooltip - Extended)
+{
+Dmg: 100 - 200 |nCooldown: 2.5s |nRange: 1200|nIncinerate
+}
+
+STRING 714
+// Units: u00R (Inferno Gate Level 4), Ubertip (Tooltip - Extended)
+{
+Dmg: 700 - 800 |nCooldown: 2.5s |nRange: 1200|nIncinerate
+}
+
+STRING 715
+// Units: u00W (Inferno Gate Level 5), Ubertip (Tooltip - Extended)
+{
+Dmg: 1100 - 1200 |nCooldown: 2.5s |nRange: 1200|nIncinerate
+}
+
+STRING 716
+// Units: u00X (Inferno Gate Level 6), Ubertip (Tooltip - Extended)
+{
+Dmg: 1600 - 1700 |nCooldown: 2.5s |nRange: 1200|nIncinerate
+}
+
+STRING 717
+// Units: u00Y (Inferno Gate Level 7), Ubertip (Tooltip - Extended)
+{
+Dmg: 2200 - 2300 |nCooldown: 2.5s |nRange: 1200|nIncinerate
+}
+
+STRING 718
+// Units: u00Z (Inferno Gate Level 8), Ubertip (Tooltip - Extended)
+{
+Dmg: 2900 - 3000 |nCooldown: 2.5s |nRange: 1200|nIncinerate
+}
+
+STRING 719
+// Units: u010 (Ultimate Ghost Tower), Tip (Tooltip - Basic)
+{
+Upgrade to Ultimate Ghost Tower
+}
+
+STRING 720
+// Units: u011 (Ultimate Inferno Gate), Tip (Tooltip - Basic)
+{
+Upgrade to Ultimate Inferno Gate
+}
+
+STRING 721
+// Units: u011 (Ultimate Inferno Gate), Ubertip (Tooltip - Extended)
+{
+Dmg: 3900 - 4000 |nCooldown: 1.5s |nRange: 1500|nIncinerate
+}
+
+STRING 722
+// Units: u018 (Chaos Tower Level 6), Tip (Tooltip - Basic)
+{
+Upgrade to Level 6
+}
+
+STRING 723
+// Units: u01A (Ultimate Chaos Tower), Tip (Tooltip - Basic)
+{
+Upgrade to Ultimate Chaos Tower
+}
+
+STRING 724
+// Units: u00B (Frost Tower), Ubertip (Tooltip - Extended)
+{
+Dmg: 25 - 75 |nCooldown: 1.0s |nRange: 700 |nFrost (3s)
+}
+
+STRING 725
+// Units: u00C (Freezer Tower), Tip (Tooltip - Basic)
+{
+Upgrade to Freezer Tower
+}
+
+STRING 726
+// Units: u00C (Freezer Tower), Ubertip (Tooltip - Extended)
+{
+Dmg: 100 - 200 |nCooldown: 1.0s |nRange: 700 |nFrost (4s) |nSplash (150)
+}
+
+STRING 727
+// Units: u012 (Glacier Tower), Ubertip (Tooltip - Extended)
+{
+Dmg: 200 - 400 |nCooldown: 1.0s |nRange: 700 |nFrost (5s) |nSplash (200)
 }
 
