@@ -1168,12 +1168,6 @@ STRING 469
 V
 }
 
-STRING 470
-// Abilities: A000 (Sell Tower), Tip (Tooltip - Normal)
-{
-Sell Tower (|cffffcc00V|r)
-}
-
 STRING 477
 {
 |c00FF0000You cannot Zoom-In less than 200 or Zoom-Out past 2800.|r
@@ -2288,5 +2282,11 @@ STRING 764
 // Units: u00B (Frost Tower), Ubertip (Tooltip - Extended)
 {
 Dmg: 25 - 100 |nCooldown: 1.0s |nRange: 700 |nFrost (3s) |nSplash (75)
+}
+
+STRING 765
+// Abilities: A000 (Sell Tower), Tip (Tooltip - Normal)
+{
+Sell Tower
 }
 
