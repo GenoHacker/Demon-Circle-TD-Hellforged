@@ -396,7 +396,7 @@ function Trig_Next_Round_Actions()
     LeaderboardSetPlayerItemValueBJ(Player(9), GetLastCreatedLeaderboard(), udg_I_Round)
     udg_Integer_Spawncount = 0
     DestroyTimerDialogBJ(udg_TW_NextRound)
-    StartTimerBJ(udg_T_NextRound, false, 30.00)
+    StartTimerBJ(udg_T_NextRound, false, 15.00)
     if (Trig_Next_Round_Func008C()) then
         CreateTimerDialogBJ(GetLastCreatedTimerBJ(), ("Round " .. (I2S((udg_I_Round + 1)) .. " in:")))
         TimerDialogDisplayBJ(true, GetLastCreatedTimerDialogBJ())
