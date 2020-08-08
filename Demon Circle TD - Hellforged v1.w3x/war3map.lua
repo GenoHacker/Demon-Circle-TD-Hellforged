@@ -121,7 +121,7 @@ function InitSounds()
     SetSoundVolume(gg_snd_Wave_Boss, 127)
     SetSoundPitch(gg_snd_Wave_Boss, 1.0)
     gg_snd_Score_Screen_Music = CreateSound("Score Screen Music.mp3", false, false, false, 10, 10, "DefaultEAXON")
-    SetSoundDuration(gg_snd_Score_Screen_Music, 6791)
+    SetSoundDuration(gg_snd_Score_Screen_Music, 124905)
     SetSoundChannel(gg_snd_Score_Screen_Music, 0)
     SetSoundVolume(gg_snd_Score_Screen_Music, 127)
     SetSoundPitch(gg_snd_Score_Screen_Music, 1.0)
@@ -364,7 +364,7 @@ function InitTrig_Leaderboard()
     TriggerAddAction(gg_trg_Leaderboard, Trig_Leaderboard_Actions)
 end
 
-function Trig_Next_Round_Func001Func003A()
+function Trig_Next_Round_Func001Func004A()
     CustomVictoryBJ(GetEnumPlayer(), true, true)
 end
 
@@ -385,8 +385,9 @@ end
 function Trig_Next_Round_Actions()
     if (Trig_Next_Round_Func001C()) then
         DisplayTextToForce(GetPlayersAll(), "TRIGSTR_063")
-        TriggerSleepAction(5.00)
-        ForForce(GetPlayersByMapControl(MAP_CONTROL_USER), Trig_Next_Round_Func001Func003A)
+        TriggerSleepAction(60.00)
+        StartTimerBJ(udg_T_NextRound, false, 60.00)
+        ForForce(GetPlayersByMapControl(MAP_CONTROL_USER), Trig_Next_Round_Func001Func004A)
         DestroyTimerDialogBJ(udg_TW_NextRound)
         return 
     else
@@ -402,6 +403,7 @@ function Trig_Next_Round_Actions()
         TimerDialogDisplayBJ(true, GetLastCreatedTimerDialogBJ())
         udg_TW_NextRound = GetLastCreatedTimerDialogBJ()
     else
+        DestroyTimerDialogBJ(udg_TW_NextRound)
         CreateTimerDialogBJ(GetLastCreatedTimerBJ(), "TRIGSTR_220")
         TimerDialogDisplayBJ(true, GetLastCreatedTimerDialogBJ())
         udg_TW_NextRound = GetLastCreatedTimerDialogBJ()
