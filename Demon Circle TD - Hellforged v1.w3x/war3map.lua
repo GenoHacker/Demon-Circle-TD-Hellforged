@@ -127,6 +127,30 @@ function InitSounds()
     SetSoundPitch(gg_snd_Score_Screen_Music, 1.0)
 end
 
+function CreateNeutralPassive()
+    local p = Player(PLAYER_NEUTRAL_PASSIVE)
+    local u
+    local unitID
+    local t
+    local life
+    u = BlzCreateUnitWithSkin(p, FourCC("h00E"), -6662.8, 2051.0, 82.430, FourCC("h00E"))
+    u = BlzCreateUnitWithSkin(p, FourCC("h00E"), -2567.7, -2072.3, 82.430, FourCC("h00E"))
+    u = BlzCreateUnitWithSkin(p, FourCC("h00E"), 1521.3, 2056.9, 82.430, FourCC("h00E"))
+    u = BlzCreateUnitWithSkin(p, FourCC("h00E"), -2568.0, 6145.0, 82.430, FourCC("h00E"))
+end
+
+function CreatePlayerBuildings()
+end
+
+function CreatePlayerUnits()
+end
+
+function CreateAllUnits()
+    CreatePlayerBuildings()
+    CreateNeutralPassive()
+    CreatePlayerUnits()
+end
+
 function CreateRegions()
     local we
     gg_rct_Start1 = Rect(-4480.0, 3712.0, -4224.0, 3968.0)
@@ -137,13 +161,13 @@ function CreateRegions()
     gg_rct_Start6 = Rect(-2688.0, -896.0, -2432.0, -640.0)
     gg_rct_Start7 = Rect(-4480.0, 128.0, -4224.0, 384.0)
     gg_rct_Start8 = Rect(-5504.0, 1920.0, -5248.0, 2176.0)
-    gg_rct_CreepSpawn1 = Rect(-5888.0, 4992.0, -5504.0, 5376.0)
+    gg_rct_CreepSpawn1 = Rect(-5888.0, 5056.0, -5696.0, 5248.0)
     gg_rct_CreepSpawn2 = Rect(-2816.0, 5888.0, -2304.0, 6400.0)
-    gg_rct_CreepSpawn3 = Rect(384.0, 4960.0, 768.0, 5376.0)
+    gg_rct_CreepSpawn3 = Rect(512.0, 5184.0, 704.0, 5344.0)
     gg_rct_CreepSpawn4 = Rect(1280.0, 1792.0, 1792.0, 2304.0)
-    gg_rct_CreepSpawn5 = Rect(384.0, -1280.0, 768.0, -864.0)
+    gg_rct_CreepSpawn5 = Rect(544.0, -1216.0, 736.0, -992.0)
     gg_rct_CreepSpawn6 = Rect(-2816.0, -2304.0, -2304.0, -1792.0)
-    gg_rct_CreepSpawn7 = Rect(-5888.0, -1280.0, -5504.0, -896.0)
+    gg_rct_CreepSpawn7 = Rect(-5984.0, -1184.0, -5792.0, -992.0)
     gg_rct_CreepSpawn8 = Rect(-6912.0, 1792.0, -6400.0, 2304.0)
     gg_rct_Waypoint_1 = Rect(-4864.0, 4224.0, -4736.0, 4352.0)
     gg_rct_Waypoint_3 = Rect(-384.0, 4224.0, -256.0, 4352.0)
@@ -164,13 +188,10 @@ function Trig_Map_Initialization_Actions()
     ForForce(GetPlayersAll(), Trig_Map_Initialization_Func001A)
     SetPlayerFlagBJ(PLAYER_STATE_GIVES_BOUNTY, true, Player(10))
     SetPlayerFlagBJ(PLAYER_STATE_GIVES_BOUNTY, true, Player(11))
-    DisplayTimedTextToForce(GetPlayersAll(), 40.00, "TRIGSTR_479")
-    DisplayTimedTextToForce(GetPlayersAll(), 45.00, "TRIGSTR_457")
     SetTerrainFogExBJ(0, 2750.00, 10000.00, 0.00, 75.00, 100.00, 85.00)
     UseTimeOfDayBJ(false)
     CreateQuestBJ(bj_QUESTTYPE_REQ_DISCOVERED, "TRIGSTR_482", "TRIGSTR_483", "ReplaceableTextures\\CommandButtons\\BTNGatherGold.blp")
     CreateQuestBJ(bj_QUESTTYPE_OPT_DISCOVERED, "TRIGSTR_539", "TRIGSTR_540", "ReplaceableTextures\\CommandButtons\\BTNQuest_Scroll.blp")
-    CreateQuestBJ(bj_QUESTTYPE_OPT_DISCOVERED, "TRIGSTR_612", "TRIGSTR_613", "ReplaceableTextures\\CommandButtons\\BTNQuest_Scroll.blp")
     udg_UT_UnitType[1] = FourCC("h009")
     udg_UT_UnitType[2] = FourCC("h000")
     udg_UT_UnitType[3] = FourCC("h001")
@@ -899,7 +920,7 @@ function InitTrig_Leaving_Players()
     TriggerAddAction(gg_trg_Leaving_Players, Trig_Leaving_Players_Actions)
 end
 
-function Trig_Remove_Dying_Unit_Heroes_Func003C()
+function Trig_Remove_Dying_Unit_Heroes_Func002C()
     if (GetUnitTypeId(GetTriggerUnit()) == FourCC("h00H")) then
         return true
     end
@@ -937,14 +958,13 @@ function Trig_Remove_Dying_Unit_Heroes_Func003C()
 end
 
 function Trig_Remove_Dying_Unit_Heroes_Conditions()
-    if (not Trig_Remove_Dying_Unit_Heroes_Func003C()) then
+    if (not Trig_Remove_Dying_Unit_Heroes_Func002C()) then
         return false
     end
     return true
 end
 
 function Trig_Remove_Dying_Unit_Heroes_Actions()
-    TriggerSleepAction(5.00)
     RemoveUnit(GetTriggerUnit())
 end
 
@@ -1263,6 +1283,7 @@ function main()
     SetMapMusic("Music", true, 0)
     InitSounds()
     CreateRegions()
+    CreateAllUnits()
     InitBlizzard()
     InitGlobals()
     InitCustomTriggers()

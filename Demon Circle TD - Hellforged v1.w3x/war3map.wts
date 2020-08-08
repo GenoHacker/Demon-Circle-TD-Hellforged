@@ -115,7 +115,7 @@ Congratulations! You won!
 }
 
 STRING 65
-// Units: u00B (Frost Tower), Hotkey (Hotkey)
+// Units: u00M (Chaos Tower Level 1), Hotkey (Hotkey)
 {
 W
 }
@@ -151,7 +151,7 @@ Frost Tower
 }
 
 STRING 95
-// Units: u006 (Skull Tower Level 1), Hotkey (Hotkey)
+// Units: u00Q (Inferno Gate Level 1), Hotkey (Hotkey)
 {
 E
 }
@@ -204,12 +204,6 @@ STRING 109
 Frost
 }
 
-STRING 110
-// Abilities: A002 (Frost), Ubertip (Tooltip - Normal - Extended)
-{
-Slows an enemy unit for 4 seconds.
-}
-
 STRING 111
 // Abilities: A002 (Frost), EditorSuffix (Editor Suffix)
 {
@@ -242,12 +236,6 @@ STRING 117
 Ghost Tower Level 6
 }
 
-STRING 121
-// Units: u00B (Frost Tower), Tip (Tooltip - Basic)
-{
-Build Frost Tower (|cffffcc00W|r)
-}
-
 STRING 122
 // Units: u00M (Chaos Tower Level 1), Name (Name)
 {
@@ -255,7 +243,7 @@ Chaos Tower Level 1
 }
 
 STRING 123
-// Units: u00M (Chaos Tower Level 1), Hotkey (Hotkey)
+// Units: u006 (Skull Tower Level 1), Hotkey (Hotkey)
 {
 R
 }
@@ -609,7 +597,7 @@ Inferno Gate Level 1
 }
 
 STRING 212
-// Units: u00Q (Inferno Gate Level 1), Hotkey (Hotkey)
+// Units: u00B (Frost Tower), Hotkey (Hotkey)
 {
 A
 }
@@ -624,12 +612,6 @@ STRING 216
 // Units: u00R (Inferno Gate Level 4), Hotkey (Hotkey)
 {
 Q
-}
-
-STRING 219
-// Units: u00Q (Inferno Gate Level 1), Tip (Tooltip - Basic)
-{
-Build Inferno Gate (|cffffcc00A|r)
 }
 
 STRING 220
@@ -659,7 +641,7 @@ Q
 }
 
 STRING 232
-// Units: u016 (Speed Aura Tower), Hotkey (Hotkey)
+// Units: u00T (Carrion Tower Level 1), Hotkey (Hotkey)
 {
 S
 }
@@ -1046,34 +1028,10 @@ STRING 344
 Frost
 }
 
-STRING 345
-// Abilities: A003 (Frost), Ubertip (Tooltip - Normal - Extended)
-{
-Slows an enemy unit for 5 seconds.
-}
-
 STRING 346
 // Abilities: A003 (Frost), EditorSuffix (Editor Suffix)
 {
  (Glacier Tower)
-}
-
-STRING 347
-// Units: u012 (Glacier Tower), Tip (Tooltip - Basic)
-{
-Upgrade to Glacier Tower (|cffffcc00Q|r)
-}
-
-STRING 350
-// Units: u014 (Diablo), Hotkey (Hotkey)
-{
-Z
-}
-
-STRING 354
-// Units: u015 (Lucifer), Hotkey (Hotkey)
-{
-X
 }
 
 STRING 362
@@ -1082,59 +1040,11 @@ STRING 362
 포이즌
 }
 
-STRING 376
-// Abilities: S000 (Speed Aura), Name (Name)
-{
-Speed Aura
-}
-
-STRING 378
-// Units: u016 (Speed Aura Tower), Name (Name)
-{
-Speed Aura Tower
-}
-
-STRING 381
-// Abilities: S000 (Speed Aura), Ubertip (Tooltip - Normal - Extended)
-{
-Increases attack rate by <SCae,DataB1,%>%.
-}
-
-STRING 382
-// Abilities: A004 (Speed Aura), Name (Name)
-{
-Speed Aura
-}
-
-STRING 383
-// Abilities: A004 (Speed Aura), Tip (Tooltip - Normal)
-{
-Speed Aura
-}
-
 STRING 385
 {
 Original map by |cff76dbf8Varimathras|r
 Better Version by |cffff0000Siryan|r
 Hellforged Version by GenoHacker
-}
-
-STRING 390
-// Units: u013 (Zombie), Name (Name)
-{
-Zombie
-}
-
-STRING 392
-// Units: u014 (Diablo), Name (Name)
-{
-Diablo
-}
-
-STRING 393
-// Units: u015 (Lucifer), Name (Name)
-{
-Lucifer
 }
 
 STRING 396
@@ -1225,118 +1135,10 @@ STRING 411
 Skull Tower Level 8
 }
 
-STRING 412
-// Units: u00H (Skull Tower Level 6), Tip (Tooltip - Basic)
-{
-Upgrade to Level 6 (|cffffcc00Q|r)
-}
-
-STRING 413
-// Units: u007 (Skull Tower Level 2), Tip (Tooltip - Basic)
-{
-Upgrade to Level 2 (|cffffcc00Q|r)
-}
-
-STRING 414
-// Units: u008 (Skull Tower Level 3), Tip (Tooltip - Basic)
-{
-Upgrade to Level 3 (|cffffcc00Q|r)
-}
-
-STRING 415
-// Units: u009 (Skull Tower Level 4), Tip (Tooltip - Basic)
-{
-Upgrade to Level 4 (|cffffcc00Q|r)
-}
-
-STRING 416
-// Units: u006 (Skull Tower Level 1), Tip (Tooltip - Basic)
-{
-Build Skull Tower (|cffffcc00E|r)
-}
-
-STRING 417
-// Units: u00P (Inferno Gate Level 2), Tip (Tooltip - Basic)
-{
-Upgrade to Level 2 (|cffffcc00Q|r)
-}
-
-STRING 418
-// Units: u00O (Inferno Gate Level 3), Tip (Tooltip - Basic)
-{
-Upgrade to Level 3 (|cffffcc00Q|r)
-}
-
-STRING 419
-// Units: u00R (Inferno Gate Level 4), Tip (Tooltip - Basic)
-{
-Upgrade to Level 4 (|cffffcc00Q|r)
-}
-
-STRING 420
-// Units: u00A (Skull Tower Level 5), Tip (Tooltip - Basic)
-{
-Upgrade to Level 5 (|cffffcc00Q|r)
-}
-
-STRING 422
-// Units: u00J (Skull Tower Level 8), Tip (Tooltip - Basic)
-{
-Upgrade to Level 8 (|cffffcc00Q|r)
-}
-
-STRING 423
-// Units: u00I (Skull Tower Level 7), Tip (Tooltip - Basic)
-{
-Upgrade to Level 7 (|cffffcc00Q|r)
-}
-
-STRING 424
-// Units: u00W (Inferno Gate Level 5), Tip (Tooltip - Basic)
-{
-Upgrade to Level 5 (|cffffcc00Q|r)
-}
-
-STRING 425
-// Units: u00X (Inferno Gate Level 6), Tip (Tooltip - Basic)
-{
-Upgrade to Level 6 (|cffffcc00Q|r)
-}
-
-STRING 426
-// Units: u00Y (Inferno Gate Level 7), Tip (Tooltip - Basic)
-{
-Upgrade to Level 7 (|cffffcc00Q|r)
-}
-
-STRING 427
-// Units: u00Z (Inferno Gate Level 8), Tip (Tooltip - Basic)
-{
-Upgrade to Level 8 (|cffffcc00Q|r)
-}
-
-STRING 428
-// Units: u00U (Carrion Tower Level 3), Tip (Tooltip - Basic)
-{
-Upgrade to Level 3 (|cffffcc00Q|r)
-}
-
-STRING 429
-// Units: u00S (Carrion Tower Level 2), Tip (Tooltip - Basic)
-{
-Upgrade to Level 2 (|cffffcc00Q|r)
-}
-
 STRING 443
 // Units: u00V (Ultimate Skull Tower), Name (Name)
 {
 Ultimate Skull Tower
-}
-
-STRING 444
-// Units: u00V (Ultimate Skull Tower), Tip (Tooltip - Basic)
-{
-Upgrade to Ultimate Skull Tower (|cffffcc00Q|r)
 }
 
 STRING 445
@@ -1355,53 +1157,6 @@ STRING 449
 // Units: u00C (Freezer Tower), Name (Name)
 {
 Freezer Tower
-}
-
-STRING 457
-{
-|cff76dbf8Work together. This is a Team TD!|r
-}
-
-STRING 458
-// Units: u00T (Carrion Tower Level 1), Hotkey (Hotkey)
-{
-D
-}
-
-STRING 459
-// Units: u00T (Carrion Tower Level 1), Tip (Tooltip - Basic)
-{
-Build Carrion Tower (|cffffcc00D|r)
-}
-
-STRING 460
-// Units: u013 (Zombie), Hotkey (Hotkey)
-{
-F
-}
-
-STRING 461
-// Units: u013 (Zombie), Tip (Tooltip - Basic)
-{
-Zombie (|cffffcc00F|r)
-}
-
-STRING 462
-// Units: u014 (Diablo), Tip (Tooltip - Basic)
-{
-Summon Diablo (|cffffcc00Z|r)
-}
-
-STRING 463
-// Units: u015 (Lucifer), Tip (Tooltip - Basic)
-{
-Summon Lucifer (|cffffcc00X|r)
-}
-
-STRING 464
-// Units: u016 (Speed Aura Tower), Tip (Tooltip - Basic)
-{
-Build Speed Aura Tower (|cffffcc00S|r)
 }
 
 STRING 466
@@ -1427,40 +1182,18 @@ STRING 477
 |c00FF0000You cannot Zoom-In less than 200 or Zoom-Out past 2800.|r
 }
 
-STRING 479
-{
-Map made by |cff76dbf8Varimathras|r |cffffcc00/|r Map re-mastered by |cffff0000Siryan|r
-
-|cffffcc00Use this time to set your Cameras:|r
-
-|cffffcc00Zoom|r-|cffffcc00In|r/|cffffcc00Zoom|r-|cffffcc00Out|r: Type -|cffff9622zoom 200|r through |cffff96222800|r.
--|cffff9622zoom 2400|r/|cffff96222800|r recommend
-}
-
 STRING 482
 {
-Game Fixes
+Hellforged v1.00 Changes
 }
 
 STRING 483
 {
-|cffffcc00Game Fixes:|r
-
-|cffffcc00---|r Fixed all Region leaks (lag reduced)
-|cffffcc00---|r Made Demons just a little tougher.
-|cffffcc00---|r Made some Icons and Unit Models
-more relevant to what they represent.
-|cffffcc00---|r Made more space for Players |cff0000ffBlue|r,
-|cffff80ffPink|r, |cffff8000Orange|r, and |cff8000ffPurple|r to build towers.
-|cffffcc00---|r Added a |cffffcc00Zoom|r-|cffffcc00In|r/|cffffcc00Zoom|r-|cffffcc00Out|r
-system to view things at a broader scope.
-|cffffcc00---|r Fixed a few Hotkeys that were
-the same as other hotkeys.
-
-Minor edit by |c00106246Stutt|r on the EU realm
-|cffffcc00---|r Removed code causing all players to target any tower that was constructed
-|cffffcc00---|r Removed Zombie and Skull tower friendly fire damage
-|cffffcc00---|r Fixed zombie sell price
+-- Map now uses LUA instead of JASS
+-- Completely remade terrain
+-- Reworked all towers
+-- Fixed memory leaks
+-- Trigger Optimizations
 
 }
 
@@ -1728,15 +1461,14 @@ STRING 538
 
 STRING 539
 {
-|cffffcc00CREDITS|r
+|cffffcc00Credits|r
 }
 
 STRING 540
 {
-Map made by |cff76dbf8Varimathras|r
-Map re-mastered by |cffff0000Siryan|r
+Source map was Demon Circle TD - Better by |cffff0000Siryan|r with a minor edit by Stutt
 
-Minor edit by Stutt
+Demon Circle TD originally created by |cff76dbf8Varimathras|r
 }
 
 STRING 542
@@ -1787,54 +1519,6 @@ STRING 552
 Parties [|Cfffed312F11|R]
 }
 
-STRING 575
-// Units: u006 (Skull Tower Level 1), Ubertip (Tooltip - Extended)
-{
-Dmg: 11-13 |nCooldown: 1.2s |nRange: 600 |nSplash (125)
-}
-
-STRING 576
-// Units: u007 (Skull Tower Level 2), Ubertip (Tooltip - Extended)
-{
-Dmg: 23-29 |nCooldown: 1.2s |nRange: 600 |nSplash (125)
-}
-
-STRING 577
-// Units: u008 (Skull Tower Level 3), Ubertip (Tooltip - Extended)
-{
-Dmg: 39-47 |nCooldown: 1.2s |nRange: 600 |nSplash (125)
-}
-
-STRING 578
-// Units: u009 (Skull Tower Level 4), Ubertip (Tooltip - Extended)
-{
-Dmg: 51-63 |nCooldown: 1.2s |nRange: 600 |nSplash (125)
-}
-
-STRING 579
-// Units: u00A (Skull Tower Level 5), Ubertip (Tooltip - Extended)
-{
-Dmg: 69-85 |nCooldown: 1.2s |nRange: 600 |nSplash (125)
-}
-
-STRING 586
-// Units: u00H (Skull Tower Level 6), Ubertip (Tooltip - Extended)
-{
-Dmg: 85-105 |nCooldown: 1.2s |nRange: 600 |nSplash (125)
-}
-
-STRING 587
-// Units: u00I (Skull Tower Level 7), Ubertip (Tooltip - Extended)
-{
-Dmg: 111-137 |nCooldown: 1.2s |nRange: 600 |nSplash (125)
-}
-
-STRING 588
-// Units: u00J (Skull Tower Level 8), Ubertip (Tooltip - Extended)
-{
-Dmg: 143-175 |nCooldown: 1.2s |nRange: 600 |nSplash (125)
-}
-
 STRING 597
 // Units: u00S (Carrion Tower Level 2), Ubertip (Tooltip - Extended)
 {
@@ -1853,74 +1537,10 @@ STRING 599
 Dmg: 276-312 |nCooldown: 1.0s |nRange: 700 |nSplash (140)
 }
 
-STRING 600
-// Units: u00V (Ultimate Skull Tower), Ubertip (Tooltip - Extended)
-{
-Dmg: 500-550 |nCooldown: 1.2s |nRange: 600 |nSplash (125)
-}
-
-STRING 608
-// Units: u013 (Zombie), Ubertip (Tooltip - Extended)
-{
-Dmg: 1000-1033 |nCooldown: 1.2s |nRange: 600 |nSplash (200)
-}
-
-STRING 609
-// Units: u014 (Diablo), Ubertip (Tooltip - Extended)
-{
-Dmg: 1700-1750
-Cooldown: 1.4s
-Range: 1200
-}
-
-STRING 610
-// Units: u015 (Lucifer), Ubertip (Tooltip - Extended)
-{
-Dmg: 1500-1550 |nCooldown: 1.2s |nRange: 600 |nSplash (400)
-}
-
-STRING 611
-// Units: u016 (Speed Aura Tower), Ubertip (Tooltip - Extended)
-{
-Increases Attack Speed by 35%
-}
-
-STRING 612
-{
-GenoHacker Edit
-}
-
-STRING 613
-{
-v2 Changes
-
-Fixed sell value of Speed Aura
-Fixed a Couple of spots that you couldnt build on
-Splash Damage will no longer hit your own towers
-Several towers had different attack speeds than what was shown in the tooltip, some upgrades actually made a tower slower, this is now corrected. Towers now have consistent attack speeds, some towers had their attack speed increased to make them more viable
-Frost Tower was changed to Magic Damage
-Skull Tower was changed to Artilery and projectile speed was increased
-Chaos Tower now deals Chaos Damage across all its towers
-Dmg/s has been removed from all tooltips because most of them were wrong
-
-v2.1 Changes
-
-Every tower now cost less gold
-Towers now sell for 100% instead of 75%, multiple towers didnt have the correct sell value so i just made them all sell for 100%
-Removed Pathing Blockers around each players area
-Change Builder movement type to Foot
-}
-
 STRING 614
 // Abilities: A000 (Sell Tower), Ubertip (Tooltip - Normal - Extended)
 {
 Sell Tower to get back 100% of its cost.
-}
-
-STRING 615
-// Abilities: A004 (Speed Aura), Ubertip (Tooltip - Normal - Extended)
-{
-Increase attack speed of nearby towers by 35%
 }
 
 STRING 616
@@ -1978,7 +1598,7 @@ Chaos Tower Level 7
 }
 
 STRING 634
-// Units: u00G (Ghost Tower Level 5), Tip (Tooltip - Basic)
+// Units: u00A (Skull Tower Level 5), Tip (Tooltip - Basic)
 {
 Upgrade to Level 5
 }
@@ -1990,7 +1610,7 @@ Q
 }
 
 STRING 637
-// Units: u017 (Chaos Tower Level 5), Tip (Tooltip - Basic)
+// Units: u00G (Ghost Tower Level 5), Tip (Tooltip - Basic)
 {
 Upgrade to Level 5
 }
@@ -2044,7 +1664,7 @@ Q
 }
 
 STRING 649
-// Units: u019 (Chaos Tower Level 8), Tip (Tooltip - Basic)
+// Units: u00J (Skull Tower Level 8), Tip (Tooltip - Basic)
 {
 Upgrade to Level 8
 }
@@ -2337,14 +1957,8 @@ STRING 704
 Incinerate 6
 }
 
-STRING 705
-// Units: u000 (Ghost Tower Level 1), Tip (Tooltip - Basic)
-{
-Build Ghost Towet
-}
-
 STRING 706
-// Units: u00D (Chaos Tower Level 4), Tip (Tooltip - Basic)
+// Units: u009 (Skull Tower Level 4), Tip (Tooltip - Basic)
 {
 Upgrade to Level 4
 }
@@ -2356,19 +1970,19 @@ Upgrade to Level 7
 }
 
 STRING 708
-// Units: u00K (Chaos Tower Level 3), Tip (Tooltip - Basic)
+// Units: u008 (Skull Tower Level 3), Tip (Tooltip - Basic)
 {
 Upgrade to Level 3
 }
 
 STRING 709
-// Units: u00L (Chaos Tower Level 2), Tip (Tooltip - Basic)
+// Units: u007 (Skull Tower Level 2), Tip (Tooltip - Basic)
 {
 Upgrade to Level 2
 }
 
 STRING 710
-// Units: u00N (Chaos Tower Level 7), Tip (Tooltip - Basic)
+// Units: u00I (Skull Tower Level 7), Tip (Tooltip - Basic)
 {
 Upgrade to Level 7
 }
@@ -2440,7 +2054,7 @@ Dmg: 3900 - 4000 |nCooldown: 1.5s |nRange: 1500|nIncinerate
 }
 
 STRING 722
-// Units: u018 (Chaos Tower Level 6), Tip (Tooltip - Basic)
+// Units: u00H (Skull Tower Level 6), Tip (Tooltip - Basic)
 {
 Upgrade to Level 6
 }
@@ -2451,27 +2065,231 @@ STRING 723
 Upgrade to Ultimate Chaos Tower
 }
 
-STRING 724
-// Units: u00B (Frost Tower), Ubertip (Tooltip - Extended)
-{
-Dmg: 25 - 75 |nCooldown: 1.0s |nRange: 700 |nFrost (3s)
-}
-
 STRING 725
 // Units: u00C (Freezer Tower), Tip (Tooltip - Basic)
 {
 Upgrade to Freezer Tower
 }
 
-STRING 726
-// Units: u00C (Freezer Tower), Ubertip (Tooltip - Extended)
-{
-Dmg: 100 - 200 |nCooldown: 1.0s |nRange: 700 |nFrost (4s) |nSplash (150)
-}
-
 STRING 727
 // Units: u012 (Glacier Tower), Ubertip (Tooltip - Extended)
 {
 Dmg: 200 - 400 |nCooldown: 1.0s |nRange: 700 |nFrost (5s) |nSplash (200)
+}
+
+STRING 728
+// Units: u006 (Skull Tower Level 1), Tip (Tooltip - Basic)
+{
+Build Skull Tower
+}
+
+STRING 729
+// Units: u006 (Skull Tower Level 1), Ubertip (Tooltip - Extended)
+{
+Dmg: 25 |nCooldown: 1.0s |nRange: 600 |nSplash (150)
+}
+
+STRING 730
+// Units: u007 (Skull Tower Level 2), Ubertip (Tooltip - Extended)
+{
+Dmg: 50 |nCooldown: 1.0s |nRange: 600 |nSplash (150)
+}
+
+STRING 731
+// Units: u008 (Skull Tower Level 3), Ubertip (Tooltip - Extended)
+{
+Dmg: 75 |nCooldown: 1.0s |nRange: 600 |nSplash (150)
+}
+
+STRING 732
+// Units: u009 (Skull Tower Level 4), Ubertip (Tooltip - Extended)
+{
+Dmg: 100 |nCooldown: 1.0s |nRange: 600 |nSplash (150)
+}
+
+STRING 733
+// Units: u00A (Skull Tower Level 5), Ubertip (Tooltip - Extended)
+{
+Dmg: 125 |nCooldown: 1.0s |nRange: 600 |nSplash (150)
+}
+
+STRING 734
+// Units: u00D (Chaos Tower Level 4), Tip (Tooltip - Basic)
+{
+Upgrade to Level 4
+}
+
+STRING 735
+// Units: u00H (Skull Tower Level 6), Ubertip (Tooltip - Extended)
+{
+Dmg: 150 |nCooldown: 1.0s |nRange: 600 |nSplash (150)
+}
+
+STRING 736
+// Units: u00I (Skull Tower Level 7), Ubertip (Tooltip - Extended)
+{
+Dmg: 175 |nCooldown: 1.0s |nRange: 600 |nSplash (150)
+}
+
+STRING 737
+// Units: u00J (Skull Tower Level 8), Ubertip (Tooltip - Extended)
+{
+Dmg: 200 |nCooldown: 1.0s |nRange: 600 |nSplash (150)
+}
+
+STRING 738
+// Units: u00K (Chaos Tower Level 3), Tip (Tooltip - Basic)
+{
+Upgrade to Level 3
+}
+
+STRING 739
+// Units: u00L (Chaos Tower Level 2), Tip (Tooltip - Basic)
+{
+Upgrade to Level 2
+}
+
+STRING 740
+// Units: u00N (Chaos Tower Level 7), Tip (Tooltip - Basic)
+{
+Upgrade to Level 7
+}
+
+STRING 741
+// Units: u00V (Ultimate Skull Tower), Tip (Tooltip - Basic)
+{
+Upgrade to Ultimate Skull Tower
+}
+
+STRING 742
+// Units: u00V (Ultimate Skull Tower), Ubertip (Tooltip - Extended)
+{
+Dmg: 400 |nCooldown: 0.5s |nRange: 700 |nSplash (200)
+}
+
+STRING 743
+// Units: u00W (Inferno Gate Level 5), Tip (Tooltip - Basic)
+{
+Upgrade to Level 5
+}
+
+STRING 744
+// Units: u00X (Inferno Gate Level 6), Tip (Tooltip - Basic)
+{
+Upgrade to Level 6
+}
+
+STRING 745
+// Units: u00Z (Inferno Gate Level 8), Tip (Tooltip - Basic)
+{
+Upgrade to Level 8
+}
+
+STRING 746
+// Units: u000 (Ghost Tower Level 1), Tip (Tooltip - Basic)
+{
+Build Ghost Tower
+}
+
+STRING 747
+// Units: u00B (Frost Tower), Tip (Tooltip - Basic)
+{
+Build Frost Tower
+}
+
+STRING 749
+// Units: u00C (Freezer Tower), Ubertip (Tooltip - Extended)
+{
+Dmg: 100 - 200 |nCooldown: 1.0s |nRange: 700 |nFrost (4s) |nSplash (125)
+}
+
+STRING 750
+// Units: u00O (Inferno Gate Level 3), Tip (Tooltip - Basic)
+{
+Upgrade to Level 3
+}
+
+STRING 751
+// Units: u00P (Inferno Gate Level 2), Tip (Tooltip - Basic)
+{
+Upgrade to Level 2
+}
+
+STRING 752
+// Units: u00Q (Inferno Gate Level 1), Tip (Tooltip - Basic)
+{
+Build Inferno Gate
+}
+
+STRING 753
+// Units: u00R (Inferno Gate Level 4), Tip (Tooltip - Basic)
+{
+Upgrade to Level 4
+}
+
+STRING 754
+// Units: u00S (Carrion Tower Level 2), Tip (Tooltip - Basic)
+{
+Upgrade to Level 2
+}
+
+STRING 755
+// Units: u00T (Carrion Tower Level 1), Tip (Tooltip - Basic)
+{
+Build Carrion Tower
+}
+
+STRING 756
+// Units: u00U (Carrion Tower Level 3), Tip (Tooltip - Basic)
+{
+Upgrade to Level 3
+}
+
+STRING 757
+// Units: u00Y (Inferno Gate Level 7), Tip (Tooltip - Basic)
+{
+Upgrade to Level 7
+}
+
+STRING 758
+// Units: u012 (Glacier Tower), Tip (Tooltip - Basic)
+{
+Upgrade to Glacier Tower
+}
+
+STRING 759
+// Units: u017 (Chaos Tower Level 5), Tip (Tooltip - Basic)
+{
+Upgrade to Level 5
+}
+
+STRING 760
+// Units: u018 (Chaos Tower Level 6), Tip (Tooltip - Basic)
+{
+Upgrade to Level 6
+}
+
+STRING 761
+// Units: u019 (Chaos Tower Level 8), Tip (Tooltip - Basic)
+{
+Upgrade to Level 8
+}
+
+STRING 762
+// Abilities: A002 (Frost), Ubertip (Tooltip - Normal - Extended)
+{
+Slows enemy units for 4 seconds.
+}
+
+STRING 763
+// Abilities: A003 (Frost), Ubertip (Tooltip - Normal - Extended)
+{
+Slows enemy units for 5 seconds.
+}
+
+STRING 764
+// Units: u00B (Frost Tower), Ubertip (Tooltip - Extended)
+{
+Dmg: 25 - 100 |nCooldown: 1.0s |nRange: 700 |nFrost (3s) |nSplash (75)
 }
 
