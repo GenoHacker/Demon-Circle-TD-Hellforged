@@ -52,6 +52,9 @@ gg_snd_Wave_Normal = nil
 gg_snd_Wave_Hero = nil
 gg_snd_Wave_Boss = nil
 gg_snd_Score_Screen_Music = nil
+gg_trg_Difficulty_Dialog_Start = nil
+gg_trg_Difficulty_Adjust = nil
+gg_trg_Difficulty_Dialog_Stop = nil
 gg_trg_Map_Initialization = nil
 gg_trg_Starting_Locations = nil
 gg_trg_Sell_Towers = nil
@@ -72,9 +75,6 @@ gg_trg_Creep_Count_Remove = nil
 gg_trg_Leaving_Players = nil
 gg_trg_Remove_Dying_Unit_Heroes = nil
 gg_trg_Camera_Zoom = nil
-gg_trg_Difficulty_Dialog_Start = nil
-gg_trg_Difficulty_Adjust = nil
-gg_trg_Difficulty_Dialog_Stop = nil
 function InitGlobals()
     local i = 0
     udg_I_Round = 0
@@ -334,8 +334,8 @@ function Trig_Map_Initialization_Actions()
         end
         bj_forLoopAIndex = bj_forLoopAIndex + 1
     end
-    SetPlayerHandicapBJ(Player(10), 100.00)
-    SetPlayerHandicapBJ(Player(11), 100.00)
+    SetPlayerHandicapBJ(Player(10), 81.00)
+    SetPlayerHandicapBJ(Player(11), 81.00)
     ForForce(GetPlayersAll(), Trig_Map_Initialization_Func004A)
     SetPlayerFlagBJ(PLAYER_STATE_GIVES_BOUNTY, true, Player(10))
     SetPlayerFlagBJ(PLAYER_STATE_GIVES_BOUNTY, true, Player(11))
