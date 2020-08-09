@@ -150,7 +150,7 @@ Frost Tower
 }
 
 STRING 95
-// Units: u00Q (Inferno Gate Level 1), Hotkey (Hotkey)
+// Units: u006 (Skull Tower Level 1), Hotkey (Hotkey)
 {
 E
 }
@@ -242,7 +242,7 @@ Chaos Tower Level 1
 }
 
 STRING 123
-// Units: u006 (Skull Tower Level 1), Hotkey (Hotkey)
+// Units: u00Q (Inferno Gate Level 1), Hotkey (Hotkey)
 {
 R
 }
@@ -1534,20 +1534,8 @@ STRING 614
 Sell Tower to get back 100% of its cost.
 }
 
-STRING 616
-// Units: u000 (Ghost Tower Level 1), Ubertip (Tooltip - Extended)
-{
-Dmg: 10 |nCooldown: 0.2s |nRange: 800
-}
-
-STRING 617
-// Units: u003 (Ghost Tower Level 3), Ubertip (Tooltip - Extended)
-{
-Dmg: 60 |nCooldown: 0.2s |nRange: 800
-}
-
 STRING 619
-// Units: u002 (Ghost Tower Level 2), Ubertip (Tooltip - Extended)
+// Units: u000 (Ghost Tower Level 1), Ubertip (Tooltip - Extended)
 {
 Dmg: 30 |nCooldown: 0.2s |nRange: 800
 }
@@ -2288,5 +2276,47 @@ STRING 765
 // Abilities: A000 (Sell Tower), Tip (Tooltip - Normal)
 {
 Sell Tower
+}
+
+STRING 766
+// Units: u002 (Ghost Tower Level 2), Ubertip (Tooltip - Extended)
+{
+Dmg: 50 |nCooldown: 0.2s |nRange: 800
+}
+
+STRING 767
+// Units: u003 (Ghost Tower Level 3), Ubertip (Tooltip - Extended)
+{
+Dmg: 70 |nCooldown: 0.2s |nRange: 800
+}
+
+STRING 768
+{
+Increase Difficulty by 4%
+}
+
+STRING 769
+{
+No Increase/Decrease
+}
+
+STRING 770
+{
+Decrease Difficulty by 2%
+}
+
+STRING 771
+{
+Difficulty
+}
+
+STRING 780
+{
+Everyone chose to increase difficulty, it has been increased by an additional 8%.
+}
+
+STRING 781
+{
+Everyone chose to decrease difficulty, it has been decreased by an additional 4%.
 }
 

@@ -17,6 +17,10 @@ udg_Temp_Point1 = nil
 udg_Zoom_Cam = __jarray(0)
 udg_Temp_Integer = 0
 udg_Integer_Spawncount = 0
+udg_Dialog_Difficulty = nil
+udg_DialogButton_Array_Difficulty = {}
+udg_Integer_Array_DifficultyVote = __jarray(0)
+udg_Integer_PlayerCount = 0
 gg_rct_Start1 = nil
 gg_rct_Start2 = nil
 gg_rct_Start3 = nil
@@ -68,6 +72,9 @@ gg_trg_Creep_Count_Remove = nil
 gg_trg_Leaving_Players = nil
 gg_trg_Remove_Dying_Unit_Heroes = nil
 gg_trg_Camera_Zoom = nil
+gg_trg_Difficulty_Dialog_Start = nil
+gg_trg_Difficulty_Adjust = nil
+gg_trg_Difficulty_Dialog_Stop = nil
 function InitGlobals()
     local i = 0
     udg_I_Round = 0
@@ -87,6 +94,14 @@ function InitGlobals()
     end
     udg_Temp_Integer = 0
     udg_Integer_Spawncount = 15
+    udg_Dialog_Difficulty = DialogCreate()
+    i = 0
+    while (true) do
+        if ((i > 1)) then break end
+        udg_Integer_Array_DifficultyVote[i] = 0
+        i = i + 1
+    end
+    udg_Integer_PlayerCount = 0
 end
 
 function InitSounds()
@@ -179,13 +194,149 @@ function CreateRegions()
     gg_rct_Waypoint_8 = Rect(-5952.0, 1984.0, -5824.0, 2112.0)
 end
 
-function Trig_Map_Initialization_Func001A()
+function Trig_Difficulty_Dialog_Start_Actions()
+    DialogSetMessageBJ(udg_Dialog_Difficulty, "TRIGSTR_771")
+    DialogAddButtonBJ(udg_Dialog_Difficulty, "TRIGSTR_768")
+    udg_DialogButton_Array_Difficulty[1] = GetLastCreatedButtonBJ()
+    DialogAddButtonBJ(udg_Dialog_Difficulty, "TRIGSTR_769")
+    udg_DialogButton_Array_Difficulty[2] = GetLastCreatedButtonBJ()
+    DialogAddButtonBJ(udg_Dialog_Difficulty, "TRIGSTR_770")
+    udg_DialogButton_Array_Difficulty[3] = GetLastCreatedButtonBJ()
+    bj_forLoopAIndex = 1
+    bj_forLoopAIndexEnd = udg_Integer_PlayerCount
+    while (true) do
+        if (bj_forLoopAIndex > bj_forLoopAIndexEnd) then break end
+        DialogDisplayBJ(true, udg_Dialog_Difficulty, ConvertedPlayer(GetForLoopIndexA()))
+        bj_forLoopAIndex = bj_forLoopAIndex + 1
+    end
+end
+
+function InitTrig_Difficulty_Dialog_Start()
+    gg_trg_Difficulty_Dialog_Start = CreateTrigger()
+    TriggerRegisterTimerEventSingle(gg_trg_Difficulty_Dialog_Start, 0.00)
+    TriggerAddAction(gg_trg_Difficulty_Dialog_Start, Trig_Difficulty_Dialog_Start_Actions)
+end
+
+function Trig_Difficulty_Adjust_Func001C()
+    if (not (GetClickedButtonBJ() == udg_DialogButton_Array_Difficulty[1])) then
+        return false
+    end
+    return true
+end
+
+function Trig_Difficulty_Adjust_Func002C()
+    if (not (GetClickedButtonBJ() == udg_DialogButton_Array_Difficulty[2])) then
+        return false
+    end
+    return true
+end
+
+function Trig_Difficulty_Adjust_Func003C()
+    if (not (GetClickedButtonBJ() == udg_DialogButton_Array_Difficulty[3])) then
+        return false
+    end
+    return true
+end
+
+function Trig_Difficulty_Adjust_Actions()
+    if (Trig_Difficulty_Adjust_Func001C()) then
+        SetPlayerHandicapBJ(Player(10), (GetPlayerHandicapBJ(Player(10)) + 4.00))
+        SetPlayerHandicapBJ(Player(11), (GetPlayerHandicapBJ(Player(11)) + 4.00))
+        DisplayTimedTextToForce(GetPlayersAll(), 5.00, (GetPlayerName(GetTriggerPlayer()) .. " has increased difficulty by 4%."))
+        DisplayTimedTextToForce(GetPlayersAll(), 5.00, ("Difficulty is now: " .. (I2S(R2I(GetPlayerHandicapBJ(Player(10)))) .. "%")))
+        udg_Integer_Array_DifficultyVote[1] = (udg_Integer_Array_DifficultyVote[1] + 1)
+    else
+    end
+    if (Trig_Difficulty_Adjust_Func002C()) then
+        DisplayTimedTextToForce(GetPlayersAll(), 5.00, (GetPlayerName(GetTriggerPlayer()) .. " decided to not Increase or Decrease difficulty."))
+    else
+    end
+    if (Trig_Difficulty_Adjust_Func003C()) then
+        SetPlayerHandicapBJ(Player(10), (GetPlayerHandicapBJ(Player(10)) - 2.00))
+        SetPlayerHandicapBJ(Player(11), (GetPlayerHandicapBJ(Player(11)) - 2.00))
+        DisplayTimedTextToForce(GetPlayersAll(), 5.00, (GetPlayerName(GetTriggerPlayer()) .. " has decreased difficulty by 2%."))
+        DisplayTimedTextToForce(GetPlayersAll(), 5.00, ("Difficulty is now: " .. (I2S(R2I(GetPlayerHandicapBJ(Player(10)))) .. "%")))
+        udg_Integer_Array_DifficultyVote[2] = (udg_Integer_Array_DifficultyVote[2] + 1)
+    else
+    end
+end
+
+function InitTrig_Difficulty_Adjust()
+    gg_trg_Difficulty_Adjust = CreateTrigger()
+    TriggerRegisterDialogEventBJ(gg_trg_Difficulty_Adjust, udg_Dialog_Difficulty)
+    TriggerAddAction(gg_trg_Difficulty_Adjust, Trig_Difficulty_Adjust_Actions)
+end
+
+function Trig_Difficulty_Dialog_Stop_Func002C()
+    if (not (udg_Integer_Array_DifficultyVote[1] == udg_Integer_PlayerCount)) then
+        return false
+    end
+    return true
+end
+
+function Trig_Difficulty_Dialog_Stop_Func003C()
+    if (not (udg_Integer_Array_DifficultyVote[2] == udg_Integer_PlayerCount)) then
+        return false
+    end
+    return true
+end
+
+function Trig_Difficulty_Dialog_Stop_Actions()
+    bj_forLoopAIndex = 1
+    bj_forLoopAIndexEnd = udg_Integer_PlayerCount
+    while (true) do
+        if (bj_forLoopAIndex > bj_forLoopAIndexEnd) then break end
+        DialogDisplayBJ(false, udg_Dialog_Difficulty, ConvertedPlayer(GetForLoopIndexA()))
+        bj_forLoopAIndex = bj_forLoopAIndex + 1
+    end
+    if (Trig_Difficulty_Dialog_Stop_Func002C()) then
+        SetPlayerHandicapBJ(Player(10), (GetPlayerHandicapBJ(Player(10)) + 8.00))
+        SetPlayerHandicapBJ(Player(11), (GetPlayerHandicapBJ(Player(11)) + 8.00))
+        DisplayTimedTextToForce(GetPlayersAll(), 5.00, "TRIGSTR_780")
+        DisplayTimedTextToForce(GetPlayersAll(), 5.00, ("Difficulty is now: " .. (I2S(R2I(GetPlayerHandicapBJ(Player(10)))) .. "%")))
+    else
+    end
+    if (Trig_Difficulty_Dialog_Stop_Func003C()) then
+        SetPlayerHandicapBJ(Player(10), (GetPlayerHandicapBJ(Player(10)) - 4.00))
+        SetPlayerHandicapBJ(Player(11), (GetPlayerHandicapBJ(Player(11)) - 4.00))
+        DisplayTimedTextToForce(GetPlayersAll(), 5.00, "TRIGSTR_781")
+        DisplayTimedTextToForce(GetPlayersAll(), 5.00, ("Difficulty is now: " .. (I2S(R2I(GetPlayerHandicapBJ(Player(10)))) .. "%")))
+    else
+    end
+end
+
+function InitTrig_Difficulty_Dialog_Stop()
+    gg_trg_Difficulty_Dialog_Stop = CreateTrigger()
+    TriggerRegisterTimerEventSingle(gg_trg_Difficulty_Dialog_Stop, 15.00)
+    TriggerAddAction(gg_trg_Difficulty_Dialog_Stop, Trig_Difficulty_Dialog_Stop_Actions)
+end
+
+function Trig_Map_Initialization_Func001Func001C()
+    if (not (GetPlayerSlotState(ConvertedPlayer(GetForLoopIndexA())) == PLAYER_SLOT_STATE_PLAYING)) then
+        return false
+    end
+    return true
+end
+
+function Trig_Map_Initialization_Func004A()
     SetPlayerStateBJ(GetEnumPlayer(), PLAYER_STATE_RESOURCE_GOLD, 50)
     CreateFogModifierRectBJ(true, GetEnumPlayer(), FOG_OF_WAR_VISIBLE, GetPlayableMapRect())
 end
 
 function Trig_Map_Initialization_Actions()
-    ForForce(GetPlayersAll(), Trig_Map_Initialization_Func001A)
+    bj_forLoopAIndex = 1
+    bj_forLoopAIndexEnd = 8
+    while (true) do
+        if (bj_forLoopAIndex > bj_forLoopAIndexEnd) then break end
+        if (Trig_Map_Initialization_Func001Func001C()) then
+            udg_Integer_PlayerCount = (udg_Integer_PlayerCount + 1)
+        else
+        end
+        bj_forLoopAIndex = bj_forLoopAIndex + 1
+    end
+    SetPlayerHandicapBJ(Player(10), 100.00)
+    SetPlayerHandicapBJ(Player(11), 100.00)
+    ForForce(GetPlayersAll(), Trig_Map_Initialization_Func004A)
     SetPlayerFlagBJ(PLAYER_STATE_GIVES_BOUNTY, true, Player(10))
     SetPlayerFlagBJ(PLAYER_STATE_GIVES_BOUNTY, true, Player(11))
     SetTerrainFogExBJ(0, 2750.00, 10000.00, 0.00, 75.00, 100.00, 85.00)
@@ -299,7 +450,7 @@ function Trig_Starting_Locations_Actions()
         end
         bj_forLoopAIndex = bj_forLoopAIndex + 1
     end
-    StartTimerBJ(udg_T_NextRound, false, 15.00)
+    StartTimerBJ(udg_T_NextRound, false, 30.00)
     CreateTimerDialogBJ(GetLastCreatedTimerBJ(), ("Round " .. (I2S((udg_I_Round + 1)) .. " in:")))
     TimerDialogDisplayBJ(true, GetLastCreatedTimerDialogBJ())
     udg_TW_NextRound = GetLastCreatedTimerDialogBJ()
@@ -397,7 +548,7 @@ function Trig_Next_Round_Actions()
     LeaderboardSetPlayerItemValueBJ(Player(9), GetLastCreatedLeaderboard(), udg_I_Round)
     udg_Integer_Spawncount = 0
     DestroyTimerDialogBJ(udg_TW_NextRound)
-    StartTimerBJ(udg_T_NextRound, false, 15.00)
+    StartTimerBJ(udg_T_NextRound, false, 30.00)
     if (Trig_Next_Round_Func008C()) then
         CreateTimerDialogBJ(GetLastCreatedTimerBJ(), ("Round " .. (I2S((udg_I_Round + 1)) .. " in:")))
         TimerDialogDisplayBJ(true, GetLastCreatedTimerDialogBJ())
@@ -1033,6 +1184,9 @@ function InitTrig_Camera_Zoom()
 end
 
 function InitCustomTriggers()
+    InitTrig_Difficulty_Dialog_Start()
+    InitTrig_Difficulty_Adjust()
+    InitTrig_Difficulty_Dialog_Stop()
     InitTrig_Map_Initialization()
     InitTrig_Starting_Locations()
     InitTrig_Sell_Towers()
