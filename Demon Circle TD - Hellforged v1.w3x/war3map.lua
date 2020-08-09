@@ -319,7 +319,7 @@ function Trig_Map_Initialization_Func001Func001C()
 end
 
 function Trig_Map_Initialization_Func004A()
-    SetPlayerStateBJ(GetEnumPlayer(), PLAYER_STATE_RESOURCE_GOLD, 50)
+    SetPlayerStateBJ(GetEnumPlayer(), PLAYER_STATE_RESOURCE_GOLD, 75)
     CreateFogModifierRectBJ(true, GetEnumPlayer(), FOG_OF_WAR_VISIBLE, GetPlayableMapRect())
 end
 

@@ -2062,56 +2062,14 @@ STRING 728
 Build Skull Tower
 }
 
-STRING 729
-// Units: u006 (Skull Tower Level 1), Ubertip (Tooltip - Extended)
-{
-Dmg: 25 |nCooldown: 1.0s |nRange: 600 |nSplash (150)
-}
-
-STRING 730
-// Units: u007 (Skull Tower Level 2), Ubertip (Tooltip - Extended)
-{
-Dmg: 50 |nCooldown: 1.0s |nRange: 600 |nSplash (150)
-}
-
-STRING 731
-// Units: u008 (Skull Tower Level 3), Ubertip (Tooltip - Extended)
-{
-Dmg: 75 |nCooldown: 1.0s |nRange: 600 |nSplash (150)
-}
-
-STRING 732
-// Units: u009 (Skull Tower Level 4), Ubertip (Tooltip - Extended)
-{
-Dmg: 100 |nCooldown: 1.0s |nRange: 600 |nSplash (150)
-}
-
-STRING 733
-// Units: u00A (Skull Tower Level 5), Ubertip (Tooltip - Extended)
-{
-Dmg: 125 |nCooldown: 1.0s |nRange: 600 |nSplash (150)
-}
-
 STRING 734
 // Units: u00D (Chaos Tower Level 4), Tip (Tooltip - Basic)
 {
 Upgrade to Level 4
 }
 
-STRING 735
-// Units: u00H (Skull Tower Level 6), Ubertip (Tooltip - Extended)
-{
-Dmg: 150 |nCooldown: 1.0s |nRange: 600 |nSplash (150)
-}
-
-STRING 736
-// Units: u00I (Skull Tower Level 7), Ubertip (Tooltip - Extended)
-{
-Dmg: 175 |nCooldown: 1.0s |nRange: 600 |nSplash (150)
-}
-
 STRING 737
-// Units: u00J (Skull Tower Level 8), Ubertip (Tooltip - Extended)
+// Units: u00A (Skull Tower Level 5), Ubertip (Tooltip - Extended)
 {
 Dmg: 200 |nCooldown: 1.0s |nRange: 600 |nSplash (150)
 }
@@ -2138,12 +2096,6 @@ STRING 741
 // Units: u00V (Ultimate Skull Tower), Tip (Tooltip - Basic)
 {
 Upgrade to Ultimate Skull Tower
-}
-
-STRING 742
-// Units: u00V (Ultimate Skull Tower), Ubertip (Tooltip - Extended)
-{
-Dmg: 400 |nCooldown: 0.5s |nRange: 700 |nSplash (200)
 }
 
 STRING 743
@@ -2318,5 +2270,53 @@ Everyone chose to increase difficulty, it has been increased by an additional 8%
 STRING 781
 {
 Everyone chose to decrease difficulty, it has been decreased by an additional 4%.
+}
+
+STRING 782
+// Units: u006 (Skull Tower Level 1), Ubertip (Tooltip - Extended)
+{
+Dmg: 40 |nCooldown: 1.0s |nRange: 600 |nSplash (150)
+}
+
+STRING 783
+// Units: u007 (Skull Tower Level 2), Ubertip (Tooltip - Extended)
+{
+Dmg: 80 |nCooldown: 1.0s |nRange: 600 |nSplash (150)
+}
+
+STRING 784
+// Units: u008 (Skull Tower Level 3), Ubertip (Tooltip - Extended)
+{
+Dmg: 120 |nCooldown: 1.0s |nRange: 600 |nSplash (150)
+}
+
+STRING 785
+// Units: u009 (Skull Tower Level 4), Ubertip (Tooltip - Extended)
+{
+Dmg: 160 |nCooldown: 1.0s |nRange: 600 |nSplash (150)
+}
+
+STRING 786
+// Units: u00H (Skull Tower Level 6), Ubertip (Tooltip - Extended)
+{
+Dmg: 240 |nCooldown: 1.0s |nRange: 600 |nSplash (150)
+}
+
+STRING 787
+// Units: u00I (Skull Tower Level 7), Ubertip (Tooltip - Extended)
+{
+Dmg: 280 |nCooldown: 1.0s |nRange: 600 |nSplash (150)
+}
+
+STRING 788
+// Units: u00J (Skull Tower Level 8), Ubertip (Tooltip - Extended)
+{
+Dmg: 320 |nCooldown: 1.0s |nRange: 600 |nSplash (150)
+}
+
+STRING 789
+// Units: u00V (Ultimate Skull Tower), Ubertip (Tooltip - Extended)
+{
+Dmg: 500 |nCooldown: 0.5s |nRange: 700 |nSplash (200)
 }
 
