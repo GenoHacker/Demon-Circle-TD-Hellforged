@@ -61,15 +61,25 @@ gg_snd_Wave_Normal = nil
 gg_snd_Wave_Hero = nil
 gg_snd_Wave_Boss = nil
 gg_snd_Score_Screen_Music = nil
+gg_trg_Map_Initialization = nil
+gg_trg_Leaderboard = nil
+gg_trg_Starting_Locations = nil
 gg_trg_Difficulty_Dialog_Start = nil
 gg_trg_Difficulty_Adjust = nil
 gg_trg_Difficulty_Dialog_Stop = nil
-gg_trg_Map_Initialization = nil
-gg_trg_Starting_Locations = nil
-gg_trg_Sell_Towers = nil
-gg_trg_Leaderboard = nil
 gg_trg_Next_Round = nil
 gg_trg_Wave_Spawning = nil
+gg_trg_Sell_Towers = nil
+gg_trg_Kill_Count = nil
+gg_trg_Leaving_Players = nil
+gg_trg_Remove_Dying_Unit_Heroes = nil
+gg_trg_Ghastly_Vial = nil
+gg_trg_Ghastly_Vial_Cast = nil
+gg_trg_Khorns_Gift = nil
+gg_trg_Satans_Claw_Give = nil
+gg_trg_Satans_Claw_Remove = nil
+gg_trg_Creep_Count = nil
+gg_trg_Creep_Count_Remove = nil
 gg_trg_Creep_Spawn_1 = nil
 gg_trg_Creep_Spawn_2 = nil
 gg_trg_Creep_Spawn_3 = nil
@@ -78,17 +88,12 @@ gg_trg_Creep_Spawn_5 = nil
 gg_trg_Creep_Spawn_6 = nil
 gg_trg_Creep_Spawn_7 = nil
 gg_trg_Creep_Spawn_8 = nil
-gg_trg_Kill_Count = nil
-gg_trg_Creep_Count = nil
-gg_trg_Creep_Count_Remove = nil
-gg_trg_Leaving_Players = nil
-gg_trg_Remove_Dying_Unit_Heroes = nil
 gg_trg_Camera_Zoom = nil
-gg_trg_Ghastly_Vial = nil
-gg_trg_Khorns_Gift = nil
-gg_trg_Satans_Claw_Give = nil
-gg_trg_Satans_Claw_Remove = nil
-gg_trg_Ghastly_Vial_Cast = nil
+gg_trg_Lumber_Bounty = nil
+gg_trg_Items = nil
+gg_trg_Items_Copy = nil
+gg_trg_Items_Copy_2 = nil
+gg_trg_Items_Copy_3 = nil
 function InitGlobals()
     local i = 0
     udg_I_Round = 0
@@ -160,14 +165,6 @@ function InitSounds()
     SetSoundChannel(gg_snd_Score_Screen_Music, 0)
     SetSoundVolume(gg_snd_Score_Screen_Music, 127)
     SetSoundPitch(gg_snd_Score_Screen_Music, 1.0)
-end
-
-function CreateAllItems()
-    local itemID
-    BlzCreateItemWithSkin(FourCC("I000"), -4444.8, 3452.2, FourCC("I000"))
-    BlzCreateItemWithSkin(FourCC("I001"), -4338.5, 3482.7, FourCC("I001"))
-    BlzCreateItemWithSkin(FourCC("I002"), -4244.7, 3515.8, FourCC("I002"))
-    BlzCreateItemWithSkin(FourCC("I003"), -4147.5, 3549.7, FourCC("I003"))
 end
 
 function CreateNeutralPassiveBuildings()
@@ -881,6 +878,36 @@ function InitTrig_Remove_Dying_Unit_Heroes()
     TriggerAddAction(gg_trg_Remove_Dying_Unit_Heroes, Trig_Remove_Dying_Unit_Heroes_Actions)
 end
 
+function Trig_Lumber_Bounty_Func001Func002C()
+    if (GetOwningPlayer(GetDyingUnit()) == Player(10)) then
+        return true
+    end
+    if (GetOwningPlayer(GetDyingUnit()) == Player(11)) then
+        return true
+    end
+    return false
+end
+
+function Trig_Lumber_Bounty_Func001C()
+    if (not Trig_Lumber_Bounty_Func001Func002C()) then
+        return false
+    end
+    return true
+end
+
+function Trig_Lumber_Bounty_Actions()
+    if (Trig_Lumber_Bounty_Func001C()) then
+        AdjustPlayerStateBJ(1, GetOwningPlayer(GetKillingUnitBJ()), PLAYER_STATE_RESOURCE_LUMBER)
+    else
+    end
+end
+
+function InitTrig_Lumber_Bounty()
+    gg_trg_Lumber_Bounty = CreateTrigger()
+    TriggerRegisterAnyUnitEventBJ(gg_trg_Lumber_Bounty, EVENT_PLAYER_UNIT_DEATH)
+    TriggerAddAction(gg_trg_Lumber_Bounty, Trig_Lumber_Bounty_Actions)
+end
+
 function Trig_Ghastly_Vial_Func001Func002C()
     if (not (udg_Integer_Array_GhastlyChance[GetConvertedPlayerId(GetOwningPlayer(GetKillingUnitBJ()))] <= 8)) then
         return false
@@ -1073,6 +1100,262 @@ function InitTrig_Satans_Claw_Remove()
     gg_trg_Satans_Claw_Remove = CreateTrigger()
     TriggerRegisterAnyUnitEventBJ(gg_trg_Satans_Claw_Remove, EVENT_PLAYER_UNIT_DROP_ITEM)
     TriggerAddAction(gg_trg_Satans_Claw_Remove, Trig_Satans_Claw_Remove_Actions)
+end
+
+function Trig_Items_Conditions()
+    if (not (GetItemTypeId(GetManipulatedItem()) == FourCC("I003"))) then
+        return false
+    end
+    return true
+end
+
+function Trig_Items_Func002Func004C()
+    if (GetUnitTypeId(GetManipulatingUnit()) == FourCC("u005")) then
+        return true
+    end
+    if (GetUnitTypeId(GetManipulatingUnit()) == FourCC("u00M")) then
+        return true
+    end
+    if (GetUnitTypeId(GetManipulatingUnit()) == FourCC("u00L")) then
+        return true
+    end
+    if (GetUnitTypeId(GetManipulatingUnit()) == FourCC("u00K")) then
+        return true
+    end
+    if (GetUnitTypeId(GetManipulatingUnit()) == FourCC("u00D")) then
+        return true
+    end
+    if (GetUnitTypeId(GetManipulatingUnit()) == FourCC("u017")) then
+        return true
+    end
+    if (GetUnitTypeId(GetManipulatingUnit()) == FourCC("u018")) then
+        return true
+    end
+    if (GetUnitTypeId(GetManipulatingUnit()) == FourCC("u00N")) then
+        return true
+    end
+    if (GetUnitTypeId(GetManipulatingUnit()) == FourCC("u019")) then
+        return true
+    end
+    if (GetUnitTypeId(GetManipulatingUnit()) == FourCC("u01A")) then
+        return true
+    end
+    return false
+end
+
+function Trig_Items_Func002C()
+    if (not Trig_Items_Func002Func004C()) then
+        return false
+    end
+    return true
+end
+
+function Trig_Items_Actions()
+    if (Trig_Items_Func002C()) then
+    else
+        udg_Temp_Point = GetUnitLoc(GetManipulatingUnit())
+        UnitDropItemPointLoc(GetManipulatingUnit(), GetItemOfTypeFromUnitBJ(GetManipulatingUnit(), FourCC("I003")), udg_Temp_Point)
+                RemoveLocation(udg_Temp_Point)
+    end
+end
+
+function InitTrig_Items()
+    gg_trg_Items = CreateTrigger()
+    TriggerRegisterAnyUnitEventBJ(gg_trg_Items, EVENT_PLAYER_UNIT_PICKUP_ITEM)
+    TriggerAddCondition(gg_trg_Items, Condition(Trig_Items_Conditions))
+    TriggerAddAction(gg_trg_Items, Trig_Items_Actions)
+end
+
+function Trig_Items_Copy_Conditions()
+    if (not (GetItemTypeId(GetManipulatedItem()) == FourCC("I000"))) then
+        return false
+    end
+    return true
+end
+
+function Trig_Items_Copy_Func002Func004C()
+    if (GetUnitTypeId(GetManipulatingUnit()) == FourCC("u005")) then
+        return true
+    end
+    if (GetUnitTypeId(GetManipulatingUnit()) == FourCC("u000")) then
+        return true
+    end
+    if (GetUnitTypeId(GetManipulatingUnit()) == FourCC("u002")) then
+        return true
+    end
+    if (GetUnitTypeId(GetManipulatingUnit()) == FourCC("u003")) then
+        return true
+    end
+    if (GetUnitTypeId(GetManipulatingUnit()) == FourCC("u004")) then
+        return true
+    end
+    if (GetUnitTypeId(GetManipulatingUnit()) == FourCC("u00G")) then
+        return true
+    end
+    if (GetUnitTypeId(GetManipulatingUnit()) == FourCC("u001")) then
+        return true
+    end
+    if (GetUnitTypeId(GetManipulatingUnit()) == FourCC("u00F")) then
+        return true
+    end
+    if (GetUnitTypeId(GetManipulatingUnit()) == FourCC("u00E")) then
+        return true
+    end
+    if (GetUnitTypeId(GetManipulatingUnit()) == FourCC("u010")) then
+        return true
+    end
+    return false
+end
+
+function Trig_Items_Copy_Func002C()
+    if (not Trig_Items_Copy_Func002Func004C()) then
+        return false
+    end
+    return true
+end
+
+function Trig_Items_Copy_Actions()
+    if (Trig_Items_Copy_Func002C()) then
+    else
+        udg_Temp_Point = GetUnitLoc(GetManipulatingUnit())
+        UnitDropItemPointLoc(GetManipulatingUnit(), GetItemOfTypeFromUnitBJ(GetManipulatingUnit(), FourCC("I000")), udg_Temp_Point)
+                RemoveLocation(udg_Temp_Point)
+    end
+end
+
+function InitTrig_Items_Copy()
+    gg_trg_Items_Copy = CreateTrigger()
+    TriggerRegisterAnyUnitEventBJ(gg_trg_Items_Copy, EVENT_PLAYER_UNIT_PICKUP_ITEM)
+    TriggerAddCondition(gg_trg_Items_Copy, Condition(Trig_Items_Copy_Conditions))
+    TriggerAddAction(gg_trg_Items_Copy, Trig_Items_Copy_Actions)
+end
+
+function Trig_Items_Copy_2_Conditions()
+    if (not (GetItemTypeId(GetManipulatedItem()) == FourCC("I001"))) then
+        return false
+    end
+    return true
+end
+
+function Trig_Items_Copy_2_Func002Func004C()
+    if (GetUnitTypeId(GetManipulatingUnit()) == FourCC("u005")) then
+        return true
+    end
+    if (GetUnitTypeId(GetManipulatingUnit()) == FourCC("u006")) then
+        return true
+    end
+    if (GetUnitTypeId(GetManipulatingUnit()) == FourCC("u007")) then
+        return true
+    end
+    if (GetUnitTypeId(GetManipulatingUnit()) == FourCC("u008")) then
+        return true
+    end
+    if (GetUnitTypeId(GetManipulatingUnit()) == FourCC("u009")) then
+        return true
+    end
+    if (GetUnitTypeId(GetManipulatingUnit()) == FourCC("u00A")) then
+        return true
+    end
+    if (GetUnitTypeId(GetManipulatingUnit()) == FourCC("u00H")) then
+        return true
+    end
+    if (GetUnitTypeId(GetManipulatingUnit()) == FourCC("u00I")) then
+        return true
+    end
+    if (GetUnitTypeId(GetManipulatingUnit()) == FourCC("u00J")) then
+        return true
+    end
+    if (GetUnitTypeId(GetManipulatingUnit()) == FourCC("u00V")) then
+        return true
+    end
+    return false
+end
+
+function Trig_Items_Copy_2_Func002C()
+    if (not Trig_Items_Copy_2_Func002Func004C()) then
+        return false
+    end
+    return true
+end
+
+function Trig_Items_Copy_2_Actions()
+    if (Trig_Items_Copy_2_Func002C()) then
+    else
+        udg_Temp_Point = GetUnitLoc(GetManipulatingUnit())
+        UnitDropItemPointLoc(GetManipulatingUnit(), GetItemOfTypeFromUnitBJ(GetManipulatingUnit(), FourCC("I001")), udg_Temp_Point)
+                RemoveLocation(udg_Temp_Point)
+    end
+end
+
+function InitTrig_Items_Copy_2()
+    gg_trg_Items_Copy_2 = CreateTrigger()
+    TriggerRegisterAnyUnitEventBJ(gg_trg_Items_Copy_2, EVENT_PLAYER_UNIT_PICKUP_ITEM)
+    TriggerAddCondition(gg_trg_Items_Copy_2, Condition(Trig_Items_Copy_2_Conditions))
+    TriggerAddAction(gg_trg_Items_Copy_2, Trig_Items_Copy_2_Actions)
+end
+
+function Trig_Items_Copy_3_Conditions()
+    if (not (GetItemTypeId(GetManipulatedItem()) == FourCC("I002"))) then
+        return false
+    end
+    return true
+end
+
+function Trig_Items_Copy_3_Func002Func004C()
+    if (GetUnitTypeId(GetManipulatingUnit()) == FourCC("u005")) then
+        return true
+    end
+    if (GetUnitTypeId(GetManipulatingUnit()) == FourCC("u00Q")) then
+        return true
+    end
+    if (GetUnitTypeId(GetManipulatingUnit()) == FourCC("u00P")) then
+        return true
+    end
+    if (GetUnitTypeId(GetManipulatingUnit()) == FourCC("u00O")) then
+        return true
+    end
+    if (GetUnitTypeId(GetManipulatingUnit()) == FourCC("u00R")) then
+        return true
+    end
+    if (GetUnitTypeId(GetManipulatingUnit()) == FourCC("u00W")) then
+        return true
+    end
+    if (GetUnitTypeId(GetManipulatingUnit()) == FourCC("u00X")) then
+        return true
+    end
+    if (GetUnitTypeId(GetManipulatingUnit()) == FourCC("u00Y")) then
+        return true
+    end
+    if (GetUnitTypeId(GetManipulatingUnit()) == FourCC("u00Z")) then
+        return true
+    end
+    if (GetUnitTypeId(GetManipulatingUnit()) == FourCC("u011")) then
+        return true
+    end
+    return false
+end
+
+function Trig_Items_Copy_3_Func002C()
+    if (not Trig_Items_Copy_3_Func002Func004C()) then
+        return false
+    end
+    return true
+end
+
+function Trig_Items_Copy_3_Actions()
+    if (Trig_Items_Copy_3_Func002C()) then
+    else
+        udg_Temp_Point = GetUnitLoc(GetManipulatingUnit())
+        UnitDropItemPointLoc(GetManipulatingUnit(), GetItemOfTypeFromUnitBJ(GetManipulatingUnit(), FourCC("I002")), udg_Temp_Point)
+                RemoveLocation(udg_Temp_Point)
+    end
+end
+
+function InitTrig_Items_Copy_3()
+    gg_trg_Items_Copy_3 = CreateTrigger()
+    TriggerRegisterAnyUnitEventBJ(gg_trg_Items_Copy_3, EVENT_PLAYER_UNIT_PICKUP_ITEM)
+    TriggerAddCondition(gg_trg_Items_Copy_3, Condition(Trig_Items_Copy_3_Conditions))
+    TriggerAddAction(gg_trg_Items_Copy_3, Trig_Items_Copy_3_Actions)
 end
 
 function Trig_Creep_Count_Func011Func001A()
@@ -1436,11 +1719,16 @@ function InitCustomTriggers()
     InitTrig_Kill_Count()
     InitTrig_Leaving_Players()
     InitTrig_Remove_Dying_Unit_Heroes()
+    InitTrig_Lumber_Bounty()
     InitTrig_Ghastly_Vial()
     InitTrig_Ghastly_Vial_Cast()
     InitTrig_Khorns_Gift()
     InitTrig_Satans_Claw_Give()
     InitTrig_Satans_Claw_Remove()
+    InitTrig_Items()
+    InitTrig_Items_Copy()
+    InitTrig_Items_Copy_2()
+    InitTrig_Items_Copy_3()
     InitTrig_Creep_Count()
     InitTrig_Creep_Count_Remove()
     InitTrig_Creep_Spawn_1()
@@ -1684,7 +1972,6 @@ function main()
     SetMapMusic("Music", true, 0)
     InitSounds()
     CreateRegions()
-    CreateAllItems()
     CreateAllUnits()
     InitBlizzard()
     InitGlobals()
