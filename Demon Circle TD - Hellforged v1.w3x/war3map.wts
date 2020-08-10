@@ -2458,3 +2458,45 @@ STRING 814
 W
 }
 
+STRING 815
+// Units: h00E (Prop), Name (Name)
+{
+Prop
+}
+
+STRING 816
+// Units: h029 (Ghost), Name (Name)
+{
+Ghost
+}
+
+STRING 817
+// Units: h02A (Dummy), Name (Name)
+{
+Dummy
+}
+
+STRING 818
+// Abilities: A00I (Khorns Gift Speed), Name (Name)
+{
+Khorns Gift Speed
+}
+
+STRING 819
+// Abilities: A00J (Khorns Gift Damage), Name (Name)
+{
+Khorns Gift Damage
+}
+
+STRING 820
+// Abilities: A00K (Inventory), EditorSuffix (Editor Suffix)
+{
+(Builder)
+}
+
+STRING 821
+// Abilities: A00L (Inventory), EditorSuffix (Editor Suffix)
+{
+(Tower)
+}
+

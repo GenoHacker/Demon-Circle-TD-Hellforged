@@ -21,6 +21,7 @@ udg_Dialog_Difficulty = nil
 udg_DialogButton_Array_Difficulty = {}
 udg_Integer_Array_DifficultyVote = __jarray(0)
 udg_Integer_PlayerCount = 0
+udg_Integer_Array_GhastlyChance = __jarray(0)
 gg_rct_Start1 = nil
 gg_rct_Start2 = nil
 gg_rct_Start3 = nil
@@ -45,6 +46,14 @@ gg_rct_Waypoint_2 = nil
 gg_rct_Waypoint_4 = nil
 gg_rct_Waypoint_6 = nil
 gg_rct_Waypoint_8 = nil
+gg_rct_Region_024 = nil
+gg_rct_Region_025 = nil
+gg_rct_Region_026 = nil
+gg_rct_Region_027 = nil
+gg_rct_Region_028 = nil
+gg_rct_Region_029 = nil
+gg_rct_Region_030 = nil
+gg_rct_Region_031 = nil
 gg_snd_PurgeTarget = nil
 gg_snd_Wave_Air = nil
 gg_snd_Wave_Immune = nil
@@ -75,6 +84,8 @@ gg_trg_Creep_Count_Remove = nil
 gg_trg_Leaving_Players = nil
 gg_trg_Remove_Dying_Unit_Heroes = nil
 gg_trg_Camera_Zoom = nil
+gg_trg_Ghastly_Vial = nil
+gg_trg_Khorns_Gift = nil
 function InitGlobals()
     local i = 0
     udg_I_Round = 0
@@ -102,6 +113,12 @@ function InitGlobals()
         i = i + 1
     end
     udg_Integer_PlayerCount = 0
+    i = 0
+    while (true) do
+        if ((i > 1)) then break end
+        udg_Integer_Array_GhastlyChance[i] = 0
+        i = i + 1
+    end
 end
 
 function InitSounds()
@@ -140,6 +157,14 @@ function InitSounds()
     SetSoundChannel(gg_snd_Score_Screen_Music, 0)
     SetSoundVolume(gg_snd_Score_Screen_Music, 127)
     SetSoundPitch(gg_snd_Score_Screen_Music, 1.0)
+end
+
+function CreateAllItems()
+    local itemID
+    BlzCreateItemWithSkin(FourCC("I000"), -4444.8, 3452.2, FourCC("I000"))
+    BlzCreateItemWithSkin(FourCC("I001"), -4338.5, 3482.7, FourCC("I001"))
+    BlzCreateItemWithSkin(FourCC("I002"), -4244.7, 3515.8, FourCC("I002"))
+    BlzCreateItemWithSkin(FourCC("I003"), -4147.5, 3549.7, FourCC("I003"))
 end
 
 function CreateNeutralPassiveBuildings()
@@ -202,123 +227,14 @@ function CreateRegions()
     gg_rct_Waypoint_4 = Rect(704.0, 1984.0, 832.0, 2112.0)
     gg_rct_Waypoint_6 = Rect(-2624.0, -1344.0, -2496.0, -1216.0)
     gg_rct_Waypoint_8 = Rect(-5952.0, 1984.0, -5824.0, 2112.0)
-end
-
-function Trig_Difficulty_Dialog_Start_Actions()
-    DialogSetMessageBJ(udg_Dialog_Difficulty, "TRIGSTR_771")
-    DialogAddButtonBJ(udg_Dialog_Difficulty, "TRIGSTR_768")
-    udg_DialogButton_Array_Difficulty[1] = GetLastCreatedButtonBJ()
-    DialogAddButtonBJ(udg_Dialog_Difficulty, "TRIGSTR_769")
-    udg_DialogButton_Array_Difficulty[2] = GetLastCreatedButtonBJ()
-    DialogAddButtonBJ(udg_Dialog_Difficulty, "TRIGSTR_770")
-    udg_DialogButton_Array_Difficulty[3] = GetLastCreatedButtonBJ()
-    bj_forLoopAIndex = 1
-    bj_forLoopAIndexEnd = udg_Integer_PlayerCount
-    while (true) do
-        if (bj_forLoopAIndex > bj_forLoopAIndexEnd) then break end
-        DialogDisplayBJ(true, udg_Dialog_Difficulty, ConvertedPlayer(GetForLoopIndexA()))
-        bj_forLoopAIndex = bj_forLoopAIndex + 1
-    end
-end
-
-function InitTrig_Difficulty_Dialog_Start()
-    gg_trg_Difficulty_Dialog_Start = CreateTrigger()
-    TriggerRegisterTimerEventSingle(gg_trg_Difficulty_Dialog_Start, 0.00)
-    TriggerAddAction(gg_trg_Difficulty_Dialog_Start, Trig_Difficulty_Dialog_Start_Actions)
-end
-
-function Trig_Difficulty_Adjust_Func001C()
-    if (not (GetClickedButtonBJ() == udg_DialogButton_Array_Difficulty[1])) then
-        return false
-    end
-    return true
-end
-
-function Trig_Difficulty_Adjust_Func002C()
-    if (not (GetClickedButtonBJ() == udg_DialogButton_Array_Difficulty[2])) then
-        return false
-    end
-    return true
-end
-
-function Trig_Difficulty_Adjust_Func003C()
-    if (not (GetClickedButtonBJ() == udg_DialogButton_Array_Difficulty[3])) then
-        return false
-    end
-    return true
-end
-
-function Trig_Difficulty_Adjust_Actions()
-    if (Trig_Difficulty_Adjust_Func001C()) then
-        SetPlayerHandicapBJ(Player(10), (GetPlayerHandicapBJ(Player(10)) + 4.00))
-        SetPlayerHandicapBJ(Player(11), (GetPlayerHandicapBJ(Player(11)) + 4.00))
-        DisplayTimedTextToForce(GetPlayersAll(), 5.00, (GetPlayerName(GetTriggerPlayer()) .. " has increased difficulty by 4%."))
-        DisplayTimedTextToForce(GetPlayersAll(), 5.00, ("Difficulty is now: " .. (I2S(R2I(GetPlayerHandicapBJ(Player(10)))) .. "%")))
-        udg_Integer_Array_DifficultyVote[1] = (udg_Integer_Array_DifficultyVote[1] + 1)
-    else
-    end
-    if (Trig_Difficulty_Adjust_Func002C()) then
-        DisplayTimedTextToForce(GetPlayersAll(), 5.00, (GetPlayerName(GetTriggerPlayer()) .. " decided to not Increase or Decrease difficulty."))
-    else
-    end
-    if (Trig_Difficulty_Adjust_Func003C()) then
-        SetPlayerHandicapBJ(Player(10), (GetPlayerHandicapBJ(Player(10)) - 2.00))
-        SetPlayerHandicapBJ(Player(11), (GetPlayerHandicapBJ(Player(11)) - 2.00))
-        DisplayTimedTextToForce(GetPlayersAll(), 5.00, (GetPlayerName(GetTriggerPlayer()) .. " has decreased difficulty by 2%."))
-        DisplayTimedTextToForce(GetPlayersAll(), 5.00, ("Difficulty is now: " .. (I2S(R2I(GetPlayerHandicapBJ(Player(10)))) .. "%")))
-        udg_Integer_Array_DifficultyVote[2] = (udg_Integer_Array_DifficultyVote[2] + 1)
-    else
-    end
-end
-
-function InitTrig_Difficulty_Adjust()
-    gg_trg_Difficulty_Adjust = CreateTrigger()
-    TriggerRegisterDialogEventBJ(gg_trg_Difficulty_Adjust, udg_Dialog_Difficulty)
-    TriggerAddAction(gg_trg_Difficulty_Adjust, Trig_Difficulty_Adjust_Actions)
-end
-
-function Trig_Difficulty_Dialog_Stop_Func002C()
-    if (not (udg_Integer_Array_DifficultyVote[1] == udg_Integer_PlayerCount)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Difficulty_Dialog_Stop_Func003C()
-    if (not (udg_Integer_Array_DifficultyVote[2] == udg_Integer_PlayerCount)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Difficulty_Dialog_Stop_Actions()
-    bj_forLoopAIndex = 1
-    bj_forLoopAIndexEnd = udg_Integer_PlayerCount
-    while (true) do
-        if (bj_forLoopAIndex > bj_forLoopAIndexEnd) then break end
-        DialogDisplayBJ(false, udg_Dialog_Difficulty, ConvertedPlayer(GetForLoopIndexA()))
-        bj_forLoopAIndex = bj_forLoopAIndex + 1
-    end
-    if (Trig_Difficulty_Dialog_Stop_Func002C()) then
-        SetPlayerHandicapBJ(Player(10), (GetPlayerHandicapBJ(Player(10)) + 8.00))
-        SetPlayerHandicapBJ(Player(11), (GetPlayerHandicapBJ(Player(11)) + 8.00))
-        DisplayTimedTextToForce(GetPlayersAll(), 5.00, "TRIGSTR_780")
-        DisplayTimedTextToForce(GetPlayersAll(), 5.00, ("Difficulty is now: " .. (I2S(R2I(GetPlayerHandicapBJ(Player(10)))) .. "%")))
-    else
-    end
-    if (Trig_Difficulty_Dialog_Stop_Func003C()) then
-        SetPlayerHandicapBJ(Player(10), (GetPlayerHandicapBJ(Player(10)) - 4.00))
-        SetPlayerHandicapBJ(Player(11), (GetPlayerHandicapBJ(Player(11)) - 4.00))
-        DisplayTimedTextToForce(GetPlayersAll(), 5.00, "TRIGSTR_781")
-        DisplayTimedTextToForce(GetPlayersAll(), 5.00, ("Difficulty is now: " .. (I2S(R2I(GetPlayerHandicapBJ(Player(10)))) .. "%")))
-    else
-    end
-end
-
-function InitTrig_Difficulty_Dialog_Stop()
-    gg_trg_Difficulty_Dialog_Stop = CreateTrigger()
-    TriggerRegisterTimerEventSingle(gg_trg_Difficulty_Dialog_Stop, 15.00)
-    TriggerAddAction(gg_trg_Difficulty_Dialog_Stop, Trig_Difficulty_Dialog_Stop_Actions)
+    gg_rct_Region_024 = Rect(-3968.0, 1920.0, -3712.0, 2176.0)
+    gg_rct_Region_025 = Rect(-3712.0, 2944.0, -3456.0, 3200.0)
+    gg_rct_Region_026 = Rect(-2688.0, 3200.0, -2432.0, 3456.0)
+    gg_rct_Region_027 = Rect(-1664.0, 2944.0, -1408.0, 3200.0)
+    gg_rct_Region_028 = Rect(-1408.0, 1920.0, -1152.0, 2176.0)
+    gg_rct_Region_029 = Rect(-1664.0, 896.0, -1408.0, 1152.0)
+    gg_rct_Region_030 = Rect(-2688.0, 640.0, -2432.0, 896.0)
+    gg_rct_Region_031 = Rect(-3712.0, 896.0, -3456.0, 1152.0)
 end
 
 function Trig_Map_Initialization_Func001Func001C()
@@ -440,6 +356,37 @@ function InitTrig_Map_Initialization()
     TriggerAddAction(gg_trg_Map_Initialization, Trig_Map_Initialization_Actions)
 end
 
+function Trig_Leaderboard_Func003Func001C()
+    if (not (GetPlayerSlotState(ConvertedPlayer(GetForLoopIndexA())) == PLAYER_SLOT_STATE_PLAYING)) then
+        return false
+    end
+    return true
+end
+
+function Trig_Leaderboard_Actions()
+    CreateLeaderboardBJ(GetPlayersAll(), "TRIGSTR_038")
+    udg_LB_Info = GetLastCreatedLeaderboard()
+    bj_forLoopAIndex = 1
+    bj_forLoopAIndexEnd = 8
+    while (true) do
+        if (bj_forLoopAIndex > bj_forLoopAIndexEnd) then break end
+        if (Trig_Leaderboard_Func003Func001C()) then
+            LeaderboardAddItemBJ(ConvertedPlayer(GetForLoopIndexA()), udg_LB_Info, GetPlayerName(ConvertedPlayer(GetForLoopIndexA())), udg_I_Kills[GetConvertedPlayerId(ConvertedPlayer(GetForLoopIndexA()))])
+        else
+            LeaderboardAddItemBJ(ConvertedPlayer(GetForLoopIndexA()), udg_LB_Info, "TRIGSTR_116", udg_I_Kills[GetConvertedPlayerId(ConvertedPlayer(GetForLoopIndexA()))])
+        end
+        bj_forLoopAIndex = bj_forLoopAIndex + 1
+    end
+    LeaderboardAddItemBJ(Player(9), GetLastCreatedLeaderboard(), "TRIGSTR_040", udg_I_Round)
+    LeaderboardAddItemBJ(Player(8), GetLastCreatedLeaderboard(), "TRIGSTR_039", udg_I_NumberOfCreeps)
+end
+
+function InitTrig_Leaderboard()
+    gg_trg_Leaderboard = CreateTrigger()
+    TriggerRegisterTimerEventSingle(gg_trg_Leaderboard, 0.00)
+    TriggerAddAction(gg_trg_Leaderboard, Trig_Leaderboard_Actions)
+end
+
 function Trig_Starting_Locations_Func002Func001C()
     if (not (GetPlayerSlotState(ConvertedPlayer(GetForLoopIndexA())) == PLAYER_SLOT_STATE_PLAYING)) then
         return false
@@ -472,57 +419,121 @@ function InitTrig_Starting_Locations()
     TriggerAddAction(gg_trg_Starting_Locations, Trig_Starting_Locations_Actions)
 end
 
-function Trig_Sell_Towers_Conditions()
-    if (not (GetSpellAbilityId() == FourCC("A000"))) then
-        return false
-    end
-    return true
-end
-
-function Trig_Sell_Towers_Actions()
-    KillUnit(GetTriggerUnit())
-    AddSpecialEffectLocBJ(GetUnitLoc(GetTriggerUnit()), "Abilities\\Spells\\Other\\Awaken\\Awaken.mdl")
-    DestroyEffectBJ(GetLastCreatedEffectBJ())
-    DisplayTextToForce(GetForceOfPlayer(GetOwningPlayer(GetTriggerUnit())), ("|cffffcc00You get " .. (I2S(GetUnitPointValue(GetTriggerUnit())) .. (" gold for selling a " .. (GetUnitName(GetTriggerUnit()) .. ".|r")))))
-    AdjustPlayerStateBJ(GetUnitPointValue(GetTriggerUnit()), GetOwningPlayer(GetTriggerUnit()), PLAYER_STATE_RESOURCE_GOLD)
-end
-
-function InitTrig_Sell_Towers()
-    gg_trg_Sell_Towers = CreateTrigger()
-    TriggerRegisterAnyUnitEventBJ(gg_trg_Sell_Towers, EVENT_PLAYER_UNIT_SPELL_CAST)
-    TriggerAddCondition(gg_trg_Sell_Towers, Condition(Trig_Sell_Towers_Conditions))
-    TriggerAddAction(gg_trg_Sell_Towers, Trig_Sell_Towers_Actions)
-end
-
-function Trig_Leaderboard_Func003Func001C()
-    if (not (GetPlayerSlotState(ConvertedPlayer(GetForLoopIndexA())) == PLAYER_SLOT_STATE_PLAYING)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Leaderboard_Actions()
-    CreateLeaderboardBJ(GetPlayersAll(), "TRIGSTR_038")
-    udg_LB_Info = GetLastCreatedLeaderboard()
+function Trig_Difficulty_Dialog_Start_Actions()
+    DialogSetMessageBJ(udg_Dialog_Difficulty, "TRIGSTR_771")
+    DialogAddButtonBJ(udg_Dialog_Difficulty, "TRIGSTR_768")
+    udg_DialogButton_Array_Difficulty[1] = GetLastCreatedButtonBJ()
+    DialogAddButtonBJ(udg_Dialog_Difficulty, "TRIGSTR_769")
+    udg_DialogButton_Array_Difficulty[2] = GetLastCreatedButtonBJ()
+    DialogAddButtonBJ(udg_Dialog_Difficulty, "TRIGSTR_770")
+    udg_DialogButton_Array_Difficulty[3] = GetLastCreatedButtonBJ()
     bj_forLoopAIndex = 1
-    bj_forLoopAIndexEnd = 8
+    bj_forLoopAIndexEnd = udg_Integer_PlayerCount
     while (true) do
         if (bj_forLoopAIndex > bj_forLoopAIndexEnd) then break end
-        if (Trig_Leaderboard_Func003Func001C()) then
-            LeaderboardAddItemBJ(ConvertedPlayer(GetForLoopIndexA()), udg_LB_Info, GetPlayerName(ConvertedPlayer(GetForLoopIndexA())), udg_I_Kills[GetConvertedPlayerId(ConvertedPlayer(GetForLoopIndexA()))])
-        else
-            LeaderboardAddItemBJ(ConvertedPlayer(GetForLoopIndexA()), udg_LB_Info, "TRIGSTR_116", udg_I_Kills[GetConvertedPlayerId(ConvertedPlayer(GetForLoopIndexA()))])
-        end
+        DialogDisplayBJ(true, udg_Dialog_Difficulty, ConvertedPlayer(GetForLoopIndexA()))
         bj_forLoopAIndex = bj_forLoopAIndex + 1
     end
-    LeaderboardAddItemBJ(Player(9), GetLastCreatedLeaderboard(), "TRIGSTR_040", udg_I_Round)
-    LeaderboardAddItemBJ(Player(8), GetLastCreatedLeaderboard(), "TRIGSTR_039", udg_I_NumberOfCreeps)
 end
 
-function InitTrig_Leaderboard()
-    gg_trg_Leaderboard = CreateTrigger()
-    TriggerRegisterTimerEventSingle(gg_trg_Leaderboard, 0.00)
-    TriggerAddAction(gg_trg_Leaderboard, Trig_Leaderboard_Actions)
+function InitTrig_Difficulty_Dialog_Start()
+    gg_trg_Difficulty_Dialog_Start = CreateTrigger()
+    TriggerRegisterTimerEventSingle(gg_trg_Difficulty_Dialog_Start, 0.00)
+    TriggerAddAction(gg_trg_Difficulty_Dialog_Start, Trig_Difficulty_Dialog_Start_Actions)
+end
+
+function Trig_Difficulty_Adjust_Func001C()
+    if (not (GetClickedButtonBJ() == udg_DialogButton_Array_Difficulty[1])) then
+        return false
+    end
+    return true
+end
+
+function Trig_Difficulty_Adjust_Func002C()
+    if (not (GetClickedButtonBJ() == udg_DialogButton_Array_Difficulty[2])) then
+        return false
+    end
+    return true
+end
+
+function Trig_Difficulty_Adjust_Func003C()
+    if (not (GetClickedButtonBJ() == udg_DialogButton_Array_Difficulty[3])) then
+        return false
+    end
+    return true
+end
+
+function Trig_Difficulty_Adjust_Actions()
+    if (Trig_Difficulty_Adjust_Func001C()) then
+        SetPlayerHandicapBJ(Player(10), (GetPlayerHandicapBJ(Player(10)) + 4.00))
+        SetPlayerHandicapBJ(Player(11), (GetPlayerHandicapBJ(Player(11)) + 4.00))
+        DisplayTimedTextToForce(GetPlayersAll(), 5.00, (GetPlayerName(GetTriggerPlayer()) .. " has increased difficulty by 4%."))
+        DisplayTimedTextToForce(GetPlayersAll(), 5.00, ("Difficulty is now: " .. (I2S(R2I(GetPlayerHandicapBJ(Player(10)))) .. "%")))
+        udg_Integer_Array_DifficultyVote[1] = (udg_Integer_Array_DifficultyVote[1] + 1)
+    else
+    end
+    if (Trig_Difficulty_Adjust_Func002C()) then
+        DisplayTimedTextToForce(GetPlayersAll(), 5.00, (GetPlayerName(GetTriggerPlayer()) .. " decided to not Increase or Decrease difficulty."))
+    else
+    end
+    if (Trig_Difficulty_Adjust_Func003C()) then
+        SetPlayerHandicapBJ(Player(10), (GetPlayerHandicapBJ(Player(10)) - 2.00))
+        SetPlayerHandicapBJ(Player(11), (GetPlayerHandicapBJ(Player(11)) - 2.00))
+        DisplayTimedTextToForce(GetPlayersAll(), 5.00, (GetPlayerName(GetTriggerPlayer()) .. " has decreased difficulty by 2%."))
+        DisplayTimedTextToForce(GetPlayersAll(), 5.00, ("Difficulty is now: " .. (I2S(R2I(GetPlayerHandicapBJ(Player(10)))) .. "%")))
+        udg_Integer_Array_DifficultyVote[2] = (udg_Integer_Array_DifficultyVote[2] + 1)
+    else
+    end
+end
+
+function InitTrig_Difficulty_Adjust()
+    gg_trg_Difficulty_Adjust = CreateTrigger()
+    TriggerRegisterDialogEventBJ(gg_trg_Difficulty_Adjust, udg_Dialog_Difficulty)
+    TriggerAddAction(gg_trg_Difficulty_Adjust, Trig_Difficulty_Adjust_Actions)
+end
+
+function Trig_Difficulty_Dialog_Stop_Func002C()
+    if (not (udg_Integer_Array_DifficultyVote[1] == udg_Integer_PlayerCount)) then
+        return false
+    end
+    return true
+end
+
+function Trig_Difficulty_Dialog_Stop_Func003C()
+    if (not (udg_Integer_Array_DifficultyVote[2] == udg_Integer_PlayerCount)) then
+        return false
+    end
+    return true
+end
+
+function Trig_Difficulty_Dialog_Stop_Actions()
+    bj_forLoopAIndex = 1
+    bj_forLoopAIndexEnd = udg_Integer_PlayerCount
+    while (true) do
+        if (bj_forLoopAIndex > bj_forLoopAIndexEnd) then break end
+        DialogDisplayBJ(false, udg_Dialog_Difficulty, ConvertedPlayer(GetForLoopIndexA()))
+        bj_forLoopAIndex = bj_forLoopAIndex + 1
+    end
+    if (Trig_Difficulty_Dialog_Stop_Func002C()) then
+        SetPlayerHandicapBJ(Player(10), (GetPlayerHandicapBJ(Player(10)) + 8.00))
+        SetPlayerHandicapBJ(Player(11), (GetPlayerHandicapBJ(Player(11)) + 8.00))
+        DisplayTimedTextToForce(GetPlayersAll(), 5.00, "TRIGSTR_780")
+        DisplayTimedTextToForce(GetPlayersAll(), 5.00, ("Difficulty is now: " .. (I2S(R2I(GetPlayerHandicapBJ(Player(10)))) .. "%")))
+    else
+    end
+    if (Trig_Difficulty_Dialog_Stop_Func003C()) then
+        SetPlayerHandicapBJ(Player(10), (GetPlayerHandicapBJ(Player(10)) - 4.00))
+        SetPlayerHandicapBJ(Player(11), (GetPlayerHandicapBJ(Player(11)) - 4.00))
+        DisplayTimedTextToForce(GetPlayersAll(), 5.00, "TRIGSTR_781")
+        DisplayTimedTextToForce(GetPlayersAll(), 5.00, ("Difficulty is now: " .. (I2S(R2I(GetPlayerHandicapBJ(Player(10)))) .. "%")))
+    else
+    end
+end
+
+function InitTrig_Difficulty_Dialog_Stop()
+    gg_trg_Difficulty_Dialog_Stop = CreateTrigger()
+    TriggerRegisterTimerEventSingle(gg_trg_Difficulty_Dialog_Stop, 15.00)
+    TriggerAddAction(gg_trg_Difficulty_Dialog_Stop, Trig_Difficulty_Dialog_Stop_Actions)
 end
 
 function Trig_Next_Round_Func001Func004A()
@@ -705,6 +716,274 @@ function InitTrig_Wave_Spawning()
     TriggerRegisterTimerEventPeriodic(gg_trg_Wave_Spawning, 0.25)
     TriggerAddCondition(gg_trg_Wave_Spawning, Condition(Trig_Wave_Spawning_Conditions))
     TriggerAddAction(gg_trg_Wave_Spawning, Trig_Wave_Spawning_Actions)
+end
+
+function Trig_Sell_Towers_Conditions()
+    if (not (GetSpellAbilityId() == FourCC("A000"))) then
+        return false
+    end
+    return true
+end
+
+function Trig_Sell_Towers_Actions()
+    KillUnit(GetTriggerUnit())
+    AddSpecialEffectLocBJ(GetUnitLoc(GetTriggerUnit()), "Abilities\\Spells\\Other\\Awaken\\Awaken.mdl")
+    DestroyEffectBJ(GetLastCreatedEffectBJ())
+    DisplayTextToForce(GetForceOfPlayer(GetOwningPlayer(GetTriggerUnit())), ("|cffffcc00You get " .. (I2S(GetUnitPointValue(GetTriggerUnit())) .. (" gold for selling a " .. (GetUnitName(GetTriggerUnit()) .. ".|r")))))
+    AdjustPlayerStateBJ(GetUnitPointValue(GetTriggerUnit()), GetOwningPlayer(GetTriggerUnit()), PLAYER_STATE_RESOURCE_GOLD)
+end
+
+function InitTrig_Sell_Towers()
+    gg_trg_Sell_Towers = CreateTrigger()
+    TriggerRegisterAnyUnitEventBJ(gg_trg_Sell_Towers, EVENT_PLAYER_UNIT_SPELL_CAST)
+    TriggerAddCondition(gg_trg_Sell_Towers, Condition(Trig_Sell_Towers_Conditions))
+    TriggerAddAction(gg_trg_Sell_Towers, Trig_Sell_Towers_Actions)
+end
+
+function Trig_Kill_Count_Conditions()
+    if (not (GetOwningPlayer(GetTriggerUnit()) == Player(11))) then
+        return false
+    end
+    return true
+end
+
+function Trig_Kill_Count_Func001Func001C()
+    if (GetOwningPlayer(GetTriggerUnit()) == Player(10)) then
+        return true
+    end
+    if (GetOwningPlayer(GetTriggerUnit()) == Player(11)) then
+        return true
+    end
+    return false
+end
+
+function Trig_Kill_Count_Func001C()
+    if (not Trig_Kill_Count_Func001Func001C()) then
+        return false
+    end
+    return true
+end
+
+function Trig_Kill_Count_Actions()
+    if (Trig_Kill_Count_Func001C()) then
+        LeaderboardSetPlayerItemValueBJ(GetOwningPlayer(GetKillingUnitBJ()), udg_LB_Info, udg_I_Kills[GetConvertedPlayerId(GetOwningPlayer(GetKillingUnitBJ()))])
+        udg_I_Kills[GetConvertedPlayerId(GetOwningPlayer(GetKillingUnitBJ()))] = (udg_I_Kills[GetConvertedPlayerId(GetOwningPlayer(GetKillingUnitBJ()))] + 1)
+    else
+    end
+end
+
+function InitTrig_Kill_Count()
+    gg_trg_Kill_Count = CreateTrigger()
+    TriggerRegisterAnyUnitEventBJ(gg_trg_Kill_Count, EVENT_PLAYER_UNIT_DEATH)
+    TriggerAddCondition(gg_trg_Kill_Count, Condition(Trig_Kill_Count_Conditions))
+    TriggerAddAction(gg_trg_Kill_Count, Trig_Kill_Count_Actions)
+end
+
+function Trig_Leaving_Players_Func003Func001002001001001()
+    return (GetPlayerSlotState(GetFilterPlayer()) == PLAYER_SLOT_STATE_PLAYING)
+end
+
+function Trig_Leaving_Players_Func003Func001002001001002001()
+    return (IsPlayerAlly(GetFilterPlayer(), GetTriggerPlayer()) == true)
+end
+
+function Trig_Leaving_Players_Func003Func001002001001002002()
+    return (GetFilterPlayer() ~= GetTriggerPlayer())
+end
+
+function Trig_Leaving_Players_Func003Func001002001001002()
+    return GetBooleanAnd(Trig_Leaving_Players_Func003Func001002001001002001(), Trig_Leaving_Players_Func003Func001002001001002002())
+end
+
+function Trig_Leaving_Players_Func003Func001002001001()
+    return GetBooleanAnd(Trig_Leaving_Players_Func003Func001002001001001(), Trig_Leaving_Players_Func003Func001002001001002())
+end
+
+function Trig_Leaving_Players_Func003A()
+    SetUnitOwner(GetEnumUnit(), ForcePickRandomPlayer(GetPlayersMatching(Condition(Trig_Leaving_Players_Func003Func001002001001))), true)
+end
+
+function Trig_Leaving_Players_Actions()
+    DisplayTextToForce(GetPlayersAll(), (("|cffffaa00" .. GetPlayerName(GetTriggerPlayer())) .. "has left the game!!|r"))
+    KillUnit(GroupPickRandomUnit(GetUnitsOfPlayerAndTypeId(GetTriggerPlayer(), FourCC("u005"))))
+    ForGroupBJ(GetUnitsOfPlayerAll(GetTriggerPlayer()), Trig_Leaving_Players_Func003A)
+    LeaderboardSetPlayerItemLabelBJ(GetTriggerPlayer(), udg_LB_Info, "TRIGSTR_112")
+end
+
+function InitTrig_Leaving_Players()
+    gg_trg_Leaving_Players = CreateTrigger()
+    TriggerRegisterPlayerEventLeave(gg_trg_Leaving_Players, Player(0))
+    TriggerRegisterPlayerEventLeave(gg_trg_Leaving_Players, Player(1))
+    TriggerRegisterPlayerEventLeave(gg_trg_Leaving_Players, Player(2))
+    TriggerRegisterPlayerEventLeave(gg_trg_Leaving_Players, Player(3))
+    TriggerRegisterPlayerEventLeave(gg_trg_Leaving_Players, Player(4))
+    TriggerRegisterPlayerEventLeave(gg_trg_Leaving_Players, Player(5))
+    TriggerRegisterPlayerEventLeave(gg_trg_Leaving_Players, Player(6))
+    TriggerRegisterPlayerEventLeave(gg_trg_Leaving_Players, Player(7))
+    TriggerAddAction(gg_trg_Leaving_Players, Trig_Leaving_Players_Actions)
+end
+
+function Trig_Remove_Dying_Unit_Heroes_Func002C()
+    if (GetUnitTypeId(GetTriggerUnit()) == FourCC("h00H")) then
+        return true
+    end
+    if (GetUnitTypeId(GetTriggerUnit()) == FourCC("h00I")) then
+        return true
+    end
+    if (GetUnitTypeId(GetTriggerUnit()) == FourCC("h00L")) then
+        return true
+    end
+    if (GetUnitTypeId(GetTriggerUnit()) == FourCC("h00M")) then
+        return true
+    end
+    if (GetUnitTypeId(GetTriggerUnit()) == FourCC("h00N")) then
+        return true
+    end
+    if (GetUnitTypeId(GetTriggerUnit()) == FourCC("h00O")) then
+        return true
+    end
+    if (GetUnitTypeId(GetTriggerUnit()) == FourCC("h00R")) then
+        return true
+    end
+    if (GetUnitTypeId(GetTriggerUnit()) == FourCC("h00S")) then
+        return true
+    end
+    if (GetUnitTypeId(GetTriggerUnit()) == FourCC("h012")) then
+        return true
+    end
+    if (GetUnitTypeId(GetTriggerUnit()) == FourCC("h025")) then
+        return true
+    end
+    if (GetUnitTypeId(GetTriggerUnit()) == FourCC("h026")) then
+        return true
+    end
+    return false
+end
+
+function Trig_Remove_Dying_Unit_Heroes_Conditions()
+    if (not Trig_Remove_Dying_Unit_Heroes_Func002C()) then
+        return false
+    end
+    return true
+end
+
+function Trig_Remove_Dying_Unit_Heroes_Actions()
+    RemoveUnit(GetTriggerUnit())
+end
+
+function InitTrig_Remove_Dying_Unit_Heroes()
+    gg_trg_Remove_Dying_Unit_Heroes = CreateTrigger()
+    TriggerRegisterAnyUnitEventBJ(gg_trg_Remove_Dying_Unit_Heroes, EVENT_PLAYER_UNIT_DEATH)
+    TriggerAddCondition(gg_trg_Remove_Dying_Unit_Heroes, Condition(Trig_Remove_Dying_Unit_Heroes_Conditions))
+    TriggerAddAction(gg_trg_Remove_Dying_Unit_Heroes, Trig_Remove_Dying_Unit_Heroes_Actions)
+end
+
+function Trig_Ghastly_Vial_Func001Func002C()
+    if (not (udg_Integer_Array_GhastlyChance[GetConvertedPlayerId(GetOwningPlayer(GetKillingUnitBJ()))] <= 8)) then
+        return false
+    end
+    return true
+end
+
+function Trig_Ghastly_Vial_Func001C()
+    if (not (UnitHasItemOfTypeBJ(GetKillingUnitBJ(), FourCC("I000")) == true)) then
+        return false
+    end
+    return true
+end
+
+function Trig_Ghastly_Vial_Actions()
+    if (Trig_Ghastly_Vial_Func001C()) then
+        udg_Integer_Array_GhastlyChance[GetConvertedPlayerId(GetOwningPlayer(GetKillingUnitBJ()))] = GetRandomInt(1, 100)
+        if (Trig_Ghastly_Vial_Func001Func002C()) then
+            udg_Temp_Point = GetUnitLoc(GetKillingUnitBJ())
+            CreateNUnitsAtLoc(1, FourCC("h029"), GetOwningPlayer(GetKillingUnitBJ()), udg_Temp_Point, bj_UNIT_FACING)
+            UnitApplyTimedLifeBJ(8.00, FourCC("BTLF"), GetLastCreatedUnit())
+                        RemoveLocation(udg_Temp_Point)
+        else
+        end
+    else
+    end
+end
+
+function InitTrig_Ghastly_Vial()
+    gg_trg_Ghastly_Vial = CreateTrigger()
+    TriggerRegisterAnyUnitEventBJ(gg_trg_Ghastly_Vial, EVENT_PLAYER_UNIT_DEATH)
+    TriggerAddAction(gg_trg_Ghastly_Vial, Trig_Ghastly_Vial_Actions)
+end
+
+function Trig_Khorns_Gift_Func001C()
+    if (not (UnitHasItemOfTypeBJ(GetKillingUnitBJ(), FourCC("I002")) == true)) then
+        return false
+    end
+    return true
+end
+
+function Trig_Khorns_Gift_Actions()
+    if (Trig_Khorns_Gift_Func001C()) then
+        udg_Temp_Point = GetUnitLoc(GetKillingUnitBJ())
+        CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetKillingUnitBJ()), udg_Temp_Point, bj_UNIT_FACING)
+        UnitApplyTimedLifeBJ(1.00, FourCC("BTLF"), GetLastCreatedUnit())
+        UnitAddAbilityBJ(FourCC("A00J"), GetLastCreatedUnit())
+        IssueTargetOrderBJ(GetLastCreatedUnit(), "innerfire", GetKillingUnitBJ())
+        CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetKillingUnitBJ()), udg_Temp_Point, bj_UNIT_FACING)
+        UnitApplyTimedLifeBJ(1.00, FourCC("BTLF"), GetLastCreatedUnit())
+        UnitAddAbilityBJ(FourCC("A00I"), GetLastCreatedUnit())
+        IssueTargetOrderBJ(GetLastCreatedUnit(), "bloodlust", GetKillingUnitBJ())
+                RemoveLocation(udg_Temp_Point)
+    else
+    end
+end
+
+function InitTrig_Khorns_Gift()
+    gg_trg_Khorns_Gift = CreateTrigger()
+    TriggerRegisterAnyUnitEventBJ(gg_trg_Khorns_Gift, EVENT_PLAYER_UNIT_DEATH)
+    TriggerAddAction(gg_trg_Khorns_Gift, Trig_Khorns_Gift_Actions)
+end
+
+function Trig_Creep_Count_Func011Func001A()
+    CustomDefeatBJ(GetEnumPlayer(), "TRIGSTR_041")
+end
+
+function Trig_Creep_Count_Func011C()
+    if (not (udg_I_NumberOfCreeps == 250)) then
+        return false
+    end
+    return true
+end
+
+function Trig_Creep_Count_Actions()
+    udg_I_NumberOfCreeps = (udg_I_NumberOfCreeps + 1)
+    LeaderboardSetPlayerItemValueBJ(Player(8), udg_LB_Info, udg_I_NumberOfCreeps)
+    if (Trig_Creep_Count_Func011C()) then
+        ForForce(GetPlayersByMapControl(MAP_CONTROL_USER), Trig_Creep_Count_Func011Func001A)
+    else
+    end
+end
+
+function InitTrig_Creep_Count()
+    gg_trg_Creep_Count = CreateTrigger()
+    TriggerRegisterLeaveRectSimple(gg_trg_Creep_Count, gg_rct_CreepSpawn1)
+    TriggerRegisterLeaveRectSimple(gg_trg_Creep_Count, gg_rct_CreepSpawn2)
+    TriggerRegisterLeaveRectSimple(gg_trg_Creep_Count, gg_rct_CreepSpawn3)
+    TriggerRegisterLeaveRectSimple(gg_trg_Creep_Count, gg_rct_CreepSpawn4)
+    TriggerRegisterLeaveRectSimple(gg_trg_Creep_Count, gg_rct_CreepSpawn5)
+    TriggerRegisterLeaveRectSimple(gg_trg_Creep_Count, gg_rct_CreepSpawn6)
+    TriggerRegisterLeaveRectSimple(gg_trg_Creep_Count, gg_rct_CreepSpawn7)
+    TriggerRegisterLeaveRectSimple(gg_trg_Creep_Count, gg_rct_CreepSpawn8)
+    TriggerAddAction(gg_trg_Creep_Count, Trig_Creep_Count_Actions)
+end
+
+function Trig_Creep_Count_Remove_Actions()
+    udg_I_NumberOfCreeps = (udg_I_NumberOfCreeps - 1)
+    LeaderboardSetPlayerItemValueBJ(Player(8), udg_LB_Info, udg_I_NumberOfCreeps)
+end
+
+function InitTrig_Creep_Count_Remove()
+    gg_trg_Creep_Count_Remove = CreateTrigger()
+    TriggerRegisterPlayerUnitEventSimple(gg_trg_Creep_Count_Remove, Player(10), EVENT_PLAYER_UNIT_DEATH)
+    TriggerRegisterPlayerUnitEventSimple(gg_trg_Creep_Count_Remove, Player(11), EVENT_PLAYER_UNIT_DEATH)
+    TriggerAddAction(gg_trg_Creep_Count_Remove, Trig_Creep_Count_Remove_Actions)
 end
 
 function Trig_Creep_Spawn_1_Func004C()
@@ -955,189 +1234,6 @@ function InitTrig_Creep_Spawn_8()
     TriggerAddAction(gg_trg_Creep_Spawn_8, Trig_Creep_Spawn_8_Actions)
 end
 
-function Trig_Kill_Count_Conditions()
-    if (not (GetOwningPlayer(GetTriggerUnit()) == Player(11))) then
-        return false
-    end
-    return true
-end
-
-function Trig_Kill_Count_Func001Func001C()
-    if (GetOwningPlayer(GetTriggerUnit()) == Player(10)) then
-        return true
-    end
-    if (GetOwningPlayer(GetTriggerUnit()) == Player(11)) then
-        return true
-    end
-    return false
-end
-
-function Trig_Kill_Count_Func001C()
-    if (not Trig_Kill_Count_Func001Func001C()) then
-        return false
-    end
-    return true
-end
-
-function Trig_Kill_Count_Actions()
-    if (Trig_Kill_Count_Func001C()) then
-        LeaderboardSetPlayerItemValueBJ(GetOwningPlayer(GetKillingUnitBJ()), udg_LB_Info, udg_I_Kills[GetConvertedPlayerId(GetOwningPlayer(GetKillingUnitBJ()))])
-        udg_I_Kills[GetConvertedPlayerId(GetOwningPlayer(GetKillingUnitBJ()))] = (udg_I_Kills[GetConvertedPlayerId(GetOwningPlayer(GetKillingUnitBJ()))] + 1)
-    else
-    end
-end
-
-function InitTrig_Kill_Count()
-    gg_trg_Kill_Count = CreateTrigger()
-    TriggerRegisterAnyUnitEventBJ(gg_trg_Kill_Count, EVENT_PLAYER_UNIT_DEATH)
-    TriggerAddCondition(gg_trg_Kill_Count, Condition(Trig_Kill_Count_Conditions))
-    TriggerAddAction(gg_trg_Kill_Count, Trig_Kill_Count_Actions)
-end
-
-function Trig_Creep_Count_Func011Func001A()
-    CustomDefeatBJ(GetEnumPlayer(), "TRIGSTR_041")
-end
-
-function Trig_Creep_Count_Func011C()
-    if (not (udg_I_NumberOfCreeps == 250)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Creep_Count_Actions()
-    udg_I_NumberOfCreeps = (udg_I_NumberOfCreeps + 1)
-    LeaderboardSetPlayerItemValueBJ(Player(8), udg_LB_Info, udg_I_NumberOfCreeps)
-    if (Trig_Creep_Count_Func011C()) then
-        ForForce(GetPlayersByMapControl(MAP_CONTROL_USER), Trig_Creep_Count_Func011Func001A)
-    else
-    end
-end
-
-function InitTrig_Creep_Count()
-    gg_trg_Creep_Count = CreateTrigger()
-    TriggerRegisterLeaveRectSimple(gg_trg_Creep_Count, gg_rct_CreepSpawn1)
-    TriggerRegisterLeaveRectSimple(gg_trg_Creep_Count, gg_rct_CreepSpawn2)
-    TriggerRegisterLeaveRectSimple(gg_trg_Creep_Count, gg_rct_CreepSpawn3)
-    TriggerRegisterLeaveRectSimple(gg_trg_Creep_Count, gg_rct_CreepSpawn4)
-    TriggerRegisterLeaveRectSimple(gg_trg_Creep_Count, gg_rct_CreepSpawn5)
-    TriggerRegisterLeaveRectSimple(gg_trg_Creep_Count, gg_rct_CreepSpawn6)
-    TriggerRegisterLeaveRectSimple(gg_trg_Creep_Count, gg_rct_CreepSpawn7)
-    TriggerRegisterLeaveRectSimple(gg_trg_Creep_Count, gg_rct_CreepSpawn8)
-    TriggerAddAction(gg_trg_Creep_Count, Trig_Creep_Count_Actions)
-end
-
-function Trig_Creep_Count_Remove_Actions()
-    udg_I_NumberOfCreeps = (udg_I_NumberOfCreeps - 1)
-    LeaderboardSetPlayerItemValueBJ(Player(8), udg_LB_Info, udg_I_NumberOfCreeps)
-end
-
-function InitTrig_Creep_Count_Remove()
-    gg_trg_Creep_Count_Remove = CreateTrigger()
-    TriggerRegisterPlayerUnitEventSimple(gg_trg_Creep_Count_Remove, Player(10), EVENT_PLAYER_UNIT_DEATH)
-    TriggerRegisterPlayerUnitEventSimple(gg_trg_Creep_Count_Remove, Player(11), EVENT_PLAYER_UNIT_DEATH)
-    TriggerAddAction(gg_trg_Creep_Count_Remove, Trig_Creep_Count_Remove_Actions)
-end
-
-function Trig_Leaving_Players_Func003Func001002001001001()
-    return (GetPlayerSlotState(GetFilterPlayer()) == PLAYER_SLOT_STATE_PLAYING)
-end
-
-function Trig_Leaving_Players_Func003Func001002001001002001()
-    return (IsPlayerAlly(GetFilterPlayer(), GetTriggerPlayer()) == true)
-end
-
-function Trig_Leaving_Players_Func003Func001002001001002002()
-    return (GetFilterPlayer() ~= GetTriggerPlayer())
-end
-
-function Trig_Leaving_Players_Func003Func001002001001002()
-    return GetBooleanAnd(Trig_Leaving_Players_Func003Func001002001001002001(), Trig_Leaving_Players_Func003Func001002001001002002())
-end
-
-function Trig_Leaving_Players_Func003Func001002001001()
-    return GetBooleanAnd(Trig_Leaving_Players_Func003Func001002001001001(), Trig_Leaving_Players_Func003Func001002001001002())
-end
-
-function Trig_Leaving_Players_Func003A()
-    SetUnitOwner(GetEnumUnit(), ForcePickRandomPlayer(GetPlayersMatching(Condition(Trig_Leaving_Players_Func003Func001002001001))), true)
-end
-
-function Trig_Leaving_Players_Actions()
-    DisplayTextToForce(GetPlayersAll(), (("|cffffaa00" .. GetPlayerName(GetTriggerPlayer())) .. "has left the game!!|r"))
-    KillUnit(GroupPickRandomUnit(GetUnitsOfPlayerAndTypeId(GetTriggerPlayer(), FourCC("u005"))))
-    ForGroupBJ(GetUnitsOfPlayerAll(GetTriggerPlayer()), Trig_Leaving_Players_Func003A)
-    LeaderboardSetPlayerItemLabelBJ(GetTriggerPlayer(), udg_LB_Info, "TRIGSTR_112")
-end
-
-function InitTrig_Leaving_Players()
-    gg_trg_Leaving_Players = CreateTrigger()
-    TriggerRegisterPlayerEventLeave(gg_trg_Leaving_Players, Player(0))
-    TriggerRegisterPlayerEventLeave(gg_trg_Leaving_Players, Player(1))
-    TriggerRegisterPlayerEventLeave(gg_trg_Leaving_Players, Player(2))
-    TriggerRegisterPlayerEventLeave(gg_trg_Leaving_Players, Player(3))
-    TriggerRegisterPlayerEventLeave(gg_trg_Leaving_Players, Player(4))
-    TriggerRegisterPlayerEventLeave(gg_trg_Leaving_Players, Player(5))
-    TriggerRegisterPlayerEventLeave(gg_trg_Leaving_Players, Player(6))
-    TriggerRegisterPlayerEventLeave(gg_trg_Leaving_Players, Player(7))
-    TriggerAddAction(gg_trg_Leaving_Players, Trig_Leaving_Players_Actions)
-end
-
-function Trig_Remove_Dying_Unit_Heroes_Func002C()
-    if (GetUnitTypeId(GetTriggerUnit()) == FourCC("h00H")) then
-        return true
-    end
-    if (GetUnitTypeId(GetTriggerUnit()) == FourCC("h00I")) then
-        return true
-    end
-    if (GetUnitTypeId(GetTriggerUnit()) == FourCC("h00L")) then
-        return true
-    end
-    if (GetUnitTypeId(GetTriggerUnit()) == FourCC("h00M")) then
-        return true
-    end
-    if (GetUnitTypeId(GetTriggerUnit()) == FourCC("h00N")) then
-        return true
-    end
-    if (GetUnitTypeId(GetTriggerUnit()) == FourCC("h00O")) then
-        return true
-    end
-    if (GetUnitTypeId(GetTriggerUnit()) == FourCC("h00R")) then
-        return true
-    end
-    if (GetUnitTypeId(GetTriggerUnit()) == FourCC("h00S")) then
-        return true
-    end
-    if (GetUnitTypeId(GetTriggerUnit()) == FourCC("h012")) then
-        return true
-    end
-    if (GetUnitTypeId(GetTriggerUnit()) == FourCC("h025")) then
-        return true
-    end
-    if (GetUnitTypeId(GetTriggerUnit()) == FourCC("h026")) then
-        return true
-    end
-    return false
-end
-
-function Trig_Remove_Dying_Unit_Heroes_Conditions()
-    if (not Trig_Remove_Dying_Unit_Heroes_Func002C()) then
-        return false
-    end
-    return true
-end
-
-function Trig_Remove_Dying_Unit_Heroes_Actions()
-    RemoveUnit(GetTriggerUnit())
-end
-
-function InitTrig_Remove_Dying_Unit_Heroes()
-    gg_trg_Remove_Dying_Unit_Heroes = CreateTrigger()
-    TriggerRegisterAnyUnitEventBJ(gg_trg_Remove_Dying_Unit_Heroes, EVENT_PLAYER_UNIT_DEATH)
-    TriggerAddCondition(gg_trg_Remove_Dying_Unit_Heroes, Condition(Trig_Remove_Dying_Unit_Heroes_Conditions))
-    TriggerAddAction(gg_trg_Remove_Dying_Unit_Heroes, Trig_Remove_Dying_Unit_Heroes_Actions)
-end
-
 function Trig_Camera_Zoom_Conditions()
     if (not (StringLength(GetEventPlayerChatString()) <= 12)) then
         return false
@@ -1194,15 +1290,22 @@ function InitTrig_Camera_Zoom()
 end
 
 function InitCustomTriggers()
+    InitTrig_Map_Initialization()
+    InitTrig_Leaderboard()
+    InitTrig_Starting_Locations()
     InitTrig_Difficulty_Dialog_Start()
     InitTrig_Difficulty_Adjust()
     InitTrig_Difficulty_Dialog_Stop()
-    InitTrig_Map_Initialization()
-    InitTrig_Starting_Locations()
-    InitTrig_Sell_Towers()
-    InitTrig_Leaderboard()
     InitTrig_Next_Round()
     InitTrig_Wave_Spawning()
+    InitTrig_Sell_Towers()
+    InitTrig_Kill_Count()
+    InitTrig_Leaving_Players()
+    InitTrig_Remove_Dying_Unit_Heroes()
+    InitTrig_Ghastly_Vial()
+    InitTrig_Khorns_Gift()
+    InitTrig_Creep_Count()
+    InitTrig_Creep_Count_Remove()
     InitTrig_Creep_Spawn_1()
     InitTrig_Creep_Spawn_2()
     InitTrig_Creep_Spawn_3()
@@ -1211,11 +1314,6 @@ function InitCustomTriggers()
     InitTrig_Creep_Spawn_6()
     InitTrig_Creep_Spawn_7()
     InitTrig_Creep_Spawn_8()
-    InitTrig_Kill_Count()
-    InitTrig_Creep_Count()
-    InitTrig_Creep_Count_Remove()
-    InitTrig_Leaving_Players()
-    InitTrig_Remove_Dying_Unit_Heroes()
     InitTrig_Camera_Zoom()
 end
 
@@ -1449,6 +1547,7 @@ function main()
     SetMapMusic("Music", true, 0)
     InitSounds()
     CreateRegions()
+    CreateAllItems()
     CreateAllUnits()
     InitBlizzard()
     InitGlobals()
