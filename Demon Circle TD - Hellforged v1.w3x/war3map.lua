@@ -86,6 +86,9 @@ gg_trg_Remove_Dying_Unit_Heroes = nil
 gg_trg_Camera_Zoom = nil
 gg_trg_Ghastly_Vial = nil
 gg_trg_Khorns_Gift = nil
+gg_trg_Satans_Claw_Give = nil
+gg_trg_Satans_Claw_Remove = nil
+gg_trg_Ghastly_Vial_Cast = nil
 function InitGlobals()
     local i = 0
     udg_I_Round = 0
@@ -912,8 +915,31 @@ function InitTrig_Ghastly_Vial()
     TriggerAddAction(gg_trg_Ghastly_Vial, Trig_Ghastly_Vial_Actions)
 end
 
+function Trig_Ghastly_Vial_Cast_Func001C()
+    if (not (GetUnitTypeId(GetAttacker()) == FourCC("h029"))) then
+        return false
+    end
+    return true
+end
+
+function Trig_Ghastly_Vial_Cast_Actions()
+    if (Trig_Ghastly_Vial_Cast_Func001C()) then
+        IssueTargetOrderBJ(GetAttacker(), "chainlightning", GetAttackedUnitBJ())
+    else
+    end
+end
+
+function InitTrig_Ghastly_Vial_Cast()
+    gg_trg_Ghastly_Vial_Cast = CreateTrigger()
+    TriggerRegisterAnyUnitEventBJ(gg_trg_Ghastly_Vial_Cast, EVENT_PLAYER_UNIT_ATTACKED)
+    TriggerAddAction(gg_trg_Ghastly_Vial_Cast, Trig_Ghastly_Vial_Cast_Actions)
+end
+
 function Trig_Khorns_Gift_Func001C()
     if (not (UnitHasItemOfTypeBJ(GetKillingUnitBJ(), FourCC("I002")) == true)) then
+        return false
+    end
+    if (not (UnitHasBuffBJ(GetKillingUnitBJ(), FourCC("Bblo")) == false)) then
         return false
     end
     return true
@@ -939,6 +965,114 @@ function InitTrig_Khorns_Gift()
     gg_trg_Khorns_Gift = CreateTrigger()
     TriggerRegisterAnyUnitEventBJ(gg_trg_Khorns_Gift, EVENT_PLAYER_UNIT_DEATH)
     TriggerAddAction(gg_trg_Khorns_Gift, Trig_Khorns_Gift_Actions)
+end
+
+function Trig_Satans_Claw_Give_Func001Func003C()
+    if (GetUnitTypeId(GetManipulatingUnit()) == FourCC("u00M")) then
+        return true
+    end
+    if (GetUnitTypeId(GetManipulatingUnit()) == FourCC("u00L")) then
+        return true
+    end
+    if (GetUnitTypeId(GetManipulatingUnit()) == FourCC("u00K")) then
+        return true
+    end
+    if (GetUnitTypeId(GetManipulatingUnit()) == FourCC("u00D")) then
+        return true
+    end
+    if (GetUnitTypeId(GetManipulatingUnit()) == FourCC("u017")) then
+        return true
+    end
+    if (GetUnitTypeId(GetManipulatingUnit()) == FourCC("u018")) then
+        return true
+    end
+    if (GetUnitTypeId(GetManipulatingUnit()) == FourCC("u00N")) then
+        return true
+    end
+    if (GetUnitTypeId(GetManipulatingUnit()) == FourCC("u019")) then
+        return true
+    end
+    if (GetUnitTypeId(GetManipulatingUnit()) == FourCC("u01A")) then
+        return true
+    end
+    return false
+end
+
+function Trig_Satans_Claw_Give_Func001C()
+    if (not (GetItemTypeId(GetManipulatedItem()) == FourCC("I003"))) then
+        return false
+    end
+    if (not Trig_Satans_Claw_Give_Func001Func003C()) then
+        return false
+    end
+    return true
+end
+
+function Trig_Satans_Claw_Give_Actions()
+    if (Trig_Satans_Claw_Give_Func001C()) then
+        UnitAddAbilityBJ(FourCC("A00H"), GetManipulatingUnit())
+    else
+    end
+end
+
+function InitTrig_Satans_Claw_Give()
+    gg_trg_Satans_Claw_Give = CreateTrigger()
+    TriggerRegisterAnyUnitEventBJ(gg_trg_Satans_Claw_Give, EVENT_PLAYER_UNIT_PICKUP_ITEM)
+    TriggerAddAction(gg_trg_Satans_Claw_Give, Trig_Satans_Claw_Give_Actions)
+end
+
+function Trig_Satans_Claw_Remove_Func001Func003C()
+    if (GetUnitTypeId(GetManipulatingUnit()) == FourCC("u00M")) then
+        return true
+    end
+    if (GetUnitTypeId(GetManipulatingUnit()) == FourCC("u00L")) then
+        return true
+    end
+    if (GetUnitTypeId(GetManipulatingUnit()) == FourCC("u00K")) then
+        return true
+    end
+    if (GetUnitTypeId(GetManipulatingUnit()) == FourCC("u00D")) then
+        return true
+    end
+    if (GetUnitTypeId(GetManipulatingUnit()) == FourCC("u017")) then
+        return true
+    end
+    if (GetUnitTypeId(GetManipulatingUnit()) == FourCC("u018")) then
+        return true
+    end
+    if (GetUnitTypeId(GetManipulatingUnit()) == FourCC("u00N")) then
+        return true
+    end
+    if (GetUnitTypeId(GetManipulatingUnit()) == FourCC("u019")) then
+        return true
+    end
+    if (GetUnitTypeId(GetManipulatingUnit()) == FourCC("u01A")) then
+        return true
+    end
+    return false
+end
+
+function Trig_Satans_Claw_Remove_Func001C()
+    if (not (GetItemTypeId(GetManipulatedItem()) == FourCC("I003"))) then
+        return false
+    end
+    if (not Trig_Satans_Claw_Remove_Func001Func003C()) then
+        return false
+    end
+    return true
+end
+
+function Trig_Satans_Claw_Remove_Actions()
+    if (Trig_Satans_Claw_Remove_Func001C()) then
+        UnitRemoveAbilityBJ(FourCC("A00H"), GetTriggerUnit())
+    else
+    end
+end
+
+function InitTrig_Satans_Claw_Remove()
+    gg_trg_Satans_Claw_Remove = CreateTrigger()
+    TriggerRegisterAnyUnitEventBJ(gg_trg_Satans_Claw_Remove, EVENT_PLAYER_UNIT_DROP_ITEM)
+    TriggerAddAction(gg_trg_Satans_Claw_Remove, Trig_Satans_Claw_Remove_Actions)
 end
 
 function Trig_Creep_Count_Func011Func001A()
@@ -1303,7 +1437,10 @@ function InitCustomTriggers()
     InitTrig_Leaving_Players()
     InitTrig_Remove_Dying_Unit_Heroes()
     InitTrig_Ghastly_Vial()
+    InitTrig_Ghastly_Vial_Cast()
     InitTrig_Khorns_Gift()
+    InitTrig_Satans_Claw_Give()
+    InitTrig_Satans_Claw_Remove()
     InitTrig_Creep_Count()
     InitTrig_Creep_Count_Remove()
     InitTrig_Creep_Spawn_1()
