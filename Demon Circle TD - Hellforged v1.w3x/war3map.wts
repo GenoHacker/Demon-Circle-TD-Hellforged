@@ -1499,12 +1499,6 @@ STRING 549
 Demons
 }
 
-STRING 551
-// Units: ninf (|cffff0000Demon Circle TD|r), Name (Name)
-{
-|cffff0000Demon Circle TD|r
-}
-
 STRING 552
 {
 Parties [|Cfffed312F11|R]
@@ -2426,5 +2420,41 @@ STRING 808
 // Abilities: A00H (Stream of Chaos), Name (Name)
 {
 Stream of Chaos
+}
+
+STRING 809
+// Units: u013 (Sacrificial Altar), Name (Name)
+{
+Sacrificial Altar
+}
+
+STRING 810
+// Items: I000 (Ghastly Vial), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 811
+// Items: I001 (Jar of Demon Fire), Hotkey (Hotkey)
+{
+E
+}
+
+STRING 812
+// Items: I002 (Khorns Gift), Hotkey (Hotkey)
+{
+R
+}
+
+STRING 813
+// Items: I002 (Khorns Gift), Description (Description)
+{
+[Inferno Gate Only] Khorns Gift
+}
+
+STRING 814
+// Items: I003 (Satans Claw), Hotkey (Hotkey)
+{
+W
 }
 
