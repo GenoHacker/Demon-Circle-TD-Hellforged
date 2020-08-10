@@ -2320,3 +2320,111 @@ STRING 789
 Dmg: 500 |nCooldown: 0.5s |nRange: 700 |nSplash (200)
 }
 
+STRING 790
+// Items: I000 (Ghastly Vial), Name (Name)
+{
+Ghastly Vial
+}
+
+STRING 791
+// Items: I000 (Ghastly Vial), Tip (Tooltip - Basic)
+{
+Purchase a Ghastly Vial
+}
+
+STRING 792
+// Items: I000 (Ghastly Vial), Ubertip (Tooltip - Extended)
+{
+[Ghost Tower Only] Upon killing an enemy their is a 8% chance to summon a Ghost that will cast chain lightning. Ghost last for 8 seconds.
+}
+
+STRING 793
+// Items: I001 (Jar of Demon Fire), Name (Name)
+{
+Jar of Demon Fire
+}
+
+STRING 794
+// Items: I001 (Jar of Demon Fire), Tip (Tooltip - Basic)
+{
+Purchase a Jar of Demon Fire
+}
+
+STRING 796
+// Abilities: A004 (Ghost Lightning), Name (Name)
+{
+Ghost Lightning
+}
+
+STRING 797
+// Abilities: A00F (Demon Fire), Name (Name)
+{
+Demon Fire
+}
+
+STRING 798
+// Items: I001 (Jar of Demon Fire), Ubertip (Tooltip - Extended)
+{
+[Skull Tower Only] Covers the projectiles of the tower in demon fire, causing them to set the ground alight, enemies that pass through the fire will take damage.
+}
+
+STRING 799
+// Items: I000 (Ghastly Vial), Description (Description)
+{
+[Ghost Tower Only] Ghastly Vial
+}
+
+STRING 800
+// Items: I001 (Jar of Demon Fire), Description (Description)
+{
+[Skull Tower Only] Jar of Demon Fire
+}
+
+STRING 801
+// Items: I002 (Khorns Gift), Name (Name)
+{
+Khorns Gift
+}
+
+STRING 802
+// Items: I002 (Khorns Gift), Tip (Tooltip - Basic)
+{
+Purchase Khorns Gift
+}
+
+STRING 803
+// Items: I002 (Khorns Gift), Ubertip (Tooltip - Extended)
+{
+[Inferno Gate Only] Upon killing an enemy the tower will gain a massive damage and attack speed increase, can not trigger whilst it is active.
+}
+
+STRING 804
+// Items: I003 (Satans Claw), Name (Name)
+{
+Satans Claw
+}
+
+STRING 805
+// Items: I003 (Satans Claw), Tip (Tooltip - Basic)
+{
+Purchase Satans Claw
+}
+
+STRING 806
+// Items: I003 (Satans Claw), Ubertip (Tooltip - Extended)
+{
+[Chaos Tower Only] Streams of demonic energy emanate from the tower dealing damage on hit and damage over time.
+}
+
+STRING 807
+// Items: I003 (Satans Claw), Description (Description)
+{
+[Chaos Tower Only] Satans Claw
+}
+
+STRING 808
+// Abilities: A00H (Stream of Chaos), Name (Name)
+{
+Stream of Chaos
+}
+
