@@ -2308,106 +2308,10 @@ STRING 789
 Dmg: 500 |nCooldown: 0.5s |nRange: 700 |nSplash (200)
 }
 
-STRING 790
-// Items: I000 (Ghastly Vial), Name (Name)
-{
-Ghastly Vial
-}
-
-STRING 791
-// Items: I000 (Ghastly Vial), Tip (Tooltip - Basic)
-{
-Purchase a Ghastly Vial
-}
-
-STRING 792
-// Items: I000 (Ghastly Vial), Ubertip (Tooltip - Extended)
-{
-[Ghost Tower Only] Upon killing an enemy their is a 8% chance to summon a Ghost that will cast chain lightning. Ghost last for 8 seconds.
-}
-
-STRING 793
-// Items: I001 (Jar of Demon Fire), Name (Name)
-{
-Jar of Demon Fire
-}
-
-STRING 794
-// Items: I001 (Jar of Demon Fire), Tip (Tooltip - Basic)
-{
-Purchase a Jar of Demon Fire
-}
-
-STRING 796
-// Abilities: A004 (Ghost Lightning), Name (Name)
-{
-Ghost Lightning
-}
-
-STRING 797
-// Abilities: A00F (Demon Fire), Name (Name)
-{
-Demon Fire
-}
-
-STRING 798
-// Items: I001 (Jar of Demon Fire), Ubertip (Tooltip - Extended)
-{
-[Skull Tower Only] Covers the projectiles of the tower in demon fire, causing them to set the ground alight, enemies that pass through the fire will take damage.
-}
-
-STRING 799
-// Items: I000 (Ghastly Vial), Description (Description)
-{
-[Ghost Tower Only] Ghastly Vial
-}
-
-STRING 800
-// Items: I001 (Jar of Demon Fire), Description (Description)
-{
-[Skull Tower Only] Jar of Demon Fire
-}
-
-STRING 801
-// Items: I002 (Khorns Gift), Name (Name)
-{
-Khorns Gift
-}
-
 STRING 802
-// Items: I002 (Khorns Gift), Tip (Tooltip - Basic)
+// Items: I002 (Khorns Gift - Level 1), Tip (Tooltip - Basic)
 {
 Purchase Khorns Gift
-}
-
-STRING 803
-// Items: I002 (Khorns Gift), Ubertip (Tooltip - Extended)
-{
-[Inferno Gate Only] Upon killing an enemy the tower will gain a massive damage and attack speed increase, can not trigger whilst it is active.
-}
-
-STRING 804
-// Items: I003 (Satans Claw), Name (Name)
-{
-Satans Claw
-}
-
-STRING 805
-// Items: I003 (Satans Claw), Tip (Tooltip - Basic)
-{
-Purchase Satans Claw
-}
-
-STRING 806
-// Items: I003 (Satans Claw), Ubertip (Tooltip - Extended)
-{
-[Chaos Tower Only] Streams of demonic energy emanate from the tower dealing damage on hit and damage over time.
-}
-
-STRING 807
-// Items: I003 (Satans Claw), Description (Description)
-{
-[Chaos Tower Only] Satans Claw
 }
 
 STRING 809
@@ -2417,31 +2321,25 @@ Sacrificial Altar
 }
 
 STRING 810
-// Items: I000 (Ghastly Vial), Hotkey (Hotkey)
+// Items: I000 (Ghastly Vial - Level 3), Hotkey (Hotkey)
 {
 Q
 }
 
 STRING 811
-// Items: I001 (Jar of Demon Fire), Hotkey (Hotkey)
+// Items: I001 (Jar of Demon Fire - Level 3), Hotkey (Hotkey)
 {
 E
 }
 
 STRING 812
-// Items: I002 (Khorns Gift), Hotkey (Hotkey)
+// Items: I002 (Khorns Gift - Level 1), Hotkey (Hotkey)
 {
 R
 }
 
-STRING 813
-// Items: I002 (Khorns Gift), Description (Description)
-{
-[Inferno Gate Only] Khorns Gift
-}
-
 STRING 814
-// Items: I003 (Satans Claw), Hotkey (Hotkey)
+// Items: I003 (Satans Claw - Level 3), Hotkey (Hotkey)
 {
 W
 }
@@ -2462,18 +2360,6 @@ STRING 817
 // Units: h02A (Dummy), Name (Name)
 {
 Dummy
-}
-
-STRING 818
-// Abilities: A00I (Khorns Gift Speed), Name (Name)
-{
-Khorns Gift Speed
-}
-
-STRING 819
-// Abilities: A00J (Khorns Gift Damage), Name (Name)
-{
-Khorns Gift Damage
 }
 
 STRING 820
@@ -2510,5 +2396,406 @@ STRING 825
 // Units: u000 (Ghost Tower Level 1), Ubertip (Tooltip - Extended)
 {
 Dmg: 35 |nCooldown: 0.2s |nRange: 800
+}
+
+STRING 826
+// Items: I000 (Ghastly Vial - Level 3), Name (Name)
+{
+Ghastly Vial - Level 3
+}
+
+STRING 827
+// Items: I000 (Ghastly Vial - Level 3), Ubertip (Tooltip - Extended)
+{
+[Ghost Tower Only]
+
+Level 3 of 3.
+
+Upon killing an enemy their is a 8% chance to summon a Ghost that will cast chain lightning. Ghost last for 8 seconds.
+}
+
+STRING 828
+// Items: I000 (Ghastly Vial - Level 3), Description (Description)
+{
+[Ghost Tower Only] Ghastly Vial - Level 3
+}
+
+STRING 829
+// Items: I001 (Jar of Demon Fire - Level 3), Name (Name)
+{
+Jar of Demon Fire - Level 3
+}
+
+STRING 830
+// Items: I001 (Jar of Demon Fire - Level 3), Ubertip (Tooltip - Extended)
+{
+[Skull Tower Only]
+
+Level 3 of 3.
+Covers the projectiles of the tower in demon fire, causing them to set the ground alight, enemies that pass through the fire will take damage.
+}
+
+STRING 831
+// Items: I001 (Jar of Demon Fire - Level 3), Description (Description)
+{
+[Skull Tower Only] Jar of Demon Fire - Level 3
+}
+
+STRING 832
+// Items: I002 (Khorns Gift - Level 1), Name (Name)
+{
+Khorns Gift - Level 1
+}
+
+STRING 833
+// Items: I002 (Khorns Gift - Level 1), Ubertip (Tooltip - Extended)
+{
+[Inferno Gate Only]
+
+Level 1 of 3, to increase this items level purchase  the level 1 item and have them in the same inventory.
+
+Upon killing an enemy the tower will gain a massive damage and attack speed increase, can not trigger whilst it is active.
+}
+
+STRING 834
+// Items: I002 (Khorns Gift - Level 1), Description (Description)
+{
+[Inferno Gate Only] Khorns Gift - Level 1
+}
+
+STRING 835
+// Items: I003 (Satans Claw - Level 3), Name (Name)
+{
+Satans Claw - Level 3
+}
+
+STRING 836
+// Items: I003 (Satans Claw - Level 3), Ubertip (Tooltip - Extended)
+{
+[Chaos Tower Only]
+
+Level 3 of 3.
+
+Streams of demonic energy emanate from the tower dealing damage on hit and damage over time.
+}
+
+STRING 837
+// Items: I003 (Satans Claw - Level 3), Description (Description)
+{
+[Chaos Tower Only] Satans Claw - Level 3
+}
+
+STRING 838
+// Items: I004 (Ghastly Vial - Level 2), Name (Name)
+{
+Ghastly Vial - Level 2
+}
+
+STRING 839
+// Items: I004 (Ghastly Vial - Level 2), Ubertip (Tooltip - Extended)
+{
+[Ghost Tower Only]
+
+Level 2 of 3, to increase this items level purchase  the level 1 item and have them in the same inventory.
+
+Upon killing an enemy their is a 8% chance to summon a Ghost that will cast chain lightning. Ghost last for 8 seconds.
+}
+
+STRING 840
+// Items: I004 (Ghastly Vial - Level 2), Description (Description)
+{
+[Ghost Tower Only] Ghastly Vial - Level 2
+}
+
+STRING 841
+// Items: I004 (Ghastly Vial - Level 2), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 842
+// Items: I005 (Ghastly Vial - Level 1), Name (Name)
+{
+Ghastly Vial - Level 1
+}
+
+STRING 843
+// Items: I005 (Ghastly Vial - Level 1), Tip (Tooltip - Basic)
+{
+Purchase a Ghastly Vial - Level 1
+}
+
+STRING 844
+// Items: I005 (Ghastly Vial - Level 1), Ubertip (Tooltip - Extended)
+{
+[Ghost Tower Only]
+
+Level 1 of 3, to increase this items level purchase  the level 1 item and have them in the same inventory.
+
+Upon killing an enemy their is a 8% chance to summon a Ghost that will cast chain lightning. Ghost last for 8 seconds.
+}
+
+STRING 845
+// Items: I005 (Ghastly Vial - Level 1), Description (Description)
+{
+[Ghost Tower Only] Ghastly Vial - Level 1
+}
+
+STRING 846
+// Items: I005 (Ghastly Vial - Level 1), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 847
+// Items: I006 (Jar of Demon Fire - Level 2), Name (Name)
+{
+Jar of Demon Fire - Level 2
+}
+
+STRING 848
+// Items: I006 (Jar of Demon Fire - Level 2), Ubertip (Tooltip - Extended)
+{
+[Skull Tower Only]
+
+Level 2 of 3, to increase this items level purchase  the level 1 item and have them in the same inventory.
+
+Covers the projectiles of the tower in demon fire, causing them to set the ground alight, enemies that pass through the fire will take damage.
+}
+
+STRING 849
+// Items: I006 (Jar of Demon Fire - Level 2), Description (Description)
+{
+[Skull Tower Only] Jar of Demon Fire - Level 2
+}
+
+STRING 850
+// Items: I006 (Jar of Demon Fire - Level 2), Hotkey (Hotkey)
+{
+E
+}
+
+STRING 851
+// Items: I007 (Jar of Demon Fire - Level 1), Name (Name)
+{
+Jar of Demon Fire - Level 1
+}
+
+STRING 852
+// Items: I007 (Jar of Demon Fire - Level 1), Tip (Tooltip - Basic)
+{
+Purchase a Jar of Demon Fire - Level 1
+}
+
+STRING 853
+// Items: I007 (Jar of Demon Fire - Level 1), Ubertip (Tooltip - Extended)
+{
+[Skull Tower Only]
+
+Level 1 of 3, to increase this items level purchase  the level 1 item and have them in the same inventory.
+
+Covers the projectiles of the tower in demon fire, causing them to set the ground alight, enemies that pass through the fire will take damage.
+}
+
+STRING 854
+// Items: I007 (Jar of Demon Fire - Level 1), Description (Description)
+{
+[Skull Tower Only] Jar of Demon Fire - Level 1
+}
+
+STRING 855
+// Items: I007 (Jar of Demon Fire - Level 1), Hotkey (Hotkey)
+{
+E
+}
+
+STRING 856
+// Items: I008 (Khorns Gift - Level 2), Name (Name)
+{
+Khorns Gift - Level 2
+}
+
+STRING 857
+// Items: I008 (Khorns Gift - Level 2), Ubertip (Tooltip - Extended)
+{
+[Inferno Gate Only]
+
+Level 2 of 3, to increase this items level purchase  the level 1 item and have them in the same inventory.
+
+Upon killing an enemy the tower will gain a massive damage and attack speed increase, can not trigger whilst it is active.
+}
+
+STRING 858
+// Items: I008 (Khorns Gift - Level 2), Hotkey (Hotkey)
+{
+R
+}
+
+STRING 859
+// Items: I008 (Khorns Gift - Level 2), Description (Description)
+{
+[Inferno Gate Only] Khorns Gift - Level 2
+}
+
+STRING 860
+// Items: I009 (Khorns Gift - Level 3), Name (Name)
+{
+Khorns Gift - Level 3
+}
+
+STRING 861
+// Items: I009 (Khorns Gift - Level 3), Ubertip (Tooltip - Extended)
+{
+[Inferno Gate Only]
+
+Level 3 of 3.
+
+Upon killing an enemy the tower will gain a massive damage and attack speed increase, can not trigger whilst it is active.
+}
+
+STRING 862
+// Items: I009 (Khorns Gift - Level 3), Hotkey (Hotkey)
+{
+R
+}
+
+STRING 863
+// Items: I009 (Khorns Gift - Level 3), Description (Description)
+{
+[Inferno Gate Only] Khorns Gift - Level 3
+}
+
+STRING 864
+// Items: I00A (Satans Claw - Level 1), Name (Name)
+{
+Satans Claw - Level 1
+}
+
+STRING 865
+// Items: I00A (Satans Claw - Level 1), Tip (Tooltip - Basic)
+{
+Purchase Satans Claw - Level 1
+}
+
+STRING 866
+// Items: I00A (Satans Claw - Level 1), Ubertip (Tooltip - Extended)
+{
+[Chaos Tower Only]
+
+Level 1 of 3, combine a level 1 item with another to increase the level.
+
+Streams of demonic energy emanate from the tower dealing damage on hit and damage over time.
+}
+
+STRING 867
+// Items: I00A (Satans Claw - Level 1), Description (Description)
+{
+[Chaos Tower Only] Satans Claw - Level 1
+}
+
+STRING 868
+// Items: I00A (Satans Claw - Level 1), Hotkey (Hotkey)
+{
+W
+}
+
+STRING 869
+// Items: I00B (Satans Claw - Level 2), Name (Name)
+{
+Satans Claw - Level 2
+}
+
+STRING 870
+// Items: I00B (Satans Claw - Level 2), Ubertip (Tooltip - Extended)
+{
+[Chaos Tower Only]
+
+Level 2 of 3, to increase this items level purchase  the level 1 item and have them in the same inventory.
+
+Streams of demonic energy emanate from the tower dealing damage on hit and damage over time.
+}
+
+STRING 871
+// Items: I00B (Satans Claw - Level 2), Description (Description)
+{
+[Chaos Tower Only] Satans Claw - Level 2
+}
+
+STRING 872
+// Items: I00B (Satans Claw - Level 2), Hotkey (Hotkey)
+{
+W
+}
+
+STRING 873
+// Abilities: A004 (Ghost Lightning 3), Name (Name)
+{
+Ghost Lightning 3
+}
+
+STRING 874
+// Abilities: A00F (Demon Fire 1), Name (Name)
+{
+Demon Fire 1
+}
+
+STRING 875
+// Abilities: A00I (Khorns Gift Speed 2), Name (Name)
+{
+Khorns Gift Speed 2
+}
+
+STRING 876
+// Abilities: A00J (Khorns Gift Damage 3), Name (Name)
+{
+Khorns Gift Damage 3
+}
+
+STRING 877
+// Abilities: A00O (Khorns Gift Damage 1), Name (Name)
+{
+Khorns Gift Damage 1
+}
+
+STRING 878
+// Abilities: A00P (Khorns Gift Damage 2), Name (Name)
+{
+Khorns Gift Damage 2
+}
+
+STRING 879
+// Abilities: A00Q (Khorns Gift Speed 1), Name (Name)
+{
+Khorns Gift Speed 1
+}
+
+STRING 880
+// Abilities: A00R (Khorns Gift Speed 3), Name (Name)
+{
+Khorns Gift Speed 3
+}
+
+STRING 881
+// Abilities: A00S (Demon Fire 3), Name (Name)
+{
+Demon Fire 3
+}
+
+STRING 882
+// Abilities: A00T (Demon Fire 2), Name (Name)
+{
+Demon Fire 2
+}
+
+STRING 883
+// Abilities: A00U (Ghost Lightning 2), Name (Name)
+{
+Ghost Lightning 2
+}
+
+STRING 884
+// Abilities: A00V (Ghost Lightning 1), Name (Name)
+{
+Ghost Lightning 1
 }
 
