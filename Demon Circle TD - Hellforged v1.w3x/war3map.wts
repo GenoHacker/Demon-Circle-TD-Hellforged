@@ -1528,12 +1528,6 @@ STRING 614
 Sell Tower to get back 100% of its cost.
 }
 
-STRING 619
-// Units: u000 (Ghost Tower Level 1), Ubertip (Tooltip - Extended)
-{
-Dmg: 30 |nCooldown: 0.2s |nRange: 800
-}
-
 STRING 621
 // Units: u004 (Ghost Tower Level 4), Ubertip (Tooltip - Extended)
 {
@@ -2416,12 +2410,6 @@ STRING 807
 [Chaos Tower Only] Satans Claw
 }
 
-STRING 808
-// Abilities: A00H (Stream of Chaos), Name (Name)
-{
-Stream of Chaos
-}
-
 STRING 809
 // Units: u013 (Sacrificial Altar), Name (Name)
 {
@@ -2498,5 +2486,29 @@ STRING 821
 // Abilities: A00L (Inventory), EditorSuffix (Editor Suffix)
 {
 (Tower)
+}
+
+STRING 822
+// Abilities: A00H (Stream of Chaos 3), Name (Name)
+{
+Stream of Chaos 3
+}
+
+STRING 823
+// Abilities: A00M (Stream of Chaos 1), Name (Name)
+{
+Stream of Chaos 1
+}
+
+STRING 824
+// Abilities: A00N (Stream of Chaos 2), Name (Name)
+{
+Stream of Chaos 2
+}
+
+STRING 825
+// Units: u000 (Ghost Tower Level 1), Ubertip (Tooltip - Extended)
+{
+Dmg: 35 |nCooldown: 0.2s |nRange: 800
 }
 

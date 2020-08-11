@@ -73,11 +73,16 @@ gg_trg_Sell_Towers = nil
 gg_trg_Kill_Count = nil
 gg_trg_Leaving_Players = nil
 gg_trg_Remove_Dying_Unit_Heroes = nil
-gg_trg_Ghastly_Vial = nil
+gg_trg_Lumber_Bounty = nil
+gg_trg_Ghastly_Vial_Unit = nil
 gg_trg_Ghastly_Vial_Cast = nil
-gg_trg_Khorns_Gift = nil
+gg_trg_Khorns_Gift_Dummys = nil
 gg_trg_Satans_Claw_Give = nil
 gg_trg_Satans_Claw_Remove = nil
+gg_trg_Satans_Claw = nil
+gg_trg_Ghastly_Vial = nil
+gg_trg_Jar_of_Demon_Fire = nil
+gg_trg_Khorns_Gift = nil
 gg_trg_Creep_Count = nil
 gg_trg_Creep_Count_Remove = nil
 gg_trg_Creep_Spawn_1 = nil
@@ -89,11 +94,7 @@ gg_trg_Creep_Spawn_6 = nil
 gg_trg_Creep_Spawn_7 = nil
 gg_trg_Creep_Spawn_8 = nil
 gg_trg_Camera_Zoom = nil
-gg_trg_Lumber_Bounty = nil
-gg_trg_Items = nil
-gg_trg_Items_Copy = nil
-gg_trg_Items_Copy_2 = nil
-gg_trg_Items_Copy_3 = nil
+gg_trg_Satans_Claw_Upgrade = nil
 function InitGlobals()
     local i = 0
     udg_I_Round = 0
@@ -718,36 +719,7 @@ function InitTrig_Wave_Spawning()
     TriggerAddAction(gg_trg_Wave_Spawning, Trig_Wave_Spawning_Actions)
 end
 
-function Trig_Sell_Towers_Conditions()
-    if (not (GetSpellAbilityId() == FourCC("A000"))) then
-        return false
-    end
-    return true
-end
-
-function Trig_Sell_Towers_Actions()
-    KillUnit(GetTriggerUnit())
-    AddSpecialEffectLocBJ(GetUnitLoc(GetTriggerUnit()), "Abilities\\Spells\\Other\\Awaken\\Awaken.mdl")
-    DestroyEffectBJ(GetLastCreatedEffectBJ())
-    DisplayTextToForce(GetForceOfPlayer(GetOwningPlayer(GetTriggerUnit())), ("|cffffcc00You get " .. (I2S(GetUnitPointValue(GetTriggerUnit())) .. (" gold for selling a " .. (GetUnitName(GetTriggerUnit()) .. ".|r")))))
-    AdjustPlayerStateBJ(GetUnitPointValue(GetTriggerUnit()), GetOwningPlayer(GetTriggerUnit()), PLAYER_STATE_RESOURCE_GOLD)
-end
-
-function InitTrig_Sell_Towers()
-    gg_trg_Sell_Towers = CreateTrigger()
-    TriggerRegisterAnyUnitEventBJ(gg_trg_Sell_Towers, EVENT_PLAYER_UNIT_SPELL_CAST)
-    TriggerAddCondition(gg_trg_Sell_Towers, Condition(Trig_Sell_Towers_Conditions))
-    TriggerAddAction(gg_trg_Sell_Towers, Trig_Sell_Towers_Actions)
-end
-
-function Trig_Kill_Count_Conditions()
-    if (not (GetOwningPlayer(GetTriggerUnit()) == Player(11))) then
-        return false
-    end
-    return true
-end
-
-function Trig_Kill_Count_Func001Func001C()
+function Trig_Kill_Count_Func003C()
     if (GetOwningPlayer(GetTriggerUnit()) == Player(10)) then
         return true
     end
@@ -757,19 +729,16 @@ function Trig_Kill_Count_Func001Func001C()
     return false
 end
 
-function Trig_Kill_Count_Func001C()
-    if (not Trig_Kill_Count_Func001Func001C()) then
+function Trig_Kill_Count_Conditions()
+    if (not Trig_Kill_Count_Func003C()) then
         return false
     end
     return true
 end
 
 function Trig_Kill_Count_Actions()
-    if (Trig_Kill_Count_Func001C()) then
-        LeaderboardSetPlayerItemValueBJ(GetOwningPlayer(GetKillingUnitBJ()), udg_LB_Info, udg_I_Kills[GetConvertedPlayerId(GetOwningPlayer(GetKillingUnitBJ()))])
-        udg_I_Kills[GetConvertedPlayerId(GetOwningPlayer(GetKillingUnitBJ()))] = (udg_I_Kills[GetConvertedPlayerId(GetOwningPlayer(GetKillingUnitBJ()))] + 1)
-    else
-    end
+    LeaderboardSetPlayerItemValueBJ(GetOwningPlayer(GetKillingUnitBJ()), udg_LB_Info, udg_I_Kills[GetConvertedPlayerId(GetOwningPlayer(GetKillingUnitBJ()))])
+    udg_I_Kills[GetConvertedPlayerId(GetOwningPlayer(GetKillingUnitBJ()))] = (udg_I_Kills[GetConvertedPlayerId(GetOwningPlayer(GetKillingUnitBJ()))] + 1)
 end
 
 function InitTrig_Kill_Count()
@@ -878,6 +847,28 @@ function InitTrig_Remove_Dying_Unit_Heroes()
     TriggerAddAction(gg_trg_Remove_Dying_Unit_Heroes, Trig_Remove_Dying_Unit_Heroes_Actions)
 end
 
+function Trig_Sell_Towers_Conditions()
+    if (not (GetSpellAbilityId() == FourCC("A000"))) then
+        return false
+    end
+    return true
+end
+
+function Trig_Sell_Towers_Actions()
+    KillUnit(GetTriggerUnit())
+    AddSpecialEffectLocBJ(GetUnitLoc(GetTriggerUnit()), "Abilities\\Spells\\Other\\Awaken\\Awaken.mdl")
+    DestroyEffectBJ(GetLastCreatedEffectBJ())
+    DisplayTextToForce(GetForceOfPlayer(GetOwningPlayer(GetTriggerUnit())), ("|cffffcc00You get " .. (I2S(GetUnitPointValue(GetTriggerUnit())) .. (" gold for selling a " .. (GetUnitName(GetTriggerUnit()) .. ".|r")))))
+    AdjustPlayerStateBJ(GetUnitPointValue(GetTriggerUnit()), GetOwningPlayer(GetTriggerUnit()), PLAYER_STATE_RESOURCE_GOLD)
+end
+
+function InitTrig_Sell_Towers()
+    gg_trg_Sell_Towers = CreateTrigger()
+    TriggerRegisterAnyUnitEventBJ(gg_trg_Sell_Towers, EVENT_PLAYER_UNIT_SPELL_CAST)
+    TriggerAddCondition(gg_trg_Sell_Towers, Condition(Trig_Sell_Towers_Conditions))
+    TriggerAddAction(gg_trg_Sell_Towers, Trig_Sell_Towers_Actions)
+end
+
 function Trig_Lumber_Bounty_Func001Func002C()
     if (GetOwningPlayer(GetDyingUnit()) == Player(10)) then
         return true
@@ -908,24 +899,79 @@ function InitTrig_Lumber_Bounty()
     TriggerAddAction(gg_trg_Lumber_Bounty, Trig_Lumber_Bounty_Actions)
 end
 
-function Trig_Ghastly_Vial_Func001Func002C()
+function Trig_Camera_Zoom_Conditions()
+    if (not (StringLength(GetEventPlayerChatString()) <= 12)) then
+        return false
+    end
+    return true
+end
+
+function Trig_Camera_Zoom_Func001Func005C()
+    if (not (udg_Temp_Integer > 199)) then
+        return false
+    end
+    if (not (udg_Temp_Integer <= 2800)) then
+        return false
+    end
+    return true
+end
+
+function Trig_Camera_Zoom_Func001C()
+    if (not (GetEventPlayerChatString() == "-zoom")) then
+        return false
+    end
+    return true
+end
+
+function Trig_Camera_Zoom_Actions()
+    if (Trig_Camera_Zoom_Func001C()) then
+        SetCameraFieldForPlayer(GetTriggerPlayer(), CAMERA_FIELD_TARGET_DISTANCE, I2R(udg_Zoom_Cam[GetConvertedPlayerId(GetTriggerPlayer())]), 0.20)
+        DisplayTimedTextToForce(GetForceOfPlayer(GetTriggerPlayer()), 3.00, ("|c00FFcc00Set to last Zoom distance of " .. (I2S(udg_Zoom_Cam[GetConvertedPlayerId(GetTriggerPlayer())]) .. "|r")))
+    else
+        udg_Temp_Integer = S2I(SubStringBJ(GetEventPlayerChatString(), 7, StringLength(GetEventPlayerChatString())))
+        if (Trig_Camera_Zoom_Func001Func005C()) then
+            udg_Zoom_Cam[GetConvertedPlayerId(GetTriggerPlayer())] = udg_Temp_Integer
+            SetCameraFieldForPlayer(GetTriggerPlayer(), CAMERA_FIELD_TARGET_DISTANCE, I2R(udg_Temp_Integer), 0.20)
+        else
+            DisplayTimedTextToForce(GetForceOfPlayer(GetTriggerPlayer()), 6.00, "TRIGSTR_477")
+        end
+    end
+end
+
+function InitTrig_Camera_Zoom()
+    gg_trg_Camera_Zoom = CreateTrigger()
+    TriggerRegisterPlayerChatEvent(gg_trg_Camera_Zoom, Player(0), "-zoom", false)
+    TriggerRegisterPlayerChatEvent(gg_trg_Camera_Zoom, Player(1), "-zoom", false)
+    TriggerRegisterPlayerChatEvent(gg_trg_Camera_Zoom, Player(2), "-zoom", false)
+    TriggerRegisterPlayerChatEvent(gg_trg_Camera_Zoom, Player(3), "-zoom", false)
+    TriggerRegisterPlayerChatEvent(gg_trg_Camera_Zoom, Player(4), "-zoom", false)
+    TriggerRegisterPlayerChatEvent(gg_trg_Camera_Zoom, Player(5), "-zoom", false)
+    TriggerRegisterPlayerChatEvent(gg_trg_Camera_Zoom, Player(6), "-zoom", false)
+    TriggerRegisterPlayerChatEvent(gg_trg_Camera_Zoom, Player(7), "-zoom", false)
+    TriggerRegisterPlayerChatEvent(gg_trg_Camera_Zoom, Player(8), "-zoom", false)
+    TriggerRegisterPlayerChatEvent(gg_trg_Camera_Zoom, Player(9), "-zoom", false)
+    TriggerAddCondition(gg_trg_Camera_Zoom, Condition(Trig_Camera_Zoom_Conditions))
+    TriggerAddAction(gg_trg_Camera_Zoom, Trig_Camera_Zoom_Actions)
+end
+
+function Trig_Ghastly_Vial_Unit_Func001Func002C()
     if (not (udg_Integer_Array_GhastlyChance[GetConvertedPlayerId(GetOwningPlayer(GetKillingUnitBJ()))] <= 8)) then
         return false
     end
     return true
 end
 
-function Trig_Ghastly_Vial_Func001C()
+function Trig_Ghastly_Vial_Unit_Func001C()
     if (not (UnitHasItemOfTypeBJ(GetKillingUnitBJ(), FourCC("I000")) == true)) then
         return false
     end
     return true
 end
 
-function Trig_Ghastly_Vial_Actions()
-    if (Trig_Ghastly_Vial_Func001C()) then
+function Trig_Ghastly_Vial_Unit_Actions()
+    if (Trig_Ghastly_Vial_Unit_Func001C()) then
         udg_Integer_Array_GhastlyChance[GetConvertedPlayerId(GetOwningPlayer(GetKillingUnitBJ()))] = GetRandomInt(1, 100)
-        if (Trig_Ghastly_Vial_Func001Func002C()) then
+        if (Trig_Ghastly_Vial_Unit_Func001Func002C()) then
             udg_Temp_Point = GetUnitLoc(GetKillingUnitBJ())
             CreateNUnitsAtLoc(1, FourCC("h029"), GetOwningPlayer(GetKillingUnitBJ()), udg_Temp_Point, bj_UNIT_FACING)
             UnitApplyTimedLifeBJ(8.00, FourCC("BTLF"), GetLastCreatedUnit())
@@ -936,10 +982,10 @@ function Trig_Ghastly_Vial_Actions()
     end
 end
 
-function InitTrig_Ghastly_Vial()
-    gg_trg_Ghastly_Vial = CreateTrigger()
-    TriggerRegisterAnyUnitEventBJ(gg_trg_Ghastly_Vial, EVENT_PLAYER_UNIT_DEATH)
-    TriggerAddAction(gg_trg_Ghastly_Vial, Trig_Ghastly_Vial_Actions)
+function InitTrig_Ghastly_Vial_Unit()
+    gg_trg_Ghastly_Vial_Unit = CreateTrigger()
+    TriggerRegisterAnyUnitEventBJ(gg_trg_Ghastly_Vial_Unit, EVENT_PLAYER_UNIT_DEATH)
+    TriggerAddAction(gg_trg_Ghastly_Vial_Unit, Trig_Ghastly_Vial_Unit_Actions)
 end
 
 function Trig_Ghastly_Vial_Cast_Func001C()
@@ -962,7 +1008,7 @@ function InitTrig_Ghastly_Vial_Cast()
     TriggerAddAction(gg_trg_Ghastly_Vial_Cast, Trig_Ghastly_Vial_Cast_Actions)
 end
 
-function Trig_Khorns_Gift_Func001C()
+function Trig_Khorns_Gift_Dummys_Func001C()
     if (not (UnitHasItemOfTypeBJ(GetKillingUnitBJ(), FourCC("I002")) == true)) then
         return false
     end
@@ -972,8 +1018,8 @@ function Trig_Khorns_Gift_Func001C()
     return true
 end
 
-function Trig_Khorns_Gift_Actions()
-    if (Trig_Khorns_Gift_Func001C()) then
+function Trig_Khorns_Gift_Dummys_Actions()
+    if (Trig_Khorns_Gift_Dummys_Func001C()) then
         udg_Temp_Point = GetUnitLoc(GetKillingUnitBJ())
         CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetKillingUnitBJ()), udg_Temp_Point, bj_UNIT_FACING)
         UnitApplyTimedLifeBJ(1.00, FourCC("BTLF"), GetLastCreatedUnit())
@@ -988,13 +1034,13 @@ function Trig_Khorns_Gift_Actions()
     end
 end
 
-function InitTrig_Khorns_Gift()
-    gg_trg_Khorns_Gift = CreateTrigger()
-    TriggerRegisterAnyUnitEventBJ(gg_trg_Khorns_Gift, EVENT_PLAYER_UNIT_DEATH)
-    TriggerAddAction(gg_trg_Khorns_Gift, Trig_Khorns_Gift_Actions)
+function InitTrig_Khorns_Gift_Dummys()
+    gg_trg_Khorns_Gift_Dummys = CreateTrigger()
+    TriggerRegisterAnyUnitEventBJ(gg_trg_Khorns_Gift_Dummys, EVENT_PLAYER_UNIT_DEATH)
+    TriggerAddAction(gg_trg_Khorns_Gift_Dummys, Trig_Khorns_Gift_Dummys_Actions)
 end
 
-function Trig_Satans_Claw_Give_Func001Func003C()
+function Trig_Satans_Claw_Give_Func001Func005C()
     if (GetUnitTypeId(GetManipulatingUnit()) == FourCC("u00M")) then
         return true
     end
@@ -1029,7 +1075,7 @@ function Trig_Satans_Claw_Give_Func001C()
     if (not (GetItemTypeId(GetManipulatedItem()) == FourCC("I003"))) then
         return false
     end
-    if (not Trig_Satans_Claw_Give_Func001Func003C()) then
+    if (not Trig_Satans_Claw_Give_Func001Func005C()) then
         return false
     end
     return true
@@ -1037,6 +1083,8 @@ end
 
 function Trig_Satans_Claw_Give_Actions()
     if (Trig_Satans_Claw_Give_Func001C()) then
+        UnitAddAbilityBJ(FourCC("A00M"), GetManipulatingUnit())
+        UnitAddAbilityBJ(FourCC("A00N"), GetManipulatingUnit())
         UnitAddAbilityBJ(FourCC("A00H"), GetManipulatingUnit())
     else
     end
@@ -1048,7 +1096,7 @@ function InitTrig_Satans_Claw_Give()
     TriggerAddAction(gg_trg_Satans_Claw_Give, Trig_Satans_Claw_Give_Actions)
 end
 
-function Trig_Satans_Claw_Remove_Func001Func003C()
+function Trig_Satans_Claw_Remove_Func001C()
     if (GetUnitTypeId(GetManipulatingUnit()) == FourCC("u00M")) then
         return true
     end
@@ -1079,18 +1127,24 @@ function Trig_Satans_Claw_Remove_Func001Func003C()
     return false
 end
 
-function Trig_Satans_Claw_Remove_Func001C()
-    if (not (GetItemTypeId(GetManipulatedItem()) == FourCC("I003"))) then
+function Trig_Satans_Claw_Remove_Conditions()
+    if (not Trig_Satans_Claw_Remove_Func001C()) then
         return false
     end
-    if (not Trig_Satans_Claw_Remove_Func001Func003C()) then
+    return true
+end
+
+function Trig_Satans_Claw_Remove_Func002C()
+    if (not (GetItemTypeId(GetManipulatedItem()) == FourCC("I003"))) then
         return false
     end
     return true
 end
 
 function Trig_Satans_Claw_Remove_Actions()
-    if (Trig_Satans_Claw_Remove_Func001C()) then
+    if (Trig_Satans_Claw_Remove_Func002C()) then
+        UnitRemoveAbilityBJ(FourCC("A00M"), GetTriggerUnit())
+        UnitRemoveAbilityBJ(FourCC("A00N"), GetTriggerUnit())
         UnitRemoveAbilityBJ(FourCC("A00H"), GetTriggerUnit())
     else
     end
@@ -1099,17 +1153,72 @@ end
 function InitTrig_Satans_Claw_Remove()
     gg_trg_Satans_Claw_Remove = CreateTrigger()
     TriggerRegisterAnyUnitEventBJ(gg_trg_Satans_Claw_Remove, EVENT_PLAYER_UNIT_DROP_ITEM)
+    TriggerAddCondition(gg_trg_Satans_Claw_Remove, Condition(Trig_Satans_Claw_Remove_Conditions))
     TriggerAddAction(gg_trg_Satans_Claw_Remove, Trig_Satans_Claw_Remove_Actions)
 end
 
-function Trig_Items_Conditions()
-    if (not (GetItemTypeId(GetManipulatedItem()) == FourCC("I003"))) then
+function Trig_Satans_Claw_Upgrade_Func001C()
+    if (GetUnitTypeId(GetTriggerUnit()) == FourCC("u00M")) then
+        return true
+    end
+    if (GetUnitTypeId(GetTriggerUnit()) == FourCC("u00L")) then
+        return true
+    end
+    if (GetUnitTypeId(GetTriggerUnit()) == FourCC("u00K")) then
+        return true
+    end
+    if (GetUnitTypeId(GetTriggerUnit()) == FourCC("u00D")) then
+        return true
+    end
+    if (GetUnitTypeId(GetTriggerUnit()) == FourCC("u017")) then
+        return true
+    end
+    if (GetUnitTypeId(GetTriggerUnit()) == FourCC("u018")) then
+        return true
+    end
+    if (GetUnitTypeId(GetTriggerUnit()) == FourCC("u00N")) then
+        return true
+    end
+    if (GetUnitTypeId(GetTriggerUnit()) == FourCC("u019")) then
+        return true
+    end
+    if (GetUnitTypeId(GetTriggerUnit()) == FourCC("u01A")) then
+        return true
+    end
+    return false
+end
+
+function Trig_Satans_Claw_Upgrade_Conditions()
+    if (not Trig_Satans_Claw_Upgrade_Func001C()) then
         return false
     end
     return true
 end
 
-function Trig_Items_Func002Func004C()
+function Trig_Satans_Claw_Upgrade_Func002C()
+    if (not (UnitHasItemOfTypeBJ(GetTriggerUnit(), FourCC("I003")) == true)) then
+        return false
+    end
+    return true
+end
+
+function Trig_Satans_Claw_Upgrade_Actions()
+    if (Trig_Satans_Claw_Upgrade_Func002C()) then
+        UnitAddAbilityBJ(FourCC("A00M"), GetTriggerUnit())
+        UnitAddAbilityBJ(FourCC("A00N"), GetTriggerUnit())
+        UnitAddAbilityBJ(FourCC("A00H"), GetTriggerUnit())
+    else
+    end
+end
+
+function InitTrig_Satans_Claw_Upgrade()
+    gg_trg_Satans_Claw_Upgrade = CreateTrigger()
+    TriggerRegisterAnyUnitEventBJ(gg_trg_Satans_Claw_Upgrade, EVENT_PLAYER_UNIT_UPGRADE_FINISH)
+    TriggerAddCondition(gg_trg_Satans_Claw_Upgrade, Condition(Trig_Satans_Claw_Upgrade_Conditions))
+    TriggerAddAction(gg_trg_Satans_Claw_Upgrade, Trig_Satans_Claw_Upgrade_Actions)
+end
+
+function Trig_Satans_Claw_Func001C()
     if (GetUnitTypeId(GetManipulatingUnit()) == FourCC("u005")) then
         return true
     end
@@ -1143,15 +1252,22 @@ function Trig_Items_Func002Func004C()
     return false
 end
 
-function Trig_Items_Func002C()
-    if (not Trig_Items_Func002Func004C()) then
+function Trig_Satans_Claw_Conditions()
+    if (not Trig_Satans_Claw_Func001C()) then
         return false
     end
     return true
 end
 
-function Trig_Items_Actions()
-    if (Trig_Items_Func002C()) then
+function Trig_Satans_Claw_Func002C()
+    if (not (GetItemTypeId(GetManipulatedItem()) == FourCC("I003"))) then
+        return false
+    end
+    return true
+end
+
+function Trig_Satans_Claw_Actions()
+    if (Trig_Satans_Claw_Func002C()) then
     else
         udg_Temp_Point = GetUnitLoc(GetManipulatingUnit())
         UnitDropItemPointLoc(GetManipulatingUnit(), GetItemOfTypeFromUnitBJ(GetManipulatingUnit(), FourCC("I003")), udg_Temp_Point)
@@ -1159,21 +1275,21 @@ function Trig_Items_Actions()
     end
 end
 
-function InitTrig_Items()
-    gg_trg_Items = CreateTrigger()
-    TriggerRegisterAnyUnitEventBJ(gg_trg_Items, EVENT_PLAYER_UNIT_PICKUP_ITEM)
-    TriggerAddCondition(gg_trg_Items, Condition(Trig_Items_Conditions))
-    TriggerAddAction(gg_trg_Items, Trig_Items_Actions)
+function InitTrig_Satans_Claw()
+    gg_trg_Satans_Claw = CreateTrigger()
+    TriggerRegisterAnyUnitEventBJ(gg_trg_Satans_Claw, EVENT_PLAYER_UNIT_PICKUP_ITEM)
+    TriggerAddCondition(gg_trg_Satans_Claw, Condition(Trig_Satans_Claw_Conditions))
+    TriggerAddAction(gg_trg_Satans_Claw, Trig_Satans_Claw_Actions)
 end
 
-function Trig_Items_Copy_Conditions()
+function Trig_Ghastly_Vial_Conditions()
     if (not (GetItemTypeId(GetManipulatedItem()) == FourCC("I000"))) then
         return false
     end
     return true
 end
 
-function Trig_Items_Copy_Func002Func004C()
+function Trig_Ghastly_Vial_Func002Func004C()
     if (GetUnitTypeId(GetManipulatingUnit()) == FourCC("u005")) then
         return true
     end
@@ -1207,15 +1323,15 @@ function Trig_Items_Copy_Func002Func004C()
     return false
 end
 
-function Trig_Items_Copy_Func002C()
-    if (not Trig_Items_Copy_Func002Func004C()) then
+function Trig_Ghastly_Vial_Func002C()
+    if (not Trig_Ghastly_Vial_Func002Func004C()) then
         return false
     end
     return true
 end
 
-function Trig_Items_Copy_Actions()
-    if (Trig_Items_Copy_Func002C()) then
+function Trig_Ghastly_Vial_Actions()
+    if (Trig_Ghastly_Vial_Func002C()) then
     else
         udg_Temp_Point = GetUnitLoc(GetManipulatingUnit())
         UnitDropItemPointLoc(GetManipulatingUnit(), GetItemOfTypeFromUnitBJ(GetManipulatingUnit(), FourCC("I000")), udg_Temp_Point)
@@ -1223,21 +1339,21 @@ function Trig_Items_Copy_Actions()
     end
 end
 
-function InitTrig_Items_Copy()
-    gg_trg_Items_Copy = CreateTrigger()
-    TriggerRegisterAnyUnitEventBJ(gg_trg_Items_Copy, EVENT_PLAYER_UNIT_PICKUP_ITEM)
-    TriggerAddCondition(gg_trg_Items_Copy, Condition(Trig_Items_Copy_Conditions))
-    TriggerAddAction(gg_trg_Items_Copy, Trig_Items_Copy_Actions)
+function InitTrig_Ghastly_Vial()
+    gg_trg_Ghastly_Vial = CreateTrigger()
+    TriggerRegisterAnyUnitEventBJ(gg_trg_Ghastly_Vial, EVENT_PLAYER_UNIT_PICKUP_ITEM)
+    TriggerAddCondition(gg_trg_Ghastly_Vial, Condition(Trig_Ghastly_Vial_Conditions))
+    TriggerAddAction(gg_trg_Ghastly_Vial, Trig_Ghastly_Vial_Actions)
 end
 
-function Trig_Items_Copy_2_Conditions()
+function Trig_Jar_of_Demon_Fire_Conditions()
     if (not (GetItemTypeId(GetManipulatedItem()) == FourCC("I001"))) then
         return false
     end
     return true
 end
 
-function Trig_Items_Copy_2_Func002Func004C()
+function Trig_Jar_of_Demon_Fire_Func002Func004C()
     if (GetUnitTypeId(GetManipulatingUnit()) == FourCC("u005")) then
         return true
     end
@@ -1271,15 +1387,15 @@ function Trig_Items_Copy_2_Func002Func004C()
     return false
 end
 
-function Trig_Items_Copy_2_Func002C()
-    if (not Trig_Items_Copy_2_Func002Func004C()) then
+function Trig_Jar_of_Demon_Fire_Func002C()
+    if (not Trig_Jar_of_Demon_Fire_Func002Func004C()) then
         return false
     end
     return true
 end
 
-function Trig_Items_Copy_2_Actions()
-    if (Trig_Items_Copy_2_Func002C()) then
+function Trig_Jar_of_Demon_Fire_Actions()
+    if (Trig_Jar_of_Demon_Fire_Func002C()) then
     else
         udg_Temp_Point = GetUnitLoc(GetManipulatingUnit())
         UnitDropItemPointLoc(GetManipulatingUnit(), GetItemOfTypeFromUnitBJ(GetManipulatingUnit(), FourCC("I001")), udg_Temp_Point)
@@ -1287,21 +1403,21 @@ function Trig_Items_Copy_2_Actions()
     end
 end
 
-function InitTrig_Items_Copy_2()
-    gg_trg_Items_Copy_2 = CreateTrigger()
-    TriggerRegisterAnyUnitEventBJ(gg_trg_Items_Copy_2, EVENT_PLAYER_UNIT_PICKUP_ITEM)
-    TriggerAddCondition(gg_trg_Items_Copy_2, Condition(Trig_Items_Copy_2_Conditions))
-    TriggerAddAction(gg_trg_Items_Copy_2, Trig_Items_Copy_2_Actions)
+function InitTrig_Jar_of_Demon_Fire()
+    gg_trg_Jar_of_Demon_Fire = CreateTrigger()
+    TriggerRegisterAnyUnitEventBJ(gg_trg_Jar_of_Demon_Fire, EVENT_PLAYER_UNIT_PICKUP_ITEM)
+    TriggerAddCondition(gg_trg_Jar_of_Demon_Fire, Condition(Trig_Jar_of_Demon_Fire_Conditions))
+    TriggerAddAction(gg_trg_Jar_of_Demon_Fire, Trig_Jar_of_Demon_Fire_Actions)
 end
 
-function Trig_Items_Copy_3_Conditions()
+function Trig_Khorns_Gift_Conditions()
     if (not (GetItemTypeId(GetManipulatedItem()) == FourCC("I002"))) then
         return false
     end
     return true
 end
 
-function Trig_Items_Copy_3_Func002Func004C()
+function Trig_Khorns_Gift_Func002Func004C()
     if (GetUnitTypeId(GetManipulatingUnit()) == FourCC("u005")) then
         return true
     end
@@ -1335,15 +1451,15 @@ function Trig_Items_Copy_3_Func002Func004C()
     return false
 end
 
-function Trig_Items_Copy_3_Func002C()
-    if (not Trig_Items_Copy_3_Func002Func004C()) then
+function Trig_Khorns_Gift_Func002C()
+    if (not Trig_Khorns_Gift_Func002Func004C()) then
         return false
     end
     return true
 end
 
-function Trig_Items_Copy_3_Actions()
-    if (Trig_Items_Copy_3_Func002C()) then
+function Trig_Khorns_Gift_Actions()
+    if (Trig_Khorns_Gift_Func002C()) then
     else
         udg_Temp_Point = GetUnitLoc(GetManipulatingUnit())
         UnitDropItemPointLoc(GetManipulatingUnit(), GetItemOfTypeFromUnitBJ(GetManipulatingUnit(), FourCC("I002")), udg_Temp_Point)
@@ -1351,11 +1467,11 @@ function Trig_Items_Copy_3_Actions()
     end
 end
 
-function InitTrig_Items_Copy_3()
-    gg_trg_Items_Copy_3 = CreateTrigger()
-    TriggerRegisterAnyUnitEventBJ(gg_trg_Items_Copy_3, EVENT_PLAYER_UNIT_PICKUP_ITEM)
-    TriggerAddCondition(gg_trg_Items_Copy_3, Condition(Trig_Items_Copy_3_Conditions))
-    TriggerAddAction(gg_trg_Items_Copy_3, Trig_Items_Copy_3_Actions)
+function InitTrig_Khorns_Gift()
+    gg_trg_Khorns_Gift = CreateTrigger()
+    TriggerRegisterAnyUnitEventBJ(gg_trg_Khorns_Gift, EVENT_PLAYER_UNIT_PICKUP_ITEM)
+    TriggerAddCondition(gg_trg_Khorns_Gift, Condition(Trig_Khorns_Gift_Conditions))
+    TriggerAddAction(gg_trg_Khorns_Gift, Trig_Khorns_Gift_Actions)
 end
 
 function Trig_Creep_Count_Func011Func001A()
@@ -1651,61 +1767,6 @@ function InitTrig_Creep_Spawn_8()
     TriggerAddAction(gg_trg_Creep_Spawn_8, Trig_Creep_Spawn_8_Actions)
 end
 
-function Trig_Camera_Zoom_Conditions()
-    if (not (StringLength(GetEventPlayerChatString()) <= 12)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Camera_Zoom_Func001Func005C()
-    if (not (udg_Temp_Integer > 199)) then
-        return false
-    end
-    if (not (udg_Temp_Integer <= 2800)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Camera_Zoom_Func001C()
-    if (not (GetEventPlayerChatString() == "-zoom")) then
-        return false
-    end
-    return true
-end
-
-function Trig_Camera_Zoom_Actions()
-    if (Trig_Camera_Zoom_Func001C()) then
-        SetCameraFieldForPlayer(GetTriggerPlayer(), CAMERA_FIELD_TARGET_DISTANCE, I2R(udg_Zoom_Cam[GetConvertedPlayerId(GetTriggerPlayer())]), 0.20)
-        DisplayTimedTextToForce(GetForceOfPlayer(GetTriggerPlayer()), 3.00, ("|c00FFcc00Set to last Zoom distance of " .. (I2S(udg_Zoom_Cam[GetConvertedPlayerId(GetTriggerPlayer())]) .. "|r")))
-    else
-        udg_Temp_Integer = S2I(SubStringBJ(GetEventPlayerChatString(), 7, StringLength(GetEventPlayerChatString())))
-        if (Trig_Camera_Zoom_Func001Func005C()) then
-            udg_Zoom_Cam[GetConvertedPlayerId(GetTriggerPlayer())] = udg_Temp_Integer
-            SetCameraFieldForPlayer(GetTriggerPlayer(), CAMERA_FIELD_TARGET_DISTANCE, I2R(udg_Temp_Integer), 0.20)
-        else
-            DisplayTimedTextToForce(GetForceOfPlayer(GetTriggerPlayer()), 6.00, "TRIGSTR_477")
-        end
-    end
-end
-
-function InitTrig_Camera_Zoom()
-    gg_trg_Camera_Zoom = CreateTrigger()
-    TriggerRegisterPlayerChatEvent(gg_trg_Camera_Zoom, Player(0), "-zoom", false)
-    TriggerRegisterPlayerChatEvent(gg_trg_Camera_Zoom, Player(1), "-zoom", false)
-    TriggerRegisterPlayerChatEvent(gg_trg_Camera_Zoom, Player(2), "-zoom", false)
-    TriggerRegisterPlayerChatEvent(gg_trg_Camera_Zoom, Player(3), "-zoom", false)
-    TriggerRegisterPlayerChatEvent(gg_trg_Camera_Zoom, Player(4), "-zoom", false)
-    TriggerRegisterPlayerChatEvent(gg_trg_Camera_Zoom, Player(5), "-zoom", false)
-    TriggerRegisterPlayerChatEvent(gg_trg_Camera_Zoom, Player(6), "-zoom", false)
-    TriggerRegisterPlayerChatEvent(gg_trg_Camera_Zoom, Player(7), "-zoom", false)
-    TriggerRegisterPlayerChatEvent(gg_trg_Camera_Zoom, Player(8), "-zoom", false)
-    TriggerRegisterPlayerChatEvent(gg_trg_Camera_Zoom, Player(9), "-zoom", false)
-    TriggerAddCondition(gg_trg_Camera_Zoom, Condition(Trig_Camera_Zoom_Conditions))
-    TriggerAddAction(gg_trg_Camera_Zoom, Trig_Camera_Zoom_Actions)
-end
-
 function InitCustomTriggers()
     InitTrig_Map_Initialization()
     InitTrig_Leaderboard()
@@ -1715,20 +1776,22 @@ function InitCustomTriggers()
     InitTrig_Difficulty_Dialog_Stop()
     InitTrig_Next_Round()
     InitTrig_Wave_Spawning()
-    InitTrig_Sell_Towers()
     InitTrig_Kill_Count()
     InitTrig_Leaving_Players()
     InitTrig_Remove_Dying_Unit_Heroes()
+    InitTrig_Sell_Towers()
     InitTrig_Lumber_Bounty()
-    InitTrig_Ghastly_Vial()
+    InitTrig_Camera_Zoom()
+    InitTrig_Ghastly_Vial_Unit()
     InitTrig_Ghastly_Vial_Cast()
-    InitTrig_Khorns_Gift()
+    InitTrig_Khorns_Gift_Dummys()
     InitTrig_Satans_Claw_Give()
     InitTrig_Satans_Claw_Remove()
-    InitTrig_Items()
-    InitTrig_Items_Copy()
-    InitTrig_Items_Copy_2()
-    InitTrig_Items_Copy_3()
+    InitTrig_Satans_Claw_Upgrade()
+    InitTrig_Satans_Claw()
+    InitTrig_Ghastly_Vial()
+    InitTrig_Jar_of_Demon_Fire()
+    InitTrig_Khorns_Gift()
     InitTrig_Creep_Count()
     InitTrig_Creep_Count_Remove()
     InitTrig_Creep_Spawn_1()
@@ -1739,7 +1802,6 @@ function InitCustomTriggers()
     InitTrig_Creep_Spawn_6()
     InitTrig_Creep_Spawn_7()
     InitTrig_Creep_Spawn_8()
-    InitTrig_Camera_Zoom()
 end
 
 function RunInitializationTriggers()
