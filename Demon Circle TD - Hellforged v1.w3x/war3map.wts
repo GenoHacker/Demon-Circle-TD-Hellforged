@@ -167,12 +167,6 @@ STRING 99
 Frost
 }
 
-STRING 100
-// Abilities: A001 (Frost), Ubertip (Tooltip - Normal - Extended)
-{
-Slows an enemy unit for 3 seconds.
-}
-
 STRING 101
 // Units: u005 (Demon), Name (Name)
 {
@@ -1679,7 +1673,7 @@ Incinerate
 }
 
 STRING 679
-// Abilities: A007 (Incinerate 2), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A008 (Incinerate 3), Ubertip (Tooltip - Normal - Extended)
 {
 If a unit dies while under this effect, it is incinerated, causing up to 200 damage to all nearby hostile units.
 }
@@ -1697,7 +1691,7 @@ Incinerate
 }
 
 STRING 682
-// Abilities: A008 (Incinerate 3), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A00A (Incinerate 5), Ubertip (Tooltip - Normal - Extended)
 {
 If a unit dies while under this effect, it is incinerated, causing up to 300 damage to all nearby hostile units.
 }
@@ -1715,7 +1709,7 @@ Incinerate
 }
 
 STRING 685
-// Abilities: A009 (Incinerate 4), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A00C (Incinerate 7), Ubertip (Tooltip - Normal - Extended)
 {
 If a unit dies while under this effect, it is incinerated, causing up to 400 damage to all nearby hostile units.
 }
@@ -1730,12 +1724,6 @@ STRING 687
 // Abilities: A00A (Incinerate 5), Tip (Tooltip - Normal)
 {
 Incinerate
-}
-
-STRING 688
-// Abilities: A00A (Incinerate 5), Ubertip (Tooltip - Normal - Extended)
-{
-If a unit dies while under this effect, it is incinerated, causing up to 500 damage to all nearby hostile units.
 }
 
 STRING 689
@@ -1768,12 +1756,6 @@ STRING 693
 Incinerate
 }
 
-STRING 694
-// Abilities: A00C (Incinerate 7), Ubertip (Tooltip - Normal - Extended)
-{
-If a unit dies while under this effect, it is incinerated, causing up to 700 damage to all nearby hostile units.
-}
-
 STRING 695
 // Abilities: A00C (Incinerate 7), Name (Name)
 {
@@ -1786,12 +1768,6 @@ STRING 696
 Incinerate
 }
 
-STRING 697
-// Abilities: A00D (Incinerate 8), Ubertip (Tooltip - Normal - Extended)
-{
-If a unit dies while under this effect, it is incinerated, causing up to 800 damage to all nearby hostile units.
-}
-
 STRING 698
 // Abilities: A00D (Incinerate 8), Name (Name)
 {
@@ -1802,12 +1778,6 @@ STRING 699
 // Abilities: A00E (Incinerate 9), Tip (Tooltip - Normal)
 {
 Incinerate
-}
-
-STRING 700
-// Abilities: A00E (Incinerate 9), Ubertip (Tooltip - Normal - Extended)
-{
-If a unit dies while under this effect, it is incinerated, causing up to 1000 damage to all nearby hostile units.
 }
 
 STRING 701
@@ -1823,7 +1793,7 @@ Incinerate
 }
 
 STRING 703
-// Abilities: A00G (Incinerate 6), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A00E (Incinerate 9), Ubertip (Tooltip - Normal - Extended)
 {
 If a unit dies while under this effect, it is incinerated, causing up to 600 damage to all nearby hostile units.
 }
@@ -1894,12 +1864,6 @@ STRING 725
 Upgrade to Freezer Tower
 }
 
-STRING 727
-// Units: u012 (Glacier Tower), Ubertip (Tooltip - Extended)
-{
-Dmg: 200 - 400 |nCooldown: 1.0s |nRange: 700 |nFrost (5s) |nSplash (200)
-}
-
 STRING 728
 // Units: u006 (Skull Tower Level 1), Tip (Tooltip - Basic)
 {
@@ -1964,12 +1928,6 @@ STRING 747
 // Units: u00B (Frost Tower), Tip (Tooltip - Basic)
 {
 Build Frost Tower
-}
-
-STRING 749
-// Units: u00C (Freezer Tower), Ubertip (Tooltip - Extended)
-{
-Dmg: 100 - 200 |nCooldown: 1.0s |nRange: 700 |nFrost (4s) |nSplash (125)
 }
 
 STRING 750
@@ -2056,12 +2014,6 @@ STRING 763
 Slows enemy units for 5 seconds.
 }
 
-STRING 764
-// Units: u00B (Frost Tower), Ubertip (Tooltip - Extended)
-{
-Dmg: 25 - 100 |nCooldown: 1.0s |nRange: 700 |nFrost (3s) |nSplash (75)
-}
-
 STRING 765
 // Abilities: A000 (Sell Tower), Tip (Tooltip - Normal)
 {
@@ -2105,7 +2057,7 @@ Purchase Khorns Gift
 }
 
 STRING 809
-// Units: u013 (Sacrificial Altar), Name (Name)
+// Units: n000 (Sacrificial Altar), Name (Name)
 {
 Sacrificial Altar
 }
@@ -2188,16 +2140,6 @@ STRING 826
 Ghastly Vial - Level 3
 }
 
-STRING 827
-// Items: I000 (Ghastly Vial - Level 3), Ubertip (Tooltip - Extended)
-{
-[Ghost Tower Only]
-
-Level 3 of 3.
-
-Upon killing an enemy their is a 8% chance to summon a Ghost that will cast chain lightning. Ghost last for 8 seconds.
-}
-
 STRING 828
 // Items: I000 (Ghastly Vial - Level 3), Description (Description)
 {
@@ -2275,16 +2217,6 @@ STRING 838
 Ghastly Vial - Level 2
 }
 
-STRING 839
-// Items: I004 (Ghastly Vial - Level 2), Ubertip (Tooltip - Extended)
-{
-[Ghost Tower Only]
-
-Level 2 of 3, to increase this items level purchase  the level 1 item and have them in the same inventory.
-
-Upon killing an enemy their is a 8% chance to summon a Ghost that will cast chain lightning. Ghost last for 8 seconds.
-}
-
 STRING 840
 // Items: I004 (Ghastly Vial - Level 2), Description (Description)
 {
@@ -2307,16 +2239,6 @@ STRING 843
 // Items: I005 (Ghastly Vial - Level 1), Tip (Tooltip - Basic)
 {
 Purchase a Ghastly Vial - Level 1
-}
-
-STRING 844
-// Items: I005 (Ghastly Vial - Level 1), Ubertip (Tooltip - Extended)
-{
-[Ghost Tower Only]
-
-Level 1 of 3, to increase this items level purchase  the level 1 item and have them in the same inventory.
-
-Upon killing an enemy their is a 8% chance to summon a Ghost that will cast chain lightning. Ghost last for 8 seconds.
 }
 
 STRING 845
@@ -2764,42 +2686,6 @@ Range: 1000
 Multishot (3)
 }
 
-STRING 906
-// Units: u00O (Inferno Gate Level 3), Ubertip (Tooltip - Extended)
-{
-Dmg: 400 - 500
-Cooldown: 4.0s
-Range: 1200
-Incinerate
-}
-
-STRING 907
-// Units: u00P (Inferno Gate Level 2), Ubertip (Tooltip - Extended)
-{
-Dmg: 200 - 300
-Cooldown: 4.0s
-Range: 1200
-Incinerate
-}
-
-STRING 908
-// Units: u00Q (Inferno Gate Level 1), Ubertip (Tooltip - Extended)
-{
-Dmg: 100 - 200
-Cooldown: 4.0s
-Range: 1200
-Incinerate
-}
-
-STRING 909
-// Units: u00R (Inferno Gate Level 4), Ubertip (Tooltip - Extended)
-{
-Dmg: 700 - 800
-Cooldown: 4.0s
-Range: 1200
-Incinerate
-}
-
 STRING 910
 // Units: u00V (Ultimate Skull Tower), Ubertip (Tooltip - Extended)
 {
@@ -2807,59 +2693,6 @@ Dmg: 500
 Cooldown: 1.0s
 Range: 700
 Splash (200)
-}
-
-STRING 911
-// Units: u00W (Inferno Gate Level 5), Ubertip (Tooltip - Extended)
-{
-Dmg: 1100 - 1200
-Cooldown: 4.0s
-Range: 1200
-Incinerate
-}
-
-STRING 912
-// Units: u00X (Inferno Gate Level 6), Ubertip (Tooltip - Extended)
-{
-Dmg: 1600 - 1700
-Cooldown: 4.0s
-Range: 1200
-Incinerate
-}
-
-STRING 913
-// Units: u00Y (Inferno Gate Level 7), Ubertip (Tooltip - Extended)
-{
-Dmg: 2200 - 2300
-Cooldown: 4.0s
-Range: 1200
-Incinerate
-}
-
-STRING 914
-// Units: u00Z (Inferno Gate Level 8), Ubertip (Tooltip - Extended)
-{
-Dmg: 2900 - 3000
-Cooldown: 4.0s
-Range: 1200
-Incinerate
-}
-
-STRING 915
-// Units: u010 (Ultimate Ghost Tower), Ubertip (Tooltip - Extended)
-{
-Dmg: 500
-Cooldown: 0.4s
-Range: 800
-}
-
-STRING 916
-// Units: u011 (Ultimate Inferno Gate), Ubertip (Tooltip - Extended)
-{
-Dmg: 3900 - 4000
-Cooldown: 3.0s
-Range: 1500
-Incinerate
 }
 
 STRING 917
@@ -2889,12 +2722,203 @@ Range: 1000
 Multishot (3)
 }
 
-STRING 920
+STRING 921
 // Units: u01A (Ultimate Chaos Tower), Ubertip (Tooltip - Extended)
 {
 Dmg: 500
 Cooldown: 2.0s
 Range: 1200
-Multishot
+Multishot (4)
+}
+
+STRING 922
+// Abilities: A001 (Frost), Ubertip (Tooltip - Normal - Extended)
+{
+Slows enemy units for 3 seconds.
+}
+
+STRING 923
+// Abilities: A007 (Incinerate 2), Ubertip (Tooltip - Normal - Extended)
+{
+If a unit dies while under this effect, it is incinerated, causing up to 150 damage to all nearby hostile units.
+}
+
+STRING 924
+// Abilities: A009 (Incinerate 4), Ubertip (Tooltip - Normal - Extended)
+{
+If a unit dies while under this effect, it is incinerated, causing up to 250 damage to all nearby hostile units.
+}
+
+STRING 925
+// Abilities: A00D (Incinerate 8), Ubertip (Tooltip - Normal - Extended)
+{
+If a unit dies while under this effect, it is incinerated, causing up to 450 damage to all nearby hostile units.
+}
+
+STRING 926
+// Abilities: A00G (Incinerate 6), Ubertip (Tooltip - Normal - Extended)
+{
+If a unit dies while under this effect, it is incinerated, causing up to 350 damage to all nearby hostile units.
+}
+
+STRING 927
+// Units: u00B (Frost Tower), Ubertip (Tooltip - Extended)
+{
+Dmg: 25 - 100 |nCooldown: 3.0s |nRange: 700 |nFrost (3s) |nSplash (75)
+}
+
+STRING 928
+// Units: u00C (Freezer Tower), Ubertip (Tooltip - Extended)
+{
+Dmg: 100 - 200 |nCooldown: 3.0s |nRange: 700 |nFrost (4s) |nSplash (125)
+}
+
+STRING 929
+// Units: u012 (Glacier Tower), Ubertip (Tooltip - Extended)
+{
+Dmg: 200 - 400 |nCooldown: 3.0s |nRange: 700 |nFrost (5s) |nSplash (200)
+}
+
+STRING 931
+// Abilities: A00W (Inferno Tower), Name (Name)
+{
+Inferno Tower
+}
+
+STRING 932
+// Abilities: A00X (Ghost Tower), Name (Name)
+{
+Ghost Tower
+}
+
+STRING 933
+// Abilities: A00Y (Skull Tower), Name (Name)
+{
+Skull Tower
+}
+
+STRING 934
+// Abilities: A00Z (Chaos Tower), Name (Name)
+{
+Chaos Tower
+}
+
+STRING 935
+// Units: u00O (Inferno Gate Level 3), Ubertip (Tooltip - Extended)
+{
+Dmg: 400 - 500
+Cooldown: 4.0s
+Range: 1000
+Incinerate
+}
+
+STRING 936
+// Units: u00P (Inferno Gate Level 2), Ubertip (Tooltip - Extended)
+{
+Dmg: 200 - 300
+Cooldown: 4.0s
+Range: 1000
+Incinerate
+}
+
+STRING 937
+// Units: u00Q (Inferno Gate Level 1), Ubertip (Tooltip - Extended)
+{
+Dmg: 100 - 200
+Cooldown: 4.0s
+Range: 1000
+Incinerate
+}
+
+STRING 938
+// Units: u00R (Inferno Gate Level 4), Ubertip (Tooltip - Extended)
+{
+Dmg: 700 - 800
+Cooldown: 4.0s
+Range: 1000
+Incinerate
+}
+
+STRING 939
+// Units: u00W (Inferno Gate Level 5), Ubertip (Tooltip - Extended)
+{
+Dmg: 1100 - 1200
+Cooldown: 4.0s
+Range: 1000
+Incinerate
+}
+
+STRING 940
+// Units: u00X (Inferno Gate Level 6), Ubertip (Tooltip - Extended)
+{
+Dmg: 1600 - 1700
+Cooldown: 4.0s
+Range: 1000
+Incinerate
+}
+
+STRING 941
+// Units: u00Y (Inferno Gate Level 7), Ubertip (Tooltip - Extended)
+{
+Dmg: 2200 - 2300
+Cooldown: 4.0s
+Range: 1000
+Incinerate
+}
+
+STRING 942
+// Units: u00Z (Inferno Gate Level 8), Ubertip (Tooltip - Extended)
+{
+Dmg: 2900 - 3000
+Cooldown: 4.0s
+Range: 1000
+Incinerate
+}
+
+STRING 944
+// Units: u010 (Ultimate Ghost Tower), Ubertip (Tooltip - Extended)
+{
+Dmg: 500
+Cooldown: 0.4s
+Range: 900
+}
+
+STRING 947
+// Units: u011 (Ultimate Inferno Gate), Ubertip (Tooltip - Extended)
+{
+Dmg: 3900 - 4000
+Cooldown: 3.0s
+Range: 1200
+Incinerate
+}
+
+STRING 948
+// Items: I000 (Ghastly Vial - Level 3), Ubertip (Tooltip - Extended)
+{
+[Ghost Tower Only]
+
+Level 3 of 3.
+
+Upon attacking an enemy their is a 16% chance to summon a Ghost that will cast chain lightning. Ghost last for 8 seconds.
+}
+
+STRING 949
+// Items: I004 (Ghastly Vial - Level 2), Ubertip (Tooltip - Extended)
+{
+[Ghost Tower Only]
+
+Level 2 of 3, to increase this items level purchase  the level 1 item and have them in the same inventory.
+
+Upon attacking an enemy their is a 12% chance to summon a Ghost that will cast chain lightning. Ghost last for 8 seconds.
+}
+
+STRING 950
+// Items: I005 (Ghastly Vial - Level 1), Ubertip (Tooltip - Extended)
+{
+[Ghost Tower Only]
+
+Level 1 of 3, to increase this items level purchase  the level 1 item and have them in the same inventory.
+
+Upon attacking an enemy their is a 8% chance to summon a Ghost that will cast chain lightning. Ghost last for 8 seconds.
 }
 
