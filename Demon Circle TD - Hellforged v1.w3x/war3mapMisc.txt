@@ -1,10 +1,13 @@
 [Misc]
 BoneDecayTime=15.0
 ConstructionRefundRate=1.0
+DropItemRange=400.0
 FrostMoveSpeedDecrease=0.25
+GiveItemRange=600.0
+ItemStackingEnabled=1
 MaxBldgSpeed=522.0
 MaxUnitSpeed=522.0
-MinUnitSpeed=150.0
+PawnItemRange=600.0
 TradingIncLarge=50
 TradingIncSmall=10
 UpgradeRefundRate=1.0
