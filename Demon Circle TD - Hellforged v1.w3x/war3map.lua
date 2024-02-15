@@ -1201,35 +1201,35 @@ end
 return true
 end
 
-function Trig_Ghastly_Vial_Unit_Func002Func001Func001Func003C()
+function Trig_Ghastly_Vial_Unit_Func002Func002Func001Func001Func003C()
 if (not (udg_Integer_Array_GhastlyChance[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] <= 16)) then
 return false
 end
 return true
 end
 
-function Trig_Ghastly_Vial_Unit_Func002Func001Func001C()
+function Trig_Ghastly_Vial_Unit_Func002Func002Func001Func001C()
 if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I005"))) == 3)) then
 return false
 end
 return true
 end
 
-function Trig_Ghastly_Vial_Unit_Func002Func001Func004C()
+function Trig_Ghastly_Vial_Unit_Func002Func002Func001Func004C()
 if (not (udg_Integer_Array_GhastlyChance[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] <= 12)) then
 return false
 end
 return true
 end
 
-function Trig_Ghastly_Vial_Unit_Func002Func001C()
+function Trig_Ghastly_Vial_Unit_Func002Func002Func001C()
 if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I005"))) == 2)) then
 return false
 end
 return true
 end
 
-function Trig_Ghastly_Vial_Unit_Func002Func003C()
+function Trig_Ghastly_Vial_Unit_Func002Func002C()
 if (not (udg_Integer_Array_GhastlyChance[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] <= 8)) then
 return false
 end
@@ -1246,7 +1246,7 @@ end
 function Trig_Ghastly_Vial_Unit_Actions()
 if (Trig_Ghastly_Vial_Unit_Func002C()) then
 udg_Integer_Array_GhastlyChance[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] = GetRandomInt(1, 100)
-if (Trig_Ghastly_Vial_Unit_Func002Func003C()) then
+if (Trig_Ghastly_Vial_Unit_Func002Func002C()) then
 udg_Temp_Point = GetUnitLoc(GetEventDamageSource())
 CreateNUnitsAtLoc(1, FourCC("h029"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_Point, bj_UNIT_FACING)
 UnitAddAbilityBJ(FourCC("A00V"), GetLastCreatedUnit())
@@ -1256,13 +1256,10 @@ CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), ud
 UnitAddAbilityBJ(FourCC("A01F"), GetLastCreatedUnit())
 IssueTargetOrderBJ(GetLastCreatedUnit(), "innerfire", GetEventDamageSource())
 UnitApplyTimedLifeBJ(1.00, FourCC("BTLF"), GetLastCreatedUnit())
-            RemoveLocation(udg_Temp_Point)
 else
-end
-else
-if (Trig_Ghastly_Vial_Unit_Func002Func001C()) then
+if (Trig_Ghastly_Vial_Unit_Func002Func002Func001C()) then
 udg_Integer_Array_GhastlyChance[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] = GetRandomInt(1, 100)
-if (Trig_Ghastly_Vial_Unit_Func002Func001Func004C()) then
+if (Trig_Ghastly_Vial_Unit_Func002Func002Func001Func004C()) then
 udg_Temp_Point = GetUnitLoc(GetEventDamageSource())
 CreateNUnitsAtLoc(1, FourCC("h029"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_Point, bj_UNIT_FACING)
 UnitAddAbilityBJ(FourCC("A00U"), GetLastCreatedUnit())
@@ -1272,13 +1269,12 @@ CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), ud
 UnitAddAbilityBJ(FourCC("A01G"), GetLastCreatedUnit())
 IssueTargetOrderBJ(GetLastCreatedUnit(), "innerfire", GetEventDamageSource())
 UnitApplyTimedLifeBJ(1.00, FourCC("BTLF"), GetLastCreatedUnit())
-                RemoveLocation(udg_Temp_Point)
 else
 end
 else
-if (Trig_Ghastly_Vial_Unit_Func002Func001Func001C()) then
+if (Trig_Ghastly_Vial_Unit_Func002Func002Func001Func001C()) then
 udg_Integer_Array_GhastlyChance[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] = GetRandomInt(1, 100)
-if (Trig_Ghastly_Vial_Unit_Func002Func001Func001Func003C()) then
+if (Trig_Ghastly_Vial_Unit_Func002Func002Func001Func001Func003C()) then
 udg_Temp_Point = GetUnitLoc(GetEventDamageSource())
 CreateNUnitsAtLoc(1, FourCC("h029"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_Point, bj_UNIT_FACING)
 UnitAddAbilityBJ(FourCC("A004"), GetLastCreatedUnit())
@@ -1288,12 +1284,14 @@ CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), ud
 UnitAddAbilityBJ(FourCC("A01E"), GetLastCreatedUnit())
 IssueTargetOrderBJ(GetLastCreatedUnit(), "innerfire", GetEventDamageSource())
 UnitApplyTimedLifeBJ(0.50, FourCC("BTLF"), GetLastCreatedUnit())
-                    RemoveLocation(udg_Temp_Point)
 else
 end
 else
 end
 end
+end
+        RemoveLocation(udg_Temp_Point)
+else
 end
 end
 
