@@ -61,6 +61,7 @@ gg_trg_Unit_Die = nil
 gg_trg_Leaving_Players = nil
 gg_trg_Sell_Towers = nil
 gg_trg_Lumber_Bounty = nil
+gg_trg_Soul_Siphoner_and_Carrion_Tower = nil
 gg_trg_Ghastly_Vial_Unit = nil
 gg_trg_Ghastly_Vial_Cast = nil
 gg_trg_Khorns_Gift_Dummys = nil
@@ -78,6 +79,7 @@ gg_trg_Jar_of_Demon_Fire = nil
 gg_trg_Khorns_Gift = nil
 gg_trg_Hellfrost_Enchantment = nil
 gg_trg_Dichotomous_Box = nil
+gg_trg_Soul_Siphoner = nil
 gg_trg_Creep_Count = nil
 gg_trg_Creep_Count_Remove = nil
 gg_trg_Creep_Spawn_1 = nil
@@ -88,8 +90,25 @@ gg_trg_Creep_Spawn_5 = nil
 gg_trg_Creep_Spawn_6 = nil
 gg_trg_Creep_Spawn_7 = nil
 gg_trg_Creep_Spawn_8 = nil
-gg_trg_Soul_Siphoner_and_Carrion_Tower = nil
-gg_trg_Soul_Siphoner = nil
+gg_rct_Teleport_Blue_2 = nil
+gg_rct_Teleport_Blue_1 = nil
+gg_rct_Teleport_Teal_1 = nil
+gg_rct_TeleportTeal_1 = nil
+gg_rct_Teleport_Purple_1 = nil
+gg_rct_Teleport_Purple_2 = nil
+gg_rct_Teleport_Yellow_1 = nil
+gg_rct_Teleport_Yellow_2 = nil
+gg_rct_Teleport_Orange_1 = nil
+gg_rct_Teleport_Orange_2 = nil
+gg_rct_Teleport_Green_1 = nil
+gg_rct_Teleport_Red_2 = nil
+gg_rct_Teleport_Red_1 = nil
+gg_rct_Teleport_Pink_2 = nil
+gg_rct_Teleport_Pink_1 = nil
+gg_rct_Teleport_Green_2 = nil
+gg_trg_Untitled_Trigger_001 = nil
+gg_trg_Untitled_Trigger_001_Copy = nil
+gg_trg_Untitled_Trigger_001_Copy_Copy = nil
 function InitGlobals()
 local i = 0
 
@@ -258,8 +277,8 @@ local life
 u = BlzCreateUnitWithSkin(p, FourCC("u005"), -5123.3, 2051.0, 192.180, FourCC("u005"))
 end
 
-function CreateNeutralPassiveBuildings()
-local p = Player(PLAYER_NEUTRAL_PASSIVE)
+function CreateBuildingsForPlayer11()
+local p = Player(11)
 local u
 local unitID
 local t
@@ -282,6 +301,7 @@ u = BlzCreateUnitWithSkin(p, FourCC("h00E"), -2559.6, 6143.6, 82.430, FourCC("h0
 end
 
 function CreatePlayerBuildings()
+CreateBuildingsForPlayer11()
 end
 
 function CreatePlayerUnits()
@@ -296,7 +316,6 @@ CreateUnitsForPlayer7()
 end
 
 function CreateAllUnits()
-CreateNeutralPassiveBuildings()
 CreatePlayerBuildings()
 CreateNeutralPassive()
 CreatePlayerUnits()
@@ -321,6 +340,22 @@ gg_rct_Waypoint_2 = Rect(-2624.0, 5312.0, -2496.0, 5440.0)
 gg_rct_Waypoint_4 = Rect(704.0, 1984.0, 832.0, 2112.0)
 gg_rct_Waypoint_6 = Rect(-2624.0, -1344.0, -2496.0, -1216.0)
 gg_rct_Waypoint_8 = Rect(-5952.0, 1984.0, -5824.0, 2112.0)
+gg_rct_Teleport_Blue_2 = Rect(-2048.0, 5248.0, -1792.0, 5632.0)
+gg_rct_Teleport_Blue_1 = Rect(-3072.0, 5248.0, -2816.0, 5632.0)
+gg_rct_Teleport_Teal_1 = Rect(-1024.0, 4736.0, -768.0, 5120.0)
+gg_rct_TeleportTeal_1 = Rect(128.0, 3328.0, 512.0, 3584.0)
+gg_rct_Teleport_Purple_1 = Rect(640.0, 2304.0, 1024.0, 2560.0)
+gg_rct_Teleport_Purple_2 = Rect(640.0, 1280.0, 1024.0, 1536.0)
+gg_rct_Teleport_Yellow_1 = Rect(128.0, 256.0, 512.0, 512.0)
+gg_rct_Teleport_Yellow_2 = Rect(-1280.0, -1024.0, -1024.0, -640.0)
+gg_rct_Teleport_Orange_1 = Rect(-2304.0, -1536.0, -2048.0, -1152.0)
+gg_rct_Teleport_Orange_2 = Rect(-3328.0, -1536.0, -3072.0, -1152.0)
+gg_rct_Teleport_Green_1 = Rect(-4352.0, -1024.0, -4096.0, -640.0)
+gg_rct_Teleport_Red_2 = Rect(-4096.0, 4736.0, -3840.0, 5120.0)
+gg_rct_Teleport_Red_1 = Rect(-5632.0, 3584.0, -5248.0, 3840.0)
+gg_rct_Teleport_Pink_2 = Rect(-6144.0, 2560.0, -5760.0, 2816.0)
+gg_rct_Teleport_Pink_1 = Rect(-6144.0, 1536.0, -5760.0, 1792.0)
+gg_rct_Teleport_Green_2 = Rect(-5632.0, 512.0, -5248.0, 768.0)
 end
 
 function Trig_Map_Initialization_Func001Func001C()
@@ -2017,6 +2052,105 @@ TriggerRegisterAnyUnitEventBJ(gg_trg_Soul_Siphoner, EVENT_PLAYER_UNIT_PICKUP_ITE
 TriggerAddAction(gg_trg_Soul_Siphoner, Trig_Soul_Siphoner_Actions)
 end
 
+function Trig_Untitled_Trigger_001_Func001Func003C()
+if (GetPlayerSlotState(Player(0)) == PLAYER_SLOT_STATE_EMPTY) then
+return true
+end
+if (GetPlayerSlotState(Player(0)) == PLAYER_SLOT_STATE_LEFT) then
+return true
+end
+return false
+end
+
+function Trig_Untitled_Trigger_001_Func001C()
+if (not Trig_Untitled_Trigger_001_Func001Func003C()) then
+return false
+end
+return true
+end
+
+function Trig_Untitled_Trigger_001_Actions()
+if (Trig_Untitled_Trigger_001_Func001C()) then
+SetUnitPositionLocFacingLocBJ(GetTriggerUnit(), GetRectCenter(gg_rct_Teleport_Red_2), GetRectCenter(gg_rct_Waypoint_2))
+IssuePointOrderLocBJ(GetTriggerUnit(), "move", GetRectCenter(gg_rct_Waypoint_2))
+else
+end
+end
+
+function InitTrig_Untitled_Trigger_001()
+gg_trg_Untitled_Trigger_001 = CreateTrigger()
+TriggerRegisterEnterRectSimple(gg_trg_Untitled_Trigger_001, gg_rct_Teleport_Red_1)
+TriggerRegisterEnterRectSimple(gg_trg_Untitled_Trigger_001, gg_rct_Waypoint_1)
+TriggerRegisterEnterRectSimple(gg_trg_Untitled_Trigger_001, gg_rct_CreepSpawn1)
+TriggerAddAction(gg_trg_Untitled_Trigger_001, Trig_Untitled_Trigger_001_Actions)
+end
+
+function Trig_Untitled_Trigger_001_Copy_Func001Func003C()
+if (GetPlayerSlotState(Player(1)) == PLAYER_SLOT_STATE_EMPTY) then
+return true
+end
+if (GetPlayerSlotState(Player(1)) == PLAYER_SLOT_STATE_LEFT) then
+return true
+end
+return false
+end
+
+function Trig_Untitled_Trigger_001_Copy_Func001C()
+if (not Trig_Untitled_Trigger_001_Copy_Func001Func003C()) then
+return false
+end
+return true
+end
+
+function Trig_Untitled_Trigger_001_Copy_Actions()
+if (Trig_Untitled_Trigger_001_Copy_Func001C()) then
+SetUnitPositionLocFacingLocBJ(GetTriggerUnit(), GetRectCenter(gg_rct_Teleport_Blue_2), GetRectCenter(gg_rct_Waypoint_3))
+IssuePointOrderLocBJ(GetTriggerUnit(), "move", GetRectCenter(gg_rct_Waypoint_3))
+else
+end
+end
+
+function InitTrig_Untitled_Trigger_001_Copy()
+gg_trg_Untitled_Trigger_001_Copy = CreateTrigger()
+TriggerRegisterEnterRectSimple(gg_trg_Untitled_Trigger_001_Copy, gg_rct_Teleport_Blue_1)
+TriggerRegisterEnterRectSimple(gg_trg_Untitled_Trigger_001_Copy, gg_rct_Waypoint_2)
+TriggerRegisterEnterRectSimple(gg_trg_Untitled_Trigger_001_Copy, gg_rct_CreepSpawn2)
+TriggerAddAction(gg_trg_Untitled_Trigger_001_Copy, Trig_Untitled_Trigger_001_Copy_Actions)
+end
+
+function Trig_Untitled_Trigger_001_Copy_Copy_Func001Func003C()
+if (GetPlayerSlotState(Player(2)) == PLAYER_SLOT_STATE_EMPTY) then
+return true
+end
+if (GetPlayerSlotState(Player(2)) == PLAYER_SLOT_STATE_LEFT) then
+return true
+end
+return false
+end
+
+function Trig_Untitled_Trigger_001_Copy_Copy_Func001C()
+if (not Trig_Untitled_Trigger_001_Copy_Copy_Func001Func003C()) then
+return false
+end
+return true
+end
+
+function Trig_Untitled_Trigger_001_Copy_Copy_Actions()
+if (Trig_Untitled_Trigger_001_Copy_Copy_Func001C()) then
+SetUnitPositionLocFacingLocBJ(GetTriggerUnit(), GetRectCenter(gg_rct_TeleportTeal_1), GetRectCenter(gg_rct_Waypoint_4))
+IssuePointOrderLocBJ(GetTriggerUnit(), "move", GetRectCenter(gg_rct_Waypoint_4))
+else
+end
+end
+
+function InitTrig_Untitled_Trigger_001_Copy_Copy()
+gg_trg_Untitled_Trigger_001_Copy_Copy = CreateTrigger()
+TriggerRegisterEnterRectSimple(gg_trg_Untitled_Trigger_001_Copy_Copy, gg_rct_Teleport_Teal_1)
+TriggerRegisterEnterRectSimple(gg_trg_Untitled_Trigger_001_Copy_Copy, gg_rct_Waypoint_3)
+TriggerRegisterEnterRectSimple(gg_trg_Untitled_Trigger_001_Copy_Copy, gg_rct_CreepSpawn3)
+TriggerAddAction(gg_trg_Untitled_Trigger_001_Copy_Copy, Trig_Untitled_Trigger_001_Copy_Copy_Actions)
+end
+
 function Trig_Creep_Count_Func011Func001A()
 CustomDefeatBJ(GetEnumPlayer(), "TRIGSTR_041")
 end
@@ -2350,6 +2484,9 @@ InitTrig_Khorns_Gift()
 InitTrig_Hellfrost_Enchantment()
 InitTrig_Dichotomous_Box()
 InitTrig_Soul_Siphoner()
+InitTrig_Untitled_Trigger_001()
+InitTrig_Untitled_Trigger_001_Copy()
+InitTrig_Untitled_Trigger_001_Copy_Copy()
 InitTrig_Creep_Count()
 InitTrig_Creep_Count_Remove()
 InitTrig_Creep_Spawn_1()

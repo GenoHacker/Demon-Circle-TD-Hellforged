@@ -1183,11 +1183,6 @@ STRING 484
 |cffffcc00Gold:|r
 }
 
-STRING 486
-{
-Movement Speed:
-}
-
 STRING 487
 {
 %s - |cffffcc00Level:|r %d
@@ -1201,11 +1196,6 @@ Parties
 STRING 489
 {
 |c00959697Armor:|r
-}
-
-STRING 490
-{
-Game Time Played:
 }
 
 STRING 491
@@ -1228,49 +1218,9 @@ STRING 494
 |cff32cd32Lumber:|r
 }
 
-STRING 495
-{
-Stock will be coming soon.
-}
-
-STRING 496
-{
-You tied! Continue playing?
-}
-
-STRING 497
-{
-You won! Continue playing?
-}
-
 STRING 498
 {
 |cffffcc00Gold|r
-}
-
-STRING 499
-{
-HEROES USED
-}
-
-STRING 500
-{
-HEROES SLAIN
-}
-
-STRING 501
-{
-ITEMS OBTAINED
-}
-
-STRING 502
-{
-MERCENARIES HIRED
-}
-
-STRING 503
-{
-EXPERIENCE GAINED
 }
 
 STRING 504
@@ -1303,26 +1253,6 @@ STRING 510
 |cff32cd32Lumber|r
 }
 
-STRING 511
-{
-UNIT SCORE(S)
-}
-
-STRING 512
-{
-PLAYER SCORE(S)
-}
-
-STRING 513
-{
-RESOURCE SCORE(S)
-}
-
-STRING 514
-{
-TOTAL SCORE(S)
-}
-
 STRING 515
 {
 |cffffcc00Game Help|r
@@ -1348,91 +1278,14 @@ STRING 519
 |cff32cd32Lumber|r is not harvested here.
 }
 
-STRING 520
-{
-|cffffcc00GOLD|r MINED
-}
-
-STRING 521
-{
-|cff32cd32LUMBER|r HARVESTED
-}
-
-STRING 522
-{
-RESOURCES TRADED
-}
-
-STRING 523
-{
-TECH PERCENTAGE
-}
-
-STRING 524
-{
-|cffffcc00GOLD|r LOST TO UPKEEP
-}
-
 STRING 525
 {
 |cffFFFFFFOverview|r
 }
 
-STRING 526
-{
-|cffFFFFFFUnit Results|r
-}
-
-STRING 527
-{
-|cffFFFFFFPlayer Results|r
-}
-
 STRING 528
 {
 |cffFFFFFFResources|r
-}
-
-STRING 529
-{
-|cff40E0D0TEAMS|r
-}
-
-STRING 530
-{
-This dialog provides easy access to
-several |cffffcc00in|r -|cffffcc00game|r options including
-but not limited to giving up/Q|cffffcc00uit|r.
-}
-
-STRING 531
-{
-UNITS TRAINED
-}
-
-STRING 532
-{
-UNITS SLAIN
-}
-
-STRING 533
-{
-BUILDINGS PRODUCED
-}
-
-STRING 534
-{
-BUILDINGS RAZED
-}
-
-STRING 535
-{
-LARGEST ARMY
-}
-
-STRING 536
-{
-|cffffcc00The|r |cff32cd32Give Up|r? |cffffcc00Dialog|r [|Cfffed312F10|R]
 }
 
 STRING 538
@@ -2544,12 +2397,6 @@ STRING 952
 Dmg: 100 - 200 |nCooldown: 3.0s |nRange: 700 |nFrost (4s) |nSplash (175)
 }
 
-STRING 953
-// Units: u012 (Glacier Tower), Ubertip (Tooltip - Extended)
-{
-Dmg: 200 - 400 |nCooldown: 3.0s |nRange: 800 |nFrost (5s) |nSplash (225)
-}
-
 STRING 954
 // Abilities: A006 (Multishot), Ubertip (Tooltip - Normal - Extended)
 {
@@ -2934,5 +2781,26 @@ Every 5th waves takes has Spell Damage Reduction.
 Every 10th wave takes has Spell Damage Reduction and Hardened Skin.
 
 You gain 1 gold when another player kills your creeps.
+}
+
+STRING 1067
+{
+Divine beings take full damage from Chaos attacks and reduced damage from non- chaos attacks.
+}
+
+STRING 1068
+{
+Divine beings take full damage from Chaos attacks and reduced damage from non- chaos attacks.
+}
+
+STRING 1069
+{
+Divine beings take full damage from Chaos attacks and reduced damage from non- chaos attacks.
+}
+
+STRING 1070
+// Units: u012 (Glacier Tower), Ubertip (Tooltip - Extended)
+{
+Dmg: 200 - 400 |nCooldown: 2.5s |nRange: 800 |nFrost (5s) |nSplash (225)
 }
 
