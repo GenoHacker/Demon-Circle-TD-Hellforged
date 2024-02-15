@@ -93,7 +93,7 @@ gg_trg_Creep_Spawn_8 = nil
 gg_rct_Teleport_Blue_2 = nil
 gg_rct_Teleport_Blue_1 = nil
 gg_rct_Teleport_Teal_1 = nil
-gg_rct_TeleportTeal_1 = nil
+gg_rct_Teleport_Teal_2 = nil
 gg_rct_Teleport_Purple_1 = nil
 gg_rct_Teleport_Purple_2 = nil
 gg_rct_Teleport_Yellow_1 = nil
@@ -109,6 +109,11 @@ gg_rct_Teleport_Green_2 = nil
 gg_trg_Untitled_Trigger_001 = nil
 gg_trg_Untitled_Trigger_001_Copy = nil
 gg_trg_Untitled_Trigger_001_Copy_Copy = nil
+gg_trg_Untitled_Trigger_001_Copy_Copy_Copy = nil
+gg_trg_Untitled_Trigger_001_Copy_Copy_Copy_Copy = nil
+gg_trg_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy = nil
+gg_trg_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy_Copy = nil
+gg_trg_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy_Copy_Copy = nil
 function InitGlobals()
 local i = 0
 
@@ -343,7 +348,7 @@ gg_rct_Waypoint_8 = Rect(-5952.0, 1984.0, -5824.0, 2112.0)
 gg_rct_Teleport_Blue_2 = Rect(-2048.0, 5248.0, -1792.0, 5632.0)
 gg_rct_Teleport_Blue_1 = Rect(-3072.0, 5248.0, -2816.0, 5632.0)
 gg_rct_Teleport_Teal_1 = Rect(-1024.0, 4736.0, -768.0, 5120.0)
-gg_rct_TeleportTeal_1 = Rect(128.0, 3328.0, 512.0, 3584.0)
+gg_rct_Teleport_Teal_2 = Rect(128.0, 3328.0, 512.0, 3584.0)
 gg_rct_Teleport_Purple_1 = Rect(640.0, 2304.0, 1024.0, 2560.0)
 gg_rct_Teleport_Purple_2 = Rect(640.0, 1280.0, 1024.0, 1536.0)
 gg_rct_Teleport_Yellow_1 = Rect(128.0, 256.0, 512.0, 512.0)
@@ -1189,42 +1194,49 @@ TriggerAddCondition(gg_trg_Soul_Siphoner_and_Carrion_Tower, Condition(Trig_Soul_
 TriggerAddAction(gg_trg_Soul_Siphoner_and_Carrion_Tower, Trig_Soul_Siphoner_and_Carrion_Tower_Actions)
 end
 
-function Trig_Ghastly_Vial_Unit_Func001Func001Func001Func003C()
+function Trig_Ghastly_Vial_Unit_Conditions()
+if (not (UnitHasBuffBJ(GetKillingUnitBJ(), FourCC("B000")) == false)) then
+return false
+end
+return true
+end
+
+function Trig_Ghastly_Vial_Unit_Func002Func001Func001Func003C()
 if (not (udg_Integer_Array_GhastlyChance[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] <= 16)) then
 return false
 end
 return true
 end
 
-function Trig_Ghastly_Vial_Unit_Func001Func001Func001C()
+function Trig_Ghastly_Vial_Unit_Func002Func001Func001C()
 if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I005"))) == 3)) then
 return false
 end
 return true
 end
 
-function Trig_Ghastly_Vial_Unit_Func001Func001Func004C()
+function Trig_Ghastly_Vial_Unit_Func002Func001Func004C()
 if (not (udg_Integer_Array_GhastlyChance[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] <= 12)) then
 return false
 end
 return true
 end
 
-function Trig_Ghastly_Vial_Unit_Func001Func001C()
+function Trig_Ghastly_Vial_Unit_Func002Func001C()
 if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I005"))) == 2)) then
 return false
 end
 return true
 end
 
-function Trig_Ghastly_Vial_Unit_Func001Func003C()
+function Trig_Ghastly_Vial_Unit_Func002Func003C()
 if (not (udg_Integer_Array_GhastlyChance[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] <= 8)) then
 return false
 end
 return true
 end
 
-function Trig_Ghastly_Vial_Unit_Func001C()
+function Trig_Ghastly_Vial_Unit_Func002C()
 if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I005"))) == 1)) then
 return false
 end
@@ -1232,38 +1244,50 @@ return true
 end
 
 function Trig_Ghastly_Vial_Unit_Actions()
-if (Trig_Ghastly_Vial_Unit_Func001C()) then
+if (Trig_Ghastly_Vial_Unit_Func002C()) then
 udg_Integer_Array_GhastlyChance[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] = GetRandomInt(1, 100)
-if (Trig_Ghastly_Vial_Unit_Func001Func003C()) then
+if (Trig_Ghastly_Vial_Unit_Func002Func003C()) then
 udg_Temp_Point = GetUnitLoc(GetEventDamageSource())
 CreateNUnitsAtLoc(1, FourCC("h029"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_Point, bj_UNIT_FACING)
 UnitAddAbilityBJ(FourCC("A00V"), GetLastCreatedUnit())
 IssueTargetOrderBJ(GetLastCreatedUnit(), "chainlightning", BlzGetEventDamageTarget())
 UnitApplyTimedLifeBJ(4.00, FourCC("BTLF"), GetLastCreatedUnit())
+CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_Point, bj_UNIT_FACING)
+UnitAddAbilityBJ(FourCC("A01F"), GetLastCreatedUnit())
+IssueTargetOrderBJ(GetLastCreatedUnit(), "innerfire", GetEventDamageSource())
+UnitApplyTimedLifeBJ(1.00, FourCC("BTLF"), GetLastCreatedUnit())
             RemoveLocation(udg_Temp_Point)
 else
 end
 else
-if (Trig_Ghastly_Vial_Unit_Func001Func001C()) then
+if (Trig_Ghastly_Vial_Unit_Func002Func001C()) then
 udg_Integer_Array_GhastlyChance[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] = GetRandomInt(1, 100)
-if (Trig_Ghastly_Vial_Unit_Func001Func001Func004C()) then
+if (Trig_Ghastly_Vial_Unit_Func002Func001Func004C()) then
 udg_Temp_Point = GetUnitLoc(GetEventDamageSource())
 CreateNUnitsAtLoc(1, FourCC("h029"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_Point, bj_UNIT_FACING)
 UnitAddAbilityBJ(FourCC("A00U"), GetLastCreatedUnit())
 IssueTargetOrderBJ(GetLastCreatedUnit(), "chainlightning", BlzGetEventDamageTarget())
 UnitApplyTimedLifeBJ(6.00, FourCC("BTLF"), GetLastCreatedUnit())
+CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_Point, bj_UNIT_FACING)
+UnitAddAbilityBJ(FourCC("A01G"), GetLastCreatedUnit())
+IssueTargetOrderBJ(GetLastCreatedUnit(), "innerfire", GetEventDamageSource())
+UnitApplyTimedLifeBJ(1.00, FourCC("BTLF"), GetLastCreatedUnit())
                 RemoveLocation(udg_Temp_Point)
 else
 end
 else
-if (Trig_Ghastly_Vial_Unit_Func001Func001Func001C()) then
+if (Trig_Ghastly_Vial_Unit_Func002Func001Func001C()) then
 udg_Integer_Array_GhastlyChance[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] = GetRandomInt(1, 100)
-if (Trig_Ghastly_Vial_Unit_Func001Func001Func001Func003C()) then
+if (Trig_Ghastly_Vial_Unit_Func002Func001Func001Func003C()) then
 udg_Temp_Point = GetUnitLoc(GetEventDamageSource())
 CreateNUnitsAtLoc(1, FourCC("h029"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_Point, bj_UNIT_FACING)
 UnitAddAbilityBJ(FourCC("A004"), GetLastCreatedUnit())
 IssueTargetOrderBJ(GetLastCreatedUnit(), "chainlightning", BlzGetEventDamageTarget())
 UnitApplyTimedLifeBJ(8.00, FourCC("BTLF"), GetLastCreatedUnit())
+CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_Point, bj_UNIT_FACING)
+UnitAddAbilityBJ(FourCC("A01E"), GetLastCreatedUnit())
+IssueTargetOrderBJ(GetLastCreatedUnit(), "innerfire", GetEventDamageSource())
+UnitApplyTimedLifeBJ(0.50, FourCC("BTLF"), GetLastCreatedUnit())
                     RemoveLocation(udg_Temp_Point)
 else
 end
@@ -1276,6 +1300,7 @@ end
 function InitTrig_Ghastly_Vial_Unit()
 gg_trg_Ghastly_Vial_Unit = CreateTrigger()
 TriggerRegisterAnyUnitEventBJ(gg_trg_Ghastly_Vial_Unit, EVENT_PLAYER_UNIT_DAMAGED)
+TriggerAddCondition(gg_trg_Ghastly_Vial_Unit, Condition(Trig_Ghastly_Vial_Unit_Conditions))
 TriggerAddAction(gg_trg_Ghastly_Vial_Unit, Trig_Ghastly_Vial_Unit_Actions)
 end
 
@@ -2137,7 +2162,7 @@ end
 
 function Trig_Untitled_Trigger_001_Copy_Copy_Actions()
 if (Trig_Untitled_Trigger_001_Copy_Copy_Func001C()) then
-SetUnitPositionLocFacingLocBJ(GetTriggerUnit(), GetRectCenter(gg_rct_TeleportTeal_1), GetRectCenter(gg_rct_Waypoint_4))
+SetUnitPositionLocFacingLocBJ(GetTriggerUnit(), GetRectCenter(gg_rct_Teleport_Teal_2), GetRectCenter(gg_rct_Waypoint_4))
 IssuePointOrderLocBJ(GetTriggerUnit(), "move", GetRectCenter(gg_rct_Waypoint_4))
 else
 end
@@ -2149,6 +2174,171 @@ TriggerRegisterEnterRectSimple(gg_trg_Untitled_Trigger_001_Copy_Copy, gg_rct_Tel
 TriggerRegisterEnterRectSimple(gg_trg_Untitled_Trigger_001_Copy_Copy, gg_rct_Waypoint_3)
 TriggerRegisterEnterRectSimple(gg_trg_Untitled_Trigger_001_Copy_Copy, gg_rct_CreepSpawn3)
 TriggerAddAction(gg_trg_Untitled_Trigger_001_Copy_Copy, Trig_Untitled_Trigger_001_Copy_Copy_Actions)
+end
+
+function Trig_Untitled_Trigger_001_Copy_Copy_Copy_Func001Func003C()
+if (GetPlayerSlotState(Player(3)) == PLAYER_SLOT_STATE_EMPTY) then
+return true
+end
+if (GetPlayerSlotState(Player(3)) == PLAYER_SLOT_STATE_LEFT) then
+return true
+end
+return false
+end
+
+function Trig_Untitled_Trigger_001_Copy_Copy_Copy_Func001C()
+if (not Trig_Untitled_Trigger_001_Copy_Copy_Copy_Func001Func003C()) then
+return false
+end
+return true
+end
+
+function Trig_Untitled_Trigger_001_Copy_Copy_Copy_Actions()
+if (Trig_Untitled_Trigger_001_Copy_Copy_Copy_Func001C()) then
+SetUnitPositionLocFacingLocBJ(GetTriggerUnit(), GetRectCenter(gg_rct_Teleport_Purple_2), GetRectCenter(gg_rct_Waypoint_5))
+IssuePointOrderLocBJ(GetTriggerUnit(), "move", GetRectCenter(gg_rct_Waypoint_5))
+else
+end
+end
+
+function InitTrig_Untitled_Trigger_001_Copy_Copy_Copy()
+gg_trg_Untitled_Trigger_001_Copy_Copy_Copy = CreateTrigger()
+TriggerRegisterEnterRectSimple(gg_trg_Untitled_Trigger_001_Copy_Copy_Copy, gg_rct_Teleport_Purple_1)
+TriggerRegisterEnterRectSimple(gg_trg_Untitled_Trigger_001_Copy_Copy_Copy, gg_rct_Waypoint_4)
+TriggerRegisterEnterRectSimple(gg_trg_Untitled_Trigger_001_Copy_Copy_Copy, gg_rct_CreepSpawn4)
+TriggerAddAction(gg_trg_Untitled_Trigger_001_Copy_Copy_Copy, Trig_Untitled_Trigger_001_Copy_Copy_Copy_Actions)
+end
+
+function Trig_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Func001Func003C()
+if (GetPlayerSlotState(Player(4)) == PLAYER_SLOT_STATE_EMPTY) then
+return true
+end
+if (GetPlayerSlotState(Player(4)) == PLAYER_SLOT_STATE_LEFT) then
+return true
+end
+return false
+end
+
+function Trig_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Func001C()
+if (not Trig_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Func001Func003C()) then
+return false
+end
+return true
+end
+
+function Trig_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Actions()
+if (Trig_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Func001C()) then
+SetUnitPositionLocFacingLocBJ(GetTriggerUnit(), GetRectCenter(gg_rct_Teleport_Yellow_2), GetRectCenter(gg_rct_Waypoint_6))
+IssuePointOrderLocBJ(GetTriggerUnit(), "move", GetRectCenter(gg_rct_Waypoint_6))
+else
+end
+end
+
+function InitTrig_Untitled_Trigger_001_Copy_Copy_Copy_Copy()
+gg_trg_Untitled_Trigger_001_Copy_Copy_Copy_Copy = CreateTrigger()
+TriggerRegisterEnterRectSimple(gg_trg_Untitled_Trigger_001_Copy_Copy_Copy_Copy, gg_rct_Teleport_Yellow_1)
+TriggerRegisterEnterRectSimple(gg_trg_Untitled_Trigger_001_Copy_Copy_Copy_Copy, gg_rct_Waypoint_5)
+TriggerRegisterEnterRectSimple(gg_trg_Untitled_Trigger_001_Copy_Copy_Copy_Copy, gg_rct_CreepSpawn5)
+TriggerAddAction(gg_trg_Untitled_Trigger_001_Copy_Copy_Copy_Copy, Trig_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Actions)
+end
+
+function Trig_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy_Func001Func003C()
+if (GetPlayerSlotState(Player(5)) == PLAYER_SLOT_STATE_EMPTY) then
+return true
+end
+if (GetPlayerSlotState(Player(5)) == PLAYER_SLOT_STATE_LEFT) then
+return true
+end
+return false
+end
+
+function Trig_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy_Func001C()
+if (not Trig_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy_Func001Func003C()) then
+return false
+end
+return true
+end
+
+function Trig_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy_Actions()
+if (Trig_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy_Func001C()) then
+SetUnitPositionLocFacingLocBJ(GetTriggerUnit(), GetRectCenter(gg_rct_Teleport_Orange_2), GetRectCenter(gg_rct_Waypoint_7))
+IssuePointOrderLocBJ(GetTriggerUnit(), "move", GetRectCenter(gg_rct_Waypoint_7))
+else
+end
+end
+
+function InitTrig_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy()
+gg_trg_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy = CreateTrigger()
+TriggerRegisterEnterRectSimple(gg_trg_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy, gg_rct_Teleport_Orange_1)
+TriggerRegisterEnterRectSimple(gg_trg_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy, gg_rct_Waypoint_6)
+TriggerRegisterEnterRectSimple(gg_trg_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy, gg_rct_CreepSpawn6)
+TriggerAddAction(gg_trg_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy, Trig_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy_Actions)
+end
+
+function Trig_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy_Copy_Func001Func003C()
+if (GetPlayerSlotState(Player(6)) == PLAYER_SLOT_STATE_EMPTY) then
+return true
+end
+if (GetPlayerSlotState(Player(6)) == PLAYER_SLOT_STATE_LEFT) then
+return true
+end
+return false
+end
+
+function Trig_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy_Copy_Func001C()
+if (not Trig_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy_Copy_Func001Func003C()) then
+return false
+end
+return true
+end
+
+function Trig_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy_Copy_Actions()
+if (Trig_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy_Copy_Func001C()) then
+SetUnitPositionLocFacingLocBJ(GetTriggerUnit(), GetRectCenter(gg_rct_Teleport_Green_2), GetRectCenter(gg_rct_Waypoint_8))
+IssuePointOrderLocBJ(GetTriggerUnit(), "move", GetRectCenter(gg_rct_Waypoint_8))
+else
+end
+end
+
+function InitTrig_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy_Copy()
+gg_trg_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy_Copy = CreateTrigger()
+TriggerRegisterEnterRectSimple(gg_trg_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy_Copy, gg_rct_Teleport_Green_1)
+TriggerRegisterEnterRectSimple(gg_trg_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy_Copy, gg_rct_Waypoint_7)
+TriggerRegisterEnterRectSimple(gg_trg_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy_Copy, gg_rct_CreepSpawn7)
+TriggerAddAction(gg_trg_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy_Copy, Trig_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy_Copy_Actions)
+end
+
+function Trig_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy_Copy_Copy_Func001Func003C()
+if (GetPlayerSlotState(Player(7)) == PLAYER_SLOT_STATE_EMPTY) then
+return true
+end
+if (GetPlayerSlotState(Player(7)) == PLAYER_SLOT_STATE_LEFT) then
+return true
+end
+return false
+end
+
+function Trig_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy_Copy_Copy_Func001C()
+if (not Trig_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy_Copy_Copy_Func001Func003C()) then
+return false
+end
+return true
+end
+
+function Trig_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy_Copy_Copy_Actions()
+if (Trig_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy_Copy_Copy_Func001C()) then
+SetUnitPositionLocFacingLocBJ(GetTriggerUnit(), GetRectCenter(gg_rct_Teleport_Pink_2), GetRectCenter(gg_rct_Waypoint_1))
+IssuePointOrderLocBJ(GetTriggerUnit(), "move", GetRectCenter(gg_rct_Waypoint_1))
+else
+end
+end
+
+function InitTrig_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy_Copy_Copy()
+gg_trg_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy_Copy_Copy = CreateTrigger()
+TriggerRegisterEnterRectSimple(gg_trg_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy_Copy_Copy, gg_rct_Teleport_Pink_1)
+TriggerRegisterEnterRectSimple(gg_trg_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy_Copy_Copy, gg_rct_Waypoint_8)
+TriggerRegisterEnterRectSimple(gg_trg_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy_Copy_Copy, gg_rct_CreepSpawn8)
+TriggerAddAction(gg_trg_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy_Copy_Copy, Trig_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy_Copy_Copy_Actions)
 end
 
 function Trig_Creep_Count_Func011Func001A()
@@ -2487,6 +2677,11 @@ InitTrig_Soul_Siphoner()
 InitTrig_Untitled_Trigger_001()
 InitTrig_Untitled_Trigger_001_Copy()
 InitTrig_Untitled_Trigger_001_Copy_Copy()
+InitTrig_Untitled_Trigger_001_Copy_Copy_Copy()
+InitTrig_Untitled_Trigger_001_Copy_Copy_Copy_Copy()
+InitTrig_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy()
+InitTrig_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy_Copy()
+InitTrig_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy_Copy_Copy()
 InitTrig_Creep_Count()
 InitTrig_Creep_Count_Remove()
 InitTrig_Creep_Spawn_1()

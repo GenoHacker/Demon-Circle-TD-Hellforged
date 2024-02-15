@@ -2804,3 +2804,33 @@ STRING 1070
 Dmg: 200 - 400 |nCooldown: 2.5s |nRange: 800 |nFrost (5s) |nSplash (225)
 }
 
+STRING 1071
+// Abilities: A01E (Summoned Ghost 3), Name (Name)
+{
+Summoned Ghost 3
+}
+
+STRING 1072
+// Abilities: A01F (Summoned Ghost 1), Name (Name)
+{
+Summoned Ghost 1
+}
+
+STRING 1073
+// Abilities: A01G (Summoned Ghost 2), Name (Name)
+{
+Summoned Ghost 2
+}
+
+STRING 1074
+// Buffs/Effects: B000 (), Bufftip (Tooltip)
+{
+Summoned Ghost
+}
+
+STRING 1075
+// Buffs/Effects: B000 (), Buffubertip (Tooltip - Extended)
+{
+The Ghost Tower has summoned a Ghost, it can not summon another.
+}
+
