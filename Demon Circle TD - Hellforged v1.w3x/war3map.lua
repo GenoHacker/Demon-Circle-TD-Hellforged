@@ -26,14 +26,6 @@ udg_Integer_Array_FrostChance = __jarray(0)
 udg_Integer_Array_DicBoxGoldChance = __jarray(0)
 udg_Integer_EnemyHandicap = 0
 udg_PlyGrp_SellTower = nil
-gg_rct_Start1 = nil
-gg_rct_Start2 = nil
-gg_rct_Start3 = nil
-gg_rct_Start4 = nil
-gg_rct_Start5 = nil
-gg_rct_Start6 = nil
-gg_rct_Start7 = nil
-gg_rct_Start8 = nil
 gg_rct_CreepSpawn1 = nil
 gg_rct_CreepSpawn2 = nil
 gg_rct_CreepSpawn3 = nil
@@ -50,14 +42,6 @@ gg_rct_Waypoint_2 = nil
 gg_rct_Waypoint_4 = nil
 gg_rct_Waypoint_6 = nil
 gg_rct_Waypoint_8 = nil
-gg_rct_Region_024 = nil
-gg_rct_Region_025 = nil
-gg_rct_Region_026 = nil
-gg_rct_Region_027 = nil
-gg_rct_Region_028 = nil
-gg_rct_Region_029 = nil
-gg_rct_Region_030 = nil
-gg_rct_Region_031 = nil
 gg_snd_PurgeTarget = nil
 gg_snd_Wave_Air = nil
 gg_snd_Wave_Immune = nil
@@ -291,10 +275,10 @@ local unitID
 local t
 local life
 
-u = BlzCreateUnitWithSkin(p, FourCC("h00E"), -6662.8, 2051.0, 82.430, FourCC("h00E"))
+u = BlzCreateUnitWithSkin(p, FourCC("h00E"), -6657.1, 2048.2, 82.430, FourCC("h00E"))
 u = BlzCreateUnitWithSkin(p, FourCC("h00E"), -2567.7, -2072.3, 82.430, FourCC("h00E"))
-u = BlzCreateUnitWithSkin(p, FourCC("h00E"), 1521.3, 2056.9, 82.430, FourCC("h00E"))
-u = BlzCreateUnitWithSkin(p, FourCC("h00E"), -2568.0, 6145.0, 82.430, FourCC("h00E"))
+u = BlzCreateUnitWithSkin(p, FourCC("h00E"), 1534.7, 2047.1, 82.430, FourCC("h00E"))
+u = BlzCreateUnitWithSkin(p, FourCC("h00E"), -2559.6, 6143.6, 82.430, FourCC("h00E"))
 end
 
 function CreatePlayerBuildings()
@@ -321,22 +305,14 @@ end
 function CreateRegions()
 local we
 
-gg_rct_Start1 = Rect(-4480.0, 3712.0, -4224.0, 3968.0)
-gg_rct_Start2 = Rect(-2688.0, 4736.0, -2432.0, 4992.0)
-gg_rct_Start3 = Rect(-896.0, 3712.0, -640.0, 3968.0)
-gg_rct_Start4 = Rect(128.0, 1920.0, 384.0, 2176.0)
-gg_rct_Start5 = Rect(-896.0, 128.0, -640.0, 384.0)
-gg_rct_Start6 = Rect(-2688.0, -896.0, -2432.0, -640.0)
-gg_rct_Start7 = Rect(-4480.0, 128.0, -4224.0, 384.0)
-gg_rct_Start8 = Rect(-5504.0, 1920.0, -5248.0, 2176.0)
-gg_rct_CreepSpawn1 = Rect(-5888.0, 5056.0, -5696.0, 5248.0)
-gg_rct_CreepSpawn2 = Rect(-2816.0, 5888.0, -2304.0, 6400.0)
-gg_rct_CreepSpawn3 = Rect(512.0, 5184.0, 704.0, 5344.0)
-gg_rct_CreepSpawn4 = Rect(1280.0, 1792.0, 1792.0, 2304.0)
-gg_rct_CreepSpawn5 = Rect(544.0, -1216.0, 736.0, -992.0)
-gg_rct_CreepSpawn6 = Rect(-2816.0, -2304.0, -2304.0, -1792.0)
-gg_rct_CreepSpawn7 = Rect(-5984.0, -1184.0, -5792.0, -992.0)
-gg_rct_CreepSpawn8 = Rect(-6912.0, 1792.0, -6400.0, 2304.0)
+gg_rct_CreepSpawn1 = Rect(-5888.0, 5120.0, -5760.0, 5248.0)
+gg_rct_CreepSpawn2 = Rect(-2688.0, 6016.0, -2432.0, 6272.0)
+gg_rct_CreepSpawn3 = Rect(512.0, 5248.0, 640.0, 5376.0)
+gg_rct_CreepSpawn4 = Rect(1408.0, 1920.0, 1664.0, 2176.0)
+gg_rct_CreepSpawn5 = Rect(640.0, -1152.0, 768.0, -1024.0)
+gg_rct_CreepSpawn6 = Rect(-2688.0, -2176.0, -2432.0, -1920.0)
+gg_rct_CreepSpawn7 = Rect(-6016.0, -1152.0, -5888.0, -1024.0)
+gg_rct_CreepSpawn8 = Rect(-6784.0, 1920.0, -6528.0, 2176.0)
 gg_rct_Waypoint_1 = Rect(-4864.0, 4224.0, -4736.0, 4352.0)
 gg_rct_Waypoint_3 = Rect(-384.0, 4224.0, -256.0, 4352.0)
 gg_rct_Waypoint_5 = Rect(-384.0, -256.0, -256.0, -128.0)
@@ -345,14 +321,6 @@ gg_rct_Waypoint_2 = Rect(-2624.0, 5312.0, -2496.0, 5440.0)
 gg_rct_Waypoint_4 = Rect(704.0, 1984.0, 832.0, 2112.0)
 gg_rct_Waypoint_6 = Rect(-2624.0, -1344.0, -2496.0, -1216.0)
 gg_rct_Waypoint_8 = Rect(-5952.0, 1984.0, -5824.0, 2112.0)
-gg_rct_Region_024 = Rect(-3968.0, 1920.0, -3712.0, 2176.0)
-gg_rct_Region_025 = Rect(-3712.0, 2944.0, -3456.0, 3200.0)
-gg_rct_Region_026 = Rect(-2688.0, 3200.0, -2432.0, 3456.0)
-gg_rct_Region_027 = Rect(-1664.0, 2944.0, -1408.0, 3200.0)
-gg_rct_Region_028 = Rect(-1408.0, 1920.0, -1152.0, 2176.0)
-gg_rct_Region_029 = Rect(-1664.0, 896.0, -1408.0, 1152.0)
-gg_rct_Region_030 = Rect(-2688.0, 640.0, -2432.0, 896.0)
-gg_rct_Region_031 = Rect(-3712.0, 896.0, -3456.0, 1152.0)
 end
 
 function Trig_Map_Initialization_Func001Func001C()
@@ -379,6 +347,7 @@ SetPlayerFlagBJ(PLAYER_STATE_GIVES_BOUNTY, true, Player(10))
 SetPlayerFlagBJ(PLAYER_STATE_GIVES_BOUNTY, true, Player(11))
 UseTimeOfDayBJ(false)
 CreateQuestBJ(bj_QUESTTYPE_REQ_DISCOVERED, "TRIGSTR_482", "TRIGSTR_483", "ReplaceableTextures\\CommandButtons\\BTNSnazzyScrollPurple.blp")
+CreateQuestBJ(bj_QUESTTYPE_REQ_DISCOVERED, "TRIGSTR_1065", "TRIGSTR_1066", "ReplaceableTextures\\CommandButtons\\BTNSnazzyScrollPurple.blp")
 CreateQuestBJ(bj_QUESTTYPE_OPT_DISCOVERED, "TRIGSTR_539", "TRIGSTR_540", "ReplaceableTextures\\CommandButtons\\BTNSnazzyScroll.blp")
 udg_UT_UnitType[1] = FourCC("h009")
 udg_UT_UnitType[2] = FourCC("h000")

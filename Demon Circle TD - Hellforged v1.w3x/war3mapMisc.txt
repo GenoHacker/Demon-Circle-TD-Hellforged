@@ -1,5 +1,5 @@
 [Misc]
-BoneDecayTime=15.0
+BoneDecayTime=5.0
 ConstructionRefundRate=1.0
 DropItemRange=400.0
 FrostMoveSpeedDecrease=0.25

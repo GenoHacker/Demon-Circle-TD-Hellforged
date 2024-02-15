@@ -1168,8 +1168,13 @@ STRING 483
 -- Map now uses LUA instead of JASS
 -- Completely remade terrain
 -- Reworked all towers
+-- Overhauled wave spawning
 -- Fixed memory leaks
 -- Trigger Optimizations
+-- Minor changes to all waves
+-- Added Items for each tower
+-- Added ability to increase or decrease difficulty
+
 
 }
 
@@ -2916,5 +2921,18 @@ Cooldown: 1.8s
 Range: 1000
 Bouncing Attack (6)
 Disables Health Regen
+}
+
+STRING 1065
+{
+Information
+}
+
+STRING 1066
+{
+Every 5th waves takes has Spell Damage Reduction.
+Every 10th wave takes has Spell Damage Reduction and Hardened Skin.
+
+You gain 1 gold when another player kills your creeps.
 }
 
