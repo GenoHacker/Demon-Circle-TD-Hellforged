@@ -73,9 +73,8 @@ gg_trg_Difficulty_Adjust = nil
 gg_trg_Difficulty_Dialog_Stop = nil
 gg_trg_Next_Round = nil
 gg_trg_Wave_Spawning = nil
-gg_trg_Kill_Count = nil
+gg_trg_Unit_Die = nil
 gg_trg_Leaving_Players = nil
-gg_trg_Remove_Dying_Unit_Heroes = nil
 gg_trg_Sell_Towers = nil
 gg_trg_Lumber_Bounty = nil
 gg_trg_Ghastly_Vial_Unit = nil
@@ -105,6 +104,8 @@ gg_trg_Creep_Spawn_5 = nil
 gg_trg_Creep_Spawn_6 = nil
 gg_trg_Creep_Spawn_7 = nil
 gg_trg_Creep_Spawn_8 = nil
+gg_trg_Soul_Siphoner_and_Carrion_Tower = nil
+gg_trg_Soul_Siphoner = nil
 function InitGlobals()
 local i = 0
 
@@ -838,7 +839,7 @@ TriggerAddCondition(gg_trg_Wave_Spawning, Condition(Trig_Wave_Spawning_Condition
 TriggerAddAction(gg_trg_Wave_Spawning, Trig_Wave_Spawning_Actions)
 end
 
-function Trig_Kill_Count_Func003C()
+function Trig_Unit_Die_Func001Func003C()
 if (GetOwningPlayer(GetTriggerUnit()) == Player(10)) then
 return true
 end
@@ -848,50 +849,14 @@ end
 return false
 end
 
-function Trig_Kill_Count_Conditions()
-if (not Trig_Kill_Count_Func003C()) then
+function Trig_Unit_Die_Func001C()
+if (not Trig_Unit_Die_Func001Func003C()) then
 return false
 end
 return true
 end
 
-function Trig_Kill_Count_Actions()
-udg_I_Kills[GetConvertedPlayerId(GetOwningPlayer(GetKillingUnitBJ()))] = (udg_I_Kills[GetConvertedPlayerId(GetOwningPlayer(GetKillingUnitBJ()))] + 1)
-LeaderboardSetPlayerItemValueBJ(GetOwningPlayer(GetKillingUnitBJ()), udg_LB_Info, udg_I_Kills[GetConvertedPlayerId(GetOwningPlayer(GetKillingUnitBJ()))])
-end
-
-function InitTrig_Kill_Count()
-gg_trg_Kill_Count = CreateTrigger()
-TriggerRegisterAnyUnitEventBJ(gg_trg_Kill_Count, EVENT_PLAYER_UNIT_DEATH)
-TriggerAddCondition(gg_trg_Kill_Count, Condition(Trig_Kill_Count_Conditions))
-TriggerAddAction(gg_trg_Kill_Count, Trig_Kill_Count_Actions)
-end
-
-function Trig_Leaving_Players_Func003A()
-RemoveUnit(GetEnumUnit())
-end
-
-function Trig_Leaving_Players_Actions()
-DisplayTextToForce(GetPlayersAll(), (("|cffffaa00" .. GetPlayerName(GetTriggerPlayer())) .. "has left the game!!|r"))
-    bj_wantDestroyGroup = true
-ForGroupBJ(GetUnitsOfPlayerAll(GetTriggerPlayer()), Trig_Leaving_Players_Func003A)
-LeaderboardSetPlayerItemLabelBJ(GetTriggerPlayer(), udg_LB_Info, "TRIGSTR_112")
-end
-
-function InitTrig_Leaving_Players()
-gg_trg_Leaving_Players = CreateTrigger()
-TriggerRegisterPlayerEventLeave(gg_trg_Leaving_Players, Player(0))
-TriggerRegisterPlayerEventLeave(gg_trg_Leaving_Players, Player(1))
-TriggerRegisterPlayerEventLeave(gg_trg_Leaving_Players, Player(2))
-TriggerRegisterPlayerEventLeave(gg_trg_Leaving_Players, Player(3))
-TriggerRegisterPlayerEventLeave(gg_trg_Leaving_Players, Player(4))
-TriggerRegisterPlayerEventLeave(gg_trg_Leaving_Players, Player(5))
-TriggerRegisterPlayerEventLeave(gg_trg_Leaving_Players, Player(6))
-TriggerRegisterPlayerEventLeave(gg_trg_Leaving_Players, Player(7))
-TriggerAddAction(gg_trg_Leaving_Players, Trig_Leaving_Players_Actions)
-end
-
-function Trig_Remove_Dying_Unit_Heroes_Func002C()
+function Trig_Unit_Die_Func002Func002C()
 if (GetUnitTypeId(GetTriggerUnit()) == FourCC("h00H")) then
 return true
 end
@@ -928,22 +893,165 @@ end
 return false
 end
 
-function Trig_Remove_Dying_Unit_Heroes_Conditions()
-if (not Trig_Remove_Dying_Unit_Heroes_Func002C()) then
+function Trig_Unit_Die_Func002C()
+if (not Trig_Unit_Die_Func002Func002C()) then
 return false
 end
 return true
 end
 
-function Trig_Remove_Dying_Unit_Heroes_Actions()
-RemoveUnit(GetTriggerUnit())
+function Trig_Unit_Die_Func003C()
+if (not (GetOwningPlayer(GetKillingUnitBJ()) ~= Player(0))) then
+return false
+end
+if (not (GetUnitAbilityLevelSwapped(FourCC("A019"), GetDyingUnit()) == 1)) then
+return false
+end
+return true
 end
 
-function InitTrig_Remove_Dying_Unit_Heroes()
-gg_trg_Remove_Dying_Unit_Heroes = CreateTrigger()
-TriggerRegisterAnyUnitEventBJ(gg_trg_Remove_Dying_Unit_Heroes, EVENT_PLAYER_UNIT_DEATH)
-TriggerAddCondition(gg_trg_Remove_Dying_Unit_Heroes, Condition(Trig_Remove_Dying_Unit_Heroes_Conditions))
-TriggerAddAction(gg_trg_Remove_Dying_Unit_Heroes, Trig_Remove_Dying_Unit_Heroes_Actions)
+function Trig_Unit_Die_Func004C()
+if (not (GetOwningPlayer(GetKillingUnitBJ()) ~= Player(1))) then
+return false
+end
+if (not (GetUnitAbilityLevelSwapped(FourCC("A00H"), GetDyingUnit()) == 1)) then
+return false
+end
+return true
+end
+
+function Trig_Unit_Die_Func005C()
+if (not (GetOwningPlayer(GetKillingUnitBJ()) ~= Player(2))) then
+return false
+end
+if (not (GetUnitAbilityLevelSwapped(FourCC("A00N"), GetDyingUnit()) == 1)) then
+return false
+end
+return true
+end
+
+function Trig_Unit_Die_Func006C()
+if (not (GetOwningPlayer(GetKillingUnitBJ()) ~= Player(3))) then
+return false
+end
+if (not (GetUnitAbilityLevelSwapped(FourCC("A014"), GetDyingUnit()) == 1)) then
+return false
+end
+return true
+end
+
+function Trig_Unit_Die_Func007C()
+if (not (GetOwningPlayer(GetKillingUnitBJ()) ~= Player(4))) then
+return false
+end
+if (not (GetUnitAbilityLevelSwapped(FourCC("A015"), GetDyingUnit()) == 1)) then
+return false
+end
+return true
+end
+
+function Trig_Unit_Die_Func008C()
+if (not (GetOwningPlayer(GetKillingUnitBJ()) ~= Player(5))) then
+return false
+end
+if (not (GetUnitAbilityLevelSwapped(FourCC("A016"), GetDyingUnit()) == 1)) then
+return false
+end
+return true
+end
+
+function Trig_Unit_Die_Func009C()
+if (not (GetOwningPlayer(GetKillingUnitBJ()) ~= Player(6))) then
+return false
+end
+if (not (GetUnitAbilityLevelSwapped(FourCC("A017"), GetDyingUnit()) == 1)) then
+return false
+end
+return true
+end
+
+function Trig_Unit_Die_Func010C()
+if (not (GetOwningPlayer(GetKillingUnitBJ()) ~= Player(7))) then
+return false
+end
+if (not (GetUnitAbilityLevelSwapped(FourCC("A018"), GetDyingUnit()) == 1)) then
+return false
+end
+return true
+end
+
+function Trig_Unit_Die_Actions()
+if (Trig_Unit_Die_Func001C()) then
+udg_I_Kills[GetConvertedPlayerId(GetOwningPlayer(GetKillingUnitBJ()))] = (udg_I_Kills[GetConvertedPlayerId(GetOwningPlayer(GetKillingUnitBJ()))] + 1)
+LeaderboardSetPlayerItemValueBJ(GetOwningPlayer(GetKillingUnitBJ()), udg_LB_Info, udg_I_Kills[GetConvertedPlayerId(GetOwningPlayer(GetKillingUnitBJ()))])
+else
+end
+if (Trig_Unit_Die_Func002C()) then
+RemoveUnit(GetTriggerUnit())
+else
+end
+if (Trig_Unit_Die_Func003C()) then
+AdjustPlayerStateBJ(1, Player(0), PLAYER_STATE_RESOURCE_GOLD)
+else
+end
+if (Trig_Unit_Die_Func004C()) then
+AdjustPlayerStateBJ(1, Player(1), PLAYER_STATE_RESOURCE_GOLD)
+else
+end
+if (Trig_Unit_Die_Func005C()) then
+AdjustPlayerStateBJ(1, Player(2), PLAYER_STATE_RESOURCE_GOLD)
+else
+end
+if (Trig_Unit_Die_Func006C()) then
+AdjustPlayerStateBJ(1, Player(3), PLAYER_STATE_RESOURCE_GOLD)
+else
+end
+if (Trig_Unit_Die_Func007C()) then
+AdjustPlayerStateBJ(1, Player(4), PLAYER_STATE_RESOURCE_GOLD)
+else
+end
+if (Trig_Unit_Die_Func008C()) then
+AdjustPlayerStateBJ(1, Player(5), PLAYER_STATE_RESOURCE_GOLD)
+else
+end
+if (Trig_Unit_Die_Func009C()) then
+AdjustPlayerStateBJ(1, Player(6), PLAYER_STATE_RESOURCE_GOLD)
+else
+end
+if (Trig_Unit_Die_Func010C()) then
+AdjustPlayerStateBJ(1, Player(7), PLAYER_STATE_RESOURCE_GOLD)
+else
+end
+end
+
+function InitTrig_Unit_Die()
+gg_trg_Unit_Die = CreateTrigger()
+TriggerRegisterAnyUnitEventBJ(gg_trg_Unit_Die, EVENT_PLAYER_UNIT_DEATH)
+TriggerAddAction(gg_trg_Unit_Die, Trig_Unit_Die_Actions)
+end
+
+function Trig_Leaving_Players_Func003A()
+RemoveUnit(GetEnumUnit())
+end
+
+function Trig_Leaving_Players_Actions()
+DisplayTextToForce(GetPlayersAll(), (("|cffffaa00" .. GetPlayerName(GetTriggerPlayer())) .. "has left the game!!|r"))
+    bj_wantDestroyGroup = true
+ForGroupBJ(GetUnitsOfPlayerAll(GetTriggerPlayer()), Trig_Leaving_Players_Func003A)
+LeaderboardSetPlayerItemLabelBJ(GetTriggerPlayer(), udg_LB_Info, "TRIGSTR_112")
+end
+
+function InitTrig_Leaving_Players()
+gg_trg_Leaving_Players = CreateTrigger()
+TriggerRegisterPlayerEventLeave(gg_trg_Leaving_Players, Player(0))
+TriggerRegisterPlayerEventLeave(gg_trg_Leaving_Players, Player(1))
+TriggerRegisterPlayerEventLeave(gg_trg_Leaving_Players, Player(2))
+TriggerRegisterPlayerEventLeave(gg_trg_Leaving_Players, Player(3))
+TriggerRegisterPlayerEventLeave(gg_trg_Leaving_Players, Player(4))
+TriggerRegisterPlayerEventLeave(gg_trg_Leaving_Players, Player(5))
+TriggerRegisterPlayerEventLeave(gg_trg_Leaving_Players, Player(6))
+TriggerRegisterPlayerEventLeave(gg_trg_Leaving_Players, Player(7))
+TriggerAddAction(gg_trg_Leaving_Players, Trig_Leaving_Players_Actions)
 end
 
 function Trig_Sell_Towers_Conditions()
@@ -1011,6 +1119,70 @@ function InitTrig_Lumber_Bounty()
 gg_trg_Lumber_Bounty = CreateTrigger()
 TriggerRegisterAnyUnitEventBJ(gg_trg_Lumber_Bounty, EVENT_PLAYER_UNIT_DEATH)
 TriggerAddAction(gg_trg_Lumber_Bounty, Trig_Lumber_Bounty_Actions)
+end
+
+function Trig_Soul_Siphoner_and_Carrion_Tower_Func003C()
+if (GetUnitTypeId(GetEventDamageSource()) == FourCC("u00T")) then
+return true
+end
+if (GetUnitTypeId(GetEventDamageSource()) == FourCC("u00S")) then
+return true
+end
+if (GetUnitTypeId(GetEventDamageSource()) == FourCC("u00U")) then
+return true
+end
+return false
+end
+
+function Trig_Soul_Siphoner_and_Carrion_Tower_Conditions()
+if (not Trig_Soul_Siphoner_and_Carrion_Tower_Func003C()) then
+return false
+end
+return true
+end
+
+function Trig_Soul_Siphoner_and_Carrion_Tower_Func002Func002Func002C()
+if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I000"))) == 3)) then
+return false
+end
+return true
+end
+
+function Trig_Soul_Siphoner_and_Carrion_Tower_Func002Func002C()
+if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I000"))) == 2)) then
+return false
+end
+return true
+end
+
+function Trig_Soul_Siphoner_and_Carrion_Tower_Func002C()
+if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I000"))) == 1)) then
+return false
+end
+return true
+end
+
+function Trig_Soul_Siphoner_and_Carrion_Tower_Actions()
+BlzSetUnitRealFieldBJ(BlzGetEventDamageTarget(), UNIT_RF_HIT_POINTS_REGENERATION_RATE, 0.00)
+if (Trig_Soul_Siphoner_and_Carrion_Tower_Func002C()) then
+UnitDamageTargetBJ(GetEventDamageSource(), BlzGetEventDamageTarget(), (GetEventDamage() * 0.08), ATTACK_TYPE_MAGIC, DAMAGE_TYPE_UNIVERSAL)
+else
+if (Trig_Soul_Siphoner_and_Carrion_Tower_Func002Func002C()) then
+UnitDamageTargetBJ(GetEventDamageSource(), BlzGetEventDamageTarget(), (GetEventDamage() * 0.16), ATTACK_TYPE_MAGIC, DAMAGE_TYPE_UNIVERSAL)
+else
+if (Trig_Soul_Siphoner_and_Carrion_Tower_Func002Func002Func002C()) then
+UnitDamageTargetBJ(GetEventDamageSource(), BlzGetEventDamageTarget(), (GetEventDamage() * 0.32), ATTACK_TYPE_MAGIC, DAMAGE_TYPE_UNIVERSAL)
+else
+end
+end
+end
+end
+
+function InitTrig_Soul_Siphoner_and_Carrion_Tower()
+gg_trg_Soul_Siphoner_and_Carrion_Tower = CreateTrigger()
+TriggerRegisterAnyUnitEventBJ(gg_trg_Soul_Siphoner_and_Carrion_Tower, EVENT_PLAYER_UNIT_DAMAGED)
+TriggerAddCondition(gg_trg_Soul_Siphoner_and_Carrion_Tower, Condition(Trig_Soul_Siphoner_and_Carrion_Tower_Conditions))
+TriggerAddAction(gg_trg_Soul_Siphoner_and_Carrion_Tower, Trig_Soul_Siphoner_and_Carrion_Tower_Actions)
 end
 
 function Trig_Ghastly_Vial_Unit_Func001Func001Func001Func003C()
@@ -1134,21 +1306,21 @@ return true
 end
 
 function Trig_Khorns_Gift_Dummys_Func003Func001Func001C()
-if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I002"))) == 3)) then
+if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetKillingUnitBJ(), FourCC("I002"))) == 3)) then
 return false
 end
 return true
 end
 
 function Trig_Khorns_Gift_Dummys_Func003Func001C()
-if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I002"))) == 2)) then
+if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetKillingUnitBJ(), FourCC("I002"))) == 2)) then
 return false
 end
 return true
 end
 
 function Trig_Khorns_Gift_Dummys_Func003C()
-if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I002"))) == 1)) then
+if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetKillingUnitBJ(), FourCC("I002"))) == 1)) then
 return false
 end
 return true
@@ -1558,14 +1730,14 @@ else
 if (Trig_Hellfrost_Enchantment_Armor_Remove_Func001Func001C()) then
 udg_Integer_Array_GhastlyChance[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] = GetRandomInt(1, 100)
 if (Trig_Hellfrost_Enchantment_Armor_Remove_Func001Func001Func003C()) then
-BlzSetUnitArmor(BlzGetEventDamageTarget(), (BlzGetUnitArmor(BlzGetEventDamageTarget()) - 1.50))
+BlzSetUnitArmor(BlzGetEventDamageTarget(), (BlzGetUnitArmor(BlzGetEventDamageTarget()) - 2.00))
 else
 end
 else
 if (Trig_Hellfrost_Enchantment_Armor_Remove_Func001Func001Func001C()) then
 udg_Integer_Array_GhastlyChance[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] = GetRandomInt(1, 100)
 if (Trig_Hellfrost_Enchantment_Armor_Remove_Func001Func001Func001Func002C()) then
-BlzSetUnitArmor(BlzGetEventDamageTarget(), (BlzGetUnitArmor(BlzGetEventDamageTarget()) - 2.00))
+BlzSetUnitArmor(BlzGetEventDamageTarget(), (BlzGetUnitArmor(BlzGetEventDamageTarget()) - 4.00))
 else
 end
 else
@@ -1844,6 +2016,38 @@ TriggerRegisterAnyUnitEventBJ(gg_trg_Dichotomous_Box, EVENT_PLAYER_UNIT_PICKUP_I
 TriggerAddAction(gg_trg_Dichotomous_Box, Trig_Dichotomous_Box_Actions)
 end
 
+function Trig_Soul_Siphoner_Func001Func005C()
+if (GetItemTypeId(GetManipulatedItem()) == FourCC("I000")) then
+return true
+end
+return false
+end
+
+function Trig_Soul_Siphoner_Func001C()
+if (not (GetUnitAbilityLevelSwapped(FourCC("A01D"), GetManipulatingUnit()) ~= 1)) then
+return false
+end
+if (not Trig_Soul_Siphoner_Func001Func005C()) then
+return false
+end
+return true
+end
+
+function Trig_Soul_Siphoner_Actions()
+if (Trig_Soul_Siphoner_Func001C()) then
+udg_Temp_Point = GetUnitLoc(GetManipulatingUnit())
+UnitDropItemPointLoc(GetManipulatingUnit(), GetItemOfTypeFromUnitBJ(GetManipulatingUnit(), FourCC("I000")), udg_Temp_Point)
+        RemoveLocation(udg_Temp_Point)
+else
+end
+end
+
+function InitTrig_Soul_Siphoner()
+gg_trg_Soul_Siphoner = CreateTrigger()
+TriggerRegisterAnyUnitEventBJ(gg_trg_Soul_Siphoner, EVENT_PLAYER_UNIT_PICKUP_ITEM)
+TriggerAddAction(gg_trg_Soul_Siphoner, Trig_Soul_Siphoner_Actions)
+end
+
 function Trig_Creep_Count_Func011Func001A()
 CustomDefeatBJ(GetEnumPlayer(), "TRIGSTR_041")
 end
@@ -1889,7 +2093,7 @@ TriggerRegisterPlayerUnitEventSimple(gg_trg_Creep_Count_Remove, Player(11), EVEN
 TriggerAddAction(gg_trg_Creep_Count_Remove, Trig_Creep_Count_Remove_Actions)
 end
 
-function Trig_Creep_Spawn_1_Func004C()
+function Trig_Creep_Spawn_1_Func005C()
 if (GetOwningPlayer(GetTriggerUnit()) == Player(11)) then
 return true
 end
@@ -1900,7 +2104,7 @@ return false
 end
 
 function Trig_Creep_Spawn_1_Conditions()
-if (not Trig_Creep_Spawn_1_Func004C()) then
+if (not Trig_Creep_Spawn_1_Func005C()) then
 return false
 end
 return true
@@ -1908,6 +2112,7 @@ end
 
 function Trig_Creep_Spawn_1_Actions()
 udg_Temp_Point1 = GetRectCenter(gg_rct_Waypoint_1)
+UnitAddAbilityBJ(FourCC("A019"), GetTriggerUnit())
 IssuePointOrderLocBJ(GetTriggerUnit(), "move", udg_Temp_Point1)
     RemoveLocation(udg_Temp_Point1)
 end
@@ -1920,7 +2125,7 @@ TriggerAddCondition(gg_trg_Creep_Spawn_1, Condition(Trig_Creep_Spawn_1_Condition
 TriggerAddAction(gg_trg_Creep_Spawn_1, Trig_Creep_Spawn_1_Actions)
 end
 
-function Trig_Creep_Spawn_2_Func004C()
+function Trig_Creep_Spawn_2_Func005C()
 if (GetOwningPlayer(GetTriggerUnit()) == Player(11)) then
 return true
 end
@@ -1931,7 +2136,7 @@ return false
 end
 
 function Trig_Creep_Spawn_2_Conditions()
-if (not Trig_Creep_Spawn_2_Func004C()) then
+if (not Trig_Creep_Spawn_2_Func005C()) then
 return false
 end
 return true
@@ -1939,6 +2144,7 @@ end
 
 function Trig_Creep_Spawn_2_Actions()
 udg_Temp_Point2 = GetRectCenter(gg_rct_Waypoint_2)
+UnitAddAbilityBJ(FourCC("A00H"), GetTriggerUnit())
 IssuePointOrderLocBJ(GetTriggerUnit(), "move", udg_Temp_Point2)
     RemoveLocation(udg_Temp_Point2)
 end
@@ -1951,7 +2157,7 @@ TriggerAddCondition(gg_trg_Creep_Spawn_2, Condition(Trig_Creep_Spawn_2_Condition
 TriggerAddAction(gg_trg_Creep_Spawn_2, Trig_Creep_Spawn_2_Actions)
 end
 
-function Trig_Creep_Spawn_3_Func004C()
+function Trig_Creep_Spawn_3_Func005C()
 if (GetOwningPlayer(GetTriggerUnit()) == Player(11)) then
 return true
 end
@@ -1962,7 +2168,7 @@ return false
 end
 
 function Trig_Creep_Spawn_3_Conditions()
-if (not Trig_Creep_Spawn_3_Func004C()) then
+if (not Trig_Creep_Spawn_3_Func005C()) then
 return false
 end
 return true
@@ -1970,6 +2176,7 @@ end
 
 function Trig_Creep_Spawn_3_Actions()
 udg_Temp_Point3 = GetRectCenter(gg_rct_Waypoint_3)
+UnitAddAbilityBJ(FourCC("A00N"), GetTriggerUnit())
 IssuePointOrderLocBJ(GetTriggerUnit(), "move", udg_Temp_Point3)
     RemoveLocation(udg_Temp_Point3)
 end
@@ -1982,7 +2189,7 @@ TriggerAddCondition(gg_trg_Creep_Spawn_3, Condition(Trig_Creep_Spawn_3_Condition
 TriggerAddAction(gg_trg_Creep_Spawn_3, Trig_Creep_Spawn_3_Actions)
 end
 
-function Trig_Creep_Spawn_4_Func004C()
+function Trig_Creep_Spawn_4_Func005C()
 if (GetOwningPlayer(GetTriggerUnit()) == Player(11)) then
 return true
 end
@@ -1993,7 +2200,7 @@ return false
 end
 
 function Trig_Creep_Spawn_4_Conditions()
-if (not Trig_Creep_Spawn_4_Func004C()) then
+if (not Trig_Creep_Spawn_4_Func005C()) then
 return false
 end
 return true
@@ -2001,6 +2208,7 @@ end
 
 function Trig_Creep_Spawn_4_Actions()
 udg_Temp_Point4 = GetRectCenter(gg_rct_Waypoint_4)
+UnitAddAbilityBJ(FourCC("A014"), GetTriggerUnit())
 IssuePointOrderLocBJ(GetTriggerUnit(), "move", udg_Temp_Point4)
     RemoveLocation(udg_Temp_Point4)
 end
@@ -2013,7 +2221,7 @@ TriggerAddCondition(gg_trg_Creep_Spawn_4, Condition(Trig_Creep_Spawn_4_Condition
 TriggerAddAction(gg_trg_Creep_Spawn_4, Trig_Creep_Spawn_4_Actions)
 end
 
-function Trig_Creep_Spawn_5_Func004C()
+function Trig_Creep_Spawn_5_Func005C()
 if (GetOwningPlayer(GetTriggerUnit()) == Player(11)) then
 return true
 end
@@ -2024,7 +2232,7 @@ return false
 end
 
 function Trig_Creep_Spawn_5_Conditions()
-if (not Trig_Creep_Spawn_5_Func004C()) then
+if (not Trig_Creep_Spawn_5_Func005C()) then
 return false
 end
 return true
@@ -2032,6 +2240,7 @@ end
 
 function Trig_Creep_Spawn_5_Actions()
 udg_Temp_Point5 = GetRectCenter(gg_rct_Waypoint_5)
+UnitAddAbilityBJ(FourCC("A015"), GetTriggerUnit())
 IssuePointOrderLocBJ(GetTriggerUnit(), "move", udg_Temp_Point5)
     RemoveLocation(udg_Temp_Point5)
 end
@@ -2044,7 +2253,7 @@ TriggerAddCondition(gg_trg_Creep_Spawn_5, Condition(Trig_Creep_Spawn_5_Condition
 TriggerAddAction(gg_trg_Creep_Spawn_5, Trig_Creep_Spawn_5_Actions)
 end
 
-function Trig_Creep_Spawn_6_Func004C()
+function Trig_Creep_Spawn_6_Func005C()
 if (GetOwningPlayer(GetTriggerUnit()) == Player(11)) then
 return true
 end
@@ -2055,7 +2264,7 @@ return false
 end
 
 function Trig_Creep_Spawn_6_Conditions()
-if (not Trig_Creep_Spawn_6_Func004C()) then
+if (not Trig_Creep_Spawn_6_Func005C()) then
 return false
 end
 return true
@@ -2063,6 +2272,7 @@ end
 
 function Trig_Creep_Spawn_6_Actions()
 udg_Temp_Point6 = GetRectCenter(gg_rct_Waypoint_6)
+UnitAddAbilityBJ(FourCC("A016"), GetTriggerUnit())
 IssuePointOrderLocBJ(GetTriggerUnit(), "move", udg_Temp_Point6)
     RemoveLocation(udg_Temp_Point6)
 end
@@ -2075,7 +2285,7 @@ TriggerAddCondition(gg_trg_Creep_Spawn_6, Condition(Trig_Creep_Spawn_6_Condition
 TriggerAddAction(gg_trg_Creep_Spawn_6, Trig_Creep_Spawn_6_Actions)
 end
 
-function Trig_Creep_Spawn_7_Func004C()
+function Trig_Creep_Spawn_7_Func005C()
 if (GetOwningPlayer(GetTriggerUnit()) == Player(11)) then
 return true
 end
@@ -2086,7 +2296,7 @@ return false
 end
 
 function Trig_Creep_Spawn_7_Conditions()
-if (not Trig_Creep_Spawn_7_Func004C()) then
+if (not Trig_Creep_Spawn_7_Func005C()) then
 return false
 end
 return true
@@ -2094,6 +2304,7 @@ end
 
 function Trig_Creep_Spawn_7_Actions()
 udg_Temp_Point7 = GetRectCenter(gg_rct_Waypoint_7)
+UnitAddAbilityBJ(FourCC("A017"), GetTriggerUnit())
 IssuePointOrderLocBJ(GetTriggerUnit(), "move", udg_Temp_Point7)
     RemoveLocation(udg_Temp_Point7)
 end
@@ -2106,7 +2317,7 @@ TriggerAddCondition(gg_trg_Creep_Spawn_7, Condition(Trig_Creep_Spawn_7_Condition
 TriggerAddAction(gg_trg_Creep_Spawn_7, Trig_Creep_Spawn_7_Actions)
 end
 
-function Trig_Creep_Spawn_8_Func004C()
+function Trig_Creep_Spawn_8_Func005C()
 if (GetOwningPlayer(GetTriggerUnit()) == Player(11)) then
 return true
 end
@@ -2117,7 +2328,7 @@ return false
 end
 
 function Trig_Creep_Spawn_8_Conditions()
-if (not Trig_Creep_Spawn_8_Func004C()) then
+if (not Trig_Creep_Spawn_8_Func005C()) then
 return false
 end
 return true
@@ -2125,6 +2336,7 @@ end
 
 function Trig_Creep_Spawn_8_Actions()
 udg_Temp_Point8 = GetRectCenter(gg_rct_Waypoint_8)
+UnitAddAbilityBJ(FourCC("A018"), GetTriggerUnit())
 IssuePointOrderLocBJ(GetTriggerUnit(), "move", udg_Temp_Point8)
     RemoveLocation(udg_Temp_Point8)
 end
@@ -2146,11 +2358,11 @@ InitTrig_Difficulty_Adjust()
 InitTrig_Difficulty_Dialog_Stop()
 InitTrig_Next_Round()
 InitTrig_Wave_Spawning()
-InitTrig_Kill_Count()
+InitTrig_Unit_Die()
 InitTrig_Leaving_Players()
-InitTrig_Remove_Dying_Unit_Heroes()
 InitTrig_Sell_Towers()
 InitTrig_Lumber_Bounty()
+InitTrig_Soul_Siphoner_and_Carrion_Tower()
 InitTrig_Ghastly_Vial_Unit()
 InitTrig_Ghastly_Vial_Cast()
 InitTrig_Khorns_Gift_Dummys()
@@ -2168,6 +2380,7 @@ InitTrig_Jar_of_Demon_Fire()
 InitTrig_Khorns_Gift()
 InitTrig_Hellfrost_Enchantment()
 InitTrig_Dichotomous_Box()
+InitTrig_Soul_Siphoner()
 InitTrig_Creep_Count()
 InitTrig_Creep_Count_Remove()
 InitTrig_Creep_Spawn_1()

@@ -1029,12 +1029,6 @@ STRING 346
  (Glacier Tower)
 }
 
-STRING 362
-// Buffs/Effects: B000 (포이즌), EditorName (Name (Editor Only))
-{
-포이즌
-}
-
 STRING 385
 {
 Hellforged Version by GenoHacker
@@ -1479,12 +1473,6 @@ STRING 546
 |cff76dbf8Varimathras|r
 }
 
-STRING 548
-// Destructibles: IOt0 (Ice Throne), Name (Name)
-{
-Ice Throne
-}
-
 STRING 549
 {
 Demons
@@ -1493,24 +1481,6 @@ Demons
 STRING 552
 {
 Parties [|Cfffed312F11|R]
-}
-
-STRING 597
-// Units: u00S (Carrion Tower Level 2), Ubertip (Tooltip - Extended)
-{
-Dmg: 200-232 |nCooldown: 1.0s |nRange: 700 |nSplash (140)
-}
-
-STRING 598
-// Units: u00T (Carrion Tower Level 1), Ubertip (Tooltip - Extended)
-{
-Dmg: 76-104 |nCooldown: 1.0s |nRange: 700 |nSplash (140)
-}
-
-STRING 599
-// Units: u00U (Carrion Tower Level 3), Ubertip (Tooltip - Extended)
-{
-Dmg: 276-312 |nCooldown: 1.0s |nRange: 700 |nSplash (140)
 }
 
 STRING 614
@@ -2648,16 +2618,6 @@ STRING 1013
 Khorns Gift
 }
 
-STRING 1014
-// Items: I002 (Khorns Gift), Ubertip (Tooltip - Extended)
-{
-[Inferno Gate Only]
-
-All items have 3 levels, you can give additional copies of the item to the tower to level it up.
-
-Upon killing an enemy the tower will gain 40%/75%/125% damage and 75%/150%/225% attack speed, can not trigger whilst it is active.
-}
-
 STRING 1015
 // Items: I002 (Khorns Gift), Description (Description)
 {
@@ -2754,16 +2714,6 @@ STRING 1028
 Hellfrost Enchantment
 }
 
-STRING 1029
-// Items: I00F (Hellfrost Enchantment), Ubertip (Tooltip - Extended)
-{
-[Frost Tower Only]
-
-All items have 3 levels, you can give additional copies of the item to the tower to level it up.
-
-Upon attacking an enemy their is a 15%/20%/25% chance to reduce armor by 1/1.5/2.
-}
-
 STRING 1030
 // Items: I00F (Hellfrost Enchantment), Tip (Tooltip - Basic)
 {
@@ -2810,5 +2760,161 @@ STRING 1037
 // Abilities: A00T (Demon Fire 2), Tip (Tooltip - Normal)
 {
 Demon Fire 2
+}
+
+STRING 1038
+// Abilities: A00H (Player 2 Creeps), Name (Name)
+{
+Player 2 Creeps
+}
+
+STRING 1039
+// Abilities: A00N (Player 3 Creeps), Name (Name)
+{
+Player 3 Creeps
+}
+
+STRING 1040
+// Abilities: A014 (Player 4 Creeps), Name (Name)
+{
+Player 4 Creeps
+}
+
+STRING 1041
+// Abilities: A015 (Player 5 Creeps), Name (Name)
+{
+Player 5 Creeps
+}
+
+STRING 1042
+// Abilities: A016 (Player 6 Creeps), Name (Name)
+{
+Player 6 Creeps
+}
+
+STRING 1043
+// Abilities: A017 (Player 7 Creeps), Name (Name)
+{
+Player 7 Creeps
+}
+
+STRING 1044
+// Abilities: A018 (Player 8 Creeps), Name (Name)
+{
+Player 8 Creeps
+}
+
+STRING 1045
+// Abilities: A019 (Player 1 Creeps), Name (Name)
+{
+Player 1 Creeps
+}
+
+STRING 1046
+// Abilities: A01A (Spell Damage Reduction), EditorSuffix (Editor Suffix)
+{
+Custom
+}
+
+STRING 1047
+// Abilities: A01B (Hardened Skin), EditorSuffix (Editor Suffix)
+{
+Custom
+}
+
+STRING 1051
+// Items: I002 (Khorns Gift), Ubertip (Tooltip - Extended)
+{
+[Inferno Gate Only]
+
+All items have 3 levels, you can give additional copies of the item to the tower to level it up.
+
+25% Chance to deal 3 times damage, Upon killing an enemy the tower will gain 40%/75%/125% damage and 75%/150%/225% attack speed, can not trigger whilst it is active.
+}
+
+STRING 1052
+// Items: I00F (Hellfrost Enchantment), Ubertip (Tooltip - Extended)
+{
+[Frost Tower Only]
+
+All items have 3 levels, you can give additional copies of the item to the tower to level it up.
+
+Upon attacking an enemy their is a 15%/20%/25% chance to reduce armor by 1/2/4.
+}
+
+STRING 1053
+// Abilities: A01C (Khorns Strike), Name (Name)
+{
+Khorns Strike
+}
+
+STRING 1054
+// Units: u00S (Carrion Tower Level 2), Ubertip (Tooltip - Extended)
+{
+Dmg: 200 - 400
+Cooldown: 2.0s
+Range: 800
+Bouncing Attack (5)
+Disables Health Regen
+}
+
+STRING 1055
+// Units: u00T (Carrion Tower Level 1), Ubertip (Tooltip - Extended)
+{
+Dmg: 75 - 150
+Cooldown: 2.0s
+Range: 800
+Bouncing Attack (4)
+Disables Health Regen
+}
+
+STRING 1057
+// Abilities: A01D (Carrion Tower), Name (Name)
+{
+Carrion Tower
+}
+
+STRING 1058
+// Items: I000 (Soul Siphoner), Name (Name)
+{
+Soul Siphoner
+}
+
+STRING 1059
+// Items: I000 (Soul Siphoner), Tip (Tooltip - Basic)
+{
+Purchase Soul Siphoner
+}
+
+STRING 1061
+// Items: I000 (Soul Siphoner), Description (Description)
+{
+[Carrion Tower Only] Soul Siphoner
+}
+
+STRING 1062
+// Items: I000 (Soul Siphoner), Hotkey (Hotkey)
+{
+S
+}
+
+STRING 1063
+// Items: I000 (Soul Siphoner), Ubertip (Tooltip - Extended)
+{
+[Carrion Tower Only]
+
+All items have 3 levels, you can give additional copies of the item to the tower to level it up.
+
+Attacks deal 8%/16%/32% additional pure damage.
+}
+
+STRING 1064
+// Units: u00U (Carrion Tower Level 3), Ubertip (Tooltip - Extended)
+{
+Dmg: 600 - 1000
+Cooldown: 1.8s
+Range: 1000
+Bouncing Attack (6)
+Disables Health Regen
 }
 
