@@ -2296,93 +2296,12 @@ STRING 934
 Chaos Tower
 }
 
-STRING 935
-// Units: u00O (Inferno Gate Level 3), Ubertip (Tooltip - Extended)
-{
-Dmg: 400 - 500
-Cooldown: 4.0s
-Range: 1000
-Incinerate
-}
-
-STRING 936
-// Units: u00P (Inferno Gate Level 2), Ubertip (Tooltip - Extended)
-{
-Dmg: 200 - 300
-Cooldown: 4.0s
-Range: 1000
-Incinerate
-}
-
-STRING 937
-// Units: u00Q (Inferno Gate Level 1), Ubertip (Tooltip - Extended)
-{
-Dmg: 100 - 200
-Cooldown: 4.0s
-Range: 1000
-Incinerate
-}
-
-STRING 938
-// Units: u00R (Inferno Gate Level 4), Ubertip (Tooltip - Extended)
-{
-Dmg: 700 - 800
-Cooldown: 4.0s
-Range: 1000
-Incinerate
-}
-
-STRING 939
-// Units: u00W (Inferno Gate Level 5), Ubertip (Tooltip - Extended)
-{
-Dmg: 1100 - 1200
-Cooldown: 4.0s
-Range: 1000
-Incinerate
-}
-
-STRING 940
-// Units: u00X (Inferno Gate Level 6), Ubertip (Tooltip - Extended)
-{
-Dmg: 1600 - 1700
-Cooldown: 4.0s
-Range: 1000
-Incinerate
-}
-
-STRING 941
-// Units: u00Y (Inferno Gate Level 7), Ubertip (Tooltip - Extended)
-{
-Dmg: 2200 - 2300
-Cooldown: 4.0s
-Range: 1000
-Incinerate
-}
-
-STRING 942
-// Units: u00Z (Inferno Gate Level 8), Ubertip (Tooltip - Extended)
-{
-Dmg: 2900 - 3000
-Cooldown: 4.0s
-Range: 1000
-Incinerate
-}
-
 STRING 944
 // Units: u010 (Ultimate Ghost Tower), Ubertip (Tooltip - Extended)
 {
 Dmg: 500
 Cooldown: 0.4s
 Range: 900
-}
-
-STRING 947
-// Units: u011 (Ultimate Inferno Gate), Ubertip (Tooltip - Extended)
-{
-Dmg: 3900 - 4000
-Cooldown: 3.0s
-Range: 1200
-Incinerate
 }
 
 STRING 951
@@ -2832,5 +2751,86 @@ STRING 1075
 // Buffs/Effects: B000 (), Buffubertip (Tooltip - Extended)
 {
 The Ghost Tower has summoned a Ghost, it can not summon another.
+}
+
+STRING 1076
+// Units: u00O (Inferno Gate Level 3), Ubertip (Tooltip - Extended)
+{
+Dmg: 300 - 900
+Cooldown: 4.0s
+Range: 1000
+Incinerate
+}
+
+STRING 1077
+// Units: u00P (Inferno Gate Level 2), Ubertip (Tooltip - Extended)
+{
+Dmg: 200 - 700
+Cooldown: 4.0s
+Range: 1000
+Incinerate
+}
+
+STRING 1078
+// Units: u00Q (Inferno Gate Level 1), Ubertip (Tooltip - Extended)
+{
+Dmg: 100 - 500
+Cooldown: 4.0s
+Range: 1000
+Incinerate
+}
+
+STRING 1079
+// Units: u00R (Inferno Gate Level 4), Ubertip (Tooltip - Extended)
+{
+Dmg: 500 - 1500
+Cooldown: 4.0s
+Range: 1000
+Incinerate
+}
+
+STRING 1080
+// Units: u00W (Inferno Gate Level 5), Ubertip (Tooltip - Extended)
+{
+Dmg: 700 - 1800
+Cooldown: 4.0s
+Range: 1000
+Incinerate
+}
+
+STRING 1081
+// Units: u00X (Inferno Gate Level 6), Ubertip (Tooltip - Extended)
+{
+Dmg: 900 - 2100
+Cooldown: 4.0s
+Range: 1000
+Incinerate
+}
+
+STRING 1083
+// Units: u00Z (Inferno Gate Level 8), Ubertip (Tooltip - Extended)
+{
+Dmg: 1500 - 3200
+Cooldown: 4.0s
+Range: 1000
+Incinerate
+}
+
+STRING 1084
+// Units: u011 (Ultimate Inferno Gate), Ubertip (Tooltip - Extended)
+{
+Dmg: 2000 - 4000
+Cooldown: 3.0s
+Range: 1200
+Incinerate
+}
+
+STRING 1085
+// Units: u00Y (Inferno Gate Level 7), Ubertip (Tooltip - Extended)
+{
+Dmg: 1200 - 2600
+Cooldown: 4.0s
+Range: 1000
+Incinerate
 }
 
