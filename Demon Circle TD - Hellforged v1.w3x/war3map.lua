@@ -26,6 +26,8 @@ udg_Integer_Array_FrostChance = __jarray(0)
 udg_Integer_Array_DicBoxGoldChance = __jarray(0)
 udg_Integer_EnemyHandicap = 0
 udg_PlyGrp_SellTower = nil
+udg_Region_Array_Teleport = {}
+udg_Region_Array_Waypoints = {}
 gg_rct_CreepSpawn1 = nil
 gg_rct_CreepSpawn2 = nil
 gg_rct_CreepSpawn3 = nil
@@ -42,6 +44,22 @@ gg_rct_Waypoint_2 = nil
 gg_rct_Waypoint_4 = nil
 gg_rct_Waypoint_6 = nil
 gg_rct_Waypoint_8 = nil
+gg_rct_Teleport_Blue_2 = nil
+gg_rct_Teleport_Blue_1 = nil
+gg_rct_Teleport_Teal_1 = nil
+gg_rct_Teleport_Teal_2 = nil
+gg_rct_Teleport_Purple_1 = nil
+gg_rct_Teleport_Purple_2 = nil
+gg_rct_Teleport_Yellow_1 = nil
+gg_rct_Teleport_Yellow_2 = nil
+gg_rct_Teleport_Orange_1 = nil
+gg_rct_Teleport_Orange_2 = nil
+gg_rct_Teleport_Green_1 = nil
+gg_rct_Teleport_Red_2 = nil
+gg_rct_Teleport_Red_1 = nil
+gg_rct_Teleport_Pink_2 = nil
+gg_rct_Teleport_Pink_1 = nil
+gg_rct_Teleport_Green_2 = nil
 gg_snd_PurgeTarget = nil
 gg_snd_Wave_Air = nil
 gg_snd_Wave_Immune = nil
@@ -80,6 +98,14 @@ gg_trg_Khorns_Gift = nil
 gg_trg_Hellfrost_Enchantment = nil
 gg_trg_Dichotomous_Box = nil
 gg_trg_Soul_Siphoner = nil
+gg_trg_Creep_Teleport_1 = nil
+gg_trg_Creep_Teleport_2 = nil
+gg_trg_Creep_Teleport_3 = nil
+gg_trg_Creep_Teleport_4 = nil
+gg_trg_Creep_Teleport_5 = nil
+gg_trg_Creep_Teleport_6 = nil
+gg_trg_Creep_Teleport_7 = nil
+gg_trg_Creep_Teleport_8 = nil
 gg_trg_Creep_Count = nil
 gg_trg_Creep_Count_Remove = nil
 gg_trg_Creep_Spawn_1 = nil
@@ -90,30 +116,6 @@ gg_trg_Creep_Spawn_5 = nil
 gg_trg_Creep_Spawn_6 = nil
 gg_trg_Creep_Spawn_7 = nil
 gg_trg_Creep_Spawn_8 = nil
-gg_rct_Teleport_Blue_2 = nil
-gg_rct_Teleport_Blue_1 = nil
-gg_rct_Teleport_Teal_1 = nil
-gg_rct_Teleport_Teal_2 = nil
-gg_rct_Teleport_Purple_1 = nil
-gg_rct_Teleport_Purple_2 = nil
-gg_rct_Teleport_Yellow_1 = nil
-gg_rct_Teleport_Yellow_2 = nil
-gg_rct_Teleport_Orange_1 = nil
-gg_rct_Teleport_Orange_2 = nil
-gg_rct_Teleport_Green_1 = nil
-gg_rct_Teleport_Red_2 = nil
-gg_rct_Teleport_Red_1 = nil
-gg_rct_Teleport_Pink_2 = nil
-gg_rct_Teleport_Pink_1 = nil
-gg_rct_Teleport_Green_2 = nil
-gg_trg_Untitled_Trigger_001 = nil
-gg_trg_Untitled_Trigger_001_Copy = nil
-gg_trg_Untitled_Trigger_001_Copy_Copy = nil
-gg_trg_Untitled_Trigger_001_Copy_Copy_Copy = nil
-gg_trg_Untitled_Trigger_001_Copy_Copy_Copy_Copy = nil
-gg_trg_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy = nil
-gg_trg_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy_Copy = nil
-gg_trg_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy_Copy_Copy = nil
 function InitGlobals()
 local i = 0
 
@@ -389,6 +391,24 @@ UseTimeOfDayBJ(false)
 CreateQuestBJ(bj_QUESTTYPE_REQ_DISCOVERED, "TRIGSTR_482", "TRIGSTR_483", "ReplaceableTextures\\CommandButtons\\BTNSnazzyScrollPurple.blp")
 CreateQuestBJ(bj_QUESTTYPE_REQ_DISCOVERED, "TRIGSTR_1065", "TRIGSTR_1066", "ReplaceableTextures\\CommandButtons\\BTNSnazzyScrollPurple.blp")
 CreateQuestBJ(bj_QUESTTYPE_OPT_DISCOVERED, "TRIGSTR_539", "TRIGSTR_540", "ReplaceableTextures\\CommandButtons\\BTNSnazzyScroll.blp")
+udg_Region_Array_Teleport[1] = gg_rct_Teleport_Red_2
+udg_Region_Array_Teleport[2] = gg_rct_Teleport_Blue_2
+udg_Region_Array_Teleport[3] = gg_rct_Teleport_Teal_2
+udg_Region_Array_Teleport[4] = gg_rct_Teleport_Purple_2
+udg_Region_Array_Teleport[5] = gg_rct_Teleport_Yellow_2
+udg_Region_Array_Teleport[6] = gg_rct_Teleport_Orange_2
+udg_Region_Array_Teleport[7] = gg_rct_Teleport_Green_2
+udg_Region_Array_Teleport[8] = gg_rct_Teleport_Pink_2
+udg_Region_Array_Teleport[9] = gg_rct_Teleport_Red_2
+udg_Region_Array_Waypoints[1] = gg_rct_Waypoint_1
+udg_Region_Array_Waypoints[2] = gg_rct_Waypoint_2
+udg_Region_Array_Waypoints[3] = gg_rct_Waypoint_3
+udg_Region_Array_Waypoints[4] = gg_rct_Waypoint_4
+udg_Region_Array_Waypoints[5] = gg_rct_Waypoint_5
+udg_Region_Array_Waypoints[6] = gg_rct_Waypoint_6
+udg_Region_Array_Waypoints[7] = gg_rct_Waypoint_7
+udg_Region_Array_Waypoints[8] = gg_rct_Waypoint_8
+udg_Region_Array_Waypoints[9] = gg_rct_Waypoint_1
 udg_UT_UnitType[1] = FourCC("h009")
 udg_UT_UnitType[2] = FourCC("h000")
 udg_UT_UnitType[3] = FourCC("h001")
@@ -2075,7 +2095,7 @@ TriggerRegisterAnyUnitEventBJ(gg_trg_Soul_Siphoner, EVENT_PLAYER_UNIT_PICKUP_ITE
 TriggerAddAction(gg_trg_Soul_Siphoner, Trig_Soul_Siphoner_Actions)
 end
 
-function Trig_Untitled_Trigger_001_Func001Func003C()
+function Trig_Creep_Teleport_1_Func001Func001Func003C()
 if (GetPlayerSlotState(Player(0)) == PLAYER_SLOT_STATE_EMPTY) then
 return true
 end
@@ -2085,30 +2105,24 @@ end
 return false
 end
 
-function Trig_Untitled_Trigger_001_Func001C()
-if (not Trig_Untitled_Trigger_001_Func001Func003C()) then
+function Trig_Creep_Teleport_1_Func001Func001C()
+if (not Trig_Creep_Teleport_1_Func001Func001Func003C()) then
 return false
 end
 return true
 end
 
-function Trig_Untitled_Trigger_001_Actions()
-if (Trig_Untitled_Trigger_001_Func001C()) then
-SetUnitPositionLocFacingLocBJ(GetTriggerUnit(), GetRectCenter(gg_rct_Teleport_Red_2), GetRectCenter(gg_rct_Waypoint_2))
-IssuePointOrderLocBJ(GetTriggerUnit(), "move", GetRectCenter(gg_rct_Waypoint_2))
-else
+function Trig_Creep_Teleport_1_Func001Func004C()
+if (GetPlayerSlotState(Player(0)) == PLAYER_SLOT_STATE_EMPTY) then
+return true
 end
+if (GetPlayerSlotState(Player(0)) == PLAYER_SLOT_STATE_LEFT) then
+return true
 end
-
-function InitTrig_Untitled_Trigger_001()
-gg_trg_Untitled_Trigger_001 = CreateTrigger()
-TriggerRegisterEnterRectSimple(gg_trg_Untitled_Trigger_001, gg_rct_Teleport_Red_1)
-TriggerRegisterEnterRectSimple(gg_trg_Untitled_Trigger_001, gg_rct_Waypoint_1)
-TriggerRegisterEnterRectSimple(gg_trg_Untitled_Trigger_001, gg_rct_CreepSpawn1)
-TriggerAddAction(gg_trg_Untitled_Trigger_001, Trig_Untitled_Trigger_001_Actions)
+return false
 end
 
-function Trig_Untitled_Trigger_001_Copy_Func001Func003C()
+function Trig_Creep_Teleport_1_Func001Func005C()
 if (GetPlayerSlotState(Player(1)) == PLAYER_SLOT_STATE_EMPTY) then
 return true
 end
@@ -2118,30 +2132,65 @@ end
 return false
 end
 
-function Trig_Untitled_Trigger_001_Copy_Func001C()
-if (not Trig_Untitled_Trigger_001_Copy_Func001Func003C()) then
+function Trig_Creep_Teleport_1_Func001C()
+if (not Trig_Creep_Teleport_1_Func001Func004C()) then
+return false
+end
+if (not Trig_Creep_Teleport_1_Func001Func005C()) then
 return false
 end
 return true
 end
 
-function Trig_Untitled_Trigger_001_Copy_Actions()
-if (Trig_Untitled_Trigger_001_Copy_Func001C()) then
+function Trig_Creep_Teleport_1_Actions()
+if (Trig_Creep_Teleport_1_Func001C()) then
 SetUnitPositionLocFacingLocBJ(GetTriggerUnit(), GetRectCenter(gg_rct_Teleport_Blue_2), GetRectCenter(gg_rct_Waypoint_3))
 IssuePointOrderLocBJ(GetTriggerUnit(), "move", GetRectCenter(gg_rct_Waypoint_3))
 else
+if (Trig_Creep_Teleport_1_Func001Func001C()) then
+SetUnitPositionLocFacingLocBJ(GetTriggerUnit(), GetRectCenter(gg_rct_Teleport_Red_2), GetRectCenter(gg_rct_Waypoint_2))
+IssuePointOrderLocBJ(GetTriggerUnit(), "move", GetRectCenter(gg_rct_Waypoint_2))
+else
 end
 end
-
-function InitTrig_Untitled_Trigger_001_Copy()
-gg_trg_Untitled_Trigger_001_Copy = CreateTrigger()
-TriggerRegisterEnterRectSimple(gg_trg_Untitled_Trigger_001_Copy, gg_rct_Teleport_Blue_1)
-TriggerRegisterEnterRectSimple(gg_trg_Untitled_Trigger_001_Copy, gg_rct_Waypoint_2)
-TriggerRegisterEnterRectSimple(gg_trg_Untitled_Trigger_001_Copy, gg_rct_CreepSpawn2)
-TriggerAddAction(gg_trg_Untitled_Trigger_001_Copy, Trig_Untitled_Trigger_001_Copy_Actions)
 end
 
-function Trig_Untitled_Trigger_001_Copy_Copy_Func001Func003C()
+function InitTrig_Creep_Teleport_1()
+gg_trg_Creep_Teleport_1 = CreateTrigger()
+TriggerRegisterEnterRectSimple(gg_trg_Creep_Teleport_1, gg_rct_Teleport_Red_1)
+TriggerRegisterEnterRectSimple(gg_trg_Creep_Teleport_1, gg_rct_Waypoint_1)
+TriggerRegisterEnterRectSimple(gg_trg_Creep_Teleport_1, gg_rct_CreepSpawn1)
+TriggerAddAction(gg_trg_Creep_Teleport_1, Trig_Creep_Teleport_1_Actions)
+end
+
+function Trig_Creep_Teleport_2_Func001Func001Func003C()
+if (GetPlayerSlotState(Player(1)) == PLAYER_SLOT_STATE_EMPTY) then
+return true
+end
+if (GetPlayerSlotState(Player(1)) == PLAYER_SLOT_STATE_LEFT) then
+return true
+end
+return false
+end
+
+function Trig_Creep_Teleport_2_Func001Func001C()
+if (not Trig_Creep_Teleport_2_Func001Func001Func003C()) then
+return false
+end
+return true
+end
+
+function Trig_Creep_Teleport_2_Func001Func004C()
+if (GetPlayerSlotState(Player(1)) == PLAYER_SLOT_STATE_EMPTY) then
+return true
+end
+if (GetPlayerSlotState(Player(1)) == PLAYER_SLOT_STATE_LEFT) then
+return true
+end
+return false
+end
+
+function Trig_Creep_Teleport_2_Func001Func005C()
 if (GetPlayerSlotState(Player(2)) == PLAYER_SLOT_STATE_EMPTY) then
 return true
 end
@@ -2151,30 +2200,65 @@ end
 return false
 end
 
-function Trig_Untitled_Trigger_001_Copy_Copy_Func001C()
-if (not Trig_Untitled_Trigger_001_Copy_Copy_Func001Func003C()) then
+function Trig_Creep_Teleport_2_Func001C()
+if (not Trig_Creep_Teleport_2_Func001Func004C()) then
+return false
+end
+if (not Trig_Creep_Teleport_2_Func001Func005C()) then
 return false
 end
 return true
 end
 
-function Trig_Untitled_Trigger_001_Copy_Copy_Actions()
-if (Trig_Untitled_Trigger_001_Copy_Copy_Func001C()) then
+function Trig_Creep_Teleport_2_Actions()
+if (Trig_Creep_Teleport_2_Func001C()) then
 SetUnitPositionLocFacingLocBJ(GetTriggerUnit(), GetRectCenter(gg_rct_Teleport_Teal_2), GetRectCenter(gg_rct_Waypoint_4))
 IssuePointOrderLocBJ(GetTriggerUnit(), "move", GetRectCenter(gg_rct_Waypoint_4))
 else
+if (Trig_Creep_Teleport_2_Func001Func001C()) then
+SetUnitPositionLocFacingLocBJ(GetTriggerUnit(), GetRectCenter(gg_rct_Teleport_Blue_2), GetRectCenter(gg_rct_Waypoint_3))
+IssuePointOrderLocBJ(GetTriggerUnit(), "move", GetRectCenter(gg_rct_Waypoint_3))
+else
 end
 end
-
-function InitTrig_Untitled_Trigger_001_Copy_Copy()
-gg_trg_Untitled_Trigger_001_Copy_Copy = CreateTrigger()
-TriggerRegisterEnterRectSimple(gg_trg_Untitled_Trigger_001_Copy_Copy, gg_rct_Teleport_Teal_1)
-TriggerRegisterEnterRectSimple(gg_trg_Untitled_Trigger_001_Copy_Copy, gg_rct_Waypoint_3)
-TriggerRegisterEnterRectSimple(gg_trg_Untitled_Trigger_001_Copy_Copy, gg_rct_CreepSpawn3)
-TriggerAddAction(gg_trg_Untitled_Trigger_001_Copy_Copy, Trig_Untitled_Trigger_001_Copy_Copy_Actions)
 end
 
-function Trig_Untitled_Trigger_001_Copy_Copy_Copy_Func001Func003C()
+function InitTrig_Creep_Teleport_2()
+gg_trg_Creep_Teleport_2 = CreateTrigger()
+TriggerRegisterEnterRectSimple(gg_trg_Creep_Teleport_2, gg_rct_Teleport_Blue_1)
+TriggerRegisterEnterRectSimple(gg_trg_Creep_Teleport_2, gg_rct_Waypoint_2)
+TriggerRegisterEnterRectSimple(gg_trg_Creep_Teleport_2, gg_rct_CreepSpawn2)
+TriggerAddAction(gg_trg_Creep_Teleport_2, Trig_Creep_Teleport_2_Actions)
+end
+
+function Trig_Creep_Teleport_3_Func001Func001Func003C()
+if (GetPlayerSlotState(Player(2)) == PLAYER_SLOT_STATE_EMPTY) then
+return true
+end
+if (GetPlayerSlotState(Player(2)) == PLAYER_SLOT_STATE_LEFT) then
+return true
+end
+return false
+end
+
+function Trig_Creep_Teleport_3_Func001Func001C()
+if (not Trig_Creep_Teleport_3_Func001Func001Func003C()) then
+return false
+end
+return true
+end
+
+function Trig_Creep_Teleport_3_Func001Func004C()
+if (GetPlayerSlotState(Player(2)) == PLAYER_SLOT_STATE_EMPTY) then
+return true
+end
+if (GetPlayerSlotState(Player(2)) == PLAYER_SLOT_STATE_LEFT) then
+return true
+end
+return false
+end
+
+function Trig_Creep_Teleport_3_Func001Func005C()
 if (GetPlayerSlotState(Player(3)) == PLAYER_SLOT_STATE_EMPTY) then
 return true
 end
@@ -2184,30 +2268,65 @@ end
 return false
 end
 
-function Trig_Untitled_Trigger_001_Copy_Copy_Copy_Func001C()
-if (not Trig_Untitled_Trigger_001_Copy_Copy_Copy_Func001Func003C()) then
+function Trig_Creep_Teleport_3_Func001C()
+if (not Trig_Creep_Teleport_3_Func001Func004C()) then
+return false
+end
+if (not Trig_Creep_Teleport_3_Func001Func005C()) then
 return false
 end
 return true
 end
 
-function Trig_Untitled_Trigger_001_Copy_Copy_Copy_Actions()
-if (Trig_Untitled_Trigger_001_Copy_Copy_Copy_Func001C()) then
+function Trig_Creep_Teleport_3_Actions()
+if (Trig_Creep_Teleport_3_Func001C()) then
 SetUnitPositionLocFacingLocBJ(GetTriggerUnit(), GetRectCenter(gg_rct_Teleport_Purple_2), GetRectCenter(gg_rct_Waypoint_5))
 IssuePointOrderLocBJ(GetTriggerUnit(), "move", GetRectCenter(gg_rct_Waypoint_5))
 else
+if (Trig_Creep_Teleport_3_Func001Func001C()) then
+SetUnitPositionLocFacingLocBJ(GetTriggerUnit(), GetRectCenter(gg_rct_Teleport_Teal_2), GetRectCenter(gg_rct_Waypoint_4))
+IssuePointOrderLocBJ(GetTriggerUnit(), "move", GetRectCenter(gg_rct_Waypoint_4))
+else
 end
 end
-
-function InitTrig_Untitled_Trigger_001_Copy_Copy_Copy()
-gg_trg_Untitled_Trigger_001_Copy_Copy_Copy = CreateTrigger()
-TriggerRegisterEnterRectSimple(gg_trg_Untitled_Trigger_001_Copy_Copy_Copy, gg_rct_Teleport_Purple_1)
-TriggerRegisterEnterRectSimple(gg_trg_Untitled_Trigger_001_Copy_Copy_Copy, gg_rct_Waypoint_4)
-TriggerRegisterEnterRectSimple(gg_trg_Untitled_Trigger_001_Copy_Copy_Copy, gg_rct_CreepSpawn4)
-TriggerAddAction(gg_trg_Untitled_Trigger_001_Copy_Copy_Copy, Trig_Untitled_Trigger_001_Copy_Copy_Copy_Actions)
 end
 
-function Trig_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Func001Func003C()
+function InitTrig_Creep_Teleport_3()
+gg_trg_Creep_Teleport_3 = CreateTrigger()
+TriggerRegisterEnterRectSimple(gg_trg_Creep_Teleport_3, gg_rct_Teleport_Teal_1)
+TriggerRegisterEnterRectSimple(gg_trg_Creep_Teleport_3, gg_rct_Waypoint_3)
+TriggerRegisterEnterRectSimple(gg_trg_Creep_Teleport_3, gg_rct_CreepSpawn3)
+TriggerAddAction(gg_trg_Creep_Teleport_3, Trig_Creep_Teleport_3_Actions)
+end
+
+function Trig_Creep_Teleport_4_Func001Func001Func003C()
+if (GetPlayerSlotState(Player(3)) == PLAYER_SLOT_STATE_EMPTY) then
+return true
+end
+if (GetPlayerSlotState(Player(3)) == PLAYER_SLOT_STATE_LEFT) then
+return true
+end
+return false
+end
+
+function Trig_Creep_Teleport_4_Func001Func001C()
+if (not Trig_Creep_Teleport_4_Func001Func001Func003C()) then
+return false
+end
+return true
+end
+
+function Trig_Creep_Teleport_4_Func001Func004C()
+if (GetPlayerSlotState(Player(3)) == PLAYER_SLOT_STATE_EMPTY) then
+return true
+end
+if (GetPlayerSlotState(Player(3)) == PLAYER_SLOT_STATE_LEFT) then
+return true
+end
+return false
+end
+
+function Trig_Creep_Teleport_4_Func001Func005C()
 if (GetPlayerSlotState(Player(4)) == PLAYER_SLOT_STATE_EMPTY) then
 return true
 end
@@ -2217,30 +2336,65 @@ end
 return false
 end
 
-function Trig_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Func001C()
-if (not Trig_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Func001Func003C()) then
+function Trig_Creep_Teleport_4_Func001C()
+if (not Trig_Creep_Teleport_4_Func001Func004C()) then
+return false
+end
+if (not Trig_Creep_Teleport_4_Func001Func005C()) then
 return false
 end
 return true
 end
 
-function Trig_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Actions()
-if (Trig_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Func001C()) then
+function Trig_Creep_Teleport_4_Actions()
+if (Trig_Creep_Teleport_4_Func001C()) then
 SetUnitPositionLocFacingLocBJ(GetTriggerUnit(), GetRectCenter(gg_rct_Teleport_Yellow_2), GetRectCenter(gg_rct_Waypoint_6))
 IssuePointOrderLocBJ(GetTriggerUnit(), "move", GetRectCenter(gg_rct_Waypoint_6))
 else
+if (Trig_Creep_Teleport_4_Func001Func001C()) then
+SetUnitPositionLocFacingLocBJ(GetTriggerUnit(), GetRectCenter(gg_rct_Teleport_Purple_2), GetRectCenter(gg_rct_Waypoint_5))
+IssuePointOrderLocBJ(GetTriggerUnit(), "move", GetRectCenter(gg_rct_Waypoint_5))
+else
 end
 end
-
-function InitTrig_Untitled_Trigger_001_Copy_Copy_Copy_Copy()
-gg_trg_Untitled_Trigger_001_Copy_Copy_Copy_Copy = CreateTrigger()
-TriggerRegisterEnterRectSimple(gg_trg_Untitled_Trigger_001_Copy_Copy_Copy_Copy, gg_rct_Teleport_Yellow_1)
-TriggerRegisterEnterRectSimple(gg_trg_Untitled_Trigger_001_Copy_Copy_Copy_Copy, gg_rct_Waypoint_5)
-TriggerRegisterEnterRectSimple(gg_trg_Untitled_Trigger_001_Copy_Copy_Copy_Copy, gg_rct_CreepSpawn5)
-TriggerAddAction(gg_trg_Untitled_Trigger_001_Copy_Copy_Copy_Copy, Trig_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Actions)
 end
 
-function Trig_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy_Func001Func003C()
+function InitTrig_Creep_Teleport_4()
+gg_trg_Creep_Teleport_4 = CreateTrigger()
+TriggerRegisterEnterRectSimple(gg_trg_Creep_Teleport_4, gg_rct_Teleport_Purple_1)
+TriggerRegisterEnterRectSimple(gg_trg_Creep_Teleport_4, gg_rct_Waypoint_4)
+TriggerRegisterEnterRectSimple(gg_trg_Creep_Teleport_4, gg_rct_CreepSpawn4)
+TriggerAddAction(gg_trg_Creep_Teleport_4, Trig_Creep_Teleport_4_Actions)
+end
+
+function Trig_Creep_Teleport_5_Func001Func001Func003C()
+if (GetPlayerSlotState(Player(4)) == PLAYER_SLOT_STATE_EMPTY) then
+return true
+end
+if (GetPlayerSlotState(Player(4)) == PLAYER_SLOT_STATE_LEFT) then
+return true
+end
+return false
+end
+
+function Trig_Creep_Teleport_5_Func001Func001C()
+if (not Trig_Creep_Teleport_5_Func001Func001Func003C()) then
+return false
+end
+return true
+end
+
+function Trig_Creep_Teleport_5_Func001Func004C()
+if (GetPlayerSlotState(Player(4)) == PLAYER_SLOT_STATE_EMPTY) then
+return true
+end
+if (GetPlayerSlotState(Player(4)) == PLAYER_SLOT_STATE_LEFT) then
+return true
+end
+return false
+end
+
+function Trig_Creep_Teleport_5_Func001Func005C()
 if (GetPlayerSlotState(Player(5)) == PLAYER_SLOT_STATE_EMPTY) then
 return true
 end
@@ -2250,30 +2404,65 @@ end
 return false
 end
 
-function Trig_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy_Func001C()
-if (not Trig_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy_Func001Func003C()) then
+function Trig_Creep_Teleport_5_Func001C()
+if (not Trig_Creep_Teleport_5_Func001Func004C()) then
+return false
+end
+if (not Trig_Creep_Teleport_5_Func001Func005C()) then
 return false
 end
 return true
 end
 
-function Trig_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy_Actions()
-if (Trig_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy_Func001C()) then
+function Trig_Creep_Teleport_5_Actions()
+if (Trig_Creep_Teleport_5_Func001C()) then
 SetUnitPositionLocFacingLocBJ(GetTriggerUnit(), GetRectCenter(gg_rct_Teleport_Orange_2), GetRectCenter(gg_rct_Waypoint_7))
 IssuePointOrderLocBJ(GetTriggerUnit(), "move", GetRectCenter(gg_rct_Waypoint_7))
 else
+if (Trig_Creep_Teleport_5_Func001Func001C()) then
+SetUnitPositionLocFacingLocBJ(GetTriggerUnit(), GetRectCenter(gg_rct_Teleport_Yellow_2), GetRectCenter(gg_rct_Waypoint_6))
+IssuePointOrderLocBJ(GetTriggerUnit(), "move", GetRectCenter(gg_rct_Waypoint_6))
+else
 end
 end
-
-function InitTrig_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy()
-gg_trg_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy = CreateTrigger()
-TriggerRegisterEnterRectSimple(gg_trg_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy, gg_rct_Teleport_Orange_1)
-TriggerRegisterEnterRectSimple(gg_trg_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy, gg_rct_Waypoint_6)
-TriggerRegisterEnterRectSimple(gg_trg_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy, gg_rct_CreepSpawn6)
-TriggerAddAction(gg_trg_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy, Trig_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy_Actions)
 end
 
-function Trig_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy_Copy_Func001Func003C()
+function InitTrig_Creep_Teleport_5()
+gg_trg_Creep_Teleport_5 = CreateTrigger()
+TriggerRegisterEnterRectSimple(gg_trg_Creep_Teleport_5, gg_rct_Teleport_Yellow_1)
+TriggerRegisterEnterRectSimple(gg_trg_Creep_Teleport_5, gg_rct_Waypoint_5)
+TriggerRegisterEnterRectSimple(gg_trg_Creep_Teleport_5, gg_rct_CreepSpawn5)
+TriggerAddAction(gg_trg_Creep_Teleport_5, Trig_Creep_Teleport_5_Actions)
+end
+
+function Trig_Creep_Teleport_6_Func001Func001Func003C()
+if (GetPlayerSlotState(Player(5)) == PLAYER_SLOT_STATE_EMPTY) then
+return true
+end
+if (GetPlayerSlotState(Player(5)) == PLAYER_SLOT_STATE_LEFT) then
+return true
+end
+return false
+end
+
+function Trig_Creep_Teleport_6_Func001Func001C()
+if (not Trig_Creep_Teleport_6_Func001Func001Func003C()) then
+return false
+end
+return true
+end
+
+function Trig_Creep_Teleport_6_Func001Func004C()
+if (GetPlayerSlotState(Player(5)) == PLAYER_SLOT_STATE_EMPTY) then
+return true
+end
+if (GetPlayerSlotState(Player(5)) == PLAYER_SLOT_STATE_LEFT) then
+return true
+end
+return false
+end
+
+function Trig_Creep_Teleport_6_Func001Func005C()
 if (GetPlayerSlotState(Player(6)) == PLAYER_SLOT_STATE_EMPTY) then
 return true
 end
@@ -2283,30 +2472,65 @@ end
 return false
 end
 
-function Trig_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy_Copy_Func001C()
-if (not Trig_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy_Copy_Func001Func003C()) then
+function Trig_Creep_Teleport_6_Func001C()
+if (not Trig_Creep_Teleport_6_Func001Func004C()) then
+return false
+end
+if (not Trig_Creep_Teleport_6_Func001Func005C()) then
 return false
 end
 return true
 end
 
-function Trig_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy_Copy_Actions()
-if (Trig_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy_Copy_Func001C()) then
+function Trig_Creep_Teleport_6_Actions()
+if (Trig_Creep_Teleport_6_Func001C()) then
 SetUnitPositionLocFacingLocBJ(GetTriggerUnit(), GetRectCenter(gg_rct_Teleport_Green_2), GetRectCenter(gg_rct_Waypoint_8))
 IssuePointOrderLocBJ(GetTriggerUnit(), "move", GetRectCenter(gg_rct_Waypoint_8))
 else
+if (Trig_Creep_Teleport_6_Func001Func001C()) then
+SetUnitPositionLocFacingLocBJ(GetTriggerUnit(), GetRectCenter(gg_rct_Teleport_Orange_2), GetRectCenter(gg_rct_Waypoint_7))
+IssuePointOrderLocBJ(GetTriggerUnit(), "move", GetRectCenter(gg_rct_Waypoint_7))
+else
 end
 end
-
-function InitTrig_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy_Copy()
-gg_trg_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy_Copy = CreateTrigger()
-TriggerRegisterEnterRectSimple(gg_trg_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy_Copy, gg_rct_Teleport_Green_1)
-TriggerRegisterEnterRectSimple(gg_trg_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy_Copy, gg_rct_Waypoint_7)
-TriggerRegisterEnterRectSimple(gg_trg_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy_Copy, gg_rct_CreepSpawn7)
-TriggerAddAction(gg_trg_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy_Copy, Trig_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy_Copy_Actions)
 end
 
-function Trig_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy_Copy_Copy_Func001Func003C()
+function InitTrig_Creep_Teleport_6()
+gg_trg_Creep_Teleport_6 = CreateTrigger()
+TriggerRegisterEnterRectSimple(gg_trg_Creep_Teleport_6, gg_rct_Teleport_Orange_1)
+TriggerRegisterEnterRectSimple(gg_trg_Creep_Teleport_6, gg_rct_Waypoint_6)
+TriggerRegisterEnterRectSimple(gg_trg_Creep_Teleport_6, gg_rct_CreepSpawn6)
+TriggerAddAction(gg_trg_Creep_Teleport_6, Trig_Creep_Teleport_6_Actions)
+end
+
+function Trig_Creep_Teleport_7_Func001Func001Func003C()
+if (GetPlayerSlotState(Player(6)) == PLAYER_SLOT_STATE_EMPTY) then
+return true
+end
+if (GetPlayerSlotState(Player(6)) == PLAYER_SLOT_STATE_LEFT) then
+return true
+end
+return false
+end
+
+function Trig_Creep_Teleport_7_Func001Func001C()
+if (not Trig_Creep_Teleport_7_Func001Func001Func003C()) then
+return false
+end
+return true
+end
+
+function Trig_Creep_Teleport_7_Func001Func004C()
+if (GetPlayerSlotState(Player(6)) == PLAYER_SLOT_STATE_EMPTY) then
+return true
+end
+if (GetPlayerSlotState(Player(6)) == PLAYER_SLOT_STATE_LEFT) then
+return true
+end
+return false
+end
+
+function Trig_Creep_Teleport_7_Func001Func005C()
 if (GetPlayerSlotState(Player(7)) == PLAYER_SLOT_STATE_EMPTY) then
 return true
 end
@@ -2316,27 +2540,103 @@ end
 return false
 end
 
-function Trig_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy_Copy_Copy_Func001C()
-if (not Trig_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy_Copy_Copy_Func001Func003C()) then
+function Trig_Creep_Teleport_7_Func001C()
+if (not Trig_Creep_Teleport_7_Func001Func004C()) then
+return false
+end
+if (not Trig_Creep_Teleport_7_Func001Func005C()) then
 return false
 end
 return true
 end
 
-function Trig_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy_Copy_Copy_Actions()
-if (Trig_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy_Copy_Copy_Func001C()) then
+function Trig_Creep_Teleport_7_Actions()
+if (Trig_Creep_Teleport_7_Func001C()) then
+SetUnitPositionLocFacingLocBJ(GetTriggerUnit(), GetRectCenter(gg_rct_Teleport_Pink_2), GetRectCenter(gg_rct_Waypoint_1))
+IssuePointOrderLocBJ(GetTriggerUnit(), "move", GetRectCenter(gg_rct_Waypoint_1))
+else
+if (Trig_Creep_Teleport_7_Func001Func001C()) then
+SetUnitPositionLocFacingLocBJ(GetTriggerUnit(), GetRectCenter(gg_rct_Teleport_Green_2), GetRectCenter(gg_rct_Waypoint_8))
+IssuePointOrderLocBJ(GetTriggerUnit(), "move", GetRectCenter(gg_rct_Waypoint_8))
+else
+end
+end
+end
+
+function InitTrig_Creep_Teleport_7()
+gg_trg_Creep_Teleport_7 = CreateTrigger()
+TriggerRegisterEnterRectSimple(gg_trg_Creep_Teleport_7, gg_rct_Teleport_Green_1)
+TriggerRegisterEnterRectSimple(gg_trg_Creep_Teleport_7, gg_rct_Waypoint_7)
+TriggerRegisterEnterRectSimple(gg_trg_Creep_Teleport_7, gg_rct_CreepSpawn7)
+TriggerAddAction(gg_trg_Creep_Teleport_7, Trig_Creep_Teleport_7_Actions)
+end
+
+function Trig_Creep_Teleport_8_Func001Func001Func003C()
+if (GetPlayerSlotState(Player(7)) == PLAYER_SLOT_STATE_EMPTY) then
+return true
+end
+if (GetPlayerSlotState(Player(7)) == PLAYER_SLOT_STATE_LEFT) then
+return true
+end
+return false
+end
+
+function Trig_Creep_Teleport_8_Func001Func001C()
+if (not Trig_Creep_Teleport_8_Func001Func001Func003C()) then
+return false
+end
+return true
+end
+
+function Trig_Creep_Teleport_8_Func001Func004C()
+if (GetPlayerSlotState(Player(7)) == PLAYER_SLOT_STATE_EMPTY) then
+return true
+end
+if (GetPlayerSlotState(Player(7)) == PLAYER_SLOT_STATE_LEFT) then
+return true
+end
+return false
+end
+
+function Trig_Creep_Teleport_8_Func001Func005C()
+if (GetPlayerSlotState(Player(0)) == PLAYER_SLOT_STATE_EMPTY) then
+return true
+end
+if (GetPlayerSlotState(Player(0)) == PLAYER_SLOT_STATE_LEFT) then
+return true
+end
+return false
+end
+
+function Trig_Creep_Teleport_8_Func001C()
+if (not Trig_Creep_Teleport_8_Func001Func004C()) then
+return false
+end
+if (not Trig_Creep_Teleport_8_Func001Func005C()) then
+return false
+end
+return true
+end
+
+function Trig_Creep_Teleport_8_Actions()
+if (Trig_Creep_Teleport_8_Func001C()) then
+SetUnitPositionLocFacingLocBJ(GetTriggerUnit(), GetRectCenter(gg_rct_Teleport_Red_2), GetRectCenter(gg_rct_Waypoint_2))
+IssuePointOrderLocBJ(GetTriggerUnit(), "move", GetRectCenter(gg_rct_Waypoint_2))
+else
+if (Trig_Creep_Teleport_8_Func001Func001C()) then
 SetUnitPositionLocFacingLocBJ(GetTriggerUnit(), GetRectCenter(gg_rct_Teleport_Pink_2), GetRectCenter(gg_rct_Waypoint_1))
 IssuePointOrderLocBJ(GetTriggerUnit(), "move", GetRectCenter(gg_rct_Waypoint_1))
 else
 end
 end
+end
 
-function InitTrig_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy_Copy_Copy()
-gg_trg_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy_Copy_Copy = CreateTrigger()
-TriggerRegisterEnterRectSimple(gg_trg_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy_Copy_Copy, gg_rct_Teleport_Pink_1)
-TriggerRegisterEnterRectSimple(gg_trg_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy_Copy_Copy, gg_rct_Waypoint_8)
-TriggerRegisterEnterRectSimple(gg_trg_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy_Copy_Copy, gg_rct_CreepSpawn8)
-TriggerAddAction(gg_trg_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy_Copy_Copy, Trig_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy_Copy_Copy_Actions)
+function InitTrig_Creep_Teleport_8()
+gg_trg_Creep_Teleport_8 = CreateTrigger()
+TriggerRegisterEnterRectSimple(gg_trg_Creep_Teleport_8, gg_rct_Teleport_Pink_1)
+TriggerRegisterEnterRectSimple(gg_trg_Creep_Teleport_8, gg_rct_Waypoint_8)
+TriggerRegisterEnterRectSimple(gg_trg_Creep_Teleport_8, gg_rct_CreepSpawn8)
+TriggerAddAction(gg_trg_Creep_Teleport_8, Trig_Creep_Teleport_8_Actions)
 end
 
 function Trig_Creep_Count_Func011Func001A()
@@ -2672,14 +2972,14 @@ InitTrig_Khorns_Gift()
 InitTrig_Hellfrost_Enchantment()
 InitTrig_Dichotomous_Box()
 InitTrig_Soul_Siphoner()
-InitTrig_Untitled_Trigger_001()
-InitTrig_Untitled_Trigger_001_Copy()
-InitTrig_Untitled_Trigger_001_Copy_Copy()
-InitTrig_Untitled_Trigger_001_Copy_Copy_Copy()
-InitTrig_Untitled_Trigger_001_Copy_Copy_Copy_Copy()
-InitTrig_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy()
-InitTrig_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy_Copy()
-InitTrig_Untitled_Trigger_001_Copy_Copy_Copy_Copy_Copy_Copy_Copy()
+InitTrig_Creep_Teleport_1()
+InitTrig_Creep_Teleport_2()
+InitTrig_Creep_Teleport_3()
+InitTrig_Creep_Teleport_4()
+InitTrig_Creep_Teleport_5()
+InitTrig_Creep_Teleport_6()
+InitTrig_Creep_Teleport_7()
+InitTrig_Creep_Teleport_8()
 InitTrig_Creep_Count()
 InitTrig_Creep_Count_Remove()
 InitTrig_Creep_Spawn_1()
