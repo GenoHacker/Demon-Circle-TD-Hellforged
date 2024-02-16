@@ -2367,16 +2367,6 @@ STRING 1010
 Purchase a Ghastly Vial
 }
 
-STRING 1011
-// Items: I005 (Ghastly Vial), Ubertip (Tooltip - Extended)
-{
-[Ghost Tower Only]
-
-All items have 3 levels, you can give additional copies of the item to the tower to level it up.
-
-Upon attacking an enemy their is a 8%/12%/16% chance to summon a Ghost that will cast chain lightning. Ghost last for 4/6/8 seconds.
-}
-
 STRING 1012
 // Items: I005 (Ghastly Vial), Description (Description)
 {
@@ -2832,5 +2822,15 @@ Dmg: 1200 - 2600
 Cooldown: 4.0s
 Range: 1000
 Incinerate
+}
+
+STRING 1086
+// Items: I005 (Ghastly Vial), Ubertip (Tooltip - Extended)
+{
+[Ghost Tower Only]
+
+All items have 3 levels, you can give additional copies of the item to the tower to level it up.
+
+Upon attacking an enemy their is a 8%/12%/16% chance to summon a Ghost that will cast chain lightning. Ghost last for 4/6/8 seconds, can not summon a Ghost whilst one is already summoned.
 }
 
