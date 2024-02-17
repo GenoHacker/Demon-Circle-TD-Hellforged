@@ -5,7 +5,7 @@ Demon Circle TD Hellforged Test
 
 STRING 2
 {
-8
+4 - 8
 }
 
 STRING 3
@@ -2025,14 +2025,6 @@ STRING 884
 Ghost Lightning 1
 }
 
-STRING 885
-// Units: u000 (Ghost Tower Level 1), Ubertip (Tooltip - Extended)
-{
-Dmg: 35
-Cooldown: 0.5s
-Range: 800
-}
-
 STRING 886
 // Units: u001 (Ghost Tower Level 6), Ubertip (Tooltip - Extended)
 {
@@ -2063,15 +2055,6 @@ STRING 889
 Dmg: 100
 Cooldown: 0.5s
 Range: 800
-}
-
-STRING 890
-// Units: u006 (Skull Tower Level 1), Ubertip (Tooltip - Extended)
-{
-Dmg: 40
-Cooldown: 2.0s
-Range: 600
-Splash (150)
 }
 
 STRING 891
@@ -2188,15 +2171,6 @@ Range: 1000
 Multishot (3)
 }
 
-STRING 904
-// Units: u00M (Chaos Tower Level 1), Ubertip (Tooltip - Extended)
-{
-Dmg: 50
-Cooldown: 2.5s
-Range: 1000
-Multishot (3)
-}
-
 STRING 905
 // Units: u00N (Chaos Tower Level 7), Ubertip (Tooltip - Extended)
 {
@@ -2302,12 +2276,6 @@ STRING 944
 Dmg: 500
 Cooldown: 0.4s
 Range: 900
-}
-
-STRING 951
-// Units: u00B (Frost Tower), Ubertip (Tooltip - Extended)
-{
-Dmg: 25 - 100 |nCooldown: 3.0s |nRange: 700 |nFrost (3s) |nSplash (125)
 }
 
 STRING 952
@@ -2619,16 +2587,6 @@ Bouncing Attack (5)
 Disables Health Regen
 }
 
-STRING 1055
-// Units: u00T (Carrion Tower Level 1), Ubertip (Tooltip - Extended)
-{
-Dmg: 75 - 150
-Cooldown: 2.0s
-Range: 800
-Bouncing Attack (4)
-Disables Health Regen
-}
-
 STRING 1057
 // Abilities: A01D (Carrion Tower), Name (Name)
 {
@@ -2761,15 +2719,6 @@ Range: 1000
 Incinerate
 }
 
-STRING 1078
-// Units: u00Q (Inferno Gate Level 1), Ubertip (Tooltip - Extended)
-{
-Dmg: 100 - 500
-Cooldown: 4.0s
-Range: 1000
-Incinerate
-}
-
 STRING 1079
 // Units: u00R (Inferno Gate Level 4), Ubertip (Tooltip - Extended)
 {
@@ -2832,5 +2781,62 @@ STRING 1086
 All items have 3 levels, you can give additional copies of the item to the tower to level it up.
 
 Upon attacking an enemy their is a 8%/12%/16% chance to summon a Ghost that will cast chain lightning. Ghost last for 4/6/8 seconds, can not summon a Ghost whilst one is already summoned.
+}
+
+STRING 1087
+// Units: u000 (Ghost Tower Level 1), Ubertip (Tooltip - Extended)
+{
+Pierce Damage
+Dmg: 35
+Cooldown: 0.5s
+Range: 800
+}
+
+STRING 1088
+// Units: u006 (Skull Tower Level 1), Ubertip (Tooltip - Extended)
+{
+Siege Damage
+Dmg: 40
+Cooldown: 2.0s
+Range: 600
+Splash (150)
+}
+
+STRING 1089
+// Units: u00B (Frost Tower), Ubertip (Tooltip - Extended)
+{
+Magic Damage
+Dmg: 25 - 100 |nCooldown: 3.0s |nRange: 700 |nFrost (3s) |nSplash (125)
+}
+
+STRING 1090
+// Units: u00M (Chaos Tower Level 1), Ubertip (Tooltip - Extended)
+{
+Normal Damage
+Dmg: 50
+Cooldown: 2.5s
+Range: 1000
+Multishot (3)
+}
+
+STRING 1091
+// Units: u00Q (Inferno Gate Level 1), Ubertip (Tooltip - Extended)
+{
+Chaos Damage
+Dmg: 100 - 500
+Cooldown: 4.0s
+Range: 1000
+Incinerate
+}
+
+STRING 1092
+// Units: u00T (Carrion Tower Level 1), Ubertip (Tooltip - Extended)
+{
+Chaos Damage
+Dmg: 75 - 150
+Cooldown: 2.0s
+Range: 800
+Bouncing Attack (4)
+Disables Health Regen
 }
 
