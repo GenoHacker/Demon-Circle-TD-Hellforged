@@ -2290,15 +2290,6 @@ STRING 954
 Allows the tower to attack up to 4 targets.
 }
 
-STRING 955
-// Units: u00V (Ultimate Skull Tower), Ubertip (Tooltip - Extended)
-{
-Dmg: 500
-Cooldown: 2.0s
-Range: 700
-Splash (200)
-}
-
 STRING 984
 // Abilities: A000 (Sell Tower), Hotkey (Hotkey - Normal)
 {
@@ -2838,5 +2829,20 @@ Cooldown: 2.0s
 Range: 800
 Bouncing Attack (4)
 Disables Health Regen
+}
+
+STRING 1093
+// Units: u00V (Ultimate Skull Tower), Ubertip (Tooltip - Extended)
+{
+Dmg: 500
+Cooldown: 1.5s
+Range: 700
+Splash (200)
+}
+
+STRING 1094
+// Units: n001 (Doom Commander), Name (Name)
+{
+Doom Commander
 }
 
