@@ -771,7 +771,7 @@ DisplayTextToForce(GetPlayersAll(), ("|cffffcc00Level " .. (I2S(udg_I_Round) .. 
 LeaderboardSetPlayerItemValueBJ(Player(9), GetLastCreatedLeaderboard(), udg_I_Round)
 udg_Integer_Spawncount = 0
 DestroyTimerDialogBJ(udg_TW_NextRound)
-StartTimerBJ(udg_T_NextRound, false, 5.00)
+StartTimerBJ(udg_T_NextRound, false, 30.00)
 if (Trig_Next_Round_Func009C()) then
 CreateTimerDialogBJ(GetLastCreatedTimerBJ(), ("Round " .. (I2S((udg_I_Round + 1)) .. " in:")))
 TimerDialogDisplayBJ(true, GetLastCreatedTimerDialogBJ())
@@ -2062,42 +2062,49 @@ TriggerAddCondition(gg_trg_Satans_Claw_Upgrade, Condition(Trig_Satans_Claw_Upgra
 TriggerAddAction(gg_trg_Satans_Claw_Upgrade, Trig_Satans_Claw_Upgrade_Actions)
 end
 
-function Trig_Hellfrost_Enchantment_Armor_Remove_Func001Func001Func001Func002C()
+function Trig_Hellfrost_Enchantment_Armor_Remove_Conditions()
+if (not (GetUnitAbilityLevelSwapped(FourCC("A011"), GetEventDamageSource()) == 1)) then
+return false
+end
+return true
+end
+
+function Trig_Hellfrost_Enchantment_Armor_Remove_Func002Func001Func001Func002C()
 if (not (udg_Integer_Array_GhastlyChance[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] <= 25)) then
 return false
 end
 return true
 end
 
-function Trig_Hellfrost_Enchantment_Armor_Remove_Func001Func001Func001C()
+function Trig_Hellfrost_Enchantment_Armor_Remove_Func002Func001Func001C()
 if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I00F"))) == 3)) then
 return false
 end
 return true
 end
 
-function Trig_Hellfrost_Enchantment_Armor_Remove_Func001Func001Func003C()
+function Trig_Hellfrost_Enchantment_Armor_Remove_Func002Func001Func003C()
 if (not (udg_Integer_Array_GhastlyChance[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] <= 20)) then
 return false
 end
 return true
 end
 
-function Trig_Hellfrost_Enchantment_Armor_Remove_Func001Func001C()
+function Trig_Hellfrost_Enchantment_Armor_Remove_Func002Func001C()
 if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I00F"))) == 2)) then
 return false
 end
 return true
 end
 
-function Trig_Hellfrost_Enchantment_Armor_Remove_Func001Func003C()
+function Trig_Hellfrost_Enchantment_Armor_Remove_Func002Func003C()
 if (not (udg_Integer_Array_GhastlyChance[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] <= 15)) then
 return false
 end
 return true
 end
 
-function Trig_Hellfrost_Enchantment_Armor_Remove_Func001C()
+function Trig_Hellfrost_Enchantment_Armor_Remove_Func002C()
 if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I00F"))) == 1)) then
 return false
 end
@@ -2105,23 +2112,23 @@ return true
 end
 
 function Trig_Hellfrost_Enchantment_Armor_Remove_Actions()
-if (Trig_Hellfrost_Enchantment_Armor_Remove_Func001C()) then
+if (Trig_Hellfrost_Enchantment_Armor_Remove_Func002C()) then
 udg_Integer_Array_GhastlyChance[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] = GetRandomInt(1, 100)
-if (Trig_Hellfrost_Enchantment_Armor_Remove_Func001Func003C()) then
+if (Trig_Hellfrost_Enchantment_Armor_Remove_Func002Func003C()) then
 BlzSetUnitArmor(BlzGetEventDamageTarget(), (BlzGetUnitArmor(BlzGetEventDamageTarget()) - 1))
 else
 end
 else
-if (Trig_Hellfrost_Enchantment_Armor_Remove_Func001Func001C()) then
+if (Trig_Hellfrost_Enchantment_Armor_Remove_Func002Func001C()) then
 udg_Integer_Array_GhastlyChance[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] = GetRandomInt(1, 100)
-if (Trig_Hellfrost_Enchantment_Armor_Remove_Func001Func001Func003C()) then
+if (Trig_Hellfrost_Enchantment_Armor_Remove_Func002Func001Func003C()) then
 BlzSetUnitArmor(BlzGetEventDamageTarget(), (BlzGetUnitArmor(BlzGetEventDamageTarget()) - 2.00))
 else
 end
 else
-if (Trig_Hellfrost_Enchantment_Armor_Remove_Func001Func001Func001C()) then
+if (Trig_Hellfrost_Enchantment_Armor_Remove_Func002Func001Func001C()) then
 udg_Integer_Array_GhastlyChance[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] = GetRandomInt(1, 100)
-if (Trig_Hellfrost_Enchantment_Armor_Remove_Func001Func001Func001Func002C()) then
+if (Trig_Hellfrost_Enchantment_Armor_Remove_Func002Func001Func001Func002C()) then
 BlzSetUnitArmor(BlzGetEventDamageTarget(), (BlzGetUnitArmor(BlzGetEventDamageTarget()) - 4.00))
 else
 end
@@ -2134,6 +2141,7 @@ end
 function InitTrig_Hellfrost_Enchantment_Armor_Remove()
 gg_trg_Hellfrost_Enchantment_Armor_Remove = CreateTrigger()
 TriggerRegisterAnyUnitEventBJ(gg_trg_Hellfrost_Enchantment_Armor_Remove, EVENT_PLAYER_UNIT_DAMAGED)
+TriggerAddCondition(gg_trg_Hellfrost_Enchantment_Armor_Remove, Condition(Trig_Hellfrost_Enchantment_Armor_Remove_Conditions))
 TriggerAddAction(gg_trg_Hellfrost_Enchantment_Armor_Remove, Trig_Hellfrost_Enchantment_Armor_Remove_Actions)
 end
 
