@@ -1481,7 +1481,7 @@ TriggerAddAction(gg_trg_Remove_Ethereal, Trig_Remove_Ethereal_Actions)
 end
 
 function Trig_Soul_Siphoner_and_Carrion_Tower_Conditions()
-if (not (GetUnitAbilityLevelSwapped(FourCC("A01D"), GetKillingUnitBJ()) == 1)) then
+if (not (GetUnitAbilityLevelSwapped(FourCC("A01D"), GetEventDamageSource()) == 1)) then
 return false
 end
 return true
