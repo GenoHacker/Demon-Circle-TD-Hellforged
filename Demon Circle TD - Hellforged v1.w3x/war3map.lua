@@ -36,6 +36,7 @@ udg_Ability_Array_Commander = {}
 udg_AbilityCode_Array_Commander = __jarray(0)
 udg_Integer_CommanderAbilityChance = 0
 udg_Temp_PointCommander = {}
+udg_Integer_MaxSpawncount = 0
 gg_rct_CreepSpawn1 = nil
 gg_rct_CreepSpawn2 = nil
 gg_rct_CreepSpawn3 = nil
@@ -128,6 +129,8 @@ gg_trg_Creep_Spawn_6 = nil
 gg_trg_Creep_Spawn_7 = nil
 gg_trg_Creep_Spawn_8 = nil
 gg_trg_Commander_Spawning = nil
+gg_unit_n000_0015 = nil
+gg_unit_h00E_0013 = nil
 function InitGlobals()
 local i = 0
 
@@ -181,6 +184,7 @@ udg_Integer_ShieldChance = 0
 udg_Integer_CommanderChance = 0
 globals.udg_Real_CommanderSpawn = 0.0
 udg_Integer_CommanderAbilityChance = 0
+udg_Integer_MaxSpawncount = 10
 end
 
 function InitSounds()
@@ -321,7 +325,7 @@ local life
 u = BlzCreateUnitWithSkin(p, FourCC("h00E"), -6657.1, 2048.2, 82.430, FourCC("h00E"))
 u = BlzCreateUnitWithSkin(p, FourCC("h00E"), -2567.7, -2072.3, 82.430, FourCC("h00E"))
 u = BlzCreateUnitWithSkin(p, FourCC("h00E"), 1534.7, 2047.1, 82.430, FourCC("h00E"))
-u = BlzCreateUnitWithSkin(p, FourCC("h00E"), -2559.6, 6143.6, 82.430, FourCC("h00E"))
+gg_unit_h00E_0013 = BlzCreateUnitWithSkin(p, FourCC("h00E"), -2559.6, 6143.6, 82.430, FourCC("h00E"))
 end
 
 function CreatePlayerBuildings()
@@ -632,14 +636,17 @@ function Trig_Difficulty_Adjust_Actions()
 if (Trig_Difficulty_Adjust_Func001C()) then
 udg_Integer_EnemyHandicap = (udg_Integer_EnemyHandicap + 4)
 DisplayTimedTextToForce(GetPlayersAll(), 5.00, (GetPlayerName(GetTriggerPlayer()) .. " has increased difficulty by 4%."))
+DisplayTimedTextToForce(GetPlayersAll(), 5.00, (GetPlayerName(GetTriggerPlayer()) .. " has increased spawn count by 1."))
 SetPlayerHandicapBJ(Player(10), I2R(udg_Integer_EnemyHandicap))
 SetPlayerHandicapBJ(Player(11), I2R(udg_Integer_EnemyHandicap))
 DisplayTimedTextToForce(GetPlayersAll(), 5.00, ("Difficulty is now: " .. (I2S(udg_Integer_EnemyHandicap) .. "%")))
 udg_Integer_Array_DifficultyVote[1] = (udg_Integer_Array_DifficultyVote[1] + 1)
+udg_Integer_MaxSpawncount = (udg_Integer_MaxSpawncount + udg_Integer_Array_DifficultyVote[1])
+BlzSetUnitMaxHP(gg_unit_h00E_0013, udg_Integer_MaxSpawncount)
 else
 end
 if (Trig_Difficulty_Adjust_Func002C()) then
-DisplayTimedTextToForce(GetPlayersAll(), 5.00, (GetPlayerName(GetTriggerPlayer()) .. " decided to not Increase or Decrease difficulty."))
+DisplayTimedTextToForce(GetPlayersAll(), 5.00, (GetPlayerName(GetTriggerPlayer()) .. " decided neither to Increase or Decrease difficulty."))
 else
 end
 if (Trig_Difficulty_Adjust_Func003C()) then
@@ -791,13 +798,9 @@ TriggerAddAction(gg_trg_Next_Round, Trig_Next_Round_Actions)
 end
 
 function Trig_Wave_Spawning_Conditions()
-if (not (udg_Integer_Spawncount <= 9)) then
+if (not (udg_Integer_Spawncount <= (udg_Integer_MaxSpawncount - 1))) then
 return false
 end
-return true
-end
-
-function Trig_Wave_Spawning_Func005Func001C()
 return true
 end
 
@@ -862,9 +865,6 @@ udg_Integer_Spawncount = (udg_Integer_Spawncount + 1)
 globals.udg_Real_CommanderSpawn = I2R(udg_Integer_Spawncount)
 udg_Temp_PointSpawn1 = GetRectCenter(gg_rct_CreepSpawn1)
 if (Trig_Wave_Spawning_Func005C()) then
-if (Trig_Wave_Spawning_Func005Func001C()) then
-else
-end
 CreateNUnitsAtLoc(1, udg_UT_UnitType[udg_I_Round], Player(11), udg_Temp_PointSpawn1, 320.00)
 UnitAddAbilityBJ(FourCC("Aeth"), GetLastCreatedUnit())
 else
@@ -1106,12 +1106,12 @@ end
 function InitTrig_Commander_Spawning()
 gg_trg_Commander_Spawning = CreateTrigger()
 DisableTrigger(gg_trg_Commander_Spawning)
-TriggerRegisterVariableEvent(gg_trg_Commander_Spawning, "udg_Real_CommanderSpawn", EQUAL, 10.00)
+TriggerRegisterVariableEvent(gg_trg_Commander_Spawning, "udg_Real_CommanderSpawn", EQUAL, GetUnitStateSwap(UNIT_STATE_MAX_LIFE, gg_unit_h00E_0013))
 TriggerAddCondition(gg_trg_Commander_Spawning, Condition(Trig_Commander_Spawning_Conditions))
 TriggerAddAction(gg_trg_Commander_Spawning, Trig_Commander_Spawning_Actions)
 end
 
-function Trig_Wave_Buffs_Func001C()
+function Trig_Wave_Buffs_Func002C()
 if (GetOwningPlayer(GetTriggerUnit()) == Player(10)) then
 return true
 end
@@ -1122,54 +1122,42 @@ return false
 end
 
 function Trig_Wave_Buffs_Conditions()
-if (not Trig_Wave_Buffs_Func001C()) then
+if (not (GetUnitTypeId(GetTriggerUnit()) ~= FourCC("n001"))) then
 return false
 end
-return true
-end
-
-function Trig_Wave_Buffs_Func002C()
-if (not (udg_Integer_ShieldChance <= (150 + udg_I_Round))) then
+if (not Trig_Wave_Buffs_Func002C()) then
 return false
 end
 return true
 end
 
 function Trig_Wave_Buffs_Func003C()
-if (not (udg_Integer_EtherealChance <= (150 + udg_I_Round))) then
+if (not (udg_Integer_ShieldChance <= (150 + udg_I_Round))) then
 return false
 end
 return true
 end
 
 function Trig_Wave_Buffs_Func004C()
-if (not (udg_Integer_CommanderChance <= (150 + udg_I_Round))) then
+if (not (udg_Integer_EtherealChance <= (150 + udg_I_Round))) then
 return false
 end
 return true
 end
 
 function Trig_Wave_Buffs_Actions()
-if (Trig_Wave_Buffs_Func002C()) then
+if (Trig_Wave_Buffs_Func003C()) then
 UnitAddAbilityBJ(FourCC("A01I"), GetTriggerUnit())
 BlzSetUnitMaxMana(GetTriggerUnit(), ((BlzGetUnitMaxHP(GetTriggerUnit()) // 2) + 100))
 SetUnitManaPercentBJ(GetTriggerUnit(), 100)
 else
 end
-if (Trig_Wave_Buffs_Func003C()) then
+if (Trig_Wave_Buffs_Func004C()) then
 udg_Temp_PointA = GetUnitLoc(GetTriggerUnit())
 CreateNUnitsAtLoc(1, FourCC("h02A"), Player(8), udg_Temp_PointA, bj_UNIT_FACING)
 UnitAddAbilityBJ(FourCC("A01H"), GetLastCreatedUnit())
 IssueTargetOrderBJ(GetLastCreatedUnit(), "banish", GetTriggerUnit())
         RemoveLocation(udg_Temp_PointA)
-else
-end
-if (Trig_Wave_Buffs_Func004C()) then
-udg_Temp_PointB = GetUnitLoc(GetTriggerUnit())
-CreateNUnitsAtLoc(1, FourCC("h02A"), Player(8), udg_Temp_PointB, bj_UNIT_FACING)
-UnitAddAbilityBJ(FourCC("A01H"), GetLastCreatedUnit())
-IssueTargetOrderBJ(GetLastCreatedUnit(), "banish", GetTriggerUnit())
-        RemoveLocation(udg_Temp_PointB)
 else
 end
 end
@@ -1523,13 +1511,13 @@ end
 function Trig_Soul_Siphoner_and_Carrion_Tower_Actions()
 BlzSetUnitRealFieldBJ(BlzGetEventDamageTarget(), UNIT_RF_HIT_POINTS_REGENERATION_RATE, 0.00)
 if (Trig_Soul_Siphoner_and_Carrion_Tower_Func003C()) then
-UnitDamageTargetBJ(GetEventDamageSource(), BlzGetEventDamageTarget(), (GetEventDamage() * 0.08), ATTACK_TYPE_MAGIC, DAMAGE_TYPE_UNIVERSAL)
+UnitDamageTargetBJ(GetEventDamageSource(), BlzGetEventDamageTarget(), (GetEventDamage() * 0.33), ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL)
 else
 if (Trig_Soul_Siphoner_and_Carrion_Tower_Func003Func002C()) then
-UnitDamageTargetBJ(GetEventDamageSource(), BlzGetEventDamageTarget(), (GetEventDamage() * 0.16), ATTACK_TYPE_MAGIC, DAMAGE_TYPE_UNIVERSAL)
+UnitDamageTargetBJ(GetEventDamageSource(), BlzGetEventDamageTarget(), (GetEventDamage() * 0.66), ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL)
 else
 if (Trig_Soul_Siphoner_and_Carrion_Tower_Func003Func002Func002C()) then
-UnitDamageTargetBJ(GetEventDamageSource(), BlzGetEventDamageTarget(), (GetEventDamage() * 0.32), ATTACK_TYPE_MAGIC, DAMAGE_TYPE_UNIVERSAL)
+UnitDamageTargetBJ(GetEventDamageSource(), BlzGetEventDamageTarget(), (GetEventDamage() * 1.00), ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL)
 else
 end
 end
@@ -1547,64 +1535,58 @@ function Trig_Ghastly_Vial_Unit_Conditions()
 if (not (GetUnitAbilityLevelSwapped(FourCC("A00X"), GetEventDamageSource()) == 1)) then
 return false
 end
+if (not (UnitHasBuffBJ(GetEventDamageSource(), FourCC("B000")) == false)) then
+return false
+end
 return true
 end
 
-function Trig_Ghastly_Vial_Unit_Func002Func002Func001Func001Func004C()
+function Trig_Ghastly_Vial_Unit_Func003Func002Func001Func001Func003C()
 if (not (udg_Integer_Array_GhastlyChance[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] <= 16)) then
 return false
 end
 return true
 end
 
-function Trig_Ghastly_Vial_Unit_Func002Func002Func001Func001C()
+function Trig_Ghastly_Vial_Unit_Func003Func002Func001Func001C()
 if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I005"))) == 3)) then
-return false
-end
-if (not (UnitHasBuffBJ(GetKillingUnitBJ(), FourCC("B000")) == false)) then
 return false
 end
 return true
 end
 
-function Trig_Ghastly_Vial_Unit_Func002Func002Func001Func005C()
+function Trig_Ghastly_Vial_Unit_Func003Func002Func001Func004C()
 if (not (udg_Integer_Array_GhastlyChance[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] <= 12)) then
 return false
 end
 return true
 end
 
-function Trig_Ghastly_Vial_Unit_Func002Func002Func001C()
+function Trig_Ghastly_Vial_Unit_Func003Func002Func001C()
 if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I005"))) == 2)) then
-return false
-end
-if (not (UnitHasBuffBJ(GetKillingUnitBJ(), FourCC("B000")) == false)) then
 return false
 end
 return true
 end
 
-function Trig_Ghastly_Vial_Unit_Func002Func002C()
+function Trig_Ghastly_Vial_Unit_Func003Func002C()
 if (not (udg_Integer_Array_GhastlyChance[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] <= 8)) then
 return false
 end
 return true
 end
 
-function Trig_Ghastly_Vial_Unit_Func002C()
+function Trig_Ghastly_Vial_Unit_Func003C()
 if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I005"))) == 1)) then
-return false
-end
-if (not (UnitHasBuffBJ(GetKillingUnitBJ(), FourCC("B000")) == false)) then
 return false
 end
 return true
 end
 
 function Trig_Ghastly_Vial_Unit_Actions()
-if (Trig_Ghastly_Vial_Unit_Func002C()) then
+if (Trig_Ghastly_Vial_Unit_Func003C()) then
 udg_Integer_Array_GhastlyChance[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] = GetRandomInt(1, 100)
-if (Trig_Ghastly_Vial_Unit_Func002Func002C()) then
+if (Trig_Ghastly_Vial_Unit_Func003Func002C()) then
 udg_Temp_PointA = GetUnitLoc(GetEventDamageSource())
 CreateNUnitsAtLoc(1, FourCC("h029"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointA, bj_UNIT_FACING)
 UnitAddAbilityBJ(FourCC("A00V"), GetLastCreatedUnit())
@@ -1615,9 +1597,9 @@ UnitAddAbilityBJ(FourCC("A01F"), GetLastCreatedUnit())
 IssueTargetOrderBJ(GetLastCreatedUnit(), "innerfire", GetEventDamageSource())
 UnitApplyTimedLifeBJ(1.00, FourCC("BTLF"), GetLastCreatedUnit())
 else
-if (Trig_Ghastly_Vial_Unit_Func002Func002Func001C()) then
+if (Trig_Ghastly_Vial_Unit_Func003Func002Func001C()) then
 udg_Integer_Array_GhastlyChance[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] = GetRandomInt(1, 100)
-if (Trig_Ghastly_Vial_Unit_Func002Func002Func001Func005C()) then
+if (Trig_Ghastly_Vial_Unit_Func003Func002Func001Func004C()) then
 udg_Temp_PointA = GetUnitLoc(GetEventDamageSource())
 CreateNUnitsAtLoc(1, FourCC("h029"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointA, bj_UNIT_FACING)
 UnitAddAbilityBJ(FourCC("A00U"), GetLastCreatedUnit())
@@ -1630,9 +1612,9 @@ UnitApplyTimedLifeBJ(1.00, FourCC("BTLF"), GetLastCreatedUnit())
 else
 end
 else
-if (Trig_Ghastly_Vial_Unit_Func002Func002Func001Func001C()) then
+if (Trig_Ghastly_Vial_Unit_Func003Func002Func001Func001C()) then
 udg_Integer_Array_GhastlyChance[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] = GetRandomInt(1, 100)
-if (Trig_Ghastly_Vial_Unit_Func002Func002Func001Func001Func004C()) then
+if (Trig_Ghastly_Vial_Unit_Func003Func002Func001Func001Func003C()) then
 udg_Temp_PointA = GetUnitLoc(GetEventDamageSource())
 CreateNUnitsAtLoc(1, FourCC("h029"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointA, bj_UNIT_FACING)
 UnitAddAbilityBJ(FourCC("A004"), GetLastCreatedUnit())
@@ -2069,71 +2051,123 @@ end
 return true
 end
 
-function Trig_Hellfrost_Enchantment_Armor_Remove_Func002Func001Func001Func002C()
-if (not (udg_Integer_Array_GhastlyChance[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] <= 25)) then
-return false
-end
-return true
-end
-
-function Trig_Hellfrost_Enchantment_Armor_Remove_Func002Func001Func001C()
-if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I00F"))) == 3)) then
-return false
-end
-return true
-end
-
-function Trig_Hellfrost_Enchantment_Armor_Remove_Func002Func001Func003C()
-if (not (udg_Integer_Array_GhastlyChance[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] <= 20)) then
-return false
-end
-return true
-end
-
-function Trig_Hellfrost_Enchantment_Armor_Remove_Func002Func001C()
-if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I00F"))) == 2)) then
-return false
-end
-return true
-end
-
-function Trig_Hellfrost_Enchantment_Armor_Remove_Func002Func003C()
+function Trig_Hellfrost_Enchantment_Armor_Remove_Func003Func001C()
 if (not (udg_Integer_Array_GhastlyChance[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] <= 15)) then
 return false
 end
-return true
-end
-
-function Trig_Hellfrost_Enchantment_Armor_Remove_Func002C()
 if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I00F"))) == 1)) then
 return false
 end
 return true
 end
 
+function Trig_Hellfrost_Enchantment_Armor_Remove_Func003Func002C()
+if (not (udg_Integer_Array_GhastlyChance[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] <= 15)) then
+return false
+end
+if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I00F"))) == 1)) then
+return false
+end
+return true
+end
+
+function Trig_Hellfrost_Enchantment_Armor_Remove_Func003C()
+if (not (UnitHasBuffBJ(BlzGetEventDamageTarget(), FourCC("BHbn")) == true)) then
+return false
+end
+return true
+end
+
+function Trig_Hellfrost_Enchantment_Armor_Remove_Func004Func001C()
+if (not (udg_Integer_Array_GhastlyChance[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] <= 20)) then
+return false
+end
+if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I00F"))) == 2)) then
+return false
+end
+return true
+end
+
+function Trig_Hellfrost_Enchantment_Armor_Remove_Func004Func004C()
+if (not (udg_Integer_Array_GhastlyChance[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] <= 20)) then
+return false
+end
+if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I00F"))) == 2)) then
+return false
+end
+return true
+end
+
+function Trig_Hellfrost_Enchantment_Armor_Remove_Func004C()
+if (not (UnitHasBuffBJ(BlzGetEventDamageTarget(), FourCC("BHbn")) == true)) then
+return false
+end
+if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I00F"))) == 2)) then
+return false
+end
+return true
+end
+
+function Trig_Hellfrost_Enchantment_Armor_Remove_Func005Func001C()
+if (not (udg_Integer_Array_GhastlyChance[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] <= 25)) then
+return false
+end
+if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I00F"))) == 3)) then
+return false
+end
+return true
+end
+
+function Trig_Hellfrost_Enchantment_Armor_Remove_Func005Func002C()
+if (not (udg_Integer_Array_GhastlyChance[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] <= 25)) then
+return false
+end
+if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I00F"))) == 3)) then
+return false
+end
+return true
+end
+
+function Trig_Hellfrost_Enchantment_Armor_Remove_Func005C()
+if (not (UnitHasBuffBJ(BlzGetEventDamageTarget(), FourCC("BHbn")) == true)) then
+return false
+end
+return true
+end
+
 function Trig_Hellfrost_Enchantment_Armor_Remove_Actions()
-if (Trig_Hellfrost_Enchantment_Armor_Remove_Func002C()) then
 udg_Integer_Array_GhastlyChance[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] = GetRandomInt(1, 100)
-if (Trig_Hellfrost_Enchantment_Armor_Remove_Func002Func003C()) then
+if (Trig_Hellfrost_Enchantment_Armor_Remove_Func003C()) then
+if (Trig_Hellfrost_Enchantment_Armor_Remove_Func003Func001C()) then
+BlzSetUnitArmor(BlzGetEventDamageTarget(), (BlzGetUnitArmor(BlzGetEventDamageTarget()) - 0.20))
+else
+end
+else
+if (Trig_Hellfrost_Enchantment_Armor_Remove_Func003Func002C()) then
 BlzSetUnitArmor(BlzGetEventDamageTarget(), (BlzGetUnitArmor(BlzGetEventDamageTarget()) - 1))
 else
 end
+end
+if (Trig_Hellfrost_Enchantment_Armor_Remove_Func004C()) then
+if (Trig_Hellfrost_Enchantment_Armor_Remove_Func004Func004C()) then
+BlzSetUnitArmor(BlzGetEventDamageTarget(), (BlzGetUnitArmor(BlzGetEventDamageTarget()) - 0.40))
 else
-if (Trig_Hellfrost_Enchantment_Armor_Remove_Func002Func001C()) then
-udg_Integer_Array_GhastlyChance[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] = GetRandomInt(1, 100)
-if (Trig_Hellfrost_Enchantment_Armor_Remove_Func002Func001Func003C()) then
+end
+else
+if (Trig_Hellfrost_Enchantment_Armor_Remove_Func004Func001C()) then
 BlzSetUnitArmor(BlzGetEventDamageTarget(), (BlzGetUnitArmor(BlzGetEventDamageTarget()) - 2.00))
 else
 end
+end
+if (Trig_Hellfrost_Enchantment_Armor_Remove_Func005C()) then
+if (Trig_Hellfrost_Enchantment_Armor_Remove_Func005Func002C()) then
+BlzSetUnitArmor(BlzGetEventDamageTarget(), (BlzGetUnitArmor(BlzGetEventDamageTarget()) - 0.80))
 else
-if (Trig_Hellfrost_Enchantment_Armor_Remove_Func002Func001Func001C()) then
-udg_Integer_Array_GhastlyChance[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] = GetRandomInt(1, 100)
-if (Trig_Hellfrost_Enchantment_Armor_Remove_Func002Func001Func001Func002C()) then
+end
+else
+if (Trig_Hellfrost_Enchantment_Armor_Remove_Func005Func001C()) then
 BlzSetUnitArmor(BlzGetEventDamageTarget(), (BlzGetUnitArmor(BlzGetEventDamageTarget()) - 4.00))
 else
-end
-else
-end
 end
 end
 end

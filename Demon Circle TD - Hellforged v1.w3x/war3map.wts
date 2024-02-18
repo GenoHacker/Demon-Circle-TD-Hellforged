@@ -2552,16 +2552,6 @@ All items have 3 levels, you can give additional copies of the item to the tower
 25% Chance to deal 3 times damage, Upon killing an enemy the tower will gain 40%/75%/125% damage and 75%/150%/225% attack speed, can not trigger whilst it is active.
 }
 
-STRING 1052
-// Items: I00F (Hellfrost Enchantment), Ubertip (Tooltip - Extended)
-{
-[Frost Tower Only]
-
-All items have 3 levels, you can give additional copies of the item to the tower to level it up.
-
-Upon attacking an enemy their is a 15%/20%/25% chance to reduce armor by 1/2/4.
-}
-
 STRING 1053
 // Abilities: A01C (Khorns Strike), Name (Name)
 {
@@ -2608,16 +2598,6 @@ STRING 1062
 S
 }
 
-STRING 1063
-// Items: I000 (Soul Siphoner), Ubertip (Tooltip - Extended)
-{
-[Carrion Tower Only]
-
-All items have 3 levels, you can give additional copies of the item to the tower to level it up.
-
-Attacks deal 8%/16%/32% additional pure damage.
-}
-
 STRING 1064
 // Units: u00U (Carrion Tower Level 3), Ubertip (Tooltip - Extended)
 {
@@ -2635,10 +2615,10 @@ Information
 
 STRING 1066
 {
-Every 5th waves takes has Spell Damage Reduction.
-Every 10th wave takes has Spell Damage Reduction and Hardened Skin.
-
+Every 5th waves has Spell Damage Reduction.
+Every 10th wave has Spell Damage Reduction and Hardened Skin.
 You gain 1 gold when another player kills your creeps.
+Each wave after 10 has a chance to spawn banished, have mana shield and/or spawn a commander that has a chance to have 1, multiple or no auras, it may also cast spirit link on itself and the wave.
 }
 
 STRING 1067
@@ -2844,5 +2824,25 @@ STRING 1094
 // Units: n001 (Doom Commander), Name (Name)
 {
 Doom Commander
+}
+
+STRING 1095
+// Items: I00F (Hellfrost Enchantment), Ubertip (Tooltip - Extended)
+{
+[Frost Tower Only]
+
+All items have 3 levels, you can give additional copies of the item to the tower to level it up.
+
+Upon attacking an enemy their is a 15%/20%/25% chance to reduce armor by 1/2/4, armour reduction is reduced if the target is spirit linked.
+}
+
+STRING 1096
+// Items: I000 (Soul Siphoner), Ubertip (Tooltip - Extended)
+{
+[Carrion Tower Only]
+
+All items have 3 levels, you can give additional copies of the item to the tower to level it up.
+
+Attacks deal 33%/66%/100% additional pure chaos damage.
 }
 
