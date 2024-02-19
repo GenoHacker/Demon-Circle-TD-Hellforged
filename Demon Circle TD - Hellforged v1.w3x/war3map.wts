@@ -2290,12 +2290,6 @@ STRING 954
 Allows the tower to attack up to 4 targets.
 }
 
-STRING 984
-// Abilities: A000 (Sell Tower), Hotkey (Hotkey - Normal)
-{
-V
-}
-
 STRING 986
 // Items: I00F (Hellfrost Enchantment), Hotkey (Hotkey)
 {
@@ -3014,6 +3008,36 @@ STRING 1141
 Gains mana equal to 15% of damage dealt, when reaching 99% total mana the tower will use 80 mana to release a blast of lightning dealing 400 spell damage to 5 targets each time it damages an enemy until it reachs 10% total mana.
 }
 
+STRING 1142
+// Units: u013 (Siphoning Tower Level 2), Ubertip (Tooltip - Extended)
+{
+Magic Damage
+Dmg: 100
+Cooldown: 0.45s
+Range: 900
+Siphon
+}
+
+STRING 1143
+// Units: u014 (Siphoning Tower Level 1), Ubertip (Tooltip - Extended)
+{
+Magic Damage
+Dmg: 25
+Cooldown: 0.50s
+Range: 800
+Siphon
+}
+
+STRING 1144
+// Units: u015 (Siphoning Tower Level 3), Ubertip (Tooltip - Extended)
+{
+Magic Damage
+Dmg: 200
+Cooldown: 0.40s
+Range: 1000
+Siphon
+}
+
 STRING 1146
 {
 Type: |Cffffcc00Spell|R
@@ -3024,33 +3048,79 @@ STRING 1148
 Spell attacks do extra damage against Ethereal enemies and reduced damage to Hero and Divine armor.
 }
 
-STRING 1149
-// Units: u013 (Siphoning Tower Level 2), Ubertip (Tooltip - Extended)
+STRING 1152
+// Items: I001 (Hellfire Reagent), Name (Name)
 {
-Spell Damage
-Dmg: 100
-Cooldown: 0.45s
-Range: 900
-Siphon
+Hellfire Reagent
 }
 
-STRING 1150
-// Units: u014 (Siphoning Tower Level 1), Ubertip (Tooltip - Extended)
+STRING 1153
+// Items: I001 (Hellfire Reagent), Tip (Tooltip - Basic)
 {
-Spell Damage
-Dmg: 25
-Cooldown: 0.50s
-Range: 800
-Siphon
+Purchase Hellfire Reagent
 }
 
-STRING 1151
-// Units: u015 (Siphoning Tower Level 3), Ubertip (Tooltip - Extended)
+STRING 1154
+// Items: I001 (Hellfire Reagent), Ubertip (Tooltip - Extended)
 {
-Spell Damage
-Dmg: 200
-Cooldown: 0.40s
-Range: 1000
-Siphon
+[Siphoning Tower Only]
+
+All items have 3 levels, you can give additional copies of the item to the tower to level it up.
+
+Allows the tower to destroy 50/75/100 mana per hit, dealing 100%/150%/200% of mana destroyed as damage.
+}
+
+STRING 1155
+// Items: I001 (Hellfire Reagent), Description (Description)
+{
+[Siphoning Tower Only] Hellfire Reagent
+}
+
+STRING 1156
+// Items: I001 (Hellfire Reagent), Hotkey (Hotkey)
+{
+D
+}
+
+STRING 1157
+// Abilities: A01V (Feedback 1), Name (Name)
+{
+Feedback 1
+}
+
+STRING 1158
+// Abilities: A01V (Feedback 1), Ubertip (Tooltip - Normal - Extended)
+{
+This tower's attacks destroy 25 mana per hit against any unit, causing bonus damage equal 100% of mana destroyed.
+}
+
+STRING 1159
+// Abilities: A01U (Feedback 2), Name (Name)
+{
+Feedback 2
+}
+
+STRING 1160
+// Abilities: A01U (Feedback 2), Ubertip (Tooltip - Normal - Extended)
+{
+This tower's attacks destroy 50 mana per hit against any unit, causing bonus damage equal 150% of mana destroyed.
+}
+
+STRING 1161
+// Abilities: A01W (Feedback 3), Name (Name)
+{
+Feedback 3
+}
+
+STRING 1162
+// Abilities: A01W (Feedback 3), Ubertip (Tooltip - Normal - Extended)
+{
+This tower's attacks destroy 100 mana per hit against any unit, causing bonus damage equal 200% of mana destroyed.
+}
+
+STRING 1163
+// Abilities: A000 (Sell Tower), Hotkey (Hotkey - Normal)
+{
+A
 }
 
