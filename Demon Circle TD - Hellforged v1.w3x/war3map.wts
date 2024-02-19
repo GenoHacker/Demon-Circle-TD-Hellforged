@@ -1882,7 +1882,7 @@ Sacrificial Altar
 }
 
 STRING 810
-// Items: I005 (Ghastly Vial), Hotkey (Hotkey)
+// Units: u013 (Siphoning Tower Level 2), Hotkey (Hotkey)
 {
 Q
 }
@@ -2574,26 +2574,8 @@ STRING 1057
 Carrion Tower
 }
 
-STRING 1058
-// Items: I000 (Soul Siphoner), Name (Name)
-{
-Soul Siphoner
-}
-
-STRING 1059
-// Items: I000 (Soul Siphoner), Tip (Tooltip - Basic)
-{
-Purchase Soul Siphoner
-}
-
-STRING 1061
-// Items: I000 (Soul Siphoner), Description (Description)
-{
-[Carrion Tower Only] Soul Siphoner
-}
-
 STRING 1062
-// Items: I000 (Soul Siphoner), Hotkey (Hotkey)
+// Items: I000 (Soul Eater), Hotkey (Hotkey)
 {
 S
 }
@@ -2837,12 +2819,238 @@ Upon attacking an enemy their is a 15%/20%/25% chance to reduce armor by 1/2/4, 
 }
 
 STRING 1096
-// Items: I000 (Soul Siphoner), Ubertip (Tooltip - Extended)
+// Items: I000 (Soul Eater), Ubertip (Tooltip - Extended)
 {
 [Carrion Tower Only]
 
 All items have 3 levels, you can give additional copies of the item to the tower to level it up.
 
 Attacks deal 33%/66%/100% additional pure chaos damage.
+}
+
+STRING 1097
+// Items: I000 (Soul Eater), Name (Name)
+{
+Soul Eater
+}
+
+STRING 1098
+// Items: I000 (Soul Eater), Tip (Tooltip - Basic)
+{
+Purchase Soul Eater
+}
+
+STRING 1099
+// Items: I000 (Soul Eater), Description (Description)
+{
+[Carrion Tower Only] Soul Eater
+}
+
+STRING 1100
+// Units: u014 (Siphoning Tower Level 1), Name (Name)
+{
+Siphoning Tower Level 1
+}
+
+STRING 1101
+// Units: u013 (Siphoning Tower Level 2), Tip (Tooltip - Basic)
+{
+Build Siphoning Tower
+}
+
+STRING 1104
+// Units: u013 (Siphoning Tower Level 2), Name (Name)
+{
+Siphoning Tower Level 2
+}
+
+STRING 1106
+// Units: u014 (Siphoning Tower Level 1), Tip (Tooltip - Basic)
+{
+Build Siphoning Tower
+}
+
+STRING 1108
+// Units: u015 (Siphoning Tower Level 3), Name (Name)
+{
+Siphoning Tower Level 3
+}
+
+STRING 1109
+// Units: u015 (Siphoning Tower Level 3), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 1110
+// Units: u015 (Siphoning Tower Level 3), Tip (Tooltip - Basic)
+{
+Build Siphoning Tower
+}
+
+STRING 1112
+// Items: I005 (Ghastly Vial), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 1113
+// Abilities: A01N (Siphoning Tower), Name (Name)
+{
+Siphoning Tower
+}
+
+STRING 1114
+// Abilities: A01O (Siphon 3), Name (Name)
+{
+Siphon 3
+}
+
+STRING 1115
+// Abilities: A01O (Siphon 3), Tip (Tooltip - Normal)
+{
+Siphon 3
+}
+
+STRING 1117
+// Abilities: A01P (Siphon 1), Name (Name)
+{
+Siphon 1
+}
+
+STRING 1118
+// Abilities: A01P (Siphon 1), Tip (Tooltip - Normal)
+{
+Siphon 1
+}
+
+STRING 1120
+// Abilities: A01Q (Siphon 2), Name (Name)
+{
+Siphon 2
+}
+
+STRING 1121
+// Abilities: A01Q (Siphon 2), Tip (Tooltip - Normal)
+{
+Siphon 2
+}
+
+STRING 1123
+// Abilities: A01R (Siphon Blast 1), Name (Name)
+{
+Siphon Blast 1
+}
+
+STRING 1124
+// Abilities: A01S (Siphon Blast 2), Name (Name)
+{
+Siphon Blast 2
+}
+
+STRING 1125
+// Abilities: A01T (Siphon Blast 3), Name (Name)
+{
+Siphon Blast 3
+}
+
+STRING 1126
+// Units: u014 (Siphoning Tower Level 1), Hotkey (Hotkey)
+{
+D
+}
+
+STRING 1129
+// Abilities: A01O (Siphon 3), Tip (Tooltip - Normal)
+{
+Siphon 3
+}
+
+STRING 1131
+// Abilities: A01P (Siphon 1), Tip (Tooltip - Normal)
+{
+Siphon 1
+}
+
+STRING 1135
+// Abilities: A01Q (Siphon 2), Tip (Tooltip - Normal)
+{
+Siphon 2
+}
+
+STRING 1136
+// Abilities: A01O (Siphon 3), Ubertip (Tooltip - Normal - Extended)
+{
+Gains mana equal to 20% of damage dealt, when reaching 99% total mana the tower will use 160 mana to release a blast of lightning dealing 600 spell damage to 6 targets each time it damages an enemy until it reachs 10% total mana.
+}
+
+STRING 1137
+// Abilities: A01P (Siphon 1), Ubertip (Tooltip - Normal - Extended)
+{
+Gains mana equal to 10% of damage dealt, when reaching 99% total mana the tower will use 40 mana to release a blast of lightning dealing 250 spell damage to 4 targets each time it damages an enemy until it reachs 10% total mana.
+}
+
+STRING 1138
+// Abilities: A01Q (Siphon 2), Ubertip (Tooltip - Normal - Extended)
+{
+Gains mana equal to 15% of damage dealt, when reaching 99% total mana the tower will use 80 mana to release a blast of lightning dealing 400 spell damage to 5 targets each time it damages an enemy until it reachs 10% total mana.
+}
+
+STRING 1139
+// Abilities: A01O (Siphon 3), Ubertip (Tooltip - Normal - Extended)
+{
+Gains mana equal to 20% of damage dealt, when reaching 99% total mana the tower will use 160 mana to release a blast of lightning dealing 600 spell damage to 6 targets each time it damages an enemy until it reachs 10% total mana.
+}
+
+STRING 1140
+// Abilities: A01P (Siphon 1), Ubertip (Tooltip - Normal - Extended)
+{
+Gains mana equal to 10% of damage dealt, when reaching 99% total mana the tower will use 40 mana to release a blast of lightning dealing 250 spell damage to 4 targets each time it damages an enemy until it reachs 10% total mana.
+}
+
+STRING 1141
+// Abilities: A01Q (Siphon 2), Ubertip (Tooltip - Normal - Extended)
+{
+Gains mana equal to 15% of damage dealt, when reaching 99% total mana the tower will use 80 mana to release a blast of lightning dealing 400 spell damage to 5 targets each time it damages an enemy until it reachs 10% total mana.
+}
+
+STRING 1146
+{
+Type: |Cffffcc00Spell|R
+}
+
+STRING 1148
+{
+Spell attacks do extra damage against Ethereal enemies and reduced damage to Hero and Divine armor.
+}
+
+STRING 1149
+// Units: u013 (Siphoning Tower Level 2), Ubertip (Tooltip - Extended)
+{
+Spell Damage
+Dmg: 100
+Cooldown: 0.45s
+Range: 900
+Siphon
+}
+
+STRING 1150
+// Units: u014 (Siphoning Tower Level 1), Ubertip (Tooltip - Extended)
+{
+Spell Damage
+Dmg: 25
+Cooldown: 0.50s
+Range: 800
+Siphon
+}
+
+STRING 1151
+// Units: u015 (Siphoning Tower Level 3), Ubertip (Tooltip - Extended)
+{
+Spell Damage
+Dmg: 200
+Cooldown: 0.40s
+Range: 1000
+Siphon
 }
 

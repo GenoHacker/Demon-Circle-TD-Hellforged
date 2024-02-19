@@ -1,10 +1,19 @@
 [CustomSkin]
 DefeatMusic_V1=Score Screen Music.mp3
 IdlePeon=ReplaceableTextures\CommandButtons\BTNFelHound.blp
+InfoPanelIconDamageChaos=UI\Widgets\Console\Human\infocard-attack-chaos.blp
+InfoPanelIconDamageChaosNeutral=UI\Widgets\COnsole\Human\infocard-neutral-attack-chaos.blp
+InfoPanelIconDamageMelee=UI\Widgets\Console\Human\infocard-attack-melee.blp
+InfoPanelIconDamageMeleeNeutral=UI\Widgets\Console\Human\infocard-neutral-attack-melee.blp
+InfoPanelIconDamageNormal=UI\Widgets\Console\Human\infocard-attack-melee.blp
+InfoPanelIconDamageNormalNeutral=war3mapImported\info-card-attack-spell.blp
+InfoPanelIconDamageUnknown=UI\Widgets\Console\Human\infocard-attack-melee.blp
+InfoPanelIconDamageUnknownNeutral=UI\Widgets\Console\Human\infocard-neutral-attack-melee.blp
 VictoryMusic_V1=Score Screen Music.mp3
 
 [FrameDef]
 ALLIES=TRIGSTR_488
+ARMOR_NORMAL=
 ARMORTIP_DIVINE=TRIGSTR_1067
 ARMORTIP_DIVINE_V0C=TRIGSTR_1068
 ARMORTIP_DIVINE_V0M=TRIGSTR_1069
@@ -15,6 +24,9 @@ COLON_LEVEL=TRIGSTR_491
 COLON_LEVEL_FORMAT=TRIGSTR_492
 COLON_LUMBER=TRIGSTR_494
 COLON_LUMBER_INCOME_RATE=TRIGSTR_493
+DAMAGE_MELEE=
+DAMAGE_NORMAL=TRIGSTR_1146
+DAMAGETIP_NORMAL=TRIGSTR_1148
 GOLD=TRIGSTR_498
 INFOPANEL_LEVEL=TRIGSTR_504
 INFOPANEL_LEVEL_CLASS=TRIGSTR_505
