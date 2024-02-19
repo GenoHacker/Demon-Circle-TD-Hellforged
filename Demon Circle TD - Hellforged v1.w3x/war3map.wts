@@ -3118,9 +3118,27 @@ STRING 1162
 This tower's attacks destroy 100 mana per hit against any unit, causing bonus damage equal 200% of mana destroyed.
 }
 
-STRING 1163
+STRING 1164
 // Abilities: A000 (Sell Tower), Hotkey (Hotkey - Normal)
 {
-A
+E
+}
+
+STRING 1165
+// Abilities: A01V (Feedback 1), Tip (Tooltip - Normal)
+{
+Feedback 1
+}
+
+STRING 1166
+// Abilities: A01U (Feedback 2), Tip (Tooltip - Normal)
+{
+Feedback 2
+}
+
+STRING 1167
+// Abilities: A01W (Feedback 3), Tip (Tooltip - Normal)
+{
+Feedback 3
 }
 
