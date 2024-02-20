@@ -1787,30 +1787,30 @@ end
 end
 end
 if (Trig_Siphoning_Tower_Func009C()) then
-SetUnitManaBJ(GetEventDamageSource(), (GetUnitStateSwap(UNIT_STATE_MANA, GetEventDamageSource()) - 40.00))
 udg_Temp_PointA = GetUnitLoc(GetEventDamageSource())
 CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointA, bj_UNIT_FACING)
 UnitApplyTimedLifeBJ(1.00, FourCC("BTLF"), GetLastCreatedUnit())
 UnitAddAbilityBJ(FourCC("A01R"), GetLastCreatedUnit())
 IssueTargetOrderBJ(GetLastCreatedUnit(), "forkedlightning", BlzGetEventDamageTarget())
+SetUnitManaBJ(GetEventDamageSource(), (GetUnitStateSwap(UNIT_STATE_MANA, GetEventDamageSource()) - 40.00))
 else
 end
 if (Trig_Siphoning_Tower_Func010C()) then
-SetUnitManaBJ(GetEventDamageSource(), (GetUnitStateSwap(UNIT_STATE_MANA, GetEventDamageSource()) - 80.00))
 udg_Temp_PointA = GetUnitLoc(GetEventDamageSource())
 CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointA, bj_UNIT_FACING)
 UnitApplyTimedLifeBJ(1.00, FourCC("BTLF"), GetLastCreatedUnit())
 UnitAddAbilityBJ(FourCC("A01S"), GetLastCreatedUnit())
 IssueTargetOrderBJ(GetLastCreatedUnit(), "forkedlightning", BlzGetEventDamageTarget())
+SetUnitManaBJ(GetEventDamageSource(), (GetUnitStateSwap(UNIT_STATE_MANA, GetEventDamageSource()) - 80.00))
 else
 end
 if (Trig_Siphoning_Tower_Func011C()) then
-SetUnitManaBJ(GetEventDamageSource(), (GetUnitStateSwap(UNIT_STATE_MANA, GetEventDamageSource()) - 160.00))
 udg_Temp_PointA = GetUnitLoc(GetEventDamageSource())
 CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointA, bj_UNIT_FACING)
 UnitApplyTimedLifeBJ(1.00, FourCC("BTLF"), GetLastCreatedUnit())
 UnitAddAbilityBJ(FourCC("A01T"), GetLastCreatedUnit())
 IssueTargetOrderBJ(GetLastCreatedUnit(), "forkedlightning", BlzGetEventDamageTarget())
+SetUnitManaBJ(GetEventDamageSource(), (GetUnitStateSwap(UNIT_STATE_MANA, GetEventDamageSource()) - 160.00))
 else
 end
     RemoveLocation(udg_Temp_PointA)
@@ -2024,7 +2024,6 @@ if (Trig_Ghastly_Vial_Unit_Func003Func002C()) then
 udg_Temp_PointA = GetUnitLoc(GetEventDamageSource())
 CreateNUnitsAtLoc(1, FourCC("h029"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointA, bj_UNIT_FACING)
 UnitAddAbilityBJ(FourCC("A00V"), GetLastCreatedUnit())
-IssueTargetOrderBJ(GetLastCreatedUnit(), "chainlightning", BlzGetEventDamageTarget())
 UnitApplyTimedLifeBJ(4.00, FourCC("BTLF"), GetLastCreatedUnit())
 CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointA, bj_UNIT_FACING)
 UnitAddAbilityBJ(FourCC("A01F"), GetLastCreatedUnit())
@@ -2037,7 +2036,6 @@ if (Trig_Ghastly_Vial_Unit_Func003Func002Func001Func004C()) then
 udg_Temp_PointA = GetUnitLoc(GetEventDamageSource())
 CreateNUnitsAtLoc(1, FourCC("h029"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointA, bj_UNIT_FACING)
 UnitAddAbilityBJ(FourCC("A00U"), GetLastCreatedUnit())
-IssueTargetOrderBJ(GetLastCreatedUnit(), "chainlightning", BlzGetEventDamageTarget())
 UnitApplyTimedLifeBJ(6.00, FourCC("BTLF"), GetLastCreatedUnit())
 CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointA, bj_UNIT_FACING)
 UnitAddAbilityBJ(FourCC("A01G"), GetLastCreatedUnit())
@@ -2052,7 +2050,6 @@ if (Trig_Ghastly_Vial_Unit_Func003Func002Func001Func001Func003C()) then
 udg_Temp_PointA = GetUnitLoc(GetEventDamageSource())
 CreateNUnitsAtLoc(1, FourCC("h029"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointA, bj_UNIT_FACING)
 UnitAddAbilityBJ(FourCC("A004"), GetLastCreatedUnit())
-IssueTargetOrderBJ(GetLastCreatedUnit(), "chainlightning", BlzGetEventDamageTarget())
 UnitApplyTimedLifeBJ(8.00, FourCC("BTLF"), GetLastCreatedUnit())
 CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointA, bj_UNIT_FACING)
 UnitAddAbilityBJ(FourCC("A01E"), GetLastCreatedUnit())
