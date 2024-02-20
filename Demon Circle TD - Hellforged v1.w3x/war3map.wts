@@ -99,17 +99,6 @@ STRING 41
 |cffffcc00You lost! Try again!|r
 }
 
-STRING 42
-{
-|cffff0000Demon Circle TD: Hellforged|r is based on Demon Circle TD -Better by Siryan
-
-Original Demon Circle TD created by |cff76dbf8Varimathras|r
-
-https://discord.gg/W6wEmT6
-
-Public Test Version
-}
-
 STRING 63
 {
 Congratulations! You won!
@@ -208,16 +197,6 @@ STRING 111
 STRING 112
 {
 has left the game
-}
-
-STRING 114
-{
-|cffff0000Genohacker|r Presents:
-}
-
-STRING 115
-{
-|cffff0000Demon Circle TD: Hellforged|r
 }
 
 STRING 116
