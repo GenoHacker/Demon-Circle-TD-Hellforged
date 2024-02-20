@@ -32,6 +32,7 @@ udg_Temp_PointB = nil
 udg_Integer_EtherealChance = 0
 udg_Integer_ShieldChance = 0
 udg_Integer_CommanderChance = 0
+udg_Real_CommanderSpawn = 0.0
 udg_Ability_Array_Commander = {}
 udg_AbilityCode_Array_Commander = __jarray(0)
 udg_Integer_CommanderAbilityChance = 0
@@ -155,7 +156,7 @@ udg_Zoom_Cam[i] = 0
 i = i + 1
 end
 udg_Temp_Integer = 0
-udg_Integer_Spawncount = 9
+udg_Integer_Spawncount = 0
 udg_Dialog_Difficulty = DialogCreate()
 i = 0
 while (true) do
@@ -187,7 +188,7 @@ udg_PlyGrp_SellTower = CreateForce()
 udg_Integer_EtherealChance = 0
 udg_Integer_ShieldChance = 0
 udg_Integer_CommanderChance = 0
-globals.udg_Real_CommanderSpawn = 0.0
+udg_Real_CommanderSpawn = 0.0
 udg_Integer_CommanderAbilityChance = 0
 udg_Integer_MaxSpawncount = 10
 i = 0
@@ -723,14 +724,14 @@ TriggerRegisterTimerEventSingle(gg_trg_Difficulty_Dialog_Stop, 15.00)
 TriggerAddAction(gg_trg_Difficulty_Dialog_Stop, Trig_Difficulty_Dialog_Stop_Actions)
 end
 
-function Trig_Next_Round_Func001C()
-if (not (udg_I_Round >= 10)) then
+function Trig_Next_Round_Func002C()
+if (not (udg_I_Round >= 11)) then
 return false
 end
 return true
 end
 
-function Trig_Next_Round_Func002Func001C()
+function Trig_Next_Round_Func003Func001C()
 if (not (udg_I_NumberOfCreeps ~= 0)) then
 return false
 end
@@ -740,11 +741,11 @@ end
 return true
 end
 
-function Trig_Next_Round_Func002Func005A()
+function Trig_Next_Round_Func003Func005A()
 CustomVictoryBJ(GetEnumPlayer(), true, true)
 end
 
-function Trig_Next_Round_Func002C()
+function Trig_Next_Round_Func003C()
 if (not (udg_I_Round == 80)) then
 return false
 end
@@ -762,7 +763,8 @@ return true
 end
 
 function Trig_Next_Round_Actions()
-if (Trig_Next_Round_Func001C()) then
+EnableTrigger(gg_trg_Wave_Spawning)
+if (Trig_Next_Round_Func002C()) then
 EnableTrigger(gg_trg_Wave_Buffs)
 EnableTrigger(gg_trg_Commander_Spawning)
 udg_Integer_EtherealChance = GetRandomInt(1, 1000)
@@ -770,15 +772,15 @@ udg_Integer_ShieldChance = GetRandomInt(1, 1000)
 udg_Integer_CommanderChance = GetRandomInt(1, 1000)
 else
 end
-if (Trig_Next_Round_Func002C()) then
+if (Trig_Next_Round_Func003C()) then
 DisplayTextToForce(GetPlayersAll(), "TRIGSTR_063")
 StartTimerBJ(udg_T_NextRound, false, 60.00)
 TriggerSleepAction(60.00)
-ForForce(GetPlayersAll(), Trig_Next_Round_Func002Func005A)
+ForForce(GetPlayersAll(), Trig_Next_Round_Func003Func005A)
 DestroyTimerDialogBJ(udg_TW_NextRound)
 return 
 else
-if (Trig_Next_Round_Func002Func001C()) then
+if (Trig_Next_Round_Func003Func001C()) then
 StartTimerBJ(udg_T_NextRound, false, 5.00)
 return 
 else
@@ -787,7 +789,6 @@ end
 udg_I_Round = (udg_I_Round + 1)
 DisplayTextToForce(GetPlayersAll(), ("|cffffcc00Level " .. (I2S(udg_I_Round) .. "!|r")))
 LeaderboardSetPlayerItemValueBJ(Player(9), GetLastCreatedLeaderboard(), udg_I_Round)
-udg_Integer_Spawncount = 0
 DestroyTimerDialogBJ(udg_TW_NextRound)
 StartTimerBJ(udg_T_NextRound, false, 30.00)
 if (Trig_Next_Round_Func009C()) then
@@ -871,9 +872,26 @@ end
 return true
 end
 
+function Trig_Wave_Spawning_Func028C()
+if (not (udg_Integer_Spawncount == udg_Integer_MaxSpawncount)) then
+return false
+end
+if (not (udg_Integer_CommanderChance <= (150 + udg_I_Round))) then
+return false
+end
+return true
+end
+
+function Trig_Wave_Spawning_Func029C()
+if (not (udg_Integer_Spawncount == udg_Integer_MaxSpawncount)) then
+return false
+end
+return true
+end
+
 function Trig_Wave_Spawning_Actions()
 udg_Integer_Spawncount = (udg_Integer_Spawncount + 1)
-globals.udg_Real_CommanderSpawn = I2R(udg_Integer_Spawncount)
+DisplayTextToForce(GetPlayersAll(), I2S(udg_Integer_Spawncount))
 udg_Temp_PointSpawn1 = GetRectCenter(gg_rct_CreepSpawn1)
 if (Trig_Wave_Spawning_Func005C()) then
 CreateNUnitsAtLoc(1, udg_UT_UnitType[udg_I_Round], Player(11), udg_Temp_PointSpawn1, 320.00)
@@ -930,100 +948,104 @@ UnitAddAbilityBJ(FourCC("Aeth"), GetLastCreatedUnit())
 else
 end
     RemoveLocation(udg_Temp_Point8)
+if (Trig_Wave_Spawning_Func028C()) then
+TriggerExecute(gg_trg_Commander_Spawning)
+DisableTrigger(gg_trg_Commander_Spawning)
+else
+end
+if (Trig_Wave_Spawning_Func029C()) then
+DisableTrigger(GetTriggeringTrigger())
+udg_Integer_Spawncount = 0
+else
+end
 end
 
 function InitTrig_Wave_Spawning()
 gg_trg_Wave_Spawning = CreateTrigger()
+DisableTrigger(gg_trg_Wave_Spawning)
 TriggerRegisterTimerEventPeriodic(gg_trg_Wave_Spawning, 0.25)
 TriggerAddCondition(gg_trg_Wave_Spawning, Condition(Trig_Wave_Spawning_Conditions))
 TriggerAddAction(gg_trg_Wave_Spawning, Trig_Wave_Spawning_Actions)
 end
 
-function Trig_Commander_Spawning_Conditions()
-if (not (udg_Integer_CommanderChance <= (150 + udg_I_Round))) then
-return false
-end
-return true
-end
-
-function Trig_Commander_Spawning_Func003C()
+function Trig_Commander_Spawning_Func002C()
 if (not (GetPlayerSlotState(Player(0)) == PLAYER_SLOT_STATE_PLAYING)) then
 return false
 end
 return true
 end
 
-function Trig_Commander_Spawning_Func006C()
+function Trig_Commander_Spawning_Func005C()
 if (not (GetPlayerSlotState(Player(1)) == PLAYER_SLOT_STATE_PLAYING)) then
 return false
 end
 return true
 end
 
-function Trig_Commander_Spawning_Func009C()
+function Trig_Commander_Spawning_Func008C()
 if (not (GetPlayerSlotState(Player(2)) == PLAYER_SLOT_STATE_PLAYING)) then
 return false
 end
 return true
 end
 
-function Trig_Commander_Spawning_Func012C()
+function Trig_Commander_Spawning_Func011C()
 if (not (GetPlayerSlotState(Player(3)) == PLAYER_SLOT_STATE_PLAYING)) then
 return false
 end
 return true
 end
 
-function Trig_Commander_Spawning_Func014C()
+function Trig_Commander_Spawning_Func013C()
 if (not (GetPlayerSlotState(Player(4)) == PLAYER_SLOT_STATE_PLAYING)) then
 return false
 end
 return true
 end
 
-function Trig_Commander_Spawning_Func017C()
+function Trig_Commander_Spawning_Func016C()
 if (not (GetPlayerSlotState(Player(5)) == PLAYER_SLOT_STATE_PLAYING)) then
 return false
 end
 return true
 end
 
-function Trig_Commander_Spawning_Func020C()
+function Trig_Commander_Spawning_Func019C()
 if (not (GetPlayerSlotState(Player(6)) == PLAYER_SLOT_STATE_PLAYING)) then
 return false
 end
 return true
 end
 
-function Trig_Commander_Spawning_Func023C()
+function Trig_Commander_Spawning_Func022C()
 if (not (GetPlayerSlotState(Player(7)) == PLAYER_SLOT_STATE_PLAYING)) then
 return false
 end
 return true
 end
 
-function Trig_Commander_Spawning_Func028Func001Func002Func001C()
+function Trig_Commander_Spawning_Func027Func001Func002Func001C()
 if (not (GetForLoopIndexA() == 5)) then
 return false
 end
 return true
 end
 
-function Trig_Commander_Spawning_Func028Func001Func002C()
+function Trig_Commander_Spawning_Func027Func001Func002C()
 if (not (udg_Integer_CommanderAbilityChance <= (250 + (udg_I_Round * 2)))) then
 return false
 end
 return true
 end
 
-function Trig_Commander_Spawning_Func028A()
+function Trig_Commander_Spawning_Func027A()
 bj_forLoopAIndex = 1
 bj_forLoopAIndexEnd = 5
 while (true) do
 if (bj_forLoopAIndex > bj_forLoopAIndexEnd) then break end
 udg_Integer_CommanderAbilityChance = GetRandomInt(1, 1000)
-if (Trig_Commander_Spawning_Func028Func001Func002C()) then
-if (Trig_Commander_Spawning_Func028Func001Func002Func001C()) then
+if (Trig_Commander_Spawning_Func027Func001Func002C()) then
+if (Trig_Commander_Spawning_Func027Func001Func002Func001C()) then
 udg_Temp_PointCommander[9] = GetUnitLoc(GetEnumUnit())
 CreateNUnitsAtLoc(1, FourCC("h02A"), Player(8), udg_Temp_PointCommander[9], bj_UNIT_FACING)
                 RemoveLocation(udg_Temp_PointCommander[9])
@@ -1041,7 +1063,7 @@ end
 
 function Trig_Commander_Spawning_Actions()
 udg_Temp_PointCommander[1] = GetRectCenter(gg_rct_CreepSpawn1)
-if (Trig_Commander_Spawning_Func003C()) then
+if (Trig_Commander_Spawning_Func002C()) then
 CreateNUnitsAtLoc(1, FourCC("n001"), Player(11), udg_Temp_PointCommander[1], 320.00)
 BlzSetUnitMaxHP(GetLastCreatedUnit(), (500 + (100 * udg_I_Round)))
 SetUnitLifePercentBJ(GetLastCreatedUnit(), 100)
@@ -1050,7 +1072,7 @@ else
 end
     RemoveLocation(udg_Temp_PointCommander[1])
 udg_Temp_PointCommander[2] = GetRectCenter(gg_rct_CreepSpawn2)
-if (Trig_Commander_Spawning_Func006C()) then
+if (Trig_Commander_Spawning_Func005C()) then
 CreateNUnitsAtLoc(1, FourCC("n001"), Player(11), udg_Temp_PointCommander[2], 270.00)
 BlzSetUnitMaxHP(GetLastCreatedUnit(), (500 + (100 * udg_I_Round)))
 SetUnitLifePercentBJ(GetLastCreatedUnit(), 100)
@@ -1059,7 +1081,7 @@ else
 end
     RemoveLocation(udg_Temp_PointCommander[2])
 udg_Temp_PointCommander[3] = GetRectCenter(gg_rct_CreepSpawn3)
-if (Trig_Commander_Spawning_Func009C()) then
+if (Trig_Commander_Spawning_Func008C()) then
 CreateNUnitsAtLoc(1, FourCC("n001"), Player(11), udg_Temp_PointCommander[3], 225.00)
 BlzSetUnitMaxHP(GetLastCreatedUnit(), (500 + (100 * udg_I_Round)))
 SetUnitLifePercentBJ(GetLastCreatedUnit(), 100)
@@ -1068,7 +1090,7 @@ else
 end
     RemoveLocation(udg_Temp_PointCommander[3])
 udg_Temp_PointCommander[4] = GetRectCenter(gg_rct_CreepSpawn4)
-if (Trig_Commander_Spawning_Func012C()) then
+if (Trig_Commander_Spawning_Func011C()) then
 CreateNUnitsAtLoc(1, FourCC("n001"), Player(11), udg_Temp_PointCommander[4], 180.00)
 BlzSetUnitMaxHP(GetLastCreatedUnit(), (500 + (100 * udg_I_Round)))
 SetUnitLifePercentBJ(GetLastCreatedUnit(), 100)
@@ -1076,7 +1098,7 @@ UnitAddAbilityBJ(FourCC("Aeth"), GetLastCreatedUnit())
 else
 end
 udg_Temp_PointCommander[5] = GetRectCenter(gg_rct_CreepSpawn5)
-if (Trig_Commander_Spawning_Func014C()) then
+if (Trig_Commander_Spawning_Func013C()) then
 CreateNUnitsAtLoc(1, FourCC("n001"), Player(11), udg_Temp_PointCommander[5], 135.00)
 BlzSetUnitMaxHP(GetLastCreatedUnit(), (500 + (100 * udg_I_Round)))
 SetUnitLifePercentBJ(GetLastCreatedUnit(), 100)
@@ -1085,7 +1107,7 @@ else
 end
     RemoveLocation(udg_Temp_PointCommander[5])
 udg_Temp_PointCommander[6] = GetRectCenter(gg_rct_CreepSpawn6)
-if (Trig_Commander_Spawning_Func017C()) then
+if (Trig_Commander_Spawning_Func016C()) then
 CreateNUnitsAtLoc(1, FourCC("n001"), Player(11), udg_Temp_PointCommander[6], 90.00)
 BlzSetUnitMaxHP(GetLastCreatedUnit(), (500 + (100 * udg_I_Round)))
 SetUnitLifePercentBJ(GetLastCreatedUnit(), 100)
@@ -1094,7 +1116,7 @@ else
 end
     RemoveLocation(udg_Temp_PointCommander[6])
 udg_Temp_PointCommander[7] = GetRectCenter(gg_rct_CreepSpawn7)
-if (Trig_Commander_Spawning_Func020C()) then
+if (Trig_Commander_Spawning_Func019C()) then
 CreateNUnitsAtLoc(1, FourCC("n001"), Player(11), udg_Temp_PointCommander[7], 45.00)
 BlzSetUnitMaxHP(GetLastCreatedUnit(), (500 + (100 * udg_I_Round)))
 SetUnitLifePercentBJ(GetLastCreatedUnit(), 100)
@@ -1103,7 +1125,7 @@ else
 end
     RemoveLocation(udg_Temp_PointCommander[7])
 udg_Temp_PointCommander[8] = GetRectCenter(gg_rct_CreepSpawn8)
-if (Trig_Commander_Spawning_Func023C()) then
+if (Trig_Commander_Spawning_Func022C()) then
 CreateNUnitsAtLoc(1, FourCC("n001"), Player(11), udg_Temp_PointCommander[8], 0.00)
 BlzSetUnitMaxHP(GetLastCreatedUnit(), (500 + (100 * udg_I_Round)))
 SetUnitLifePercentBJ(GetLastCreatedUnit(), 100)
@@ -1111,14 +1133,12 @@ UnitAddAbilityBJ(FourCC("Aeth"), GetLastCreatedUnit())
 else
 end
     RemoveLocation(udg_Temp_PointCommander[8])
-ForGroupBJ(GetUnitsOfPlayerAndTypeId(Player(11), FourCC("n001")), Trig_Commander_Spawning_Func028A)
+ForGroupBJ(GetUnitsOfPlayerAndTypeId(Player(11), FourCC("n001")), Trig_Commander_Spawning_Func027A)
 end
 
 function InitTrig_Commander_Spawning()
 gg_trg_Commander_Spawning = CreateTrigger()
 DisableTrigger(gg_trg_Commander_Spawning)
-TriggerRegisterVariableEvent(gg_trg_Commander_Spawning, "udg_Real_CommanderSpawn", EQUAL, GetUnitStateSwap(UNIT_STATE_MAX_LIFE, gg_unit_h00E_0013))
-TriggerAddCondition(gg_trg_Commander_Spawning, Condition(Trig_Commander_Spawning_Conditions))
 TriggerAddAction(gg_trg_Commander_Spawning, Trig_Commander_Spawning_Actions)
 end
 
@@ -4180,9 +4200,4 @@ InitCustomPlayerSlots()
 InitCustomTeams()
 InitAllyPriorities()
 end
-
-
-globals(function(_ENV)
-udg_Real_CommanderSpawn = 0.0
-end)
 
