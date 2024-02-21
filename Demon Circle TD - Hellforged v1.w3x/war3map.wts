@@ -2828,7 +2828,7 @@ Siphoning Tower Level 1
 }
 
 STRING 1101
-// Units: u013 (Siphoning Tower Level 2), Tip (Tooltip - Basic)
+// Units: u014 (Siphoning Tower Level 1), Tip (Tooltip - Basic)
 {
 Build Siphoning Tower
 }
@@ -2837,12 +2837,6 @@ STRING 1104
 // Units: u013 (Siphoning Tower Level 2), Name (Name)
 {
 Siphoning Tower Level 2
-}
-
-STRING 1106
-// Units: u014 (Siphoning Tower Level 1), Tip (Tooltip - Basic)
-{
-Build Siphoning Tower
 }
 
 STRING 1108
@@ -2857,14 +2851,8 @@ STRING 1109
 Q
 }
 
-STRING 1110
-// Units: u015 (Siphoning Tower Level 3), Tip (Tooltip - Basic)
-{
-Build Siphoning Tower
-}
-
 STRING 1112
-// Items: I005 (Ghastly Vial), Hotkey (Hotkey)
+// Units: u016 (Monstrosity Tower Level 3), Hotkey (Hotkey)
 {
 Q
 }
@@ -3127,5 +3115,293 @@ STRING 1175
 // Units: uaco (Acolyte), EditorSuffix (Name - Editor Suffix)
 {
 Testing Unit
+}
+
+STRING 1179
+// Units: u01C (Monstrosity Tower Level 2), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 1190
+// Abilities: A01Y (Monstrosity Tower), Name (Name)
+{
+Monstrosity Tower
+}
+
+STRING 1191
+// Abilities: A01Z (Sanguine Stacks), Name (Name)
+{
+Sanguine Stacks
+}
+
+STRING 1193
+// Units: u01B (Monstrosity Tower Level 1), Name (Name)
+{
+Monstrosity Tower Level 1
+}
+
+STRING 1194
+// Units: u01B (Monstrosity Tower Level 1), Tip (Tooltip - Basic)
+{
+Build Monstrosity Tower
+}
+
+STRING 1195
+// Abilities: A01Z (Sanguine Stacks), Tip (Tooltip - Normal)
+{
+Stacks = 5
+}
+
+STRING 1196
+// Abilities: A01Z (Sanguine Stacks), Tip (Tooltip - Normal)
+{
+Stacks = 6
+}
+
+STRING 1197
+// Abilities: A01Z (Sanguine Stacks), Tip (Tooltip - Normal)
+{
+Stacks = 7
+}
+
+STRING 1198
+// Abilities: A01Z (Sanguine Stacks), Tip (Tooltip - Normal)
+{
+Stacks = 8
+}
+
+STRING 1199
+// Abilities: A01Z (Sanguine Stacks), Tip (Tooltip - Normal)
+{
+Stacks = 9
+}
+
+STRING 1200
+// Abilities: A01Z (Sanguine Stacks), Tip (Tooltip - Normal)
+{
+Stacks = 10
+}
+
+STRING 1201
+// Abilities: A01Z (Sanguine Stacks), Tip (Tooltip - Normal)
+{
+Stacks = 11
+}
+
+STRING 1202
+// Abilities: A01Z (Sanguine Stacks), Tip (Tooltip - Normal)
+{
+Stacks = 12
+}
+
+STRING 1203
+// Abilities: A01Z (Sanguine Stacks), Tip (Tooltip - Normal)
+{
+Stacks = 13
+}
+
+STRING 1204
+// Abilities: A01Z (Sanguine Stacks), Tip (Tooltip - Normal)
+{
+Stacks = 14
+}
+
+STRING 1205
+// Abilities: A01Z (Sanguine Stacks), Tip (Tooltip - Normal)
+{
+Stacks = 15
+}
+
+STRING 1206
+// Abilities: A01Z (Sanguine Stacks), Tip (Tooltip - Normal)
+{
+Stacks = 16
+}
+
+STRING 1207
+// Abilities: A01Z (Sanguine Stacks), Tip (Tooltip - Normal)
+{
+Stacks = 17
+}
+
+STRING 1208
+// Abilities: A01Z (Sanguine Stacks), Tip (Tooltip - Normal)
+{
+Stacks = 18
+}
+
+STRING 1209
+// Abilities: A01Z (Sanguine Stacks), Tip (Tooltip - Normal)
+{
+Stacks = 19
+}
+
+STRING 1210
+// Abilities: A01Z (Sanguine Stacks), Tip (Tooltip - Normal)
+{
+Stacks = 20
+}
+
+STRING 1211
+// Abilities: A01Z (Sanguine Stacks), Tip (Tooltip - Normal)
+{
+Stacks = 1
+}
+
+STRING 1212
+// Abilities: A01Z (Sanguine Stacks), Tip (Tooltip - Normal)
+{
+Stacks = 2
+}
+
+STRING 1213
+// Abilities: A01Z (Sanguine Stacks), Tip (Tooltip - Normal)
+{
+Stacks = 3
+}
+
+STRING 1214
+// Abilities: A01Z (Sanguine Stacks), Tip (Tooltip - Normal)
+{
+Stacks = 4
+}
+
+STRING 1215
+// Abilities: A020 (Sanguine Spike 1), Ubertip (Tooltip - Normal - Extended)
+{
+A stacking bleeding attack that deals increasing damage for 4 seconds, gains stacks from tower attack and from damage over time.
+
+Each attack from the tower will also deal extra piercing damage based on the amount of stacks.
+}
+
+STRING 1216
+// Abilities: A01X (Sanguine Spike 3), Name (Name)
+{
+Sanguine Spike 3
+}
+
+STRING 1217
+// Abilities: A01X (Sanguine Spike 3), Tip (Tooltip - Normal)
+{
+Sanguine Spike 3
+}
+
+STRING 1218
+// Abilities: A01X (Sanguine Spike 3), Ubertip (Tooltip - Normal - Extended)
+{
+A stacking bleeding attack that deals increasing damage for 8 seconds, gains stacks from tower attack and from damage over time.
+
+Each attack from the tower will also deal extra piercing damage based on the amount of stacks.
+}
+
+STRING 1219
+// Abilities: A020 (Sanguine Spike 1), Name (Name)
+{
+Sanguine Spike 1
+}
+
+STRING 1220
+// Abilities: A020 (Sanguine Spike 1), Tip (Tooltip - Normal)
+{
+Sanguine Spike 1
+}
+
+STRING 1221
+// Abilities: A021 (Sanguine Spike 2), Name (Name)
+{
+Sanguine Spike 2
+}
+
+STRING 1222
+// Abilities: A021 (Sanguine Spike 2), Tip (Tooltip - Normal)
+{
+Sanguine Spike 2
+}
+
+STRING 1223
+// Abilities: A021 (Sanguine Spike 2), Ubertip (Tooltip - Normal - Extended)
+{
+A stacking bleeding attack that deals increasing damage for 6 seconds, gains stacks from tower attack and from damage over time.
+
+Each attack from the tower will also deal extra piercing damage based on the amount of stacks.
+}
+
+STRING 1224
+// Units: u013 (Siphoning Tower Level 2), Tip (Tooltip - Basic)
+{
+Upgrade to Level 2
+}
+
+STRING 1225
+// Units: u015 (Siphoning Tower Level 3), Tip (Tooltip - Basic)
+{
+Upgrade to Level 3
+}
+
+STRING 1226
+// Units: u016 (Monstrosity Tower Level 3), Name (Name)
+{
+Monstrosity Tower Level 3
+}
+
+STRING 1227
+// Units: u016 (Monstrosity Tower Level 3), Tip (Tooltip - Basic)
+{
+Upgrade to Level 3
+}
+
+STRING 1229
+// Units: u01C (Monstrosity Tower Level 2), Name (Name)
+{
+Monstrosity Tower Level 2
+}
+
+STRING 1230
+// Units: u01C (Monstrosity Tower Level 2), Tip (Tooltip - Basic)
+{
+Upgrade to Level 2
+}
+
+STRING 1232
+// Items: I005 (Ghastly Vial), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 1233
+// Units: u01B (Monstrosity Tower Level 1), Hotkey (Hotkey)
+{
+Z
+}
+
+STRING 1234
+// Units: u016 (Monstrosity Tower Level 3), Ubertip (Tooltip - Extended)
+{
+Pierce
+Dmg: 600
+Cooldown: 2.0s
+Range: 800
+Sanguine Spike
+}
+
+STRING 1235
+// Units: u01B (Monstrosity Tower Level 1), Ubertip (Tooltip - Extended)
+{
+Pierce
+Dmg: 200
+Cooldown: 3.0s
+Range: 600
+Sanguine Spike
+}
+
+STRING 1236
+// Units: u01C (Monstrosity Tower Level 2), Ubertip (Tooltip - Extended)
+{
+Pierce
+Dmg: 400
+Cooldown: 2.5s
+Range: 700
+Sanguine Spike
 }
 
