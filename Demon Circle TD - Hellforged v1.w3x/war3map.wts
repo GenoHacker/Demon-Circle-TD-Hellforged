@@ -3405,3 +3405,37 @@ Range: 700
 Sanguine Spike
 }
 
+STRING 1237
+// Items: I003 (Pulsating Flesh), Name (Name)
+{
+Pulsating Flesh
+}
+
+STRING 1238
+// Items: I003 (Pulsating Flesh), Tip (Tooltip - Basic)
+{
+Purchase Pulsating Flesh
+}
+
+STRING 1239
+// Items: I003 (Pulsating Flesh), Ubertip (Tooltip - Extended)
+{
+[Monstrosity Tower Only]
+
+All items have 3 levels, you can give additional copies of the item to the tower to level it up.
+
+When the tower deals damage, either through attack or damage over time, enemies within 75/100/125 aoe of the point of damage will take 10/15/20 x number of stacks spell damage.
+}
+
+STRING 1240
+// Items: I003 (Pulsating Flesh), Description (Description)
+{
+[Monstrosity Tower Only] Pulsating Flesh
+}
+
+STRING 1243
+// Items: I003 (Pulsating Flesh), Hotkey (Hotkey)
+{
+F
+}
+

@@ -39,6 +39,8 @@ udg_Integer_CommanderAbilityChance = 0
 udg_Temp_PointCommander = {}
 udg_Integer_MaxSpawncount = 0
 udg_UnitGroup_SiphoningTower = {}
+udg_UnitGroup_SanguineStacks = nil
+udg_Temp_PointC = {}
 gg_rct_CreepSpawn1 = nil
 gg_rct_CreepSpawn2 = nil
 gg_rct_CreepSpawn3 = nil
@@ -94,6 +96,8 @@ gg_trg_Leaving_Players = nil
 gg_trg_Sell_Towers = nil
 gg_trg_Lumber_Bounty = nil
 gg_trg_Remove_Ethereal = nil
+gg_trg_Sanguine_Stacks_Remove = nil
+gg_trg_Monstrosity_Tower_Sanguine_Stacks = nil
 gg_trg_Soul_Eater_and_Carrion_Tower = nil
 gg_trg_Siphoning_Tower = nil
 gg_trg_Hellfire_Reagent_Give = nil
@@ -137,8 +141,8 @@ gg_trg_Creep_Spawn_6 = nil
 gg_trg_Creep_Spawn_7 = nil
 gg_trg_Creep_Spawn_8 = nil
 gg_unit_h00E_0013 = nil
-gg_trg_Monstrosity_Tower_Sanguine_Stacks = nil
-gg_trg_Sanguine_Stacks_Remove = nil
+gg_trg_Pulsating_Flesh = nil
+gg_trg_Invulnerable_Towers = nil
 function InitGlobals()
 local i = 0
 
@@ -199,6 +203,7 @@ if ((i > 1)) then break end
 udg_UnitGroup_SiphoningTower[i] = CreateGroup()
 i = i + 1
 end
+udg_UnitGroup_SanguineStacks = CreateGroup()
 end
 
 function InitSounds()
@@ -1495,6 +1500,17 @@ TriggerRegisterAnyUnitEventBJ(gg_trg_Lumber_Bounty, EVENT_PLAYER_UNIT_DEATH)
 TriggerAddAction(gg_trg_Lumber_Bounty, Trig_Lumber_Bounty_Actions)
 end
 
+function Trig_Invulnerable_Towers_Actions()
+SetUnitInvulnerable(GetTriggerUnit(), true)
+end
+
+function InitTrig_Invulnerable_Towers()
+gg_trg_Invulnerable_Towers = CreateTrigger()
+TriggerRegisterAnyUnitEventBJ(gg_trg_Invulnerable_Towers, EVENT_PLAYER_UNIT_CONSTRUCT_START)
+TriggerRegisterAnyUnitEventBJ(gg_trg_Invulnerable_Towers, EVENT_PLAYER_UNIT_UPGRADE_FINISH)
+TriggerAddAction(gg_trg_Invulnerable_Towers, Trig_Invulnerable_Towers_Actions)
+end
+
 function Trig_Remove_Ethereal_Conditions()
 if (not (UnitHasBuffBJ(BlzGetEventDamageTarget(), FourCC("BHbn")) == true)) then
 return false
@@ -1523,21 +1539,28 @@ TriggerAddCondition(gg_trg_Remove_Ethereal, Condition(Trig_Remove_Ethereal_Condi
 TriggerAddAction(gg_trg_Remove_Ethereal, Trig_Remove_Ethereal_Actions)
 end
 
-function Trig_Sanguine_Stacks_Remove_Conditions()
-if (not (UnitHasBuffBJ(BlzGetEventDamageTarget(), FourCC("Bssd")) == false)) then
+function Trig_Sanguine_Stacks_Remove_Func001Func001C()
+if (not (UnitHasBuffBJ(GetEnumUnit(), FourCC("Bssd")) == false)) then
 return false
 end
 return true
 end
 
+function Trig_Sanguine_Stacks_Remove_Func001A()
+if (Trig_Sanguine_Stacks_Remove_Func001Func001C()) then
+UnitRemoveAbilityBJ(FourCC("A01Z"), GetEnumUnit())
+GroupRemoveUnitSimple(GetEnumUnit(), udg_UnitGroup_SanguineStacks)
+else
+end
+end
+
 function Trig_Sanguine_Stacks_Remove_Actions()
-UnitRemoveAbilityBJ(FourCC("A01Z"), BlzGetEventDamageTarget())
+ForGroupBJ(udg_UnitGroup_SanguineStacks, Trig_Sanguine_Stacks_Remove_Func001A)
 end
 
 function InitTrig_Sanguine_Stacks_Remove()
 gg_trg_Sanguine_Stacks_Remove = CreateTrigger()
-TriggerRegisterAnyUnitEventBJ(gg_trg_Sanguine_Stacks_Remove, EVENT_PLAYER_UNIT_DAMAGED)
-TriggerAddCondition(gg_trg_Sanguine_Stacks_Remove, Condition(Trig_Sanguine_Stacks_Remove_Conditions))
+TriggerRegisterTimerEventPeriodic(gg_trg_Sanguine_Stacks_Remove, 2)
 TriggerAddAction(gg_trg_Sanguine_Stacks_Remove, Trig_Sanguine_Stacks_Remove_Actions)
 end
 
@@ -1548,32 +1571,74 @@ end
 return true
 end
 
-function Trig_Monstrosity_Tower_Sanguine_Stacks_Func001Func001C()
+function Trig_Monstrosity_Tower_Sanguine_Stacks_Func002Func001C()
 if (not (GetUnitAbilityLevelSwapped(FourCC("A01Z"), BlzGetEventDamageTarget()) <= 19)) then
 return false
 end
 return true
 end
 
-function Trig_Monstrosity_Tower_Sanguine_Stacks_Func001C()
+function Trig_Monstrosity_Tower_Sanguine_Stacks_Func002C()
 if (not (GetUnitAbilityLevelSwapped(FourCC("A01Z"), BlzGetEventDamageTarget()) == 0)) then
 return false
 end
 return true
 end
 
+function Trig_Monstrosity_Tower_Sanguine_Stacks_Func003C()
+if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I003"))) == 1)) then
+return false
+end
+return true
+end
+
+function Trig_Monstrosity_Tower_Sanguine_Stacks_Func004C()
+if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I003"))) == 2)) then
+return false
+end
+return true
+end
+
+function Trig_Monstrosity_Tower_Sanguine_Stacks_Func005C()
+if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I003"))) == 3)) then
+return false
+end
+return true
+end
+
 function Trig_Monstrosity_Tower_Sanguine_Stacks_Actions()
-if (Trig_Monstrosity_Tower_Sanguine_Stacks_Func001C()) then
+udg_Temp_PointA = GetUnitLoc(BlzGetEventDamageTarget())
+if (Trig_Monstrosity_Tower_Sanguine_Stacks_Func002C()) then
 UnitAddAbilityBJ(FourCC("A01Z"), BlzGetEventDamageTarget())
+GroupAddUnitSimple(BlzGetEventDamageTarget(), udg_UnitGroup_SanguineStacks)
 else
-if (Trig_Monstrosity_Tower_Sanguine_Stacks_Func001Func001C()) then
+if (Trig_Monstrosity_Tower_Sanguine_Stacks_Func002Func001C()) then
 IncUnitAbilityLevelSwapped(FourCC("A01Z"), GetTriggerUnit())
 else
 end
 end
-CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), GetUnitLoc(GetEventDamageSource()), bj_UNIT_FACING)
+if (Trig_Monstrosity_Tower_Sanguine_Stacks_Func003C()) then
+CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointA, bj_UNIT_FACING)
+UnitDamagePointLoc(GetLastCreatedUnit(), 0, 75.00, udg_Temp_PointA, (10.00 * I2R(GetUnitAbilityLevelSwapped(FourCC("A01Z"), BlzGetEventDamageTarget()))), ATTACK_TYPE_NORMAL, DAMAGE_TYPE_NORMAL)
+UnitApplyTimedLifeBJ(1.00, FourCC("BTLF"), GetLastCreatedUnit())
+else
+end
+if (Trig_Monstrosity_Tower_Sanguine_Stacks_Func004C()) then
+CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointA, bj_UNIT_FACING)
+UnitDamagePointLoc(GetLastCreatedUnit(), 0, 100.00, udg_Temp_PointA, (15.00 * I2R(GetUnitAbilityLevelSwapped(FourCC("A01Z"), BlzGetEventDamageTarget()))), ATTACK_TYPE_NORMAL, DAMAGE_TYPE_NORMAL)
+UnitApplyTimedLifeBJ(1.00, FourCC("BTLF"), GetLastCreatedUnit())
+else
+end
+if (Trig_Monstrosity_Tower_Sanguine_Stacks_Func005C()) then
+CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointA, bj_UNIT_FACING)
+UnitDamagePointLoc(GetLastCreatedUnit(), 0, 125.00, udg_Temp_PointA, (20.00 * I2R(GetUnitAbilityLevelSwapped(FourCC("A01Z"), BlzGetEventDamageTarget()))), ATTACK_TYPE_NORMAL, DAMAGE_TYPE_NORMAL)
+UnitApplyTimedLifeBJ(1.00, FourCC("BTLF"), GetLastCreatedUnit())
+else
+end
+CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointA, bj_UNIT_FACING)
 UnitDamageTargetBJ(GetLastCreatedUnit(), BlzGetEventDamageTarget(), (25.00 * I2R(GetUnitAbilityLevelSwapped(FourCC("A01Z"), BlzGetEventDamageTarget()))), ATTACK_TYPE_PIERCE, DAMAGE_TYPE_NORMAL)
 UnitApplyTimedLifeBJ(1.00, FourCC("BTLF"), GetLastCreatedUnit())
+    RemoveLocation(udg_Temp_PointA)
 end
 
 function InitTrig_Monstrosity_Tower_Sanguine_Stacks()
@@ -2781,18 +2846,11 @@ TriggerRegisterTimerEventPeriodic(gg_trg_Dichotomous_Box_Gold, 2.50)
 TriggerAddAction(gg_trg_Dichotomous_Box_Gold, Trig_Dichotomous_Box_Gold_Actions)
 end
 
-function Trig_Satans_Claw_Func001Func005C()
-if (GetItemTypeId(GetManipulatedItem()) == FourCC("I00A")) then
-return true
-end
-return false
-end
-
 function Trig_Satans_Claw_Func001C()
 if (not (GetUnitAbilityLevelSwapped(FourCC("A00Z"), GetManipulatingUnit()) ~= 1)) then
 return false
 end
-if (not Trig_Satans_Claw_Func001Func005C()) then
+if (not (GetItemTypeId(GetManipulatedItem()) == FourCC("I00A"))) then
 return false
 end
 return true
@@ -2838,18 +2896,11 @@ TriggerRegisterAnyUnitEventBJ(gg_trg_Ghastly_Vial, EVENT_PLAYER_UNIT_PICKUP_ITEM
 TriggerAddAction(gg_trg_Ghastly_Vial, Trig_Ghastly_Vial_Actions)
 end
 
-function Trig_Jar_of_Demon_Fire_Func001Func005C()
-if (GetItemTypeId(GetManipulatedItem()) == FourCC("I007")) then
-return true
-end
-return false
-end
-
 function Trig_Jar_of_Demon_Fire_Func001C()
 if (not (GetUnitAbilityLevelSwapped(FourCC("A00Y"), GetManipulatingUnit()) ~= 1)) then
 return false
 end
-if (not Trig_Jar_of_Demon_Fire_Func001Func005C()) then
+if (not (GetItemTypeId(GetManipulatedItem()) == FourCC("I007"))) then
 return false
 end
 return true
@@ -2870,18 +2921,11 @@ TriggerRegisterAnyUnitEventBJ(gg_trg_Jar_of_Demon_Fire, EVENT_PLAYER_UNIT_PICKUP
 TriggerAddAction(gg_trg_Jar_of_Demon_Fire, Trig_Jar_of_Demon_Fire_Actions)
 end
 
-function Trig_Khorns_Gift_Func001Func005C()
-if (GetItemTypeId(GetManipulatedItem()) == FourCC("I002")) then
-return true
-end
-return false
-end
-
 function Trig_Khorns_Gift_Func001C()
 if (not (GetUnitAbilityLevelSwapped(FourCC("A00W"), GetManipulatingUnit()) ~= 1)) then
 return false
 end
-if (not Trig_Khorns_Gift_Func001Func005C()) then
+if (not (GetItemTypeId(GetManipulatedItem()) == FourCC("I002"))) then
 return false
 end
 return true
@@ -2902,18 +2946,11 @@ TriggerRegisterAnyUnitEventBJ(gg_trg_Khorns_Gift, EVENT_PLAYER_UNIT_PICKUP_ITEM)
 TriggerAddAction(gg_trg_Khorns_Gift, Trig_Khorns_Gift_Actions)
 end
 
-function Trig_Hellfrost_Enchantment_Func001Func005C()
-if (GetItemTypeId(GetManipulatedItem()) == FourCC("I00F")) then
-return true
-end
-return false
-end
-
 function Trig_Hellfrost_Enchantment_Func001C()
 if (not (GetUnitAbilityLevelSwapped(FourCC("A011"), GetManipulatingUnit()) ~= 1)) then
 return false
 end
-if (not Trig_Hellfrost_Enchantment_Func001Func005C()) then
+if (not (GetItemTypeId(GetManipulatedItem()) == FourCC("I00F"))) then
 return false
 end
 return true
@@ -2934,18 +2971,11 @@ TriggerRegisterAnyUnitEventBJ(gg_trg_Hellfrost_Enchantment, EVENT_PLAYER_UNIT_PI
 TriggerAddAction(gg_trg_Hellfrost_Enchantment, Trig_Hellfrost_Enchantment_Actions)
 end
 
-function Trig_Dichotomous_Box_Func001Func005C()
-if (GetItemTypeId(GetManipulatedItem()) == FourCC("I00D")) then
-return true
-end
-return false
-end
-
 function Trig_Dichotomous_Box_Func001C()
 if (not (GetUnitAbilityLevelSwapped(FourCC("A010"), GetManipulatingUnit()) ~= 1)) then
 return false
 end
-if (not Trig_Dichotomous_Box_Func001Func005C()) then
+if (not (GetItemTypeId(GetManipulatedItem()) == FourCC("I00D"))) then
 return false
 end
 return true
@@ -2966,18 +2996,11 @@ TriggerRegisterAnyUnitEventBJ(gg_trg_Dichotomous_Box, EVENT_PLAYER_UNIT_PICKUP_I
 TriggerAddAction(gg_trg_Dichotomous_Box, Trig_Dichotomous_Box_Actions)
 end
 
-function Trig_Soul_Siphoner_Func001Func005C()
-if (GetItemTypeId(GetManipulatedItem()) == FourCC("I000")) then
-return true
-end
-return false
-end
-
 function Trig_Soul_Siphoner_Func001C()
 if (not (GetUnitAbilityLevelSwapped(FourCC("A01D"), GetManipulatingUnit()) ~= 1)) then
 return false
 end
-if (not Trig_Soul_Siphoner_Func001Func005C()) then
+if (not (GetItemTypeId(GetManipulatedItem()) == FourCC("I000"))) then
 return false
 end
 return true
@@ -2998,18 +3021,11 @@ TriggerRegisterAnyUnitEventBJ(gg_trg_Soul_Siphoner, EVENT_PLAYER_UNIT_PICKUP_ITE
 TriggerAddAction(gg_trg_Soul_Siphoner, Trig_Soul_Siphoner_Actions)
 end
 
-function Trig_Hellfire_Reagent_Func001Func005C()
-if (GetItemTypeId(GetManipulatedItem()) == FourCC("I001")) then
-return true
-end
-return false
-end
-
 function Trig_Hellfire_Reagent_Func001C()
 if (not (GetUnitAbilityLevelSwapped(FourCC("A01N"), GetManipulatingUnit()) ~= 1)) then
 return false
 end
-if (not Trig_Hellfire_Reagent_Func001Func005C()) then
+if (not (GetItemTypeId(GetManipulatedItem()) == FourCC("I001"))) then
 return false
 end
 return true
@@ -3028,6 +3044,31 @@ function InitTrig_Hellfire_Reagent()
 gg_trg_Hellfire_Reagent = CreateTrigger()
 TriggerRegisterAnyUnitEventBJ(gg_trg_Hellfire_Reagent, EVENT_PLAYER_UNIT_PICKUP_ITEM)
 TriggerAddAction(gg_trg_Hellfire_Reagent, Trig_Hellfire_Reagent_Actions)
+end
+
+function Trig_Pulsating_Flesh_Func001C()
+if (not (GetUnitAbilityLevelSwapped(FourCC("A01Y"), GetManipulatingUnit()) ~= 1)) then
+return false
+end
+if (not (GetItemTypeId(GetManipulatedItem()) == FourCC("I003"))) then
+return false
+end
+return true
+end
+
+function Trig_Pulsating_Flesh_Actions()
+if (Trig_Pulsating_Flesh_Func001C()) then
+udg_Temp_PointA = GetUnitLoc(GetManipulatingUnit())
+UnitDropItemPointLoc(GetManipulatingUnit(), GetItemOfTypeFromUnitBJ(GetManipulatingUnit(), FourCC("I003")), udg_Temp_PointA)
+        RemoveLocation(udg_Temp_PointA)
+else
+end
+end
+
+function InitTrig_Pulsating_Flesh()
+gg_trg_Pulsating_Flesh = CreateTrigger()
+TriggerRegisterAnyUnitEventBJ(gg_trg_Pulsating_Flesh, EVENT_PLAYER_UNIT_PICKUP_ITEM)
+TriggerAddAction(gg_trg_Pulsating_Flesh, Trig_Pulsating_Flesh_Actions)
 end
 
 function Trig_Creep_Teleport_1_Func001Func007Func007C()
@@ -3971,6 +4012,7 @@ InitTrig_Unit_Die()
 InitTrig_Leaving_Players()
 InitTrig_Sell_Towers()
 InitTrig_Lumber_Bounty()
+InitTrig_Invulnerable_Towers()
 InitTrig_Remove_Ethereal()
 InitTrig_Sanguine_Stacks_Remove()
 InitTrig_Monstrosity_Tower_Sanguine_Stacks()
@@ -3998,6 +4040,7 @@ InitTrig_Hellfrost_Enchantment()
 InitTrig_Dichotomous_Box()
 InitTrig_Soul_Siphoner()
 InitTrig_Hellfire_Reagent()
+InitTrig_Pulsating_Flesh()
 InitTrig_Creep_Teleport_1()
 InitTrig_Creep_Teleport_2()
 InitTrig_Creep_Teleport_3()
