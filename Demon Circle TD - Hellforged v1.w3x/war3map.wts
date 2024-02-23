@@ -3364,7 +3364,7 @@ Upgrade to Level 2
 }
 
 STRING 1232
-// Items: I005 (Ghastly Vial), Hotkey (Hotkey)
+// Units: u01D (Fluctuation Tower Level 2), Hotkey (Hotkey)
 {
 Q
 }
@@ -3437,5 +3437,233 @@ STRING 1243
 // Items: I003 (Pulsating Flesh), Hotkey (Hotkey)
 {
 F
+}
+
+STRING 1248
+// Abilities: A022 (Fluctuation Tower), Name (Name)
+{
+Fluctuation Tower
+}
+
+STRING 1249
+// Units: u01D (Fluctuation Tower Level 2), Tip (Tooltip - Basic)
+{
+Build Fluctuation Tower
+}
+
+STRING 1250
+// Units: u01D (Fluctuation Tower Level 2), Name (Name)
+{
+Fluctuation Tower Level 2
+}
+
+STRING 1252
+// Units: u01E (Fluctuation Tower Level 3), Name (Name)
+{
+Fluctuation Tower Level 3
+}
+
+STRING 1254
+// Units: u01E (Fluctuation Tower Level 3), Tip (Tooltip - Basic)
+{
+Build Fluctuation Tower
+}
+
+STRING 1256
+// Units: u01F (Fluctuation Tower Level 1), Name (Name)
+{
+Fluctuation Tower Level 1
+}
+
+STRING 1258
+// Units: u01F (Fluctuation Tower Level 1), Tip (Tooltip - Basic)
+{
+Build Fluctuation Tower
+}
+
+STRING 1259
+// Units: u01F (Fluctuation Tower Level 1), Ubertip (Tooltip - Extended)
+{
+Normal Damage
+Dmg: 100
+Cooldown: 3s - 4s
+Range: 800
+Fluctuating Conduits
+}
+
+STRING 1260
+// Abilities: A024 (Critical Strike), Tip (Tooltip - Normal)
+{
+Inactive
+}
+
+STRING 1261
+// Abilities: A024 (Critical Strike), Ubertip (Tooltip - Normal - Extended)
+{
+Inactive
+}
+
+STRING 1262
+// Abilities: A023 (Multishot), Name (Name)
+{
+Multishot
+}
+
+STRING 1263
+// Abilities: A023 (Multishot), EditorSuffix (Editor Suffix)
+{
+[Fluctuation Tower]
+}
+
+STRING 1268
+// Abilities: A023 (Multishot), Ubertip (Tooltip - Normal - Extended)
+{
+Allows the tower to attack up to 4 targets.
+}
+
+STRING 1269
+// Abilities: A023 (Multishot), Ubertip (Tooltip - Normal - Extended)
+{
+Allows the tower to attack up to 5 targets.
+}
+
+STRING 1270
+// Abilities: A023 (Multishot), Ubertip (Tooltip - Normal - Extended)
+{
+Allows the tower to attack up to 6 targets.
+}
+
+STRING 1271
+// Abilities: A023 (Multishot), Ubertip (Tooltip - Normal - Extended)
+{
+Allows the tower to attack up to 7 targets.
+}
+
+STRING 1272
+// Abilities: A024 (Critical Strike), EditorSuffix (Editor Suffix)
+{
+[Fluctuation Tower]
+}
+
+STRING 1273
+// Abilities: A024 (Critical Strike), Tip (Tooltip - Normal)
+{
+Critical Strike
+}
+
+STRING 1274
+// Abilities: A024 (Critical Strike), Tip (Tooltip - Normal)
+{
+Critical Strike
+}
+
+STRING 1276
+// Abilities: A024 (Critical Strike), Tip (Tooltip - Normal)
+{
+Critical Strike
+}
+
+STRING 1277
+// Abilities: A024 (Critical Strike), Tip (Tooltip - Normal)
+{
+Critical Strike
+}
+
+STRING 1279
+// Abilities: A024 (Critical Strike), Ubertip (Tooltip - Normal - Extended)
+{
+Gives a 50% chance to do 2 times normal damage on an attack.
+}
+
+STRING 1280
+// Abilities: A024 (Critical Strike), Ubertip (Tooltip - Normal - Extended)
+{
+Gives a 60% chance to do 3 times normal damage on an attack.
+}
+
+STRING 1281
+// Abilities: A024 (Critical Strike), Ubertip (Tooltip - Normal - Extended)
+{
+Gives a 70% chance to do 4 times normal damage on an attack.
+}
+
+STRING 1282
+// Abilities: A024 (Critical Strike), Ubertip (Tooltip - Normal - Extended)
+{
+Gives a 80% chance to do 5 times normal damage on an attack.
+}
+
+STRING 1283
+// Units: u01E (Fluctuation Tower Level 3), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 1284
+// Units: u01F (Fluctuation Tower Level 1), Hotkey (Hotkey)
+{
+X
+}
+
+STRING 1285
+// Items: I005 (Ghastly Vial), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 1286
+// Units: u01D (Fluctuation Tower Level 2), Ubertip (Tooltip - Extended)
+{
+Normal Damage
+Dmg: 150
+Cooldown: 2s - 5s
+Range: 800
+Fluctuating Conduits
+}
+
+STRING 1287
+// Units: u01E (Fluctuation Tower Level 3), Ubertip (Tooltip - Extended)
+{
+Normal Damage
+Dmg: 200
+Cooldown: 1s - 6s
+Range: 800
+Fluctuating Conduits
+}
+
+STRING 1288
+// Abilities: A023 (Multishot), Tip (Tooltip - Normal)
+{
+Multishot - Level 1
+}
+
+STRING 1289
+// Abilities: A023 (Multishot), Tip (Tooltip - Normal)
+{
+Multishot - Level 2
+}
+
+STRING 1290
+// Abilities: A023 (Multishot), Tip (Tooltip - Normal)
+{
+Multishot - Level 3
+}
+
+STRING 1291
+// Abilities: A023 (Multishot), Tip (Tooltip - Normal)
+{
+Multishot - Level 4
+}
+
+STRING 1292
+// Abilities: A023 (Multishot), Ubertip (Tooltip - Normal - Extended)
+{
+Allows the tower to attack up to 3 targets.
+}
+
+STRING 1293
+// Abilities: A023 (Multishot), Tip (Tooltip - Normal)
+{
+Multishot - Level 5
 }
 
