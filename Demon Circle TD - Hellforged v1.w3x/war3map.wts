@@ -3481,23 +3481,7 @@ STRING 1258
 Build Fluctuation Tower
 }
 
-STRING 1259
-// Units: u01F (Fluctuation Tower Level 1), Ubertip (Tooltip - Extended)
-{
-Normal Damage
-Dmg: 100
-Cooldown: 3s - 4s
-Range: 800
-Fluctuating Conduits
-}
-
 STRING 1260
-// Abilities: A024 (Critical Strike), Tip (Tooltip - Normal)
-{
-Inactive
-}
-
-STRING 1261
 // Abilities: A024 (Critical Strike), Ubertip (Tooltip - Normal - Extended)
 {
 Inactive
@@ -3611,26 +3595,6 @@ STRING 1285
 Q
 }
 
-STRING 1286
-// Units: u01D (Fluctuation Tower Level 2), Ubertip (Tooltip - Extended)
-{
-Normal Damage
-Dmg: 150
-Cooldown: 2s - 5s
-Range: 800
-Fluctuating Conduits
-}
-
-STRING 1287
-// Units: u01E (Fluctuation Tower Level 3), Ubertip (Tooltip - Extended)
-{
-Normal Damage
-Dmg: 200
-Cooldown: 1s - 6s
-Range: 800
-Fluctuating Conduits
-}
-
 STRING 1288
 // Abilities: A023 (Multishot), Tip (Tooltip - Normal)
 {
@@ -3665,5 +3629,114 @@ STRING 1293
 // Abilities: A023 (Multishot), Tip (Tooltip - Normal)
 {
 Multishot - Level 5
+}
+
+STRING 1294
+// Items: I004 (Argent Conduit), Name (Name)
+{
+Argent Conduit
+}
+
+STRING 1295
+// Items: I004 (Argent Conduit), Tip (Tooltip - Basic)
+{
+Purchase Argent Conduit
+}
+
+STRING 1297
+// Items: I004 (Argent Conduit), Description (Description)
+{
+[Fluctuation Tower Only] Argent Conduit
+}
+
+STRING 1299
+// Abilities: A01K (Brilliance Aura), EditorSuffix (Editor Suffix)
+{
+[Commander]
+}
+
+STRING 1300
+// Abilities: A025 (Item Mana Regeneration), EditorSuffix (Editor Suffix)
+{
+[Argent Conduit]
+}
+
+STRING 1303
+// Items: I004 (Argent Conduit), Hotkey (Hotkey)
+{
+Z
+}
+
+STRING 1308
+// Abilities: A026 (Fluctuating Energy), Name (Name)
+{
+Fluctuating Energy
+}
+
+STRING 1309
+// Abilities: A026 (Fluctuating Energy), Ubertip (Tooltip - Normal - Extended)
+{
+Attack speed changes each time the tower deals damage.
+
+If the attack speed is 3.50 or below then the level of multishot will increase, if it is above then the level of critical strike will increase.
+
+If multishot is chosen then the tower will deal extra damage equal to 33% of current mana.
+If critical strike is chosen then the damage of the tower will gain damage equal to the current mana.
+}
+
+STRING 1310
+// Abilities: A026 (Fluctuating Energy), Tip (Tooltip - Normal)
+{
+Fluctuating Energy
+}
+
+STRING 1314
+// Items: I004 (Argent Conduit), Ubertip (Tooltip - Extended)
+{
+[Fluctuation Tower Only]
+
+All items have 3 levels, you can give additional copies of the item to the tower to level it up.
+
+Increases mana regeneration by 50%.
+
+Increases the level of Multishot and Critical Strike by 1/2/3 when the towers attack speed activates the corresponding ability.
+}
+
+STRING 1317
+// Units: u01D (Fluctuation Tower Level 2), Ubertip (Tooltip - Extended)
+{
+Normal Damage
+Dmg: 350
+Cooldown: 2s - 5s
+Range: 800
+Multishot (3)
+Fluctuating Energy
+}
+
+STRING 1318
+// Units: u01E (Fluctuation Tower Level 3), Ubertip (Tooltip - Extended)
+{
+Normal Damage
+Dmg: 500
+Cooldown: 1s - 6s
+Range: 800
+Multishot (3)
+Fluctuating Energy
+}
+
+STRING 1319
+// Units: u01F (Fluctuation Tower Level 1), Ubertip (Tooltip - Extended)
+{
+Normal Damage
+Dmg: 200
+Cooldown: 3s - 4s
+Range: 800
+Multishot (3)
+Fluctuating Energy
+}
+
+STRING 1320
+{
+A commander has been killed. All players get 100 Gold and 50 Lumber.
 }
 

@@ -98,6 +98,8 @@ gg_trg_Sell_Towers = nil
 gg_trg_Lumber_Bounty = nil
 gg_trg_Invulnerable_Towers = nil
 gg_trg_Remove_Ethereal = nil
+gg_trg_Fluctuation_Tower_Ability = nil
+gg_trg_Fluctuation_Tower_Mana = nil
 gg_trg_Sanguine_Stacks_Remove = nil
 gg_trg_Monstrosity_Tower_Sanguine_Stacks = nil
 gg_trg_Soul_Eater_and_Carrion_Tower = nil
@@ -144,8 +146,8 @@ gg_trg_Creep_Spawn_6 = nil
 gg_trg_Creep_Spawn_7 = nil
 gg_trg_Creep_Spawn_8 = nil
 gg_unit_h00E_0013 = nil
-gg_trg_Untitled_Trigger_001 = nil
-gg_trg_Fluctuation_Tower_Mana = nil
+gg_trg_Argent_Conduit = nil
+gg_trg_Fluctation_Tower_AddRemove = nil
 function InitGlobals()
 local i = 0
 
@@ -1222,7 +1224,20 @@ TriggerAddCondition(gg_trg_Wave_Buffs, Condition(Trig_Wave_Buffs_Conditions))
 TriggerAddAction(gg_trg_Wave_Buffs, Trig_Wave_Buffs_Actions)
 end
 
-function Trig_Unit_Die_Func001Func003C()
+function Trig_Unit_Die_Func001Func001A()
+DisplayTextToForce(GetPlayersAll(), "TRIGSTR_1320")
+AdjustPlayerStateBJ(100, GetEnumPlayer(), PLAYER_STATE_RESOURCE_GOLD)
+AdjustPlayerStateBJ(50, GetEnumPlayer(), PLAYER_STATE_RESOURCE_LUMBER)
+end
+
+function Trig_Unit_Die_Func001C()
+if (not (GetUnitTypeId(GetDyingUnit()) == FourCC("n001"))) then
+return false
+end
+return true
+end
+
+function Trig_Unit_Die_Func002Func003C()
 if (GetOwningPlayer(GetTriggerUnit()) == Player(10)) then
 return true
 end
@@ -1232,14 +1247,14 @@ end
 return false
 end
 
-function Trig_Unit_Die_Func001C()
-if (not Trig_Unit_Die_Func001Func003C()) then
+function Trig_Unit_Die_Func002C()
+if (not Trig_Unit_Die_Func002Func003C()) then
 return false
 end
 return true
 end
 
-function Trig_Unit_Die_Func002Func002C()
+function Trig_Unit_Die_Func003Func002C()
 if (GetUnitTypeId(GetTriggerUnit()) == FourCC("h00H")) then
 return true
 end
@@ -1276,14 +1291,14 @@ end
 return false
 end
 
-function Trig_Unit_Die_Func002C()
-if (not Trig_Unit_Die_Func002Func002C()) then
+function Trig_Unit_Die_Func003C()
+if (not Trig_Unit_Die_Func003Func002C()) then
 return false
 end
 return true
 end
 
-function Trig_Unit_Die_Func003C()
+function Trig_Unit_Die_Func004C()
 if (not (GetOwningPlayer(GetKillingUnitBJ()) ~= Player(0))) then
 return false
 end
@@ -1293,7 +1308,7 @@ end
 return true
 end
 
-function Trig_Unit_Die_Func004C()
+function Trig_Unit_Die_Func005C()
 if (not (GetOwningPlayer(GetKillingUnitBJ()) ~= Player(1))) then
 return false
 end
@@ -1303,7 +1318,7 @@ end
 return true
 end
 
-function Trig_Unit_Die_Func005C()
+function Trig_Unit_Die_Func006C()
 if (not (GetOwningPlayer(GetKillingUnitBJ()) ~= Player(2))) then
 return false
 end
@@ -1313,7 +1328,7 @@ end
 return true
 end
 
-function Trig_Unit_Die_Func006C()
+function Trig_Unit_Die_Func007C()
 if (not (GetOwningPlayer(GetKillingUnitBJ()) ~= Player(3))) then
 return false
 end
@@ -1323,7 +1338,7 @@ end
 return true
 end
 
-function Trig_Unit_Die_Func007C()
+function Trig_Unit_Die_Func008C()
 if (not (GetOwningPlayer(GetKillingUnitBJ()) ~= Player(4))) then
 return false
 end
@@ -1333,7 +1348,7 @@ end
 return true
 end
 
-function Trig_Unit_Die_Func008C()
+function Trig_Unit_Die_Func009C()
 if (not (GetOwningPlayer(GetKillingUnitBJ()) ~= Player(5))) then
 return false
 end
@@ -1343,7 +1358,7 @@ end
 return true
 end
 
-function Trig_Unit_Die_Func009C()
+function Trig_Unit_Die_Func010C()
 if (not (GetOwningPlayer(GetKillingUnitBJ()) ~= Player(6))) then
 return false
 end
@@ -1353,7 +1368,7 @@ end
 return true
 end
 
-function Trig_Unit_Die_Func010C()
+function Trig_Unit_Die_Func011C()
 if (not (GetOwningPlayer(GetKillingUnitBJ()) ~= Player(7))) then
 return false
 end
@@ -1365,43 +1380,47 @@ end
 
 function Trig_Unit_Die_Actions()
 if (Trig_Unit_Die_Func001C()) then
+ForForce(GetPlayersAll(), Trig_Unit_Die_Func001Func001A)
+else
+end
+if (Trig_Unit_Die_Func002C()) then
 udg_I_Kills[GetConvertedPlayerId(GetOwningPlayer(GetKillingUnitBJ()))] = (udg_I_Kills[GetConvertedPlayerId(GetOwningPlayer(GetKillingUnitBJ()))] + 1)
 LeaderboardSetPlayerItemValueBJ(GetOwningPlayer(GetKillingUnitBJ()), udg_LB_Info, udg_I_Kills[GetConvertedPlayerId(GetOwningPlayer(GetKillingUnitBJ()))])
 else
 end
-if (Trig_Unit_Die_Func002C()) then
+if (Trig_Unit_Die_Func003C()) then
 RemoveUnit(GetTriggerUnit())
 else
 end
-if (Trig_Unit_Die_Func003C()) then
+if (Trig_Unit_Die_Func004C()) then
 AdjustPlayerStateBJ(1, Player(0), PLAYER_STATE_RESOURCE_GOLD)
 else
 end
-if (Trig_Unit_Die_Func004C()) then
+if (Trig_Unit_Die_Func005C()) then
 AdjustPlayerStateBJ(1, Player(1), PLAYER_STATE_RESOURCE_GOLD)
 else
 end
-if (Trig_Unit_Die_Func005C()) then
+if (Trig_Unit_Die_Func006C()) then
 AdjustPlayerStateBJ(1, Player(2), PLAYER_STATE_RESOURCE_GOLD)
 else
 end
-if (Trig_Unit_Die_Func006C()) then
+if (Trig_Unit_Die_Func007C()) then
 AdjustPlayerStateBJ(1, Player(3), PLAYER_STATE_RESOURCE_GOLD)
 else
 end
-if (Trig_Unit_Die_Func007C()) then
+if (Trig_Unit_Die_Func008C()) then
 AdjustPlayerStateBJ(1, Player(4), PLAYER_STATE_RESOURCE_GOLD)
 else
 end
-if (Trig_Unit_Die_Func008C()) then
+if (Trig_Unit_Die_Func009C()) then
 AdjustPlayerStateBJ(1, Player(5), PLAYER_STATE_RESOURCE_GOLD)
 else
 end
-if (Trig_Unit_Die_Func009C()) then
+if (Trig_Unit_Die_Func010C()) then
 AdjustPlayerStateBJ(1, Player(6), PLAYER_STATE_RESOURCE_GOLD)
 else
 end
-if (Trig_Unit_Die_Func010C()) then
+if (Trig_Unit_Die_Func011C()) then
 AdjustPlayerStateBJ(1, Player(7), PLAYER_STATE_RESOURCE_GOLD)
 else
 end
@@ -1543,65 +1562,154 @@ TriggerAddCondition(gg_trg_Remove_Ethereal, Condition(Trig_Remove_Ethereal_Condi
 TriggerAddAction(gg_trg_Remove_Ethereal, Trig_Remove_Ethereal_Actions)
 end
 
-function Trig_Untitled_Trigger_001_Conditions()
+function Trig_Fluctation_Tower_AddRemove_Func001C()
+if (not (GetUnitAbilityLevelSwapped(FourCC("A022"), GetConstructedStructure()) == 1)) then
+return false
+end
+return true
+end
+
+function Trig_Fluctation_Tower_AddRemove_Func002C()
+if (not (GetUnitAbilityLevelSwapped(FourCC("A022"), GetTriggerUnit()) == 1)) then
+return false
+end
+return true
+end
+
+function Trig_Fluctation_Tower_AddRemove_Func003C()
+if (not (GetUnitAbilityLevelSwapped(FourCC("A022"), GetSpellAbilityUnit()) == 1)) then
+return false
+end
+if (not (GetSpellAbilityId() == FourCC("A000"))) then
+return false
+end
+return true
+end
+
+function Trig_Fluctation_Tower_AddRemove_Actions()
+if (Trig_Fluctation_Tower_AddRemove_Func001C()) then
+GroupAddUnitSimple(GetConstructedStructure(), udg_UnitGroup_FluctuationTowerMana)
+else
+end
+if (Trig_Fluctation_Tower_AddRemove_Func002C()) then
+GroupAddUnitSimple(GetTriggerUnit(), udg_UnitGroup_FluctuationTowerMana)
+else
+end
+if (Trig_Fluctation_Tower_AddRemove_Func003C()) then
+GroupRemoveUnitSimple(GetSpellAbilityUnit(), udg_UnitGroup_FluctuationTowerMana)
+else
+end
+end
+
+function InitTrig_Fluctation_Tower_AddRemove()
+gg_trg_Fluctation_Tower_AddRemove = CreateTrigger()
+TriggerRegisterAnyUnitEventBJ(gg_trg_Fluctation_Tower_AddRemove, EVENT_PLAYER_UNIT_CONSTRUCT_FINISH)
+TriggerRegisterAnyUnitEventBJ(gg_trg_Fluctation_Tower_AddRemove, EVENT_PLAYER_UNIT_UPGRADE_FINISH)
+TriggerRegisterAnyUnitEventBJ(gg_trg_Fluctation_Tower_AddRemove, EVENT_PLAYER_UNIT_SPELL_CAST)
+TriggerAddAction(gg_trg_Fluctation_Tower_AddRemove, Trig_Fluctation_Tower_AddRemove_Actions)
+end
+
+function Trig_Fluctuation_Tower_Ability_Conditions()
 if (not (GetUnitAbilityLevelSwapped(FourCC("A022"), GetEventDamageSource()) == 1)) then
 return false
 end
 return true
 end
 
-function Trig_Untitled_Trigger_001_Func002C()
+function Trig_Fluctuation_Tower_Ability_Func002C()
 if (not (GetUnitAbilityLevelSwapped(FourCC("A023"), GetEventDamageSource()) >= 2)) then
 return false
 end
 return true
 end
 
-function Trig_Untitled_Trigger_001_Func004C()
+function Trig_Fluctuation_Tower_Ability_Func004C()
 if (not (GetUnitAbilityLevelSwapped(FourCC("A024"), GetEventDamageSource()) >= 2)) then
 return false
 end
 return true
 end
 
-function Trig_Untitled_Trigger_001_Func005C()
+function Trig_Fluctuation_Tower_Ability_Func005C()
 if (not (GetUnitTypeId(GetEventDamageSource()) == FourCC("u01F"))) then
 return false
 end
 return true
 end
 
-function Trig_Untitled_Trigger_001_Func006C()
+function Trig_Fluctuation_Tower_Ability_Func006C()
 if (not (GetUnitTypeId(GetEventDamageSource()) == FourCC("u01D"))) then
 return false
 end
 return true
 end
 
-function Trig_Untitled_Trigger_001_Func007C()
+function Trig_Fluctuation_Tower_Ability_Func007C()
 if (not (GetUnitTypeId(GetEventDamageSource()) == FourCC("u01E"))) then
 return false
 end
 return true
 end
 
-function Trig_Untitled_Trigger_001_Func008C()
+function Trig_Fluctuation_Tower_Ability_Func008Func003C()
+if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I004"))) == 1)) then
+return false
+end
+return true
+end
+
+function Trig_Fluctuation_Tower_Ability_Func008Func004C()
+if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I004"))) == 2)) then
+return false
+end
+return true
+end
+
+function Trig_Fluctuation_Tower_Ability_Func008Func005C()
+if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I004"))) == 3)) then
+return false
+end
+return true
+end
+
+function Trig_Fluctuation_Tower_Ability_Func008C()
 if (not (BlzGetUnitAttackCooldown(GetEventDamageSource(), 1) <= 3.50)) then
 return false
 end
 return true
 end
 
-function Trig_Untitled_Trigger_001_Func009C()
+function Trig_Fluctuation_Tower_Ability_Func009Func003C()
+if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I004"))) == 1)) then
+return false
+end
+return true
+end
+
+function Trig_Fluctuation_Tower_Ability_Func009Func004C()
+if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I004"))) == 2)) then
+return false
+end
+return true
+end
+
+function Trig_Fluctuation_Tower_Ability_Func009Func005C()
+if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I004"))) == 3)) then
+return false
+end
+return true
+end
+
+function Trig_Fluctuation_Tower_Ability_Func009C()
 if (not (BlzGetUnitAttackCooldown(GetEventDamageSource(), 1) >= 3.51)) then
 return false
 end
 return true
 end
 
-function Trig_Untitled_Trigger_001_Actions()
+function Trig_Fluctuation_Tower_Ability_Actions()
 udg_Temp_PointA = GetUnitLoc(BlzGetEventDamageTarget())
-if (Trig_Untitled_Trigger_001_Func002C()) then
+if (Trig_Fluctuation_Tower_Ability_Func002C()) then
 CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointA, bj_UNIT_FACING)
 UnitApplyTimedLifeBJ(1.00, FourCC("BTLF"), GetLastCreatedUnit())
 UnitDamageTargetBJ(GetLastCreatedUnit(), BlzGetEventDamageTarget(), (GetUnitStateSwap(UNIT_STATE_MANA, GetEventDamageSource()) * 0.33), ATTACK_TYPE_MELEE, DAMAGE_TYPE_NORMAL)
@@ -1609,46 +1717,69 @@ SetUnitManaBJ(GetEventDamageSource(), (GetUnitStateSwap(UNIT_STATE_MANA, GetEven
 else
 end
     RemoveLocation(udg_Temp_PointA)
-if (Trig_Untitled_Trigger_001_Func004C()) then
+if (Trig_Fluctuation_Tower_Ability_Func004C()) then
 SetUnitManaBJ(GetEventDamageSource(), 0.00)
 else
 end
-if (Trig_Untitled_Trigger_001_Func005C()) then
+if (Trig_Fluctuation_Tower_Ability_Func005C()) then
 BlzSetUnitAttackCooldown(GetEventDamageSource(), GetRandomReal(3.00, 4.00), 1)
-BlzSetUnitBaseDamage(GetEventDamageSource(), 100, 0)
 else
 end
-if (Trig_Untitled_Trigger_001_Func006C()) then
+if (Trig_Fluctuation_Tower_Ability_Func006C()) then
 BlzSetUnitAttackCooldown(GetEventDamageSource(), GetRandomReal(2.00, 5.00), 1)
-BlzSetUnitBaseDamage(GetEventDamageSource(), 150, 0)
 else
 end
-if (Trig_Untitled_Trigger_001_Func007C()) then
+if (Trig_Fluctuation_Tower_Ability_Func007C()) then
 BlzSetUnitAttackCooldown(GetEventDamageSource(), GetRandomReal(1.00, 6.00), 1)
-BlzSetUnitBaseDamage(GetEventDamageSource(), 200, 0)
 else
 end
-if (Trig_Untitled_Trigger_001_Func008C()) then
+if (Trig_Fluctuation_Tower_Ability_Func008C()) then
+SetUnitAbilityLevelSwapped(FourCC("A023"), GetEventDamageSource(), 1)
+SetUnitAbilityLevelSwapped(FourCC("A024"), GetEventDamageSource(), 1)
+if (Trig_Fluctuation_Tower_Ability_Func008Func003C()) then
 SetUnitAbilityLevelSwapped(FourCC("A023"), GetEventDamageSource(), 2)
 SetUnitAbilityLevelSwapped(FourCC("A024"), GetEventDamageSource(), 1)
 else
 end
-if (Trig_Untitled_Trigger_001_Func009C()) then
+if (Trig_Fluctuation_Tower_Ability_Func008Func004C()) then
+SetUnitAbilityLevelSwapped(FourCC("A023"), GetEventDamageSource(), 3)
+SetUnitAbilityLevelSwapped(FourCC("A024"), GetEventDamageSource(), 1)
+else
+end
+if (Trig_Fluctuation_Tower_Ability_Func008Func005C()) then
+SetUnitAbilityLevelSwapped(FourCC("A023"), GetEventDamageSource(), 4)
+SetUnitAbilityLevelSwapped(FourCC("A024"), GetEventDamageSource(), 1)
+else
+end
+else
+end
+if (Trig_Fluctuation_Tower_Ability_Func009C()) then
 SetUnitAbilityLevelSwapped(FourCC("A024"), GetEventDamageSource(), 2)
 SetUnitAbilityLevelSwapped(FourCC("A023"), GetEventDamageSource(), 1)
+if (Trig_Fluctuation_Tower_Ability_Func009Func003C()) then
+SetUnitAbilityLevelSwapped(FourCC("A024"), GetEventDamageSource(), 3)
+SetUnitAbilityLevelSwapped(FourCC("A023"), GetEventDamageSource(), 1)
+else
+end
+if (Trig_Fluctuation_Tower_Ability_Func009Func004C()) then
+SetUnitAbilityLevelSwapped(FourCC("A024"), GetEventDamageSource(), 4)
+SetUnitAbilityLevelSwapped(FourCC("A023"), GetEventDamageSource(), 1)
+else
+end
+if (Trig_Fluctuation_Tower_Ability_Func009Func005C()) then
+SetUnitAbilityLevelSwapped(FourCC("A024"), GetEventDamageSource(), 5)
+SetUnitAbilityLevelSwapped(FourCC("A023"), GetEventDamageSource(), 1)
+else
+end
 else
 end
 end
 
-function InitTrig_Untitled_Trigger_001()
-gg_trg_Untitled_Trigger_001 = CreateTrigger()
-TriggerRegisterAnyUnitEventBJ(gg_trg_Untitled_Trigger_001, EVENT_PLAYER_UNIT_DAMAGED)
-TriggerAddCondition(gg_trg_Untitled_Trigger_001, Condition(Trig_Untitled_Trigger_001_Conditions))
-TriggerAddAction(gg_trg_Untitled_Trigger_001, Trig_Untitled_Trigger_001_Actions)
-end
-
-function Trig_Fluctuation_Tower_Mana_Func001001002()
-return (GetUnitAbilityLevelSwapped(FourCC("A022"), GetFilterUnit()) == 1)
+function InitTrig_Fluctuation_Tower_Ability()
+gg_trg_Fluctuation_Tower_Ability = CreateTrigger()
+TriggerRegisterAnyUnitEventBJ(gg_trg_Fluctuation_Tower_Ability, EVENT_PLAYER_UNIT_DAMAGED)
+TriggerAddCondition(gg_trg_Fluctuation_Tower_Ability, Condition(Trig_Fluctuation_Tower_Ability_Conditions))
+TriggerAddAction(gg_trg_Fluctuation_Tower_Ability, Trig_Fluctuation_Tower_Ability_Actions)
 end
 
 function Trig_Fluctuation_Tower_Mana_Func001Func001Func001C()
@@ -1659,13 +1790,34 @@ return true
 end
 
 function Trig_Fluctuation_Tower_Mana_Func001Func001Func002C()
-if (not (GetUnitTypeId(GetEnumUnit()) == FourCC("u01D"))) then
+if (not (GetUnitTypeId(GetEnumUnit()) == FourCC("u01E"))) then
 return false
 end
 return true
 end
 
 function Trig_Fluctuation_Tower_Mana_Func001Func001Func003C()
+if (not (GetUnitTypeId(GetEnumUnit()) == FourCC("u01D"))) then
+return false
+end
+return true
+end
+
+function Trig_Fluctuation_Tower_Mana_Func001Func001Func004C()
+if (not (GetUnitTypeId(GetEnumUnit()) == FourCC("u01F"))) then
+return false
+end
+return true
+end
+
+function Trig_Fluctuation_Tower_Mana_Func001Func001Func005C()
+if (not (GetUnitTypeId(GetEnumUnit()) == FourCC("u01D"))) then
+return false
+end
+return true
+end
+
+function Trig_Fluctuation_Tower_Mana_Func001Func001Func006C()
 if (not (GetUnitTypeId(GetEnumUnit()) == FourCC("u01E"))) then
 return false
 end
@@ -1681,34 +1833,42 @@ end
 
 function Trig_Fluctuation_Tower_Mana_Func001A()
 if (Trig_Fluctuation_Tower_Mana_Func001Func001C()) then
+if (Trig_Fluctuation_Tower_Mana_Func001Func001Func004C()) then
+BlzSetUnitBaseDamage(GetEnumUnit(), (200 + R2I(GetUnitStateSwap(UNIT_STATE_MANA, GetEnumUnit()))), 0)
+else
+end
+if (Trig_Fluctuation_Tower_Mana_Func001Func001Func005C()) then
+BlzSetUnitBaseDamage(GetEnumUnit(), (350 + R2I(GetUnitStateSwap(UNIT_STATE_MANA, GetEnumUnit()))), 0)
+else
+end
+if (Trig_Fluctuation_Tower_Mana_Func001Func001Func006C()) then
+BlzSetUnitBaseDamage(GetEnumUnit(), (500 + R2I(GetUnitStateSwap(UNIT_STATE_MANA, GetEnumUnit()))), 0)
+else
+end
+else
 if (Trig_Fluctuation_Tower_Mana_Func001Func001Func001C()) then
-BlzSetUnitBaseDamage(GetEnumUnit(), (99 + R2I(GetUnitStateSwap(UNIT_STATE_MANA, GetEnumUnit()))), 0)
+BlzSetUnitBaseDamage(GetEnumUnit(), 200, 0)
 else
 end
 if (Trig_Fluctuation_Tower_Mana_Func001Func001Func002C()) then
-BlzSetUnitBaseDamage(GetEnumUnit(), (149 + R2I(GetUnitStateSwap(UNIT_STATE_MANA, GetEnumUnit()))), 0)
+BlzSetUnitBaseDamage(GetEnumUnit(), 500, 0)
 else
 end
 if (Trig_Fluctuation_Tower_Mana_Func001Func001Func003C()) then
-BlzSetUnitBaseDamage(GetEnumUnit(), (199 + R2I(GetUnitStateSwap(UNIT_STATE_MANA, GetEnumUnit()))), 0)
+BlzSetUnitBaseDamage(GetEnumUnit(), 350, 0)
 else
 end
-else
 end
 end
 
 function Trig_Fluctuation_Tower_Mana_Actions()
-ForGroupBJ(GetUnitsInRectMatching(GetPlayableMapRect(), Condition(Trig_Fluctuation_Tower_Mana_Func001001002)), Trig_Fluctuation_Tower_Mana_Func001A)
+ForGroupBJ(udg_UnitGroup_FluctuationTowerMana, Trig_Fluctuation_Tower_Mana_Func001A)
 end
 
 function InitTrig_Fluctuation_Tower_Mana()
 gg_trg_Fluctuation_Tower_Mana = CreateTrigger()
 TriggerRegisterTimerEventPeriodic(gg_trg_Fluctuation_Tower_Mana, 1.00)
 TriggerAddAction(gg_trg_Fluctuation_Tower_Mana, Trig_Fluctuation_Tower_Mana_Actions)
-end
-
-function Trig_Sanguine_Stacks_Remove_Func001001002()
-return (GetUnitAbilityLevelSwapped(FourCC("A01Z"), GetEnumUnit()) >= 1)
 end
 
 function Trig_Sanguine_Stacks_Remove_Func001Func001C()
@@ -1727,7 +1887,7 @@ end
 end
 
 function Trig_Sanguine_Stacks_Remove_Actions()
-ForGroupBJ(GetUnitsInRectMatching(GetPlayableMapRect(), Condition(Trig_Sanguine_Stacks_Remove_Func001001002)), Trig_Sanguine_Stacks_Remove_Func001A)
+ForGroupBJ(udg_UnitGroup_SanguineStacks, Trig_Sanguine_Stacks_Remove_Func001A)
 end
 
 function InitTrig_Sanguine_Stacks_Remove()
@@ -3018,6 +3178,31 @@ TriggerRegisterTimerEventPeriodic(gg_trg_Dichotomous_Box_Gold, 2.50)
 TriggerAddAction(gg_trg_Dichotomous_Box_Gold, Trig_Dichotomous_Box_Gold_Actions)
 end
 
+function Trig_Argent_Conduit_Func001C()
+if (not (GetUnitAbilityLevelSwapped(FourCC("A022"), GetManipulatingUnit()) ~= 1)) then
+return false
+end
+if (not (GetItemTypeId(GetManipulatedItem()) == FourCC("I004"))) then
+return false
+end
+return true
+end
+
+function Trig_Argent_Conduit_Actions()
+if (Trig_Argent_Conduit_Func001C()) then
+udg_Temp_PointA = GetUnitLoc(GetManipulatingUnit())
+UnitDropItemPointLoc(GetManipulatingUnit(), GetItemOfTypeFromUnitBJ(GetManipulatingUnit(), FourCC("I004")), udg_Temp_PointA)
+        RemoveLocation(udg_Temp_PointA)
+else
+end
+end
+
+function InitTrig_Argent_Conduit()
+gg_trg_Argent_Conduit = CreateTrigger()
+TriggerRegisterAnyUnitEventBJ(gg_trg_Argent_Conduit, EVENT_PLAYER_UNIT_PICKUP_ITEM)
+TriggerAddAction(gg_trg_Argent_Conduit, Trig_Argent_Conduit_Actions)
+end
+
 function Trig_Satans_Claw_Func001C()
 if (not (GetUnitAbilityLevelSwapped(FourCC("A00Z"), GetManipulatingUnit()) ~= 1)) then
 return false
@@ -4186,7 +4371,8 @@ InitTrig_Sell_Towers()
 InitTrig_Lumber_Bounty()
 InitTrig_Invulnerable_Towers()
 InitTrig_Remove_Ethereal()
-InitTrig_Untitled_Trigger_001()
+InitTrig_Fluctation_Tower_AddRemove()
+InitTrig_Fluctuation_Tower_Ability()
 InitTrig_Fluctuation_Tower_Mana()
 InitTrig_Sanguine_Stacks_Remove()
 InitTrig_Monstrosity_Tower_Sanguine_Stacks()
@@ -4206,6 +4392,7 @@ InitTrig_Satans_Claw_Remove()
 InitTrig_Satans_Claw_Upgrade()
 InitTrig_Hellfrost_Enchantment_Armor_Remove()
 InitTrig_Dichotomous_Box_Gold()
+InitTrig_Argent_Conduit()
 InitTrig_Satans_Claw()
 InitTrig_Ghastly_Vial()
 InitTrig_Jar_of_Demon_Fire()
