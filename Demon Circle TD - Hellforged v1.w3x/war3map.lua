@@ -98,6 +98,7 @@ gg_trg_Sell_Towers = nil
 gg_trg_Lumber_Bounty = nil
 gg_trg_Invulnerable_Towers = nil
 gg_trg_Remove_Ethereal = nil
+gg_trg_Fluctation_Tower_AddRemove = nil
 gg_trg_Fluctuation_Tower_Ability = nil
 gg_trg_Fluctuation_Tower_Mana = nil
 gg_trg_Sanguine_Stacks_Remove = nil
@@ -118,6 +119,7 @@ gg_trg_Satans_Claw_Remove = nil
 gg_trg_Satans_Claw_Upgrade = nil
 gg_trg_Hellfrost_Enchantment_Armor_Remove = nil
 gg_trg_Dichotomous_Box_Gold = nil
+gg_trg_Argent_Conduit = nil
 gg_trg_Satans_Claw = nil
 gg_trg_Ghastly_Vial = nil
 gg_trg_Jar_of_Demon_Fire = nil
@@ -146,8 +148,6 @@ gg_trg_Creep_Spawn_6 = nil
 gg_trg_Creep_Spawn_7 = nil
 gg_trg_Creep_Spawn_8 = nil
 gg_unit_h00E_0013 = nil
-gg_trg_Argent_Conduit = nil
-gg_trg_Fluctation_Tower_AddRemove = nil
 function InitGlobals()
 local i = 0
 
@@ -2276,29 +2276,31 @@ end
 end
 end
 if (Trig_Siphoning_Tower_Func009C()) then
-udg_Temp_PointA = GetUnitLoc(GetEventDamageSource())
+udg_Temp_PointA = GetUnitLoc(BlzGetEventDamageTarget())
 CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointA, bj_UNIT_FACING)
-UnitApplyTimedLifeBJ(1.00, FourCC("BTLF"), GetLastCreatedUnit())
-UnitAddAbilityBJ(FourCC("A01R"), GetLastCreatedUnit())
-IssueTargetOrderBJ(GetLastCreatedUnit(), "forkedlightning", BlzGetEventDamageTarget())
+UnitAddAbilityBJ(FourCC("A027"), GetLastCreatedUnit())
+IssuePointOrderLocBJ(GetLastCreatedUnit(), "monsoon", udg_Temp_PointA)
+UnitApplyTimedLifeBJ(11.00, FourCC("BTLF"), GetLastCreatedUnit())
 SetUnitManaBJ(GetEventDamageSource(), (GetUnitStateSwap(UNIT_STATE_MANA, GetEventDamageSource()) - 40.00))
 else
 end
 if (Trig_Siphoning_Tower_Func010C()) then
-udg_Temp_PointA = GetUnitLoc(GetEventDamageSource())
+udg_Temp_PointA = GetUnitLoc(BlzGetEventDamageTarget())
 CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointA, bj_UNIT_FACING)
-UnitApplyTimedLifeBJ(1.00, FourCC("BTLF"), GetLastCreatedUnit())
-UnitAddAbilityBJ(FourCC("A01S"), GetLastCreatedUnit())
-IssueTargetOrderBJ(GetLastCreatedUnit(), "forkedlightning", BlzGetEventDamageTarget())
+UnitAddAbilityBJ(FourCC("A027"), GetLastCreatedUnit())
+SetUnitAbilityLevelSwapped(FourCC("A027"), GetTriggerUnit(), 2)
+IssuePointOrderLocBJ(GetLastCreatedUnit(), "monsoon", udg_Temp_PointA)
+UnitApplyTimedLifeBJ(11.00, FourCC("BTLF"), GetLastCreatedUnit())
 SetUnitManaBJ(GetEventDamageSource(), (GetUnitStateSwap(UNIT_STATE_MANA, GetEventDamageSource()) - 80.00))
 else
 end
 if (Trig_Siphoning_Tower_Func011C()) then
-udg_Temp_PointA = GetUnitLoc(GetEventDamageSource())
+udg_Temp_PointA = GetUnitLoc(BlzGetEventDamageTarget())
 CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointA, bj_UNIT_FACING)
-UnitApplyTimedLifeBJ(1.00, FourCC("BTLF"), GetLastCreatedUnit())
-UnitAddAbilityBJ(FourCC("A01T"), GetLastCreatedUnit())
-IssueTargetOrderBJ(GetLastCreatedUnit(), "forkedlightning", BlzGetEventDamageTarget())
+UnitAddAbilityBJ(FourCC("A027"), GetLastCreatedUnit())
+SetUnitAbilityLevelSwapped(FourCC("A027"), GetTriggerUnit(), 3)
+IssuePointOrderLocBJ(GetLastCreatedUnit(), "monsoon", udg_Temp_PointA)
+UnitApplyTimedLifeBJ(11.00, FourCC("BTLF"), GetLastCreatedUnit())
 SetUnitManaBJ(GetEventDamageSource(), (GetUnitStateSwap(UNIT_STATE_MANA, GetEventDamageSource()) - 160.00))
 else
 end

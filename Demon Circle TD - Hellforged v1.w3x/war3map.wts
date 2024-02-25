@@ -2899,24 +2899,6 @@ STRING 1121
 Siphon 2
 }
 
-STRING 1123
-// Abilities: A01R (Siphon Blast 1), Name (Name)
-{
-Siphon Blast 1
-}
-
-STRING 1124
-// Abilities: A01S (Siphon Blast 2), Name (Name)
-{
-Siphon Blast 2
-}
-
-STRING 1125
-// Abilities: A01T (Siphon Blast 3), Name (Name)
-{
-Siphon Blast 3
-}
-
 STRING 1126
 // Units: u014 (Siphoning Tower Level 1), Hotkey (Hotkey)
 {
@@ -2939,42 +2921,6 @@ STRING 1135
 // Abilities: A01Q (Siphon 2), Tip (Tooltip - Normal)
 {
 Siphon 2
-}
-
-STRING 1136
-// Abilities: A01O (Siphon 3), Ubertip (Tooltip - Normal - Extended)
-{
-Gains mana equal to 20% of damage dealt, when reaching 99% total mana the tower will use 160 mana to release a blast of lightning dealing 600 spell damage to 6 targets each time it damages an enemy until it reachs 10% total mana.
-}
-
-STRING 1137
-// Abilities: A01P (Siphon 1), Ubertip (Tooltip - Normal - Extended)
-{
-Gains mana equal to 10% of damage dealt, when reaching 99% total mana the tower will use 40 mana to release a blast of lightning dealing 250 spell damage to 4 targets each time it damages an enemy until it reachs 10% total mana.
-}
-
-STRING 1138
-// Abilities: A01Q (Siphon 2), Ubertip (Tooltip - Normal - Extended)
-{
-Gains mana equal to 15% of damage dealt, when reaching 99% total mana the tower will use 80 mana to release a blast of lightning dealing 400 spell damage to 5 targets each time it damages an enemy until it reachs 10% total mana.
-}
-
-STRING 1139
-// Abilities: A01O (Siphon 3), Ubertip (Tooltip - Normal - Extended)
-{
-Gains mana equal to 20% of damage dealt, when reaching 99% total mana the tower will use 160 mana to release a blast of lightning dealing 600 spell damage to 6 targets each time it damages an enemy until it reachs 10% total mana.
-}
-
-STRING 1140
-// Abilities: A01P (Siphon 1), Ubertip (Tooltip - Normal - Extended)
-{
-Gains mana equal to 10% of damage dealt, when reaching 99% total mana the tower will use 40 mana to release a blast of lightning dealing 250 spell damage to 4 targets each time it damages an enemy until it reachs 10% total mana.
-}
-
-STRING 1141
-// Abilities: A01Q (Siphon 2), Ubertip (Tooltip - Normal - Extended)
-{
-Gains mana equal to 15% of damage dealt, when reaching 99% total mana the tower will use 80 mana to release a blast of lightning dealing 400 spell damage to 5 targets each time it damages an enemy until it reachs 10% total mana.
 }
 
 STRING 1142
@@ -3738,5 +3684,41 @@ Fluctuating Energy
 STRING 1320
 {
 A commander has been killed. All players get 100 Gold and 50 Lumber.
+}
+
+STRING 1329
+// Abilities: A01P (Siphon 1), Ubertip (Tooltip - Normal - Extended)
+{
+Gains mana equal to 10% of damage dealt, when reaching 99% total mana the tower will use 40 mana to release a storm of lightning, dealing 35 spell damage every 2 seconds to units within a 300 area of effect, this will cast each time the tower deals damage until it reachs 10% mana.
+}
+
+STRING 1330
+// Abilities: A01P (Siphon 1), Ubertip (Tooltip - Normal - Extended)
+{
+Gains mana equal to 10% of damage dealt, when reaching 99% total mana the tower will use 40 mana to release a storm of lightning, dealing 35 spell damage every 2 seconds to units within a 300 area of effect, this will cast each time the tower deals damage until it reachs 10% mana.
+}
+
+STRING 1333
+// Abilities: A01O (Siphon 3), Ubertip (Tooltip - Normal - Extended)
+{
+Gains mana equal to 20% of damage dealt, when reaching 99% total mana the tower will use 160 mana to release a storm of lightning, dealing 75 spell damage every 1 second to units within a 500 area of effect, this will cast each time the tower deals damage until it reachs 10% mana.
+}
+
+STRING 1334
+// Abilities: A01O (Siphon 3), Ubertip (Tooltip - Normal - Extended)
+{
+Gains mana equal to 20% of damage dealt, when reaching 99% total mana the tower will use 160 mana to release a storm of lightning, dealing 75 spell damage every 1 second to units within a 500 area of effect, this will cast each time the tower deals damage until it reachs 10% mana.
+}
+
+STRING 1335
+// Abilities: A01Q (Siphon 2), Ubertip (Tooltip - Normal - Extended)
+{
+Gains mana equal to 15% of damage dealt, when reaching 99% total mana the tower will use 80 mana to release a storm of lightning, dealing 50 spell damage every 1.5 seconds to units within a 400 area of effect, this will cast each time the tower deals damage until it reachs 10% mana.
+}
+
+STRING 1336
+// Abilities: A01Q (Siphon 2), Ubertip (Tooltip - Normal - Extended)
+{
+Gains mana equal to 15% of damage dealt, when reaching 99% total mana the tower will use 80 mana to release a storm of lightning, dealing 50 spell damage every 1.5 seconds to units within a 400 area of effect, this will cast each time the tower deals damage until it reachs 10% mana.
 }
 
