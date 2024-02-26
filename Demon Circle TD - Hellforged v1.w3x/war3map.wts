@@ -3392,7 +3392,7 @@ Fluctuation Tower
 }
 
 STRING 1249
-// Units: u01D (Fluctuation Tower Level 2), Tip (Tooltip - Basic)
+// Units: u01F (Fluctuation Tower Level 1), Tip (Tooltip - Basic)
 {
 Build Fluctuation Tower
 }
@@ -3409,22 +3409,10 @@ STRING 1252
 Fluctuation Tower Level 3
 }
 
-STRING 1254
-// Units: u01E (Fluctuation Tower Level 3), Tip (Tooltip - Basic)
-{
-Build Fluctuation Tower
-}
-
 STRING 1256
 // Units: u01F (Fluctuation Tower Level 1), Name (Name)
 {
 Fluctuation Tower Level 1
-}
-
-STRING 1258
-// Units: u01F (Fluctuation Tower Level 1), Tip (Tooltip - Basic)
-{
-Build Fluctuation Tower
 }
 
 STRING 1260
@@ -3536,7 +3524,7 @@ X
 }
 
 STRING 1285
-// Items: I005 (Ghastly Vial), Hotkey (Hotkey)
+// Units: u01G (Hellfire Tower Level 3), Hotkey (Hotkey)
 {
 Q
 }
@@ -3720,5 +3708,174 @@ STRING 1336
 // Abilities: A01Q (Siphon 2), Ubertip (Tooltip - Normal - Extended)
 {
 Gains mana equal to 15% of damage dealt, when reaching 99% total mana the tower will use 80 mana to release a storm of lightning, dealing 50 spell damage every 1.5 seconds to units within a 400 area of effect, this will cast each time the tower deals damage until it reachs 10% mana.
+}
+
+STRING 1337
+// Units: u01H (Hellfire Tower Level 1), Name (Name)
+{
+Hellfire Tower Level 1
+}
+
+STRING 1342
+// Units: u01D (Fluctuation Tower Level 2), Tip (Tooltip - Basic)
+{
+Upgrade to Level 2
+}
+
+STRING 1343
+// Units: u01E (Fluctuation Tower Level 3), Tip (Tooltip - Basic)
+{
+Upgrade to Level 3
+}
+
+STRING 1344
+// Units: u01G (Hellfire Tower Level 3), Tip (Tooltip - Basic)
+{
+Upgrade to Level 3
+}
+
+STRING 1346
+// Units: u01G (Hellfire Tower Level 3), Name (Name)
+{
+Hellfire Tower Level 3
+}
+
+STRING 1347
+// Units: u01H (Hellfire Tower Level 1), Ubertip (Tooltip - Extended)
+{
+Siege Damage
+Dmg: 100 - 200
+Cooldown: 8.0s
+Range: 600
+Splash (50)
+Infernal Core
+}
+
+STRING 1348
+// Units: u01I (Hellfire Tower Level 2), Tip (Tooltip - Basic)
+{
+Upgrade to Level 2
+}
+
+STRING 1350
+// Units: u01I (Hellfire Tower Level 2), Name (Name)
+{
+Hellfire Tower Level 2
+}
+
+STRING 1353
+// Units: u01H (Hellfire Tower Level 1), Hotkey (Hotkey)
+{
+C
+}
+
+STRING 1354
+// Units: u01I (Hellfire Tower Level 2), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 1355
+// Items: I005 (Ghastly Vial), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 1356
+// Abilities: A01R (Hellfire Tower), Name (Name)
+{
+Hellfire Tower
+}
+
+STRING 1357
+// Units: u01H (Hellfire Tower Level 1), Tip (Tooltip - Basic)
+{
+Build Hellfire Tower
+}
+
+STRING 1358
+// Units: u01G (Hellfire Tower Level 3), Ubertip (Tooltip - Extended)
+{
+Siege Damage
+Dmg: 800 - 1200
+Cooldown: 6.0s
+Range: 700
+Splash (150)
+Infernal Core
+}
+
+STRING 1359
+// Units: u01I (Hellfire Tower Level 2), Ubertip (Tooltip - Extended)
+{
+Siege Damage
+Dmg: 400 - 600
+Cooldown: 7.0s
+Range: 700
+Splash (100)
+Infernal Core
+}
+
+STRING 1360
+// Items: I006 (Soulfire Engine), Name (Name)
+{
+Soulfire Engine
+}
+
+STRING 1361
+// Items: I006 (Soulfire Engine), Tip (Tooltip - Basic)
+{
+Purchase Soulfire Engine
+}
+
+STRING 1362
+// Items: I006 (Soulfire Engine), Ubertip (Tooltip - Extended)
+{
+[Hellfire Tower Only]
+
+All items have 3 levels, you can give additional copies of the item to the tower to level it up.
+
+25% increase attack speed.
+
+10%/20%/40% less chance to trigger Infernal Core reset.
+}
+
+STRING 1363
+// Items: I006 (Soulfire Engine), Description (Description)
+{
+[Hellfire Tower Only] Soulfire Engine
+}
+
+STRING 1364
+// Items: I006 (Soulfire Engine), Hotkey (Hotkey)
+{
+C
+}
+
+STRING 1365
+// Abilities: A01S (Infernal Core), Name (Name)
+{
+Infernal Core
+}
+
+STRING 1366
+// Abilities: A01S (Infernal Core), Tip (Tooltip - Normal)
+{
+Infernal Core
+}
+
+STRING 1367
+// Abilities: A01S (Infernal Core), Ubertip (Tooltip - Normal - Extended)
+{
+Tower gains area of effect over a span of 4 attacks.
+
+1st attack +50, 2nd +100, 3rd +200, 4th +400
+
+Every attack has a 75% chance to trigger a reset, this will deal pure siege damage equal to the current area of effect of the tower, in an area around the attack enemies also equal to the current area of effect.
+}
+
+STRING 1368
+// Abilities: A01S (Infernal Core), EditorSuffix (Editor Suffix)
+{
+[Hellfire Tower]
 }
 
