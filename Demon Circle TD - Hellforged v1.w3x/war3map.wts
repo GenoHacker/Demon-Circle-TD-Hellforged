@@ -86,12 +86,12 @@ STRING 38
 
 STRING 39
 {
-Demons:
+Demons [Max 300]:
 }
 
 STRING 40
 {
-Round:
+Wave:
 }
 
 STRING 41
