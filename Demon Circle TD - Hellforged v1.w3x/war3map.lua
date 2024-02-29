@@ -42,6 +42,9 @@ udg_UnitGroup_SiphoningTower = {}
 udg_UnitGroup_SanguineStacks = nil
 udg_Temp_PointC = {}
 udg_UnitGroup_FluctuationTowerMana = nil
+udg_Integer_Array_HellfireTower = __jarray(0)
+udg_Integer_Array_SoulfireChance = __jarray(0)
+udg_Real_Array_HellfireTowerDamage = __jarray(0.0)
 gg_rct_CreepSpawn1 = nil
 gg_rct_CreepSpawn2 = nil
 gg_rct_CreepSpawn3 = nil
@@ -74,13 +77,6 @@ gg_rct_Teleport_Red_1 = nil
 gg_rct_Teleport_Pink_2 = nil
 gg_rct_Teleport_Pink_1 = nil
 gg_rct_Teleport_Green_2 = nil
-gg_snd_PurgeTarget = nil
-gg_snd_Wave_Air = nil
-gg_snd_Wave_Immune = nil
-gg_snd_Wave_Normal = nil
-gg_snd_Wave_Hero = nil
-gg_snd_Wave_Boss = nil
-gg_snd_Score_Screen_Music = nil
 gg_trg_Map_Initialization = nil
 gg_trg_Leaderboard = nil
 gg_trg_Starting_Locations = nil
@@ -98,6 +94,7 @@ gg_trg_Sell_Towers = nil
 gg_trg_Lumber_Bounty = nil
 gg_trg_Invulnerable_Towers = nil
 gg_trg_Remove_Ethereal = nil
+gg_trg_Hellfire_Tower = nil
 gg_trg_Fluctation_Tower_AddRemove = nil
 gg_trg_Fluctuation_Tower_Ability = nil
 gg_trg_Fluctuation_Tower_Mana = nil
@@ -210,44 +207,24 @@ i = i + 1
 end
 udg_UnitGroup_SanguineStacks = CreateGroup()
 udg_UnitGroup_FluctuationTowerMana = CreateGroup()
+i = 0
+while (true) do
+if ((i > 1)) then break end
+udg_Integer_Array_HellfireTower[i] = 0
+i = i + 1
 end
-
-function InitSounds()
-gg_snd_PurgeTarget = CreateSound("Abilities\\Spells\\Orc\\Purge\\PurgeTarget1.wav", false, false, true, 10, 10, "DefaultEAXON")
-SetSoundDuration(gg_snd_PurgeTarget, 2095)
-SetSoundChannel(gg_snd_PurgeTarget, 0)
-SetSoundVolume(gg_snd_PurgeTarget, -1)
-SetSoundPitch(gg_snd_PurgeTarget, 1.0)
-gg_snd_Wave_Air = CreateSound("Sound\\Music\\mp3Music\\Tension.mp3", false, false, false, 10, 10, "DefaultEAXON")
-SetSoundDuration(gg_snd_Wave_Air, 19527)
-SetSoundChannel(gg_snd_Wave_Air, 0)
-SetSoundVolume(gg_snd_Wave_Air, 127)
-SetSoundPitch(gg_snd_Wave_Air, 1.0)
-gg_snd_Wave_Immune = CreateSound("Sound\\Music\\mp3Music\\NightElfVictory.mp3", false, false, false, 10, 10, "DefaultEAXON")
-SetSoundDuration(gg_snd_Wave_Immune, 21983)
-SetSoundChannel(gg_snd_Wave_Immune, 0)
-SetSoundVolume(gg_snd_Wave_Immune, 127)
-SetSoundPitch(gg_snd_Wave_Immune, 1.2)
-gg_snd_Wave_Normal = CreateSound("Sound\\Music\\mp3Music\\OrcDefeat.mp3", false, false, false, 20, 10, "DefaultEAXON")
-SetSoundDuration(gg_snd_Wave_Normal, 39223)
-SetSoundChannel(gg_snd_Wave_Normal, 0)
-SetSoundVolume(gg_snd_Wave_Normal, 100)
-SetSoundPitch(gg_snd_Wave_Normal, 1.5)
-gg_snd_Wave_Hero = CreateSound("Sound\\Music\\mp3Music\\Doom.mp3", false, false, false, 10, 10, "DefaultEAXON")
-SetSoundDuration(gg_snd_Wave_Hero, 66103)
-SetSoundChannel(gg_snd_Wave_Hero, 0)
-SetSoundVolume(gg_snd_Wave_Hero, 127)
-SetSoundPitch(gg_snd_Wave_Hero, 1.0)
-gg_snd_Wave_Boss = CreateSound("Sound\\Music\\mp3Music\\Comradeship.mp3", false, false, false, 10, 10, "DefaultEAXON")
-SetSoundDuration(gg_snd_Wave_Boss, 124905)
-SetSoundChannel(gg_snd_Wave_Boss, 0)
-SetSoundVolume(gg_snd_Wave_Boss, 127)
-SetSoundPitch(gg_snd_Wave_Boss, 1.0)
-gg_snd_Score_Screen_Music = CreateSound("Score Screen Music.mp3", false, false, false, 10, 10, "DefaultEAXON")
-SetSoundDuration(gg_snd_Score_Screen_Music, 124905)
-SetSoundChannel(gg_snd_Score_Screen_Music, 0)
-SetSoundVolume(gg_snd_Score_Screen_Music, 127)
-SetSoundPitch(gg_snd_Score_Screen_Music, 1.0)
+i = 0
+while (true) do
+if ((i > 1)) then break end
+udg_Integer_Array_SoulfireChance[i] = 0
+i = i + 1
+end
+i = 0
+while (true) do
+if ((i > 1)) then break end
+udg_Real_Array_HellfireTowerDamage[i] = 0.0
+i = i + 1
+end
 end
 
 function CreateUnitsForPlayer0()
@@ -257,7 +234,7 @@ local unitID
 local t
 local life
 
-u = BlzCreateUnitWithSkin(p, FourCC("u005"), -4095.6, 3586.4, 255.308, FourCC("u005"))
+u = BlzCreateUnitWithSkin(p, FourCC("u005"), -4095.6, 3586.4, 135.286, FourCC("u005"))
 end
 
 function CreateUnitsForPlayer1()
@@ -267,7 +244,7 @@ local unitID
 local t
 local life
 
-u = BlzCreateUnitWithSkin(p, FourCC("u005"), -2561.3, 4612.2, 70.420, FourCC("u005"))
+u = BlzCreateUnitWithSkin(p, FourCC("u005"), -2561.3, 4612.2, 90.399, FourCC("u005"))
 end
 
 function CreateUnitsForPlayer2()
@@ -277,7 +254,7 @@ local unitID
 local t
 local life
 
-u = BlzCreateUnitWithSkin(p, FourCC("u005"), -1024.7, 3586.4, 4.670, FourCC("u005"))
+u = BlzCreateUnitWithSkin(p, FourCC("u005"), -1024.7, 3586.4, 44.945, FourCC("u005"))
 end
 
 function CreateUnitsForPlayer3()
@@ -287,7 +264,7 @@ local unitID
 local t
 local life
 
-u = BlzCreateUnitWithSkin(p, FourCC("u005"), -2.2, 2051.2, 217.890, FourCC("u005"))
+u = BlzCreateUnitWithSkin(p, FourCC("u005"), -2.2, 2051.2, 0.070, FourCC("u005"))
 end
 
 function CreateUnitsForPlayer4()
@@ -297,7 +274,7 @@ local unitID
 local t
 local life
 
-u = BlzCreateUnitWithSkin(p, FourCC("u005"), -1026.5, 513.2, 67.390, FourCC("u005"))
+u = BlzCreateUnitWithSkin(p, FourCC("u005"), -1026.5, 513.2, 315.017, FourCC("u005"))
 end
 
 function CreateUnitsForPlayer5()
@@ -307,7 +284,7 @@ local unitID
 local t
 local life
 
-u = BlzCreateUnitWithSkin(p, FourCC("u005"), -2561.9, -510.9, 172.520, FourCC("u005"))
+u = BlzCreateUnitWithSkin(p, FourCC("u005"), -2561.9, -510.9, 270.055, FourCC("u005"))
 end
 
 function CreateUnitsForPlayer6()
@@ -317,7 +294,7 @@ local unitID
 local t
 local life
 
-u = BlzCreateUnitWithSkin(p, FourCC("u005"), -4096.7, 514.9, 251.790, FourCC("u005"))
+u = BlzCreateUnitWithSkin(p, FourCC("u005"), -4096.7, 514.9, 224.956, FourCC("u005"))
 end
 
 function CreateUnitsForPlayer7()
@@ -327,7 +304,7 @@ local unitID
 local t
 local life
 
-u = BlzCreateUnitWithSkin(p, FourCC("u005"), -5123.3, 2051.0, 192.180, FourCC("u005"))
+u = BlzCreateUnitWithSkin(p, FourCC("u005"), -5123.3, 2051.0, 179.561, FourCC("u005"))
 end
 
 function CreateNeutralPassiveBuildings()
@@ -439,6 +416,17 @@ UseTimeOfDayBJ(false)
 CreateQuestBJ(bj_QUESTTYPE_REQ_DISCOVERED, "TRIGSTR_482", "TRIGSTR_483", "ReplaceableTextures\\CommandButtons\\BTNSnazzyScrollPurple.blp")
 CreateQuestBJ(bj_QUESTTYPE_REQ_DISCOVERED, "TRIGSTR_1065", "TRIGSTR_1066", "ReplaceableTextures\\CommandButtons\\BTNSnazzyScrollPurple.blp")
 CreateQuestBJ(bj_QUESTTYPE_OPT_DISCOVERED, "TRIGSTR_539", "TRIGSTR_540", "ReplaceableTextures\\CommandButtons\\BTNSnazzyScroll.blp")
+CreateQuestBJ(bj_QUESTTYPE_OPT_DISCOVERED, "TRIGSTR_1411", "TRIGSTR_1412", "ReplaceableTextures\\CommandButtons\\BTNSnazzyScroll.blp")
+udg_Real_Array_HellfireTowerDamage[0] = 100.00
+udg_Real_Array_HellfireTowerDamage[1] = 150.00
+udg_Real_Array_HellfireTowerDamage[2] = 250.00
+udg_Real_Array_HellfireTowerDamage[3] = 400.00
+udg_Real_Array_HellfireTowerDamage[4] = 600.00
+udg_Real_Array_HellfireTowerDamage[5] = 800.00
+udg_Integer_Array_SoulfireChance[0] = 0
+udg_Integer_Array_SoulfireChance[1] = 10
+udg_Integer_Array_SoulfireChance[2] = 20
+udg_Integer_Array_SoulfireChance[3] = 40
 udg_AbilityCode_Array_Commander[1] = FourCC("A01K")
 udg_AbilityCode_Array_Commander[2] = FourCC("A01J")
 udg_AbilityCode_Array_Commander[3] = FourCC("S000")
@@ -659,8 +647,8 @@ end
 
 function Trig_Difficulty_Adjust_Actions()
 if (Trig_Difficulty_Adjust_Func001C()) then
-udg_Integer_EnemyHandicap = (udg_Integer_EnemyHandicap + 4)
-DisplayTimedTextToForce(GetPlayersAll(), 5.00, (GetPlayerName(GetTriggerPlayer()) .. " has increased difficulty by 4%."))
+udg_Integer_EnemyHandicap = (udg_Integer_EnemyHandicap + 10)
+DisplayTimedTextToForce(GetPlayersAll(), 5.00, (GetPlayerName(GetTriggerPlayer()) .. " has increased difficulty by 10%."))
 DisplayTimedTextToForce(GetPlayersAll(), 5.00, (GetPlayerName(GetTriggerPlayer()) .. " has increased spawn count by 1."))
 SetPlayerHandicapBJ(Player(10), I2R(udg_Integer_EnemyHandicap))
 SetPlayerHandicapBJ(Player(11), I2R(udg_Integer_EnemyHandicap))
@@ -675,8 +663,8 @@ DisplayTimedTextToForce(GetPlayersAll(), 5.00, (GetPlayerName(GetTriggerPlayer()
 else
 end
 if (Trig_Difficulty_Adjust_Func003C()) then
-udg_Integer_EnemyHandicap = (udg_Integer_EnemyHandicap - 2)
-DisplayTimedTextToForce(GetPlayersAll(), 5.00, (GetPlayerName(GetTriggerPlayer()) .. " has decreased difficulty by 2%."))
+udg_Integer_EnemyHandicap = (udg_Integer_EnemyHandicap - 5)
+DisplayTimedTextToForce(GetPlayersAll(), 5.00, (GetPlayerName(GetTriggerPlayer()) .. " has decreased difficulty by 5%."))
 SetPlayerHandicapBJ(Player(10), I2R(udg_Integer_EnemyHandicap))
 SetPlayerHandicapBJ(Player(11), I2R(udg_Integer_EnemyHandicap))
 DisplayTimedTextToForce(GetPlayersAll(), 5.00, ("Difficulty is now: " .. (I2S(udg_Integer_EnemyHandicap) .. "%")))
@@ -1225,9 +1213,8 @@ TriggerAddAction(gg_trg_Wave_Buffs, Trig_Wave_Buffs_Actions)
 end
 
 function Trig_Unit_Die_Func001Func001A()
-DisplayTextToForce(GetPlayersAll(), "TRIGSTR_1320")
-AdjustPlayerStateBJ(100, GetEnumPlayer(), PLAYER_STATE_RESOURCE_GOLD)
-AdjustPlayerStateBJ(50, GetEnumPlayer(), PLAYER_STATE_RESOURCE_LUMBER)
+AdjustPlayerStateBJ(20, GetEnumPlayer(), PLAYER_STATE_RESOURCE_GOLD)
+AdjustPlayerStateBJ(5, GetEnumPlayer(), PLAYER_STATE_RESOURCE_LUMBER)
 end
 
 function Trig_Unit_Die_Func001C()
@@ -1437,7 +1424,7 @@ RemoveUnit(GetEnumUnit())
 end
 
 function Trig_Leaving_Players_Actions()
-DisplayTextToForce(GetPlayersAll(), (("|cffffaa00" .. GetPlayerName(GetTriggerPlayer())) .. "has left the game!!|r"))
+DisplayTextToForce(GetPlayersAll(), (("|cffffaa00" .. (" " .. GetPlayerName(GetTriggerPlayer()))) .. "has left the game!!|r"))
     bj_wantDestroyGroup = true
 ForGroupBJ(GetUnitsOfPlayerAll(GetTriggerPlayer()), Trig_Leaving_Players_Func003A)
 LeaderboardSetPlayerItemLabelBJ(GetTriggerPlayer(), udg_LB_Info, "TRIGSTR_112")
@@ -1562,6 +1549,80 @@ TriggerAddCondition(gg_trg_Remove_Ethereal, Condition(Trig_Remove_Ethereal_Condi
 TriggerAddAction(gg_trg_Remove_Ethereal, Trig_Remove_Ethereal_Actions)
 end
 
+function Trig_Hellfire_Tower_Conditions()
+if (not (GetUnitAbilityLevelSwapped(FourCC("A01R"), GetEventDamageSource()) == 1)) then
+return false
+end
+return true
+end
+
+function Trig_Hellfire_Tower_Func002Func001Func001C()
+if (GetUnitStateSwap(UNIT_STATE_MANA, GetEventDamageSource()) == 5.00) then
+return true
+end
+if (udg_Integer_Array_HellfireTower[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] <= (60 - udg_Integer_Array_SoulfireChance[GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I006")))])) then
+return true
+end
+return false
+end
+
+function Trig_Hellfire_Tower_Func002Func001C()
+if (not Trig_Hellfire_Tower_Func002Func001Func001C()) then
+return false
+end
+return true
+end
+
+function Trig_Hellfire_Tower_Func003Func001C()
+if (not (GetUnitStateSwap(UNIT_STATE_MANA, GetEventDamageSource()) == I2R(GetForLoopIndexA()))) then
+return false
+end
+return true
+end
+
+function Trig_Hellfire_Tower_Actions()
+udg_Integer_Array_HellfireTower[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] = GetRandomInt(1, 100)
+bj_forLoopAIndex = R2I(GetUnitStateSwap(UNIT_STATE_MANA, GetEventDamageSource()))
+bj_forLoopAIndexEnd = R2I(GetUnitStateSwap(UNIT_STATE_MANA, GetEventDamageSource()))
+while (true) do
+if (bj_forLoopAIndex > bj_forLoopAIndexEnd) then break end
+if (Trig_Hellfire_Tower_Func002Func001C()) then
+udg_Temp_PointB = GetUnitLoc(BlzGetEventDamageTarget())
+CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointB, bj_UNIT_FACING)
+UnitDamagePointLoc(GetLastCreatedUnit(), 0, udg_Real_Array_HellfireTowerDamage[GetForLoopIndexA()], udg_Temp_PointB, udg_Real_Array_HellfireTowerDamage[GetForLoopIndexA()], ATTACK_TYPE_SIEGE, DAMAGE_TYPE_UNIVERSAL)
+UnitDamagePointLoc(GetLastCreatedUnit(), 0, udg_Real_Array_HellfireTowerDamage[GetForLoopIndexA()], udg_Temp_PointB, GetEventDamage(), ATTACK_TYPE_SIEGE, DAMAGE_TYPE_NORMAL)
+UnitApplyTimedLifeBJ(1.00, FourCC("BTLF"), GetLastCreatedUnit())
+SetUnitManaBJ(GetEventDamageSource(), 0.00)
+            RemoveLocation(udg_Temp_PointB)
+return 
+else
+end
+bj_forLoopAIndex = bj_forLoopAIndex + 1
+end
+bj_forLoopAIndex = R2I(GetUnitStateSwap(UNIT_STATE_MANA, GetEventDamageSource()))
+bj_forLoopAIndexEnd = R2I(GetUnitStateSwap(UNIT_STATE_MANA, GetEventDamageSource()))
+while (true) do
+if (bj_forLoopAIndex > bj_forLoopAIndexEnd) then break end
+if (Trig_Hellfire_Tower_Func003Func001C()) then
+udg_Temp_PointA = GetUnitLoc(BlzGetEventDamageTarget())
+SetUnitManaBJ(GetEventDamageSource(), (I2R(GetForLoopIndexA()) + 1))
+CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointA, bj_UNIT_FACING)
+UnitDamagePointLoc(GetLastCreatedUnit(), 0, udg_Real_Array_HellfireTowerDamage[GetForLoopIndexA()], udg_Temp_PointA, GetEventDamage(), ATTACK_TYPE_SIEGE, DAMAGE_TYPE_NORMAL)
+UnitApplyTimedLifeBJ(1.00, FourCC("BTLF"), GetLastCreatedUnit())
+            RemoveLocation(udg_Temp_PointA)
+else
+end
+bj_forLoopAIndex = bj_forLoopAIndex + 1
+end
+end
+
+function InitTrig_Hellfire_Tower()
+gg_trg_Hellfire_Tower = CreateTrigger()
+TriggerRegisterAnyUnitEventBJ(gg_trg_Hellfire_Tower, EVENT_PLAYER_UNIT_DAMAGED)
+TriggerAddCondition(gg_trg_Hellfire_Tower, Condition(Trig_Hellfire_Tower_Conditions))
+TriggerAddAction(gg_trg_Hellfire_Tower, Trig_Hellfire_Tower_Actions)
+end
+
 function Trig_Fluctation_Tower_AddRemove_Func001C()
 if (not (GetUnitAbilityLevelSwapped(FourCC("A022"), GetConstructedStructure()) == 1)) then
 return false
@@ -1630,6 +1691,20 @@ end
 return true
 end
 
+function Trig_Fluctuation_Tower_Ability_Func005Func001Func001C()
+if (not (GetUnitTypeId(GetEventDamageSource()) == FourCC("u01E"))) then
+return false
+end
+return true
+end
+
+function Trig_Fluctuation_Tower_Ability_Func005Func001C()
+if (not (GetUnitTypeId(GetEventDamageSource()) == FourCC("u01D"))) then
+return false
+end
+return true
+end
+
 function Trig_Fluctuation_Tower_Ability_Func005C()
 if (not (GetUnitTypeId(GetEventDamageSource()) == FourCC("u01F"))) then
 return false
@@ -1637,70 +1712,56 @@ end
 return true
 end
 
-function Trig_Fluctuation_Tower_Ability_Func006C()
-if (not (GetUnitTypeId(GetEventDamageSource()) == FourCC("u01D"))) then
-return false
-end
-return true
-end
-
-function Trig_Fluctuation_Tower_Ability_Func007C()
-if (not (GetUnitTypeId(GetEventDamageSource()) == FourCC("u01E"))) then
-return false
-end
-return true
-end
-
-function Trig_Fluctuation_Tower_Ability_Func008Func003C()
-if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I004"))) == 1)) then
-return false
-end
-return true
-end
-
-function Trig_Fluctuation_Tower_Ability_Func008Func004C()
-if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I004"))) == 2)) then
-return false
-end
-return true
-end
-
-function Trig_Fluctuation_Tower_Ability_Func008Func005C()
+function Trig_Fluctuation_Tower_Ability_Func006Func003Func001Func001C()
 if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I004"))) == 3)) then
 return false
 end
 return true
 end
 
-function Trig_Fluctuation_Tower_Ability_Func008C()
+function Trig_Fluctuation_Tower_Ability_Func006Func003Func001C()
+if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I004"))) == 2)) then
+return false
+end
+return true
+end
+
+function Trig_Fluctuation_Tower_Ability_Func006Func003C()
+if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I004"))) == 1)) then
+return false
+end
+return true
+end
+
+function Trig_Fluctuation_Tower_Ability_Func006C()
 if (not (BlzGetUnitAttackCooldown(GetEventDamageSource(), 1) <= 3.50)) then
 return false
 end
 return true
 end
 
-function Trig_Fluctuation_Tower_Ability_Func009Func003C()
-if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I004"))) == 1)) then
-return false
-end
-return true
-end
-
-function Trig_Fluctuation_Tower_Ability_Func009Func004C()
-if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I004"))) == 2)) then
-return false
-end
-return true
-end
-
-function Trig_Fluctuation_Tower_Ability_Func009Func005C()
+function Trig_Fluctuation_Tower_Ability_Func007Func003Func001Func001C()
 if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I004"))) == 3)) then
 return false
 end
 return true
 end
 
-function Trig_Fluctuation_Tower_Ability_Func009C()
+function Trig_Fluctuation_Tower_Ability_Func007Func003Func001C()
+if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I004"))) == 2)) then
+return false
+end
+return true
+end
+
+function Trig_Fluctuation_Tower_Ability_Func007Func003C()
+if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I004"))) == 1)) then
+return false
+end
+return true
+end
+
+function Trig_Fluctuation_Tower_Ability_Func007C()
 if (not (BlzGetUnitAttackCooldown(GetEventDamageSource(), 1) >= 3.51)) then
 return false
 end
@@ -1724,52 +1785,52 @@ end
 if (Trig_Fluctuation_Tower_Ability_Func005C()) then
 BlzSetUnitAttackCooldown(GetEventDamageSource(), GetRandomReal(3.00, 4.00), 1)
 else
-end
-if (Trig_Fluctuation_Tower_Ability_Func006C()) then
+if (Trig_Fluctuation_Tower_Ability_Func005Func001C()) then
 BlzSetUnitAttackCooldown(GetEventDamageSource(), GetRandomReal(2.00, 5.00), 1)
 else
-end
-if (Trig_Fluctuation_Tower_Ability_Func007C()) then
+if (Trig_Fluctuation_Tower_Ability_Func005Func001Func001C()) then
 BlzSetUnitAttackCooldown(GetEventDamageSource(), GetRandomReal(1.00, 6.00), 1)
 else
 end
-if (Trig_Fluctuation_Tower_Ability_Func008C()) then
+end
+end
+if (Trig_Fluctuation_Tower_Ability_Func006C()) then
 SetUnitAbilityLevelSwapped(FourCC("A023"), GetEventDamageSource(), 1)
 SetUnitAbilityLevelSwapped(FourCC("A024"), GetEventDamageSource(), 1)
-if (Trig_Fluctuation_Tower_Ability_Func008Func003C()) then
+if (Trig_Fluctuation_Tower_Ability_Func006Func003C()) then
 SetUnitAbilityLevelSwapped(FourCC("A023"), GetEventDamageSource(), 2)
 SetUnitAbilityLevelSwapped(FourCC("A024"), GetEventDamageSource(), 1)
 else
-end
-if (Trig_Fluctuation_Tower_Ability_Func008Func004C()) then
+if (Trig_Fluctuation_Tower_Ability_Func006Func003Func001C()) then
 SetUnitAbilityLevelSwapped(FourCC("A023"), GetEventDamageSource(), 3)
 SetUnitAbilityLevelSwapped(FourCC("A024"), GetEventDamageSource(), 1)
 else
-end
-if (Trig_Fluctuation_Tower_Ability_Func008Func005C()) then
+if (Trig_Fluctuation_Tower_Ability_Func006Func003Func001Func001C()) then
 SetUnitAbilityLevelSwapped(FourCC("A023"), GetEventDamageSource(), 4)
 SetUnitAbilityLevelSwapped(FourCC("A024"), GetEventDamageSource(), 1)
 else
 end
+end
+end
 else
 end
-if (Trig_Fluctuation_Tower_Ability_Func009C()) then
+if (Trig_Fluctuation_Tower_Ability_Func007C()) then
 SetUnitAbilityLevelSwapped(FourCC("A024"), GetEventDamageSource(), 2)
 SetUnitAbilityLevelSwapped(FourCC("A023"), GetEventDamageSource(), 1)
-if (Trig_Fluctuation_Tower_Ability_Func009Func003C()) then
+if (Trig_Fluctuation_Tower_Ability_Func007Func003C()) then
 SetUnitAbilityLevelSwapped(FourCC("A024"), GetEventDamageSource(), 3)
 SetUnitAbilityLevelSwapped(FourCC("A023"), GetEventDamageSource(), 1)
 else
-end
-if (Trig_Fluctuation_Tower_Ability_Func009Func004C()) then
+if (Trig_Fluctuation_Tower_Ability_Func007Func003Func001C()) then
 SetUnitAbilityLevelSwapped(FourCC("A024"), GetEventDamageSource(), 4)
 SetUnitAbilityLevelSwapped(FourCC("A023"), GetEventDamageSource(), 1)
 else
-end
-if (Trig_Fluctuation_Tower_Ability_Func009Func005C()) then
+if (Trig_Fluctuation_Tower_Ability_Func007Func003Func001Func001C()) then
 SetUnitAbilityLevelSwapped(FourCC("A024"), GetEventDamageSource(), 5)
 SetUnitAbilityLevelSwapped(FourCC("A023"), GetEventDamageSource(), 1)
 else
+end
+end
 end
 else
 end
@@ -1917,22 +1978,22 @@ end
 return true
 end
 
-function Trig_Monstrosity_Tower_Sanguine_Stacks_Func003C()
-if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I003"))) == 1)) then
+function Trig_Monstrosity_Tower_Sanguine_Stacks_Func003Func001Func001C()
+if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I003"))) == 3)) then
 return false
 end
 return true
 end
 
-function Trig_Monstrosity_Tower_Sanguine_Stacks_Func004C()
+function Trig_Monstrosity_Tower_Sanguine_Stacks_Func003Func001C()
 if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I003"))) == 2)) then
 return false
 end
 return true
 end
 
-function Trig_Monstrosity_Tower_Sanguine_Stacks_Func005C()
-if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I003"))) == 3)) then
+function Trig_Monstrosity_Tower_Sanguine_Stacks_Func003C()
+if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I003"))) == 1)) then
 return false
 end
 return true
@@ -1954,18 +2015,18 @@ CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), ud
 UnitDamagePointLoc(GetLastCreatedUnit(), 0, 75.00, udg_Temp_PointA, (10.00 * I2R(GetUnitAbilityLevelSwapped(FourCC("A01Z"), BlzGetEventDamageTarget()))), ATTACK_TYPE_NORMAL, DAMAGE_TYPE_NORMAL)
 UnitApplyTimedLifeBJ(1.00, FourCC("BTLF"), GetLastCreatedUnit())
 else
-end
-if (Trig_Monstrosity_Tower_Sanguine_Stacks_Func004C()) then
+if (Trig_Monstrosity_Tower_Sanguine_Stacks_Func003Func001C()) then
 CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointA, bj_UNIT_FACING)
 UnitDamagePointLoc(GetLastCreatedUnit(), 0, 100.00, udg_Temp_PointA, (15.00 * I2R(GetUnitAbilityLevelSwapped(FourCC("A01Z"), BlzGetEventDamageTarget()))), ATTACK_TYPE_NORMAL, DAMAGE_TYPE_NORMAL)
 UnitApplyTimedLifeBJ(1.00, FourCC("BTLF"), GetLastCreatedUnit())
 else
-end
-if (Trig_Monstrosity_Tower_Sanguine_Stacks_Func005C()) then
+if (Trig_Monstrosity_Tower_Sanguine_Stacks_Func003Func001Func001C()) then
 CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointA, bj_UNIT_FACING)
 UnitDamagePointLoc(GetLastCreatedUnit(), 0, 125.00, udg_Temp_PointA, (20.00 * I2R(GetUnitAbilityLevelSwapped(FourCC("A01Z"), BlzGetEventDamageTarget()))), ATTACK_TYPE_NORMAL, DAMAGE_TYPE_NORMAL)
 UnitApplyTimedLifeBJ(1.00, FourCC("BTLF"), GetLastCreatedUnit())
 else
+end
+end
 end
 CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointA, bj_UNIT_FACING)
 UnitDamageTargetBJ(GetLastCreatedUnit(), BlzGetEventDamageTarget(), (25.00 * I2R(GetUnitAbilityLevelSwapped(FourCC("A01Z"), BlzGetEventDamageTarget()))), ATTACK_TYPE_PIERCE, DAMAGE_TYPE_NORMAL)
@@ -2048,7 +2109,29 @@ end
 return true
 end
 
-function Trig_Siphoning_Tower_Func001Func005A()
+function Trig_Siphoning_Tower_Func001Func001Func001Func005A()
+SetUnitManaBJ(GetEnumUnit(), (GetUnitStateSwap(UNIT_STATE_MANA, GetEnumUnit()) - 100.00))
+end
+
+function Trig_Siphoning_Tower_Func001Func001Func001C()
+if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I001"))) == 3)) then
+return false
+end
+return true
+end
+
+function Trig_Siphoning_Tower_Func001Func001Func006A()
+SetUnitManaBJ(GetEnumUnit(), (GetUnitStateSwap(UNIT_STATE_MANA, GetEnumUnit()) - 75.00))
+end
+
+function Trig_Siphoning_Tower_Func001Func001C()
+if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I001"))) == 2)) then
+return false
+end
+return true
+end
+
+function Trig_Siphoning_Tower_Func001Func006A()
 SetUnitManaBJ(GetEnumUnit(), (GetUnitStateSwap(UNIT_STATE_MANA, GetEnumUnit()) - 50.00))
 end
 
@@ -2059,71 +2142,49 @@ end
 return true
 end
 
-function Trig_Siphoning_Tower_Func002Func005A()
-SetUnitManaBJ(GetEnumUnit(), (GetUnitStateSwap(UNIT_STATE_MANA, GetEnumUnit()) - 75.00))
-end
-
-function Trig_Siphoning_Tower_Func002C()
-if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I001"))) == 2)) then
-return false
-end
-return true
-end
-
-function Trig_Siphoning_Tower_Func003Func005A()
-SetUnitManaBJ(GetEnumUnit(), (GetUnitStateSwap(UNIT_STATE_MANA, GetEnumUnit()) - 100.00))
-end
-
-function Trig_Siphoning_Tower_Func003C()
-if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I001"))) == 3)) then
-return false
-end
-return true
-end
-
-function Trig_Siphoning_Tower_Func006Func002C()
+function Trig_Siphoning_Tower_Func004Func002C()
 if (GetUnitAbilityLevelSwapped(FourCC("A01P"), GetEventDamageSource()) == 1) then
 return true
 end
 return false
 end
 
-function Trig_Siphoning_Tower_Func006Func003Func002C()
+function Trig_Siphoning_Tower_Func004Func003Func002C()
 if (GetUnitAbilityLevelSwapped(FourCC("A01Q"), GetEventDamageSource()) == 1) then
 return true
 end
 return false
 end
 
-function Trig_Siphoning_Tower_Func006Func003Func003Func002C()
+function Trig_Siphoning_Tower_Func004Func003Func003Func002C()
 if (GetUnitAbilityLevelSwapped(FourCC("A01O"), GetEventDamageSource()) == 1) then
 return true
 end
 return false
 end
 
-function Trig_Siphoning_Tower_Func006Func003Func003C()
-if (not Trig_Siphoning_Tower_Func006Func003Func003Func002C()) then
+function Trig_Siphoning_Tower_Func004Func003Func003C()
+if (not Trig_Siphoning_Tower_Func004Func003Func003Func002C()) then
 return false
 end
 return true
 end
 
-function Trig_Siphoning_Tower_Func006Func003C()
-if (not Trig_Siphoning_Tower_Func006Func003Func002C()) then
+function Trig_Siphoning_Tower_Func004Func003C()
+if (not Trig_Siphoning_Tower_Func004Func003Func002C()) then
 return false
 end
 return true
 end
 
-function Trig_Siphoning_Tower_Func006C()
-if (not Trig_Siphoning_Tower_Func006Func002C()) then
+function Trig_Siphoning_Tower_Func004C()
+if (not Trig_Siphoning_Tower_Func004Func002C()) then
 return false
 end
 return true
 end
 
-function Trig_Siphoning_Tower_Func007Func001Func001C()
+function Trig_Siphoning_Tower_Func005Func001Func001C()
 if (not (GetUnitManaPercent(GetEventDamageSource()) <= 10.00)) then
 return false
 end
@@ -2133,7 +2194,7 @@ end
 return true
 end
 
-function Trig_Siphoning_Tower_Func007Func001C()
+function Trig_Siphoning_Tower_Func005Func001C()
 if (not (GetUnitManaPercent(GetEventDamageSource()) <= 10.00)) then
 return false
 end
@@ -2143,7 +2204,7 @@ end
 return true
 end
 
-function Trig_Siphoning_Tower_Func007C()
+function Trig_Siphoning_Tower_Func005C()
 if (not (GetUnitManaPercent(GetEventDamageSource()) <= 10.00)) then
 return false
 end
@@ -2153,7 +2214,7 @@ end
 return true
 end
 
-function Trig_Siphoning_Tower_Func008Func001Func001C()
+function Trig_Siphoning_Tower_Func006Func001Func001C()
 if (not (GetUnitManaPercent(GetEventDamageSource()) >= 99.00)) then
 return false
 end
@@ -2163,7 +2224,7 @@ end
 return true
 end
 
-function Trig_Siphoning_Tower_Func008Func001C()
+function Trig_Siphoning_Tower_Func006Func001C()
 if (not (GetUnitManaPercent(GetEventDamageSource()) >= 99.00)) then
 return false
 end
@@ -2173,7 +2234,7 @@ end
 return true
 end
 
-function Trig_Siphoning_Tower_Func008C()
+function Trig_Siphoning_Tower_Func006C()
 if (not (GetUnitManaPercent(GetEventDamageSource()) >= 99.00)) then
 return false
 end
@@ -2183,17 +2244,17 @@ end
 return true
 end
 
-function Trig_Siphoning_Tower_Func009C()
-if (not (GetUnitAbilityLevelSwapped(FourCC("A01P"), GetEventDamageSource()) == 2)) then
+function Trig_Siphoning_Tower_Func007Func001Func001C()
+if (not (GetUnitAbilityLevelSwapped(FourCC("A01O"), GetEventDamageSource()) == 2)) then
 return false
 end
-if (not (GetUnitStateSwap(UNIT_STATE_MANA, GetEventDamageSource()) >= 40.00)) then
+if (not (GetUnitStateSwap(UNIT_STATE_MANA, GetEventDamageSource()) >= 160.00)) then
 return false
 end
 return true
 end
 
-function Trig_Siphoning_Tower_Func010C()
+function Trig_Siphoning_Tower_Func007Func001C()
 if (not (GetUnitAbilityLevelSwapped(FourCC("A01Q"), GetEventDamageSource()) == 2)) then
 return false
 end
@@ -2203,11 +2264,11 @@ end
 return true
 end
 
-function Trig_Siphoning_Tower_Func011C()
-if (not (GetUnitAbilityLevelSwapped(FourCC("A01O"), GetEventDamageSource()) == 2)) then
+function Trig_Siphoning_Tower_Func007C()
+if (not (GetUnitAbilityLevelSwapped(FourCC("A01P"), GetEventDamageSource()) == 2)) then
 return false
 end
-if (not (GetUnitStateSwap(UNIT_STATE_MANA, GetEventDamageSource()) >= 160.00)) then
+if (not (GetUnitStateSwap(UNIT_STATE_MANA, GetEventDamageSource()) >= 40.00)) then
 return false
 end
 return true
@@ -2219,63 +2280,63 @@ udg_Temp_PointB = GetUnitLoc(BlzGetEventDamageTarget())
         bj_wantDestroyGroup = true
 udg_UnitGroup_SiphoningTower[1] = GetUnitsInRangeOfLocAll(75.00, udg_Temp_PointB)
 GroupRemoveUnitSimple(BlzGetEventDamageTarget(), udg_UnitGroup_SiphoningTower[1])
-ForGroupBJ(udg_UnitGroup_SiphoningTower[1], Trig_Siphoning_Tower_Func001Func005A)
+ForGroupBJ(udg_UnitGroup_SiphoningTower[1], Trig_Siphoning_Tower_Func001Func006A)
 else
-end
-if (Trig_Siphoning_Tower_Func002C()) then
+if (Trig_Siphoning_Tower_Func001Func001C()) then
 udg_Temp_PointB = GetUnitLoc(BlzGetEventDamageTarget())
-        bj_wantDestroyGroup = true
+            bj_wantDestroyGroup = true
 udg_UnitGroup_SiphoningTower[2] = GetUnitsInRangeOfLocAll(100.00, udg_Temp_PointB)
 GroupRemoveUnitSimple(BlzGetEventDamageTarget(), udg_UnitGroup_SiphoningTower[2])
-ForGroupBJ(udg_UnitGroup_SiphoningTower[2], Trig_Siphoning_Tower_Func002Func005A)
+ForGroupBJ(udg_UnitGroup_SiphoningTower[2], Trig_Siphoning_Tower_Func001Func001Func006A)
 else
-end
-if (Trig_Siphoning_Tower_Func003C()) then
+if (Trig_Siphoning_Tower_Func001Func001Func001C()) then
 udg_Temp_PointB = GetUnitLoc(BlzGetEventDamageTarget())
-        bj_wantDestroyGroup = true
+                bj_wantDestroyGroup = true
 udg_UnitGroup_SiphoningTower[3] = GetUnitsInRangeOfLocAll(125.00, udg_Temp_PointB)
 GroupRemoveUnitSimple(BlzGetEventDamageTarget(), udg_UnitGroup_SiphoningTower[3])
-ForGroupBJ(udg_UnitGroup_SiphoningTower[3], Trig_Siphoning_Tower_Func003Func005A)
+ForGroupBJ(udg_UnitGroup_SiphoningTower[3], Trig_Siphoning_Tower_Func001Func001Func001Func005A)
 else
 end
+end
+end
     RemoveLocation(udg_Temp_PointB)
-if (Trig_Siphoning_Tower_Func006C()) then
+if (Trig_Siphoning_Tower_Func004C()) then
 SetUnitManaBJ(GetEventDamageSource(), (GetUnitStateSwap(UNIT_STATE_MANA, GetEventDamageSource()) + (GetEventDamage() * 0.10)))
 else
-if (Trig_Siphoning_Tower_Func006Func003C()) then
+if (Trig_Siphoning_Tower_Func004Func003C()) then
 SetUnitManaBJ(GetEventDamageSource(), (GetUnitStateSwap(UNIT_STATE_MANA, GetEventDamageSource()) + (GetEventDamage() * 0.15)))
 else
-if (Trig_Siphoning_Tower_Func006Func003Func003C()) then
+if (Trig_Siphoning_Tower_Func004Func003Func003C()) then
 SetUnitManaBJ(GetEventDamageSource(), (GetUnitStateSwap(UNIT_STATE_MANA, GetEventDamageSource()) + (GetEventDamage() * 0.20)))
 else
 end
 end
 end
-if (Trig_Siphoning_Tower_Func007C()) then
+if (Trig_Siphoning_Tower_Func005C()) then
 SetUnitAbilityLevelSwapped(FourCC("A01P"), GetEventDamageSource(), 1)
 else
-if (Trig_Siphoning_Tower_Func007Func001C()) then
+if (Trig_Siphoning_Tower_Func005Func001C()) then
 SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetEventDamageSource(), 1)
 else
-if (Trig_Siphoning_Tower_Func007Func001Func001C()) then
+if (Trig_Siphoning_Tower_Func005Func001Func001C()) then
 SetUnitAbilityLevelSwapped(FourCC("A01O"), GetEventDamageSource(), 1)
 else
 end
 end
 end
-if (Trig_Siphoning_Tower_Func008C()) then
+if (Trig_Siphoning_Tower_Func006C()) then
 SetUnitAbilityLevelSwapped(FourCC("A01P"), GetEventDamageSource(), 2)
 else
-if (Trig_Siphoning_Tower_Func008Func001C()) then
+if (Trig_Siphoning_Tower_Func006Func001C()) then
 SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetEventDamageSource(), 2)
 else
-if (Trig_Siphoning_Tower_Func008Func001Func001C()) then
+if (Trig_Siphoning_Tower_Func006Func001Func001C()) then
 SetUnitAbilityLevelSwapped(FourCC("A01O"), GetEventDamageSource(), 2)
 else
 end
 end
 end
-if (Trig_Siphoning_Tower_Func009C()) then
+if (Trig_Siphoning_Tower_Func007C()) then
 udg_Temp_PointA = GetUnitLoc(BlzGetEventDamageTarget())
 CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointA, bj_UNIT_FACING)
 UnitAddAbilityBJ(FourCC("A027"), GetLastCreatedUnit())
@@ -2283,8 +2344,7 @@ IssuePointOrderLocBJ(GetLastCreatedUnit(), "monsoon", udg_Temp_PointA)
 UnitApplyTimedLifeBJ(11.00, FourCC("BTLF"), GetLastCreatedUnit())
 SetUnitManaBJ(GetEventDamageSource(), (GetUnitStateSwap(UNIT_STATE_MANA, GetEventDamageSource()) - 40.00))
 else
-end
-if (Trig_Siphoning_Tower_Func010C()) then
+if (Trig_Siphoning_Tower_Func007Func001C()) then
 udg_Temp_PointA = GetUnitLoc(BlzGetEventDamageTarget())
 CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointA, bj_UNIT_FACING)
 UnitAddAbilityBJ(FourCC("A027"), GetLastCreatedUnit())
@@ -2293,8 +2353,7 @@ IssuePointOrderLocBJ(GetLastCreatedUnit(), "monsoon", udg_Temp_PointA)
 UnitApplyTimedLifeBJ(11.00, FourCC("BTLF"), GetLastCreatedUnit())
 SetUnitManaBJ(GetEventDamageSource(), (GetUnitStateSwap(UNIT_STATE_MANA, GetEventDamageSource()) - 80.00))
 else
-end
-if (Trig_Siphoning_Tower_Func011C()) then
+if (Trig_Siphoning_Tower_Func007Func001Func001C()) then
 udg_Temp_PointA = GetUnitLoc(BlzGetEventDamageTarget())
 CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointA, bj_UNIT_FACING)
 UnitAddAbilityBJ(FourCC("A027"), GetLastCreatedUnit())
@@ -2303,6 +2362,8 @@ IssuePointOrderLocBJ(GetLastCreatedUnit(), "monsoon", udg_Temp_PointA)
 UnitApplyTimedLifeBJ(11.00, FourCC("BTLF"), GetLastCreatedUnit())
 SetUnitManaBJ(GetEventDamageSource(), (GetUnitStateSwap(UNIT_STATE_MANA, GetEventDamageSource()) - 160.00))
 else
+end
+end
 end
     RemoveLocation(udg_Temp_PointA)
 end
@@ -2973,11 +3034,51 @@ end
 return true
 end
 
+function Trig_Hellfrost_Enchantment_Armor_Remove_Func003Func001Func001Func001C()
+if (not (udg_Integer_Array_GhastlyChance[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] <= 25)) then
+return false
+end
+if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I00F"))) == 3)) then
+return false
+end
+return true
+end
+
+function Trig_Hellfrost_Enchantment_Armor_Remove_Func003Func001Func001C()
+if (not (udg_Integer_Array_GhastlyChance[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] <= 20)) then
+return false
+end
+if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I00F"))) == 2)) then
+return false
+end
+return true
+end
+
 function Trig_Hellfrost_Enchantment_Armor_Remove_Func003Func001C()
 if (not (udg_Integer_Array_GhastlyChance[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] <= 15)) then
 return false
 end
 if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I00F"))) == 1)) then
+return false
+end
+return true
+end
+
+function Trig_Hellfrost_Enchantment_Armor_Remove_Func003Func002Func001Func001C()
+if (not (udg_Integer_Array_GhastlyChance[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] <= 25)) then
+return false
+end
+if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I00F"))) == 3)) then
+return false
+end
+return true
+end
+
+function Trig_Hellfrost_Enchantment_Armor_Remove_Func003Func002Func001C()
+if (not (udg_Integer_Array_GhastlyChance[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] <= 20)) then
+return false
+end
+if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I00F"))) == 2)) then
 return false
 end
 return true
@@ -3000,96 +3101,33 @@ end
 return true
 end
 
-function Trig_Hellfrost_Enchantment_Armor_Remove_Func004Func001C()
-if (not (udg_Integer_Array_GhastlyChance[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] <= 20)) then
-return false
-end
-if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I00F"))) == 2)) then
-return false
-end
-return true
-end
-
-function Trig_Hellfrost_Enchantment_Armor_Remove_Func004Func004C()
-if (not (udg_Integer_Array_GhastlyChance[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] <= 20)) then
-return false
-end
-if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I00F"))) == 2)) then
-return false
-end
-return true
-end
-
-function Trig_Hellfrost_Enchantment_Armor_Remove_Func004C()
-if (not (UnitHasBuffBJ(BlzGetEventDamageTarget(), FourCC("BHbn")) == true)) then
-return false
-end
-if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I00F"))) == 2)) then
-return false
-end
-return true
-end
-
-function Trig_Hellfrost_Enchantment_Armor_Remove_Func005Func001C()
-if (not (udg_Integer_Array_GhastlyChance[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] <= 25)) then
-return false
-end
-if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I00F"))) == 3)) then
-return false
-end
-return true
-end
-
-function Trig_Hellfrost_Enchantment_Armor_Remove_Func005Func002C()
-if (not (udg_Integer_Array_GhastlyChance[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] <= 25)) then
-return false
-end
-if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I00F"))) == 3)) then
-return false
-end
-return true
-end
-
-function Trig_Hellfrost_Enchantment_Armor_Remove_Func005C()
-if (not (UnitHasBuffBJ(BlzGetEventDamageTarget(), FourCC("BHbn")) == true)) then
-return false
-end
-return true
-end
-
 function Trig_Hellfrost_Enchantment_Armor_Remove_Actions()
 udg_Integer_Array_GhastlyChance[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] = GetRandomInt(1, 100)
 if (Trig_Hellfrost_Enchantment_Armor_Remove_Func003C()) then
 if (Trig_Hellfrost_Enchantment_Armor_Remove_Func003Func001C()) then
 BlzSetUnitArmor(BlzGetEventDamageTarget(), (BlzGetUnitArmor(BlzGetEventDamageTarget()) - 0.20))
 else
+if (Trig_Hellfrost_Enchantment_Armor_Remove_Func003Func001Func001C()) then
+BlzSetUnitArmor(BlzGetEventDamageTarget(), (BlzGetUnitArmor(BlzGetEventDamageTarget()) - 0.40))
+else
+if (Trig_Hellfrost_Enchantment_Armor_Remove_Func003Func001Func001Func001C()) then
+BlzSetUnitArmor(BlzGetEventDamageTarget(), (BlzGetUnitArmor(BlzGetEventDamageTarget()) - 0.80))
+else
+end
+end
 end
 else
 if (Trig_Hellfrost_Enchantment_Armor_Remove_Func003Func002C()) then
 BlzSetUnitArmor(BlzGetEventDamageTarget(), (BlzGetUnitArmor(BlzGetEventDamageTarget()) - 1))
 else
-end
-end
-if (Trig_Hellfrost_Enchantment_Armor_Remove_Func004C()) then
-if (Trig_Hellfrost_Enchantment_Armor_Remove_Func004Func004C()) then
-BlzSetUnitArmor(BlzGetEventDamageTarget(), (BlzGetUnitArmor(BlzGetEventDamageTarget()) - 0.40))
-else
-end
-else
-if (Trig_Hellfrost_Enchantment_Armor_Remove_Func004Func001C()) then
+if (Trig_Hellfrost_Enchantment_Armor_Remove_Func003Func002Func001C()) then
 BlzSetUnitArmor(BlzGetEventDamageTarget(), (BlzGetUnitArmor(BlzGetEventDamageTarget()) - 2.00))
 else
-end
-end
-if (Trig_Hellfrost_Enchantment_Armor_Remove_Func005C()) then
-if (Trig_Hellfrost_Enchantment_Armor_Remove_Func005Func002C()) then
-BlzSetUnitArmor(BlzGetEventDamageTarget(), (BlzGetUnitArmor(BlzGetEventDamageTarget()) - 0.80))
-else
-end
-else
-if (Trig_Hellfrost_Enchantment_Armor_Remove_Func005Func001C()) then
+if (Trig_Hellfrost_Enchantment_Armor_Remove_Func003Func002Func001Func001C()) then
 BlzSetUnitArmor(BlzGetEventDamageTarget(), (BlzGetUnitArmor(BlzGetEventDamageTarget()) - 4.00))
 else
+end
+end
 end
 end
 end
@@ -4038,11 +4076,28 @@ TriggerRegisterEnterRectSimple(gg_trg_Creep_Teleport_8, gg_rct_CreepSpawn8)
 TriggerAddAction(gg_trg_Creep_Teleport_8, Trig_Creep_Teleport_8_Actions)
 end
 
-function Trig_Creep_Count_Func011Func001A()
+function Trig_Creep_Count_Func001C()
+if (GetOwningPlayer(GetTriggerUnit()) == Player(10)) then
+return true
+end
+if (GetOwningPlayer(GetTriggerUnit()) == Player(11)) then
+return true
+end
+return false
+end
+
+function Trig_Creep_Count_Conditions()
+if (not Trig_Creep_Count_Func001C()) then
+return false
+end
+return true
+end
+
+function Trig_Creep_Count_Func012Func001A()
 CustomDefeatBJ(GetEnumPlayer(), "TRIGSTR_041")
 end
 
-function Trig_Creep_Count_Func011C()
+function Trig_Creep_Count_Func012C()
 if (not (udg_I_NumberOfCreeps >= 200)) then
 return false
 end
@@ -4052,8 +4107,8 @@ end
 function Trig_Creep_Count_Actions()
 udg_I_NumberOfCreeps = (udg_I_NumberOfCreeps + 1)
 LeaderboardSetPlayerItemValueBJ(Player(8), udg_LB_Info, udg_I_NumberOfCreeps)
-if (Trig_Creep_Count_Func011C()) then
-ForForce(GetPlayersAll(), Trig_Creep_Count_Func011Func001A)
+if (Trig_Creep_Count_Func012C()) then
+ForForce(GetPlayersAll(), Trig_Creep_Count_Func012Func001A)
 else
 end
 end
@@ -4068,6 +4123,7 @@ TriggerRegisterLeaveRectSimple(gg_trg_Creep_Count, gg_rct_CreepSpawn5)
 TriggerRegisterLeaveRectSimple(gg_trg_Creep_Count, gg_rct_CreepSpawn6)
 TriggerRegisterLeaveRectSimple(gg_trg_Creep_Count, gg_rct_CreepSpawn7)
 TriggerRegisterLeaveRectSimple(gg_trg_Creep_Count, gg_rct_CreepSpawn8)
+TriggerAddCondition(gg_trg_Creep_Count, Condition(Trig_Creep_Count_Conditions))
 TriggerAddAction(gg_trg_Creep_Count, Trig_Creep_Count_Actions)
 end
 
@@ -4373,6 +4429,7 @@ InitTrig_Sell_Towers()
 InitTrig_Lumber_Bounty()
 InitTrig_Invulnerable_Towers()
 InitTrig_Remove_Ethereal()
+InitTrig_Hellfire_Tower()
 InitTrig_Fluctation_Tower_AddRemove()
 InitTrig_Fluctuation_Tower_Ability()
 InitTrig_Fluctuation_Tower_Mana()
@@ -4646,13 +4703,12 @@ SetStartLocPrio(7, 1, 6, MAP_LOC_PRIO_HIGH)
 end
 
 function main()
-SetCameraBounds(-7168.0 + GetCameraMargin(CAMERA_MARGIN_LEFT), -2560.0 + GetCameraMargin(CAMERA_MARGIN_BOTTOM), 2048.0 - GetCameraMargin(CAMERA_MARGIN_RIGHT), 6656.0 - GetCameraMargin(CAMERA_MARGIN_TOP), -7168.0 + GetCameraMargin(CAMERA_MARGIN_LEFT), 6656.0 - GetCameraMargin(CAMERA_MARGIN_TOP), 2048.0 - GetCameraMargin(CAMERA_MARGIN_RIGHT), -2560.0 + GetCameraMargin(CAMERA_MARGIN_BOTTOM))
+SetCameraBounds(-7680.0 + GetCameraMargin(CAMERA_MARGIN_LEFT), -3072.0 + GetCameraMargin(CAMERA_MARGIN_BOTTOM), 2560.0 - GetCameraMargin(CAMERA_MARGIN_RIGHT), 7168.0 - GetCameraMargin(CAMERA_MARGIN_TOP), -7680.0 + GetCameraMargin(CAMERA_MARGIN_LEFT), 7168.0 - GetCameraMargin(CAMERA_MARGIN_TOP), 2560.0 - GetCameraMargin(CAMERA_MARGIN_RIGHT), -3072.0 + GetCameraMargin(CAMERA_MARGIN_BOTTOM))
 SetDayNightModels("Environment\\DNC\\DNCDungeon\\DNCDungeonTerrain\\DNCDungeonTerrain.mdl", "Environment\\DNC\\DNCDungeon\\DNCDungeonUnit\\DNCDungeonUnit.mdl")
 NewSoundEnvironment("Default")
 SetAmbientDaySound("DungeonDay")
 SetAmbientNightSound("DungeonNight")
 SetMapMusic("Music", true, 0)
-InitSounds()
 CreateRegions()
 CreateAllUnits()
 InitBlizzard()
