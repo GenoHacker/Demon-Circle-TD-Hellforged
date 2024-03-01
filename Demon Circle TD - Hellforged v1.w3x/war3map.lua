@@ -150,7 +150,6 @@ gg_trg_Creep_Spawn_5 = nil
 gg_trg_Creep_Spawn_6 = nil
 gg_trg_Creep_Spawn_7 = nil
 gg_trg_Creep_Spawn_8 = nil
-gg_unit_h00E_0013 = nil
 function InitGlobals()
 local i = 0
 
