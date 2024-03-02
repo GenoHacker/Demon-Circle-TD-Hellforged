@@ -80,8 +80,7 @@ Q
 
 STRING 38
 {
-|cffff9622Player Kills:|r
-------------------------------
+|cffff9622Kills - Difficulty = 100%|r
 }
 
 STRING 39
@@ -2765,16 +2764,6 @@ STRING 1094
 Doom Commander
 }
 
-STRING 1095
-// Items: I00F (Hellfrost Enchantment), Ubertip (Tooltip - Extended)
-{
-[Frost Tower Only]
-
-All items have 3 levels, you can give additional copies of the item to the tower to level it up.
-
-Upon attacking an enemy their is a 15%/20%/25% chance to reduce armor by 1/2/4, armour reduction is reduced if the target is spirit linked.
-}
-
 STRING 1096
 // Items: I000 (Soul Eater), Ubertip (Tooltip - Extended)
 {
@@ -3621,42 +3610,6 @@ Multishot (3)
 Fluctuating Energy
 }
 
-STRING 1329
-// Abilities: A01P (Siphon 1), Ubertip (Tooltip - Normal - Extended)
-{
-Gains mana equal to 10% of damage dealt, when reaching 99% total mana the tower will use 40 mana to release a storm of lightning, dealing 35 spell damage every 2 seconds to units within a 300 area of effect, this will cast each time the tower deals damage until it reachs 10% mana.
-}
-
-STRING 1330
-// Abilities: A01P (Siphon 1), Ubertip (Tooltip - Normal - Extended)
-{
-Gains mana equal to 10% of damage dealt, when reaching 99% total mana the tower will use 40 mana to release a storm of lightning, dealing 35 spell damage every 2 seconds to units within a 300 area of effect, this will cast each time the tower deals damage until it reachs 10% mana.
-}
-
-STRING 1333
-// Abilities: A01O (Siphon 3), Ubertip (Tooltip - Normal - Extended)
-{
-Gains mana equal to 20% of damage dealt, when reaching 99% total mana the tower will use 160 mana to release a storm of lightning, dealing 75 spell damage every 1 second to units within a 500 area of effect, this will cast each time the tower deals damage until it reachs 10% mana.
-}
-
-STRING 1334
-// Abilities: A01O (Siphon 3), Ubertip (Tooltip - Normal - Extended)
-{
-Gains mana equal to 20% of damage dealt, when reaching 99% total mana the tower will use 160 mana to release a storm of lightning, dealing 75 spell damage every 1 second to units within a 500 area of effect, this will cast each time the tower deals damage until it reachs 10% mana.
-}
-
-STRING 1335
-// Abilities: A01Q (Siphon 2), Ubertip (Tooltip - Normal - Extended)
-{
-Gains mana equal to 15% of damage dealt, when reaching 99% total mana the tower will use 80 mana to release a storm of lightning, dealing 50 spell damage every 1.5 seconds to units within a 400 area of effect, this will cast each time the tower deals damage until it reachs 10% mana.
-}
-
-STRING 1336
-// Abilities: A01Q (Siphon 2), Ubertip (Tooltip - Normal - Extended)
-{
-Gains mana equal to 15% of damage dealt, when reaching 99% total mana the tower will use 80 mana to release a storm of lightning, dealing 50 spell damage every 1.5 seconds to units within a 400 area of effect, this will cast each time the tower deals damage until it reachs 10% mana.
-}
-
 STRING 1337
 // Units: u01H (Hellfire Tower Level 1), Name (Name)
 {
@@ -3889,5 +3842,53 @@ STRING 1411
 STRING 1412
 {
 dzbHsCc
+}
+
+STRING 1413
+// Items: I00F (Hellfrost Enchantment), Ubertip (Tooltip - Extended)
+{
+[Frost Tower Only]
+
+All items have 3 levels, you can give additional copies of the item to the tower to level it up.
+
+Tower deals extra spell damage equal to 50% of damage dealt to an enemy unit.
+
+Upon attacking an enemy their is a 15%/20%/25% chance to reduce armor by 1/2/4, armour reduction is reduced if the target is spirit linked.
+}
+
+STRING 1414
+// Abilities: A01O (Siphon 3), Ubertip (Tooltip - Normal - Extended)
+{
+Gains mana equal to 20% of damage dealt, when reaching 99% total mana the tower will use 160 mana to release a storm of lightning, dealing 150 spell damage every 0.50 seconds to units within a 500 area of effect, this will cast each time the tower deals damage until it reachs 10% mana.
+}
+
+STRING 1415
+// Abilities: A01O (Siphon 3), Ubertip (Tooltip - Normal - Extended)
+{
+Gains mana equal to 20% of damage dealt, when reaching 99% total mana the tower will use 160 mana to release a storm of lightning, dealing 150 spell damage every 0.50 seconds to units within a 500 area of effect, this will cast each time the tower deals damage until it reachs 10% mana.
+}
+
+STRING 1416
+// Abilities: A01P (Siphon 1), Ubertip (Tooltip - Normal - Extended)
+{
+Gains mana equal to 10% of damage dealt, when reaching 99% total mana the tower will use 40 mana to release a storm of lightning, dealing 50 spell damage every 1 second to units within a 300 area of effect, this will cast each time the tower deals damage until it reachs 10% mana.
+}
+
+STRING 1417
+// Abilities: A01P (Siphon 1), Ubertip (Tooltip - Normal - Extended)
+{
+Gains mana equal to 10% of damage dealt, when reaching 99% total mana the tower will use 40 mana to release a storm of lightning, dealing 50 spell damage every 1 second to units within a 300 area of effect, this will cast each time the tower deals damage until it reachs 10% mana.
+}
+
+STRING 1418
+// Abilities: A01Q (Siphon 2), Ubertip (Tooltip - Normal - Extended)
+{
+Gains mana equal to 15% of damage dealt, when reaching 99% total mana the tower will use 80 mana to release a storm of lightning, dealing 100 spell damage every 0.75 seconds to units within a 400 area of effect, this will cast each time the tower deals damage until it reachs 10% mana.
+}
+
+STRING 1419
+// Abilities: A01Q (Siphon 2), Ubertip (Tooltip - Normal - Extended)
+{
+Gains mana equal to 15% of damage dealt, when reaching 99% total mana the tower will use 80 mana to release a storm of lightning, dealing 100 spell damage every 0.75 seconds to units within a 400 area of effect, this will cast each time the tower deals damage until it reachs 10% mana.
 }
 
