@@ -818,7 +818,11 @@ end
 return true
 end
 
-function Trig_Next_Round_Func009C()
+function Trig_Next_Round_Func005A()
+AdjustPlayerStateBJ(5, GetEnumPlayer(), PLAYER_STATE_RESOURCE_GOLD)
+end
+
+function Trig_Next_Round_Func010C()
 if (not (udg_I_Round ~= 80)) then
 return false
 end
@@ -850,11 +854,12 @@ udg_Integer_CommanderChance = GetRandomInt(1, 1000)
 else
 end
 udg_I_Round = (udg_I_Round + 1)
+ForForce(GetPlayersAll(), Trig_Next_Round_Func005A)
 DisplayTextToForce(GetPlayersAll(), ("|cffffcc00Level " .. (I2S(udg_I_Round) .. "!|r")))
 LeaderboardSetPlayerItemValueBJ(Player(9), GetLastCreatedLeaderboard(), udg_I_Round)
 DestroyTimerDialogBJ(udg_TW_NextRound)
 StartTimerBJ(udg_T_NextRound, false, 30.00)
-if (Trig_Next_Round_Func009C()) then
+if (Trig_Next_Round_Func010C()) then
 CreateTimerDialogBJ(GetLastCreatedTimerBJ(), ("Round " .. (I2S((udg_I_Round + 1)) .. " in:")))
 TimerDialogDisplayBJ(true, GetLastCreatedTimerDialogBJ())
 udg_TW_NextRound = GetLastCreatedTimerDialogBJ()
