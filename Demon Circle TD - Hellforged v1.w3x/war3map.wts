@@ -80,22 +80,12 @@ Q
 
 STRING 38
 {
-|cffff9622Kills - Difficulty = 100%|r
-}
 
-STRING 39
-{
-Demons [Max 300]:
 }
 
 STRING 40
 {
 Wave:
-}
-
-STRING 41
-{
-|cffffcc00You lost! Try again!|r
 }
 
 STRING 63
@@ -1835,12 +1825,12 @@ Difficulty
 
 STRING 780
 {
-Everyone chose to increase difficulty, it has been increased by an additional 8%.
+Everyone chose to increase difficulty, it has been increased by an additional 20%.
 }
 
 STRING 781
 {
-Everyone chose to decrease difficulty, it has been decreased by an additional 4%.
+Everyone chose to decrease difficulty, it has been decreased by an additional 5%.
 }
 
 STRING 802
@@ -2559,7 +2549,7 @@ Information
 
 STRING 1066
 {
-Every 5th waves has Spell Damage Reduction.
+Every 5th wave has Spell Damage Reduction.
 Every 10th wave has Spell Damage Reduction and Hardened Skin.
 You gain 1 gold when another player kills your creeps.
 Each wave after 10 has a chance to spawn banished, have mana shield and/or spawn a commander that has a chance to have 1, multiple or no auras, it may also cast spirit link on itself and the wave.
@@ -2894,26 +2884,6 @@ STRING 1135
 Siphon 2
 }
 
-STRING 1142
-// Units: u013 (Siphoning Tower Level 2), Ubertip (Tooltip - Extended)
-{
-Magic Damage
-Dmg: 100
-Cooldown: 0.45s
-Range: 900
-Siphon
-}
-
-STRING 1144
-// Units: u015 (Siphoning Tower Level 3), Ubertip (Tooltip - Extended)
-{
-Magic Damage
-Dmg: 200
-Cooldown: 0.40s
-Range: 1000
-Siphon
-}
-
 STRING 1146
 {
 Type: |Cffffcc00Spell|R
@@ -2988,16 +2958,6 @@ STRING 1167
 // Abilities: A01W (Feedback 3), Tip (Tooltip - Normal)
 {
 Feedback 3
-}
-
-STRING 1168
-// Units: u014 (Siphoning Tower Level 1), Ubertip (Tooltip - Extended)
-{
-Magic Damage
-Dmg: 50
-Cooldown: 0.50s
-Range: 800
-Siphon
 }
 
 STRING 1171
@@ -3890,5 +3850,54 @@ STRING 1419
 // Abilities: A01Q (Siphon 2), Ubertip (Tooltip - Normal - Extended)
 {
 Gains mana equal to 15% of damage dealt, when reaching 99% total mana the tower will use 80 mana to release a storm of lightning, dealing 100 spell damage every 0.75 seconds to units within a 400 area of effect, this will cast each time the tower deals damage until it reachs 10% mana.
+}
+
+STRING 1424
+{
+|cffffcc00You lost! Try again!|r
+}
+
+STRING 1425
+{
+Information 2
+}
+
+STRING 1426
+{
+Difficulty has a base value of 100%, at the start of the game players may choose to increase, do nothing, or decrease it. Increasing the difficulty will also increase the number of units spawned each wave and lower the threshold that lives will start depleting at. If all players increased or decreased then the difficulty will be adjusted depending the choices made.
+
+The max unit count is determined by how many players their are, [50 x Player Count] and then adjusted if any player increased the difficulty.
+
+Lives will deplete every 2 seconds when the number of enemy units alive on the map is over the threshold, the amount of lives lost increase with each wave.
+}
+
+STRING 1427
+// Units: u013 (Siphoning Tower Level 2), Ubertip (Tooltip - Extended)
+{
+Magic Damage
+Dmg: 200
+Cooldown: 0.45s
+Range: 900
+Siphon
+}
+
+STRING 1428
+// Units: u014 (Siphoning Tower Level 1), Ubertip (Tooltip - Extended)
+{
+Magic Damage
+Dmg: 100
+Cooldown: 0.50s
+Range: 800
+Siphon
+}
+
+STRING 1429
+// Units: u015 (Siphoning Tower Level 3), Ubertip (Tooltip - Extended)
+{
+Magic Damage
+Dmg: 400
+Cooldown: 0.40s
+Range: 1000
+Siphon
 }
 

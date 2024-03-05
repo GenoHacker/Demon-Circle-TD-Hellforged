@@ -51,6 +51,8 @@ udg_UnitType_Array_FluctuationTow = __jarray(0)
 udg_Real_Array_MonsterTRadius = __jarray(0.0)
 udg_Real_Array_MonsterTDamage = __jarray(0.0)
 udg_Real_Array_SoulEaterDamage = __jarray(0.0)
+udg_Real_Array_SiphoningTowerItem = __jarray(0.0)
+udg_Real_Lives = 0.0
 gg_rct_CreepSpawn1 = nil
 gg_rct_CreepSpawn2 = nil
 gg_rct_CreepSpawn3 = nil
@@ -86,7 +88,7 @@ gg_rct_Teleport_Green_2 = nil
 gg_trg_Map_Initialization = nil
 gg_trg_Leaderboard = nil
 gg_trg_Starting_Locations = nil
-gg_trg_Test_Difficulty = nil
+gg_trg_Test = nil
 gg_trg_Difficulty_Dialog_Start = nil
 gg_trg_Difficulty_Adjust = nil
 gg_trg_Difficulty_Dialog_Stop = nil
@@ -150,6 +152,7 @@ gg_trg_Creep_Spawn_5 = nil
 gg_trg_Creep_Spawn_6 = nil
 gg_trg_Creep_Spawn_7 = nil
 gg_trg_Creep_Spawn_8 = nil
+gg_trg_Lives = nil
 function InitGlobals()
 local i = 0
 
@@ -255,6 +258,13 @@ if ((i > 1)) then break end
 udg_Real_Array_SoulEaterDamage[i] = 0.0
 i = i + 1
 end
+i = 0
+while (true) do
+if ((i > 1)) then break end
+udg_Real_Array_SiphoningTowerItem[i] = 0.0
+i = i + 1
+end
+udg_Real_Lives = 100.00
 end
 
 function CreateUnitsForPlayer0()
@@ -438,6 +448,7 @@ else
 end
 bj_forLoopAIndex = bj_forLoopAIndex + 1
 end
+udg_Integer_MaxCreeps = (50 * udg_Integer_PlayerCount)
 SetPlayerFlagBJ(PLAYER_STATE_GIVES_BOUNTY, true, Player(10))
 SetPlayerFlagBJ(PLAYER_STATE_GIVES_BOUNTY, true, Player(11))
 SetPlayerAllianceStateBJ(Player(8), Player(10), bj_ALLIANCE_ALLIED_VISION)
@@ -446,6 +457,7 @@ UseTimeOfDayBJ(false)
 SetTimeOfDay(12)
 CreateQuestBJ(bj_QUESTTYPE_REQ_DISCOVERED, "TRIGSTR_482", "TRIGSTR_483", "ReplaceableTextures\\CommandButtons\\BTNSnazzyScrollPurple.blp")
 CreateQuestBJ(bj_QUESTTYPE_REQ_DISCOVERED, "TRIGSTR_1065", "TRIGSTR_1066", "ReplaceableTextures\\CommandButtons\\BTNSnazzyScrollPurple.blp")
+CreateQuestBJ(bj_QUESTTYPE_REQ_DISCOVERED, "TRIGSTR_1425", "TRIGSTR_1426", "ReplaceableTextures\\CommandButtons\\BTNSnazzyScrollPurple.blp")
 CreateQuestBJ(bj_QUESTTYPE_OPT_DISCOVERED, "TRIGSTR_539", "TRIGSTR_540", "ReplaceableTextures\\CommandButtons\\BTNSnazzyScroll.blp")
 CreateQuestBJ(bj_QUESTTYPE_OPT_DISCOVERED, "TRIGSTR_1411", "TRIGSTR_1412", "ReplaceableTextures\\CommandButtons\\BTNSnazzyScroll.blp")
 udg_Real_Array_SoulEaterDamage[1] = 0.33
@@ -583,7 +595,7 @@ gg_trg_Map_Initialization = CreateTrigger()
 TriggerAddAction(gg_trg_Map_Initialization, Trig_Map_Initialization_Actions)
 end
 
-function Trig_Leaderboard_Func003Func001C()
+function Trig_Leaderboard_Func004Func001C()
 if (not (GetPlayerSlotState(ConvertedPlayer(GetForLoopIndexA())) == PLAYER_SLOT_STATE_PLAYING)) then
 return false
 end
@@ -592,12 +604,13 @@ end
 
 function Trig_Leaderboard_Actions()
 CreateLeaderboardBJ(GetPlayersAll(), "TRIGSTR_038")
+LeaderboardSetLabelBJ(GetLastCreatedLeaderboard(), (("|cffff9622Lives = " .. (("|cff8080ff" .. "100.000") .. "%|r ")) .. (("|cffff9622Diff = " .. "100") .. "%|r")))
 udg_LB_Info = GetLastCreatedLeaderboard()
 bj_forLoopAIndex = 1
 bj_forLoopAIndexEnd = 8
 while (true) do
 if (bj_forLoopAIndex > bj_forLoopAIndexEnd) then break end
-if (Trig_Leaderboard_Func003Func001C()) then
+if (Trig_Leaderboard_Func004Func001C()) then
 LeaderboardAddItemBJ(ConvertedPlayer(GetForLoopIndexA()), udg_LB_Info, GetPlayerName(ConvertedPlayer(GetForLoopIndexA())), udg_I_Kills[GetConvertedPlayerId(ConvertedPlayer(GetForLoopIndexA()))])
 else
 LeaderboardAddItemBJ(ConvertedPlayer(GetForLoopIndexA()), udg_LB_Info, "TRIGSTR_116", udg_I_Kills[GetConvertedPlayerId(ConvertedPlayer(GetForLoopIndexA()))])
@@ -605,7 +618,7 @@ end
 bj_forLoopAIndex = bj_forLoopAIndex + 1
 end
 LeaderboardAddItemBJ(Player(9), GetLastCreatedLeaderboard(), "TRIGSTR_040", udg_I_Round)
-LeaderboardAddItemBJ(Player(8), GetLastCreatedLeaderboard(), "TRIGSTR_039", udg_I_NumberOfCreeps)
+LeaderboardAddItemBJ(Player(8), GetLastCreatedLeaderboard(), ("Demons [Max " .. (I2S(udg_Integer_MaxCreeps) .. "]:")), udg_I_NumberOfCreeps)
 end
 
 function InitTrig_Leaderboard()
@@ -634,17 +647,17 @@ TriggerRegisterTimerEventSingle(gg_trg_Starting_Locations, 0.00)
 TriggerAddAction(gg_trg_Starting_Locations, Trig_Starting_Locations_Actions)
 end
 
-function Trig_Test_Difficulty_Actions()
+function Trig_Test_Actions()
 udg_Integer_EnemyHandicap = S2I(SubStringBJ(ParseTags(GetEventPlayerChatString()), 3, 5))
 DisplayTimedTextToForce(GetPlayersAll(), 5.00, ("Difficulty is now: " .. (I2S(udg_Integer_EnemyHandicap) .. "%")))
 SetPlayerHandicapBJ(Player(10), I2R(udg_Integer_EnemyHandicap))
 SetPlayerHandicapBJ(Player(11), I2R(udg_Integer_EnemyHandicap))
 end
 
-function InitTrig_Test_Difficulty()
-gg_trg_Test_Difficulty = CreateTrigger()
-TriggerRegisterPlayerChatEvent(gg_trg_Test_Difficulty, Player(0), "-d", false)
-TriggerAddAction(gg_trg_Test_Difficulty, Trig_Test_Difficulty_Actions)
+function InitTrig_Test()
+gg_trg_Test = CreateTrigger()
+TriggerRegisterPlayerChatEvent(gg_trg_Test, Player(0), "-d", false)
+TriggerAddAction(gg_trg_Test, Trig_Test_Actions)
 end
 
 function Trig_Difficulty_Dialog_Start_Actions()
@@ -749,7 +762,7 @@ DialogDisplayBJ(false, udg_Dialog_Difficulty, ConvertedPlayer(GetForLoopIndexA()
 bj_forLoopAIndex = bj_forLoopAIndex + 1
 end
 if (Trig_Difficulty_Dialog_Stop_Func003C()) then
-udg_Integer_EnemyHandicap = (udg_Integer_EnemyHandicap + 8)
+udg_Integer_EnemyHandicap = (udg_Integer_EnemyHandicap + 20)
 DisplayTimedTextToForce(GetPlayersAll(), 5.00, "TRIGSTR_780")
 DisplayTimedTextToForce(GetPlayersAll(), 5.00, ("Difficulty is now: " .. (I2S(udg_Integer_EnemyHandicap) .. "%")))
 SetPlayerHandicapBJ(Player(10), I2R(udg_Integer_EnemyHandicap))
@@ -757,13 +770,15 @@ SetPlayerHandicapBJ(Player(11), I2R(udg_Integer_EnemyHandicap))
 else
 end
 if (Trig_Difficulty_Dialog_Stop_Func004C()) then
-udg_Integer_EnemyHandicap = (udg_Integer_EnemyHandicap - 4)
+udg_Integer_EnemyHandicap = (udg_Integer_EnemyHandicap - 5)
 DisplayTimedTextToForce(GetPlayersAll(), 5.00, "TRIGSTR_781")
 DisplayTimedTextToForce(GetPlayersAll(), 5.00, ("Difficulty is now: " .. (I2S(udg_Integer_EnemyHandicap) .. "%")))
 SetPlayerHandicapBJ(Player(10), I2R(udg_Integer_EnemyHandicap))
 SetPlayerHandicapBJ(Player(11), I2R(udg_Integer_EnemyHandicap))
 else
 end
+LeaderboardSetLabelBJ(GetLastCreatedLeaderboard(), (("|cffff9622Lives = " .. (("|cff8080ff" .. R2S(udg_Real_Lives)) .. "%|r ")) .. (("|cffff9622Diff = " .. I2S(udg_Integer_EnemyHandicap)) .. "%|r")))
+LeaderboardAddItemBJ(Player(8), GetLastCreatedLeaderboard(), ("Demons [Max " .. (I2S(udg_Integer_MaxCreeps) .. "]:")), udg_I_NumberOfCreeps)
 end
 
 function InitTrig_Difficulty_Dialog_Stop()
@@ -1257,6 +1272,85 @@ DisableTrigger(gg_trg_Wave_Buffs)
 TriggerRegisterEnterRectSimple(gg_trg_Wave_Buffs, GetPlayableMapRect())
 TriggerAddCondition(gg_trg_Wave_Buffs, Condition(Trig_Wave_Buffs_Conditions))
 TriggerAddAction(gg_trg_Wave_Buffs, Trig_Wave_Buffs_Actions)
+end
+
+function Trig_Lives_Func001Func002Func001Func001Func002C()
+if (not (udg_Real_Lives <= 29.99)) then
+return false
+end
+return true
+end
+
+function Trig_Lives_Func001Func002Func001Func001C()
+if (not (udg_Real_Lives >= 30.00)) then
+return false
+end
+return true
+end
+
+function Trig_Lives_Func001Func002Func001C()
+if (not (udg_Real_Lives >= 50.00)) then
+return false
+end
+return true
+end
+
+function Trig_Lives_Func001Func002C()
+if (not (udg_Real_Lives >= 75.00)) then
+return false
+end
+return true
+end
+
+function Trig_Lives_Func001Func003Func001A()
+CustomDefeatBJ(GetEnumPlayer(), "TRIGSTR_1424")
+end
+
+function Trig_Lives_Func001Func003C()
+if (not (udg_Real_Lives <= 0.00)) then
+return false
+end
+return true
+end
+
+function Trig_Lives_Func001C()
+if (not (udg_I_NumberOfCreeps >= udg_Integer_MaxCreeps)) then
+return false
+end
+return true
+end
+
+function Trig_Lives_Actions()
+if (Trig_Lives_Func001C()) then
+udg_Real_Lives = ((udg_Real_Lives - 1) - (I2R(udg_I_Round) * 0.05))
+if (Trig_Lives_Func001Func002C()) then
+LeaderboardSetLabelBJ(GetLastCreatedLeaderboard(), (("|cffff9622Lives = " .. (("|cff8080ff" .. R2S(udg_Real_Lives)) .. "%|r ")) .. (("|cffff9622Diff = " .. I2S(udg_Integer_EnemyHandicap)) .. "%|r")))
+else
+if (Trig_Lives_Func001Func002Func001C()) then
+LeaderboardSetLabelBJ(GetLastCreatedLeaderboard(), (("|cffff9622Lives = " .. (("|cffffff00" .. R2S(udg_Real_Lives)) .. "%|r ")) .. (("|cffff9622Diff = " .. I2S(udg_Integer_EnemyHandicap)) .. "%|r")))
+else
+if (Trig_Lives_Func001Func002Func001Func001C()) then
+LeaderboardSetLabelBJ(GetLastCreatedLeaderboard(), (("|cffff9622Lives = " .. (("|cffd45e19" .. R2S(udg_Real_Lives)) .. "%|r ")) .. (("|cffff9622Diff = " .. I2S(udg_Integer_EnemyHandicap)) .. "%|r")))
+else
+if (Trig_Lives_Func001Func002Func001Func001Func002C()) then
+LeaderboardSetLabelBJ(GetLastCreatedLeaderboard(), (("|cffff9622Lives = " .. (("|cffff0000" .. R2S(udg_Real_Lives)) .. "%|r ")) .. (("|cffff9622Diff = " .. I2S(udg_Integer_EnemyHandicap)) .. "%|r")))
+else
+end
+end
+end
+end
+if (Trig_Lives_Func001Func003C()) then
+ForForce(GetPlayersAll(), Trig_Lives_Func001Func003Func001A)
+else
+end
+else
+end
+end
+
+function InitTrig_Lives()
+gg_trg_Lives = CreateTrigger()
+TriggerRegisterTimerEventPeriodic(gg_trg_Lives, 2)
+TriggerAddAction(gg_trg_Lives, Trig_Lives_Actions)
 end
 
 function Trig_Unit_Die_Func001Func001A()
@@ -3037,7 +3131,12 @@ end
 function Trig_Hellfrost_Enchantment_Armor_Remove_Actions()
 udg_Integer_Array_GhastlyChance[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] = GetRandomInt(1, 100)
 if (Trig_Hellfrost_Enchantment_Armor_Remove_Func003C()) then
-UnitDamageTargetBJ(GetEventDamageSource(), BlzGetEventDamageTarget(), (GetEventDamage() * 0.50), ATTACK_TYPE_NORMAL, DAMAGE_TYPE_NORMAL)
+udg_Temp_PointB = GetUnitLoc(BlzGetEventDamageTarget())
+CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointB, bj_UNIT_FACING)
+UnitDamageTargetBJ(GetLastCreatedUnit(), BlzGetEventDamageTarget(), (GetEventDamage() * 0.50), ATTACK_TYPE_NORMAL, DAMAGE_TYPE_NORMAL)
+UnitApplyTimedLifeBJ(1.00, FourCC("BTLF"), GetLastCreatedUnit())
+        RemoveLocation(udg_Temp_PointB)
+return 
 else
 end
 if (Trig_Hellfrost_Enchantment_Armor_Remove_Func004C()) then
@@ -4030,24 +4129,9 @@ end
 return true
 end
 
-function Trig_Creep_Count_Func012Func001A()
-CustomDefeatBJ(GetEnumPlayer(), "TRIGSTR_041")
-end
-
-function Trig_Creep_Count_Func012C()
-if (not (udg_I_NumberOfCreeps >= udg_Integer_MaxCreeps)) then
-return false
-end
-return true
-end
-
 function Trig_Creep_Count_Actions()
 udg_I_NumberOfCreeps = (udg_I_NumberOfCreeps + 1)
 LeaderboardSetPlayerItemValueBJ(Player(8), udg_LB_Info, udg_I_NumberOfCreeps)
-if (Trig_Creep_Count_Func012C()) then
-ForForce(GetPlayersAll(), Trig_Creep_Count_Func012Func001A)
-else
-end
 end
 
 function InitTrig_Creep_Count()
@@ -4352,7 +4436,7 @@ function InitCustomTriggers()
 InitTrig_Map_Initialization()
 InitTrig_Leaderboard()
 InitTrig_Starting_Locations()
-InitTrig_Test_Difficulty()
+InitTrig_Test()
 InitTrig_Difficulty_Dialog_Start()
 InitTrig_Difficulty_Adjust()
 InitTrig_Difficulty_Dialog_Stop()
@@ -4360,6 +4444,7 @@ InitTrig_Next_Round()
 InitTrig_Wave_Spawning()
 InitTrig_Commander_Spawning()
 InitTrig_Wave_Buffs()
+InitTrig_Lives()
 InitTrig_Unit_Die()
 InitTrig_Leaving_Players()
 InitTrig_Sell_Towers()
