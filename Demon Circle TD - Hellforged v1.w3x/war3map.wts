@@ -1140,6 +1140,8 @@ STRING 483
 -- Fixed memory leaks
 -- Trigger Optimizations
 -- Changes to all waves
+-- Changes to leaderboard
+-- Changes to defeat conditions
 -- Added wave modifiers
 -- Added new towers
 -- Added Items for each tower
@@ -2494,30 +2496,10 @@ STRING 1047
 Custom
 }
 
-STRING 1051
-// Items: I002 (Khorns Gift), Ubertip (Tooltip - Extended)
-{
-[Inferno Gate Only]
-
-All items have 3 levels, you can give additional copies of the item to the tower to level it up.
-
-25% Chance to deal 3 times damage, Upon killing an enemy the tower will gain 40%/75%/125% damage and 75%/150%/225% attack speed, can not trigger whilst it is active.
-}
-
 STRING 1053
 // Abilities: A01C (Khorns Strike), Name (Name)
 {
 Khorns Strike
-}
-
-STRING 1054
-// Units: u00S (Carrion Tower Level 2), Ubertip (Tooltip - Extended)
-{
-Dmg: 200 - 400
-Cooldown: 2.0s
-Range: 800
-Bouncing Attack (5)
-Disables Health Regen
 }
 
 STRING 1057
@@ -2530,16 +2512,6 @@ STRING 1062
 // Items: I004 (Argent Conduit), Hotkey (Hotkey)
 {
 S
-}
-
-STRING 1064
-// Units: u00U (Carrion Tower Level 3), Ubertip (Tooltip - Extended)
-{
-Dmg: 600 - 1000
-Cooldown: 1.8s
-Range: 1000
-Bouncing Attack (6)
-Disables Health Regen
 }
 
 STRING 1065
@@ -2726,17 +2698,6 @@ Dmg: 100 - 500
 Cooldown: 4.0s
 Range: 1000
 Incinerate
-}
-
-STRING 1092
-// Units: u00T (Carrion Tower Level 1), Ubertip (Tooltip - Extended)
-{
-Chaos Damage
-Dmg: 75 - 150
-Cooldown: 2.0s
-Range: 800
-Bouncing Attack (4)
-Disables Health Regen
 }
 
 STRING 1093
@@ -3264,16 +3225,6 @@ STRING 1238
 Purchase Pulsating Flesh
 }
 
-STRING 1239
-// Items: I003 (Pulsating Flesh), Ubertip (Tooltip - Extended)
-{
-[Monstrosity Tower Only]
-
-All items have 3 levels, you can give additional copies of the item to the tower to level it up.
-
-When the tower deals damage, either through attack or damage over time, enemies within 75/100/125 aoe of the point of damage will take 10/15/20 x number of stacks spell damage.
-}
-
 STRING 1240
 // Items: I003 (Pulsating Flesh), Description (Description)
 {
@@ -3690,17 +3641,6 @@ STRING 1373
 [Hellfire Tower]
 }
 
-STRING 1376
-// Units: u01I (Hellfire Tower Level 2), Ubertip (Tooltip - Extended)
-{
-Siege Damage
-Dmg: 400 - 600
-Cooldown: 5.0s
-Range: 700
-Splash (100)
-Infernal Core
-}
-
 STRING 1397
 // Abilities: A01S (Infernal Core), Ubertip (Tooltip - Normal - Extended)
 {
@@ -3758,28 +3698,6 @@ STRING 1404
 {
 Magic Damage
 Dmg: 25 - 100 |nCooldown: 4.0s |nRange: 600 |nFrost (4s) |nSplash (125)
-}
-
-STRING 1407
-// Units: u01H (Hellfire Tower Level 1), Ubertip (Tooltip - Extended)
-{
-Siege Damage
-Dmg: 100 - 200
-Cooldown: 6.0s
-Range: 600
-Splash (100)
-Infernal Core
-}
-
-STRING 1408
-// Units: u01G (Hellfire Tower Level 3), Ubertip (Tooltip - Extended)
-{
-Siege Damage
-Dmg: 800 - 1200
-Cooldown: 4.0s
-Range: 800
-Splash (100)
-Infernal Core
 }
 
 STRING 1409
@@ -3899,5 +3817,89 @@ Dmg: 400
 Cooldown: 0.40s
 Range: 1000
 Siphon
+}
+
+STRING 1430
+// Units: u00S (Carrion Tower Level 2), Ubertip (Tooltip - Extended)
+{
+Dmg: 400 - 600
+Cooldown: 1.75s
+Range: 900
+Bouncing Attack (5)
+Disables Health Regen
+}
+
+STRING 1431
+// Units: u00T (Carrion Tower Level 1), Ubertip (Tooltip - Extended)
+{
+Chaos Damage
+Dmg: 100 - 200
+Cooldown: 2.0s
+Range: 800
+Bouncing Attack (4)
+Disables Health Regen
+}
+
+STRING 1432
+// Units: u00U (Carrion Tower Level 3), Ubertip (Tooltip - Extended)
+{
+Dmg: 800 - 1600
+Cooldown: 1.5s
+Range: 1000
+Bouncing Attack (6)
+Disables Health Regen
+}
+
+STRING 1433
+// Units: u01G (Hellfire Tower Level 3), Ubertip (Tooltip - Extended)
+{
+Siege Damage
+Dmg: 800 - 1200
+Cooldown: 3.0s
+Range: 800
+Splash (100)
+Infernal Core
+}
+
+STRING 1434
+// Units: u01H (Hellfire Tower Level 1), Ubertip (Tooltip - Extended)
+{
+Siege Damage
+Dmg: 100 - 200
+Cooldown: 4.0s
+Range: 600
+Splash (100)
+Infernal Core
+}
+
+STRING 1435
+// Units: u01I (Hellfire Tower Level 2), Ubertip (Tooltip - Extended)
+{
+Siege Damage
+Dmg: 400 - 600
+Cooldown: 3.5s
+Range: 700
+Splash (100)
+Infernal Core
+}
+
+STRING 1436
+// Items: I003 (Pulsating Flesh), Ubertip (Tooltip - Extended)
+{
+[Monstrosity Tower Only]
+
+All items have 3 levels, you can give additional copies of the item to the tower to level it up.
+
+When the tower deals damage, either through attack or damage over time, enemies within 100/150/200 aoe of the point of damage will take 20/25/30 x number of stacks spell damage.
+}
+
+STRING 1437
+// Items: I002 (Khorns Gift), Ubertip (Tooltip - Extended)
+{
+[Inferno Gate Only]
+
+All items have 3 levels, you can give additional copies of the item to the tower to level it up.
+
+40% Chance to deal 5 times damage, Upon killing an enemy the tower will gain 40%/75%/125% damage and 75%/150%/225% attack speed, can not trigger whilst it is active.
 }
 
