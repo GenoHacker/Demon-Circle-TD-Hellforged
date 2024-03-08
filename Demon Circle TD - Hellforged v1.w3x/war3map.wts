@@ -2651,16 +2651,6 @@ Range: 1000
 Incinerate
 }
 
-STRING 1086
-// Items: I005 (Ghastly Vial), Ubertip (Tooltip - Extended)
-{
-[Ghost Tower Only]
-
-All items have 3 levels, you can give additional copies of the item to the tower to level it up.
-
-Upon attacking an enemy their is a 8%/12%/16% chance to summon a Ghost that will cast chain lightning. Ghost last for 4/6/8 seconds, can not summon a Ghost whilst one is already summoned.
-}
-
 STRING 1087
 // Units: u000 (Ghost Tower Level 1), Ubertip (Tooltip - Extended)
 {
@@ -3587,18 +3577,6 @@ STRING 1357
 Build Hellfire Tower
 }
 
-STRING 1362
-// Items: I006 (Volatile Catalyst), Ubertip (Tooltip - Extended)
-{
-[Hellfire Tower Only]
-
-All items have 3 levels, you can give additional copies of the item to the tower to level it up.
-
-25% increase attack speed.
-
-10%/20%/40% less chance to trigger Infernal Core reset.
-}
-
 STRING 1365
 // Abilities: A01S (Infernal Core), Name (Name)
 {
@@ -3901,5 +3879,27 @@ STRING 1437
 All items have 3 levels, you can give additional copies of the item to the tower to level it up.
 
 40% Chance to deal 5 times damage, Upon killing an enemy the tower will gain 40%/75%/125% damage and 75%/150%/225% attack speed, can not trigger whilst it is active.
+}
+
+STRING 1438
+// Items: I006 (Volatile Catalyst), Ubertip (Tooltip - Extended)
+{
+[Hellfire Tower Only]
+
+All items have 3 levels, you can give additional copies of the item to the tower to level it up.
+
+25% increased attack speed.
+
+10%/20%/40% less chance to trigger Infernal Core reset.
+}
+
+STRING 1439
+// Items: I005 (Ghastly Vial), Ubertip (Tooltip - Extended)
+{
+[Ghost Tower Only]
+
+All items have 3 levels, you can give additional copies of the item to the tower to level it up.
+
+Upon attacking an enemy their is a 12%/24%/36% chance to summon a Ghost that will cast chain lightning. Ghost last for 4/6/8 seconds, can not summon a Ghost whilst one is already summoned.
 }
 

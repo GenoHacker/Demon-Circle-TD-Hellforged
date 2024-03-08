@@ -2666,7 +2666,7 @@ return true
 end
 
 function Trig_Ghastly_Vial_Unit_Func003Func002Func001Func001Func003C()
-if (not (udg_Integer_Array_GhastlyChance[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] <= 16)) then
+if (not (udg_Integer_Array_GhastlyChance[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] <= 36)) then
 return false
 end
 return true
@@ -2680,7 +2680,7 @@ return true
 end
 
 function Trig_Ghastly_Vial_Unit_Func003Func002Func001Func004C()
-if (not (udg_Integer_Array_GhastlyChance[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] <= 12)) then
+if (not (udg_Integer_Array_GhastlyChance[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] <= 24)) then
 return false
 end
 return true
@@ -2694,7 +2694,7 @@ return true
 end
 
 function Trig_Ghastly_Vial_Unit_Func003Func002C()
-if (not (udg_Integer_Array_GhastlyChance[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] <= 8)) then
+if (not (udg_Integer_Array_GhastlyChance[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] <= 12)) then
 return false
 end
 return true
