@@ -53,6 +53,8 @@ udg_Real_Array_MonsterTDamage = __jarray(0.0)
 udg_Real_Array_SoulEaterDamage = __jarray(0.0)
 udg_Real_Array_SiphoningTowerItem = __jarray(0.0)
 udg_Real_Lives = 0.0
+udg_Real_WaveTimer = 0.0
+udg_Real_WaveHealthModifier = 0.0
 gg_rct_CreepSpawn1 = nil
 gg_rct_CreepSpawn2 = nil
 gg_rct_CreepSpawn3 = nil
@@ -267,6 +269,8 @@ udg_Real_Array_SiphoningTowerItem[i] = 0.0
 i = i + 1
 end
 udg_Real_Lives = 100.00
+udg_Real_WaveTimer = 30.00
+udg_Real_WaveHealthModifier = 1.00
 end
 
 function CreateUnitsForPlayer0()
@@ -450,6 +454,7 @@ else
 end
 bj_forLoopAIndex = bj_forLoopAIndex + 1
 end
+udg_Real_WaveHealthModifier = (udg_Real_WaveHealthModifier + (0.05 * I2R(udg_Integer_PlayerCount)))
 udg_Integer_MaxCreeps = (60 * udg_Integer_PlayerCount)
 SetPlayerFlagBJ(PLAYER_STATE_GIVES_BOUNTY, true, Player(10))
 SetPlayerFlagBJ(PLAYER_STATE_GIVES_BOUNTY, true, Player(11))
@@ -779,8 +784,6 @@ DialogAddButtonBJ(udg_Dialog_Difficulty, "TRIGSTR_768")
 udg_DialogButton_Array_Difficulty[1] = GetLastCreatedButtonBJ()
 DialogAddButtonBJ(udg_Dialog_Difficulty, "TRIGSTR_769")
 udg_DialogButton_Array_Difficulty[2] = GetLastCreatedButtonBJ()
-DialogAddButtonBJ(udg_Dialog_Difficulty, "TRIGSTR_770")
-udg_DialogButton_Array_Difficulty[3] = GetLastCreatedButtonBJ()
 bj_forLoopAIndex = 1
 bj_forLoopAIndexEnd = udg_Integer_PlayerCount
 while (true) do
@@ -810,37 +813,21 @@ end
 return true
 end
 
-function Trig_Difficulty_Adjust_Func003C()
-if (not (GetClickedButtonBJ() == udg_DialogButton_Array_Difficulty[3])) then
-return false
-end
-return true
-end
-
 function Trig_Difficulty_Adjust_Actions()
 if (Trig_Difficulty_Adjust_Func001C()) then
 udg_Integer_EnemyHandicap = (udg_Integer_EnemyHandicap + 10)
-DisplayTimedTextToForce(GetPlayersAll(), 5.00, (GetPlayerName(GetTriggerPlayer()) .. " has increased difficulty by 10%."))
-DisplayTimedTextToForce(GetPlayersAll(), 5.00, (GetPlayerName(GetTriggerPlayer()) .. " has increased spawn count by 1."))
+DisplayTimedTextToForce(GetPlayersAll(), 5.00, (GetPlayerName(GetTriggerPlayer()) .. " has chose to increase difficulty."))
 SetPlayerHandicapBJ(Player(10), I2R(udg_Integer_EnemyHandicap))
 SetPlayerHandicapBJ(Player(11), I2R(udg_Integer_EnemyHandicap))
 DisplayTimedTextToForce(GetPlayersAll(), 5.00, ("Difficulty is now: " .. (I2S(udg_Integer_EnemyHandicap) .. "%")))
 udg_Integer_MaxCreeps = (udg_Integer_MaxCreeps - 10)
 udg_Integer_Array_DifficultyVote[1] = (udg_Integer_Array_DifficultyVote[1] + 1)
-udg_Integer_MaxSpawncount = (udg_Integer_MaxSpawncount + udg_Integer_Array_DifficultyVote[1])
+udg_Integer_MaxSpawncount = (udg_Integer_MaxSpawncount + 2)
+udg_Real_WaveTimer = (udg_Real_WaveTimer - 1)
 else
 end
 if (Trig_Difficulty_Adjust_Func002C()) then
-DisplayTimedTextToForce(GetPlayersAll(), 5.00, (GetPlayerName(GetTriggerPlayer()) .. " decided neither to Increase or Decrease difficulty."))
-else
-end
-if (Trig_Difficulty_Adjust_Func003C()) then
-udg_Integer_EnemyHandicap = (udg_Integer_EnemyHandicap - 5)
-DisplayTimedTextToForce(GetPlayersAll(), 5.00, (GetPlayerName(GetTriggerPlayer()) .. " has decreased difficulty by 5%."))
-SetPlayerHandicapBJ(Player(10), I2R(udg_Integer_EnemyHandicap))
-SetPlayerHandicapBJ(Player(11), I2R(udg_Integer_EnemyHandicap))
-DisplayTimedTextToForce(GetPlayersAll(), 5.00, ("Difficulty is now: " .. (I2S(udg_Integer_EnemyHandicap) .. "%")))
-udg_Integer_Array_DifficultyVote[2] = (udg_Integer_Array_DifficultyVote[2] + 1)
+DisplayTimedTextToForce(GetPlayersAll(), 5.00, (GetPlayerName(GetTriggerPlayer()) .. " decided not to increases difficulty."))
 else
 end
 end
@@ -858,13 +845,6 @@ end
 return true
 end
 
-function Trig_Difficulty_Dialog_Stop_Func004C()
-if (not (udg_Integer_Array_DifficultyVote[2] == udg_Integer_PlayerCount)) then
-return false
-end
-return true
-end
-
 function Trig_Difficulty_Dialog_Stop_Actions()
 LeaderboardAddItemBJ(Player(8), GetLastCreatedLeaderboard(), ("Demons [Max " .. (I2S(udg_Integer_MaxCreeps) .. "]:")), udg_I_NumberOfCreeps)
 bj_forLoopAIndex = 1
@@ -877,14 +857,6 @@ end
 if (Trig_Difficulty_Dialog_Stop_Func003C()) then
 udg_Integer_EnemyHandicap = (udg_Integer_EnemyHandicap + 20)
 DisplayTimedTextToForce(GetPlayersAll(), 5.00, "TRIGSTR_780")
-DisplayTimedTextToForce(GetPlayersAll(), 5.00, ("Difficulty is now: " .. (I2S(udg_Integer_EnemyHandicap) .. "%")))
-SetPlayerHandicapBJ(Player(10), I2R(udg_Integer_EnemyHandicap))
-SetPlayerHandicapBJ(Player(11), I2R(udg_Integer_EnemyHandicap))
-else
-end
-if (Trig_Difficulty_Dialog_Stop_Func004C()) then
-udg_Integer_EnemyHandicap = (udg_Integer_EnemyHandicap - 5)
-DisplayTimedTextToForce(GetPlayersAll(), 5.00, "TRIGSTR_781")
 DisplayTimedTextToForce(GetPlayersAll(), 5.00, ("Difficulty is now: " .. (I2S(udg_Integer_EnemyHandicap) .. "%")))
 SetPlayerHandicapBJ(Player(10), I2R(udg_Integer_EnemyHandicap))
 SetPlayerHandicapBJ(Player(11), I2R(udg_Integer_EnemyHandicap))
@@ -924,18 +896,18 @@ end
 return true
 end
 
-function Trig_Next_Round_Func003C()
+function Trig_Next_Round_Func004C()
 if (not (udg_I_Round >= 11)) then
 return false
 end
 return true
 end
 
-function Trig_Next_Round_Func005A()
+function Trig_Next_Round_Func006A()
 AdjustPlayerStateBJ(5, GetEnumPlayer(), PLAYER_STATE_RESOURCE_GOLD)
 end
 
-function Trig_Next_Round_Func010C()
+function Trig_Next_Round_Func011C()
 if (not (udg_I_Round ~= 80)) then
 return false
 end
@@ -957,8 +929,9 @@ return
 else
 end
 end
+udg_Real_WaveHealthModifier = (udg_Real_WaveHealthModifier + (0.05 * I2R(udg_Integer_PlayerCount)))
 EnableTrigger(gg_trg_Wave_Spawning)
-if (Trig_Next_Round_Func003C()) then
+if (Trig_Next_Round_Func004C()) then
 EnableTrigger(gg_trg_Wave_Buffs)
 EnableTrigger(gg_trg_Commander_Spawning)
 udg_Integer_EtherealChance = GetRandomInt(1, 1000)
@@ -967,12 +940,12 @@ udg_Integer_CommanderChance = GetRandomInt(1, 1000)
 else
 end
 udg_I_Round = (udg_I_Round + 1)
-ForForce(GetPlayersAll(), Trig_Next_Round_Func005A)
+ForForce(GetPlayersAll(), Trig_Next_Round_Func006A)
 DisplayTextToForce(GetPlayersAll(), ("|cffffcc00Level " .. (I2S(udg_I_Round) .. "!|r")))
 LeaderboardSetPlayerItemValueBJ(Player(9), GetLastCreatedLeaderboard(), udg_I_Round)
 DestroyTimerDialogBJ(udg_TW_NextRound)
-StartTimerBJ(udg_T_NextRound, false, 30.00)
-if (Trig_Next_Round_Func010C()) then
+StartTimerBJ(udg_T_NextRound, false, udg_Real_WaveTimer)
+if (Trig_Next_Round_Func011C()) then
 CreateTimerDialogBJ(GetLastCreatedTimerBJ(), ("Round " .. (I2S((udg_I_Round + 1)) .. " in:")))
 TimerDialogDisplayBJ(true, GetLastCreatedTimerDialogBJ())
 udg_TW_NextRound = GetLastCreatedTimerDialogBJ()
@@ -1078,6 +1051,8 @@ udg_Integer_Spawncount = (udg_Integer_Spawncount + 1)
 udg_Temp_PointSpawn1 = GetRectCenter(gg_rct_CreepSpawn1)
 if (Trig_Wave_Spawning_Func004C()) then
 CreateNUnitsAtLoc(1, udg_UT_UnitType[udg_I_Round], Player(11), udg_Temp_PointSpawn1, 320.00)
+BlzSetUnitArmor(GetLastCreatedUnit(), (BlzGetUnitArmor(GetLastCreatedUnit()) + (I2R(udg_I_Round) * 0.10)))
+SetUnitLifeBJ(GetLastCreatedUnit(), (GetUnitStateSwap(UNIT_STATE_LIFE, GetLastCreatedUnit()) * udg_Real_WaveHealthModifier))
 UnitAddAbilityBJ(FourCC("Aeth"), GetLastCreatedUnit())
 else
 end
@@ -1085,6 +1060,8 @@ end
 udg_Temp_PointSpawn2 = GetRectCenter(gg_rct_CreepSpawn2)
 if (Trig_Wave_Spawning_Func007C()) then
 CreateNUnitsAtLoc(1, udg_UT_UnitType[udg_I_Round], Player(11), udg_Temp_PointSpawn2, 270.00)
+BlzSetUnitArmor(GetLastCreatedUnit(), (BlzGetUnitArmor(GetLastCreatedUnit()) + (I2R(udg_I_Round) * 0.10)))
+SetUnitLifeBJ(GetLastCreatedUnit(), (GetUnitStateSwap(UNIT_STATE_LIFE, GetLastCreatedUnit()) * udg_Real_WaveHealthModifier))
 UnitAddAbilityBJ(FourCC("Aeth"), GetLastCreatedUnit())
 else
 end
@@ -1092,6 +1069,8 @@ end
 udg_Temp_PointSpawn3 = GetRectCenter(gg_rct_CreepSpawn3)
 if (Trig_Wave_Spawning_Func010C()) then
 CreateNUnitsAtLoc(1, udg_UT_UnitType[udg_I_Round], Player(11), udg_Temp_PointSpawn3, 225.00)
+BlzSetUnitArmor(GetLastCreatedUnit(), (BlzGetUnitArmor(GetLastCreatedUnit()) + (I2R(udg_I_Round) * 0.10)))
+SetUnitLifeBJ(GetLastCreatedUnit(), (GetUnitStateSwap(UNIT_STATE_LIFE, GetLastCreatedUnit()) * udg_Real_WaveHealthModifier))
 UnitAddAbilityBJ(FourCC("Aeth"), GetLastCreatedUnit())
 else
 end
@@ -1099,6 +1078,8 @@ end
 udg_Temp_PointSpawn4 = GetRectCenter(gg_rct_CreepSpawn4)
 if (Trig_Wave_Spawning_Func013C()) then
 CreateNUnitsAtLoc(1, udg_UT_UnitType[udg_I_Round], Player(11), udg_Temp_PointSpawn4, 180.00)
+BlzSetUnitArmor(GetLastCreatedUnit(), (BlzGetUnitArmor(GetLastCreatedUnit()) + (I2R(udg_I_Round) * 0.10)))
+SetUnitLifeBJ(GetLastCreatedUnit(), (GetUnitStateSwap(UNIT_STATE_LIFE, GetLastCreatedUnit()) * udg_Real_WaveHealthModifier))
 UnitAddAbilityBJ(FourCC("Aeth"), GetLastCreatedUnit())
 else
 end
@@ -1106,6 +1087,8 @@ end
 udg_Temp_PointSpawn5 = GetRectCenter(gg_rct_CreepSpawn5)
 if (Trig_Wave_Spawning_Func016C()) then
 CreateNUnitsAtLoc(1, udg_UT_UnitType[udg_I_Round], Player(10), udg_Temp_PointSpawn5, 135.00)
+BlzSetUnitArmor(GetLastCreatedUnit(), (BlzGetUnitArmor(GetLastCreatedUnit()) + (I2R(udg_I_Round) * 0.10)))
+SetUnitLifeBJ(GetLastCreatedUnit(), (GetUnitStateSwap(UNIT_STATE_LIFE, GetLastCreatedUnit()) * udg_Real_WaveHealthModifier))
 UnitAddAbilityBJ(FourCC("Aeth"), GetLastCreatedUnit())
 else
 end
@@ -1113,6 +1096,8 @@ end
 udg_Temp_PointSpawn6 = GetRectCenter(gg_rct_CreepSpawn6)
 if (Trig_Wave_Spawning_Func019C()) then
 CreateNUnitsAtLoc(1, udg_UT_UnitType[udg_I_Round], Player(10), udg_Temp_PointSpawn6, 90.00)
+BlzSetUnitArmor(GetLastCreatedUnit(), (BlzGetUnitArmor(GetLastCreatedUnit()) + (I2R(udg_I_Round) * 0.10)))
+SetUnitLifeBJ(GetLastCreatedUnit(), (GetUnitStateSwap(UNIT_STATE_LIFE, GetLastCreatedUnit()) * udg_Real_WaveHealthModifier))
 UnitAddAbilityBJ(FourCC("Aeth"), GetLastCreatedUnit())
 else
 end
@@ -1120,6 +1105,8 @@ end
 udg_Temp_PointSpawn7 = GetRectCenter(gg_rct_CreepSpawn7)
 if (Trig_Wave_Spawning_Func022C()) then
 CreateNUnitsAtLoc(1, udg_UT_UnitType[udg_I_Round], Player(10), udg_Temp_PointSpawn7, 45.00)
+BlzSetUnitArmor(GetLastCreatedUnit(), (BlzGetUnitArmor(GetLastCreatedUnit()) + (I2R(udg_I_Round) * 0.10)))
+SetUnitLifeBJ(GetLastCreatedUnit(), (GetUnitStateSwap(UNIT_STATE_LIFE, GetLastCreatedUnit()) * udg_Real_WaveHealthModifier))
 UnitAddAbilityBJ(FourCC("Aeth"), GetLastCreatedUnit())
 else
 end
@@ -1127,6 +1114,8 @@ end
 udg_Temp_PointSpawn8 = GetRectCenter(gg_rct_CreepSpawn8)
 if (Trig_Wave_Spawning_Func025C()) then
 CreateNUnitsAtLoc(1, udg_UT_UnitType[udg_I_Round], Player(10), udg_Temp_PointSpawn8, 0.00)
+BlzSetUnitArmor(GetLastCreatedUnit(), (BlzGetUnitArmor(GetLastCreatedUnit()) + (I2R(udg_I_Round) * 0.10)))
+SetUnitLifeBJ(GetLastCreatedUnit(), (GetUnitStateSwap(UNIT_STATE_LIFE, GetLastCreatedUnit()) * udg_Real_WaveHealthModifier))
 UnitAddAbilityBJ(FourCC("Aeth"), GetLastCreatedUnit())
 else
 end
@@ -1255,8 +1244,9 @@ function Trig_Commander_Spawning_Actions()
 udg_Temp_PointCommander[1] = GetRectCenter(gg_rct_CreepSpawn1)
 if (Trig_Commander_Spawning_Func003C()) then
 CreateNUnitsAtLoc(1, FourCC("n001"), Player(11), udg_Temp_PointCommander[1], 320.00)
-BlzSetUnitMaxHP(GetLastCreatedUnit(), (500 + (100 * udg_I_Round)))
-SetUnitLifePercentBJ(GetLastCreatedUnit(), 100)
+BlzSetUnitArmor(GetLastCreatedUnit(), (BlzGetUnitArmor(GetLastCreatedUnit()) + (I2R(udg_I_Round) * 0.10)))
+SetUnitLifeBJ(GetLastCreatedUnit(), (500.00 + (100.00 * I2R(udg_I_Round))))
+SetUnitLifeBJ(GetLastCreatedUnit(), (GetUnitStateSwap(UNIT_STATE_LIFE, GetLastCreatedUnit()) * udg_Real_WaveHealthModifier))
 UnitAddAbilityBJ(FourCC("Aeth"), GetLastCreatedUnit())
 else
 end
@@ -1264,8 +1254,9 @@ end
 udg_Temp_PointCommander[2] = GetRectCenter(gg_rct_CreepSpawn2)
 if (Trig_Commander_Spawning_Func006C()) then
 CreateNUnitsAtLoc(1, FourCC("n001"), Player(11), udg_Temp_PointCommander[2], 270.00)
-BlzSetUnitMaxHP(GetLastCreatedUnit(), (500 + (100 * udg_I_Round)))
-SetUnitLifePercentBJ(GetLastCreatedUnit(), 100)
+BlzSetUnitArmor(GetLastCreatedUnit(), (BlzGetUnitArmor(GetLastCreatedUnit()) + (I2R(udg_I_Round) * 0.10)))
+SetUnitLifeBJ(GetLastCreatedUnit(), (500.00 + (100.00 * I2R(udg_I_Round))))
+SetUnitLifeBJ(GetLastCreatedUnit(), (GetUnitStateSwap(UNIT_STATE_LIFE, GetLastCreatedUnit()) * udg_Real_WaveHealthModifier))
 UnitAddAbilityBJ(FourCC("Aeth"), GetLastCreatedUnit())
 else
 end
@@ -1273,8 +1264,9 @@ end
 udg_Temp_PointCommander[3] = GetRectCenter(gg_rct_CreepSpawn3)
 if (Trig_Commander_Spawning_Func009C()) then
 CreateNUnitsAtLoc(1, FourCC("n001"), Player(11), udg_Temp_PointCommander[3], 225.00)
-BlzSetUnitMaxHP(GetLastCreatedUnit(), (500 + (100 * udg_I_Round)))
-SetUnitLifePercentBJ(GetLastCreatedUnit(), 100)
+BlzSetUnitArmor(GetLastCreatedUnit(), (BlzGetUnitArmor(GetLastCreatedUnit()) + (I2R(udg_I_Round) * 0.10)))
+SetUnitLifeBJ(GetLastCreatedUnit(), (500.00 + (100.00 * I2R(udg_I_Round))))
+SetUnitLifeBJ(GetLastCreatedUnit(), (GetUnitStateSwap(UNIT_STATE_LIFE, GetLastCreatedUnit()) * udg_Real_WaveHealthModifier))
 UnitAddAbilityBJ(FourCC("Aeth"), GetLastCreatedUnit())
 else
 end
@@ -1282,16 +1274,18 @@ end
 udg_Temp_PointCommander[4] = GetRectCenter(gg_rct_CreepSpawn4)
 if (Trig_Commander_Spawning_Func012C()) then
 CreateNUnitsAtLoc(1, FourCC("n001"), Player(11), udg_Temp_PointCommander[4], 180.00)
-BlzSetUnitMaxHP(GetLastCreatedUnit(), (500 + (100 * udg_I_Round)))
-SetUnitLifePercentBJ(GetLastCreatedUnit(), 100)
+BlzSetUnitArmor(GetLastCreatedUnit(), (BlzGetUnitArmor(GetLastCreatedUnit()) + (I2R(udg_I_Round) * 0.10)))
+SetUnitLifeBJ(GetLastCreatedUnit(), (500.00 + (100.00 * I2R(udg_I_Round))))
+SetUnitLifeBJ(GetLastCreatedUnit(), (GetUnitStateSwap(UNIT_STATE_LIFE, GetLastCreatedUnit()) * udg_Real_WaveHealthModifier))
 UnitAddAbilityBJ(FourCC("Aeth"), GetLastCreatedUnit())
 else
 end
 udg_Temp_PointCommander[5] = GetRectCenter(gg_rct_CreepSpawn5)
 if (Trig_Commander_Spawning_Func014C()) then
 CreateNUnitsAtLoc(1, FourCC("n001"), Player(11), udg_Temp_PointCommander[5], 135.00)
-BlzSetUnitMaxHP(GetLastCreatedUnit(), (500 + (100 * udg_I_Round)))
-SetUnitLifePercentBJ(GetLastCreatedUnit(), 100)
+BlzSetUnitArmor(GetLastCreatedUnit(), (BlzGetUnitArmor(GetLastCreatedUnit()) + (I2R(udg_I_Round) * 0.10)))
+SetUnitLifeBJ(GetLastCreatedUnit(), (500.00 + (100.00 * I2R(udg_I_Round))))
+SetUnitLifeBJ(GetLastCreatedUnit(), (GetUnitStateSwap(UNIT_STATE_LIFE, GetLastCreatedUnit()) * udg_Real_WaveHealthModifier))
 UnitAddAbilityBJ(FourCC("Aeth"), GetLastCreatedUnit())
 else
 end
@@ -1299,8 +1293,9 @@ end
 udg_Temp_PointCommander[6] = GetRectCenter(gg_rct_CreepSpawn6)
 if (Trig_Commander_Spawning_Func017C()) then
 CreateNUnitsAtLoc(1, FourCC("n001"), Player(11), udg_Temp_PointCommander[6], 90.00)
-BlzSetUnitMaxHP(GetLastCreatedUnit(), (500 + (100 * udg_I_Round)))
-SetUnitLifePercentBJ(GetLastCreatedUnit(), 100)
+BlzSetUnitArmor(GetLastCreatedUnit(), (BlzGetUnitArmor(GetLastCreatedUnit()) + (I2R(udg_I_Round) * 0.10)))
+SetUnitLifeBJ(GetLastCreatedUnit(), (500.00 + (100.00 * I2R(udg_I_Round))))
+SetUnitLifeBJ(GetLastCreatedUnit(), (GetUnitStateSwap(UNIT_STATE_LIFE, GetLastCreatedUnit()) * udg_Real_WaveHealthModifier))
 UnitAddAbilityBJ(FourCC("Aeth"), GetLastCreatedUnit())
 else
 end
@@ -1308,8 +1303,9 @@ end
 udg_Temp_PointCommander[7] = GetRectCenter(gg_rct_CreepSpawn7)
 if (Trig_Commander_Spawning_Func020C()) then
 CreateNUnitsAtLoc(1, FourCC("n001"), Player(11), udg_Temp_PointCommander[7], 45.00)
-BlzSetUnitMaxHP(GetLastCreatedUnit(), (500 + (100 * udg_I_Round)))
-SetUnitLifePercentBJ(GetLastCreatedUnit(), 100)
+BlzSetUnitArmor(GetLastCreatedUnit(), (BlzGetUnitArmor(GetLastCreatedUnit()) + (I2R(udg_I_Round) * 0.10)))
+SetUnitLifeBJ(GetLastCreatedUnit(), (500.00 + (100.00 * I2R(udg_I_Round))))
+SetUnitLifeBJ(GetLastCreatedUnit(), (GetUnitStateSwap(UNIT_STATE_LIFE, GetLastCreatedUnit()) * udg_Real_WaveHealthModifier))
 UnitAddAbilityBJ(FourCC("Aeth"), GetLastCreatedUnit())
 else
 end
@@ -1317,8 +1313,9 @@ end
 udg_Temp_PointCommander[8] = GetRectCenter(gg_rct_CreepSpawn8)
 if (Trig_Commander_Spawning_Func023C()) then
 CreateNUnitsAtLoc(1, FourCC("n001"), Player(11), udg_Temp_PointCommander[8], 0.00)
-BlzSetUnitMaxHP(GetLastCreatedUnit(), (500 + (100 * udg_I_Round)))
-SetUnitLifePercentBJ(GetLastCreatedUnit(), 100)
+BlzSetUnitArmor(GetLastCreatedUnit(), (BlzGetUnitArmor(GetLastCreatedUnit()) + (I2R(udg_I_Round) * 0.10)))
+SetUnitLifeBJ(GetLastCreatedUnit(), (500.00 + (100.00 * I2R(udg_I_Round))))
+SetUnitLifeBJ(GetLastCreatedUnit(), (GetUnitStateSwap(UNIT_STATE_LIFE, GetLastCreatedUnit()) * udg_Real_WaveHealthModifier))
 UnitAddAbilityBJ(FourCC("Aeth"), GetLastCreatedUnit())
 else
 end
@@ -1678,14 +1675,17 @@ TriggerRegisterAnyUnitEventBJ(gg_trg_Unit_Die, EVENT_PLAYER_UNIT_DEATH)
 TriggerAddAction(gg_trg_Unit_Die, Trig_Unit_Die_Actions)
 end
 
-function Trig_Leaving_Players_Func003A()
+function Trig_Leaving_Players_Func006A()
 RemoveUnit(GetEnumUnit())
 end
 
 function Trig_Leaving_Players_Actions()
+udg_Integer_PlayerCount = (udg_Integer_PlayerCount - 1)
+udg_Integer_MaxCreeps = (udg_Integer_MaxCreeps - 60)
+LeaderboardSetPlayerItemLabelBJ(Player(8), GetLastCreatedLeaderboard(), ("Demons [Max " .. (I2S(udg_Integer_MaxCreeps) .. "]:")))
 DisplayTextToForce(GetPlayersAll(), (("|cffffaa00" .. (" " .. GetPlayerName(GetTriggerPlayer()))) .. "has left the game!!|r"))
     bj_wantDestroyGroup = true
-ForGroupBJ(GetUnitsOfPlayerAll(GetTriggerPlayer()), Trig_Leaving_Players_Func003A)
+ForGroupBJ(GetUnitsOfPlayerAll(GetTriggerPlayer()), Trig_Leaving_Players_Func006A)
 LeaderboardSetPlayerItemLabelBJ(GetTriggerPlayer(), udg_LB_Info, "TRIGSTR_112")
 end
 
