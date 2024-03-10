@@ -2328,16 +2328,6 @@ STRING 1021
 Purchase Satans Claw
 }
 
-STRING 1022
-// Items: I00A (Satans Claw), Ubertip (Tooltip - Extended)
-{
-[Chaos Tower Only]
-
-All items have 3 levels, you can give additional copies of the item to the tower to level it up.
-
-Streams of demonic energy emanate from the tower dealing 50/80/110 damage on hit and 25/40/55 damage per second for 4/6/8 seconds.
-}
-
 STRING 1023
 // Items: I00A (Satans Claw), Description (Description)
 {
@@ -2426,54 +2416,6 @@ STRING 1037
 Demon Fire 2
 }
 
-STRING 1038
-// Abilities: A00H (Player 2 Creeps), Name (Name)
-{
-Player 2 Creeps
-}
-
-STRING 1039
-// Abilities: A00N (Player 3 Creeps), Name (Name)
-{
-Player 3 Creeps
-}
-
-STRING 1040
-// Abilities: A014 (Player 4 Creeps), Name (Name)
-{
-Player 4 Creeps
-}
-
-STRING 1041
-// Abilities: A015 (Player 5 Creeps), Name (Name)
-{
-Player 5 Creeps
-}
-
-STRING 1042
-// Abilities: A016 (Player 6 Creeps), Name (Name)
-{
-Player 6 Creeps
-}
-
-STRING 1043
-// Abilities: A017 (Player 7 Creeps), Name (Name)
-{
-Player 7 Creeps
-}
-
-STRING 1044
-// Abilities: A018 (Player 8 Creeps), Name (Name)
-{
-Player 8 Creeps
-}
-
-STRING 1045
-// Abilities: A019 (Player 1 Creeps), Name (Name)
-{
-Player 1 Creeps
-}
-
 STRING 1046
 // Abilities: A01A (Spell Damage Reduction), EditorSuffix (Editor Suffix)
 {
@@ -2531,12 +2473,6 @@ Divine beings take full damage from Chaos attacks and reduced damage from non- c
 STRING 1069
 {
 Divine beings take full damage from Chaos attacks and reduced damage from non- chaos attacks.
-}
-
-STRING 1070
-// Units: u012 (Glacier Tower), Ubertip (Tooltip - Extended)
-{
-Dmg: 200 - 400 |nCooldown: 2.5s |nRange: 800 |nFrost (5s) |nSplash (225)
 }
 
 STRING 1071
@@ -3655,19 +3591,6 @@ Range: 700
 Sanguine Spike
 }
 
-STRING 1403
-// Units: u00C (Freezer Tower), Ubertip (Tooltip - Extended)
-{
-Dmg: 100 - 200 |nCooldown: 3.0s |nRange: 700 |nFrost (3s) |nSplash (175)
-}
-
-STRING 1404
-// Units: u00B (Frost Tower), Ubertip (Tooltip - Extended)
-{
-Magic Damage
-Dmg: 25 - 100 |nCooldown: 4.0s |nRange: 600 |nFrost (4s) |nSplash (125)
-}
-
 STRING 1409
 // Abilities: A000 (Sell Tower), Ubertip (Tooltip - Normal - Extended)
 {
@@ -3757,36 +3680,6 @@ Addtionally waves gain 5% extra health per active player.
 The max unit count is determined by how many players their are, [50 x Player Count] and then adjusted if any player increased the difficulty, max unit count will decrease if a player leaves.
 
 Lives will deplete every 2 seconds when the number of enemy units alive on the map is over the threshold, the amount of lives lost increase with each wave.
-}
-
-STRING 1427
-// Units: u013 (Siphoning Tower Level 2), Ubertip (Tooltip - Extended)
-{
-Magic Damage
-Dmg: 200
-Cooldown: 0.45s
-Range: 900
-Siphon
-}
-
-STRING 1428
-// Units: u014 (Siphoning Tower Level 1), Ubertip (Tooltip - Extended)
-{
-Magic Damage
-Dmg: 100
-Cooldown: 0.50s
-Range: 800
-Siphon
-}
-
-STRING 1429
-// Units: u015 (Siphoning Tower Level 3), Ubertip (Tooltip - Extended)
-{
-Magic Damage
-Dmg: 400
-Cooldown: 0.40s
-Range: 1000
-Siphon
 }
 
 STRING 1430
@@ -3885,7 +3778,60 @@ All items have 3 levels, you can give additional copies of the item to the tower
 10%/20%/40% less chance to trigger Infernal Core reset.
 }
 
-STRING 1439
+STRING 1440
+{
+You can buy items in the middle.
+}
+
+STRING 1442
+// Units: u00C (Freezer Tower), Ubertip (Tooltip - Extended)
+{
+Dmg: 100 - 200
+Cooldown: 3.0s
+Range: 700
+Frost (3s)
+Splash (175)
+
+Effective against ethereal units
+}
+
+STRING 1443
+// Units: u013 (Siphoning Tower Level 2), Ubertip (Tooltip - Extended)
+{
+Magic Damage
+Dmg: 200
+Cooldown: 0.45s
+Range: 900
+Siphon
+
+Effective against ethereal units
+}
+
+STRING 1444
+// Units: u014 (Siphoning Tower Level 1), Ubertip (Tooltip - Extended)
+{
+Magic Damage
+Dmg: 100
+Cooldown: 0.50s
+Range: 800
+Siphon
+
+Effective against ethereal units
+}
+
+STRING 1445
+// Units: u015 (Siphoning Tower Level 3), Ubertip (Tooltip - Extended)
+{
+Magic Damage
+Dmg: 400
+Cooldown: 0.40s
+Range: 1000
+Siphon
+
+Effective against ethereal units
+}
+
+STRING 1446
 // Items: I005 (Ghastly Vial), Ubertip (Tooltip - Extended)
 {
 [Ghost Tower Only]
@@ -3893,5 +3839,55 @@ STRING 1439
 All items have 3 levels, you can give additional copies of the item to the tower to level it up.
 
 Upon attacking an enemy their is a 12%/24%/36% chance to summon a Ghost that will cast chain lightning. Ghost last for 4/6/8 seconds, can not summon a Ghost whilst one is already summoned.
+
+Chain lightning can target ethereal units, the tower cannot.
+}
+
+STRING 1447
+// Items: I00A (Satans Claw), Ubertip (Tooltip - Extended)
+{
+[Chaos Tower Only]
+
+All items have 3 levels, you can give additional copies of the item to the tower to level it up.
+
+Streams of demonic energy emanate from the tower dealing 50/80/110 damage on hit and 25/40/55 damage per second for 4/6/8 seconds.
+
+Effective against etheral units.
+}
+
+STRING 1448
+// Units: u00B (Frost Tower), Ubertip (Tooltip - Extended)
+{
+Magic Damage
+Dmg: 25 - 100
+Cooldown: 4.0s
+Range: 600
+Frost (4s)
+Splash (125)
+
+Effective against ethereal units
+}
+
+STRING 1449
+// Units: u012 (Glacier Tower), Ubertip (Tooltip - Extended)
+{
+Dmg: 200 - 400
+Cooldown: 2.5s
+Range: 800
+Frost (5s)
+Splash (225)
+
+Effective against ethereal units
+}
+
+STRING 1450
+{
+Waves now have a chance to spawn with modifiers, remember to get some magic/spell damage.
+}
+
+STRING 1451
+// Abilities: A019 (Player Creeps), Name (Name)
+{
+Player Creeps
 }
 
