@@ -61,6 +61,7 @@ udg_Real_Array_SpawnDegrees = __jarray(0.0)
 udg_Region_Array_Spawns = {}
 udg_Point_Array_WaveSpawnpoint = {}
 udg_Real_WaveHealth = 0.0
+udg_UnitGroup_DoomCommanders = nil
 gg_rct_CreepSpawn1 = nil
 gg_rct_CreepSpawn2 = nil
 gg_rct_CreepSpawn3 = nil
@@ -114,7 +115,6 @@ gg_trg_Lumber_Bounty = nil
 gg_trg_Invulnerable_Towers = nil
 gg_trg_Remove_Ethereal = nil
 gg_trg_Hellfire_Tower = nil
-gg_trg_Fluctation_Tower_AddRemove = nil
 gg_trg_Fluctuation_Tower_Ability = nil
 gg_trg_Fluctuation_Tower_Mana = nil
 gg_trg_Sanguine_Stacks_Remove = nil
@@ -286,6 +286,7 @@ udg_Real_Array_SpawnDegrees[i] = 0.0
 i = i + 1
 end
 udg_Real_WaveHealth = 0.0
+udg_UnitGroup_DoomCommanders = CreateGroup()
 end
 
 function CreateUnitsForPlayer0()
@@ -469,7 +470,7 @@ else
 end
 bj_forLoopAIndex = bj_forLoopAIndex + 1
 end
-udg_Real_WaveHealthModifier = (udg_Real_WaveHealthModifier + (0.05 * I2R(udg_Integer_PlayerCount)))
+udg_Real_WaveHealthModifier = (udg_Real_WaveHealthModifier + (0.03 * I2R(udg_Integer_PlayerCount)))
 udg_Integer_MaxCreeps = (60 * udg_Integer_PlayerCount)
 SetPlayerFlagBJ(PLAYER_STATE_GIVES_BOUNTY, true, Player(10))
 SetPlayerFlagBJ(PLAYER_STATE_GIVES_BOUNTY, true, Player(11))
@@ -935,7 +936,7 @@ return true
 end
 
 function Trig_Next_Round_Func007A()
-AdjustPlayerStateBJ(5, GetEnumPlayer(), PLAYER_STATE_RESOURCE_GOLD)
+AdjustPlayerStateBJ(10, GetEnumPlayer(), PLAYER_STATE_RESOURCE_GOLD)
 end
 
 function Trig_Next_Round_Func012C()
@@ -1119,7 +1120,7 @@ end
 end
 
 function Trig_Commander_Spawning_Actions()
-udg_Real_CommanderHealth = (500.00 + (100.00 * I2R(udg_I_Round)))
+udg_Real_CommanderHealth = (300.00 + (50.00 * I2R(udg_I_Round)))
 udg_Real_CommanderHealth = (udg_Real_CommanderHealth * (GetPlayerHandicapBJ(Player(12)) / 100.00))
 udg_Real_CommanderHealth = (udg_Real_CommanderHealth * udg_Real_WaveHealthModifier)
 udg_Real_CommanderArmour = (5.00 + (I2R(udg_I_Round) * 0.10))
@@ -1130,6 +1131,7 @@ if (bj_forLoopAIndex > bj_forLoopAIndexEnd) then break end
 if (Trig_Commander_Spawning_Func005Func001C()) then
 udg_Temp_PointCommander[GetForLoopIndexA()] = GetRectCenter(udg_Region_Array_Spawns[GetForLoopIndexA()])
 CreateNUnitsAtLoc(1, FourCC("n001"), Player(11), udg_Temp_PointCommander[GetForLoopIndexA()], udg_Real_Array_SpawnDegrees[GetForLoopIndexA()])
+GroupAddUnitSimple(GetLastCreatedUnit(), udg_UnitGroup_DoomCommanders)
             RemoveLocation(udg_Temp_PointCommander[GetForLoopIndexA()])
 BlzSetUnitArmor(GetLastCreatedUnit(), udg_Real_CommanderArmour)
 BlzSetUnitMaxHP(GetLastCreatedUnit(), R2I(udg_Real_CommanderHealth))
@@ -1139,7 +1141,8 @@ else
 end
 bj_forLoopAIndex = bj_forLoopAIndex + 1
 end
-ForGroupBJ(GetUnitsOfPlayerAndTypeId(Player(11), FourCC("n001")), Trig_Commander_Spawning_Func006A)
+ForGroupBJ(udg_UnitGroup_DoomCommanders, Trig_Commander_Spawning_Func006A)
+    DestroyGroup(udg_UnitGroup_DoomCommanders)
 end
 
 function InitTrig_Commander_Spawning()
@@ -1597,34 +1600,6 @@ TriggerAddCondition(gg_trg_Hellfire_Tower, Condition(Trig_Hellfire_Tower_Conditi
 TriggerAddAction(gg_trg_Hellfire_Tower, Trig_Hellfire_Tower_Actions)
 end
 
-function Trig_Fluctation_Tower_AddRemove_Func001C()
-if (not (GetUnitAbilityLevelSwapped(FourCC("A022"), GetConstructedStructure()) == 1)) then
-return false
-end
-if (not (GetUnitAbilityLevelSwapped(FourCC("A022"), GetTriggerUnit()) == 1)) then
-return false
-end
-if (not (GetUnitAbilityLevelSwapped(FourCC("A022"), GetSpellAbilityUnit()) == 1)) then
-return false
-end
-return true
-end
-
-function Trig_Fluctation_Tower_AddRemove_Actions()
-if (Trig_Fluctation_Tower_AddRemove_Func001C()) then
-GroupAddUnitSimple(GetConstructedStructure(), udg_UnitGroup_FluctuationTowerMana)
-else
-end
-end
-
-function InitTrig_Fluctation_Tower_AddRemove()
-gg_trg_Fluctation_Tower_AddRemove = CreateTrigger()
-TriggerRegisterAnyUnitEventBJ(gg_trg_Fluctation_Tower_AddRemove, EVENT_PLAYER_UNIT_CONSTRUCT_FINISH)
-TriggerRegisterAnyUnitEventBJ(gg_trg_Fluctation_Tower_AddRemove, EVENT_PLAYER_UNIT_UPGRADE_FINISH)
-TriggerRegisterAnyUnitEventBJ(gg_trg_Fluctation_Tower_AddRemove, EVENT_PLAYER_UNIT_SPELL_CAST)
-TriggerAddAction(gg_trg_Fluctation_Tower_AddRemove, Trig_Fluctation_Tower_AddRemove_Actions)
-end
-
 function Trig_Fluctuation_Tower_Ability_Conditions()
 if (not (GetUnitAbilityLevelSwapped(FourCC("A022"), GetEventDamageSource()) == 1)) then
 return false
@@ -1746,34 +1721,42 @@ TriggerAddCondition(gg_trg_Fluctuation_Tower_Ability, Condition(Trig_Fluctuation
 TriggerAddAction(gg_trg_Fluctuation_Tower_Ability, Trig_Fluctuation_Tower_Ability_Actions)
 end
 
-function Trig_Fluctuation_Tower_Mana_Func001Func001Func001Func001C()
+function Trig_Fluctuation_Tower_Mana_Func001001002()
+return (GetUnitAbilityLevelSwapped(FourCC("A022"), GetFilterUnit()) == 1)
+end
+
+function Trig_Fluctuation_Tower_Mana_Func001A()
+GroupAddUnitSimple(GetEnumUnit(), udg_UnitGroup_FluctuationTowerMana)
+end
+
+function Trig_Fluctuation_Tower_Mana_Func002Func001Func001Func001C()
 if (not (GetUnitTypeId(GetEnumUnit()) == udg_UnitType_Array_FluctuationTow[GetForLoopIndexA()])) then
 return false
 end
 return true
 end
 
-function Trig_Fluctuation_Tower_Mana_Func001Func001Func002Func001C()
+function Trig_Fluctuation_Tower_Mana_Func002Func001Func002Func001C()
 if (not (GetUnitTypeId(GetEnumUnit()) == udg_UnitType_Array_FluctuationTow[GetForLoopIndexA()])) then
 return false
 end
 return true
 end
 
-function Trig_Fluctuation_Tower_Mana_Func001Func001C()
+function Trig_Fluctuation_Tower_Mana_Func002Func001C()
 if (not (GetUnitAbilityLevelSwapped(FourCC("A024"), GetEnumUnit()) >= 2)) then
 return false
 end
 return true
 end
 
-function Trig_Fluctuation_Tower_Mana_Func001A()
-if (Trig_Fluctuation_Tower_Mana_Func001Func001C()) then
+function Trig_Fluctuation_Tower_Mana_Func002A()
+if (Trig_Fluctuation_Tower_Mana_Func002Func001C()) then
 bj_forLoopAIndex = R2I(BlzGetUnitRealField(GetEnumUnit(), UNIT_RF_PRIORITY))
 bj_forLoopAIndexEnd = R2I(BlzGetUnitRealField(GetEnumUnit(), UNIT_RF_PRIORITY))
 while (true) do
 if (bj_forLoopAIndex > bj_forLoopAIndexEnd) then break end
-if (Trig_Fluctuation_Tower_Mana_Func001Func001Func002Func001C()) then
+if (Trig_Fluctuation_Tower_Mana_Func002Func001Func002Func001C()) then
 BlzSetUnitBaseDamage(GetEnumUnit(), (udg_Integer_Array_FluctuationDam[GetForLoopIndexA()] + R2I(GetUnitStateSwap(UNIT_STATE_MANA, GetEnumUnit()))), 0)
 else
 end
@@ -1784,7 +1767,7 @@ bj_forLoopAIndex = R2I(BlzGetUnitRealField(GetEnumUnit(), UNIT_RF_PRIORITY))
 bj_forLoopAIndexEnd = R2I(BlzGetUnitRealField(GetEnumUnit(), UNIT_RF_PRIORITY))
 while (true) do
 if (bj_forLoopAIndex > bj_forLoopAIndexEnd) then break end
-if (Trig_Fluctuation_Tower_Mana_Func001Func001Func001Func001C()) then
+if (Trig_Fluctuation_Tower_Mana_Func002Func001Func001Func001C()) then
 BlzSetUnitBaseDamage(GetEnumUnit(), udg_Integer_Array_FluctuationDam[GetForLoopIndexA()], 0)
 else
 end
@@ -1794,7 +1777,9 @@ end
 end
 
 function Trig_Fluctuation_Tower_Mana_Actions()
-ForGroupBJ(udg_UnitGroup_FluctuationTowerMana, Trig_Fluctuation_Tower_Mana_Func001A)
+ForGroupBJ(GetUnitsInRectMatching(GetPlayableMapRect(), Condition(Trig_Fluctuation_Tower_Mana_Func001001002)), Trig_Fluctuation_Tower_Mana_Func001A)
+ForGroupBJ(udg_UnitGroup_FluctuationTowerMana, Trig_Fluctuation_Tower_Mana_Func002A)
+    DestroyGroup(udg_UnitGroup_FluctuationTowerMana)
 end
 
 function InitTrig_Fluctuation_Tower_Mana()
@@ -1803,15 +1788,23 @@ TriggerRegisterTimerEventPeriodic(gg_trg_Fluctuation_Tower_Mana, 1.00)
 TriggerAddAction(gg_trg_Fluctuation_Tower_Mana, Trig_Fluctuation_Tower_Mana_Actions)
 end
 
-function Trig_Sanguine_Stacks_Remove_Func001Func001C()
+function Trig_Sanguine_Stacks_Remove_Func001001002()
+return (GetUnitAbilityLevelSwapped(FourCC("A01Z"), GetFilterUnit()) >= 1)
+end
+
+function Trig_Sanguine_Stacks_Remove_Func001A()
+GroupAddUnitSimple(GetEnumUnit(), udg_UnitGroup_SanguineStacks)
+end
+
+function Trig_Sanguine_Stacks_Remove_Func002Func001C()
 if (not (UnitHasBuffBJ(GetEnumUnit(), FourCC("Bssd")) == false)) then
 return false
 end
 return true
 end
 
-function Trig_Sanguine_Stacks_Remove_Func001A()
-if (Trig_Sanguine_Stacks_Remove_Func001Func001C()) then
+function Trig_Sanguine_Stacks_Remove_Func002A()
+if (Trig_Sanguine_Stacks_Remove_Func002Func001C()) then
 UnitRemoveAbilityBJ(FourCC("A01Z"), GetEnumUnit())
 GroupRemoveUnitSimple(GetEnumUnit(), udg_UnitGroup_SanguineStacks)
 else
@@ -1819,12 +1812,14 @@ end
 end
 
 function Trig_Sanguine_Stacks_Remove_Actions()
-ForGroupBJ(udg_UnitGroup_SanguineStacks, Trig_Sanguine_Stacks_Remove_Func001A)
+ForGroupBJ(GetUnitsInRectMatching(GetPlayableMapRect(), Condition(Trig_Sanguine_Stacks_Remove_Func001001002)), Trig_Sanguine_Stacks_Remove_Func001A)
+ForGroupBJ(udg_UnitGroup_SanguineStacks, Trig_Sanguine_Stacks_Remove_Func002A)
+    DestroyGroup(udg_UnitGroup_SanguineStacks)
 end
 
 function InitTrig_Sanguine_Stacks_Remove()
 gg_trg_Sanguine_Stacks_Remove = CreateTrigger()
-TriggerRegisterTimerEventPeriodic(gg_trg_Sanguine_Stacks_Remove, 2)
+TriggerRegisterTimerEventPeriodic(gg_trg_Sanguine_Stacks_Remove, 1.00)
 TriggerAddAction(gg_trg_Sanguine_Stacks_Remove, Trig_Sanguine_Stacks_Remove_Actions)
 end
 
@@ -1860,7 +1855,6 @@ function Trig_Monstrosity_Tower_Sanguine_Stacks_Actions()
 udg_Temp_PointA = GetUnitLoc(BlzGetEventDamageTarget())
 if (Trig_Monstrosity_Tower_Sanguine_Stacks_Func002C()) then
 UnitAddAbilityBJ(FourCC("A01Z"), BlzGetEventDamageTarget())
-GroupAddUnitSimple(BlzGetEventDamageTarget(), udg_UnitGroup_SanguineStacks)
 else
 if (Trig_Monstrosity_Tower_Sanguine_Stacks_Func002Func001C()) then
 IncUnitAbilityLevelSwapped(FourCC("A01Z"), GetTriggerUnit())
@@ -2213,42 +2207,25 @@ end
 return true
 end
 
-function Trig_Hellfire_Reagent_Give_Func006Func001Func002C()
-if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetManipulatingUnit(), FourCC("I001"))) == 3)) then
-return false
-end
-return true
-end
-
-function Trig_Hellfire_Reagent_Give_Func006Func001C()
-if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetManipulatingUnit(), FourCC("I001"))) == 2)) then
-return false
-end
-return true
-end
-
-function Trig_Hellfire_Reagent_Give_Func006C()
-if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetManipulatingUnit(), FourCC("I001"))) == 1)) then
+function Trig_Hellfire_Reagent_Give_Func003Func001C()
+if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetManipulatingUnit(), FourCC("I001"))) == GetForLoopIndexA())) then
 return false
 end
 return true
 end
 
 function Trig_Hellfire_Reagent_Give_Actions()
-UnitRemoveAbilityBJ(FourCC("A01V"), GetManipulatingUnit())
-UnitRemoveAbilityBJ(FourCC("A01U"), GetManipulatingUnit())
-UnitRemoveAbilityBJ(FourCC("A01W"), GetManipulatingUnit())
-if (Trig_Hellfire_Reagent_Give_Func006C()) then
-UnitAddAbilityBJ(FourCC("A01V"), GetManipulatingUnit())
-else
-if (Trig_Hellfire_Reagent_Give_Func006Func001C()) then
-UnitAddAbilityBJ(FourCC("A01U"), GetManipulatingUnit())
-else
-if (Trig_Hellfire_Reagent_Give_Func006Func001Func002C()) then
-UnitAddAbilityBJ(FourCC("A01W"), GetManipulatingUnit())
+UnitRemoveAbilityBJ(FourCC("A01V"), GetTriggerUnit())
+UnitAddAbilityBJ(FourCC("A01V"), GetTriggerUnit())
+bj_forLoopAIndex = GetItemCharges(GetItemOfTypeFromUnitBJ(GetManipulatingUnit(), FourCC("I001")))
+bj_forLoopAIndexEnd = GetItemCharges(GetItemOfTypeFromUnitBJ(GetManipulatingUnit(), FourCC("I001")))
+while (true) do
+if (bj_forLoopAIndex > bj_forLoopAIndexEnd) then break end
+if (Trig_Hellfire_Reagent_Give_Func003Func001C()) then
+SetUnitAbilityLevelSwapped(FourCC("A01V"), GetManipulatingUnit(), GetForLoopIndexA())
 else
 end
-end
+bj_forLoopAIndex = bj_forLoopAIndex + 1
 end
 end
 
@@ -2279,8 +2256,6 @@ end
 function Trig_Hellfire_Reagent_Remove_Actions()
 if (Trig_Hellfire_Reagent_Remove_Func003C()) then
 UnitRemoveAbilityBJ(FourCC("A01V"), GetTriggerUnit())
-UnitRemoveAbilityBJ(FourCC("A01U"), GetTriggerUnit())
-UnitRemoveAbilityBJ(FourCC("A01W"), GetTriggerUnit())
 else
 end
 end
@@ -2302,39 +2277,24 @@ end
 return true
 end
 
-function Trig_Hellfire_Reagent_Upgrade_Func003Func001Func001C()
-if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I001"))) == 3)) then
-return false
-end
-return true
-end
-
-function Trig_Hellfire_Reagent_Upgrade_Func003Func001C()
-if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I001"))) == 2)) then
-return false
-end
-return true
-end
-
-function Trig_Hellfire_Reagent_Upgrade_Func003C()
-if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I001"))) == 1)) then
+function Trig_Hellfire_Reagent_Upgrade_Func002Func001C()
+if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I001"))) == GetForLoopIndexA())) then
 return false
 end
 return true
 end
 
 function Trig_Hellfire_Reagent_Upgrade_Actions()
-if (Trig_Hellfire_Reagent_Upgrade_Func003C()) then
 UnitAddAbilityBJ(FourCC("A01V"), GetTriggerUnit())
-else
-if (Trig_Hellfire_Reagent_Upgrade_Func003Func001C()) then
-UnitAddAbilityBJ(FourCC("A01U"), GetTriggerUnit())
-else
-if (Trig_Hellfire_Reagent_Upgrade_Func003Func001Func001C()) then
-UnitAddAbilityBJ(FourCC("A01W"), GetTriggerUnit())
+bj_forLoopAIndex = GetItemCharges(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I001")))
+bj_forLoopAIndexEnd = GetItemCharges(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I001")))
+while (true) do
+if (bj_forLoopAIndex > bj_forLoopAIndexEnd) then break end
+if (Trig_Hellfire_Reagent_Upgrade_Func002Func001C()) then
+SetUnitAbilityLevelSwapped(FourCC("A01V"), GetTriggerUnit(), GetForLoopIndexA())
 else
 end
-end
+bj_forLoopAIndex = bj_forLoopAIndex + 1
 end
 end
 
@@ -2352,97 +2312,40 @@ end
 if (not (UnitHasBuffBJ(GetEventDamageSource(), FourCC("B000")) == false)) then
 return false
 end
-return true
-end
-
-function Trig_Ghastly_Vial_Unit_Func003Func002Func001Func001Func003C()
-if (not (udg_Integer_Array_GhastlyChance[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] <= 36)) then
+if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I005"))) >= 1)) then
 return false
 end
 return true
 end
 
-function Trig_Ghastly_Vial_Unit_Func003Func002Func001Func001C()
-if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I005"))) == 3)) then
-return false
-end
-return true
-end
-
-function Trig_Ghastly_Vial_Unit_Func003Func002Func001Func004C()
-if (not (udg_Integer_Array_GhastlyChance[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] <= 24)) then
-return false
-end
-return true
-end
-
-function Trig_Ghastly_Vial_Unit_Func003Func002Func001C()
-if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I005"))) == 2)) then
-return false
-end
-return true
-end
-
-function Trig_Ghastly_Vial_Unit_Func003Func002C()
-if (not (udg_Integer_Array_GhastlyChance[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] <= 12)) then
-return false
-end
-return true
-end
-
-function Trig_Ghastly_Vial_Unit_Func003C()
-if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I005"))) == 1)) then
+function Trig_Ghastly_Vial_Unit_Func002Func001C()
+if (not (udg_Integer_Array_GhastlyChance[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] <= (GetForLoopIndexA() * 12))) then
 return false
 end
 return true
 end
 
 function Trig_Ghastly_Vial_Unit_Actions()
-if (Trig_Ghastly_Vial_Unit_Func003C()) then
 udg_Integer_Array_GhastlyChance[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] = GetRandomInt(1, 100)
-if (Trig_Ghastly_Vial_Unit_Func003Func002C()) then
+bj_forLoopAIndex = GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I005")))
+bj_forLoopAIndexEnd = GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I005")))
+while (true) do
+if (bj_forLoopAIndex > bj_forLoopAIndexEnd) then break end
+if (Trig_Ghastly_Vial_Unit_Func002Func001C()) then
 udg_Temp_PointA = GetUnitLoc(GetEventDamageSource())
 CreateNUnitsAtLoc(1, FourCC("h029"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointA, bj_UNIT_FACING)
 UnitAddAbilityBJ(FourCC("A00V"), GetLastCreatedUnit())
-UnitApplyTimedLifeBJ(4.00, FourCC("BTLF"), GetLastCreatedUnit())
+SetUnitAbilityLevelSwapped(FourCC("A00V"), GetLastCreatedUnit(), GetForLoopIndexA())
+UnitApplyTimedLifeBJ((2.00 + (2.00 * I2R(GetForLoopIndexA()))), FourCC("BTLF"), GetLastCreatedUnit())
 CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointA, bj_UNIT_FACING)
 UnitAddAbilityBJ(FourCC("A01F"), GetLastCreatedUnit())
+SetUnitAbilityLevelSwapped(FourCC("A01F"), GetLastCreatedUnit(), GetForLoopIndexA())
 IssueTargetOrderBJ(GetLastCreatedUnit(), "innerfire", GetEventDamageSource())
 UnitApplyTimedLifeBJ(1.00, FourCC("BTLF"), GetLastCreatedUnit())
-else
-if (Trig_Ghastly_Vial_Unit_Func003Func002Func001C()) then
-udg_Integer_Array_GhastlyChance[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] = GetRandomInt(1, 100)
-if (Trig_Ghastly_Vial_Unit_Func003Func002Func001Func004C()) then
-udg_Temp_PointA = GetUnitLoc(GetEventDamageSource())
-CreateNUnitsAtLoc(1, FourCC("h029"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointA, bj_UNIT_FACING)
-UnitAddAbilityBJ(FourCC("A00U"), GetLastCreatedUnit())
-UnitApplyTimedLifeBJ(6.00, FourCC("BTLF"), GetLastCreatedUnit())
-CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointA, bj_UNIT_FACING)
-UnitAddAbilityBJ(FourCC("A01G"), GetLastCreatedUnit())
-IssueTargetOrderBJ(GetLastCreatedUnit(), "innerfire", GetEventDamageSource())
-UnitApplyTimedLifeBJ(1.00, FourCC("BTLF"), GetLastCreatedUnit())
+            RemoveLocation(udg_Temp_PointA)
 else
 end
-else
-if (Trig_Ghastly_Vial_Unit_Func003Func002Func001Func001C()) then
-udg_Integer_Array_GhastlyChance[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] = GetRandomInt(1, 100)
-if (Trig_Ghastly_Vial_Unit_Func003Func002Func001Func001Func003C()) then
-udg_Temp_PointA = GetUnitLoc(GetEventDamageSource())
-CreateNUnitsAtLoc(1, FourCC("h029"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointA, bj_UNIT_FACING)
-UnitAddAbilityBJ(FourCC("A004"), GetLastCreatedUnit())
-UnitApplyTimedLifeBJ(8.00, FourCC("BTLF"), GetLastCreatedUnit())
-CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointA, bj_UNIT_FACING)
-UnitAddAbilityBJ(FourCC("A01E"), GetLastCreatedUnit())
-IssueTargetOrderBJ(GetLastCreatedUnit(), "innerfire", GetEventDamageSource())
-UnitApplyTimedLifeBJ(0.50, FourCC("BTLF"), GetLastCreatedUnit())
-else
-end
-else
-end
-end
-end
-        RemoveLocation(udg_Temp_PointA)
-else
+bj_forLoopAIndex = bj_forLoopAIndex + 1
 end
 end
 
@@ -2563,42 +2466,25 @@ end
 return true
 end
 
-function Trig_Jar_of_Demonfire_Give_Func006Func001Func002C()
-if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetManipulatingUnit(), FourCC("I007"))) == 3)) then
-return false
-end
-return true
-end
-
-function Trig_Jar_of_Demonfire_Give_Func006Func001C()
-if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetManipulatingUnit(), FourCC("I007"))) == 2)) then
-return false
-end
-return true
-end
-
-function Trig_Jar_of_Demonfire_Give_Func006C()
-if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetManipulatingUnit(), FourCC("I007"))) == 1)) then
+function Trig_Jar_of_Demonfire_Give_Func003Func001C()
+if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetManipulatingUnit(), FourCC("I007"))) == GetForLoopIndexA())) then
 return false
 end
 return true
 end
 
 function Trig_Jar_of_Demonfire_Give_Actions()
-UnitRemoveAbilityBJ(FourCC("A00F"), GetManipulatingUnit())
-UnitRemoveAbilityBJ(FourCC("A00T"), GetManipulatingUnit())
-UnitRemoveAbilityBJ(FourCC("A00S"), GetManipulatingUnit())
-if (Trig_Jar_of_Demonfire_Give_Func006C()) then
+UnitRemoveAbilityBJ(FourCC("A00F"), GetTriggerUnit())
 UnitAddAbilityBJ(FourCC("A00F"), GetManipulatingUnit())
-else
-if (Trig_Jar_of_Demonfire_Give_Func006Func001C()) then
-UnitAddAbilityBJ(FourCC("A00T"), GetManipulatingUnit())
-else
-if (Trig_Jar_of_Demonfire_Give_Func006Func001Func002C()) then
-UnitAddAbilityBJ(FourCC("A00S"), GetManipulatingUnit())
+bj_forLoopAIndex = GetItemCharges(GetItemOfTypeFromUnitBJ(GetManipulatingUnit(), FourCC("I007")))
+bj_forLoopAIndexEnd = GetItemCharges(GetItemOfTypeFromUnitBJ(GetManipulatingUnit(), FourCC("I007")))
+while (true) do
+if (bj_forLoopAIndex > bj_forLoopAIndexEnd) then break end
+if (Trig_Jar_of_Demonfire_Give_Func003Func001C()) then
+SetUnitAbilityLevelSwapped(FourCC("A00F"), GetManipulatingUnit(), GetForLoopIndexA())
 else
 end
-end
+bj_forLoopAIndex = bj_forLoopAIndex + 1
 end
 end
 
@@ -2629,8 +2515,6 @@ end
 function Trig_Jar_of_Demonfire_Remove_Actions()
 if (Trig_Jar_of_Demonfire_Remove_Func003C()) then
 UnitRemoveAbilityBJ(FourCC("A00F"), GetTriggerUnit())
-UnitRemoveAbilityBJ(FourCC("A00T"), GetTriggerUnit())
-UnitRemoveAbilityBJ(FourCC("A00S"), GetTriggerUnit())
 else
 end
 end
@@ -2652,39 +2536,24 @@ end
 return true
 end
 
-function Trig_Jar_of_Demonfire_Upgrade_Func003Func001Func001C()
-if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I007"))) == 3)) then
-return false
-end
-return true
-end
-
-function Trig_Jar_of_Demonfire_Upgrade_Func003Func001C()
-if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I007"))) == 2)) then
-return false
-end
-return true
-end
-
-function Trig_Jar_of_Demonfire_Upgrade_Func003C()
-if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I007"))) == 1)) then
+function Trig_Jar_of_Demonfire_Upgrade_Func002Func001C()
+if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I007"))) == GetForLoopIndexA())) then
 return false
 end
 return true
 end
 
 function Trig_Jar_of_Demonfire_Upgrade_Actions()
-if (Trig_Jar_of_Demonfire_Upgrade_Func003C()) then
 UnitAddAbilityBJ(FourCC("A00F"), GetTriggerUnit())
-else
-if (Trig_Jar_of_Demonfire_Upgrade_Func003Func001C()) then
-UnitAddAbilityBJ(FourCC("A00T"), GetTriggerUnit())
-else
-if (Trig_Jar_of_Demonfire_Upgrade_Func003Func001Func001C()) then
-UnitAddAbilityBJ(FourCC("A00S"), GetTriggerUnit())
+bj_forLoopAIndex = GetItemCharges(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I007")))
+bj_forLoopAIndexEnd = GetItemCharges(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I007")))
+while (true) do
+if (bj_forLoopAIndex > bj_forLoopAIndexEnd) then break end
+if (Trig_Jar_of_Demonfire_Upgrade_Func002Func001C()) then
+SetUnitAbilityLevelSwapped(FourCC("A00F"), GetTriggerUnit(), GetForLoopIndexA())
 else
 end
-end
+bj_forLoopAIndex = bj_forLoopAIndex + 1
 end
 end
 
@@ -2705,31 +2574,8 @@ end
 return true
 end
 
-function Trig_Satans_Claw_Give_Func006Func001Func002C()
-if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetManipulatingUnit(), FourCC("I00A"))) == 3)) then
-return false
-end
-if (not (GetUnitAbilityLevelSwapped(FourCC("A013"), GetManipulatingUnit()) == 0)) then
-return false
-end
-return true
-end
-
-function Trig_Satans_Claw_Give_Func006Func001C()
-if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetManipulatingUnit(), FourCC("I00A"))) == 2)) then
-return false
-end
-if (not (GetUnitAbilityLevelSwapped(FourCC("A013"), GetManipulatingUnit()) == 0)) then
-return false
-end
-return true
-end
-
-function Trig_Satans_Claw_Give_Func006C()
-if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetManipulatingUnit(), FourCC("I00A"))) == 1)) then
-return false
-end
-if (not (GetUnitAbilityLevelSwapped(FourCC("A013"), GetManipulatingUnit()) == 0)) then
+function Trig_Satans_Claw_Give_Func003Func001C()
+if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetManipulatingUnit(), FourCC("I00A"))) == GetForLoopIndexA())) then
 return false
 end
 return true
@@ -2737,19 +2583,16 @@ end
 
 function Trig_Satans_Claw_Give_Actions()
 UnitRemoveAbilityBJ(FourCC("A00M"), GetTriggerUnit())
-UnitRemoveAbilityBJ(FourCC("A012"), GetTriggerUnit())
-UnitRemoveAbilityBJ(FourCC("A013"), GetTriggerUnit())
-if (Trig_Satans_Claw_Give_Func006C()) then
 UnitAddAbilityBJ(FourCC("A00M"), GetManipulatingUnit())
-else
-if (Trig_Satans_Claw_Give_Func006Func001C()) then
-UnitAddAbilityBJ(FourCC("A012"), GetManipulatingUnit())
-else
-if (Trig_Satans_Claw_Give_Func006Func001Func002C()) then
-UnitAddAbilityBJ(FourCC("A013"), GetManipulatingUnit())
+bj_forLoopAIndex = GetItemCharges(GetItemOfTypeFromUnitBJ(GetManipulatingUnit(), FourCC("I00A")))
+bj_forLoopAIndexEnd = GetItemCharges(GetItemOfTypeFromUnitBJ(GetManipulatingUnit(), FourCC("I00A")))
+while (true) do
+if (bj_forLoopAIndex > bj_forLoopAIndexEnd) then break end
+if (Trig_Satans_Claw_Give_Func003Func001C()) then
+SetUnitAbilityLevelSwapped(FourCC("A00M"), GetManipulatingUnit(), GetForLoopIndexA())
 else
 end
-end
+bj_forLoopAIndex = bj_forLoopAIndex + 1
 end
 end
 
@@ -2780,8 +2623,6 @@ end
 function Trig_Satans_Claw_Remove_Actions()
 if (Trig_Satans_Claw_Remove_Func003C()) then
 UnitRemoveAbilityBJ(FourCC("A00M"), GetTriggerUnit())
-UnitRemoveAbilityBJ(FourCC("A012"), GetTriggerUnit())
-UnitRemoveAbilityBJ(FourCC("A013"), GetTriggerUnit())
 else
 end
 end
@@ -2803,48 +2644,24 @@ end
 return true
 end
 
-function Trig_Satans_Claw_Upgrade_Func003Func001Func002C()
-if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I00A"))) == 3)) then
-return false
-end
-if (not (GetUnitAbilityLevelSwapped(FourCC("A013"), GetTriggerUnit()) == 0)) then
-return false
-end
-return true
-end
-
-function Trig_Satans_Claw_Upgrade_Func003Func001C()
-if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I00A"))) == 2)) then
-return false
-end
-if (not (GetUnitAbilityLevelSwapped(FourCC("A013"), GetTriggerUnit()) == 0)) then
-return false
-end
-return true
-end
-
-function Trig_Satans_Claw_Upgrade_Func003C()
-if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I00A"))) == 1)) then
-return false
-end
-if (not (GetUnitAbilityLevelSwapped(FourCC("A013"), GetTriggerUnit()) == 0)) then
+function Trig_Satans_Claw_Upgrade_Func002Func001C()
+if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I00A"))) == GetForLoopIndexA())) then
 return false
 end
 return true
 end
 
 function Trig_Satans_Claw_Upgrade_Actions()
-if (Trig_Satans_Claw_Upgrade_Func003C()) then
 UnitAddAbilityBJ(FourCC("A00M"), GetTriggerUnit())
-else
-if (Trig_Satans_Claw_Upgrade_Func003Func001C()) then
-UnitAddAbilityBJ(FourCC("A012"), GetTriggerUnit())
-else
-if (Trig_Satans_Claw_Upgrade_Func003Func001Func002C()) then
-UnitAddAbilityBJ(FourCC("A013"), GetTriggerUnit())
+bj_forLoopAIndex = GetItemCharges(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I00A")))
+bj_forLoopAIndexEnd = GetItemCharges(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I00A")))
+while (true) do
+if (bj_forLoopAIndex > bj_forLoopAIndexEnd) then break end
+if (Trig_Satans_Claw_Upgrade_Func002Func001C()) then
+SetUnitAbilityLevelSwapped(FourCC("A00M"), GetTriggerUnit(), GetForLoopIndexA())
 else
 end
-end
+bj_forLoopAIndex = bj_forLoopAIndex + 1
 end
 end
 
@@ -4253,7 +4070,6 @@ InitTrig_Lumber_Bounty()
 InitTrig_Invulnerable_Towers()
 InitTrig_Remove_Ethereal()
 InitTrig_Hellfire_Tower()
-InitTrig_Fluctation_Tower_AddRemove()
 InitTrig_Fluctuation_Tower_Ability()
 InitTrig_Fluctuation_Tower_Mana()
 InitTrig_Sanguine_Stacks_Remove()

@@ -1891,32 +1891,8 @@ STRING 821
 (Tower)
 }
 
-STRING 822
-// Abilities: A013 (Stream of Chaos 3), Name (Name)
-{
-Stream of Chaos 3
-}
-
-STRING 823
-// Abilities: A00M (Stream of Chaos 1), Name (Name)
-{
-Stream of Chaos 1
-}
-
-STRING 824
-// Abilities: A012 (Stream of Chaos 2), Name (Name)
-{
-Stream of Chaos 2
-}
-
-STRING 873
-// Abilities: A004 (Ghost Lightning 3), Name (Name)
-{
-Ghost Lightning 3
-}
-
 STRING 874
-// Abilities: A00F (Demon Fire 1), Name (Name)
+// Abilities: A00F (Demon Fire), Tip (Tooltip - Normal)
 {
 Demon Fire 1
 }
@@ -1958,27 +1934,15 @@ Khorns Gift Speed 3
 }
 
 STRING 881
-// Abilities: A00S (Demon Fire 3), Name (Name)
+// Abilities: A00F (Demon Fire), Tip (Tooltip - Normal)
 {
 Demon Fire 3
 }
 
 STRING 882
-// Abilities: A00T (Demon Fire 2), Name (Name)
+// Abilities: A00F (Demon Fire), Tip (Tooltip - Normal)
 {
 Demon Fire 2
-}
-
-STRING 883
-// Abilities: A00U (Ghost Lightning 2), Name (Name)
-{
-Ghost Lightning 2
-}
-
-STRING 884
-// Abilities: A00V (Ghost Lightning 1), Name (Name)
-{
-Ghost Lightning 1
 }
 
 STRING 886
@@ -2380,40 +2344,22 @@ STRING 1031
 [Frost Tower Only] Hellfrost Enchantment
 }
 
-STRING 1032
-// Abilities: A00F (Demon Fire 1), Tip (Tooltip - Normal)
-{
-Demon Fire 1
-}
-
 STRING 1033
-// Abilities: A00F (Demon Fire 1), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A00F (Demon Fire), Ubertip (Tooltip - Normal - Extended)
 {
 Covers the projectiles of the tower in demon fire, causing them to set the ground alight, enemies that pass through the fire will take 40 damage per second.
 }
 
 STRING 1034
-// Abilities: A00S (Demon Fire 3), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A00F (Demon Fire), Ubertip (Tooltip - Normal - Extended)
 {
 Covers the projectiles of the tower in demon fire, causing them to set the ground alight, enemies that pass through the fire will take 160 damage per second.
 }
 
-STRING 1035
-// Abilities: A00S (Demon Fire 3), Tip (Tooltip - Normal)
-{
-Demon Fire 3
-}
-
 STRING 1036
-// Abilities: A00T (Demon Fire 2), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A00F (Demon Fire), Ubertip (Tooltip - Normal - Extended)
 {
 Covers the projectiles of the tower in demon fire, causing them to set the ground alight, enemies that pass through the fire will take 80 damage per second.
-}
-
-STRING 1037
-// Abilities: A00T (Demon Fire 2), Tip (Tooltip - Normal)
-{
-Demon Fire 2
 }
 
 STRING 1046
@@ -2475,26 +2421,8 @@ STRING 1069
 Divine beings take full damage from Chaos attacks and reduced damage from non- chaos attacks.
 }
 
-STRING 1071
-// Abilities: A01E (Summoned Ghost 3), Name (Name)
-{
-Summoned Ghost 3
-}
-
-STRING 1072
-// Abilities: A01F (Summoned Ghost 1), Name (Name)
-{
-Summoned Ghost 1
-}
-
-STRING 1073
-// Abilities: A01G (Summoned Ghost 2), Name (Name)
-{
-Summoned Ghost 2
-}
-
 STRING 1074
-// Buffs/Effects: B000 (), Bufftip (Tooltip)
+// Abilities: A01F (Summoned Ghost), Name (Name)
 {
 Summoned Ghost
 }
@@ -2796,19 +2724,19 @@ D
 }
 
 STRING 1157
-// Abilities: A01V (Feedback 1), Name (Name)
+// Abilities: A01V (Feedback), Tip (Tooltip - Normal)
 {
 Feedback 1
 }
 
 STRING 1159
-// Abilities: A01U (Feedback 2), Name (Name)
+// Abilities: A01V (Feedback), Tip (Tooltip - Normal)
 {
 Feedback 2
 }
 
 STRING 1161
-// Abilities: A01W (Feedback 3), Name (Name)
+// Abilities: A01V (Feedback), Tip (Tooltip - Normal)
 {
 Feedback 3
 }
@@ -2817,24 +2745,6 @@ STRING 1164
 // Abilities: A000 (Sell Tower), Hotkey (Hotkey - Normal)
 {
 E
-}
-
-STRING 1165
-// Abilities: A01V (Feedback 1), Tip (Tooltip - Normal)
-{
-Feedback 1
-}
-
-STRING 1166
-// Abilities: A01U (Feedback 2), Tip (Tooltip - Normal)
-{
-Feedback 2
-}
-
-STRING 1167
-// Abilities: A01W (Feedback 3), Tip (Tooltip - Normal)
-{
-Feedback 3
 }
 
 STRING 1171
@@ -2848,19 +2758,19 @@ Allows the tower to destroy 50/75/100 mana per hit to all enemies within 75/100/
 }
 
 STRING 1172
-// Abilities: A01V (Feedback 1), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A01V (Feedback), Ubertip (Tooltip - Normal - Extended)
 {
 Allows the tower to destroy 50 mana per hit to all enemies within 75 area of effect, dealing 100% of mana destroyed as damage to the primary target only.
 }
 
 STRING 1173
-// Abilities: A01U (Feedback 2), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A01V (Feedback), Ubertip (Tooltip - Normal - Extended)
 {
 Allows the tower to destroy 75 mana per hit to all enemies within 100 area of effect, dealing 150% of mana destroyed as damage to the primary target only.
 }
 
 STRING 1174
-// Abilities: A01W (Feedback 3), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A01V (Feedback), Ubertip (Tooltip - Normal - Extended)
 {
 Allows the tower to destroy 100 mana per hit to all enemies within 125 area of effect, dealing 200% of mana destroyed as damage to the primary target only.
 }
@@ -3675,7 +3585,7 @@ STRING 1426
 {
 Difficulty has a base value of 100%, at the start of the game players may choose to increase it or do nothing. Increasing the difficulty will increase the health of enemy units, the number of units spawned each wave, decrease the time between waves and lower the threshold that lives will start depleting at. If all players increased then the difficulty will be increased.
 
-Addtionally waves gain 5% extra health per active player.
+Addtionally waves gain 3% extra health per active player.
 
 The max unit count is determined by how many players their are, [50 x Player Count] and then adjusted if any player increased the difficulty, max unit count will decrease if a player leaves.
 
@@ -3889,5 +3799,29 @@ STRING 1451
 // Abilities: A019 (Player Creeps), Name (Name)
 {
 Player Creeps
+}
+
+STRING 1452
+// Abilities: A00F (Demon Fire), Name (Name)
+{
+Demon Fire
+}
+
+STRING 1453
+// Abilities: A00V (Ghost Lightning), Name (Name)
+{
+Ghost Lightning
+}
+
+STRING 1454
+// Abilities: A00M (Stream of Chaos), Name (Name)
+{
+Stream of Chaos
+}
+
+STRING 1455
+// Buffs/Effects: B000 (), Bufftip (Tooltip)
+{
+Summoned Ghost
 }
 
