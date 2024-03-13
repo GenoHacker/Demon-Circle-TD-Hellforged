@@ -841,7 +841,7 @@ end
 
 function Trig_Difficulty_Adjust_Actions()
 if (Trig_Difficulty_Adjust_Func001C()) then
-udg_Integer_EnemyHandicap = (udg_Integer_EnemyHandicap + 10)
+udg_Integer_EnemyHandicap = (udg_Integer_EnemyHandicap + 5)
 DisplayTimedTextToForce(GetPlayersAll(), 5.00, (GetPlayerName(GetTriggerPlayer()) .. " has decided to increase difficulty."))
 SetPlayerHandicapBJ(Player(12), I2R(udg_Integer_EnemyHandicap))
 DisplayTimedTextToForce(GetPlayersAll(), 5.00, ("Difficulty is now: " .. (I2S(udg_Integer_EnemyHandicap) .. "%")))
@@ -880,7 +880,7 @@ DialogDisplayBJ(false, udg_Dialog_Difficulty, ConvertedPlayer(GetForLoopIndexA()
 bj_forLoopAIndex = bj_forLoopAIndex + 1
 end
 if (Trig_Difficulty_Dialog_Stop_Func003C()) then
-udg_Integer_EnemyHandicap = (udg_Integer_EnemyHandicap + 20)
+udg_Integer_EnemyHandicap = (udg_Integer_EnemyHandicap + 10)
 DisplayTimedTextToForce(GetPlayersAll(), 5.00, "TRIGSTR_780")
 DisplayTimedTextToForce(GetPlayersAll(), 5.00, ("Difficulty is now: " .. (I2S(udg_Integer_EnemyHandicap) .. "%")))
 DisplayTimedTextToForce(GetPlayersAll(), 10.00, "TRIGSTR_1440")
@@ -921,14 +921,14 @@ end
 return true
 end
 
-function Trig_Next_Round_Func004C()
+function Trig_Next_Round_Func003C()
 if (not (udg_I_Round == 10)) then
 return false
 end
 return true
 end
 
-function Trig_Next_Round_Func005C()
+function Trig_Next_Round_Func004C()
 if (not (udg_I_Round >= 11)) then
 return false
 end
@@ -962,19 +962,19 @@ else
 end
 end
 udg_Real_WaveHealthModifier = (udg_Real_WaveHealthModifier + (0.05 * I2R(udg_Integer_PlayerCount)))
-EnableTrigger(gg_trg_Wave_Spawning)
-if (Trig_Next_Round_Func004C()) then
+if (Trig_Next_Round_Func003C()) then
 DisplayTimedTextToForce(GetPlayersAll(), 10.00, "TRIGSTR_1450")
 else
 end
-if (Trig_Next_Round_Func005C()) then
-EnableTrigger(gg_trg_Wave_Buffs)
-EnableTrigger(gg_trg_Commander_Spawning)
+if (Trig_Next_Round_Func004C()) then
 udg_Integer_EtherealChance = GetRandomInt(1, 1000)
 udg_Integer_ShieldChance = GetRandomInt(1, 1000)
 udg_Integer_CommanderChance = GetRandomInt(1, 1000)
+EnableTrigger(gg_trg_Wave_Buffs)
+EnableTrigger(gg_trg_Commander_Spawning)
 else
 end
+EnableTrigger(gg_trg_Wave_Spawning)
 udg_I_Round = (udg_I_Round + 1)
 ForForce(GetPlayersAll(), Trig_Next_Round_Func007A)
 DisplayTextToForce(GetPlayersAll(), ("|cffffcc00Level " .. (I2S(udg_I_Round) .. "!|r")))
@@ -1017,7 +1017,7 @@ function Trig_Wave_Spawning_Func004C()
 if (not (udg_Integer_Spawncount == udg_Integer_MaxSpawncount)) then
 return false
 end
-if (not (udg_Integer_CommanderChance <= (100 + udg_I_Round))) then
+if (not (udg_Integer_CommanderChance <= (75 + udg_I_Round))) then
 return false
 end
 if (not (udg_I_Round >= 11)) then
@@ -1090,7 +1090,7 @@ return true
 end
 
 function Trig_Commander_Spawning_Func006Func001Func002C()
-if (not (udg_Integer_CommanderAbilityChance <= (250 + (udg_I_Round * 2)))) then
+if (not (udg_Integer_CommanderAbilityChance <= (100 + (udg_I_Round * 2)))) then
 return false
 end
 return true
@@ -1172,14 +1172,14 @@ return true
 end
 
 function Trig_Wave_Buffs_Func003C()
-if (not (udg_Integer_ShieldChance <= (150 + udg_I_Round))) then
+if (not (udg_Integer_ShieldChance <= (100 + udg_I_Round))) then
 return false
 end
 return true
 end
 
 function Trig_Wave_Buffs_Func004C()
-if (not (udg_Integer_EtherealChance <= (150 + udg_I_Round))) then
+if (not (udg_Integer_EtherealChance <= (100 + udg_I_Round))) then
 return false
 end
 return true
@@ -2274,6 +2274,9 @@ end
 if (not (GetUnitTypeId(GetTriggerUnit()) ~= FourCC("u005"))) then
 return false
 end
+if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I001"))) >= 1)) then
+return false
+end
 return true
 end
 
@@ -2533,6 +2536,9 @@ end
 if (not (GetUnitTypeId(GetTriggerUnit()) ~= FourCC("u005"))) then
 return false
 end
+if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I007"))) >= 1)) then
+return false
+end
 return true
 end
 
@@ -2639,6 +2645,9 @@ if (not (GetUnitAbilityLevelSwapped(FourCC("A00Z"), GetTriggerUnit()) == 1)) the
 return false
 end
 if (not (GetUnitTypeId(GetTriggerUnit()) ~= FourCC("u005"))) then
+return false
+end
+if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I00A"))) >= 1)) then
 return false
 end
 return true

@@ -1807,12 +1807,12 @@ Sell Tower
 
 STRING 768
 {
-Increase Difficulty by 10%
+Increase Difficulty by 5%
 }
 
 STRING 769
 {
-No Increase/Decrease
+No Increase
 }
 
 STRING 771
@@ -1822,7 +1822,7 @@ Difficulty
 
 STRING 780
 {
-Everyone chose to increase difficulty, it has been increased by an additional 20%.
+Everyone chose to increase difficulty, it has been increased by an additional 10%.
 }
 
 STRING 802
@@ -1945,197 +1945,6 @@ STRING 882
 Demon Fire 2
 }
 
-STRING 886
-// Units: u001 (Ghost Tower Level 6), Ubertip (Tooltip - Extended)
-{
-Dmg: 210
-Cooldown: 0.5s
-Range: 800
-}
-
-STRING 887
-// Units: u002 (Ghost Tower Level 2), Ubertip (Tooltip - Extended)
-{
-Dmg: 50
-Cooldown: 0.5s
-Range: 800
-}
-
-STRING 888
-// Units: u003 (Ghost Tower Level 3), Ubertip (Tooltip - Extended)
-{
-Dmg: 70
-Cooldown: 0.5s
-Range: 800
-}
-
-STRING 889
-// Units: u004 (Ghost Tower Level 4), Ubertip (Tooltip - Extended)
-{
-Dmg: 100
-Cooldown: 0.5s
-Range: 800
-}
-
-STRING 891
-// Units: u007 (Skull Tower Level 2), Ubertip (Tooltip - Extended)
-{
-Dmg: 80
-Cooldown: 2.0s
-Range: 600
-Splash (150)
-}
-
-STRING 892
-// Units: u008 (Skull Tower Level 3), Ubertip (Tooltip - Extended)
-{
-Dmg: 120
-Cooldown: 2.0s
-Range: 600
-Splash (150)
-}
-
-STRING 893
-// Units: u009 (Skull Tower Level 4), Ubertip (Tooltip - Extended)
-{
-Dmg: 160
-Cooldown: 2.0s
-Range: 600
-Splash (150)
-}
-
-STRING 894
-// Units: u00A (Skull Tower Level 5), Ubertip (Tooltip - Extended)
-{
-Dmg: 200
-Cooldown: 2.0s
-Range: 600
-Splash (150)
-}
-
-STRING 895
-// Units: u00D (Chaos Tower Level 4), Ubertip (Tooltip - Extended)
-{
-Dmg: 140
-Cooldown: 2.5s
-Range: 1000
-Multishot (3)
-}
-
-STRING 896
-// Units: u00E (Ghost Tower Level 8), Ubertip (Tooltip - Extended)
-{
-Dmg: 360
-Cooldown: 0.5s
-Range: 800
-}
-
-STRING 897
-// Units: u00F (Ghost Tower Level 7), Ubertip (Tooltip - Extended)
-{
-Dmg: 280
-Cooldown: 0.5s
-Range: 800
-}
-
-STRING 898
-// Units: u00G (Ghost Tower Level 5), Ubertip (Tooltip - Extended)
-{
-Dmg: 150
-Cooldown: 0.5s
-Range: 800
-}
-
-STRING 899
-// Units: u00H (Skull Tower Level 6), Ubertip (Tooltip - Extended)
-{
-Dmg: 240
-Cooldown: 2.0s
-Range: 600
-Splash (150)
-}
-
-STRING 900
-// Units: u00I (Skull Tower Level 7), Ubertip (Tooltip - Extended)
-{
-Dmg: 280
-Cooldown: 2.0s
-Range: 600
-Splash (150)
-}
-
-STRING 901
-// Units: u00J (Skull Tower Level 8), Ubertip (Tooltip - Extended)
-{
-Dmg: 320
-Cooldown: 2.0s
-Range: 600
-Splash (150)
-}
-
-STRING 902
-// Units: u00K (Chaos Tower Level 3), Ubertip (Tooltip - Extended)
-{
-Dmg: 100
-Cooldown: 2.5s
-Range: 1000
-Multishot (3)
-}
-
-STRING 903
-// Units: u00L (Chaos Tower Level 2), Ubertip (Tooltip - Extended)
-{
-Dmg: 70
-Cooldown: 2.5s
-Range: 1000
-Multishot (3)
-}
-
-STRING 905
-// Units: u00N (Chaos Tower Level 7), Ubertip (Tooltip - Extended)
-{
-Dmg: 320
-Cooldown: 2.5s
-Range: 1000
-Multishot (3)
-}
-
-STRING 917
-// Units: u017 (Chaos Tower Level 5), Ubertip (Tooltip - Extended)
-{
-Dmg: 190
-Cooldown: 2.5s
-Range: 1000
-Multishot (3)
-}
-
-STRING 918
-// Units: u018 (Chaos Tower Level 6), Ubertip (Tooltip - Extended)
-{
-Dmg: 250
-Cooldown: 2.5s
-Range: 1000
-Multishot (3)
-}
-
-STRING 919
-// Units: u019 (Chaos Tower Level 8), Ubertip (Tooltip - Extended)
-{
-Dmg: 400
-Cooldown: 2.5s
-Range: 1000
-Multishot (3)
-}
-
-STRING 921
-// Units: u01A (Ultimate Chaos Tower), Ubertip (Tooltip - Extended)
-{
-Dmg: 500
-Cooldown: 2.0s
-Range: 1200
-Multishot (4)
-}
-
 STRING 922
 // Abilities: A001 (Frost), Ubertip (Tooltip - Normal - Extended)
 {
@@ -2188,14 +1997,6 @@ STRING 934
 // Abilities: A00Z (Chaos Tower), Name (Name)
 {
 Chaos Tower
-}
-
-STRING 944
-// Units: u010 (Ultimate Ghost Tower), Ubertip (Tooltip - Extended)
-{
-Dmg: 500
-Cooldown: 0.4s
-Range: 900
 }
 
 STRING 954
@@ -2505,35 +2306,6 @@ Range: 1000
 Incinerate
 }
 
-STRING 1087
-// Units: u000 (Ghost Tower Level 1), Ubertip (Tooltip - Extended)
-{
-Pierce Damage
-Dmg: 35
-Cooldown: 0.5s
-Range: 800
-}
-
-STRING 1088
-// Units: u006 (Skull Tower Level 1), Ubertip (Tooltip - Extended)
-{
-Siege Damage
-Dmg: 40
-Cooldown: 2.0s
-Range: 600
-Splash (150)
-}
-
-STRING 1090
-// Units: u00M (Chaos Tower Level 1), Ubertip (Tooltip - Extended)
-{
-Normal Damage
-Dmg: 50
-Cooldown: 2.5s
-Range: 1000
-Multishot (3)
-}
-
 STRING 1091
 // Units: u00Q (Inferno Gate Level 1), Ubertip (Tooltip - Extended)
 {
@@ -2542,15 +2314,6 @@ Dmg: 100 - 500
 Cooldown: 4.0s
 Range: 1000
 Incinerate
-}
-
-STRING 1093
-// Units: u00V (Ultimate Skull Tower), Ubertip (Tooltip - Extended)
-{
-Dmg: 500
-Cooldown: 1.5s
-Range: 700
-Splash (200)
 }
 
 STRING 1094
@@ -3396,7 +3159,7 @@ Q
 }
 
 STRING 1355
-// Items: I005 (Ghastly Vial), Hotkey (Hotkey)
+// Units: u01K (Anomaly Tower 2), Hotkey (Hotkey)
 {
 Q
 }
@@ -3823,5 +3586,440 @@ STRING 1455
 // Buffs/Effects: B000 (), Bufftip (Tooltip)
 {
 Summoned Ghost
+}
+
+STRING 1456
+// Units: u000 (Ghost Tower Level 1), Ubertip (Tooltip - Extended)
+{
+Pierce Damage
+Dmg: 35
+Cooldown: 0.50s
+Range: 800
+}
+
+STRING 1457
+// Units: u001 (Ghost Tower Level 6), Ubertip (Tooltip - Extended)
+{
+Dmg: 210
+Cooldown: 0.45s
+Range: 850
+}
+
+STRING 1458
+// Units: u002 (Ghost Tower Level 2), Ubertip (Tooltip - Extended)
+{
+Dmg: 50
+Cooldown: 0.49s
+Range: 810
+}
+
+STRING 1459
+// Units: u003 (Ghost Tower Level 3), Ubertip (Tooltip - Extended)
+{
+Dmg: 70
+Cooldown: 0.48s
+Range: 820
+}
+
+STRING 1460
+// Units: u004 (Ghost Tower Level 4), Ubertip (Tooltip - Extended)
+{
+Dmg: 100
+Cooldown: 0.47s
+Range: 830
+}
+
+STRING 1461
+// Units: u00D (Chaos Tower Level 4), Ubertip (Tooltip - Extended)
+{
+Dmg: 140
+Cooldown: 2.35s
+Range: 1060
+Multishot (3)
+}
+
+STRING 1462
+// Units: u00E (Ghost Tower Level 8), Ubertip (Tooltip - Extended)
+{
+Dmg: 360
+Cooldown: 0.43s
+Range: 870
+}
+
+STRING 1463
+// Units: u00F (Ghost Tower Level 7), Ubertip (Tooltip - Extended)
+{
+Dmg: 280
+Cooldown: 0.44s
+Range: 860
+}
+
+STRING 1464
+// Units: u00G (Ghost Tower Level 5), Ubertip (Tooltip - Extended)
+{
+Dmg: 150
+Cooldown: 0.46s
+Range: 840
+}
+
+STRING 1465
+// Units: u00K (Chaos Tower Level 3), Ubertip (Tooltip - Extended)
+{
+Dmg: 100
+Cooldown: 2.40s
+Range: 1040
+Multishot (3)
+}
+
+STRING 1466
+// Units: u00L (Chaos Tower Level 2), Ubertip (Tooltip - Extended)
+{
+Dmg: 70
+Cooldown: 2.45s
+Range: 1020
+Multishot (3)
+}
+
+STRING 1467
+// Units: u00M (Chaos Tower Level 1), Ubertip (Tooltip - Extended)
+{
+Normal Damage
+Dmg: 50
+Cooldown: 2.50s
+Range: 1000
+Multishot (3)
+}
+
+STRING 1468
+// Units: u00N (Chaos Tower Level 7), Ubertip (Tooltip - Extended)
+{
+Dmg: 320
+Cooldown: 2.20s
+Range: 1120
+Multishot (3)
+}
+
+STRING 1469
+// Units: u010 (Ultimate Ghost Tower), Ubertip (Tooltip - Extended)
+{
+Dmg: 500
+Cooldown: 0.40s
+Range: 900
+}
+
+STRING 1470
+// Units: u017 (Chaos Tower Level 5), Ubertip (Tooltip - Extended)
+{
+Dmg: 190
+Cooldown: 2.30s
+Range: 1080
+Multishot (3)
+}
+
+STRING 1471
+// Units: u018 (Chaos Tower Level 6), Ubertip (Tooltip - Extended)
+{
+Dmg: 250
+Cooldown: 2.25s
+Range: 1100
+Multishot (3)
+}
+
+STRING 1472
+// Units: u019 (Chaos Tower Level 8), Ubertip (Tooltip - Extended)
+{
+Dmg: 400
+Cooldown: 2.15s
+Range: 1140
+Multishot (3)
+}
+
+STRING 1473
+// Units: u01A (Ultimate Chaos Tower), Ubertip (Tooltip - Extended)
+{
+Dmg: 500
+Cooldown: 2.00s
+Range: 1200
+Multishot (4)
+}
+
+STRING 1474
+// Units: u006 (Skull Tower Level 1), Ubertip (Tooltip - Extended)
+{
+Siege Damage
+Dmg: 40
+Cooldown: 2.00s
+Range: 600
+Splash (150)
+}
+
+STRING 1476
+// Units: u007 (Skull Tower Level 2), Ubertip (Tooltip - Extended)
+{
+Dmg: 80
+Cooldown: 1.95s
+Range: 620
+Splash (160)
+}
+
+STRING 1477
+// Units: u008 (Skull Tower Level 3), Ubertip (Tooltip - Extended)
+{
+Dmg: 120
+Cooldown: 1.90s
+Range: 640
+Splash (170)
+}
+
+STRING 1478
+// Units: u009 (Skull Tower Level 4), Ubertip (Tooltip - Extended)
+{
+Dmg: 160
+Cooldown: 1.85s
+Range: 660
+Splash (180)
+}
+
+STRING 1479
+// Units: u00A (Skull Tower Level 5), Ubertip (Tooltip - Extended)
+{
+Dmg: 200
+Cooldown: 1.80s
+Range: 680
+Splash (190)
+}
+
+STRING 1480
+// Units: u00H (Skull Tower Level 6), Ubertip (Tooltip - Extended)
+{
+Dmg: 240
+Cooldown: 1.75s
+Range: 700
+Splash (200)
+}
+
+STRING 1481
+// Units: u00I (Skull Tower Level 7), Ubertip (Tooltip - Extended)
+{
+Dmg: 280
+Cooldown: 1.70s
+Range: 720
+Splash (210)
+}
+
+STRING 1482
+// Units: u00J (Skull Tower Level 8), Ubertip (Tooltip - Extended)
+{
+Dmg: 320
+Cooldown: 1.65s
+Range: 740
+Splash (220)
+}
+
+STRING 1483
+// Units: u00V (Ultimate Skull Tower), Ubertip (Tooltip - Extended)
+{
+Dmg: 500
+Cooldown: 1.50s
+Range: 800
+Splash (250)
+}
+
+STRING 1484
+// Units: u01J (Anomaly Tower 1), Name (Name)
+{
+Anomaly Tower 1
+}
+
+STRING 1485
+// Units: u01J (Anomaly Tower 1), Hotkey (Hotkey)
+{
+C
+}
+
+STRING 1486
+// Units: u01J (Anomaly Tower 1), Tip (Tooltip - Basic)
+{
+Build Anomaly Tower
+}
+
+STRING 1487
+// Units: u01J (Anomaly Tower 1), Ubertip (Tooltip - Extended)
+{
+??? Damage
+Dmg: ???
+Cooldown: 6.00s
+Range: 600
+Resonance Cascade
+}
+
+STRING 1488
+// Units: u01K (Anomaly Tower 2), Name (Name)
+{
+Anomaly Tower 2
+}
+
+STRING 1489
+// Units: u01K (Anomaly Tower 2), Tip (Tooltip - Basic)
+{
+Upgrade to Level 2
+}
+
+STRING 1490
+// Units: u01K (Anomaly Tower 2), Ubertip (Tooltip - Extended)
+{
+??? Damage
+Dmg: ???
+Cooldown: 5.00s
+Range: 700
+Resonance Cascade
+}
+
+STRING 1491
+// Units: u01L (Anomaly Tower 3), Name (Name)
+{
+Anomaly Tower 3
+}
+
+STRING 1492
+// Units: u01L (Anomaly Tower 3), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 1493
+// Units: u01L (Anomaly Tower 3), Tip (Tooltip - Basic)
+{
+Upgrade to Level 3
+}
+
+STRING 1494
+// Units: u01L (Anomaly Tower 3), Ubertip (Tooltip - Extended)
+{
+??? Damage
+Dmg: ???
+Cooldown: 4.00s
+Range: 800
+Resonance Cascade
+}
+
+STRING 1495
+// Items: I005 (Ghastly Vial), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 1496
+// Abilities: A004 (Anomaly Tower - Breath of Frost), Name (Name)
+{
+Anomaly Tower - Breath of Frost
+}
+
+STRING 1497
+// Abilities: A00H (Anomaly Tower - Lightning Shield), Name (Name)
+{
+Anomaly Tower - Lightning Shield
+}
+
+STRING 1498
+// Abilities: A00N (Anomaly Tower - Shadow Strike), Name (Name)
+{
+Anomaly Tower - Shadow Strike
+}
+
+STRING 1499
+// Abilities: A00S (Anomaly Tower - Death Coil), Name (Name)
+{
+Anomaly Tower - Death Coil
+}
+
+STRING 1500
+// Abilities: A00T (Anomaly Tower - Howl of Terror), Name (Name)
+{
+Anomaly Tower - Howl of Terror
+}
+
+STRING 1501
+// Abilities: A00U (Anomaly Tower - Forked Lightning), Name (Name)
+{
+Anomaly Tower - Forked Lightning
+}
+
+STRING 1502
+// Abilities: A012 (Anomaly Tower - Finger of Pain), Name (Name)
+{
+Anomaly Tower - Finger of Pain
+}
+
+STRING 1503
+// Abilities: A013 (Anomaly Tower - Chain Lightning), Name (Name)
+{
+Anomaly Tower - Chain Lightning
+}
+
+STRING 1504
+// Abilities: A014 (Anomaly Tower - Crushing Wave), Name (Name)
+{
+Anomaly Tower - Crushing Wave
+}
+
+STRING 1505
+// Abilities: A016 (Anomaly Tower - Frost Armor), Name (Name)
+{
+Anomaly Tower - Frost Armor
+}
+
+STRING 1506
+// Abilities: A015 (Anomaly Tower - Frost Nova), Name (Name)
+{
+Anomaly Tower - Frost Nova
+}
+
+STRING 1507
+// Abilities: A017 (Anomaly Tower - Multishot), Tip (Tooltip - Normal)
+{
+Multishot
+}
+
+STRING 1508
+// Abilities: A017 (Anomaly Tower - Multishot), Ubertip (Tooltip - Normal - Extended)
+{
+Allows the tower to attack up to 3 targets.
+}
+
+STRING 1509
+// Abilities: A017 (Anomaly Tower - Multishot), Name (Name)
+{
+Anomaly Tower - Multishot
+}
+
+STRING 1510
+// Abilities: A018 (Anomaly Tower - Critical Strike), Name (Name)
+{
+Anomaly Tower - Critical Strike
+}
+
+STRING 1511
+// Abilities: A01E (Anomaly Tower - Sundering Blades), Name (Name)
+{
+Anomaly Tower - Sundering Blades
+}
+
+STRING 1512
+// Abilities: A01G (Anomaly Tower - Flame Strike), Name (Name)
+{
+Anomaly Tower - Flame Strike
+}
+
+STRING 1513
+// Abilities: A01T (Anomaly Tower - Bladestorm), Name (Name)
+{
+Anomaly Tower - Bladestorm
+}
+
+STRING 1514
+// Abilities: A01U (Anomaly Tower - Starfall), Name (Name)
+{
+Anomaly Tower - Starfall
 }
 
