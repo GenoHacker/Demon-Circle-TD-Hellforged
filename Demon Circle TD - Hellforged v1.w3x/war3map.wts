@@ -3159,7 +3159,7 @@ Q
 }
 
 STRING 1355
-// Units: u01K (Anomaly Tower 2), Hotkey (Hotkey)
+// Units: u01K (Anomaly Tower Level 2), Hotkey (Hotkey)
 {
 Q
 }
@@ -3825,26 +3825,20 @@ Range: 800
 Splash (250)
 }
 
-STRING 1484
-// Units: u01J (Anomaly Tower 1), Name (Name)
-{
-Anomaly Tower 1
-}
-
 STRING 1485
-// Units: u01J (Anomaly Tower 1), Hotkey (Hotkey)
+// Units: u01J (Anomaly Tower Level 1), Hotkey (Hotkey)
 {
 C
 }
 
 STRING 1486
-// Units: u01J (Anomaly Tower 1), Tip (Tooltip - Basic)
+// Units: u01J (Anomaly Tower Level 1), Tip (Tooltip - Basic)
 {
 Build Anomaly Tower
 }
 
 STRING 1487
-// Units: u01J (Anomaly Tower 1), Ubertip (Tooltip - Extended)
+// Units: u01J (Anomaly Tower Level 1), Ubertip (Tooltip - Extended)
 {
 ??? Damage
 Dmg: ???
@@ -3853,20 +3847,14 @@ Range: 600
 Resonance Cascade
 }
 
-STRING 1488
-// Units: u01K (Anomaly Tower 2), Name (Name)
-{
-Anomaly Tower 2
-}
-
 STRING 1489
-// Units: u01K (Anomaly Tower 2), Tip (Tooltip - Basic)
+// Units: u01K (Anomaly Tower Level 2), Tip (Tooltip - Basic)
 {
 Upgrade to Level 2
 }
 
 STRING 1490
-// Units: u01K (Anomaly Tower 2), Ubertip (Tooltip - Extended)
+// Units: u01K (Anomaly Tower Level 2), Ubertip (Tooltip - Extended)
 {
 ??? Damage
 Dmg: ???
@@ -3875,26 +3863,20 @@ Range: 700
 Resonance Cascade
 }
 
-STRING 1491
-// Units: u01L (Anomaly Tower 3), Name (Name)
-{
-Anomaly Tower 3
-}
-
 STRING 1492
-// Units: u01L (Anomaly Tower 3), Hotkey (Hotkey)
+// Units: u01L (Anomaly Tower Level 3), Hotkey (Hotkey)
 {
 Q
 }
 
 STRING 1493
-// Units: u01L (Anomaly Tower 3), Tip (Tooltip - Basic)
+// Units: u01L (Anomaly Tower Level 3), Tip (Tooltip - Basic)
 {
 Upgrade to Level 3
 }
 
 STRING 1494
-// Units: u01L (Anomaly Tower 3), Ubertip (Tooltip - Extended)
+// Units: u01L (Anomaly Tower Level 3), Ubertip (Tooltip - Extended)
 {
 ??? Damage
 Dmg: ???
@@ -4027,5 +4009,23 @@ STRING 1515
 // Abilities: A01W (Anomaly Tower), Name (Name)
 {
 Anomaly Tower
+}
+
+STRING 1516
+// Units: u01J (Anomaly Tower Level 1), Name (Name)
+{
+Anomaly Tower Level 1
+}
+
+STRING 1517
+// Units: u01K (Anomaly Tower Level 2), Name (Name)
+{
+Anomaly Tower Level 2
+}
+
+STRING 1518
+// Units: u01L (Anomaly Tower Level 3), Name (Name)
+{
+Anomaly Tower Level 3
 }
 

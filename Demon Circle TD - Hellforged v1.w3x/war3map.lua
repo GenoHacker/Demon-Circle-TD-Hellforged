@@ -435,6 +435,16 @@ local life
 u = BlzCreateUnitWithSkin(p, FourCC("u005"), -5123.3, 2051.0, 179.561, FourCC("u005"))
 end
 
+function CreateNeutralHostile()
+local p = Player(PLAYER_NEUTRAL_AGGRESSIVE)
+local u
+local unitID
+local t
+local life
+
+u = BlzCreateUnitWithSkin(p, FourCC("uaco"), -4766.6, 3632.5, 222.060, FourCC("uaco"))
+end
+
 function CreateNeutralPassiveBuildings()
 local p = Player(PLAYER_NEUTRAL_PASSIVE)
 local u
@@ -475,6 +485,7 @@ end
 function CreateAllUnits()
 CreateNeutralPassiveBuildings()
 CreatePlayerBuildings()
+CreateNeutralHostile()
 CreateNeutralPassive()
 CreatePlayerUnits()
 end
@@ -549,6 +560,40 @@ CreateQuestBJ(bj_QUESTTYPE_REQ_DISCOVERED, "TRIGSTR_1065", "TRIGSTR_1066", "Repl
 CreateQuestBJ(bj_QUESTTYPE_REQ_DISCOVERED, "TRIGSTR_1425", "TRIGSTR_1426", "ReplaceableTextures\\CommandButtons\\BTNSnazzyScrollPurple.blp")
 CreateQuestBJ(bj_QUESTTYPE_OPT_DISCOVERED, "TRIGSTR_539", "TRIGSTR_540", "ReplaceableTextures\\CommandButtons\\BTNSnazzyScroll.blp")
 CreateQuestBJ(bj_QUESTTYPE_OPT_DISCOVERED, "TRIGSTR_1411", "TRIGSTR_1412", "ReplaceableTextures\\CommandButtons\\BTNSnazzyScroll.blp")
+udg_AbilityCode_Array_AnomTowDummy[1] = FourCC("A018")
+udg_AbilityCode_Array_AnomTowDummy[2] = FourCC("A017")
+udg_AbilityCode_Array_AnomTowDummy[3] = FourCC("A017")
+udg_AbilityCode_Array_AnomTowDummy[4] = FourCC("A017")
+udg_AbilityCode_Array_AnomTowDummy[5] = FourCC("A017")
+udg_AbilityCode_Array_AnomTowDummy[6] = FourCC("A01E")
+udg_AbilityCode_Array_AnomTowDummy[7] = FourCC("A01E")
+udg_AbilityCode_Array_AnomTowDummy[8] = FourCC("A01E")
+udg_AbilityCode_Array_AnomTowDummy[9] = FourCC("A01E")
+udg_AbilityCode_Array_AnomTowDummy[10] = FourCC("A01E")
+udg_AbilityCode_Array_AnomTowDummy[11] = FourCC("A01E")
+udg_AbilityCode_Array_AnomTowDummy[12] = FourCC("A01E")
+udg_AbilityCode_Array_AnomTowDummy[13] = FourCC("A01E")
+udg_AbilityCode_Array_AnomTowDummy[14] = FourCC("A01E")
+udg_AbilityCode_Array_AnomTowDummy[15] = FourCC("A01E")
+udg_AbilityCode_Array_AnomTowDummy[16] = FourCC("A01E")
+udg_AbilityCode_Array_AnomTowDummy[17] = FourCC("A01E")
+udg_AbilityCode_Array_AnomalyTower[1] = FourCC("A018")
+udg_AbilityCode_Array_AnomalyTower[2] = FourCC("A017")
+udg_AbilityCode_Array_AnomalyTower[3] = FourCC("A013")
+udg_AbilityCode_Array_AnomalyTower[4] = FourCC("A015")
+udg_AbilityCode_Array_AnomalyTower[5] = FourCC("A00T")
+udg_AbilityCode_Array_AnomalyTower[6] = FourCC("A01E")
+udg_AbilityCode_Array_AnomalyTower[7] = FourCC("A00N")
+udg_AbilityCode_Array_AnomalyTower[8] = FourCC("A016")
+udg_AbilityCode_Array_AnomalyTower[9] = FourCC("A01G")
+udg_AbilityCode_Array_AnomalyTower[10] = FourCC("A014")
+udg_AbilityCode_Array_AnomalyTower[11] = FourCC("A004")
+udg_AbilityCode_Array_AnomalyTower[12] = FourCC("A00S")
+udg_AbilityCode_Array_AnomalyTower[13] = FourCC("A00H")
+udg_AbilityCode_Array_AnomalyTower[14] = FourCC("A01T")
+udg_AbilityCode_Array_AnomalyTower[15] = FourCC("A00U")
+udg_AbilityCode_Array_AnomalyTower[16] = FourCC("A01U")
+udg_AbilityCode_Array_AnomalyTower[17] = FourCC("A012")
 udg_Region_Array_Spawns[1] = gg_rct_CreepSpawn1
 udg_Region_Array_Spawns[1] = gg_rct_CreepSpawn1
 udg_Region_Array_Spawns[2] = gg_rct_CreepSpawn2
@@ -1640,21 +1685,21 @@ end
 return true
 end
 
-function Trig_Anomaly_Tower_Func006Func044C()
+function Trig_Anomaly_Tower_Func006Func046C()
 if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("texp"))) >= 1)) then
 return false
 end
 return true
 end
 
-function Trig_Anomaly_Tower_Func006Func048C()
+function Trig_Anomaly_Tower_Func006Func050C()
 if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("texp"))) >= 2)) then
 return false
 end
 return true
 end
 
-function Trig_Anomaly_Tower_Func006Func052C()
+function Trig_Anomaly_Tower_Func006Func054C()
 if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("texp"))) >= 3)) then
 return false
 end
@@ -1702,7 +1747,7 @@ udg_Integer_Array_AnomalyAbility2[GetConvertedPlayerId(GetOwningPlayer(GetEventD
 udg_Integer_Array_AnomalyAbility3[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] = GetRandomInt(11, 15)
 udg_Integer_Array_AnomalyAbility4[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] = GetRandomInt(16, 17)
 if (Trig_Anomaly_Tower_Func006Func033C()) then
-BlzSetUnitBaseDamage(GetEventDamageSource(), (200 + (udg_I_Round * GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("texp"))))), 0)
+BlzSetUnitBaseDamage(GetLastCreatedUnit(), (200 + (udg_I_Round * GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("texp"))))), 0)
 else
 end
 CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), GetUnitLoc(GetEventDamageSource()), bj_UNIT_FACING)
@@ -1711,7 +1756,7 @@ UnitAddAbilityBJ(udg_AbilityCode_Array_AnomalyTower[udg_Integer_Array_AnomalyAbi
 UnitAddAbilityBJ(udg_AbilityCode_Array_AnomTowDummy[udg_Integer_Array_AnomalyAbility1[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))]], GetEventDamageSource())
 SetUnitAbilityLevelSwapped(udg_AbilityCode_Array_AnomalyTower[udg_Integer_Array_AnomalyAbility1[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))]], GetLastCreatedUnit(), (1 + GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("texp")))))
 SetUnitAbilityLevelSwapped(udg_AbilityCode_Array_AnomTowDummy[udg_Integer_Array_AnomalyAbility1[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))]], GetEventDamageSource(), (1 + GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("texp")))))
-if (Trig_Anomaly_Tower_Func006Func044C()) then
+if (Trig_Anomaly_Tower_Func006Func046C()) then
 CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), GetUnitLoc(GetEventDamageSource()), bj_UNIT_FACING)
 GroupAddUnitSimple(GetLastCreatedUnit(), udg_UnitGroup_Array_AnomDummys1[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))])
 UnitAddAbilityBJ(udg_AbilityCode_Array_AnomalyTower[udg_Integer_Array_AnomalyAbility2[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))]], GetLastCreatedUnit())
@@ -1720,7 +1765,7 @@ SetUnitAbilityLevelSwapped(udg_AbilityCode_Array_AnomalyTower[udg_Integer_Array_
 SetUnitAbilityLevelSwapped(udg_AbilityCode_Array_AnomTowDummy[udg_Integer_Array_AnomalyAbility2[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))]], GetEventDamageSource(), (1 + GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("texp")))))
 else
 end
-if (Trig_Anomaly_Tower_Func006Func048C()) then
+if (Trig_Anomaly_Tower_Func006Func050C()) then
 CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), GetUnitLoc(GetEventDamageSource()), bj_UNIT_FACING)
 GroupAddUnitSimple(GetLastCreatedUnit(), udg_UnitGroup_Array_AnomDummys1[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))])
 UnitAddAbilityBJ(udg_AbilityCode_Array_AnomalyTower[udg_Integer_Array_AnomalyAbility3[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))]], GetLastCreatedUnit())
@@ -1729,7 +1774,7 @@ SetUnitAbilityLevelSwapped(udg_AbilityCode_Array_AnomalyTower[udg_Integer_Array_
 SetUnitAbilityLevelSwapped(udg_AbilityCode_Array_AnomTowDummy[udg_Integer_Array_AnomalyAbility3[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))]], GetEventDamageSource(), (1 + GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("texp")))))
 else
 end
-if (Trig_Anomaly_Tower_Func006Func052C()) then
+if (Trig_Anomaly_Tower_Func006Func054C()) then
 CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), GetUnitLoc(GetEventDamageSource()), bj_UNIT_FACING)
 GroupAddUnitSimple(GetLastCreatedUnit(), udg_UnitGroup_Array_AnomDummys1[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))])
 UnitAddAbilityBJ(udg_AbilityCode_Array_AnomalyTower[udg_Integer_Array_AnomalyAbility4[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))]], GetLastCreatedUnit())
