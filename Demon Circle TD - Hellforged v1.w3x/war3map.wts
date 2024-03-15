@@ -3915,12 +3915,6 @@ STRING 1499
 Anomaly Tower - Death Coil
 }
 
-STRING 1500
-// Abilities: A00T (Anomaly Tower - Howl of Terror), Name (Name)
-{
-Anomaly Tower - Howl of Terror
-}
-
 STRING 1501
 // Abilities: A00U (Anomaly Tower - Forked Lightning), Name (Name)
 {
@@ -3955,24 +3949,6 @@ STRING 1506
 // Abilities: A015 (Anomaly Tower - Frost Nova), Name (Name)
 {
 Anomaly Tower - Frost Nova
-}
-
-STRING 1507
-// Abilities: A017 (Anomaly Tower - Multishot), Tip (Tooltip - Normal)
-{
-Multishot
-}
-
-STRING 1508
-// Abilities: A017 (Anomaly Tower - Multishot), Ubertip (Tooltip - Normal - Extended)
-{
-Allows the tower to attack up to 3 targets.
-}
-
-STRING 1509
-// Abilities: A017 (Anomaly Tower - Multishot), Name (Name)
-{
-Anomaly Tower - Multishot
 }
 
 STRING 1510
@@ -4101,20 +4077,14 @@ STRING 1530
 - Anomaly Tower Dummy
 }
 
-STRING 1531
-// Abilities: A02G (Howl of Terror), Name (Name)
-{
-Howl of Terror
-}
-
 STRING 1532
-// Abilities: A02G (Howl of Terror), Tip (Tooltip - Normal)
+// Abilities: A02A (Bladestorm), Name (Name)
 {
 Bladestorm
 }
 
 STRING 1533
-// Abilities: A02G (Howl of Terror), EditorSuffix (Editor Suffix)
+// Abilities: A02G (Corruption Aura), EditorSuffix (Editor Suffix)
 {
 - Anomaly Tower Dummy
 }
@@ -4126,7 +4096,7 @@ Frost Nova
 }
 
 STRING 1535
-// Abilities: A02H (Frost Nova), Tip (Tooltip - Normal)
+// Abilities: A02A (Bladestorm), Tip (Tooltip - Normal)
 {
 Bladestorm
 }
@@ -4281,20 +4251,80 @@ STRING 1560
 - Anomaly Tower Dummy
 }
 
-STRING 1561
-// Abilities: A02A (Bladestorm), Name (Name)
-{
-Bladestorm
-}
-
-STRING 1562
-// Abilities: A02A (Bladestorm), Tip (Tooltip - Normal)
-{
-Bladestorm
-}
-
 STRING 1563
 // Abilities: A02A (Bladestorm), EditorSuffix (Editor Suffix)
+{
+- Anomaly Tower Dummy
+}
+
+STRING 1564
+// Abilities: A02G (Corruption Aura), Name (Name)
+{
+Corruption Aura
+}
+
+STRING 1565
+// Abilities: A02G (Corruption Aura), Tip (Tooltip - Normal)
+{
+Corruption Aura
+}
+
+STRING 1566
+// Abilities: A02C (Anomaly Tower - Corruption Aura), Name (Name)
+{
+Anomaly Tower - Corruption Aura
+}
+
+STRING 1567
+// Abilities: A018 (Anomaly Tower - Critical Strike), Ubertip (Tooltip - Normal - Extended)
+{
+Gives a 25% chance to do 5 times normal damage on an attack.
+}
+
+STRING 1568
+// Abilities: A018 (Anomaly Tower - Critical Strike), Ubertip (Tooltip - Normal - Extended)
+{
+Gives a 50% chance to do 10 times normal damage on an attack.
+}
+
+STRING 1569
+// Abilities: A018 (Anomaly Tower - Critical Strike), Ubertip (Tooltip - Normal - Extended)
+{
+Gives a 75% chance to do 15 times normal damage on an attack.
+}
+
+STRING 1570
+// Abilities: A018 (Anomaly Tower - Critical Strike), Ubertip (Tooltip - Normal - Extended)
+{
+Gives a 100% chance to do 20 times normal damage on an attack.
+}
+
+STRING 1571
+// Abilities: A02H (Frost Nova), Tip (Tooltip - Normal)
+{
+Frost Nova
+}
+
+STRING 1572
+// Abilities: A00T (Anomaly Tower - Dispel Magic), Name (Name)
+{
+Anomaly Tower - Dispel Magic
+}
+
+STRING 1573
+// Abilities: A02D (Dispel Magic), Name (Name)
+{
+Dispel Magic
+}
+
+STRING 1574
+// Abilities: A02D (Dispel Magic), Tip (Tooltip - Normal)
+{
+Dispel Magic
+}
+
+STRING 1575
+// Abilities: A02D (Dispel Magic), EditorSuffix (Editor Suffix)
 {
 - Anomaly Tower Dummy
 }
