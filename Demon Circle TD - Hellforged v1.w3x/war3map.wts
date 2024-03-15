@@ -4329,3 +4329,31 @@ STRING 1575
 - Anomaly Tower Dummy
 }
 
+STRING 1576
+// Abilities: A017 (Resonance Cascade), Name (Name)
+{
+Resonance Cascade
+}
+
+STRING 1577
+// Abilities: A017 (Resonance Cascade), Tip (Tooltip - Normal)
+{
+Resonance Cascade
+}
+
+STRING 1579
+// Abilities: A017 (Resonance Cascade), EditorSuffix (Editor Suffix)
+{
+[Anomaly Tower]
+}
+
+STRING 1580
+// Abilities: A017 (Resonance Cascade), Ubertip (Tooltip - Normal - Extended)
+{
+The tower gains temporary abilities upon attacking at full mana and will use them, whilst regenerating mana subsequent attacks will reuse the previously gained abilities.
+
+The tower without its item will have access to the first set of abilities and will be able to gain 1 of them.
+
+The tower with its item will increase the level of all abilities, gain access to an additional set of abilities and 1 ability from the set gained.
+}
+
