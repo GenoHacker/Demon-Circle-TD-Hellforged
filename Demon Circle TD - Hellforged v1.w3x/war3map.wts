@@ -4029,3 +4029,273 @@ STRING 1518
 Anomaly Tower Level 3
 }
 
+STRING 1519
+// Abilities: A029 (Starfall), Name (Name)
+{
+Starfall
+}
+
+STRING 1520
+// Abilities: A029 (Starfall), Tip (Tooltip - Normal)
+{
+Starfall
+}
+
+STRING 1521
+// Abilities: A029 (Starfall), EditorSuffix (Editor Suffix)
+{
+- Anomaly Tower Dummy
+}
+
+STRING 1522
+// Abilities: A02B (Shadow Strike), Name (Name)
+{
+Shadow Strike
+}
+
+STRING 1523
+// Abilities: A02B (Shadow Strike), Tip (Tooltip - Normal)
+{
+Shadow Strike
+}
+
+STRING 1524
+// Abilities: A02B (Shadow Strike), EditorSuffix (Editor Suffix)
+{
+- Anomaly Tower Dummy
+}
+
+STRING 1525
+// Abilities: A02E (PLACEHOLDER), Name (Name)
+{
+PLACEHOLDER
+}
+
+STRING 1526
+// Abilities: A02E (PLACEHOLDER), Tip (Tooltip - Normal)
+{
+PLACEHOLDER
+}
+
+STRING 1527
+// Abilities: A02E (PLACEHOLDER), EditorSuffix (Editor Suffix)
+{
+- Anomaly Tower Dummy
+}
+
+STRING 1528
+// Abilities: A02F (Lightning Shield), Name (Name)
+{
+Lightning Shield
+}
+
+STRING 1529
+// Abilities: A02F (Lightning Shield), Tip (Tooltip - Normal)
+{
+Lightning Shield
+}
+
+STRING 1530
+// Abilities: A02F (Lightning Shield), EditorSuffix (Editor Suffix)
+{
+- Anomaly Tower Dummy
+}
+
+STRING 1531
+// Abilities: A02G (Howl of Terror), Name (Name)
+{
+Howl of Terror
+}
+
+STRING 1532
+// Abilities: A02G (Howl of Terror), Tip (Tooltip - Normal)
+{
+Bladestorm
+}
+
+STRING 1533
+// Abilities: A02G (Howl of Terror), EditorSuffix (Editor Suffix)
+{
+- Anomaly Tower Dummy
+}
+
+STRING 1534
+// Abilities: A02H (Frost Nova), Name (Name)
+{
+Frost Nova
+}
+
+STRING 1535
+// Abilities: A02H (Frost Nova), Tip (Tooltip - Normal)
+{
+Bladestorm
+}
+
+STRING 1536
+// Abilities: A02H (Frost Nova), EditorSuffix (Editor Suffix)
+{
+- Anomaly Tower Dummy
+}
+
+STRING 1537
+// Abilities: A02I (Frost Armour), Name (Name)
+{
+Frost Armour
+}
+
+STRING 1538
+// Abilities: A02I (Frost Armour), Tip (Tooltip - Normal)
+{
+Frost Armour
+}
+
+STRING 1539
+// Abilities: A02I (Frost Armour), EditorSuffix (Editor Suffix)
+{
+- Anomaly Tower Dummy
+}
+
+STRING 1540
+// Abilities: A02J (Forked Lightning), Name (Name)
+{
+Forked Lightning
+}
+
+STRING 1541
+// Abilities: A02J (Forked Lightning), Tip (Tooltip - Normal)
+{
+Forked Lightning
+}
+
+STRING 1542
+// Abilities: A02J (Forked Lightning), EditorSuffix (Editor Suffix)
+{
+- Anomaly Tower Dummy
+}
+
+STRING 1543
+// Abilities: A02K (Flame Strike), Name (Name)
+{
+Flame Strike
+}
+
+STRING 1544
+// Abilities: A02K (Flame Strike), Tip (Tooltip - Normal)
+{
+Flame Strike
+}
+
+STRING 1545
+// Abilities: A02K (Flame Strike), EditorSuffix (Editor Suffix)
+{
+- Anomaly Tower Dummy
+}
+
+STRING 1546
+// Abilities: A02L (Finger of Pain), Name (Name)
+{
+Finger of Pain
+}
+
+STRING 1547
+// Abilities: A02L (Finger of Pain), Tip (Tooltip - Normal)
+{
+Finger of Pain
+}
+
+STRING 1548
+// Abilities: A02L (Finger of Pain), EditorSuffix (Editor Suffix)
+{
+- Anomaly Tower Dummy
+}
+
+STRING 1549
+// Abilities: A02M (Death Coil), Name (Name)
+{
+Death Coil
+}
+
+STRING 1550
+// Abilities: A02M (Death Coil), Tip (Tooltip - Normal)
+{
+Death Coil
+}
+
+STRING 1551
+// Abilities: A02M (Death Coil), EditorSuffix (Editor Suffix)
+{
+- Anomaly Tower Dummy
+}
+
+STRING 1552
+// Abilities: A02N (Crushing Wave), Name (Name)
+{
+Crushing Wave
+}
+
+STRING 1553
+// Abilities: A02N (Crushing Wave), Tip (Tooltip - Normal)
+{
+Crushing Wave
+}
+
+STRING 1554
+// Abilities: A02N (Crushing Wave), EditorSuffix (Editor Suffix)
+{
+- Anomaly Tower Dummy
+}
+
+STRING 1555
+// Abilities: A02O (Chain Lightning), Name (Name)
+{
+Chain Lightning
+}
+
+STRING 1556
+// Abilities: A02O (Chain Lightning), Tip (Tooltip - Normal)
+{
+Chain Lightning
+}
+
+STRING 1557
+// Abilities: A02O (Chain Lightning), EditorSuffix (Editor Suffix)
+{
+- Anomaly Tower Dummy
+}
+
+STRING 1558
+// Abilities: A02P (Breath of Frost), Name (Name)
+{
+Breath of Frost
+}
+
+STRING 1559
+// Abilities: A02P (Breath of Frost), Tip (Tooltip - Normal)
+{
+Breath of Frost
+}
+
+STRING 1560
+// Abilities: A02P (Breath of Frost), EditorSuffix (Editor Suffix)
+{
+- Anomaly Tower Dummy
+}
+
+STRING 1561
+// Abilities: A02A (Bladestorm), Name (Name)
+{
+Bladestorm
+}
+
+STRING 1562
+// Abilities: A02A (Bladestorm), Tip (Tooltip - Normal)
+{
+Bladestorm
+}
+
+STRING 1563
+// Abilities: A02A (Bladestorm), EditorSuffix (Editor Suffix)
+{
+- Anomaly Tower Dummy
+}
+
