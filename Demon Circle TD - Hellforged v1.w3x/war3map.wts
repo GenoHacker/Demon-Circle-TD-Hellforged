@@ -3933,12 +3933,6 @@ STRING 1503
 Anomaly Tower - Chain Lightning
 }
 
-STRING 1504
-// Abilities: A014 (Anomaly Tower - Crushing Wave), Name (Name)
-{
-Anomaly Tower - Crushing Wave
-}
-
 STRING 1505
 // Abilities: A016 (Anomaly Tower - Frost Armor), Name (Name)
 {
@@ -4018,7 +4012,7 @@ Starfall
 }
 
 STRING 1521
-// Abilities: A029 (Starfall), EditorSuffix (Editor Suffix)
+// Abilities: A02R (PLACEHOLDER), EditorSuffix (Editor Suffix)
 {
 - Anomaly Tower Dummy
 }
@@ -4035,28 +4029,16 @@ STRING 1523
 Shadow Strike
 }
 
-STRING 1524
-// Abilities: A02B (Shadow Strike), EditorSuffix (Editor Suffix)
-{
-- Anomaly Tower Dummy
-}
-
 STRING 1525
-// Abilities: A02E (PLACEHOLDER), Name (Name)
+// Abilities: A02R (PLACEHOLDER), Name (Name)
 {
 PLACEHOLDER
 }
 
 STRING 1526
-// Abilities: A02E (PLACEHOLDER), Tip (Tooltip - Normal)
+// Abilities: A02R (PLACEHOLDER), Tip (Tooltip - Normal)
 {
 PLACEHOLDER
-}
-
-STRING 1527
-// Abilities: A02E (PLACEHOLDER), EditorSuffix (Editor Suffix)
-{
-- Anomaly Tower Dummy
 }
 
 STRING 1528
@@ -4071,22 +4053,10 @@ STRING 1529
 Lightning Shield
 }
 
-STRING 1530
-// Abilities: A02F (Lightning Shield), EditorSuffix (Editor Suffix)
-{
-- Anomaly Tower Dummy
-}
-
 STRING 1532
 // Abilities: A02A (Bladestorm), Name (Name)
 {
 Bladestorm
-}
-
-STRING 1533
-// Abilities: A02G (Corruption Aura), EditorSuffix (Editor Suffix)
-{
-- Anomaly Tower Dummy
 }
 
 STRING 1534
@@ -4101,12 +4071,6 @@ STRING 1535
 Bladestorm
 }
 
-STRING 1536
-// Abilities: A02H (Frost Nova), EditorSuffix (Editor Suffix)
-{
-- Anomaly Tower Dummy
-}
-
 STRING 1537
 // Abilities: A02I (Frost Armour), Name (Name)
 {
@@ -4117,12 +4081,6 @@ STRING 1538
 // Abilities: A02I (Frost Armour), Tip (Tooltip - Normal)
 {
 Frost Armour
-}
-
-STRING 1539
-// Abilities: A02I (Frost Armour), EditorSuffix (Editor Suffix)
-{
-- Anomaly Tower Dummy
 }
 
 STRING 1540
@@ -4137,12 +4095,6 @@ STRING 1541
 Forked Lightning
 }
 
-STRING 1542
-// Abilities: A02J (Forked Lightning), EditorSuffix (Editor Suffix)
-{
-- Anomaly Tower Dummy
-}
-
 STRING 1543
 // Abilities: A02K (Flame Strike), Name (Name)
 {
@@ -4153,12 +4105,6 @@ STRING 1544
 // Abilities: A02K (Flame Strike), Tip (Tooltip - Normal)
 {
 Flame Strike
-}
-
-STRING 1545
-// Abilities: A02K (Flame Strike), EditorSuffix (Editor Suffix)
-{
-- Anomaly Tower Dummy
 }
 
 STRING 1546
@@ -4173,12 +4119,6 @@ STRING 1547
 Finger of Pain
 }
 
-STRING 1548
-// Abilities: A02L (Finger of Pain), EditorSuffix (Editor Suffix)
-{
-- Anomaly Tower Dummy
-}
-
 STRING 1549
 // Abilities: A02M (Death Coil), Name (Name)
 {
@@ -4189,30 +4129,6 @@ STRING 1550
 // Abilities: A02M (Death Coil), Tip (Tooltip - Normal)
 {
 Death Coil
-}
-
-STRING 1551
-// Abilities: A02M (Death Coil), EditorSuffix (Editor Suffix)
-{
-- Anomaly Tower Dummy
-}
-
-STRING 1552
-// Abilities: A02N (Crushing Wave), Name (Name)
-{
-Crushing Wave
-}
-
-STRING 1553
-// Abilities: A02N (Crushing Wave), Tip (Tooltip - Normal)
-{
-Crushing Wave
-}
-
-STRING 1554
-// Abilities: A02N (Crushing Wave), EditorSuffix (Editor Suffix)
-{
-- Anomaly Tower Dummy
 }
 
 STRING 1555
@@ -4227,12 +4143,6 @@ STRING 1556
 Chain Lightning
 }
 
-STRING 1557
-// Abilities: A02O (Chain Lightning), EditorSuffix (Editor Suffix)
-{
-- Anomaly Tower Dummy
-}
-
 STRING 1558
 // Abilities: A02P (Breath of Frost), Name (Name)
 {
@@ -4243,18 +4153,6 @@ STRING 1559
 // Abilities: A02P (Breath of Frost), Tip (Tooltip - Normal)
 {
 Breath of Frost
-}
-
-STRING 1560
-// Abilities: A02P (Breath of Frost), EditorSuffix (Editor Suffix)
-{
-- Anomaly Tower Dummy
-}
-
-STRING 1563
-// Abilities: A02A (Bladestorm), EditorSuffix (Editor Suffix)
-{
-- Anomaly Tower Dummy
 }
 
 STRING 1564
@@ -4323,12 +4221,6 @@ STRING 1574
 Dispel Magic
 }
 
-STRING 1575
-// Abilities: A02D (Dispel Magic), EditorSuffix (Editor Suffix)
-{
-- Anomaly Tower Dummy
-}
-
 STRING 1576
 // Abilities: A017 (Resonance Cascade), Name (Name)
 {
@@ -4355,5 +4247,407 @@ The tower gains temporary abilities upon attacking at full mana and will use the
 The tower without its item will have access to the first set of abilities and will be able to gain 1 of them.
 
 The tower with its item will increase the level of all abilities, gain access to an additional set of abilities and 1 ability from the set gained.
+}
+
+STRING 1581
+// Abilities: A02E (Thunder Clap), Name (Name)
+{
+Thunder Clap
+}
+
+STRING 1582
+// Abilities: A02E (Thunder Clap), Tip (Tooltip - Normal)
+{
+Thunder Clap
+}
+
+STRING 1583
+// Abilities: A02Q (Anomaly Tower - Thunder Clap), Name (Name)
+{
+Anomaly Tower - Thunder Clap
+}
+
+STRING 1585
+// Abilities: A02S (Anomaly Tower - Acid Bomb), Name (Name)
+{
+Anomaly Tower - Acid Bomb
+}
+
+STRING 1586
+// Abilities: A02T (Acid Bomb), Name (Name)
+{
+Acid Bomb
+}
+
+STRING 1587
+// Abilities: A02T (Acid Bomb), Tip (Tooltip - Normal)
+{
+Acid Bomb
+}
+
+STRING 1589
+// Abilities: A02U (Anomaly Tower - Rain of Fire), Name (Name)
+{
+Anomaly Tower - Rain of Fire
+}
+
+STRING 1590
+// Abilities: A02V (Anomaly Tower - Inferno), Name (Name)
+{
+Anomaly Tower - Inferno
+}
+
+STRING 1591
+// Abilities: A02W (Inferno), Name (Name)
+{
+Inferno
+}
+
+STRING 1592
+// Abilities: A02W (Inferno), Tip (Tooltip - Normal)
+{
+PLACEHOLDER
+}
+
+STRING 1594
+// Abilities: A02X (Anomaly Tower - Feral Spirit), Name (Name)
+{
+Anomaly Tower - Feral Spirit
+}
+
+STRING 1595
+// Abilities: A02Y (Feral Spirit), Name (Name)
+{
+Feral Spirit
+}
+
+STRING 1596
+// Abilities: A02Y (Feral Spirit), Tip (Tooltip - Normal)
+{
+PLACEHOLDER
+}
+
+STRING 1598
+// Abilities: A004 (Anomaly Tower - Breath of Frost), EditorSuffix (Editor Suffix)
+{
+[Level 2]
+}
+
+STRING 1599
+// Abilities: A00H (Anomaly Tower - Lightning Shield), EditorSuffix (Editor Suffix)
+{
+[Level 1 1st]
+}
+
+STRING 1600
+// Abilities: A00N (Anomaly Tower - Shadow Strike), EditorSuffix (Editor Suffix)
+{
+[Level 1 2nd]
+}
+
+STRING 1601
+// Abilities: A00S (Anomaly Tower - Death Coil), EditorSuffix (Editor Suffix)
+{
+[Level 2]
+}
+
+STRING 1602
+// Abilities: A00U (Anomaly Tower - Forked Lightning), EditorSuffix (Editor Suffix)
+{
+[Level 1 2nd]
+}
+
+STRING 1603
+// Abilities: A012 (Anomaly Tower - Finger of Pain), EditorSuffix (Editor Suffix)
+{
+[Level 3]
+}
+
+STRING 1604
+// Abilities: A013 (Anomaly Tower - Chain Lightning), EditorSuffix (Editor Suffix)
+{
+[Level 1 1st]
+}
+
+STRING 1605
+// Abilities: A014 (Anomaly Tower - Carrion Swarm), EditorSuffix (Editor Suffix)
+{
+[Level 1 1st]
+}
+
+STRING 1606
+// Abilities: A015 (Anomaly Tower - Frost Nova), EditorSuffix (Editor Suffix)
+{
+[Level 1 1st]
+}
+
+STRING 1607
+// Abilities: A016 (Anomaly Tower - Frost Armor), EditorSuffix (Editor Suffix)
+{
+[Level 2]
+}
+
+STRING 1608
+// Abilities: A018 (Anomaly Tower - Critical Strike), EditorSuffix (Editor Suffix)
+{
+[Level 1 1st]
+}
+
+STRING 1609
+// Abilities: A01E (Anomaly Tower - Sundering Blades), EditorSuffix (Editor Suffix)
+{
+[Level 1 2nd]
+}
+
+STRING 1610
+// Abilities: A01G (Anomaly Tower - Flame Strike), EditorSuffix (Editor Suffix)
+{
+[Level 1 2nd]
+}
+
+STRING 1611
+// Abilities: A01T (Anomaly Tower - Bladestorm), EditorSuffix (Editor Suffix)
+{
+[Level 3]
+}
+
+STRING 1612
+// Abilities: A01U (Anomaly Tower - Starfall), EditorSuffix (Editor Suffix)
+{
+[Level 3]
+}
+
+STRING 1613
+// Abilities: A029 (Starfall), EditorSuffix (Editor Suffix)
+{
+- Anomaly Tower Dummy [Level 3]
+}
+
+STRING 1614
+// Abilities: A02B (Shadow Strike), EditorSuffix (Editor Suffix)
+{
+- Anomaly Tower Dummy [Level 1 2nd]
+}
+
+STRING 1615
+// Abilities: A02E (Thunder Clap), EditorSuffix (Editor Suffix)
+{
+- Anomaly Tower Dummy [Level 1 2nd]
+}
+
+STRING 1616
+// Abilities: A02F (Lightning Shield), EditorSuffix (Editor Suffix)
+{
+- Anomaly Tower Dummy [Level 1 1st]
+}
+
+STRING 1617
+// Abilities: A02G (Corruption Aura), EditorSuffix (Editor Suffix)
+{
+- Anomaly Tower Dummy [Level 3]
+}
+
+STRING 1618
+// Abilities: A02H (Frost Nova), EditorSuffix (Editor Suffix)
+{
+- Anomaly Tower Dummy [Level 1 1st]
+}
+
+STRING 1619
+// Abilities: A02I (Frost Armour), EditorSuffix (Editor Suffix)
+{
+- Anomaly Tower Dummy [Level 2]
+}
+
+STRING 1620
+// Abilities: A02J (Forked Lightning), EditorSuffix (Editor Suffix)
+{
+- Anomaly Tower Dummy [Level 1 2nd]
+}
+
+STRING 1621
+// Abilities: A02K (Flame Strike), EditorSuffix (Editor Suffix)
+{
+- Anomaly Tower Dummy [Level 1 2nd]
+}
+
+STRING 1622
+// Abilities: A02L (Finger of Pain), EditorSuffix (Editor Suffix)
+{
+- Anomaly Tower Dummy [Level 3]
+}
+
+STRING 1623
+// Abilities: A02M (Death Coil), EditorSuffix (Editor Suffix)
+{
+- Anomaly Tower Dummy [Level 2]
+}
+
+STRING 1624
+// Abilities: A02N (Carrion Swarm), EditorSuffix (Editor Suffix)
+{
+- Anomaly Tower Dummy [Level 1 1st]
+}
+
+STRING 1625
+// Abilities: A02O (Chain Lightning), EditorSuffix (Editor Suffix)
+{
+- Anomaly Tower Dummy [Level 1 1st]
+}
+
+STRING 1626
+// Abilities: A02P (Breath of Frost), EditorSuffix (Editor Suffix)
+{
+- Anomaly Tower Dummy [Level 2]
+}
+
+STRING 1627
+// Abilities: A02A (Bladestorm), EditorSuffix (Editor Suffix)
+{
+- Anomaly Tower Dummy [Level 3]
+}
+
+STRING 1628
+// Abilities: A02C (Anomaly Tower - Corruption Aura), EditorSuffix (Editor Suffix)
+{
+[Level 1 1st]
+}
+
+STRING 1629
+// Abilities: A00T (Anomaly Tower - Dispel Magic), EditorSuffix (Editor Suffix)
+{
+[Level 2]
+}
+
+STRING 1630
+// Abilities: A02D (Dispel Magic), EditorSuffix (Editor Suffix)
+{
+- Anomaly Tower Dummy [Level 2]
+}
+
+STRING 1631
+// Abilities: A02Q (Anomaly Tower - Thunder Clap), EditorSuffix (Editor Suffix)
+{
+[Level 1 2nd]
+}
+
+STRING 1632
+// Abilities: A02S (Anomaly Tower - Acid Bomb), EditorSuffix (Editor Suffix)
+{
+[Level 2]
+}
+
+STRING 1633
+// Abilities: A02T (Acid Bomb), EditorSuffix (Editor Suffix)
+{
+- Anomaly Tower Dummy [Level 2]
+}
+
+STRING 1634
+// Abilities: A02U (Anomaly Tower - Rain of Fire), EditorSuffix (Editor Suffix)
+{
+[Level 1 2nd]
+}
+
+STRING 1635
+// Abilities: A02V (Anomaly Tower - Inferno), EditorSuffix (Editor Suffix)
+{
+[Level 3]
+}
+
+STRING 1636
+// Abilities: A02W (Inferno), EditorSuffix (Editor Suffix)
+{
+- Anomaly Tower Dummy [Level 3]
+}
+
+STRING 1637
+// Abilities: A02X (Anomaly Tower - Feral Spirit), EditorSuffix (Editor Suffix)
+{
+[Level 3]
+}
+
+STRING 1638
+// Abilities: A02Y (Feral Spirit), EditorSuffix (Editor Suffix)
+{
+- Anomaly Tower Dummy [Level 3]
+}
+
+STRING 1639
+// Abilities: A02Z (Rain of Fire), Name (Name)
+{
+Rain of Fire
+}
+
+STRING 1641
+// Abilities: A02Z (Rain of Fire), EditorSuffix (Editor Suffix)
+{
+- Anomaly Tower Dummy [Level 1 2nd]
+}
+
+STRING 1642
+// Abilities: A02Z (Rain of Fire), Tip (Tooltip - Normal)
+{
+Rain of Fire
+}
+
+STRING 1643
+// Abilities: A014 (Anomaly Tower - Carrion Swarm), Name (Name)
+{
+Anomaly Tower - Carrion Swarm
+}
+
+STRING 1644
+// Abilities: A02N (Carrion Swarm), Name (Name)
+{
+Carrion Swarm
+}
+
+STRING 1645
+// Abilities: A02N (Carrion Swarm), Tip (Tooltip - Normal)
+{
+Carrion Swarm
+}
+
+STRING 1646
+// Abilities: A01E (Anomaly Tower - Sundering Blades), Tip (Tooltip - Normal)
+{
+Sundering Blades 2
+}
+
+STRING 1647
+// Abilities: A01E (Anomaly Tower - Sundering Blades), Tip (Tooltip - Normal)
+{
+Sundering Blades 3
+}
+
+STRING 1648
+// Abilities: A01E (Anomaly Tower - Sundering Blades), Tip (Tooltip - Normal)
+{
+Sundering Blades 4
+}
+
+STRING 1649
+// Abilities: A01E (Anomaly Tower - Sundering Blades), Tip (Tooltip - Normal)
+{
+Sundering Blades 5
+}
+
+STRING 1650
+// Abilities: A01E (Anomaly Tower - Sundering Blades), Tip (Tooltip - Normal)
+{
+Sundering Blades 6
+}
+
+STRING 1651
+// Abilities: A01E (Anomaly Tower - Sundering Blades), Tip (Tooltip - Normal)
+{
+Sundering Blades 7
+}
+
+STRING 1652
+// Abilities: A01E (Anomaly Tower - Sundering Blades), Tip (Tooltip - Normal)
+{
+Sundering Blades 1
 }
 

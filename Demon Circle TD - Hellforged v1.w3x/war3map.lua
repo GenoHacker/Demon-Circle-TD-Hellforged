@@ -175,6 +175,7 @@ gg_trg_Creep_Spawn_5 = nil
 gg_trg_Creep_Spawn_6 = nil
 gg_trg_Creep_Spawn_7 = nil
 gg_trg_Creep_Spawn_8 = nil
+gg_trg_Anomaly_Tower_Level_Up_Ability = nil
 function InitGlobals()
 local i = 0
 
@@ -565,32 +566,42 @@ udg_AbilityCode_Array_AnomTowDummy[2] = FourCC("A02F")
 udg_AbilityCode_Array_AnomTowDummy[3] = FourCC("A02O")
 udg_AbilityCode_Array_AnomTowDummy[4] = FourCC("A02H")
 udg_AbilityCode_Array_AnomTowDummy[5] = FourCC("A02C")
-udg_AbilityCode_Array_AnomTowDummy[6] = FourCC("A02K")
-udg_AbilityCode_Array_AnomTowDummy[7] = FourCC("A02B")
-udg_AbilityCode_Array_AnomTowDummy[8] = FourCC("A02I")
+udg_AbilityCode_Array_AnomTowDummy[6] = FourCC("A02N")
+udg_AbilityCode_Array_AnomTowDummy[7] = FourCC("A02J")
+udg_AbilityCode_Array_AnomTowDummy[8] = FourCC("A02B")
 udg_AbilityCode_Array_AnomTowDummy[9] = FourCC("A01E")
-udg_AbilityCode_Array_AnomTowDummy[10] = FourCC("A02N")
-udg_AbilityCode_Array_AnomTowDummy[11] = FourCC("A02P")
-udg_AbilityCode_Array_AnomTowDummy[12] = FourCC("A02M")
-udg_AbilityCode_Array_AnomTowDummy[13] = FourCC("A02D")
-udg_AbilityCode_Array_AnomTowDummy[14] = FourCC("A02A")
-udg_AbilityCode_Array_AnomTowDummy[15] = FourCC("A02J")
-udg_AbilityCode_Array_AnomTowDummy[16] = FourCC("A029")
-udg_AbilityCode_Array_AnomTowDummy[17] = FourCC("A02L")
+udg_AbilityCode_Array_AnomTowDummy[10] = FourCC("A02K")
+udg_AbilityCode_Array_AnomTowDummy[11] = FourCC("A02Z")
+udg_AbilityCode_Array_AnomTowDummy[12] = FourCC("A02E")
+udg_AbilityCode_Array_AnomTowDummy[13] = FourCC("A02I")
+udg_AbilityCode_Array_AnomTowDummy[14] = FourCC("A02P")
+udg_AbilityCode_Array_AnomTowDummy[15] = FourCC("A02M")
+udg_AbilityCode_Array_AnomTowDummy[16] = FourCC("A02D")
+udg_AbilityCode_Array_AnomTowDummy[17] = FourCC("A02T")
+udg_AbilityCode_Array_AnomTowDummy[18] = FourCC("A029")
+udg_AbilityCode_Array_AnomTowDummy[19] = FourCC("A02L")
+udg_AbilityCode_Array_AnomTowDummy[20] = FourCC("A02Y")
+udg_AbilityCode_Array_AnomTowDummy[21] = FourCC("A02W")
+udg_AbilityCode_Array_AnomTowDummy[22] = FourCC("A02A")
 udg_AbilityCode_Array_AnomalyTower[2] = FourCC("A00H")
 udg_AbilityCode_Array_AnomalyTower[3] = FourCC("A013")
 udg_AbilityCode_Array_AnomalyTower[4] = FourCC("A015")
-udg_AbilityCode_Array_AnomalyTower[6] = FourCC("A01G")
-udg_AbilityCode_Array_AnomalyTower[7] = FourCC("A00N")
-udg_AbilityCode_Array_AnomalyTower[8] = FourCC("A016")
-udg_AbilityCode_Array_AnomalyTower[10] = FourCC("A014")
-udg_AbilityCode_Array_AnomalyTower[11] = FourCC("A004")
-udg_AbilityCode_Array_AnomalyTower[12] = FourCC("A00S")
-udg_AbilityCode_Array_AnomalyTower[13] = FourCC("A00T")
-udg_AbilityCode_Array_AnomalyTower[14] = FourCC("A01T")
-udg_AbilityCode_Array_AnomalyTower[15] = FourCC("A00U")
-udg_AbilityCode_Array_AnomalyTower[16] = FourCC("A01U")
-udg_AbilityCode_Array_AnomalyTower[17] = FourCC("A012")
+udg_AbilityCode_Array_AnomalyTower[6] = FourCC("A014")
+udg_AbilityCode_Array_AnomalyTower[7] = FourCC("A00U")
+udg_AbilityCode_Array_AnomalyTower[8] = FourCC("A00N")
+udg_AbilityCode_Array_AnomalyTower[10] = FourCC("A01G")
+udg_AbilityCode_Array_AnomalyTower[11] = FourCC("A02U")
+udg_AbilityCode_Array_AnomalyTower[12] = FourCC("A02Q")
+udg_AbilityCode_Array_AnomalyTower[13] = FourCC("A016")
+udg_AbilityCode_Array_AnomalyTower[14] = FourCC("A004")
+udg_AbilityCode_Array_AnomalyTower[15] = FourCC("A00S")
+udg_AbilityCode_Array_AnomalyTower[16] = FourCC("A00T")
+udg_AbilityCode_Array_AnomalyTower[17] = FourCC("A02S")
+udg_AbilityCode_Array_AnomalyTower[18] = FourCC("A01U")
+udg_AbilityCode_Array_AnomalyTower[19] = FourCC("A012")
+udg_AbilityCode_Array_AnomalyTower[20] = FourCC("A02X")
+udg_AbilityCode_Array_AnomalyTower[21] = FourCC("A02V")
+udg_AbilityCode_Array_AnomalyTower[22] = FourCC("A01T")
 udg_Region_Array_Spawns[1] = gg_rct_CreepSpawn1
 udg_Region_Array_Spawns[1] = gg_rct_CreepSpawn1
 udg_Region_Array_Spawns[2] = gg_rct_CreepSpawn2
@@ -1635,34 +1646,34 @@ TriggerAddAction(gg_trg_Remove_Ethereal, Trig_Remove_Ethereal_Actions)
 end
 
 function Trig_Anomaly_Tower_Conditions()
-if (not (GetUnitAbilityLevelSwapped(FourCC("A01W"), GetEventDamageSource()) == 1)) then
+if (not (GetUnitAbilityLevelSwapped(FourCC("A01W"), GetEventDamageSource()) >= 1)) then
 return false
 end
 return true
 end
 
-function Trig_Anomaly_Tower_Func006Func013C()
-if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("texp"))) >= 1)) then
+function Trig_Anomaly_Tower_Func007Func017C()
+if (not (udg_Integer_Array_AnomalyAbility2[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] == 9)) then
 return false
 end
 return true
 end
 
-function Trig_Anomaly_Tower_Func006Func017C()
-if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("texp"))) >= 2)) then
+function Trig_Anomaly_Tower_Func007Func021C()
+if (not (GetUnitAbilityLevelSwapped(FourCC("A01W"), GetEventDamageSource()) >= 2)) then
 return false
 end
 return true
 end
 
-function Trig_Anomaly_Tower_Func006Func021C()
-if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("texp"))) >= 3)) then
+function Trig_Anomaly_Tower_Func007Func025C()
+if (not (GetUnitAbilityLevelSwapped(FourCC("A01W"), GetEventDamageSource()) >= 3)) then
 return false
 end
 return true
 end
 
-function Trig_Anomaly_Tower_Func006Func035Func001Func003C()
+function Trig_Anomaly_Tower_Func007Func039Func002C()
 if (udg_Integer_Array_AnomalyAbility1[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] == 1) then
 return true
 end
@@ -1672,68 +1683,54 @@ end
 return false
 end
 
-function Trig_Anomaly_Tower_Func006Func035Func001C()
-if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("texp"))) >= 1)) then
-return false
-end
-if (not Trig_Anomaly_Tower_Func006Func035Func001Func003C()) then
+function Trig_Anomaly_Tower_Func007Func039C()
+if (not Trig_Anomaly_Tower_Func007Func039Func002C()) then
 return false
 end
 return true
 end
 
-function Trig_Anomaly_Tower_Func006Func035Func004C()
-if (udg_Integer_Array_AnomalyAbility1[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] == 1) then
-return true
-end
-return false
-end
-
-function Trig_Anomaly_Tower_Func006Func035C()
-if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("texp"))) == 0)) then
-return false
-end
-if (not Trig_Anomaly_Tower_Func006Func035Func004C()) then
+function Trig_Anomaly_Tower_Func007Func056C()
+if (not (udg_Integer_Array_AnomalyAbility2[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] == 9)) then
 return false
 end
 return true
 end
 
-function Trig_Anomaly_Tower_Func006Func049C()
-if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("texp"))) >= 1)) then
+function Trig_Anomaly_Tower_Func007Func060C()
+if (not (GetUnitAbilityLevelSwapped(FourCC("A01W"), GetEventDamageSource()) >= 2)) then
 return false
 end
 return true
 end
 
-function Trig_Anomaly_Tower_Func006Func053C()
-if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("texp"))) >= 2)) then
+function Trig_Anomaly_Tower_Func007Func064C()
+if (not (GetUnitAbilityLevelSwapped(FourCC("A01W"), GetEventDamageSource()) >= 3)) then
 return false
 end
 return true
 end
 
-function Trig_Anomaly_Tower_Func006Func057C()
-if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("texp"))) >= 3)) then
-return false
-end
-return true
-end
-
-function Trig_Anomaly_Tower_Func006C()
+function Trig_Anomaly_Tower_Func007C()
 if (not (GetUnitStateSwap(UNIT_STATE_MANA, GetEventDamageSource()) >= 20.00)) then
 return false
 end
 return true
 end
 
-function Trig_Anomaly_Tower_Func009A()
+function Trig_Anomaly_Tower_Func010A()
 IssueImmediateOrderBJ(GetEnumUnit(), "whirlwind")
 IssueImmediateOrderBJ(GetEnumUnit(), "starfall")
-IssuePointOrderLocBJ(GetEnumUnit(), "breathoffire", udg_Temp_PointB)
+IssueImmediateOrderBJ(GetEnumUnit(), "thunderclap")
+IssueImmediateOrderBJ(GetEnumUnit(), "spiritwolf")
 IssuePointOrderLocBJ(GetEnumUnit(), "carrionswarm", udg_Temp_PointB)
 IssuePointOrderLocBJ(GetEnumUnit(), "flamestrike", udg_Temp_PointB)
+IssuePointOrderLocBJ(GetEnumUnit(), "rainoffire", udg_Temp_PointB)
+IssuePointOrderLocBJ(GetEnumUnit(), "inferno", udg_Temp_PointB)
+IssuePointOrderLocBJ(GetEnumUnit(), "breathoffrost", udg_Temp_PointB)
 IssueTargetOrderBJ(GetEnumUnit(), "forkedlightning", BlzGetEventDamageTarget())
+IssueTargetOrderBJ(GetEnumUnit(), "dispel", BlzGetEventDamageTarget())
+IssueTargetOrderBJ(GetEnumUnit(), "acidbomb", BlzGetEventDamageTarget())
 IssueTargetOrderBJ(GetEnumUnit(), "lightningshield", BlzGetEventDamageTarget())
 IssueTargetOrderBJ(GetEnumUnit(), "shadowstrike", BlzGetEventDamageTarget())
 IssueTargetOrderBJ(GetEnumUnit(), "chainlightning", BlzGetEventDamageTarget())
@@ -1745,8 +1742,8 @@ end
 
 function Trig_Anomaly_Tower_Actions()
 udg_Temp_PointA = GetUnitLoc(GetEventDamageSource())
-if (Trig_Anomaly_Tower_Func006C()) then
-        DestroyGroup(udg_UnitGroup_Array_AnomDummys1[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))])
+udg_UnitGroup_Array_AnomDummys1[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] = GetUnitsSelectedAll(Player(PLAYER_NEUTRAL_PASSIVE))
+if (Trig_Anomaly_Tower_Func007C()) then
 SetUnitManaBJ(GetEventDamageSource(), 0)
 BlzSetUnitBaseDamage(GetEventDamageSource(), 1, 0)
 bj_forLoopAIndex = 1
@@ -1756,17 +1753,13 @@ if (bj_forLoopAIndex > bj_forLoopAIndexEnd) then break end
 UnitRemoveAbilityBJ(udg_AbilityCode_Array_AnomTowDummy[GetForLoopIndexA()], GetEventDamageSource())
 bj_forLoopAIndex = bj_forLoopAIndex + 1
 end
-udg_Integer_Array_AnomalyAbility1[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] = GetRandomInt(1, 8)
-udg_Integer_Array_AnomalyAbility2[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] = GetRandomInt(9, 12)
-udg_Integer_Array_AnomalyAbility3[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] = GetRandomInt(13, 15)
-udg_Integer_Array_AnomalyAbility4[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] = GetRandomInt(16, 17)
-if (Trig_Anomaly_Tower_Func006Func035C()) then
+udg_Integer_Array_AnomalyAbility1[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] = GetRandomInt(1, 6)
+udg_Integer_Array_AnomalyAbility2[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] = GetRandomInt(7, 12)
+udg_Integer_Array_AnomalyAbility3[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] = GetRandomInt(13, 17)
+udg_Integer_Array_AnomalyAbility4[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] = GetRandomInt(18, 22)
+if (Trig_Anomaly_Tower_Func007Func039C()) then
 BlzSetUnitBaseDamage(GetEventDamageSource(), (200 + (udg_I_Round * GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("texp"))))), 0)
 else
-if (Trig_Anomaly_Tower_Func006Func035Func001C()) then
-BlzSetUnitBaseDamage(GetEventDamageSource(), (200 + (udg_I_Round * GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("texp"))))), 0)
-else
-end
 end
 CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointA, bj_UNIT_FACING)
 UnitApplyTimedLifeBJ(4.00, FourCC("BTLF"), GetLastCreatedUnit())
@@ -1775,17 +1768,18 @@ UnitAddAbilityBJ(udg_AbilityCode_Array_AnomalyTower[udg_Integer_Array_AnomalyAbi
 UnitAddAbilityBJ(udg_AbilityCode_Array_AnomTowDummy[udg_Integer_Array_AnomalyAbility1[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))]], GetEventDamageSource())
 SetUnitAbilityLevelSwapped(udg_AbilityCode_Array_AnomalyTower[udg_Integer_Array_AnomalyAbility1[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))]], GetLastCreatedUnit(), (1 + GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("texp")))))
 SetUnitAbilityLevelSwapped(udg_AbilityCode_Array_AnomTowDummy[udg_Integer_Array_AnomalyAbility1[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))]], GetEventDamageSource(), (1 + GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("texp")))))
-if (Trig_Anomaly_Tower_Func006Func049C()) then
 CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointA, bj_UNIT_FACING)
 UnitApplyTimedLifeBJ(4.00, FourCC("BTLF"), GetLastCreatedUnit())
 GroupAddUnitSimple(GetLastCreatedUnit(), udg_UnitGroup_Array_AnomDummys1[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))])
 UnitAddAbilityBJ(udg_AbilityCode_Array_AnomalyTower[udg_Integer_Array_AnomalyAbility2[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))]], GetLastCreatedUnit())
 UnitAddAbilityBJ(udg_AbilityCode_Array_AnomTowDummy[udg_Integer_Array_AnomalyAbility2[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))]], GetEventDamageSource())
 SetUnitAbilityLevelSwapped(udg_AbilityCode_Array_AnomalyTower[udg_Integer_Array_AnomalyAbility2[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))]], GetLastCreatedUnit(), (1 + GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("texp")))))
-SetUnitAbilityLevelSwapped(udg_AbilityCode_Array_AnomTowDummy[udg_Integer_Array_AnomalyAbility2[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))]], GetEventDamageSource(), (1 + GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("texp")))))
+if (Trig_Anomaly_Tower_Func007Func056C()) then
+SetUnitAbilityLevelSwapped(udg_AbilityCode_Array_AnomTowDummy[9], GetEventDamageSource(), GetRandomInt(1, 7))
 else
+SetUnitAbilityLevelSwapped(udg_AbilityCode_Array_AnomTowDummy[udg_Integer_Array_AnomalyAbility2[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))]], GetEventDamageSource(), (1 + GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("texp")))))
 end
-if (Trig_Anomaly_Tower_Func006Func053C()) then
+if (Trig_Anomaly_Tower_Func007Func060C()) then
 CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointA, bj_UNIT_FACING)
 UnitApplyTimedLifeBJ(4.00, FourCC("BTLF"), GetLastCreatedUnit())
 GroupAddUnitSimple(GetLastCreatedUnit(), udg_UnitGroup_Array_AnomDummys1[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))])
@@ -1795,7 +1789,7 @@ SetUnitAbilityLevelSwapped(udg_AbilityCode_Array_AnomalyTower[udg_Integer_Array_
 SetUnitAbilityLevelSwapped(udg_AbilityCode_Array_AnomTowDummy[udg_Integer_Array_AnomalyAbility3[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))]], GetEventDamageSource(), (1 + GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("texp")))))
 else
 end
-if (Trig_Anomaly_Tower_Func006Func057C()) then
+if (Trig_Anomaly_Tower_Func007Func064C()) then
 CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointA, bj_UNIT_FACING)
 UnitApplyTimedLifeBJ(4.00, FourCC("BTLF"), GetLastCreatedUnit())
 GroupAddUnitSimple(GetLastCreatedUnit(), udg_UnitGroup_Array_AnomDummys1[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))])
@@ -1813,30 +1807,31 @@ UnitAddAbilityBJ(udg_AbilityCode_Array_AnomalyTower[udg_Integer_Array_AnomalyAbi
 UnitAddAbilityBJ(udg_AbilityCode_Array_AnomTowDummy[udg_Integer_Array_AnomalyAbility1[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))]], GetEventDamageSource())
 SetUnitAbilityLevelSwapped(udg_AbilityCode_Array_AnomalyTower[udg_Integer_Array_AnomalyAbility1[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))]], GetLastCreatedUnit(), (1 + GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("texp")))))
 SetUnitAbilityLevelSwapped(udg_AbilityCode_Array_AnomTowDummy[udg_Integer_Array_AnomalyAbility1[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))]], GetEventDamageSource(), (1 + GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("texp")))))
-if (Trig_Anomaly_Tower_Func006Func013C()) then
 CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointA, bj_UNIT_FACING)
 UnitApplyTimedLifeBJ(4.00, FourCC("BTLF"), GetLastCreatedUnit())
-GroupAddUnitSimple(GetLastCreatedUnit(), udg_UnitGroup_Array_AnomDummys2[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))])
+GroupAddUnitSimple(GetLastCreatedUnit(), udg_UnitGroup_Array_AnomDummys1[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))])
 UnitAddAbilityBJ(udg_AbilityCode_Array_AnomalyTower[udg_Integer_Array_AnomalyAbility2[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))]], GetLastCreatedUnit())
 UnitAddAbilityBJ(udg_AbilityCode_Array_AnomTowDummy[udg_Integer_Array_AnomalyAbility2[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))]], GetEventDamageSource())
 SetUnitAbilityLevelSwapped(udg_AbilityCode_Array_AnomalyTower[udg_Integer_Array_AnomalyAbility2[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))]], GetLastCreatedUnit(), (1 + GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("texp")))))
-SetUnitAbilityLevelSwapped(udg_AbilityCode_Array_AnomTowDummy[udg_Integer_Array_AnomalyAbility2[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))]], GetEventDamageSource(), (1 + GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("texp")))))
+if (Trig_Anomaly_Tower_Func007Func017C()) then
+SetUnitAbilityLevelSwapped(udg_AbilityCode_Array_AnomTowDummy[9], GetEventDamageSource(), GetRandomInt(1, 7))
 else
+SetUnitAbilityLevelSwapped(udg_AbilityCode_Array_AnomTowDummy[udg_Integer_Array_AnomalyAbility2[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))]], GetEventDamageSource(), (1 + GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("texp")))))
 end
-if (Trig_Anomaly_Tower_Func006Func017C()) then
+if (Trig_Anomaly_Tower_Func007Func021C()) then
 CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointA, bj_UNIT_FACING)
 UnitApplyTimedLifeBJ(4.00, FourCC("BTLF"), GetLastCreatedUnit())
-GroupAddUnitSimple(GetLastCreatedUnit(), udg_UnitGroup_Array_AnomDummys3[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))])
+GroupAddUnitSimple(GetLastCreatedUnit(), udg_UnitGroup_Array_AnomDummys1[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))])
 UnitAddAbilityBJ(udg_AbilityCode_Array_AnomalyTower[udg_Integer_Array_AnomalyAbility3[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))]], GetLastCreatedUnit())
 UnitAddAbilityBJ(udg_AbilityCode_Array_AnomTowDummy[udg_Integer_Array_AnomalyAbility3[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))]], GetEventDamageSource())
 SetUnitAbilityLevelSwapped(udg_AbilityCode_Array_AnomalyTower[udg_Integer_Array_AnomalyAbility3[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))]], GetLastCreatedUnit(), (1 + GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("texp")))))
 SetUnitAbilityLevelSwapped(udg_AbilityCode_Array_AnomTowDummy[udg_Integer_Array_AnomalyAbility3[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))]], GetEventDamageSource(), (1 + GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("texp")))))
 else
 end
-if (Trig_Anomaly_Tower_Func006Func021C()) then
+if (Trig_Anomaly_Tower_Func007Func025C()) then
 CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointA, bj_UNIT_FACING)
 UnitApplyTimedLifeBJ(4.00, FourCC("BTLF"), GetLastCreatedUnit())
-GroupAddUnitSimple(GetLastCreatedUnit(), udg_UnitGroup_Array_AnomDummys4[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))])
+GroupAddUnitSimple(GetLastCreatedUnit(), udg_UnitGroup_Array_AnomDummys1[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))])
 UnitAddAbilityBJ(udg_AbilityCode_Array_AnomalyTower[udg_Integer_Array_AnomalyAbility4[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))]], GetLastCreatedUnit())
 UnitAddAbilityBJ(udg_AbilityCode_Array_AnomTowDummy[udg_Integer_Array_AnomalyAbility4[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))]], GetEventDamageSource())
 SetUnitAbilityLevelSwapped(udg_AbilityCode_Array_AnomalyTower[udg_Integer_Array_AnomalyAbility4[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))]], GetLastCreatedUnit(), (1 + GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("texp")))))
@@ -1846,7 +1841,8 @@ end
 end
     RemoveLocation(udg_Temp_PointA)
 udg_Temp_PointB = GetUnitLoc(BlzGetEventDamageTarget())
-ForGroupBJ(udg_UnitGroup_Array_AnomDummys1[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))], Trig_Anomaly_Tower_Func009A)
+ForGroupBJ(udg_UnitGroup_Array_AnomDummys1[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))], Trig_Anomaly_Tower_Func010A)
+    DestroyGroup(udg_UnitGroup_Array_AnomDummys1[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))])
     RemoveLocation(udg_Temp_PointB)
 end
 
@@ -1855,6 +1851,55 @@ gg_trg_Anomaly_Tower = CreateTrigger()
 TriggerRegisterAnyUnitEventBJ(gg_trg_Anomaly_Tower, EVENT_PLAYER_UNIT_DAMAGED)
 TriggerAddCondition(gg_trg_Anomaly_Tower, Condition(Trig_Anomaly_Tower_Conditions))
 TriggerAddAction(gg_trg_Anomaly_Tower, Trig_Anomaly_Tower_Actions)
+end
+
+function Trig_Anomaly_Tower_Level_Up_Ability_Func003C()
+if (GetUnitTypeId(GetTriggerUnit()) == FourCC("u01K")) then
+return true
+end
+if (GetUnitTypeId(GetTriggerUnit()) == FourCC("u01L")) then
+return true
+end
+return false
+end
+
+function Trig_Anomaly_Tower_Level_Up_Ability_Conditions()
+if (not Trig_Anomaly_Tower_Level_Up_Ability_Func003C()) then
+return false
+end
+return true
+end
+
+function Trig_Anomaly_Tower_Level_Up_Ability_Func001C()
+if (not (GetUnitTypeId(GetTriggerUnit()) == FourCC("u01K"))) then
+return false
+end
+return true
+end
+
+function Trig_Anomaly_Tower_Level_Up_Ability_Func002C()
+if (not (GetUnitTypeId(GetTriggerUnit()) == FourCC("u01L"))) then
+return false
+end
+return true
+end
+
+function Trig_Anomaly_Tower_Level_Up_Ability_Actions()
+if (Trig_Anomaly_Tower_Level_Up_Ability_Func001C()) then
+SetUnitAbilityLevelSwapped(FourCC("A01W"), GetTriggerUnit(), 2)
+else
+end
+if (Trig_Anomaly_Tower_Level_Up_Ability_Func002C()) then
+SetUnitAbilityLevelSwapped(FourCC("A01W"), GetTriggerUnit(), 3)
+else
+end
+end
+
+function InitTrig_Anomaly_Tower_Level_Up_Ability()
+gg_trg_Anomaly_Tower_Level_Up_Ability = CreateTrigger()
+TriggerRegisterAnyUnitEventBJ(gg_trg_Anomaly_Tower_Level_Up_Ability, EVENT_PLAYER_UNIT_UPGRADE_FINISH)
+TriggerAddCondition(gg_trg_Anomaly_Tower_Level_Up_Ability, Condition(Trig_Anomaly_Tower_Level_Up_Ability_Conditions))
+TriggerAddAction(gg_trg_Anomaly_Tower_Level_Up_Ability, Trig_Anomaly_Tower_Level_Up_Ability_Actions)
 end
 
 function Trig_Hellfire_Tower_Conditions()
@@ -2602,9 +2647,6 @@ function Trig_Hellfire_Reagent_Upgrade_Conditions()
 if (not (GetUnitAbilityLevelSwapped(FourCC("A01N"), GetTriggerUnit()) == 1)) then
 return false
 end
-if (not (GetUnitTypeId(GetTriggerUnit()) ~= FourCC("u005"))) then
-return false
-end
 if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I001"))) >= 1)) then
 return false
 end
@@ -2862,9 +2904,6 @@ end
 
 function Trig_Jar_of_Demonfire_Upgrade_Conditions()
 if (not (GetUnitAbilityLevelSwapped(FourCC("A00Y"), GetTriggerUnit()) == 1)) then
-return false
-end
-if (not (GetUnitTypeId(GetTriggerUnit()) ~= FourCC("u005"))) then
 return false
 end
 if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I007"))) >= 1)) then
@@ -4410,6 +4449,7 @@ InitTrig_Lumber_Bounty()
 InitTrig_Invulnerable_Towers()
 InitTrig_Remove_Ethereal()
 InitTrig_Anomaly_Tower()
+InitTrig_Anomaly_Tower_Level_Up_Ability()
 InitTrig_Hellfire_Tower()
 InitTrig_Fluctuation_Tower_Ability()
 InitTrig_Fluctuation_Tower_Mana()
