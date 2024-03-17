@@ -3837,30 +3837,10 @@ STRING 1486
 Build Anomaly Tower
 }
 
-STRING 1487
-// Units: u01J (Anomaly Tower Level 1), Ubertip (Tooltip - Extended)
-{
-??? Damage
-Dmg: ???
-Cooldown: 6.00s
-Range: 600
-Resonance Cascade
-}
-
 STRING 1489
 // Units: u01K (Anomaly Tower Level 2), Tip (Tooltip - Basic)
 {
 Upgrade to Level 2
-}
-
-STRING 1490
-// Units: u01K (Anomaly Tower Level 2), Ubertip (Tooltip - Extended)
-{
-??? Damage
-Dmg: ???
-Cooldown: 5.00s
-Range: 700
-Resonance Cascade
 }
 
 STRING 1492
@@ -3873,16 +3853,6 @@ STRING 1493
 // Units: u01L (Anomaly Tower Level 3), Tip (Tooltip - Basic)
 {
 Upgrade to Level 3
-}
-
-STRING 1494
-// Units: u01L (Anomaly Tower Level 3), Ubertip (Tooltip - Extended)
-{
-??? Damage
-Dmg: ???
-Cooldown: 4.00s
-Range: 800
-Resonance Cascade
 }
 
 STRING 1495
@@ -4005,12 +3975,6 @@ STRING 1519
 Starfall
 }
 
-STRING 1520
-// Abilities: A029 (Starfall), Tip (Tooltip - Normal)
-{
-Starfall
-}
-
 STRING 1521
 // Abilities: A02R (PLACEHOLDER), EditorSuffix (Editor Suffix)
 {
@@ -4019,12 +3983,6 @@ STRING 1521
 
 STRING 1522
 // Abilities: A02B (Shadow Strike), Name (Name)
-{
-Shadow Strike
-}
-
-STRING 1523
-// Abilities: A02B (Shadow Strike), Tip (Tooltip - Normal)
 {
 Shadow Strike
 }
@@ -4047,12 +4005,6 @@ STRING 1528
 Lightning Shield
 }
 
-STRING 1529
-// Abilities: A02F (Lightning Shield), Tip (Tooltip - Normal)
-{
-Lightning Shield
-}
-
 STRING 1532
 // Abilities: A02A (Bladestorm), Name (Name)
 {
@@ -4065,20 +4017,8 @@ STRING 1534
 Frost Nova
 }
 
-STRING 1535
-// Abilities: A02A (Bladestorm), Tip (Tooltip - Normal)
-{
-Bladestorm
-}
-
 STRING 1537
 // Abilities: A02I (Frost Armour), Name (Name)
-{
-Frost Armour
-}
-
-STRING 1538
-// Abilities: A02I (Frost Armour), Tip (Tooltip - Normal)
 {
 Frost Armour
 }
@@ -4089,20 +4029,8 @@ STRING 1540
 Forked Lightning
 }
 
-STRING 1541
-// Abilities: A02J (Forked Lightning), Tip (Tooltip - Normal)
-{
-Forked Lightning
-}
-
 STRING 1543
 // Abilities: A02K (Flame Strike), Name (Name)
-{
-Flame Strike
-}
-
-STRING 1544
-// Abilities: A02K (Flame Strike), Tip (Tooltip - Normal)
 {
 Flame Strike
 }
@@ -4113,20 +4041,8 @@ STRING 1546
 Finger of Pain
 }
 
-STRING 1547
-// Abilities: A02L (Finger of Pain), Tip (Tooltip - Normal)
-{
-Finger of Pain
-}
-
 STRING 1549
 // Abilities: A02M (Death Coil), Name (Name)
-{
-Death Coil
-}
-
-STRING 1550
-// Abilities: A02M (Death Coil), Tip (Tooltip - Normal)
 {
 Death Coil
 }
@@ -4137,32 +4053,14 @@ STRING 1555
 Chain Lightning
 }
 
-STRING 1556
-// Abilities: A02O (Chain Lightning), Tip (Tooltip - Normal)
-{
-Chain Lightning
-}
-
 STRING 1558
 // Abilities: A02P (Breath of Frost), Name (Name)
 {
 Breath of Frost
 }
 
-STRING 1559
-// Abilities: A02P (Breath of Frost), Tip (Tooltip - Normal)
-{
-Breath of Frost
-}
-
 STRING 1564
 // Abilities: A02G (Corruption Aura), Name (Name)
-{
-Corruption Aura
-}
-
-STRING 1565
-// Abilities: A02G (Corruption Aura), Tip (Tooltip - Normal)
 {
 Corruption Aura
 }
@@ -4197,12 +4095,6 @@ STRING 1570
 Gives a 100% chance to do 20 times normal damage on an attack.
 }
 
-STRING 1571
-// Abilities: A02H (Frost Nova), Tip (Tooltip - Normal)
-{
-Frost Nova
-}
-
 STRING 1572
 // Abilities: A00T (Anomaly Tower - Dispel Magic), Name (Name)
 {
@@ -4211,12 +4103,6 @@ Anomaly Tower - Dispel Magic
 
 STRING 1573
 // Abilities: A02D (Dispel Magic), Name (Name)
-{
-Dispel Magic
-}
-
-STRING 1574
-// Abilities: A02D (Dispel Magic), Tip (Tooltip - Normal)
 {
 Dispel Magic
 }
@@ -4239,24 +4125,8 @@ STRING 1579
 [Anomaly Tower]
 }
 
-STRING 1580
-// Abilities: A017 (Resonance Cascade), Ubertip (Tooltip - Normal - Extended)
-{
-The tower gains temporary abilities upon attacking at full mana and will use them, whilst regenerating mana subsequent attacks will reuse the previously gained abilities.
-
-The tower without its item will have access to the first set of abilities and will be able to gain 1 of them.
-
-The tower with its item will increase the level of all abilities, gain access to an additional set of abilities and 1 ability from the set gained.
-}
-
 STRING 1581
 // Abilities: A02E (Thunder Clap), Name (Name)
-{
-Thunder Clap
-}
-
-STRING 1582
-// Abilities: A02E (Thunder Clap), Tip (Tooltip - Normal)
 {
 Thunder Clap
 }
@@ -4279,12 +4149,6 @@ STRING 1586
 Acid Bomb
 }
 
-STRING 1587
-// Abilities: A02T (Acid Bomb), Tip (Tooltip - Normal)
-{
-Acid Bomb
-}
-
 STRING 1589
 // Abilities: A02U (Anomaly Tower - Rain of Fire), Name (Name)
 {
@@ -4303,12 +4167,6 @@ STRING 1591
 Inferno
 }
 
-STRING 1592
-// Abilities: A02W (Inferno), Tip (Tooltip - Normal)
-{
-PLACEHOLDER
-}
-
 STRING 1594
 // Abilities: A02X (Anomaly Tower - Feral Spirit), Name (Name)
 {
@@ -4319,12 +4177,6 @@ STRING 1595
 // Abilities: A02Y (Feral Spirit), Name (Name)
 {
 Feral Spirit
-}
-
-STRING 1596
-// Abilities: A02Y (Feral Spirit), Tip (Tooltip - Normal)
-{
-PLACEHOLDER
 }
 
 STRING 1598
@@ -4370,7 +4222,7 @@ STRING 1604
 }
 
 STRING 1605
-// Abilities: A014 (Anomaly Tower - Carrion Swarm), EditorSuffix (Editor Suffix)
+// Abilities: A014 (Anomaly Tower - Crushing Wave), EditorSuffix (Editor Suffix)
 {
 [Level 1 1st]
 }
@@ -4484,7 +4336,7 @@ STRING 1623
 }
 
 STRING 1624
-// Abilities: A02N (Carrion Swarm), EditorSuffix (Editor Suffix)
+// Abilities: A02N (Crushing Wave), EditorSuffix (Editor Suffix)
 {
 - Anomaly Tower Dummy [Level 1 1st]
 }
@@ -4585,30 +4437,6 @@ STRING 1641
 - Anomaly Tower Dummy [Level 1 2nd]
 }
 
-STRING 1642
-// Abilities: A02Z (Rain of Fire), Tip (Tooltip - Normal)
-{
-Rain of Fire
-}
-
-STRING 1643
-// Abilities: A014 (Anomaly Tower - Carrion Swarm), Name (Name)
-{
-Anomaly Tower - Carrion Swarm
-}
-
-STRING 1644
-// Abilities: A02N (Carrion Swarm), Name (Name)
-{
-Carrion Swarm
-}
-
-STRING 1645
-// Abilities: A02N (Carrion Swarm), Tip (Tooltip - Normal)
-{
-Carrion Swarm
-}
-
 STRING 1646
 // Abilities: A01E (Anomaly Tower - Sundering Blades), Tip (Tooltip - Normal)
 {
@@ -4649,5 +4477,533 @@ STRING 1652
 // Abilities: A01E (Anomaly Tower - Sundering Blades), Tip (Tooltip - Normal)
 {
 Sundering Blades 1
+}
+
+STRING 1653
+// Abilities: A029 (Starfall), Tip (Tooltip - Normal)
+{
+Starfall - Level 1
+}
+
+STRING 1654
+// Abilities: A029 (Starfall), Tip (Tooltip - Normal)
+{
+Starfall - Level 2
+}
+
+STRING 1655
+// Abilities: A029 (Starfall), Tip (Tooltip - Normal)
+{
+Starfall - Level 3
+}
+
+STRING 1656
+// Abilities: A029 (Starfall), Tip (Tooltip - Normal)
+{
+Starfall - Level 4
+}
+
+STRING 1657
+// Abilities: A02B (Shadow Strike), Tip (Tooltip - Normal)
+{
+Shadow Strike - Level 1
+}
+
+STRING 1658
+// Abilities: A02B (Shadow Strike), Tip (Tooltip - Normal)
+{
+Shadow Strike - Level 2
+}
+
+STRING 1659
+// Abilities: A02B (Shadow Strike), Tip (Tooltip - Normal)
+{
+Shadow Strike - Level 3
+}
+
+STRING 1660
+// Abilities: A02B (Shadow Strike), Tip (Tooltip - Normal)
+{
+Shadow Strike - Level 4
+}
+
+STRING 1661
+// Abilities: A02E (Thunder Clap), Tip (Tooltip - Normal)
+{
+Thunder Clap - Level 1
+}
+
+STRING 1662
+// Abilities: A02E (Thunder Clap), Tip (Tooltip - Normal)
+{
+Thunder Clap - Level 2
+}
+
+STRING 1663
+// Abilities: A02E (Thunder Clap), Tip (Tooltip - Normal)
+{
+Thunder Clap - Level 3
+}
+
+STRING 1664
+// Abilities: A02E (Thunder Clap), Tip (Tooltip - Normal)
+{
+Thunder Clap - Level 4
+}
+
+STRING 1665
+// Abilities: A02F (Lightning Shield), Tip (Tooltip - Normal)
+{
+Lightning Shield - Level 1
+}
+
+STRING 1666
+// Abilities: A02F (Lightning Shield), Tip (Tooltip - Normal)
+{
+Lightning Shield - Level 2
+}
+
+STRING 1667
+// Abilities: A02F (Lightning Shield), Tip (Tooltip - Normal)
+{
+Lightning Shield - Level 3
+}
+
+STRING 1668
+// Abilities: A02F (Lightning Shield), Tip (Tooltip - Normal)
+{
+Lightning Shield - Level 4
+}
+
+STRING 1669
+// Abilities: A02G (Corruption Aura), Tip (Tooltip - Normal)
+{
+Corruption Aura - Level 1
+}
+
+STRING 1670
+// Abilities: A02G (Corruption Aura), Tip (Tooltip - Normal)
+{
+Corruption Aura - Level 2
+}
+
+STRING 1671
+// Abilities: A02G (Corruption Aura), Tip (Tooltip - Normal)
+{
+Corruption Aura - Level 3
+}
+
+STRING 1672
+// Abilities: A02G (Corruption Aura), Tip (Tooltip - Normal)
+{
+Corruption Aura - Level 4
+}
+
+STRING 1673
+// Abilities: A02H (Frost Nova), Tip (Tooltip - Normal)
+{
+Frost Nova - Level 1
+}
+
+STRING 1674
+// Abilities: A02H (Frost Nova), Tip (Tooltip - Normal)
+{
+Frost Nova - Level 2
+}
+
+STRING 1675
+// Abilities: A02H (Frost Nova), Tip (Tooltip - Normal)
+{
+Frost Nova - Level 3
+}
+
+STRING 1676
+// Abilities: A02H (Frost Nova), Tip (Tooltip - Normal)
+{
+Frost Nova - Level 4
+}
+
+STRING 1677
+// Abilities: A02I (Frost Armour), Tip (Tooltip - Normal)
+{
+Frost Armour - Level 1
+}
+
+STRING 1678
+// Abilities: A02I (Frost Armour), Tip (Tooltip - Normal)
+{
+Frost Armour - Level 2
+}
+
+STRING 1679
+// Abilities: A02I (Frost Armour), Tip (Tooltip - Normal)
+{
+Frost Armour - Level 3
+}
+
+STRING 1680
+// Abilities: A02I (Frost Armour), Tip (Tooltip - Normal)
+{
+Frost Armour - Level 4
+}
+
+STRING 1681
+// Abilities: A02J (Forked Lightning), Tip (Tooltip - Normal)
+{
+Forked Lightning - Level 1
+}
+
+STRING 1682
+// Abilities: A02J (Forked Lightning), Tip (Tooltip - Normal)
+{
+Forked Lightning - Level 2
+}
+
+STRING 1683
+// Abilities: A02J (Forked Lightning), Tip (Tooltip - Normal)
+{
+Forked Lightning - Level 3
+}
+
+STRING 1684
+// Abilities: A02J (Forked Lightning), Tip (Tooltip - Normal)
+{
+Forked Lightning - Level 4
+}
+
+STRING 1685
+// Abilities: A02K (Flame Strike), Tip (Tooltip - Normal)
+{
+Flame Strike - Level 1
+}
+
+STRING 1686
+// Abilities: A02K (Flame Strike), Tip (Tooltip - Normal)
+{
+Flame Strike - Level 2
+}
+
+STRING 1687
+// Abilities: A02K (Flame Strike), Tip (Tooltip - Normal)
+{
+Flame Strike - Level 3
+}
+
+STRING 1688
+// Abilities: A02K (Flame Strike), Tip (Tooltip - Normal)
+{
+Flame Strike - Level 4
+}
+
+STRING 1689
+// Abilities: A02L (Finger of Pain), Tip (Tooltip - Normal)
+{
+Finger of Pain - Level 1
+}
+
+STRING 1690
+// Abilities: A02L (Finger of Pain), Tip (Tooltip - Normal)
+{
+Finger of Pain - Level 2
+}
+
+STRING 1691
+// Abilities: A02L (Finger of Pain), Tip (Tooltip - Normal)
+{
+Finger of Pain - Level 3
+}
+
+STRING 1692
+// Abilities: A02L (Finger of Pain), Tip (Tooltip - Normal)
+{
+Finger of Pain - Level 4
+}
+
+STRING 1693
+// Abilities: A02M (Death Coil), Tip (Tooltip - Normal)
+{
+Death Coil - Level 1
+}
+
+STRING 1694
+// Abilities: A02M (Death Coil), Tip (Tooltip - Normal)
+{
+Death Coil - Level 2
+}
+
+STRING 1695
+// Abilities: A02M (Death Coil), Tip (Tooltip - Normal)
+{
+Death Coil - Level 3
+}
+
+STRING 1696
+// Abilities: A02M (Death Coil), Tip (Tooltip - Normal)
+{
+Death Coil - Level 4
+}
+
+STRING 1701
+// Abilities: A02O (Chain Lightning), Tip (Tooltip - Normal)
+{
+Chain Lightning - Level 1
+}
+
+STRING 1702
+// Abilities: A02O (Chain Lightning), Tip (Tooltip - Normal)
+{
+Chain Lightning - Level 2
+}
+
+STRING 1703
+// Abilities: A02O (Chain Lightning), Tip (Tooltip - Normal)
+{
+Chain Lightning - Level 3
+}
+
+STRING 1704
+// Abilities: A02O (Chain Lightning), Tip (Tooltip - Normal)
+{
+Chain Lightning - Level 4
+}
+
+STRING 1705
+// Abilities: A02P (Breath of Frost), Tip (Tooltip - Normal)
+{
+Breath of Frost - Level 1
+}
+
+STRING 1706
+// Abilities: A02P (Breath of Frost), Tip (Tooltip - Normal)
+{
+Breath of Frost - Level 2
+}
+
+STRING 1707
+// Abilities: A02P (Breath of Frost), Tip (Tooltip - Normal)
+{
+Breath of Frost - Level 3
+}
+
+STRING 1708
+// Abilities: A02P (Breath of Frost), Tip (Tooltip - Normal)
+{
+Breath of Frost - Level 4
+}
+
+STRING 1709
+// Abilities: A02A (Bladestorm), Tip (Tooltip - Normal)
+{
+Bladestorm - Level 1
+}
+
+STRING 1710
+// Abilities: A02A (Bladestorm), Tip (Tooltip - Normal)
+{
+Bladestorm - Level 2
+}
+
+STRING 1711
+// Abilities: A02A (Bladestorm), Tip (Tooltip - Normal)
+{
+Bladestorm - Level 3
+}
+
+STRING 1712
+// Abilities: A02A (Bladestorm), Tip (Tooltip - Normal)
+{
+Bladestorm - Level 4
+}
+
+STRING 1713
+// Abilities: A02D (Dispel Magic), Tip (Tooltip - Normal)
+{
+Dispel Magic - Level 1
+}
+
+STRING 1714
+// Abilities: A02D (Dispel Magic), Tip (Tooltip - Normal)
+{
+Dispel Magic - Level 2
+}
+
+STRING 1715
+// Abilities: A02D (Dispel Magic), Tip (Tooltip - Normal)
+{
+Dispel Magic - Level 3
+}
+
+STRING 1716
+// Abilities: A02D (Dispel Magic), Tip (Tooltip - Normal)
+{
+Dispel Magic - Level 4
+}
+
+STRING 1717
+// Abilities: A017 (Resonance Cascade), Ubertip (Tooltip - Normal - Extended)
+{
+The tower gains temporary abilities upon attacking at full mana and will use them, whilst regenerating mana subsequent attacks will reuse the previously gained abilities.
+}
+
+STRING 1718
+// Abilities: A02W (Inferno), Tip (Tooltip - Normal)
+{
+Inferno - Level 1
+}
+
+STRING 1719
+// Abilities: A02W (Inferno), Tip (Tooltip - Normal)
+{
+Inferno - Level 2
+}
+
+STRING 1720
+// Abilities: A02W (Inferno), Tip (Tooltip - Normal)
+{
+Inferno - Level 3
+}
+
+STRING 1721
+// Abilities: A02W (Inferno), Tip (Tooltip - Normal)
+{
+Inferno - Level 4
+}
+
+STRING 1722
+// Abilities: A02Y (Feral Spirit), Tip (Tooltip - Normal)
+{
+Feral Spirit - Level 1
+}
+
+STRING 1723
+// Abilities: A02Y (Feral Spirit), Tip (Tooltip - Normal)
+{
+Feral Spirit - Level 2
+}
+
+STRING 1724
+// Abilities: A02Y (Feral Spirit), Tip (Tooltip - Normal)
+{
+Feral Spirit - Level 3
+}
+
+STRING 1725
+// Abilities: A02Y (Feral Spirit), Tip (Tooltip - Normal)
+{
+Feral Spirit - Level 4
+}
+
+STRING 1726
+// Abilities: A02Z (Rain of Fire), Tip (Tooltip - Normal)
+{
+Rain of Fire - Level 1
+}
+
+STRING 1727
+// Abilities: A02Z (Rain of Fire), Tip (Tooltip - Normal)
+{
+Rain of Fire - Level 2
+}
+
+STRING 1728
+// Abilities: A02Z (Rain of Fire), Tip (Tooltip - Normal)
+{
+Rain of Fire - Level 3
+}
+
+STRING 1729
+// Abilities: A02Z (Rain of Fire), Tip (Tooltip - Normal)
+{
+Rain of Fire - Level 4
+}
+
+STRING 1730
+// Abilities: A014 (Anomaly Tower - Crushing Wave), Name (Name)
+{
+Anomaly Tower - Crushing Wave
+}
+
+STRING 1731
+// Abilities: A02N (Crushing Wave), Tip (Tooltip - Normal)
+{
+Crushing Wave - Level 2
+}
+
+STRING 1732
+// Abilities: A02N (Crushing Wave), Tip (Tooltip - Normal)
+{
+Crushing Wave - Level 3
+}
+
+STRING 1733
+// Abilities: A02N (Crushing Wave), Tip (Tooltip - Normal)
+{
+Crushing Wave - Level 4
+}
+
+STRING 1734
+// Abilities: A02N (Crushing Wave), Name (Name)
+{
+Crushing Wave
+}
+
+STRING 1735
+// Abilities: A02N (Crushing Wave), Tip (Tooltip - Normal)
+{
+Crushing Wave - Level 1
+}
+
+STRING 1736
+// Abilities: A02T (Acid Bomb), Tip (Tooltip - Normal)
+{
+Acid Bomb - Level 1
+}
+
+STRING 1737
+// Abilities: A02T (Acid Bomb), Tip (Tooltip - Normal)
+{
+Acid Bomb - Level 2
+}
+
+STRING 1738
+// Abilities: A02T (Acid Bomb), Tip (Tooltip - Normal)
+{
+Acid Bomb - Level 3
+}
+
+STRING 1739
+// Abilities: A02T (Acid Bomb), Tip (Tooltip - Normal)
+{
+Acid Bomb - Level 4
+}
+
+STRING 1740
+// Units: u01J (Anomaly Tower Level 1), Ubertip (Tooltip - Extended)
+{
+Magic Damage
+Dmg: ???
+Cooldown: 7.50s
+Range: 600
+Resonance Cascade
+}
+
+STRING 1741
+// Units: u01K (Anomaly Tower Level 2), Ubertip (Tooltip - Extended)
+{
+Magic Damage
+Dmg: ???
+Cooldown: 6.00s
+Range: 700
+Resonance Cascade
+}
+
+STRING 1742
+// Units: u01L (Anomaly Tower Level 3), Ubertip (Tooltip - Extended)
+{
+Magic Damage
+Dmg: ???
+Cooldown: 4.50s
+Range: 800
+Resonance Cascade
 }
 
