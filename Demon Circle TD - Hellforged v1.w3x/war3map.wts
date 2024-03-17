@@ -3915,18 +3915,6 @@ STRING 1506
 Anomaly Tower - Frost Nova
 }
 
-STRING 1510
-// Abilities: A018 (Anomaly Tower - Critical Strike), Name (Name)
-{
-Anomaly Tower - Critical Strike
-}
-
-STRING 1511
-// Abilities: A01E (Anomaly Tower - Sundering Blades), Name (Name)
-{
-Anomaly Tower - Sundering Blades
-}
-
 STRING 1512
 // Abilities: A01G (Anomaly Tower - Flame Strike), Name (Name)
 {
@@ -4071,30 +4059,6 @@ STRING 1566
 Anomaly Tower - Corruption Aura
 }
 
-STRING 1567
-// Abilities: A018 (Anomaly Tower - Critical Strike), Ubertip (Tooltip - Normal - Extended)
-{
-Gives a 25% chance to do 5 times normal damage on an attack.
-}
-
-STRING 1568
-// Abilities: A018 (Anomaly Tower - Critical Strike), Ubertip (Tooltip - Normal - Extended)
-{
-Gives a 50% chance to do 10 times normal damage on an attack.
-}
-
-STRING 1569
-// Abilities: A018 (Anomaly Tower - Critical Strike), Ubertip (Tooltip - Normal - Extended)
-{
-Gives a 75% chance to do 15 times normal damage on an attack.
-}
-
-STRING 1570
-// Abilities: A018 (Anomaly Tower - Critical Strike), Ubertip (Tooltip - Normal - Extended)
-{
-Gives a 100% chance to do 20 times normal damage on an attack.
-}
-
 STRING 1572
 // Abilities: A00T (Anomaly Tower - Dispel Magic), Name (Name)
 {
@@ -4120,7 +4084,7 @@ Resonance Cascade
 }
 
 STRING 1579
-// Abilities: A017 (Resonance Cascade), EditorSuffix (Editor Suffix)
+// Units: o000 (Spirit Wolf), EditorSuffix (Name - Editor Suffix)
 {
 [Anomaly Tower]
 }
@@ -4240,19 +4204,19 @@ STRING 1607
 }
 
 STRING 1608
-// Abilities: A018 (Anomaly Tower - Critical Strike), EditorSuffix (Editor Suffix)
+// Abilities: A02C (Anomaly Tower - Corruption Aura), EditorSuffix (Editor Suffix)
 {
 [Level 1 1st]
 }
 
 STRING 1609
-// Abilities: A01E (Anomaly Tower - Sundering Blades), EditorSuffix (Editor Suffix)
+// Abilities: A01G (Anomaly Tower - Flame Strike), EditorSuffix (Editor Suffix)
 {
 [Level 1 2nd]
 }
 
 STRING 1610
-// Abilities: A01G (Anomaly Tower - Flame Strike), EditorSuffix (Editor Suffix)
+// Abilities: A02Q (Anomaly Tower - Thunder Clap), EditorSuffix (Editor Suffix)
 {
 [Level 1 2nd]
 }
@@ -4359,12 +4323,6 @@ STRING 1627
 - Anomaly Tower Dummy [Level 3]
 }
 
-STRING 1628
-// Abilities: A02C (Anomaly Tower - Corruption Aura), EditorSuffix (Editor Suffix)
-{
-[Level 1 1st]
-}
-
 STRING 1629
 // Abilities: A00T (Anomaly Tower - Dispel Magic), EditorSuffix (Editor Suffix)
 {
@@ -4378,7 +4336,7 @@ STRING 1630
 }
 
 STRING 1631
-// Abilities: A02Q (Anomaly Tower - Thunder Clap), EditorSuffix (Editor Suffix)
+// Abilities: A02U (Anomaly Tower - Rain of Fire), EditorSuffix (Editor Suffix)
 {
 [Level 1 2nd]
 }
@@ -4393,12 +4351,6 @@ STRING 1633
 // Abilities: A02T (Acid Bomb), EditorSuffix (Editor Suffix)
 {
 - Anomaly Tower Dummy [Level 2]
-}
-
-STRING 1634
-// Abilities: A02U (Anomaly Tower - Rain of Fire), EditorSuffix (Editor Suffix)
-{
-[Level 1 2nd]
 }
 
 STRING 1635
@@ -4435,48 +4387,6 @@ STRING 1641
 // Abilities: A02Z (Rain of Fire), EditorSuffix (Editor Suffix)
 {
 - Anomaly Tower Dummy [Level 1 2nd]
-}
-
-STRING 1646
-// Abilities: A01E (Anomaly Tower - Sundering Blades), Tip (Tooltip - Normal)
-{
-Sundering Blades 2
-}
-
-STRING 1647
-// Abilities: A01E (Anomaly Tower - Sundering Blades), Tip (Tooltip - Normal)
-{
-Sundering Blades 3
-}
-
-STRING 1648
-// Abilities: A01E (Anomaly Tower - Sundering Blades), Tip (Tooltip - Normal)
-{
-Sundering Blades 4
-}
-
-STRING 1649
-// Abilities: A01E (Anomaly Tower - Sundering Blades), Tip (Tooltip - Normal)
-{
-Sundering Blades 5
-}
-
-STRING 1650
-// Abilities: A01E (Anomaly Tower - Sundering Blades), Tip (Tooltip - Normal)
-{
-Sundering Blades 6
-}
-
-STRING 1651
-// Abilities: A01E (Anomaly Tower - Sundering Blades), Tip (Tooltip - Normal)
-{
-Sundering Blades 7
-}
-
-STRING 1652
-// Abilities: A01E (Anomaly Tower - Sundering Blades), Tip (Tooltip - Normal)
-{
-Sundering Blades 1
 }
 
 STRING 1653
@@ -5005,5 +4915,111 @@ Dmg: ???
 Cooldown: 4.50s
 Range: 800
 Resonance Cascade
+}
+
+STRING 1743
+// Items: I008 (Demonic Artefact), Name (Name)
+{
+Demonic Artefact
+}
+
+STRING 1744
+// Items: I008 (Demonic Artefact), Tip (Tooltip - Basic)
+{
+Purchase a Demonic Artefact
+}
+
+STRING 1745
+// Items: I008 (Demonic Artefact), Ubertip (Tooltip - Extended)
+{
+[Anomaly Tower Only]
+
+All items have 3 levels, you can give additional copies of the item to the tower to level it up.
+
+Increases the level of abilities by 1/2/3.
+}
+
+STRING 1746
+// Items: I008 (Demonic Artefact), Description (Description)
+{
+[Anomaly Tower Only] Demonic Artefact
+}
+
+STRING 1747
+// Items: I008 (Demonic Artefact), Hotkey (Hotkey)
+{
+C
+}
+
+STRING 1748
+// Units: o001 (Shadow Wolf), EditorSuffix (Name - Editor Suffix)
+{
+[Anomaly Tower]
+}
+
+STRING 1749
+// Units: o002 (Dire Wolf), EditorSuffix (Name - Editor Suffix)
+{
+[Anomaly Tower]
+}
+
+STRING 1750
+// Units: o003 (Demonic Wolf), EditorSuffix (Name - Editor Suffix)
+{
+[Anomaly Tower]
+}
+
+STRING 1751
+// Units: o003 (Demonic Wolf), Name (Name)
+{
+Demonic Wolf
+}
+
+STRING 1752
+// Units: n002 (Fiery Demonic Infernal), EditorSuffix (Name - Editor Suffix)
+{
+[Anomaly Tower]
+}
+
+STRING 1753
+// Units: n002 (Fiery Demonic Infernal), Name (Name)
+{
+Fiery Demonic Infernal
+}
+
+STRING 1754
+// Units: n003 (Infernal), EditorSuffix (Name - Editor Suffix)
+{
+[Anomaly Tower]
+}
+
+STRING 1755
+// Units: n004 (Fiery Infernal), EditorSuffix (Name - Editor Suffix)
+{
+[Anomaly Tower]
+}
+
+STRING 1756
+// Units: n004 (Fiery Infernal), Name (Name)
+{
+Fiery Infernal
+}
+
+STRING 1757
+// Units: n005 (Demonic Infernal), EditorSuffix (Name - Editor Suffix)
+{
+[Anomaly Tower]
+}
+
+STRING 1758
+// Units: n005 (Demonic Infernal), Name (Name)
+{
+Demonic Infernal
+}
+
+STRING 1759
+// Abilities: A017 (Resonance Cascade), EditorSuffix (Editor Suffix)
+{
+[Anomaly Tower]
 }
 
