@@ -1703,28 +1703,28 @@ end
 return true
 end
 
-function Trig_Anomaly_Tower_Func007Func053C()
+function Trig_Anomaly_Tower_Func007Func052C()
 if (not (udg_Integer_Array_AnomalyAbility2[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] == 9)) then
 return false
 end
 return true
 end
 
-function Trig_Anomaly_Tower_Func007Func063C()
+function Trig_Anomaly_Tower_Func007Func062C()
 if (not (GetUnitAbilityLevelSwapped(FourCC("A01W"), GetEventDamageSource()) >= 2)) then
 return false
 end
 return true
 end
 
-function Trig_Anomaly_Tower_Func007Func067Func002Func004C()
+function Trig_Anomaly_Tower_Func007Func066Func002Func004C()
 if (not (udg_Integer_Array_AnomalyAbility4[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] == 20)) then
 return false
 end
 return true
 end
 
-function Trig_Anomaly_Tower_Func007Func067Func002Func005C()
+function Trig_Anomaly_Tower_Func007Func066Func002Func005C()
 if (udg_Integer_Array_AnomalyAbility4[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] == 16) then
 return true
 end
@@ -1737,14 +1737,14 @@ end
 return false
 end
 
-function Trig_Anomaly_Tower_Func007Func067Func002C()
-if (not Trig_Anomaly_Tower_Func007Func067Func002Func005C()) then
+function Trig_Anomaly_Tower_Func007Func066Func002C()
+if (not Trig_Anomaly_Tower_Func007Func066Func002Func005C()) then
 return false
 end
 return true
 end
 
-function Trig_Anomaly_Tower_Func007Func067C()
+function Trig_Anomaly_Tower_Func007Func066C()
 if (not (GetUnitAbilityLevelSwapped(FourCC("A01W"), GetEventDamageSource()) >= 3)) then
 return false
 end
@@ -1789,7 +1789,6 @@ udg_UnitGroup_Array_AnomDummys1[GetConvertedPlayerId(GetOwningPlayer(GetEventDam
 udg_Temp_PointA = GetUnitLoc(GetEventDamageSource())
 if (Trig_Anomaly_Tower_Func007C()) then
 SetUnitManaBJ(GetEventDamageSource(), 0)
-BlzSetUnitBaseDamage(GetEventDamageSource(), 1, 0)
 bj_forLoopAIndex = 1
 bj_forLoopAIndexEnd = 20
 while (true) do
@@ -1808,7 +1807,7 @@ UnitAddAbilityBJ(udg_AbilityCode_Array_AnomalyTower[udg_Integer_Array_AnomalyAbi
 UnitAddAbilityBJ(udg_AbilityCode_Array_AnomTowDummy[udg_Integer_Array_AnomalyAbility1[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))]], GetEventDamageSource())
 SetUnitAbilityLevelSwapped(udg_AbilityCode_Array_AnomalyTower[udg_Integer_Array_AnomalyAbility1[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))]], GetLastCreatedUnit(), (1 + GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I008")))))
 SetUnitAbilityLevelSwapped(udg_AbilityCode_Array_AnomTowDummy[udg_Integer_Array_AnomalyAbility1[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))]], GetEventDamageSource(), (1 + GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I008")))))
-if (Trig_Anomaly_Tower_Func007Func053C()) then
+if (Trig_Anomaly_Tower_Func007Func052C()) then
 udg_Temp_PointC[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] = GetUnitLoc(BlzGetEventDamageTarget())
 CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointC[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))], bj_UNIT_FACING)
 else
@@ -1820,7 +1819,7 @@ UnitAddAbilityBJ(udg_AbilityCode_Array_AnomalyTower[udg_Integer_Array_AnomalyAbi
 UnitAddAbilityBJ(udg_AbilityCode_Array_AnomTowDummy[udg_Integer_Array_AnomalyAbility2[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))]], GetEventDamageSource())
 SetUnitAbilityLevelSwapped(udg_AbilityCode_Array_AnomalyTower[udg_Integer_Array_AnomalyAbility2[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))]], GetLastCreatedUnit(), (1 + GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I008")))))
 SetUnitAbilityLevelSwapped(udg_AbilityCode_Array_AnomTowDummy[udg_Integer_Array_AnomalyAbility2[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))]], GetEventDamageSource(), (1 + GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I008")))))
-if (Trig_Anomaly_Tower_Func007Func063C()) then
+if (Trig_Anomaly_Tower_Func007Func062C()) then
 CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointA, bj_UNIT_FACING)
 UnitApplyTimedLifeBJ(4.00, FourCC("BTLF"), GetLastCreatedUnit())
 GroupAddUnitSimple(GetLastCreatedUnit(), udg_UnitGroup_Array_AnomDummys1[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))])
@@ -1830,11 +1829,11 @@ SetUnitAbilityLevelSwapped(udg_AbilityCode_Array_AnomalyTower[udg_Integer_Array_
 SetUnitAbilityLevelSwapped(udg_AbilityCode_Array_AnomTowDummy[udg_Integer_Array_AnomalyAbility3[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))]], GetEventDamageSource(), (1 + GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I008")))))
 else
 end
-if (Trig_Anomaly_Tower_Func007Func067C()) then
-if (Trig_Anomaly_Tower_Func007Func067Func002C()) then
+if (Trig_Anomaly_Tower_Func007Func066C()) then
+if (Trig_Anomaly_Tower_Func007Func066Func002C()) then
 udg_Temp_PointC[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] = GetUnitLoc(BlzGetEventDamageTarget())
 CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointC[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))], bj_UNIT_FACING)
-if (Trig_Anomaly_Tower_Func007Func067Func002Func004C()) then
+if (Trig_Anomaly_Tower_Func007Func066Func002Func004C()) then
 AddSpecialEffectLocBJ(udg_Temp_PointC[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))], "Abilities\\Spells\\Human\\Flare\\FlareCaster.mdl")
 DestroyEffectBJ(GetLastCreatedEffectBJ())
 else

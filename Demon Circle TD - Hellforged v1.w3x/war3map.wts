@@ -3516,18 +3516,6 @@ Upon attacking an enemy their is a 12%/24%/36% chance to summon a Ghost that wil
 Chain lightning can target ethereal units, the tower cannot.
 }
 
-STRING 1447
-// Items: I00A (Satans Claw), Ubertip (Tooltip - Extended)
-{
-[Chaos Tower Only]
-
-All items have 3 levels, you can give additional copies of the item to the tower to level it up.
-
-Streams of demonic energy emanate from the tower dealing 50/80/110 damage on hit and 25/40/55 damage per second for 4/6/8 seconds.
-
-Effective against etheral units.
-}
-
 STRING 1448
 // Units: u00B (Frost Tower), Ubertip (Tooltip - Extended)
 {
@@ -4887,36 +4875,6 @@ STRING 1739
 Acid Bomb - Level 4
 }
 
-STRING 1740
-// Units: u01J (Anomaly Tower Level 1), Ubertip (Tooltip - Extended)
-{
-Magic Damage
-Dmg: ???
-Cooldown: 7.50s
-Range: 600
-Resonance Cascade
-}
-
-STRING 1741
-// Units: u01K (Anomaly Tower Level 2), Ubertip (Tooltip - Extended)
-{
-Magic Damage
-Dmg: ???
-Cooldown: 6.00s
-Range: 700
-Resonance Cascade
-}
-
-STRING 1742
-// Units: u01L (Anomaly Tower Level 3), Ubertip (Tooltip - Extended)
-{
-Magic Damage
-Dmg: ???
-Cooldown: 4.50s
-Range: 800
-Resonance Cascade
-}
-
 STRING 1743
 // Items: I008 (Demonic Artefact), Name (Name)
 {
@@ -5637,5 +5595,65 @@ STRING 1853
 Calls down waves of fire that damage units in an area. Each wave deals 50 initial damage and 25 damage per second for 2 seconds.
 
 Lasts for 1 wave.
+}
+
+STRING 1854
+// Units: u01J (Anomaly Tower Level 1), Ubertip (Tooltip - Extended)
+{
+Magic Damage
+Dmg: 1 - 250
+Cooldown: 7.50s
+Range: 600
+Resonance Cascade
+}
+
+STRING 1855
+// Units: u01K (Anomaly Tower Level 2), Ubertip (Tooltip - Extended)
+{
+Magic Damage
+Dmg: 1 - 500
+Cooldown: 6.00s
+Range: 700
+Resonance Cascade
+}
+
+STRING 1856
+// Units: u01L (Anomaly Tower Level 3), Ubertip (Tooltip - Extended)
+{
+Magic Damage
+Dmg: 1 - 1000
+Cooldown: 4.50s
+Range: 800
+Resonance Cascade
+}
+
+STRING 1857
+// Items: I00A (Satans Claw), Ubertip (Tooltip - Extended)
+{
+[Chaos Tower Only]
+
+All items have 3 levels, you can give additional copies of the item to the tower to level it up.
+
+Streams of demonic energy emanate from the tower dealing 50/80/110 damage on hit and 25/40/55 damage per second for 4/6/8 seconds.
+
+Effective against ethereal units.
+}
+
+STRING 1858
+// Abilities: A02M (Death Coil), Ubertip (Tooltip - Normal - Extended)
+{
+A coil of death that deals 1000 damage to an enemy unit.
+}
+
+STRING 1859
+// Abilities: A02M (Death Coil), Ubertip (Tooltip - Normal - Extended)
+{
+A coil of death that deals 1500 damage to an enemy unit.
+}
+
+STRING 1860
+// Abilities: A02M (Death Coil), Ubertip (Tooltip - Normal - Extended)
+{
+A coil of death that deals 2000 damage to an enemy unit.
 }
 
