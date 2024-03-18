@@ -4300,13 +4300,13 @@ STRING 1623
 }
 
 STRING 1624
-// Abilities: A02N (Crushing Wave), EditorSuffix (Editor Suffix)
+// Abilities: A02O (Chain Lightning), EditorSuffix (Editor Suffix)
 {
 - Anomaly Tower Dummy [Level 1 1st]
 }
 
 STRING 1625
-// Abilities: A02O (Chain Lightning), EditorSuffix (Editor Suffix)
+// Abilities: A02Z (Rain of Fire), EditorSuffix (Editor Suffix)
 {
 - Anomaly Tower Dummy [Level 1 1st]
 }
@@ -4384,7 +4384,7 @@ Rain of Fire
 }
 
 STRING 1641
-// Abilities: A02Z (Rain of Fire), EditorSuffix (Editor Suffix)
+// Abilities: A02N (Crushing Wave), EditorSuffix (Editor Suffix)
 {
 - Anomaly Tower Dummy [Level 1 2nd]
 }
@@ -5021,5 +5021,621 @@ STRING 1759
 // Abilities: A017 (Resonance Cascade), EditorSuffix (Editor Suffix)
 {
 [Anomaly Tower]
+}
+
+STRING 1760
+// Abilities: A02G (Corruption Aura), Ubertip (Tooltip - Normal - Extended)
+{
+Decreases armour of enemies unit in a 600 area of effect by 1.
+}
+
+STRING 1761
+// Abilities: A02G (Corruption Aura), Ubertip (Tooltip - Normal - Extended)
+{
+Decreases armour of enemies unit in a 700 area of effect by 2.
+}
+
+STRING 1762
+// Abilities: A02G (Corruption Aura), Ubertip (Tooltip - Normal - Extended)
+{
+Decreases armour of enemies unit in a 800 area of effect by 4.
+}
+
+STRING 1763
+// Abilities: A02G (Corruption Aura), Ubertip (Tooltip - Normal - Extended)
+{
+Decreases armour of enemies unit in a 900 area of effect by 8.
+}
+
+STRING 1764
+// Abilities: A02O (Chain Lightning), Ubertip (Tooltip - Normal - Extended)
+{
+Hurls a bolt of lightning that bounces up to 4 times, dealing 100 damage to the primary target. Each jump deals 25% less damage.
+}
+
+STRING 1765
+// Abilities: A02O (Chain Lightning), Ubertip (Tooltip - Normal - Extended)
+{
+Hurls a bolt of lightning that bounces up to 6 times, dealing 200 damage to the primary target. Each jump deals 20% less damage.
+}
+
+STRING 1766
+// Abilities: A02O (Chain Lightning), Ubertip (Tooltip - Normal - Extended)
+{
+Hurls a bolt of lightning that bounces up to 8 times, dealing 300 damage to the primary target. Each jump deals 15% less damage.
+}
+
+STRING 1767
+// Abilities: A02O (Chain Lightning), Ubertip (Tooltip - Normal - Extended)
+{
+Hurls a bolt of lightning that bounces up to 10 times, dealing 400 damage to the primary target. Each jump deals 10% less damage.
+}
+
+STRING 1768
+// Abilities: A02P (Breath of Frost), Ubertip (Tooltip - Normal - Extended)
+{
+Breathes a cone of frost at enemy units that deals 100 initial damage, and 50 damage per second over 4 seconds.
+}
+
+STRING 1769
+// Abilities: A02P (Breath of Frost), Ubertip (Tooltip - Normal - Extended)
+{
+Breathes a cone of frost at enemy units that deals 200 initial damage, and 100 damage per second over 4 seconds.
+}
+
+STRING 1770
+// Abilities: A02P (Breath of Frost), Ubertip (Tooltip - Normal - Extended)
+{
+Breathes a cone of frost at enemy units that deals 300 initial damage, and 150 damage per second over 4 seconds.
+}
+
+STRING 1771
+// Abilities: A02P (Breath of Frost), Ubertip (Tooltip - Normal - Extended)
+{
+Breathes a cone of frost at enemy units that deals 400 initial damage, and 200 damage per second over 4 seconds.
+}
+
+STRING 1772
+// Abilities: A02A (Bladestorm), Ubertip (Tooltip - Normal - Extended)
+{
+Creates a bladestorm around the damaged enemy dealing 100 damage per second to enemies within a 150 area of effect.
+
+Lasts 4 seconds.
+}
+
+STRING 1773
+// Abilities: A02A (Bladestorm), Ubertip (Tooltip - Normal - Extended)
+{
+Creates a bladestorm around the damaged enemy dealing 200 damage per second to enemies within a 200 area of effect.
+
+Lasts 4 seconds.
+}
+
+STRING 1774
+// Abilities: A02A (Bladestorm), Ubertip (Tooltip - Normal - Extended)
+{
+Creates a bladestorm around the damaged enemy dealing 300 damage per second to enemies within a 250 area of effect.
+
+Lasts 4 seconds.
+}
+
+STRING 1775
+// Abilities: A02A (Bladestorm), Ubertip (Tooltip - Normal - Extended)
+{
+Creates a bladestorm around the damaged enemy dealing 400 damage per second to enemies within a 300 area of effect.
+
+Lasts 4 seconds.
+}
+
+STRING 1776
+// Abilities: A02T (Acid Bomb), Ubertip (Tooltip - Normal - Extended)
+{
+Hurls a flask of acid at a target. Decreases armor by 2; deals 100 damage per second to the primary target; deals 50 damage per second to enemies within 150 area of effect.
+
+Lasts 4 seconds.
+}
+
+STRING 1777
+// Abilities: A02T (Acid Bomb), Ubertip (Tooltip - Normal - Extended)
+{
+Hurls a flask of acid at a target. Decreases armor by 4; deals 200 damage per second to the primary target; deals 100 damage per second to enemies within 200 area of effect.
+
+Lasts 4 seconds.
+}
+
+STRING 1778
+// Abilities: A02T (Acid Bomb), Ubertip (Tooltip - Normal - Extended)
+{
+Hurls a flask of acid at a target. Decreases armor by 8; deals 300 damage per second to the primary target; deals 150 damage per second to enemies within 250 area of effect.
+
+Lasts 4 seconds.
+}
+
+STRING 1779
+// Abilities: A02T (Acid Bomb), Ubertip (Tooltip - Normal - Extended)
+{
+Hurls a flask of acid at a target. Decreases armor by 16; deals 400 damage per second to the primary target; deals 200 damage per second to enemies within 300 area of effect.
+
+Lasts 4 seconds.
+}
+
+STRING 1780
+// Abilities: A02N (Crushing Wave), Ubertip (Tooltip - Normal - Extended)
+{
+Sends a gigantic wave which deals 150 damage to each enemy land unit in a line.
+}
+
+STRING 1781
+// Abilities: A02N (Crushing Wave), Ubertip (Tooltip - Normal - Extended)
+{
+Sends a gigantic wave which deals 300 damage to each enemy land unit in a line.
+}
+
+STRING 1782
+// Abilities: A02N (Crushing Wave), Ubertip (Tooltip - Normal - Extended)
+{
+Sends a gigantic wave which deals 450 damage to each enemy land unit in a line.
+}
+
+STRING 1783
+// Abilities: A02N (Crushing Wave), Ubertip (Tooltip - Normal - Extended)
+{
+Sends a gigantic wave which deals 600 damage to each enemy land unit in a line.
+}
+
+STRING 1784
+// Abilities: A02M (Death Coil), Ubertip (Tooltip - Normal - Extended)
+{
+A coil of death that deals 500 damage to an enemy unit.
+}
+
+STRING 1785
+// Abilities: A02D (Dispel Magic), Ubertip (Tooltip - Normal - Extended)
+{
+Removes all buffs from units in a 100 area of effect.
+}
+
+STRING 1786
+// Abilities: A02D (Dispel Magic), Ubertip (Tooltip - Normal - Extended)
+{
+Removes all buffs from units in a 200 area of effect.
+}
+
+STRING 1787
+// Abilities: A02D (Dispel Magic), Ubertip (Tooltip - Normal - Extended)
+{
+Removes all buffs from units in a 300 area of effect.
+}
+
+STRING 1788
+// Abilities: A02D (Dispel Magic), Ubertip (Tooltip - Normal - Extended)
+{
+Removes all buffs from units in a 400 area of effect.
+}
+
+STRING 1789
+// Abilities: A02L (Finger of Pain), Ubertip (Tooltip - Normal - Extended)
+{
+Horribly cripples the innards of a creature dealing 2500 damage.
+}
+
+STRING 1790
+// Abilities: A02L (Finger of Pain), Ubertip (Tooltip - Normal - Extended)
+{
+Horribly cripples the innards of a creature dealing 5000 damage.
+}
+
+STRING 1791
+// Abilities: A02L (Finger of Pain), Ubertip (Tooltip - Normal - Extended)
+{
+Horribly cripples the innards of a creature dealing 7500 damage.
+}
+
+STRING 1792
+// Abilities: A02L (Finger of Pain), Ubertip (Tooltip - Normal - Extended)
+{
+Horribly cripples the innards of a creature dealing 10000 damage.
+}
+
+STRING 1793
+// Abilities: A02K (Flame Strike), Ubertip (Tooltip - Normal - Extended)
+{
+Conjures a pillar of flame in a 150 area of effect that burns ground units for 100 damage a second for 1 second. As the pillar of flame subsides, units within the fire continue to take 50 damage per second for 4 seconds.
+}
+
+STRING 1794
+// Abilities: A02K (Flame Strike), Ubertip (Tooltip - Normal - Extended)
+{
+Conjures a pillar of flame in a 200 area of effect that burns ground units for 200 damage a second for 1 second. As the pillar of flame subsides, units within the fire continue to take 100 damage per second for 4 seconds.
+}
+
+STRING 1795
+// Abilities: A02K (Flame Strike), Ubertip (Tooltip - Normal - Extended)
+{
+Conjures a pillar of flame in a 250 area of effect that burns ground units for 300 damage a second for 1 second. As the pillar of flame subsides, units within the fire continue to take 150 damage per second for 4 seconds.
+}
+
+STRING 1797
+// Abilities: A02K (Flame Strike), Ubertip (Tooltip - Normal - Extended)
+{
+Conjures a pillar of flame in a 300 area of effect that burns ground units for 400 damage a second for 1 second. As the pillar of flame subsides, units within the fire continue to take 200 damage per second for 4 seconds.
+}
+
+STRING 1798
+// Abilities: A02J (Forked Lightning), Ubertip (Tooltip - Normal - Extended)
+{
+Calls forth a cone of lightning on a target enemy unit, hitting up to 3 enemy units for 150 damage.
+}
+
+STRING 1799
+// Abilities: A02J (Forked Lightning), Ubertip (Tooltip - Normal - Extended)
+{
+Calls forth a cone of lightning on a target enemy unit, hitting up to 5 enemy units for 300 damage.
+}
+
+STRING 1800
+// Abilities: A02J (Forked Lightning), Ubertip (Tooltip - Normal - Extended)
+{
+Calls forth a cone of lightning on a target enemy unit, hitting up to 7 enemy units for 450 damage.
+}
+
+STRING 1801
+// Abilities: A02J (Forked Lightning), Ubertip (Tooltip - Normal - Extended)
+{
+Calls forth a cone of lightning on a target enemy unit, hitting up to 9 enemy units for 600 damage.
+}
+
+STRING 1802
+// Abilities: A02I (Frost Armour), Ubertip (Tooltip - Normal - Extended)
+{
+Surrounds an enemy unit with frost, reducing their armour by 4.
+
+Lasts 4 seconds.
+}
+
+STRING 1803
+// Abilities: A02I (Frost Armour), Ubertip (Tooltip - Normal - Extended)
+{
+Surrounds an enemy unit with frost, reducing their armour by 8.
+
+Lasts 6 seconds.
+}
+
+STRING 1804
+// Abilities: A02I (Frost Armour), Ubertip (Tooltip - Normal - Extended)
+{
+Surrounds an enemy unit with frost, reducing their armour by 16.
+
+Lasts 8 seconds.
+}
+
+STRING 1805
+// Abilities: A02I (Frost Armour), Ubertip (Tooltip - Normal - Extended)
+{
+Surrounds an enemy unit with frost, reducing their armour by 32.
+
+Lasts 10 seconds.
+}
+
+STRING 1806
+// Abilities: A02H (Frost Nova), Ubertip (Tooltip - Normal - Extended)
+{
+Blasts enemy units within 200 area of effect with frost that deals 200 damage to the target, and 100 nova damage.
+}
+
+STRING 1807
+// Abilities: A02H (Frost Nova), Ubertip (Tooltip - Normal - Extended)
+{
+Blasts enemy units within 250 area of effect with frost that deals 300 damage to the target, and 150 nova damage.
+}
+
+STRING 1808
+// Abilities: A02H (Frost Nova), Ubertip (Tooltip - Normal - Extended)
+{
+Blasts enemy units within 300 area of effect with frost that deals 400 damage to the target, and 200 nova damage.
+}
+
+STRING 1809
+// Abilities: A02H (Frost Nova), Ubertip (Tooltip - Normal - Extended)
+{
+Blasts enemy units within 350 area of effect with frost that deals 500 damage to the target, and 250 nova damage.
+}
+
+STRING 1810
+// Abilities: A00H (Anomaly Tower - Lightning Shield), Ubertip (Tooltip - Normal - Extended)
+{
+Forms a shield of electricity around a target unit, dealing 50 damage per second to units in a 150 area of effect.
+
+Lasts 4 seconds.
+}
+
+STRING 1811
+// Abilities: A02F (Lightning Shield), Ubertip (Tooltip - Normal - Extended)
+{
+Forms a shield of electricity around a target unit, dealing 50 damage per second to units in a 150 area of effect.
+
+Lasts 4 seconds.
+}
+
+STRING 1812
+// Abilities: A02F (Lightning Shield), Ubertip (Tooltip - Normal - Extended)
+{
+Forms a shield of electricity around a target unit, dealing 100 damage per second to units in a 200 area of effect.
+
+Lasts 4 seconds.
+}
+
+STRING 1813
+// Abilities: A02F (Lightning Shield), Ubertip (Tooltip - Normal - Extended)
+{
+Forms a shield of electricity around a target unit, dealing 150 damage per second to units in a 250 area of effect.
+
+Lasts 4 seconds.
+}
+
+STRING 1814
+// Abilities: A02F (Lightning Shield), Ubertip (Tooltip - Normal - Extended)
+{
+Forms a shield of electricity around a target unit, dealing 200 damage per second to units in a 300 area of effect.
+
+Lasts 4 seconds.
+}
+
+STRING 1815
+// Abilities: A02U (Anomaly Tower - Rain of Fire), Ubertip (Tooltip - Normal - Extended)
+{
+Calls down waves of fire that damage units in an area. Each wave deals 50 initial damage and 25 damage per second for 2 seconds.
+
+Lasts for 1 waves.
+}
+
+STRING 1817
+// Abilities: A02Z (Rain of Fire), Ubertip (Tooltip - Normal - Extended)
+{
+Calls down waves of fire that damage units in an area. Each wave deals 100 initial damage and 50 damage per second for 2 seconds.
+
+Lasts for 2 waves.
+}
+
+STRING 1818
+// Abilities: A02Z (Rain of Fire), Ubertip (Tooltip - Normal - Extended)
+{
+Calls down waves of fire that damage units in an area. Each wave deals 150 initial damage and 75 damage per second for 2 seconds.
+
+Lasts for 3 waves.
+}
+
+STRING 1819
+// Abilities: A02Z (Rain of Fire), Ubertip (Tooltip - Normal - Extended)
+{
+Calls down waves of fire that damage units in an area. Each wave deals 200 initial damage and 100 damage per second for 2 seconds.
+
+Lasts for 4 waves.
+}
+
+STRING 1820
+// Abilities: A00N (Anomaly Tower - Shadow Strike), Ubertip (Tooltip - Normal - Extended)
+{
+Hurls a poisoned dagger with incredible force at an enemy, dealing 100 initial damage, and 50 damage every 1 second for 4 seconds. The poison slows the movement speed of the enemy for 4 seconds.
+}
+
+STRING 1821
+// Abilities: A01U (Anomaly Tower - Starfall), Ubertip (Tooltip - Normal - Extended)
+{
+Calls down waves of falling stars that damage nearby enemy units. Each wave deals 50 damage in a 300 area of effect. 
+
+Lasts for 4 seconds.
+}
+
+STRING 1822
+// Abilities: A029 (Starfall), Ubertip (Tooltip - Normal - Extended)
+{
+Calls down waves of falling stars that damage nearby enemy units. Each wave deals 50 damage in a 300 area of effect. 
+
+Lasts for 4 seconds.
+}
+
+STRING 1823
+// Abilities: A029 (Starfall), Ubertip (Tooltip - Normal - Extended)
+{
+Calls down waves of falling stars that damage nearby enemy units. Each wave deals 100 damage in a 400 area of effect. 
+
+Lasts for 4 seconds.
+}
+
+STRING 1824
+// Abilities: A029 (Starfall), Ubertip (Tooltip - Normal - Extended)
+{
+Calls down waves of falling stars that damage nearby enemy units. Each wave deals 150 damage in a 500 area of effect. 
+
+Lasts for 4 seconds.
+}
+
+STRING 1825
+// Abilities: A029 (Starfall), Ubertip (Tooltip - Normal - Extended)
+{
+Calls down waves of falling stars that damage nearby enemy units. Each wave deals 200 damage in a 600 area of effect. 
+
+Lasts for 4 seconds.
+}
+
+STRING 1826
+// Abilities: A02B (Shadow Strike), Ubertip (Tooltip - Normal - Extended)
+{
+Hurls a poisoned dagger with incredible force at an enemy, dealing 100 initial damage, and 50 damage every 1 second for 4 seconds.
+}
+
+STRING 1827
+// Abilities: A02B (Shadow Strike), Ubertip (Tooltip - Normal - Extended)
+{
+Hurls a poisoned dagger with incredible force at an enemy, dealing 200 initial damage, and 100 damage every 0.80 seconds for 4 seconds.
+}
+
+STRING 1828
+// Abilities: A02B (Shadow Strike), Ubertip (Tooltip - Normal - Extended)
+{
+Hurls a poisoned dagger with incredible force at an enemy, dealing 300 initial damage, and 150 damage every 0.65 seconds for 4 seconds.
+}
+
+STRING 1829
+// Abilities: A02B (Shadow Strike), Ubertip (Tooltip - Normal - Extended)
+{
+Hurls a poisoned dagger with incredible force at an enemy, dealing 400 initial damage, and 200 damage every 0.55 seconds for 4 seconds.
+}
+
+STRING 1830
+// Abilities: A02E (Thunder Clap), Ubertip (Tooltip - Normal - Extended)
+{
+Slams the ground, dealing 100 damage to enemy units in a 150 area of effect and slowing their movement by 25%.
+}
+
+STRING 1831
+// Abilities: A02E (Thunder Clap), Ubertip (Tooltip - Normal - Extended)
+{
+Slams the ground, dealing 200 damage to enemy units in a 200 area of effect and slowing their movement by 30%.
+}
+
+STRING 1832
+// Abilities: A02E (Thunder Clap), Ubertip (Tooltip - Normal - Extended)
+{
+Slams the ground, dealing 300 damage to enemy units in a 250 area of effect and slowing their movement by 35%.
+}
+
+STRING 1833
+// Abilities: A02E (Thunder Clap), Ubertip (Tooltip - Normal - Extended)
+{
+Slams the ground, dealing 400 damage to enemy units in a 300 area of effect and slowing their movement by 40%.
+}
+
+STRING 1834
+// Abilities: A02Q (Anomaly Tower - Thunder Clap), Ubertip (Tooltip - Normal - Extended)
+{
+Slams the ground, dealing 100 damage to enemy units in a 150 area of effect and slowing their movement by 25%. 
+}
+
+STRING 1835
+// Abilities: A02V (Anomaly Tower - Inferno), Ubertip (Tooltip - Normal - Extended)
+{
+Summons an Infernal from the sky for 4 seconds, causing 200 area effect damage where it lands.
+}
+
+STRING 1836
+// Abilities: A02W (Inferno), Ubertip (Tooltip - Normal - Extended)
+{
+Summons an Infernal from the sky for 4 seconds, causing 200 area effect damage where it lands.
+}
+
+STRING 1837
+// Abilities: A02W (Inferno), Ubertip (Tooltip - Normal - Extended)
+{
+Summons an Fiery Infernal from the sky for 8 seconds, causing 400 area effect damage where it lands.
+}
+
+STRING 1838
+// Abilities: A02W (Inferno), Ubertip (Tooltip - Normal - Extended)
+{
+Summons an Demonic Infernal from the sky for 12 seconds, causing 600 area effect damage where it lands.
+}
+
+STRING 1839
+// Abilities: A02W (Inferno), Ubertip (Tooltip - Normal - Extended)
+{
+Summons an Fiery Demonic Infernal from the sky for 16 seconds, causing 800 area effect damage where it lands.
+}
+
+STRING 1840
+// Abilities: A02X (Anomaly Tower - Feral Spirit), Ubertip (Tooltip - Normal - Extended)
+{
+Summons 1 Spirit Wolf companion.
+
+Lasts 4 seconds.
+}
+
+STRING 1841
+// Abilities: A02Y (Feral Spirit), Ubertip (Tooltip - Normal - Extended)
+{
+Summons 1 Spirit Wolf companion.
+
+Lasts 4 seconds.
+}
+
+STRING 1842
+// Abilities: A02Y (Feral Spirit), Ubertip (Tooltip - Normal - Extended)
+{
+Summons 2 Dire Wolf companions.
+
+Lasts 8 seconds.
+}
+
+STRING 1843
+// Abilities: A02Y (Feral Spirit), Ubertip (Tooltip - Normal - Extended)
+{
+Summons 3 Shadow Wolf companions.
+
+Lasts 12 seconds.
+}
+
+STRING 1844
+// Abilities: A02Y (Feral Spirit), Ubertip (Tooltip - Normal - Extended)
+{
+Summons 4 Demonic Wolf companions.
+
+Lasts 16 seconds.
+}
+
+STRING 1845
+// Abilities: A02C (Anomaly Tower - Corruption Aura), Ubertip (Tooltip - Normal - Extended)
+{
+Decreases armour of enemies unit in a 600 area of effect by 1.
+}
+
+STRING 1846
+// Abilities: A02C (Anomaly Tower - Corruption Aura), Ubertip (Tooltip - Normal - Extended)
+{
+Decreases armour of enemies unit in a 700 area of effect by 2.
+}
+
+STRING 1847
+// Abilities: A02C (Anomaly Tower - Corruption Aura), Ubertip (Tooltip - Normal - Extended)
+{
+Decreases armour of enemies unit in a 800 area of effect by 4.
+}
+
+STRING 1848
+// Abilities: A02C (Anomaly Tower - Corruption Aura), Ubertip (Tooltip - Normal - Extended)
+{
+Decreases armour of enemies unit in a 900 area of effect by 8.
+}
+
+STRING 1849
+// Abilities: A02C (Anomaly Tower - Corruption Aura), Tip (Tooltip - Normal)
+{
+Corruption Aura - Level 1
+}
+
+STRING 1850
+// Abilities: A02C (Anomaly Tower - Corruption Aura), Tip (Tooltip - Normal)
+{
+Corruption Aura - Level 2
+}
+
+STRING 1851
+// Abilities: A02C (Anomaly Tower - Corruption Aura), Tip (Tooltip - Normal)
+{
+Corruption Aura - Level 3
+}
+
+STRING 1852
+// Abilities: A02C (Anomaly Tower - Corruption Aura), Tip (Tooltip - Normal)
+{
+Corruption Aura - Level 4
+}
+
+STRING 1853
+// Abilities: A02Z (Rain of Fire), Ubertip (Tooltip - Normal - Extended)
+{
+Calls down waves of fire that damage units in an area. Each wave deals 50 initial damage and 25 damage per second for 2 seconds.
+
+Lasts for 1 wave.
 }
 
