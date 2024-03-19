@@ -73,6 +73,8 @@ udg_UnitGroup_Array_AnomDummys1 = {}
 udg_UnitGroup_Array_AnomDummys2 = {}
 udg_UnitGroup_Array_AnomDummys3 = {}
 udg_UnitGroup_Array_AnomDummys4 = {}
+udg_Integer_WaveModPerSpawnChance = 0
+udg_Integer_WaveBuffRandomNum = 0
 gg_rct_CreepSpawn1 = nil
 gg_rct_CreepSpawn2 = nil
 gg_rct_CreepSpawn3 = nil
@@ -125,6 +127,8 @@ gg_trg_Sell_Towers = nil
 gg_trg_Lumber_Bounty = nil
 gg_trg_Invulnerable_Towers = nil
 gg_trg_Remove_Ethereal = nil
+gg_trg_Anomaly_Tower_Limit = nil
+gg_trg_Anomaly_Tower_Limit_Copy = nil
 gg_trg_Anomaly_Tower = nil
 gg_trg_Anomaly_Tower_Level_Up_Ability = nil
 gg_trg_Hellfire_Tower = nil
@@ -354,6 +358,8 @@ if ((i > 1)) then break end
 udg_UnitGroup_Array_AnomDummys4[i] = CreateGroup()
 i = i + 1
 end
+udg_Integer_WaveModPerSpawnChance = 115
+udg_Integer_WaveBuffRandomNum = 0
 end
 
 function CreateUnitsForPlayer0()
@@ -436,21 +442,6 @@ local life
 u = BlzCreateUnitWithSkin(p, FourCC("u005"), -5123.3, 2051.0, 179.561, FourCC("u005"))
 end
 
-function CreateNeutralHostile()
-local p = Player(PLAYER_NEUTRAL_AGGRESSIVE)
-local u
-local unitID
-local t
-local life
-
-u = BlzCreateUnitWithSkin(p, FourCC("uaco"), -4795.2, 3676.7, 222.060, FourCC("uaco"))
-u = BlzCreateUnitWithSkin(p, FourCC("uaco"), -4757.5, 3639.1, 222.060, FourCC("uaco"))
-u = BlzCreateUnitWithSkin(p, FourCC("uaco"), -4833.1, 3715.0, 222.060, FourCC("uaco"))
-u = BlzCreateUnitWithSkin(p, FourCC("uaco"), -4723.5, 3593.3, 222.060, FourCC("uaco"))
-u = BlzCreateUnitWithSkin(p, FourCC("uaco"), -4688.4, 3549.5, 222.060, FourCC("uaco"))
-u = BlzCreateUnitWithSkin(p, FourCC("uaco"), -4657.2, 3508.4, 222.060, FourCC("uaco"))
-end
-
 function CreateNeutralPassiveBuildings()
 local p = Player(PLAYER_NEUTRAL_PASSIVE)
 local u
@@ -491,7 +482,6 @@ end
 function CreateAllUnits()
 CreateNeutralPassiveBuildings()
 CreatePlayerBuildings()
-CreateNeutralHostile()
 CreateNeutralPassive()
 CreatePlayerUnits()
 end
@@ -549,6 +539,9 @@ if (Trig_Map_Initialization_Func001Func001C()) then
 udg_Integer_PlayerCount = (udg_Integer_PlayerCount + 1)
 SetPlayerStateBJ(ConvertedPlayer(GetForLoopIndexA()), PLAYER_STATE_RESOURCE_GOLD, 75)
 CreateFogModifierRectBJ(true, ConvertedPlayer(GetForLoopIndexA()), FOG_OF_WAR_VISIBLE, GetPlayableMapRect())
+SetPlayerTechMaxAllowedSwap(FourCC("u01J"), 1, ConvertedPlayer(GetForLoopIndexA()))
+SetPlayerTechMaxAllowedSwap(FourCC("u01K"), 1, ConvertedPlayer(GetForLoopIndexA()))
+SetPlayerTechMaxAllowedSwap(FourCC("u01L"), 1, ConvertedPlayer(GetForLoopIndexA()))
 else
 end
 bj_forLoopAIndex = bj_forLoopAIndex + 1
@@ -1092,6 +1085,7 @@ if (Trig_Next_Round_Func004C()) then
 udg_Integer_EtherealChance = GetRandomInt(1, 1000)
 udg_Integer_ShieldChance = GetRandomInt(1, 1000)
 udg_Integer_CommanderChance = GetRandomInt(1, 1000)
+udg_Integer_WaveModPerSpawnChance = 115
 EnableTrigger(gg_trg_Wave_Buffs)
 EnableTrigger(gg_trg_Commander_Spawning)
 else
@@ -1273,7 +1267,7 @@ DisableTrigger(gg_trg_Commander_Spawning)
 TriggerAddAction(gg_trg_Commander_Spawning, Trig_Commander_Spawning_Actions)
 end
 
-function Trig_Wave_Buffs_Func002C()
+function Trig_Wave_Buffs_Func004C()
 if (GetOwningPlayer(GetTriggerUnit()) == Player(10)) then
 return true
 end
@@ -1287,39 +1281,51 @@ function Trig_Wave_Buffs_Conditions()
 if (not (GetUnitTypeId(GetTriggerUnit()) ~= FourCC("n001"))) then
 return false
 end
-if (not Trig_Wave_Buffs_Func002C()) then
+if (not Trig_Wave_Buffs_Func004C()) then
 return false
 end
 return true
 end
 
-function Trig_Wave_Buffs_Func003C()
+function Trig_Wave_Buffs_Func002Func002C()
 if (not (udg_Integer_ShieldChance <= (100 + udg_I_Round))) then
 return false
 end
 return true
 end
 
-function Trig_Wave_Buffs_Func004C()
+function Trig_Wave_Buffs_Func002Func003C()
 if (not (udg_Integer_EtherealChance <= (100 + udg_I_Round))) then
 return false
 end
 return true
 end
 
+function Trig_Wave_Buffs_Func002C()
+if (not (udg_Integer_WaveBuffRandomNum <= udg_Integer_WaveModPerSpawnChance)) then
+return false
+end
+return true
+end
+
 function Trig_Wave_Buffs_Actions()
-if (Trig_Wave_Buffs_Func003C()) then
+udg_Integer_WaveBuffRandomNum = GetRandomInt(1, 100)
+if (Trig_Wave_Buffs_Func002C()) then
+udg_Integer_WaveModPerSpawnChance = (udg_Integer_WaveModPerSpawnChance - 5)
+if (Trig_Wave_Buffs_Func002Func002C()) then
 UnitAddAbilityBJ(FourCC("A01I"), GetTriggerUnit())
 BlzSetUnitMaxMana(GetTriggerUnit(), ((BlzGetUnitMaxHP(GetTriggerUnit()) // 2) + 100))
 SetUnitManaPercentBJ(GetTriggerUnit(), 100)
 else
 end
-if (Trig_Wave_Buffs_Func004C()) then
+if (Trig_Wave_Buffs_Func002Func003C()) then
 udg_Temp_PointA = GetUnitLoc(GetTriggerUnit())
 CreateNUnitsAtLoc(1, FourCC("h02A"), Player(8), udg_Temp_PointA, bj_UNIT_FACING)
 UnitAddAbilityBJ(FourCC("A01H"), GetLastCreatedUnit())
 IssueTargetOrderBJ(GetLastCreatedUnit(), "banish", GetTriggerUnit())
-        RemoveLocation(udg_Temp_PointA)
+            RemoveLocation(udg_Temp_PointA)
+else
+end
 else
 end
 end
@@ -1563,7 +1569,28 @@ end
 return true
 end
 
+function Trig_Sell_Towers_Func001Func001C()
+if (GetUnitTypeId(GetTriggerUnit()) == FourCC("u01K")) then
+return true
+end
+if (GetUnitTypeId(GetTriggerUnit()) == FourCC("u01L")) then
+return true
+end
+return false
+end
+
+function Trig_Sell_Towers_Func001C()
+if (not Trig_Sell_Towers_Func001Func001C()) then
+return false
+end
+return true
+end
+
 function Trig_Sell_Towers_Actions()
+if (Trig_Sell_Towers_Func001C()) then
+SetPlayerTechMaxAllowedSwap(FourCC("u01J"), 1, GetOwningPlayer(GetTriggerUnit()))
+else
+end
 UnitRemoveItemFromSlotSwapped(1, GetSpellAbilityUnit())
 udg_PlyGrp_SellTower = GetForceOfPlayer(GetOwningPlayer(GetTriggerUnit()))
 DisplayTextToForce(udg_PlyGrp_SellTower, ("|cffffcc00You get " .. (I2S(GetUnitPointValue(GetTriggerUnit())) .. (" gold for selling a " .. (GetUnitName(GetTriggerUnit()) .. ".|r")))))
@@ -1646,6 +1673,42 @@ gg_trg_Remove_Ethereal = CreateTrigger()
 TriggerRegisterAnyUnitEventBJ(gg_trg_Remove_Ethereal, EVENT_PLAYER_UNIT_DAMAGED)
 TriggerAddCondition(gg_trg_Remove_Ethereal, Condition(Trig_Remove_Ethereal_Conditions))
 TriggerAddAction(gg_trg_Remove_Ethereal, Trig_Remove_Ethereal_Actions)
+end
+
+function Trig_Anomaly_Tower_Limit_Conditions()
+if (not (GetUnitAbilityLevelSwapped(FourCC("A01W"), GetTriggerUnit()) == 1)) then
+return false
+end
+return true
+end
+
+function Trig_Anomaly_Tower_Limit_Actions()
+SetPlayerTechMaxAllowedSwap(FourCC("u01J"), 0, GetOwningPlayer(GetTriggerUnit()))
+end
+
+function InitTrig_Anomaly_Tower_Limit()
+gg_trg_Anomaly_Tower_Limit = CreateTrigger()
+TriggerRegisterAnyUnitEventBJ(gg_trg_Anomaly_Tower_Limit, EVENT_PLAYER_UNIT_UPGRADE_START)
+TriggerAddCondition(gg_trg_Anomaly_Tower_Limit, Condition(Trig_Anomaly_Tower_Limit_Conditions))
+TriggerAddAction(gg_trg_Anomaly_Tower_Limit, Trig_Anomaly_Tower_Limit_Actions)
+end
+
+function Trig_Anomaly_Tower_Limit_Copy_Conditions()
+if (not (GetUnitTypeId(GetTriggerUnit()) == FourCC("u01K"))) then
+return false
+end
+return true
+end
+
+function Trig_Anomaly_Tower_Limit_Copy_Actions()
+SetPlayerTechMaxAllowedSwap(FourCC("u01J"), 1, GetOwningPlayer(GetTriggerUnit()))
+end
+
+function InitTrig_Anomaly_Tower_Limit_Copy()
+gg_trg_Anomaly_Tower_Limit_Copy = CreateTrigger()
+TriggerRegisterAnyUnitEventBJ(gg_trg_Anomaly_Tower_Limit_Copy, EVENT_PLAYER_UNIT_UPGRADE_CANCEL)
+TriggerAddCondition(gg_trg_Anomaly_Tower_Limit_Copy, Condition(Trig_Anomaly_Tower_Limit_Copy_Conditions))
+TriggerAddAction(gg_trg_Anomaly_Tower_Limit_Copy, Trig_Anomaly_Tower_Limit_Copy_Actions)
 end
 
 function Trig_Anomaly_Tower_Conditions()
@@ -4511,6 +4574,8 @@ InitTrig_Sell_Towers()
 InitTrig_Lumber_Bounty()
 InitTrig_Invulnerable_Towers()
 InitTrig_Remove_Ethereal()
+InitTrig_Anomaly_Tower_Limit()
+InitTrig_Anomaly_Tower_Limit_Copy()
 InitTrig_Anomaly_Tower()
 InitTrig_Anomaly_Tower_Level_Up_Ability()
 InitTrig_Hellfire_Tower()

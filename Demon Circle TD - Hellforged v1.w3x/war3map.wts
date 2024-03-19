@@ -4246,13 +4246,13 @@ STRING 1616
 }
 
 STRING 1617
-// Abilities: A02G (Corruption Aura), EditorSuffix (Editor Suffix)
+// Abilities: A02L (Finger of Pain), EditorSuffix (Editor Suffix)
 {
 - Anomaly Tower Dummy [Level 3]
 }
 
 STRING 1618
-// Abilities: A02H (Frost Nova), EditorSuffix (Editor Suffix)
+// Abilities: A02G (Corruption Aura), EditorSuffix (Editor Suffix)
 {
 - Anomaly Tower Dummy [Level 1 1st]
 }
@@ -4276,7 +4276,7 @@ STRING 1621
 }
 
 STRING 1622
-// Abilities: A02L (Finger of Pain), EditorSuffix (Editor Suffix)
+// Abilities: A02A (Bladestorm), EditorSuffix (Editor Suffix)
 {
 - Anomaly Tower Dummy [Level 3]
 }
@@ -4288,13 +4288,13 @@ STRING 1623
 }
 
 STRING 1624
-// Abilities: A02O (Chain Lightning), EditorSuffix (Editor Suffix)
+// Abilities: A02H (Frost Nova), EditorSuffix (Editor Suffix)
 {
 - Anomaly Tower Dummy [Level 1 1st]
 }
 
 STRING 1625
-// Abilities: A02Z (Rain of Fire), EditorSuffix (Editor Suffix)
+// Abilities: A02O (Chain Lightning), EditorSuffix (Editor Suffix)
 {
 - Anomaly Tower Dummy [Level 1 1st]
 }
@@ -4306,7 +4306,7 @@ STRING 1626
 }
 
 STRING 1627
-// Abilities: A02A (Bladestorm), EditorSuffix (Editor Suffix)
+// Abilities: A02W (Inferno), EditorSuffix (Editor Suffix)
 {
 - Anomaly Tower Dummy [Level 3]
 }
@@ -4348,7 +4348,7 @@ STRING 1635
 }
 
 STRING 1636
-// Abilities: A02W (Inferno), EditorSuffix (Editor Suffix)
+// Abilities: A02Y (Feral Spirit), EditorSuffix (Editor Suffix)
 {
 - Anomaly Tower Dummy [Level 3]
 }
@@ -4357,12 +4357,6 @@ STRING 1637
 // Abilities: A02X (Anomaly Tower - Feral Spirit), EditorSuffix (Editor Suffix)
 {
 [Level 3]
-}
-
-STRING 1638
-// Abilities: A02Y (Feral Spirit), EditorSuffix (Editor Suffix)
-{
-- Anomaly Tower Dummy [Level 3]
 }
 
 STRING 1639
@@ -5041,12 +5035,6 @@ STRING 1769
 Breathes a cone of frost at enemy units that deals 200 initial damage, and 100 damage per second over 4 seconds.
 }
 
-STRING 1770
-// Abilities: A02P (Breath of Frost), Ubertip (Tooltip - Normal - Extended)
-{
-Breathes a cone of frost at enemy units that deals 300 initial damage, and 150 damage per second over 4 seconds.
-}
-
 STRING 1771
 // Abilities: A02P (Breath of Frost), Ubertip (Tooltip - Normal - Extended)
 {
@@ -5057,30 +5045,6 @@ STRING 1772
 // Abilities: A02A (Bladestorm), Ubertip (Tooltip - Normal - Extended)
 {
 Creates a bladestorm around the damaged enemy dealing 100 damage per second to enemies within a 150 area of effect.
-
-Lasts 4 seconds.
-}
-
-STRING 1773
-// Abilities: A02A (Bladestorm), Ubertip (Tooltip - Normal - Extended)
-{
-Creates a bladestorm around the damaged enemy dealing 200 damage per second to enemies within a 200 area of effect.
-
-Lasts 4 seconds.
-}
-
-STRING 1774
-// Abilities: A02A (Bladestorm), Ubertip (Tooltip - Normal - Extended)
-{
-Creates a bladestorm around the damaged enemy dealing 300 damage per second to enemies within a 250 area of effect.
-
-Lasts 4 seconds.
-}
-
-STRING 1775
-// Abilities: A02A (Bladestorm), Ubertip (Tooltip - Normal - Extended)
-{
-Creates a bladestorm around the damaged enemy dealing 400 damage per second to enemies within a 300 area of effect.
 
 Lasts 4 seconds.
 }
@@ -5097,22 +5061,6 @@ STRING 1777
 // Abilities: A02T (Acid Bomb), Ubertip (Tooltip - Normal - Extended)
 {
 Hurls a flask of acid at a target. Decreases armor by 4; deals 200 damage per second to the primary target; deals 100 damage per second to enemies within 200 area of effect.
-
-Lasts 4 seconds.
-}
-
-STRING 1778
-// Abilities: A02T (Acid Bomb), Ubertip (Tooltip - Normal - Extended)
-{
-Hurls a flask of acid at a target. Decreases armor by 8; deals 300 damage per second to the primary target; deals 150 damage per second to enemies within 250 area of effect.
-
-Lasts 4 seconds.
-}
-
-STRING 1779
-// Abilities: A02T (Acid Bomb), Ubertip (Tooltip - Normal - Extended)
-{
-Hurls a flask of acid at a target. Decreases armor by 16; deals 400 damage per second to the primary target; deals 200 damage per second to enemies within 300 area of effect.
 
 Lasts 4 seconds.
 }
@@ -5177,22 +5125,10 @@ STRING 1789
 Horribly cripples the innards of a creature dealing 2500 damage.
 }
 
-STRING 1790
-// Abilities: A02L (Finger of Pain), Ubertip (Tooltip - Normal - Extended)
-{
-Horribly cripples the innards of a creature dealing 5000 damage.
-}
-
 STRING 1791
 // Abilities: A02L (Finger of Pain), Ubertip (Tooltip - Normal - Extended)
 {
 Horribly cripples the innards of a creature dealing 7500 damage.
-}
-
-STRING 1792
-// Abilities: A02L (Finger of Pain), Ubertip (Tooltip - Normal - Extended)
-{
-Horribly cripples the innards of a creature dealing 10000 damage.
 }
 
 STRING 1793
@@ -5393,30 +5329,6 @@ Calls down waves of falling stars that damage nearby enemy units. Each wave deal
 Lasts for 4 seconds.
 }
 
-STRING 1823
-// Abilities: A029 (Starfall), Ubertip (Tooltip - Normal - Extended)
-{
-Calls down waves of falling stars that damage nearby enemy units. Each wave deals 100 damage in a 400 area of effect. 
-
-Lasts for 4 seconds.
-}
-
-STRING 1824
-// Abilities: A029 (Starfall), Ubertip (Tooltip - Normal - Extended)
-{
-Calls down waves of falling stars that damage nearby enemy units. Each wave deals 150 damage in a 500 area of effect. 
-
-Lasts for 4 seconds.
-}
-
-STRING 1825
-// Abilities: A029 (Starfall), Ubertip (Tooltip - Normal - Extended)
-{
-Calls down waves of falling stars that damage nearby enemy units. Each wave deals 200 damage in a 600 area of effect. 
-
-Lasts for 4 seconds.
-}
-
 STRING 1826
 // Abilities: A02B (Shadow Strike), Ubertip (Tooltip - Normal - Extended)
 {
@@ -5481,24 +5393,6 @@ STRING 1836
 // Abilities: A02W (Inferno), Ubertip (Tooltip - Normal - Extended)
 {
 Summons an Infernal from the sky for 4 seconds, causing 200 area effect damage where it lands.
-}
-
-STRING 1837
-// Abilities: A02W (Inferno), Ubertip (Tooltip - Normal - Extended)
-{
-Summons an Fiery Infernal from the sky for 8 seconds, causing 400 area effect damage where it lands.
-}
-
-STRING 1838
-// Abilities: A02W (Inferno), Ubertip (Tooltip - Normal - Extended)
-{
-Summons an Demonic Infernal from the sky for 12 seconds, causing 600 area effect damage where it lands.
-}
-
-STRING 1839
-// Abilities: A02W (Inferno), Ubertip (Tooltip - Normal - Extended)
-{
-Summons an Fiery Demonic Infernal from the sky for 16 seconds, causing 800 area effect damage where it lands.
 }
 
 STRING 1840
@@ -5645,15 +5539,121 @@ STRING 1858
 A coil of death that deals 1000 damage to an enemy unit.
 }
 
-STRING 1859
-// Abilities: A02M (Death Coil), Ubertip (Tooltip - Normal - Extended)
-{
-A coil of death that deals 1500 damage to an enemy unit.
-}
-
 STRING 1860
 // Abilities: A02M (Death Coil), Ubertip (Tooltip - Normal - Extended)
 {
 A coil of death that deals 2000 damage to an enemy unit.
+}
+
+STRING 1861
+// Abilities: A029 (Starfall), Ubertip (Tooltip - Normal - Extended)
+{
+Calls down waves of falling stars that damage nearby enemy units. Each wave deals 150 damage in a 400 area of effect. 
+
+Lasts for 4 seconds.
+}
+
+STRING 1862
+// Abilities: A029 (Starfall), Ubertip (Tooltip - Normal - Extended)
+{
+Calls down waves of falling stars that damage nearby enemy units. Each wave deals 450 damage in a 500 area of effect. 
+
+Lasts for 4 seconds.
+}
+
+STRING 1863
+// Abilities: A029 (Starfall), Ubertip (Tooltip - Normal - Extended)
+{
+Calls down waves of falling stars that damage nearby enemy units. Each wave deals 1350 damage in a 600 area of effect. 
+
+Lasts for 4 seconds.
+}
+
+STRING 1864
+// Abilities: A02W (Inferno), Ubertip (Tooltip - Normal - Extended)
+{
+Summons an Fiery Infernal from the sky for 8 seconds, causing 600 area effect damage where it lands.
+}
+
+STRING 1865
+// Abilities: A02W (Inferno), Ubertip (Tooltip - Normal - Extended)
+{
+Summons an Fiery Demonic Infernal from the sky for 16 seconds, causing 5400 area effect damage where it lands.
+}
+
+STRING 1866
+// Abilities: A02W (Inferno), Ubertip (Tooltip - Normal - Extended)
+{
+Summons an Demonic Infernal from the sky for 12 seconds, causing 1800 area effect damage where it lands.
+}
+
+STRING 1867
+// Abilities: A02A (Bladestorm), Ubertip (Tooltip - Normal - Extended)
+{
+Creates a bladestorm around the damaged enemy dealing 250 damage per second to enemies within a 200 area of effect.
+
+Lasts 4 seconds.
+}
+
+STRING 1868
+// Abilities: A02A (Bladestorm), Ubertip (Tooltip - Normal - Extended)
+{
+Creates a bladestorm around the damaged enemy dealing 750 damage per second to enemies within a 250 area of effect.
+
+Lasts 4 seconds.
+}
+
+STRING 1869
+// Abilities: A02A (Bladestorm), Ubertip (Tooltip - Normal - Extended)
+{
+Creates a bladestorm around the damaged enemy dealing 2250 damage per second to enemies within a 300 area of effect.
+
+Lasts 4 seconds.
+}
+
+STRING 1870
+// Abilities: A02T (Acid Bomb), Ubertip (Tooltip - Normal - Extended)
+{
+Hurls a flask of acid at a target. Decreases armor by 8; deals 400 damage per second to the primary target; deals 200 damage per second to enemies within 250 area of effect.
+
+Lasts 4 seconds.
+}
+
+STRING 1871
+// Abilities: A02T (Acid Bomb), Ubertip (Tooltip - Normal - Extended)
+{
+Hurls a flask of acid at a target. Decreases armor by 16; deals 800 damage per second to the primary target; deals 400 damage per second to enemies within 300 area of effect.
+
+Lasts 4 seconds.
+}
+
+STRING 1872
+// Abilities: A02L (Finger of Pain), Ubertip (Tooltip - Normal - Extended)
+{
+Horribly cripples the innards of a creature dealing 22500 damage.
+}
+
+STRING 1873
+// Abilities: A02L (Finger of Pain), Ubertip (Tooltip - Normal - Extended)
+{
+Horribly cripples the innards of a creature dealing 62500 damage.
+}
+
+STRING 1874
+// Abilities: A02M (Death Coil), Ubertip (Tooltip - Normal - Extended)
+{
+A coil of death that deals 4000 damage to an enemy unit.
+}
+
+STRING 1875
+// Abilities: A02P (Breath of Frost), Ubertip (Tooltip - Normal - Extended)
+{
+Breathes a cone of frost at enemy units that deals 800 initial damage, and 400 damage per second over 4 seconds.
+}
+
+STRING 1876
+// Abilities: A02Z (Rain of Fire), EditorSuffix (Editor Suffix)
+{
+- Anomaly Tower Dummy [Level 1 1st]
 }
 
