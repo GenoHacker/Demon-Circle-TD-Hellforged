@@ -4035,12 +4035,6 @@ STRING 1558
 Breath of Frost
 }
 
-STRING 1564
-// Abilities: A02G (Corruption Aura), Name (Name)
-{
-Corruption Aura
-}
-
 STRING 1566
 // Abilities: A02C (Anomaly Tower - Corruption Aura), Name (Name)
 {
@@ -4252,7 +4246,7 @@ STRING 1617
 }
 
 STRING 1618
-// Abilities: A02G (Corruption Aura), EditorSuffix (Editor Suffix)
+// Abilities: A02G ([UNUSED] Corruption Aura), EditorSuffix (Editor Suffix)
 {
 - Anomaly Tower Dummy [Level 1 1st]
 }
@@ -4468,25 +4462,25 @@ Lightning Shield - Level 4
 }
 
 STRING 1669
-// Abilities: A02G (Corruption Aura), Tip (Tooltip - Normal)
+// Abilities: A02G ([UNUSED] Corruption Aura), Tip (Tooltip - Normal)
 {
 Corruption Aura - Level 1
 }
 
 STRING 1670
-// Abilities: A02G (Corruption Aura), Tip (Tooltip - Normal)
+// Abilities: A02G ([UNUSED] Corruption Aura), Tip (Tooltip - Normal)
 {
 Corruption Aura - Level 2
 }
 
 STRING 1671
-// Abilities: A02G (Corruption Aura), Tip (Tooltip - Normal)
+// Abilities: A02G ([UNUSED] Corruption Aura), Tip (Tooltip - Normal)
 {
 Corruption Aura - Level 3
 }
 
 STRING 1672
-// Abilities: A02G (Corruption Aura), Tip (Tooltip - Normal)
+// Abilities: A02G ([UNUSED] Corruption Aura), Tip (Tooltip - Normal)
 {
 Corruption Aura - Level 4
 }
@@ -4976,25 +4970,25 @@ STRING 1759
 }
 
 STRING 1760
-// Abilities: A02G (Corruption Aura), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02G ([UNUSED] Corruption Aura), Ubertip (Tooltip - Normal - Extended)
 {
 Decreases armour of enemies unit in a 600 area of effect by 1.
 }
 
 STRING 1761
-// Abilities: A02G (Corruption Aura), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02G ([UNUSED] Corruption Aura), Ubertip (Tooltip - Normal - Extended)
 {
 Decreases armour of enemies unit in a 700 area of effect by 2.
 }
 
 STRING 1762
-// Abilities: A02G (Corruption Aura), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02G ([UNUSED] Corruption Aura), Ubertip (Tooltip - Normal - Extended)
 {
 Decreases armour of enemies unit in a 800 area of effect by 4.
 }
 
 STRING 1763
-// Abilities: A02G (Corruption Aura), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02G ([UNUSED] Corruption Aura), Ubertip (Tooltip - Normal - Extended)
 {
 Decreases armour of enemies unit in a 900 area of effect by 8.
 }
@@ -5491,16 +5485,6 @@ Calls down waves of fire that damage units in an area. Each wave deals 50 initia
 Lasts for 1 wave.
 }
 
-STRING 1854
-// Units: u01J (Anomaly Tower Level 1), Ubertip (Tooltip - Extended)
-{
-Magic Damage
-Dmg: 1 - 250
-Cooldown: 7.50s
-Range: 600
-Resonance Cascade
-}
-
 STRING 1855
 // Units: u01K (Anomaly Tower Level 2), Ubertip (Tooltip - Extended)
 {
@@ -5655,5 +5639,24 @@ STRING 1876
 // Abilities: A02Z (Rain of Fire), EditorSuffix (Editor Suffix)
 {
 - Anomaly Tower Dummy [Level 1 1st]
+}
+
+STRING 1877
+// Abilities: A02G ([UNUSED] Corruption Aura), Name (Name)
+{
+[UNUSED] Corruption Aura
+}
+
+STRING 1878
+// Units: u01J (Anomaly Tower Level 1), Ubertip (Tooltip - Extended)
+{
+Magic Damage
+Dmg: 1 - 250
+Cooldown: 7.50s
+Range: 600
+Resonance Cascade
+
+Effective against ethereal units
+Limited to 1
 }
 
