@@ -75,6 +75,7 @@ udg_UnitGroup_Array_AnomDummys3 = {}
 udg_UnitGroup_Array_AnomDummys4 = {}
 udg_Integer_WaveModPerSpawnChance = 0
 udg_Integer_WaveBuffRandomNum = 0
+udg_Player_Group_ActivePlayers = nil
 gg_rct_CreepSpawn1 = nil
 gg_rct_CreepSpawn2 = nil
 gg_rct_CreepSpawn3 = nil
@@ -125,7 +126,6 @@ gg_trg_Unit_Die = nil
 gg_trg_Leaving_Players = nil
 gg_trg_Sell_Towers = nil
 gg_trg_Lumber_Bounty = nil
-gg_trg_Invulnerable_Towers = nil
 gg_trg_Remove_Ethereal = nil
 gg_trg_Anomaly_Tower_Limit = nil
 gg_trg_Anomaly_Tower_Limit_Copy = nil
@@ -361,6 +361,7 @@ i = i + 1
 end
 udg_Integer_WaveModPerSpawnChance = 115
 udg_Integer_WaveBuffRandomNum = 0
+udg_Player_Group_ActivePlayers = CreateForce()
 end
 
 function CreateUnitsForPlayer0()
@@ -453,19 +454,6 @@ local life
 u = BlzCreateUnitWithSkin(p, FourCC("n000"), -2560.0, 2048.0, 270.000, FourCC("n000"))
 end
 
-function CreateNeutralPassive()
-local p = Player(PLAYER_NEUTRAL_PASSIVE)
-local u
-local unitID
-local t
-local life
-
-u = BlzCreateUnitWithSkin(p, FourCC("h00E"), -6657.1, 2048.2, 82.430, FourCC("h00E"))
-u = BlzCreateUnitWithSkin(p, FourCC("h00E"), -2567.7, -2072.3, 82.430, FourCC("h00E"))
-u = BlzCreateUnitWithSkin(p, FourCC("h00E"), 1534.7, 2047.1, 82.430, FourCC("h00E"))
-u = BlzCreateUnitWithSkin(p, FourCC("h00E"), -2559.6, 6143.6, 82.430, FourCC("h00E"))
-end
-
 function CreatePlayerBuildings()
 end
 
@@ -483,7 +471,6 @@ end
 function CreateAllUnits()
 CreateNeutralPassiveBuildings()
 CreatePlayerBuildings()
-CreateNeutralPassive()
 CreatePlayerUnits()
 end
 
@@ -784,7 +771,6 @@ TriggerAddAction(gg_trg_Leaderboard, Trig_Leaderboard_Actions)
 end
 
 function Trig_Starting_Locations_Actions()
-    bj_wantDestroyGroup = true
 StartTimerBJ(udg_T_NextRound, false, 30.00)
 CreateTimerDialogBJ(GetLastCreatedTimerBJ(), ("Round " .. (I2S((udg_I_Round + 1)) .. " in:")))
 TimerDialogDisplayBJ(true, GetLastCreatedTimerDialogBJ())
@@ -1635,17 +1621,6 @@ function InitTrig_Lumber_Bounty()
 gg_trg_Lumber_Bounty = CreateTrigger()
 TriggerRegisterAnyUnitEventBJ(gg_trg_Lumber_Bounty, EVENT_PLAYER_UNIT_DEATH)
 TriggerAddAction(gg_trg_Lumber_Bounty, Trig_Lumber_Bounty_Actions)
-end
-
-function Trig_Invulnerable_Towers_Actions()
-SetUnitInvulnerable(GetTriggerUnit(), true)
-end
-
-function InitTrig_Invulnerable_Towers()
-gg_trg_Invulnerable_Towers = CreateTrigger()
-TriggerRegisterAnyUnitEventBJ(gg_trg_Invulnerable_Towers, EVENT_PLAYER_UNIT_CONSTRUCT_START)
-TriggerRegisterAnyUnitEventBJ(gg_trg_Invulnerable_Towers, EVENT_PLAYER_UNIT_UPGRADE_FINISH)
-TriggerAddAction(gg_trg_Invulnerable_Towers, Trig_Invulnerable_Towers_Actions)
 end
 
 function Trig_Remove_Ethereal_Conditions()
@@ -4725,7 +4700,6 @@ InitTrig_Unit_Die()
 InitTrig_Leaving_Players()
 InitTrig_Sell_Towers()
 InitTrig_Lumber_Bounty()
-InitTrig_Invulnerable_Towers()
 InitTrig_Remove_Ethereal()
 InitTrig_Anomaly_Tower_Limit()
 InitTrig_Anomaly_Tower_Limit_Copy()

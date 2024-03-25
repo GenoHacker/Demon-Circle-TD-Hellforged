@@ -1861,12 +1861,6 @@ STRING 814
 W
 }
 
-STRING 815
-// Units: h00E (Prop), Name (Name)
-{
-Prop
-}
-
 STRING 816
 // Units: h029 (Ghost), Name (Name)
 {
