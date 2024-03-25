@@ -371,6 +371,10 @@ local unitID
 local t
 local life
 
+u = BlzCreateUnitWithSkin(p, FourCC("h00E"), -2559.6, 6141.2, 37.003, FourCC("h00E"))
+u = BlzCreateUnitWithSkin(p, FourCC("h00E"), 1535.9, 2048.1, 273.008, FourCC("h00E"))
+u = BlzCreateUnitWithSkin(p, FourCC("h00E"), -2560.1, -2047.6, 90.113, FourCC("h00E"))
+u = BlzCreateUnitWithSkin(p, FourCC("h00E"), -6656.3, 2048.1, 77.775, FourCC("h00E"))
 u = BlzCreateUnitWithSkin(p, FourCC("u005"), -4095.6, 3586.4, 135.286, FourCC("u005"))
 end
 
@@ -1223,7 +1227,7 @@ end
 end
 
 function Trig_Commander_Spawning_Actions()
-udg_Real_CommanderHealth = (300.00 + (50.00 * I2R(udg_I_Round)))
+udg_Real_CommanderHealth = (200.00 + (25.00 * I2R(udg_I_Round)))
 udg_Real_CommanderHealth = (udg_Real_CommanderHealth * (GetPlayerHandicapBJ(Player(12)) / 100.00))
 udg_Real_CommanderHealth = (udg_Real_CommanderHealth * udg_Real_WaveHealthModifier)
 udg_Real_CommanderArmour = (5.00 + (I2R(udg_I_Round) * 0.10))

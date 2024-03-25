@@ -5654,3 +5654,15 @@ Effective against ethereal units
 Limited to 1
 }
 
+STRING 1880
+// Units: h00E (Prop), Name (Name)
+{
+Prop
+}
+
+STRING 1881
+// Units: h00E (Prop), EditorSuffix (Name - Editor Suffix)
+{
+[model looks shit on a doodad so im using a unit]
+}
+
