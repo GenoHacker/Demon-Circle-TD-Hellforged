@@ -681,7 +681,7 @@ else
 end
 bj_forLoopAIndex = bj_forLoopAIndex + 1
 end
-udg_Real_WaveHealthModifier = (udg_Real_WaveHealthModifier + (0.01 * I2R(udg_Integer_PlayerCount)))
+udg_Real_WaveHealthModifier = (udg_Real_WaveHealthModifier + (0.03 * I2R(udg_Integer_PlayerCount)))
 udg_Integer_MaxCreeps = (60 * udg_Integer_PlayerCount)
 CreateLeaderboardBJ(GetPlayersAll(), "TRIGSTR_1910")
 LeaderboardSetLabelBJ(GetLastCreatedLeaderboard(), (("|cffff9622Lives = " .. (("|cff8080ff" .. "100.000") .. "%|r ")) .. (("|cffff9622Diff = " .. I2S(udg_Integer_EnemyHandicap)) .. "%|r")))
@@ -876,7 +876,7 @@ DisplayTimedTextToForce(GetPlayersAll(), 5.00, ("Difficulty is now: " .. (I2S(ud
 udg_Integer_MaxCreeps = (udg_Integer_MaxCreeps - 10)
 udg_Integer_Array_DifficultyVote[1] = (udg_Integer_Array_DifficultyVote[1] + 1)
 udg_Integer_MaxSpawncount = (udg_Integer_MaxSpawncount + 2)
-udg_Real_WaveTimer = (udg_Real_WaveTimer - 0.25)
+udg_Real_WaveTimer = (udg_Real_WaveTimer - 1.00)
 else
 end
 if (Trig_Difficulty_Adjust_Func002C()) then
@@ -1034,21 +1034,21 @@ end
 return true
 end
 
-function Trig_Wave_Spawning_Func003Func001Func002C()
+function Trig_Wave_Spawning_Func004Func001Func002C()
 if (not (GetForLoopIndexA() <= 4)) then
 return false
 end
 return true
 end
 
-function Trig_Wave_Spawning_Func003Func001C()
+function Trig_Wave_Spawning_Func004Func001C()
 if (not (udg_Integer_Array_ActivePlayer[GetForLoopIndexA()] == 1)) then
 return false
 end
 return true
 end
 
-function Trig_Wave_Spawning_Func004C()
+function Trig_Wave_Spawning_Func005C()
 if (not (udg_Integer_Spawncount == udg_Integer_MaxSpawncount)) then
 return false
 end
@@ -1061,7 +1061,7 @@ end
 return true
 end
 
-function Trig_Wave_Spawning_Func005C()
+function Trig_Wave_Spawning_Func006C()
 if (not (udg_Integer_Spawncount == udg_Integer_MaxSpawncount)) then
 return false
 end
@@ -1070,13 +1070,14 @@ end
 
 function Trig_Wave_Spawning_Actions()
 udg_Integer_Spawncount = (udg_Integer_Spawncount + 1)
+udg_Integer_WaveModPerSpawnChance = (udg_Integer_WaveModPerSpawnChance - 5)
 bj_forLoopAIndex = 1
 bj_forLoopAIndexEnd = 8
 while (true) do
 if (bj_forLoopAIndex > bj_forLoopAIndexEnd) then break end
-if (Trig_Wave_Spawning_Func003Func001C()) then
+if (Trig_Wave_Spawning_Func004Func001C()) then
 udg_Point_Array_WaveSpawnpoint[GetForLoopIndexA()] = GetRectCenter(udg_Region_Array_Spawns[GetForLoopIndexA()])
-if (Trig_Wave_Spawning_Func003Func001Func002C()) then
+if (Trig_Wave_Spawning_Func004Func001Func002C()) then
 CreateNUnitsAtLoc(1, udg_UT_UnitType[udg_I_Round], Player(10), udg_Point_Array_WaveSpawnpoint[GetForLoopIndexA()], udg_Real_Array_SpawnDegrees[GetForLoopIndexA()])
 else
 CreateNUnitsAtLoc(1, udg_UT_UnitType[udg_I_Round], Player(11), udg_Point_Array_WaveSpawnpoint[GetForLoopIndexA()], udg_Real_Array_SpawnDegrees[GetForLoopIndexA()])
@@ -1085,9 +1086,7 @@ end
 UnitAddAbilityBJ(FourCC("A019"), GetLastCreatedUnit())
 SetUnitAbilityLevelSwapped(FourCC("A019"), GetLastCreatedUnit(), GetForLoopIndexA())
 udg_Real_WaveHealth = (GetUnitStateSwap(UNIT_STATE_MAX_LIFE, GetLastCreatedUnit()) * (I2R(udg_Integer_EnemyHandicap) / 100.00))
-DisplayTextToForce(GetPlayersAll(), R2S(udg_Real_WaveHealth))
 udg_Real_WaveHealth = (udg_Real_WaveHealth * udg_Real_WaveHealthModifier)
-DisplayTextToForce(GetPlayersAll(), R2S(udg_Real_WaveHealth))
 BlzSetUnitMaxHP(GetLastCreatedUnit(), R2I(udg_Real_WaveHealth))
 SetUnitLifePercentBJ(GetLastCreatedUnit(), 100)
 BlzSetUnitArmor(GetLastCreatedUnit(), (BlzGetUnitArmor(GetLastCreatedUnit()) + (I2R(udg_I_Round) * 0.10)))
@@ -1096,12 +1095,12 @@ else
 end
 bj_forLoopAIndex = bj_forLoopAIndex + 1
 end
-if (Trig_Wave_Spawning_Func004C()) then
+if (Trig_Wave_Spawning_Func005C()) then
 ConditionalTriggerExecute(gg_trg_Commander_Spawning)
 DisableTrigger(gg_trg_Commander_Spawning)
 else
 end
-if (Trig_Wave_Spawning_Func005C()) then
+if (Trig_Wave_Spawning_Func006C()) then
 DisableTrigger(GetTriggeringTrigger())
 udg_Integer_Spawncount = 0
 else
@@ -1212,14 +1211,14 @@ end
 return true
 end
 
-function Trig_Wave_Buffs_Func002Func002C()
+function Trig_Wave_Buffs_Func002Func001C()
 if (not (udg_Integer_ShieldChance <= (100 + udg_I_Round))) then
 return false
 end
 return true
 end
 
-function Trig_Wave_Buffs_Func002Func003C()
+function Trig_Wave_Buffs_Func002Func002C()
 if (not (udg_Integer_EtherealChance <= (100 + udg_I_Round))) then
 return false
 end
@@ -1236,14 +1235,13 @@ end
 function Trig_Wave_Buffs_Actions()
 udg_Integer_WaveBuffRandomNum = GetRandomInt(1, 100)
 if (Trig_Wave_Buffs_Func002C()) then
-udg_Integer_WaveModPerSpawnChance = (udg_Integer_WaveModPerSpawnChance - 5)
-if (Trig_Wave_Buffs_Func002Func002C()) then
+if (Trig_Wave_Buffs_Func002Func001C()) then
 UnitAddAbilityBJ(FourCC("A01I"), GetTriggerUnit())
 BlzSetUnitMaxMana(GetTriggerUnit(), ((BlzGetUnitMaxHP(GetTriggerUnit()) // 2) + 100))
 SetUnitManaPercentBJ(GetTriggerUnit(), 100)
 else
 end
-if (Trig_Wave_Buffs_Func002Func003C()) then
+if (Trig_Wave_Buffs_Func002Func002C()) then
 udg_Temp_PointA = GetUnitLoc(GetTriggerUnit())
 CreateNUnitsAtLoc(1, FourCC("h02A"), Player(8), udg_Temp_PointA, bj_UNIT_FACING)
 UnitAddAbilityBJ(FourCC("A01H"), GetLastCreatedUnit())
