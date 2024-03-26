@@ -5253,82 +5253,6 @@ Effective against ethereal units
 Limited to 1
 }
 
-STRING 1879
-{
-Hellforged Changes
-}
-
-STRING 1880
-{
--- Map now uses LUA scripting instead of JASS scripting
--- Completely remade terrain
--- Reworked all towers
--- Overhauled wave spawning
--- Fixed memory leaks
--- Trigger Optimizations
--- Changes to all waves
--- Changes to leaderboard
--- Changes to defeat conditions
--- Added wave modifiers
--- Added new towers
--- Added Items for each tower
--- Added ability to increase or decrease difficulty
-
-
-}
-
-STRING 1881
-{
-Information
-}
-
-STRING 1882
-{
-Every 5th wave has Spell Damage Reduction.
-Every 10th wave has Spell Damage Reduction and Hardened Skin.
-You gain 1 gold when another player kills your creeps.
-Each wave after 10 will gain 10% of wave number as armour and has a chance to spawn banished, have mana shield and/or spawn a commander that has a chance to have 1, multiple or no auras, it may also cast spirit link on itself and the wave.
-Killing a demon commander will give all players gold and lumber.
-}
-
-STRING 1883
-{
-Information 2
-}
-
-STRING 1884
-{
-Difficulty has a base value of 100%, at the start of the game players may choose to increase it or do nothing. Increasing the difficulty will increase the health of enemy units, the number of units spawned each wave, decrease the time between waves and lower the threshold that lives will start depleting at. If all players increased then the difficulty will be increased.
-
-Addtionally waves gain 3% extra health per active player.
-
-The max unit count is determined by how many players their are, [50 x Player Count] and then adjusted if any player increased the difficulty, max unit count will decrease if a player leaves.
-
-Lives will deplete every 2 seconds when the number of enemy units alive on the map is over the threshold, the amount of lives lost increase with each wave.
-}
-
-STRING 1885
-{
-|cffffcc00Credits|r
-}
-
-STRING 1886
-{
-Source map was "Demon Circle TD - Better by |cffff0000Siryan|r with a minor edit by Stutt"
-
-Demon Circle TD originally created by |cff76dbf8Varimathras|r
-}
-
-STRING 1887
-{
-|cffffcc00Discord|r
-}
-
-STRING 1888
-{
-dzbHsCc
-}
-
 STRING 1889
 {
 Everyone chose to increase difficulty, it has been increased by an additional 10%.
@@ -5376,7 +5300,7 @@ No Increase
 
 STRING 1903
 {
-
+Difficulty
 }
 
 STRING 1904
@@ -5412,5 +5336,81 @@ Wave:
 STRING 1910
 {
 
+}
+
+STRING 1911
+{
+Hellforged Changes
+}
+
+STRING 1912
+{
+-- Map now uses LUA scripting instead of JASS scripting
+-- Completely remade terrain
+-- Reworked all towers
+-- Overhauled wave spawning
+-- Fixed memory leaks
+-- Trigger Optimizations
+-- Changes to all waves
+-- Changes to leaderboard
+-- Changes to defeat conditions
+-- Added wave modifiers
+-- Added new towers
+-- Added Items for each tower
+-- Added ability to increase or decrease difficulty
+
+
+}
+
+STRING 1913
+{
+Information
+}
+
+STRING 1914
+{
+Every 5th wave has Spell Damage Reduction.
+Every 10th wave has Spell Damage Reduction and Hardened Skin.
+You gain 1 gold when another player kills your creeps.
+Each wave after 10 will gain 10% of wave number as armour and has a chance to spawn banished, have mana shield and/or spawn a commander that has a chance to have 1, multiple or no auras, it may also cast spirit link on itself and the wave.
+Killing a demon commander will give all players gold and lumber.
+}
+
+STRING 1915
+{
+Information 2
+}
+
+STRING 1916
+{
+Difficulty has a base value of 100%, at the start of the game players may choose to increase it or do nothing. Increasing the difficulty will increase the health of enemy units, the number of units spawned each wave, decrease the time between waves and lower the threshold that lives will start depleting at. If all players increased then the difficulty will be increased.
+
+Addtionally waves gain 3% extra health per active player.
+
+The max unit count is determined by how many players their are, [50 x Player Count] and then adjusted if any player increased the difficulty, max unit count will decrease if a player leaves.
+
+Lives will deplete every 2 seconds when the number of enemy units alive on the map is over the threshold, the amount of lives lost increase with each wave.
+}
+
+STRING 1917
+{
+|cffffcc00Credits|r
+}
+
+STRING 1918
+{
+Source map was "Demon Circle TD - Better by |cffff0000Siryan|r with a minor edit by Stutt"
+
+Demon Circle TD originally created by |cff76dbf8Varimathras|r
+}
+
+STRING 1919
+{
+|cffffcc00Discord|r
+}
+
+STRING 1920
+{
+dzbHsCc
 }
 

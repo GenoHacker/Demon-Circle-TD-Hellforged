@@ -227,7 +227,7 @@ if ((i > 1)) then break end
 udg_Integer_Array_DicBoxGoldChance[i] = 0
 i = i + 1
 end
-udg_Integer_EnemyHandicap = 80
+udg_Integer_EnemyHandicap = 100
 udg_PlyGrp_SellTower = CreateForce()
 udg_Integer_EtherealChance = 0
 udg_Integer_ShieldChance = 0
@@ -444,17 +444,6 @@ gg_rct_Teleport_Green_2 = Rect(-5632.0, 512.0, -5248.0, 640.0)
 end
 
 function Trig_Map_Initialization_Actions()
-SetPlayerFlagBJ(PLAYER_STATE_GIVES_BOUNTY, true, Player(10))
-SetPlayerFlagBJ(PLAYER_STATE_GIVES_BOUNTY, true, Player(11))
-SetPlayerAllianceStateBJ(Player(8), Player(10), bj_ALLIANCE_ALLIED_VISION)
-SetPlayerAllianceStateBJ(Player(8), Player(11), bj_ALLIANCE_ALLIED_VISION)
-UseTimeOfDayBJ(false)
-SetTimeOfDay(12)
-CreateQuestBJ(bj_QUESTTYPE_REQ_DISCOVERED, "TRIGSTR_1879", "TRIGSTR_1880", "ReplaceableTextures\\CommandButtons\\BTNSnazzyScrollPurple.blp")
-CreateQuestBJ(bj_QUESTTYPE_REQ_DISCOVERED, "TRIGSTR_1881", "TRIGSTR_1882", "ReplaceableTextures\\CommandButtons\\BTNSnazzyScrollPurple.blp")
-CreateQuestBJ(bj_QUESTTYPE_REQ_DISCOVERED, "TRIGSTR_1883", "TRIGSTR_1884", "ReplaceableTextures\\CommandButtons\\BTNSnazzyScrollPurple.blp")
-CreateQuestBJ(bj_QUESTTYPE_OPT_DISCOVERED, "TRIGSTR_1885", "TRIGSTR_1886", "ReplaceableTextures\\CommandButtons\\BTNSnazzyScroll.blp")
-CreateQuestBJ(bj_QUESTTYPE_OPT_DISCOVERED, "TRIGSTR_1887", "TRIGSTR_1888", "ReplaceableTextures\\CommandButtons\\BTNSnazzyScroll.blp")
 udg_AbilityCode_Array_AnomTowDummy[1] = FourCC("A02Z")
 udg_AbilityCode_Array_AnomTowDummy[2] = FourCC("A02F")
 udg_AbilityCode_Array_AnomTowDummy[3] = FourCC("A02O")
@@ -646,14 +635,14 @@ gg_trg_Map_Initialization = CreateTrigger()
 TriggerAddAction(gg_trg_Map_Initialization, Trig_Map_Initialization_Actions)
 end
 
-function Trig_Map_Start_Func001Func001C()
+function Trig_Map_Start_Func012Func001C()
 if (not (GetPlayerSlotState(ConvertedPlayer(GetForLoopIndexA())) == PLAYER_SLOT_STATE_PLAYING)) then
 return false
 end
 return true
 end
 
-function Trig_Map_Start_Func007Func001C()
+function Trig_Map_Start_Func018Func001C()
 if (not (udg_Integer_Array_ActivePlayer[GetForLoopIndexA()] == 1)) then
 return false
 end
@@ -661,11 +650,22 @@ return true
 end
 
 function Trig_Map_Start_Actions()
+SetPlayerFlagBJ(PLAYER_STATE_GIVES_BOUNTY, true, Player(10))
+SetPlayerFlagBJ(PLAYER_STATE_GIVES_BOUNTY, true, Player(11))
+SetPlayerAllianceStateBJ(Player(8), Player(10), bj_ALLIANCE_ALLIED_VISION)
+SetPlayerAllianceStateBJ(Player(8), Player(11), bj_ALLIANCE_ALLIED_VISION)
+UseTimeOfDayBJ(false)
+SetTimeOfDay(12)
+CreateQuestBJ(bj_QUESTTYPE_REQ_DISCOVERED, "TRIGSTR_1911", "TRIGSTR_1912", "ReplaceableTextures\\CommandButtons\\BTNSnazzyScrollPurple.blp")
+CreateQuestBJ(bj_QUESTTYPE_REQ_DISCOVERED, "TRIGSTR_1913", "TRIGSTR_1914", "ReplaceableTextures\\CommandButtons\\BTNSnazzyScrollPurple.blp")
+CreateQuestBJ(bj_QUESTTYPE_REQ_DISCOVERED, "TRIGSTR_1915", "TRIGSTR_1916", "ReplaceableTextures\\CommandButtons\\BTNSnazzyScrollPurple.blp")
+CreateQuestBJ(bj_QUESTTYPE_OPT_DISCOVERED, "TRIGSTR_1917", "TRIGSTR_1918", "ReplaceableTextures\\CommandButtons\\BTNSnazzyScroll.blp")
+CreateQuestBJ(bj_QUESTTYPE_OPT_DISCOVERED, "TRIGSTR_1919", "TRIGSTR_1920", "ReplaceableTextures\\CommandButtons\\BTNSnazzyScroll.blp")
 bj_forLoopAIndex = 1
 bj_forLoopAIndexEnd = 8
 while (true) do
 if (bj_forLoopAIndex > bj_forLoopAIndexEnd) then break end
-if (Trig_Map_Start_Func001Func001C()) then
+if (Trig_Map_Start_Func012Func001C()) then
 udg_Integer_Array_ActivePlayer[GetForLoopIndexA()] = 1
 udg_Integer_PlayerCount = (udg_Integer_PlayerCount + 1)
 udg_Temp_PointA = GetPlayerStartLocationLoc(ConvertedPlayer(GetForLoopIndexA()))
@@ -681,16 +681,16 @@ else
 end
 bj_forLoopAIndex = bj_forLoopAIndex + 1
 end
-udg_Real_WaveHealthModifier = (udg_Real_WaveHealthModifier + (0.03 * I2R(udg_Integer_PlayerCount)))
+udg_Real_WaveHealthModifier = (udg_Real_WaveHealthModifier + (0.01 * I2R(udg_Integer_PlayerCount)))
 udg_Integer_MaxCreeps = (60 * udg_Integer_PlayerCount)
 CreateLeaderboardBJ(GetPlayersAll(), "TRIGSTR_1910")
-LeaderboardSetLabelBJ(GetLastCreatedLeaderboard(), (("|cffff9622Lives = " .. (("|cff8080ff" .. "100.000") .. "%|r ")) .. (("|cffff9622Diff = " .. "80") .. "%|r")))
+LeaderboardSetLabelBJ(GetLastCreatedLeaderboard(), (("|cffff9622Lives = " .. (("|cff8080ff" .. "100.000") .. "%|r ")) .. (("|cffff9622Diff = " .. I2S(udg_Integer_EnemyHandicap)) .. "%|r")))
 udg_LB_Info = GetLastCreatedLeaderboard()
 bj_forLoopAIndex = 1
 bj_forLoopAIndexEnd = 8
 while (true) do
 if (bj_forLoopAIndex > bj_forLoopAIndexEnd) then break end
-if (Trig_Map_Start_Func007Func001C()) then
+if (Trig_Map_Start_Func018Func001C()) then
 LeaderboardAddItemBJ(ConvertedPlayer(GetForLoopIndexA()), udg_LB_Info, GetPlayerName(ConvertedPlayer(GetForLoopIndexA())), udg_I_Kills[GetConvertedPlayerId(ConvertedPlayer(GetForLoopIndexA()))])
 else
 LeaderboardAddItemBJ(ConvertedPlayer(GetForLoopIndexA()), udg_LB_Info, "TRIGSTR_1908", udg_I_Kills[GetConvertedPlayerId(ConvertedPlayer(GetForLoopIndexA()))])
@@ -711,28 +711,28 @@ TriggerRegisterTimerEventSingle(gg_trg_Map_Start, 0.00)
 TriggerAddAction(gg_trg_Map_Start, Trig_Map_Start_Actions)
 end
 
-function Trig_Change_Difficulty_Func004Func001Func001Func002C()
+function Trig_Change_Difficulty_Func003Func001Func001Func002C()
 if (not (udg_Real_Lives <= 29.99)) then
 return false
 end
 return true
 end
 
-function Trig_Change_Difficulty_Func004Func001Func001C()
+function Trig_Change_Difficulty_Func003Func001Func001C()
 if (not (udg_Real_Lives >= 30.00)) then
 return false
 end
 return true
 end
 
-function Trig_Change_Difficulty_Func004Func001C()
+function Trig_Change_Difficulty_Func003Func001C()
 if (not (udg_Real_Lives >= 50.00)) then
 return false
 end
 return true
 end
 
-function Trig_Change_Difficulty_Func004C()
+function Trig_Change_Difficulty_Func003C()
 if (not (udg_Real_Lives >= 75.00)) then
 return false
 end
@@ -742,17 +742,16 @@ end
 function Trig_Change_Difficulty_Actions()
 udg_Integer_EnemyHandicap = S2I(SubStringBJ(ParseTags(GetEventPlayerChatString()), 3, 5))
 DisplayTimedTextToForce(GetPlayersAll(), 5.00, ("Difficulty is now: " .. (I2S(udg_Integer_EnemyHandicap) .. "%")))
-SetPlayerHandicapBJ(Player(12), I2R(udg_Integer_EnemyHandicap))
-if (Trig_Change_Difficulty_Func004C()) then
+if (Trig_Change_Difficulty_Func003C()) then
 LeaderboardSetLabelBJ(GetLastCreatedLeaderboard(), (("|cffff9622Lives = " .. (("|cff8080ff" .. R2S(udg_Real_Lives)) .. "%|r ")) .. (("|cffff9622Diff = " .. I2S(udg_Integer_EnemyHandicap)) .. "%|r")))
 else
-if (Trig_Change_Difficulty_Func004Func001C()) then
+if (Trig_Change_Difficulty_Func003Func001C()) then
 LeaderboardSetLabelBJ(GetLastCreatedLeaderboard(), (("|cffff9622Lives = " .. (("|cffffff00" .. R2S(udg_Real_Lives)) .. "%|r ")) .. (("|cffff9622Diff = " .. I2S(udg_Integer_EnemyHandicap)) .. "%|r")))
 else
-if (Trig_Change_Difficulty_Func004Func001Func001C()) then
+if (Trig_Change_Difficulty_Func003Func001Func001C()) then
 LeaderboardSetLabelBJ(GetLastCreatedLeaderboard(), (("|cffff9622Lives = " .. (("|cffd45e19" .. R2S(udg_Real_Lives)) .. "%|r ")) .. (("|cffff9622Diff = " .. I2S(udg_Integer_EnemyHandicap)) .. "%|r")))
 else
-if (Trig_Change_Difficulty_Func004Func001Func001Func002C()) then
+if (Trig_Change_Difficulty_Func003Func001Func001Func002C()) then
 LeaderboardSetLabelBJ(GetLastCreatedLeaderboard(), (("|cffff9622Lives = " .. (("|cffff0000" .. R2S(udg_Real_Lives)) .. "%|r ")) .. (("|cffff9622Diff = " .. I2S(udg_Integer_EnemyHandicap)) .. "%|r")))
 else
 end
@@ -873,7 +872,6 @@ function Trig_Difficulty_Adjust_Actions()
 if (Trig_Difficulty_Adjust_Func001C()) then
 udg_Integer_EnemyHandicap = (udg_Integer_EnemyHandicap + 5)
 DisplayTimedTextToForce(GetPlayersAll(), 5.00, (GetPlayerName(GetTriggerPlayer()) .. " has decided to increase difficulty."))
-SetPlayerHandicapBJ(Player(12), I2R(udg_Integer_EnemyHandicap))
 DisplayTimedTextToForce(GetPlayersAll(), 5.00, ("Difficulty is now: " .. (I2S(udg_Integer_EnemyHandicap) .. "%")))
 udg_Integer_MaxCreeps = (udg_Integer_MaxCreeps - 10)
 udg_Integer_Array_DifficultyVote[1] = (udg_Integer_Array_DifficultyVote[1] + 1)
@@ -914,7 +912,6 @@ udg_Integer_EnemyHandicap = (udg_Integer_EnemyHandicap + 10)
 DisplayTimedTextToForce(GetPlayersAll(), 5.00, "TRIGSTR_1889")
 DisplayTimedTextToForce(GetPlayersAll(), 5.00, ("Difficulty is now: " .. (I2S(udg_Integer_EnemyHandicap) .. "%")))
 DisplayTimedTextToForce(GetPlayersAll(), 10.00, "TRIGSTR_1890")
-SetPlayerHandicapBJ(Player(12), I2R(udg_Integer_EnemyHandicap))
 else
 end
 LeaderboardSetLabelBJ(GetLastCreatedLeaderboard(), (("|cffff9622Lives = " .. (("|cff8080ff" .. R2S(udg_Real_Lives)) .. "%|r ")) .. (("|cffff9622Diff = " .. I2S(udg_Integer_EnemyHandicap)) .. "%|r")))
@@ -1087,8 +1084,10 @@ end
             RemoveLocation(udg_Point_Array_WaveSpawnpoint[GetForLoopIndexA()])
 UnitAddAbilityBJ(FourCC("A019"), GetLastCreatedUnit())
 SetUnitAbilityLevelSwapped(FourCC("A019"), GetLastCreatedUnit(), GetForLoopIndexA())
-udg_Real_WaveHealth = (GetUnitStateSwap(UNIT_STATE_MAX_LIFE, GetLastCreatedUnit()) * (GetPlayerHandicapBJ(Player(12)) / 100.00))
+udg_Real_WaveHealth = (GetUnitStateSwap(UNIT_STATE_MAX_LIFE, GetLastCreatedUnit()) * (I2R(udg_Integer_EnemyHandicap) / 100.00))
+DisplayTextToForce(GetPlayersAll(), R2S(udg_Real_WaveHealth))
 udg_Real_WaveHealth = (udg_Real_WaveHealth * udg_Real_WaveHealthModifier)
+DisplayTextToForce(GetPlayersAll(), R2S(udg_Real_WaveHealth))
 BlzSetUnitMaxHP(GetLastCreatedUnit(), R2I(udg_Real_WaveHealth))
 SetUnitLifePercentBJ(GetLastCreatedUnit(), 100)
 BlzSetUnitArmor(GetLastCreatedUnit(), (BlzGetUnitArmor(GetLastCreatedUnit()) + (I2R(udg_I_Round) * 0.10)))
@@ -1163,7 +1162,7 @@ end
 
 function Trig_Commander_Spawning_Actions()
 udg_Real_CommanderHealth = (150.00 + (30.00 * I2R(udg_I_Round)))
-udg_Real_CommanderHealth = (udg_Real_CommanderHealth * (GetPlayerHandicapBJ(Player(12)) / 100.00))
+udg_Real_CommanderHealth = (udg_Real_CommanderHealth * (I2R(udg_Integer_EnemyHandicap) / 100.00))
 udg_Real_CommanderHealth = (udg_Real_CommanderHealth * udg_Real_WaveHealthModifier)
 udg_Real_CommanderArmour = (5.00 + (I2R(udg_I_Round) * 0.10))
 bj_forLoopAIndex = 1
@@ -3231,85 +3230,6 @@ TriggerAddCondition(gg_trg_Hellfrost_Enchantment_Armor_Remove, Condition(Trig_He
 TriggerAddAction(gg_trg_Hellfrost_Enchantment_Armor_Remove, Trig_Hellfrost_Enchantment_Armor_Remove_Actions)
 end
 
-function Trig_Dichotomous_Box_Gold_Func001Func001Func002Func001Func002Func001Func002C()
-if (not (udg_Integer_Array_DicBoxGoldChance[GetConvertedPlayerId(GetOwningPlayer(GetEnumUnit()))] <= 50)) then
-return false
-end
-return true
-end
-
-function Trig_Dichotomous_Box_Gold_Func001Func001Func002Func001Func002Func001C()
-if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I00F"))) == 3)) then
-return false
-end
-return true
-end
-
-function Trig_Dichotomous_Box_Gold_Func001Func001Func002Func001Func002C()
-if (not (udg_Integer_Array_DicBoxGoldChance[GetConvertedPlayerId(GetOwningPlayer(GetEnumUnit()))] <= 50)) then
-return false
-end
-return true
-end
-
-function Trig_Dichotomous_Box_Gold_Func001Func001Func002Func001C()
-if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEnumUnit(), FourCC("I00F"))) == 2)) then
-return false
-end
-return true
-end
-
-function Trig_Dichotomous_Box_Gold_Func001Func001Func002C()
-if (not (udg_Integer_Array_DicBoxGoldChance[GetConvertedPlayerId(GetOwningPlayer(GetEnumUnit()))] <= 50)) then
-return false
-end
-return true
-end
-
-function Trig_Dichotomous_Box_Gold_Func001Func001C()
-if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEnumUnit(), FourCC("I00D"))) == 1)) then
-return false
-end
-return true
-end
-
-function Trig_Dichotomous_Box_Gold_Func001A()
-if (Trig_Dichotomous_Box_Gold_Func001Func001C()) then
-udg_Integer_Array_DicBoxGoldChance[GetConvertedPlayerId(GetOwningPlayer(GetEnumUnit()))] = GetRandomInt(1, 100)
-if (Trig_Dichotomous_Box_Gold_Func001Func001Func002C()) then
-AdjustPlayerStateBJ(GetRandomInt(-1, 1), GetOwningPlayer(GetEnumUnit()), PLAYER_STATE_RESOURCE_GOLD)
-else
-if (Trig_Dichotomous_Box_Gold_Func001Func001Func002Func001C()) then
-udg_Integer_Array_DicBoxGoldChance[GetConvertedPlayerId(GetOwningPlayer(GetEnumUnit()))] = GetRandomInt(1, 100)
-if (Trig_Dichotomous_Box_Gold_Func001Func001Func002Func001Func002C()) then
-AdjustPlayerStateBJ(GetRandomInt(-2, 2), GetOwningPlayer(GetEnumUnit()), PLAYER_STATE_RESOURCE_GOLD)
-else
-if (Trig_Dichotomous_Box_Gold_Func001Func001Func002Func001Func002Func001C()) then
-udg_Integer_Array_DicBoxGoldChance[GetConvertedPlayerId(GetOwningPlayer(GetEnumUnit()))] = GetRandomInt(1, 100)
-if (Trig_Dichotomous_Box_Gold_Func001Func001Func002Func001Func002Func001Func002C()) then
-AdjustPlayerStateBJ(GetRandomInt(-4, 4), GetOwningPlayer(GetEnumUnit()), PLAYER_STATE_RESOURCE_GOLD)
-else
-end
-else
-end
-end
-else
-end
-end
-else
-end
-end
-
-function Trig_Dichotomous_Box_Gold_Actions()
-ForGroupBJ(udg_Unit_Group_Demons, Trig_Dichotomous_Box_Gold_Func001A)
-end
-
-function InitTrig_Dichotomous_Box_Gold()
-gg_trg_Dichotomous_Box_Gold = CreateTrigger()
-TriggerRegisterTimerEventPeriodic(gg_trg_Dichotomous_Box_Gold, 2.50)
-TriggerAddAction(gg_trg_Dichotomous_Box_Gold, Trig_Dichotomous_Box_Gold_Actions)
-end
-
 function Trig_Argent_Conduit_Func001C()
 if (not (GetUnitAbilityLevelSwapped(FourCC("A022"), GetManipulatingUnit()) ~= 1)) then
 return false
@@ -4436,7 +4356,6 @@ InitTrig_Satans_Claw_Give()
 InitTrig_Satans_Claw_Remove()
 InitTrig_Satans_Claw_Upgrade()
 InitTrig_Hellfrost_Enchantment_Armor_Remove()
-InitTrig_Dichotomous_Box_Gold()
 InitTrig_Argent_Conduit()
 InitTrig_Satans_Claw()
 InitTrig_Ghastly_Vial()
