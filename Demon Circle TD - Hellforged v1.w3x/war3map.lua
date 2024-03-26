@@ -1052,7 +1052,7 @@ function Trig_Wave_Spawning_Func005C()
 if (not (udg_Integer_Spawncount == udg_Integer_MaxSpawncount)) then
 return false
 end
-if (not (udg_Integer_CommanderChance <= (75 + udg_I_Round))) then
+if (not (udg_Integer_CommanderChance <= (50 + udg_I_Round))) then
 return false
 end
 if (not (udg_I_Round >= 11)) then
@@ -1336,6 +1336,7 @@ end
 
 function InitTrig_Lives()
 gg_trg_Lives = CreateTrigger()
+DisableTrigger(gg_trg_Lives)
 TriggerRegisterTimerEventPeriodic(gg_trg_Lives, 2)
 TriggerAddAction(gg_trg_Lives, Trig_Lives_Actions)
 end
@@ -2147,105 +2148,85 @@ TriggerAddCondition(gg_trg_Fluctuation_Tower_Ability, Condition(Trig_Fluctuation
 TriggerAddAction(gg_trg_Fluctuation_Tower_Ability, Trig_Fluctuation_Tower_Ability_Actions)
 end
 
-function Trig_Fluctuation_Tower_Mana_Func001001002()
-return (GetUnitAbilityLevelSwapped(FourCC("A022"), GetFilterUnit()) == 1)
-end
-
-function Trig_Fluctuation_Tower_Mana_Func001A()
-GroupAddUnitSimple(GetEnumUnit(), udg_UnitGroup_FluctuationTowerMana)
-end
-
-function Trig_Fluctuation_Tower_Mana_Func002Func001Func001Func001C()
-if (not (GetUnitTypeId(GetEnumUnit()) == udg_UnitType_Array_FluctuationTow[GetForLoopIndexA()])) then
+function Trig_Fluctuation_Tower_Mana_Conditions()
+if (not (GetUnitAbilityLevelSwapped(FourCC("A022"), GetEventDamageSource()) == 1)) then
 return false
 end
 return true
 end
 
-function Trig_Fluctuation_Tower_Mana_Func002Func001Func002Func001C()
-if (not (GetUnitTypeId(GetEnumUnit()) == udg_UnitType_Array_FluctuationTow[GetForLoopIndexA()])) then
+function Trig_Fluctuation_Tower_Mana_Func002Func001Func001C()
+if (not (GetUnitTypeId(GetAttacker()) == udg_UnitType_Array_FluctuationTow[GetForLoopIndexA()])) then
 return false
 end
 return true
 end
 
-function Trig_Fluctuation_Tower_Mana_Func002Func001C()
-if (not (GetUnitAbilityLevelSwapped(FourCC("A024"), GetEnumUnit()) >= 2)) then
+function Trig_Fluctuation_Tower_Mana_Func002Func002Func001C()
+if (not (GetUnitTypeId(GetAttacker()) == udg_UnitType_Array_FluctuationTow[GetForLoopIndexA()])) then
 return false
 end
 return true
 end
 
-function Trig_Fluctuation_Tower_Mana_Func002A()
-if (Trig_Fluctuation_Tower_Mana_Func002Func001C()) then
-bj_forLoopAIndex = R2I(BlzGetUnitRealField(GetEnumUnit(), UNIT_RF_PRIORITY))
-bj_forLoopAIndexEnd = R2I(BlzGetUnitRealField(GetEnumUnit(), UNIT_RF_PRIORITY))
-while (true) do
-if (bj_forLoopAIndex > bj_forLoopAIndexEnd) then break end
-if (Trig_Fluctuation_Tower_Mana_Func002Func001Func002Func001C()) then
-BlzSetUnitBaseDamage(GetEnumUnit(), (udg_Integer_Array_FluctuationDam[GetForLoopIndexA()] + R2I(GetUnitStateSwap(UNIT_STATE_MANA, GetEnumUnit()))), 0)
-else
+function Trig_Fluctuation_Tower_Mana_Func002C()
+if (not (GetUnitAbilityLevelSwapped(FourCC("A024"), GetAttacker()) >= 2)) then
+return false
 end
-bj_forLoopAIndex = bj_forLoopAIndex + 1
-end
-else
-bj_forLoopAIndex = R2I(BlzGetUnitRealField(GetEnumUnit(), UNIT_RF_PRIORITY))
-bj_forLoopAIndexEnd = R2I(BlzGetUnitRealField(GetEnumUnit(), UNIT_RF_PRIORITY))
-while (true) do
-if (bj_forLoopAIndex > bj_forLoopAIndexEnd) then break end
-if (Trig_Fluctuation_Tower_Mana_Func002Func001Func001Func001C()) then
-BlzSetUnitBaseDamage(GetEnumUnit(), udg_Integer_Array_FluctuationDam[GetForLoopIndexA()], 0)
-else
-end
-bj_forLoopAIndex = bj_forLoopAIndex + 1
-end
-end
+return true
 end
 
 function Trig_Fluctuation_Tower_Mana_Actions()
-ForGroupBJ(GetUnitsInRectMatching(GetPlayableMapRect(), Condition(Trig_Fluctuation_Tower_Mana_Func001001002)), Trig_Fluctuation_Tower_Mana_Func001A)
-ForGroupBJ(udg_UnitGroup_FluctuationTowerMana, Trig_Fluctuation_Tower_Mana_Func002A)
-    DestroyGroup(udg_UnitGroup_FluctuationTowerMana)
+if (Trig_Fluctuation_Tower_Mana_Func002C()) then
+bj_forLoopAIndex = R2I(BlzGetUnitRealField(GetAttacker(), UNIT_RF_PRIORITY))
+bj_forLoopAIndexEnd = R2I(BlzGetUnitRealField(GetAttacker(), UNIT_RF_PRIORITY))
+while (true) do
+if (bj_forLoopAIndex > bj_forLoopAIndexEnd) then break end
+if (Trig_Fluctuation_Tower_Mana_Func002Func002Func001C()) then
+BlzSetUnitBaseDamage(GetAttacker(), (udg_Integer_Array_FluctuationDam[GetForLoopIndexA()] + R2I(GetUnitStateSwap(UNIT_STATE_MANA, GetAttacker()))), 0)
+else
+end
+bj_forLoopAIndex = bj_forLoopAIndex + 1
+end
+else
+bj_forLoopAIndex = R2I(BlzGetUnitRealField(GetAttacker(), UNIT_RF_PRIORITY))
+bj_forLoopAIndexEnd = R2I(BlzGetUnitRealField(GetAttacker(), UNIT_RF_PRIORITY))
+while (true) do
+if (bj_forLoopAIndex > bj_forLoopAIndexEnd) then break end
+if (Trig_Fluctuation_Tower_Mana_Func002Func001Func001C()) then
+BlzSetUnitBaseDamage(GetAttacker(), udg_Integer_Array_FluctuationDam[GetForLoopIndexA()], 0)
+else
+end
+bj_forLoopAIndex = bj_forLoopAIndex + 1
+end
+end
 end
 
 function InitTrig_Fluctuation_Tower_Mana()
 gg_trg_Fluctuation_Tower_Mana = CreateTrigger()
-TriggerRegisterTimerEventPeriodic(gg_trg_Fluctuation_Tower_Mana, 1.00)
+TriggerRegisterAnyUnitEventBJ(gg_trg_Fluctuation_Tower_Mana, EVENT_PLAYER_UNIT_ATTACKED)
+TriggerAddCondition(gg_trg_Fluctuation_Tower_Mana, Condition(Trig_Fluctuation_Tower_Mana_Conditions))
 TriggerAddAction(gg_trg_Fluctuation_Tower_Mana, Trig_Fluctuation_Tower_Mana_Actions)
 end
 
-function Trig_Sanguine_Stacks_Remove_Func001001002()
-return (GetUnitAbilityLevelSwapped(FourCC("A01Z"), GetFilterUnit()) >= 1)
-end
-
-function Trig_Sanguine_Stacks_Remove_Func001A()
-GroupAddUnitSimple(GetEnumUnit(), udg_UnitGroup_SanguineStacks)
-end
-
-function Trig_Sanguine_Stacks_Remove_Func002Func001C()
-if (not (UnitHasBuffBJ(GetEnumUnit(), FourCC("Bssd")) == false)) then
+function Trig_Sanguine_Stacks_Remove_Func001C()
+if (not (UnitHasBuffBJ(BlzGetEventDamageTarget(), FourCC("Bssd")) == false)) then
 return false
 end
 return true
 end
 
-function Trig_Sanguine_Stacks_Remove_Func002A()
-if (Trig_Sanguine_Stacks_Remove_Func002Func001C()) then
+function Trig_Sanguine_Stacks_Remove_Actions()
+if (Trig_Sanguine_Stacks_Remove_Func001C()) then
 UnitRemoveAbilityBJ(FourCC("A01Z"), GetEnumUnit())
-GroupRemoveUnitSimple(GetEnumUnit(), udg_UnitGroup_SanguineStacks)
+SetUnitUserData(BlzGetEventDamageTarget(), 0)
 else
 end
 end
 
-function Trig_Sanguine_Stacks_Remove_Actions()
-ForGroupBJ(GetUnitsInRectMatching(GetPlayableMapRect(), Condition(Trig_Sanguine_Stacks_Remove_Func001001002)), Trig_Sanguine_Stacks_Remove_Func001A)
-ForGroupBJ(udg_UnitGroup_SanguineStacks, Trig_Sanguine_Stacks_Remove_Func002A)
-    DestroyGroup(udg_UnitGroup_SanguineStacks)
-end
-
 function InitTrig_Sanguine_Stacks_Remove()
 gg_trg_Sanguine_Stacks_Remove = CreateTrigger()
-TriggerRegisterTimerEventPeriodic(gg_trg_Sanguine_Stacks_Remove, 1.00)
+TriggerRegisterAnyUnitEventBJ(gg_trg_Sanguine_Stacks_Remove, EVENT_PLAYER_UNIT_DAMAGED)
 TriggerAddAction(gg_trg_Sanguine_Stacks_Remove, Trig_Sanguine_Stacks_Remove_Actions)
 end
 
@@ -2257,7 +2238,10 @@ return true
 end
 
 function Trig_Monstrosity_Tower_Sanguine_Stacks_Func002Func001C()
-if (not (GetUnitAbilityLevelSwapped(FourCC("A01Z"), BlzGetEventDamageTarget()) <= 19)) then
+if (not (GetUnitAbilityLevelSwapped(FourCC("A01Z"), BlzGetEventDamageTarget()) >= 1)) then
+return false
+end
+if (not (GetUnitUserData(BlzGetEventDamageTarget()) <= 19)) then
 return false
 end
 return true
@@ -2281,9 +2265,10 @@ function Trig_Monstrosity_Tower_Sanguine_Stacks_Actions()
 udg_Temp_PointA = GetUnitLoc(BlzGetEventDamageTarget())
 if (Trig_Monstrosity_Tower_Sanguine_Stacks_Func002C()) then
 UnitAddAbilityBJ(FourCC("A01Z"), BlzGetEventDamageTarget())
+SetUnitUserData(BlzGetEventDamageTarget(), 1)
 else
 if (Trig_Monstrosity_Tower_Sanguine_Stacks_Func002Func001C()) then
-IncUnitAbilityLevelSwapped(FourCC("A01Z"), GetTriggerUnit())
+SetUnitUserData(BlzGetEventDamageTarget(), (GetUnitUserData(BlzGetEventDamageTarget()) + 1))
 else
 end
 end
@@ -2294,13 +2279,13 @@ if (bj_forLoopAIndex > bj_forLoopAIndexEnd) then break end
 if (Trig_Monstrosity_Tower_Sanguine_Stacks_Func003Func001C()) then
 CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointA, bj_UNIT_FACING)
 UnitApplyTimedLifeBJ(1.00, FourCC("BTLF"), GetLastCreatedUnit())
-UnitDamagePointLoc(GetLastCreatedUnit(), 0, udg_Real_Array_MonsterTRadius[GetForLoopIndexA()], udg_Temp_PointA, (udg_Real_Array_MonsterTDamage[GetForLoopIndexA()] * I2R(GetUnitAbilityLevelSwapped(FourCC("A01Z"), BlzGetEventDamageTarget()))), ATTACK_TYPE_NORMAL, DAMAGE_TYPE_NORMAL)
+UnitDamagePointLoc(GetLastCreatedUnit(), 0, udg_Real_Array_MonsterTRadius[GetForLoopIndexA()], udg_Temp_PointA, (udg_Real_Array_MonsterTDamage[GetForLoopIndexA()] * I2R(GetUnitUserData(BlzGetEventDamageTarget()))), ATTACK_TYPE_NORMAL, DAMAGE_TYPE_NORMAL)
 else
 end
 bj_forLoopAIndex = bj_forLoopAIndex + 1
 end
 CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointA, bj_UNIT_FACING)
-UnitDamageTargetBJ(GetLastCreatedUnit(), BlzGetEventDamageTarget(), (25.00 * I2R(GetUnitAbilityLevelSwapped(FourCC("A01Z"), BlzGetEventDamageTarget()))), ATTACK_TYPE_PIERCE, DAMAGE_TYPE_NORMAL)
+UnitDamageTargetBJ(GetLastCreatedUnit(), BlzGetEventDamageTarget(), (25.00 * I2R(GetUnitUserData(BlzGetEventDamageTarget()))), ATTACK_TYPE_PIERCE, DAMAGE_TYPE_NORMAL)
 UnitApplyTimedLifeBJ(1.00, FourCC("BTLF"), GetLastCreatedUnit())
     RemoveLocation(udg_Temp_PointA)
 end
@@ -4015,9 +4000,20 @@ end
 return true
 end
 
+function Trig_Creep_Count_Func012C()
+if (not (udg_I_NumberOfCreeps > udg_Integer_MaxCreeps)) then
+return false
+end
+return true
+end
+
 function Trig_Creep_Count_Actions()
 udg_I_NumberOfCreeps = (udg_I_NumberOfCreeps + 1)
 LeaderboardSetPlayerItemValueBJ(Player(8), udg_LB_Info, udg_I_NumberOfCreeps)
+if (Trig_Creep_Count_Func012C()) then
+EnableTrigger(gg_trg_Lives)
+else
+end
 end
 
 function InitTrig_Creep_Count()
@@ -4034,9 +4030,20 @@ TriggerAddCondition(gg_trg_Creep_Count, Condition(Trig_Creep_Count_Conditions))
 TriggerAddAction(gg_trg_Creep_Count, Trig_Creep_Count_Actions)
 end
 
+function Trig_Creep_Count_Remove_Func003C()
+if (not (udg_I_NumberOfCreeps < udg_Integer_MaxCreeps)) then
+return false
+end
+return true
+end
+
 function Trig_Creep_Count_Remove_Actions()
 udg_I_NumberOfCreeps = (udg_I_NumberOfCreeps - 1)
 LeaderboardSetPlayerItemValueBJ(Player(8), udg_LB_Info, udg_I_NumberOfCreeps)
+if (Trig_Creep_Count_Remove_Func003C()) then
+DisableTrigger(gg_trg_Lives)
+else
+end
 end
 
 function InitTrig_Creep_Count_Remove()
