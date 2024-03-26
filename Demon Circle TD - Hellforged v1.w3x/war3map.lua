@@ -711,128 +711,6 @@ TriggerRegisterTimerEventSingle(gg_trg_Map_Start, 0.00)
 TriggerAddAction(gg_trg_Map_Start, Trig_Map_Start_Actions)
 end
 
-function Trig_Change_Difficulty_Func003Func001Func001Func002C()
-if (not (udg_Real_Lives <= 29.99)) then
-return false
-end
-return true
-end
-
-function Trig_Change_Difficulty_Func003Func001Func001C()
-if (not (udg_Real_Lives >= 30.00)) then
-return false
-end
-return true
-end
-
-function Trig_Change_Difficulty_Func003Func001C()
-if (not (udg_Real_Lives >= 50.00)) then
-return false
-end
-return true
-end
-
-function Trig_Change_Difficulty_Func003C()
-if (not (udg_Real_Lives >= 75.00)) then
-return false
-end
-return true
-end
-
-function Trig_Change_Difficulty_Actions()
-udg_Integer_EnemyHandicap = S2I(SubStringBJ(ParseTags(GetEventPlayerChatString()), 3, 5))
-DisplayTimedTextToForce(GetPlayersAll(), 5.00, ("Difficulty is now: " .. (I2S(udg_Integer_EnemyHandicap) .. "%")))
-if (Trig_Change_Difficulty_Func003C()) then
-LeaderboardSetLabelBJ(GetLastCreatedLeaderboard(), (("|cffff9622Lives = " .. (("|cff8080ff" .. R2S(udg_Real_Lives)) .. "%|r ")) .. (("|cffff9622Diff = " .. I2S(udg_Integer_EnemyHandicap)) .. "%|r")))
-else
-if (Trig_Change_Difficulty_Func003Func001C()) then
-LeaderboardSetLabelBJ(GetLastCreatedLeaderboard(), (("|cffff9622Lives = " .. (("|cffffff00" .. R2S(udg_Real_Lives)) .. "%|r ")) .. (("|cffff9622Diff = " .. I2S(udg_Integer_EnemyHandicap)) .. "%|r")))
-else
-if (Trig_Change_Difficulty_Func003Func001Func001C()) then
-LeaderboardSetLabelBJ(GetLastCreatedLeaderboard(), (("|cffff9622Lives = " .. (("|cffd45e19" .. R2S(udg_Real_Lives)) .. "%|r ")) .. (("|cffff9622Diff = " .. I2S(udg_Integer_EnemyHandicap)) .. "%|r")))
-else
-if (Trig_Change_Difficulty_Func003Func001Func001Func002C()) then
-LeaderboardSetLabelBJ(GetLastCreatedLeaderboard(), (("|cffff9622Lives = " .. (("|cffff0000" .. R2S(udg_Real_Lives)) .. "%|r ")) .. (("|cffff9622Diff = " .. I2S(udg_Integer_EnemyHandicap)) .. "%|r")))
-else
-end
-end
-end
-end
-end
-
-function InitTrig_Change_Difficulty()
-gg_trg_Change_Difficulty = CreateTrigger()
-TriggerRegisterPlayerChatEvent(gg_trg_Change_Difficulty, Player(0), "-d", false)
-TriggerAddAction(gg_trg_Change_Difficulty, Trig_Change_Difficulty_Actions)
-end
-
-function Trig_Change_Lives_Func003Func001Func001Func002C()
-if (not (udg_Real_Lives <= 29.99)) then
-return false
-end
-return true
-end
-
-function Trig_Change_Lives_Func003Func001Func001C()
-if (not (udg_Real_Lives >= 30.00)) then
-return false
-end
-return true
-end
-
-function Trig_Change_Lives_Func003Func001C()
-if (not (udg_Real_Lives >= 50.00)) then
-return false
-end
-return true
-end
-
-function Trig_Change_Lives_Func003C()
-if (not (udg_Real_Lives >= 75.00)) then
-return false
-end
-return true
-end
-
-function Trig_Change_Lives_Actions()
-udg_Real_Lives = S2R(SubStringBJ(GetEventPlayerChatString(), 3, 5))
-DisplayTimedTextToForce(GetPlayersAll(), 5.00, ("Lives set to: " .. (R2S(udg_Real_Lives) .. ".")))
-if (Trig_Change_Lives_Func003C()) then
-LeaderboardSetLabelBJ(GetLastCreatedLeaderboard(), (("|cffff9622Lives = " .. (("|cff8080ff" .. R2S(udg_Real_Lives)) .. "%|r ")) .. (("|cffff9622Diff = " .. I2S(udg_Integer_EnemyHandicap)) .. "%|r")))
-else
-if (Trig_Change_Lives_Func003Func001C()) then
-LeaderboardSetLabelBJ(GetLastCreatedLeaderboard(), (("|cffff9622Lives = " .. (("|cffffff00" .. R2S(udg_Real_Lives)) .. "%|r ")) .. (("|cffff9622Diff = " .. I2S(udg_Integer_EnemyHandicap)) .. "%|r")))
-else
-if (Trig_Change_Lives_Func003Func001Func001C()) then
-LeaderboardSetLabelBJ(GetLastCreatedLeaderboard(), (("|cffff9622Lives = " .. (("|cffd45e19" .. R2S(udg_Real_Lives)) .. "%|r ")) .. (("|cffff9622Diff = " .. I2S(udg_Integer_EnemyHandicap)) .. "%|r")))
-else
-if (Trig_Change_Lives_Func003Func001Func001Func002C()) then
-LeaderboardSetLabelBJ(GetLastCreatedLeaderboard(), (("|cffff9622Lives = " .. (("|cffff0000" .. R2S(udg_Real_Lives)) .. "%|r ")) .. (("|cffff9622Diff = " .. I2S(udg_Integer_EnemyHandicap)) .. "%|r")))
-else
-end
-end
-end
-end
-end
-
-function InitTrig_Change_Lives()
-gg_trg_Change_Lives = CreateTrigger()
-TriggerRegisterPlayerChatEvent(gg_trg_Change_Lives, Player(0), "-l", false)
-TriggerAddAction(gg_trg_Change_Lives, Trig_Change_Lives_Actions)
-end
-
-function Trig_Change_Max_Creeps_Actions()
-udg_Integer_MaxCreeps = S2I(SubStringBJ(ParseTags(GetEventPlayerChatString()), 3, 5))
-DisplayTimedTextToForce(GetPlayersAll(), 5.00, ("Max Creeps is now: " .. (I2S(udg_Integer_MaxCreeps) .. ".")))
-LeaderboardSetPlayerItemLabelBJ(Player(8), GetLastCreatedLeaderboard(), ("Demons [Max " .. (I2S(udg_Integer_MaxCreeps) .. "]:")))
-end
-
-function InitTrig_Change_Max_Creeps()
-gg_trg_Change_Max_Creeps = CreateTrigger()
-TriggerRegisterPlayerChatEvent(gg_trg_Change_Max_Creeps, Player(0), "-m", false)
-TriggerAddAction(gg_trg_Change_Max_Creeps, Trig_Change_Max_Creeps_Actions)
-end
-
 function Trig_Difficulty_Dialog_Start_Actions()
 DialogSetMessageBJ(udg_Dialog_Difficulty, "TRIGSTR_1903")
 DialogAddButtonBJ(udg_Dialog_Difficulty, "TRIGSTR_1901")
@@ -850,7 +728,7 @@ end
 
 function InitTrig_Difficulty_Dialog_Start()
 gg_trg_Difficulty_Dialog_Start = CreateTrigger()
-TriggerRegisterTimerEventSingle(gg_trg_Difficulty_Dialog_Start, 0.00)
+TriggerRegisterTimerEventSingle(gg_trg_Difficulty_Dialog_Start, 1.00)
 TriggerAddAction(gg_trg_Difficulty_Dialog_Start, Trig_Difficulty_Dialog_Start_Actions)
 end
 
@@ -871,8 +749,7 @@ end
 function Trig_Difficulty_Adjust_Actions()
 if (Trig_Difficulty_Adjust_Func001C()) then
 udg_Integer_EnemyHandicap = (udg_Integer_EnemyHandicap + 5)
-DisplayTimedTextToForce(GetPlayersAll(), 5.00, (GetPlayerName(GetTriggerPlayer()) .. " has decided to increase difficulty."))
-DisplayTimedTextToForce(GetPlayersAll(), 5.00, ("Difficulty is now: " .. (I2S(udg_Integer_EnemyHandicap) .. "%")))
+DisplayTextToForce(GetPlayersAll(), (GetPlayerName(GetTriggerPlayer()) .. " has decided to increase difficulty."))
 udg_Integer_MaxCreeps = (udg_Integer_MaxCreeps - 10)
 udg_Integer_Array_DifficultyVote[1] = (udg_Integer_Array_DifficultyVote[1] + 1)
 udg_Integer_MaxSpawncount = (udg_Integer_MaxSpawncount + 2)
@@ -880,7 +757,7 @@ udg_Real_WaveTimer = (udg_Real_WaveTimer - 1.00)
 else
 end
 if (Trig_Difficulty_Adjust_Func002C()) then
-DisplayTimedTextToForce(GetPlayersAll(), 5.00, (GetPlayerName(GetTriggerPlayer()) .. " decided not to increase difficulty."))
+DisplayTextToForce(GetPlayersAll(), (GetPlayerName(GetTriggerPlayer()) .. " has decided not to increase difficulty."))
 else
 end
 end
@@ -909,9 +786,9 @@ bj_forLoopAIndex = bj_forLoopAIndex + 1
 end
 if (Trig_Difficulty_Dialog_Stop_Func003C()) then
 udg_Integer_EnemyHandicap = (udg_Integer_EnemyHandicap + 10)
-DisplayTimedTextToForce(GetPlayersAll(), 5.00, "TRIGSTR_1889")
-DisplayTimedTextToForce(GetPlayersAll(), 5.00, ("Difficulty is now: " .. (I2S(udg_Integer_EnemyHandicap) .. "%")))
-DisplayTimedTextToForce(GetPlayersAll(), 10.00, "TRIGSTR_1890")
+DisplayTextToForce(GetPlayersAll(), "TRIGSTR_1922")
+DisplayTextToForce(GetPlayersAll(), ("Difficulty is now: " .. (I2S(udg_Integer_EnemyHandicap) .. "%")))
+DisplayTextToForce(GetPlayersAll(), "TRIGSTR_1924")
 else
 end
 LeaderboardSetLabelBJ(GetLastCreatedLeaderboard(), (("|cffff9622Lives = " .. (("|cff8080ff" .. R2S(udg_Real_Lives)) .. "%|r ")) .. (("|cffff9622Diff = " .. I2S(udg_Integer_EnemyHandicap)) .. "%|r")))
@@ -990,7 +867,7 @@ end
 end
 udg_Real_WaveHealthModifier = (udg_Real_WaveHealthModifier + (0.05 * I2R(udg_Integer_PlayerCount)))
 if (Trig_Next_Round_Func003C()) then
-DisplayTimedTextToForce(GetPlayersAll(), 10.00, "TRIGSTR_1898")
+DisplayTextToForce(GetPlayersAll(), "TRIGSTR_1926")
 else
 end
 if (Trig_Next_Round_Func004C()) then
@@ -4320,9 +4197,6 @@ end
 function InitCustomTriggers()
 InitTrig_Map_Initialization()
 InitTrig_Map_Start()
-InitTrig_Change_Difficulty()
-InitTrig_Change_Lives()
-InitTrig_Change_Max_Creeps()
 InitTrig_Difficulty_Dialog_Start()
 InitTrig_Difficulty_Adjust()
 InitTrig_Difficulty_Dialog_Stop()

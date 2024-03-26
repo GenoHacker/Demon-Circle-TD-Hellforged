@@ -5253,16 +5253,6 @@ Effective against ethereal units
 Limited to 1
 }
 
-STRING 1889
-{
-Everyone chose to increase difficulty, it has been increased by an additional 10%.
-}
-
-STRING 1890
-{
-You can buy items in the middle.
-}
-
 STRING 1896
 {
 |cffffcc00You lost! Try again!|r
@@ -5271,11 +5261,6 @@ STRING 1896
 STRING 1897
 {
 Congratulations! You won!
-}
-
-STRING 1898
-{
-Waves now have a chance to spawn with modifiers, remember to get some magic/spell damage.
 }
 
 STRING 1899
@@ -5412,5 +5397,20 @@ STRING 1919
 STRING 1920
 {
 dzbHsCc
+}
+
+STRING 1922
+{
+Everyone chose to increase difficulty, it has been increased by an additional 10%.
+}
+
+STRING 1924
+{
+You can buy items in the middle.
+}
+
+STRING 1926
+{
+Waves now have a chance to spawn with modifiers, remember to get some magic/spell damage.
 }
 
