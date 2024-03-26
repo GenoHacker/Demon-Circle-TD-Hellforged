@@ -1,24 +1,4 @@
-﻿STRING 1
-{
-Demon Circle TD Hellforged Test
-}
-
-STRING 2
-{
-4 - 8
-}
-
-STRING 3
-{
-GenoHacker
-}
-
-STRING 13
-{
-Defenders
-}
-
-STRING 14
+﻿STRING 14
 // Units: u000 (Ghost Tower Level 1), Name (Name)
 {
 Ghost Tower Level 1
@@ -76,21 +56,6 @@ STRING 31
 // Units: u004 (Ghost Tower Level 4), Hotkey (Hotkey)
 {
 Q
-}
-
-STRING 38
-{
-
-}
-
-STRING 40
-{
-Wave:
-}
-
-STRING 63
-{
-Congratulations! You won!
 }
 
 STRING 65
@@ -181,16 +146,6 @@ STRING 111
 // Abilities: A002 (Frost), EditorSuffix (Editor Suffix)
 {
  (freezer)
-}
-
-STRING 112
-{
-Left.
-}
-
-STRING 116
-{
-is not playing
 }
 
 STRING 117
@@ -577,26 +532,6 @@ STRING 216
 Q
 }
 
-STRING 220
-{
-End in:
-}
-
-STRING 223
-{
- 
-}
-
-STRING 225
-{
- 
-}
-
-STRING 226
-{
- 
-}
-
 STRING 228
 // Units: u00S (Carrion Tower Level 2), Hotkey (Hotkey)
 {
@@ -613,16 +548,6 @@ STRING 236
 // Units: u00U (Carrion Tower Level 3), Hotkey (Hotkey)
 {
 Q
-}
-
-STRING 239
-{
- 
-}
-
-STRING 240
-{
- 
 }
 
 STRING 241
@@ -997,51 +922,6 @@ STRING 346
  (Glacier Tower)
 }
 
-STRING 385
-{
-Hellforged Version by GenoHacker
-}
-
-STRING 396
-{
-Player 1
-}
-
-STRING 397
-{
-Player 2
-}
-
-STRING 398
-{
-Player 3
-}
-
-STRING 399
-{
-Player 4
-}
-
-STRING 400
-{
-Player 5
-}
-
-STRING 401
-{
-Player 6
-}
-
-STRING 402
-{
-Player 7
-}
-
-STRING 403
-{
-Player 8
-}
-
 STRING 404
 // Units: u006 (Skull Tower Level 1), Name (Name)
 {
@@ -1124,193 +1004,6 @@ STRING 469
 // Items: I00D (Dichotomous Box), Hotkey (Hotkey)
 {
 V
-}
-
-STRING 482
-{
-Hellforged Changes
-}
-
-STRING 483
-{
--- Map now uses LUA scripting instead of JASS scripting
--- Completely remade terrain
--- Reworked all towers
--- Overhauled wave spawning
--- Fixed memory leaks
--- Trigger Optimizations
--- Changes to all waves
--- Changes to leaderboard
--- Changes to defeat conditions
--- Added wave modifiers
--- Added new towers
--- Added Items for each tower
--- Added ability to increase or decrease difficulty
-
-
-}
-
-STRING 484
-{
-|cffffcc00Gold:|r
-}
-
-STRING 487
-{
-%s - |cffffcc00Level:|r %d
-}
-
-STRING 488
-{
-Parties
-}
-
-STRING 489
-{
-|c00959697Armor:|r
-}
-
-STRING 491
-{
-|cffffcc00Level:|r
-}
-
-STRING 492
-{
-|cffffcc00Level:|r %d
-}
-
-STRING 493
-{
-|cff32cd32Lumber|r Income Rate:
-}
-
-STRING 494
-{
-|cff32cd32Lumber:|r
-}
-
-STRING 498
-{
-|cffffcc00Gold|r
-}
-
-STRING 504
-{
-|cffffcc00Level:|r %u
-}
-
-STRING 505
-{
-|cffffcc00Level:|r %u %s
-}
-
-STRING 507
-{
-|cff32cd32Give Up|r? [|Cfffed312F10|R]
-}
-
-STRING 508
-{
-|cffffcc00Game Help|r [|Cfffed312F9|R]
-}
-
-STRING 509
-{
-|cffffcc00Level:|r
-}
-
-STRING 510
-{
-|cff32cd32Lumber|r
-}
-
-STRING 515
-{
-|cffffcc00Game Help|r
-}
-
-STRING 516
-{
-Information
-}
-
-STRING 517
-{
-Additional Information
-}
-
-STRING 518
-{
-|cffffcc00Gold|r is aquired by slaying Demons.
-}
-
-STRING 519
-{
-|cff32cd32Lumber|r is not harvested here.
-}
-
-STRING 525
-{
-|cffFFFFFFOverview|r
-}
-
-STRING 528
-{
-|cffFFFFFFResources|r
-}
-
-STRING 538
-{
-|cffffcc00Game Help Dialog|r [|Cfffed312F9|R]
-}
-
-STRING 539
-{
-|cffffcc00Credits|r
-}
-
-STRING 540
-{
-Source map was "Demon Circle TD - Better by |cffff0000Siryan|r with a minor edit by Stutt"
-
-Demon Circle TD originally created by |cff76dbf8Varimathras|r
-}
-
-STRING 542
-{
-|c22222222
-}
-
-STRING 543
-{
-|cffFFFFFFRefer to the |cffffcc00Game Help Dialog|r
-|cffFFFFFFto view the game fixes.|r
-}
-
-STRING 544
-{
-The current time is Demon slaying time!
-}
-
-STRING 545
-{
-This dialog displays in-depth information about the game.
-}
-
-STRING 546
-{
-|cff76dbf8Varimathras|r
-}
-
-STRING 549
-{
-Demons
-}
-
-STRING 552
-{
-Parties [|Cfffed312F11|R]
 }
 
 STRING 625
@@ -1805,26 +1498,6 @@ STRING 765
 Sell Tower
 }
 
-STRING 768
-{
-Increase Difficulty by 5%
-}
-
-STRING 769
-{
-No Increase
-}
-
-STRING 771
-{
-Difficulty
-}
-
-STRING 780
-{
-Everyone chose to increase difficulty, it has been increased by an additional 10%.
-}
-
 STRING 802
 // Items: I002 (Khorns Gift), Tip (Tooltip - Basic)
 {
@@ -1859,6 +1532,12 @@ STRING 814
 // Items: I003 (Pulsating Flesh), Hotkey (Hotkey)
 {
 W
+}
+
+STRING 815
+// Units: h00E (Prop), Name (Name)
+{
+Prop
 }
 
 STRING 816
@@ -2187,35 +1866,6 @@ STRING 1062
 S
 }
 
-STRING 1065
-{
-Information
-}
-
-STRING 1066
-{
-Every 5th wave has Spell Damage Reduction.
-Every 10th wave has Spell Damage Reduction and Hardened Skin.
-You gain 1 gold when another player kills your creeps.
-Each wave after 10 will gain 10% of wave number as armour and has a chance to spawn banished, have mana shield and/or spawn a commander that has a chance to have 1, multiple or no auras, it may also cast spirit link on itself and the wave.
-Killing a demon commander will give all players gold and lumber.
-}
-
-STRING 1067
-{
-Divine beings take full damage from Chaos attacks and reduced damage from non- chaos attacks.
-}
-
-STRING 1068
-{
-Divine beings take full damage from Chaos attacks and reduced damage from non- chaos attacks.
-}
-
-STRING 1069
-{
-Divine beings take full damage from Chaos attacks and reduced damage from non- chaos attacks.
-}
-
 STRING 1074
 // Abilities: A01F (Summoned Ghost), Name (Name)
 {
@@ -2444,16 +2094,6 @@ STRING 1135
 // Abilities: A01Q (Siphon 2), Tip (Tooltip - Normal)
 {
 Siphon 2
-}
-
-STRING 1146
-{
-Type: |Cffffcc00Spell|R
-}
-
-STRING 1148
-{
-Spell attacks do extra damage against Ethereal enemies and reduced damage to Hero and Divine armor.
 }
 
 STRING 1152
@@ -3270,16 +2910,6 @@ STRING 1410
 X
 }
 
-STRING 1411
-{
-|cffffcc00Discord|r
-}
-
-STRING 1412
-{
-dzbHsCc
-}
-
 STRING 1413
 // Items: I00F (Hellfrost Enchantment), Ubertip (Tooltip - Extended)
 {
@@ -3326,27 +2956,6 @@ STRING 1419
 // Abilities: A01Q (Siphon 2), Ubertip (Tooltip - Normal - Extended)
 {
 Gains mana equal to 15% of damage dealt, when reaching 99% total mana the tower will use 80 mana to release a storm of lightning, dealing 100 spell damage every 0.75 seconds to units within a 400 area of effect, this will cast each time the tower deals damage until it reachs 10% mana.
-}
-
-STRING 1424
-{
-|cffffcc00You lost! Try again!|r
-}
-
-STRING 1425
-{
-Information 2
-}
-
-STRING 1426
-{
-Difficulty has a base value of 100%, at the start of the game players may choose to increase it or do nothing. Increasing the difficulty will increase the health of enemy units, the number of units spawned each wave, decrease the time between waves and lower the threshold that lives will start depleting at. If all players increased then the difficulty will be increased.
-
-Addtionally waves gain 3% extra health per active player.
-
-The max unit count is determined by how many players their are, [50 x Player Count] and then adjusted if any player increased the difficulty, max unit count will decrease if a player leaves.
-
-Lives will deplete every 2 seconds when the number of enemy units alive on the map is over the threshold, the amount of lives lost increase with each wave.
 }
 
 STRING 1430
@@ -3445,11 +3054,6 @@ All items have 3 levels, you can give additional copies of the item to the tower
 10%/20%/40% less chance to trigger Infernal Core reset.
 }
 
-STRING 1440
-{
-You can buy items in the middle.
-}
-
 STRING 1442
 // Units: u00C (Freezer Tower), Ubertip (Tooltip - Extended)
 {
@@ -3533,11 +3137,6 @@ Frost (5s)
 Splash (225)
 
 Effective against ethereal units
-}
-
-STRING 1450
-{
-Waves now have a chance to spawn with modifiers, remember to get some magic/spell damage.
 }
 
 STRING 1451
@@ -5654,15 +5253,164 @@ Effective against ethereal units
 Limited to 1
 }
 
-STRING 1880
-// Units: h00E (Prop), Name (Name)
+STRING 1879
 {
-Prop
+Hellforged Changes
+}
+
+STRING 1880
+{
+-- Map now uses LUA scripting instead of JASS scripting
+-- Completely remade terrain
+-- Reworked all towers
+-- Overhauled wave spawning
+-- Fixed memory leaks
+-- Trigger Optimizations
+-- Changes to all waves
+-- Changes to leaderboard
+-- Changes to defeat conditions
+-- Added wave modifiers
+-- Added new towers
+-- Added Items for each tower
+-- Added ability to increase or decrease difficulty
+
+
 }
 
 STRING 1881
-// Units: h00E (Prop), EditorSuffix (Name - Editor Suffix)
 {
-[model looks shit on a doodad so im using a unit]
+Information
+}
+
+STRING 1882
+{
+Every 5th wave has Spell Damage Reduction.
+Every 10th wave has Spell Damage Reduction and Hardened Skin.
+You gain 1 gold when another player kills your creeps.
+Each wave after 10 will gain 10% of wave number as armour and has a chance to spawn banished, have mana shield and/or spawn a commander that has a chance to have 1, multiple or no auras, it may also cast spirit link on itself and the wave.
+Killing a demon commander will give all players gold and lumber.
+}
+
+STRING 1883
+{
+Information 2
+}
+
+STRING 1884
+{
+Difficulty has a base value of 100%, at the start of the game players may choose to increase it or do nothing. Increasing the difficulty will increase the health of enemy units, the number of units spawned each wave, decrease the time between waves and lower the threshold that lives will start depleting at. If all players increased then the difficulty will be increased.
+
+Addtionally waves gain 3% extra health per active player.
+
+The max unit count is determined by how many players their are, [50 x Player Count] and then adjusted if any player increased the difficulty, max unit count will decrease if a player leaves.
+
+Lives will deplete every 2 seconds when the number of enemy units alive on the map is over the threshold, the amount of lives lost increase with each wave.
+}
+
+STRING 1885
+{
+|cffffcc00Credits|r
+}
+
+STRING 1886
+{
+Source map was "Demon Circle TD - Better by |cffff0000Siryan|r with a minor edit by Stutt"
+
+Demon Circle TD originally created by |cff76dbf8Varimathras|r
+}
+
+STRING 1887
+{
+|cffffcc00Discord|r
+}
+
+STRING 1888
+{
+dzbHsCc
+}
+
+STRING 1889
+{
+Everyone chose to increase difficulty, it has been increased by an additional 10%.
+}
+
+STRING 1890
+{
+You can buy items in the middle.
+}
+
+STRING 1893
+{
+is not playing
+}
+
+STRING 1894
+{
+Wave:
+}
+
+STRING 1895
+{
+
+}
+
+STRING 1896
+{
+|cffffcc00You lost! Try again!|r
+}
+
+STRING 1897
+{
+Congratulations! You won!
+}
+
+STRING 1898
+{
+Waves now have a chance to spawn with modifiers, remember to get some magic/spell damage.
+}
+
+STRING 1899
+{
+End in:
+}
+
+STRING 1900
+{
+Left.
+}
+
+STRING 1901
+{
+Increase Difficulty
+}
+
+STRING 1902
+{
+No Increase
+}
+
+STRING 1903
+{
+
+}
+
+STRING 1904
+{
+Demon Circle TD: Hellforged TEST
+}
+
+STRING 1905
+{
+4 - 8
+}
+
+STRING 1906
+{
+Hellforged version by GenoHacker
+}
+
+STRING 1907
+{
+GenoHacker
 }
 

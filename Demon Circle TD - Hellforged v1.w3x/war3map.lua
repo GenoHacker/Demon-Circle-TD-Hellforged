@@ -75,7 +75,8 @@ udg_UnitGroup_Array_AnomDummys3 = {}
 udg_UnitGroup_Array_AnomDummys4 = {}
 udg_Integer_WaveModPerSpawnChance = 0
 udg_Integer_WaveBuffRandomNum = 0
-udg_Player_Group_ActivePlayers = nil
+udg_Unit_Group_Demons = nil
+udg_Integer_Array_ActivePlayer = __jarray(0)
 gg_rct_CreepSpawn1 = nil
 gg_rct_CreepSpawn2 = nil
 gg_rct_CreepSpawn3 = nil
@@ -126,6 +127,7 @@ gg_trg_Unit_Die = nil
 gg_trg_Leaving_Players = nil
 gg_trg_Sell_Towers = nil
 gg_trg_Lumber_Bounty = nil
+gg_trg_Invulnerable_Towers = nil
 gg_trg_Remove_Ethereal = nil
 gg_trg_Anomaly_Tower_Limit = nil
 gg_trg_Anomaly_Tower_Limit_Copy = nil
@@ -162,7 +164,6 @@ gg_trg_Dichotomous_Box = nil
 gg_trg_Soul_Siphoner = nil
 gg_trg_Hellfire_Reagent = nil
 gg_trg_Pulsating_Flesh = nil
-gg_trg_UNUSED = nil
 gg_trg_Creep_Teleport_1 = nil
 gg_trg_Creep_Teleport_2 = nil
 gg_trg_Creep_Teleport_3 = nil
@@ -361,91 +362,13 @@ i = i + 1
 end
 udg_Integer_WaveModPerSpawnChance = 115
 udg_Integer_WaveBuffRandomNum = 0
-udg_Player_Group_ActivePlayers = CreateForce()
+udg_Unit_Group_Demons = CreateGroup()
+i = 0
+while (true) do
+if ((i > 1)) then break end
+udg_Integer_Array_ActivePlayer[i] = 0
+i = i + 1
 end
-
-function CreateUnitsForPlayer0()
-local p = Player(0)
-local u
-local unitID
-local t
-local life
-
-u = BlzCreateUnitWithSkin(p, FourCC("h00E"), -2559.6, 6141.2, 37.003, FourCC("h00E"))
-u = BlzCreateUnitWithSkin(p, FourCC("h00E"), 1535.9, 2048.1, 273.008, FourCC("h00E"))
-u = BlzCreateUnitWithSkin(p, FourCC("h00E"), -2560.1, -2047.6, 90.113, FourCC("h00E"))
-u = BlzCreateUnitWithSkin(p, FourCC("h00E"), -6656.3, 2048.1, 77.775, FourCC("h00E"))
-u = BlzCreateUnitWithSkin(p, FourCC("u005"), -4095.6, 3586.4, 135.286, FourCC("u005"))
-end
-
-function CreateUnitsForPlayer1()
-local p = Player(1)
-local u
-local unitID
-local t
-local life
-
-u = BlzCreateUnitWithSkin(p, FourCC("u005"), -2561.3, 4612.2, 90.399, FourCC("u005"))
-end
-
-function CreateUnitsForPlayer2()
-local p = Player(2)
-local u
-local unitID
-local t
-local life
-
-u = BlzCreateUnitWithSkin(p, FourCC("u005"), -1024.7, 3586.4, 44.945, FourCC("u005"))
-end
-
-function CreateUnitsForPlayer3()
-local p = Player(3)
-local u
-local unitID
-local t
-local life
-
-u = BlzCreateUnitWithSkin(p, FourCC("u005"), -2.2, 2051.2, 0.070, FourCC("u005"))
-end
-
-function CreateUnitsForPlayer4()
-local p = Player(4)
-local u
-local unitID
-local t
-local life
-
-u = BlzCreateUnitWithSkin(p, FourCC("u005"), -1026.5, 513.2, 315.017, FourCC("u005"))
-end
-
-function CreateUnitsForPlayer5()
-local p = Player(5)
-local u
-local unitID
-local t
-local life
-
-u = BlzCreateUnitWithSkin(p, FourCC("u005"), -2561.9, -510.9, 270.055, FourCC("u005"))
-end
-
-function CreateUnitsForPlayer6()
-local p = Player(6)
-local u
-local unitID
-local t
-local life
-
-u = BlzCreateUnitWithSkin(p, FourCC("u005"), -4096.7, 514.9, 224.956, FourCC("u005"))
-end
-
-function CreateUnitsForPlayer7()
-local p = Player(7)
-local u
-local unitID
-local t
-local life
-
-u = BlzCreateUnitWithSkin(p, FourCC("u005"), -5123.3, 2051.0, 179.561, FourCC("u005"))
 end
 
 function CreateNeutralPassiveBuildings()
@@ -458,23 +381,29 @@ local life
 u = BlzCreateUnitWithSkin(p, FourCC("n000"), -2560.0, 2048.0, 270.000, FourCC("n000"))
 end
 
+function CreateNeutralPassive()
+local p = Player(PLAYER_NEUTRAL_PASSIVE)
+local u
+local unitID
+local t
+local life
+
+u = BlzCreateUnitWithSkin(p, FourCC("h00E"), -6657.1, 2048.2, 82.430, FourCC("h00E"))
+u = BlzCreateUnitWithSkin(p, FourCC("h00E"), -2567.7, -2072.3, 82.430, FourCC("h00E"))
+u = BlzCreateUnitWithSkin(p, FourCC("h00E"), 1534.7, 2047.1, 82.430, FourCC("h00E"))
+u = BlzCreateUnitWithSkin(p, FourCC("h00E"), -2559.6, 6143.6, 82.430, FourCC("h00E"))
+end
+
 function CreatePlayerBuildings()
 end
 
 function CreatePlayerUnits()
-CreateUnitsForPlayer0()
-CreateUnitsForPlayer1()
-CreateUnitsForPlayer2()
-CreateUnitsForPlayer3()
-CreateUnitsForPlayer4()
-CreateUnitsForPlayer5()
-CreateUnitsForPlayer6()
-CreateUnitsForPlayer7()
 end
 
 function CreateAllUnits()
 CreateNeutralPassiveBuildings()
 CreatePlayerBuildings()
+CreateNeutralPassive()
 CreatePlayerUnits()
 end
 
@@ -528,7 +457,11 @@ bj_forLoopAIndexEnd = 8
 while (true) do
 if (bj_forLoopAIndex > bj_forLoopAIndexEnd) then break end
 if (Trig_Map_Initialization_Func001Func001C()) then
+udg_Integer_Array_ActivePlayer[GetForLoopIndexA()] = 1
 udg_Integer_PlayerCount = (udg_Integer_PlayerCount + 1)
+udg_Temp_PointA = GetPlayerStartLocationLoc(ConvertedPlayer(GetForLoopIndexA()))
+CreateNUnitsAtLoc(1, FourCC("u005"), ConvertedPlayer(GetForLoopIndexA()), udg_Temp_PointA, bj_UNIT_FACING)
+            RemoveLocation(udg_Temp_PointA)
 SetPlayerStateBJ(ConvertedPlayer(GetForLoopIndexA()), PLAYER_STATE_RESOURCE_GOLD, 75)
 CreateFogModifierRectBJ(true, ConvertedPlayer(GetForLoopIndexA()), FOG_OF_WAR_VISIBLE, GetPlayableMapRect())
 SetPlayerTechMaxAllowedSwap(FourCC("u01J"), 1, ConvertedPlayer(GetForLoopIndexA()))
@@ -546,11 +479,11 @@ SetPlayerAllianceStateBJ(Player(8), Player(10), bj_ALLIANCE_ALLIED_VISION)
 SetPlayerAllianceStateBJ(Player(8), Player(11), bj_ALLIANCE_ALLIED_VISION)
 UseTimeOfDayBJ(false)
 SetTimeOfDay(12)
-CreateQuestBJ(bj_QUESTTYPE_REQ_DISCOVERED, "TRIGSTR_482", "TRIGSTR_483", "ReplaceableTextures\\CommandButtons\\BTNSnazzyScrollPurple.blp")
-CreateQuestBJ(bj_QUESTTYPE_REQ_DISCOVERED, "TRIGSTR_1065", "TRIGSTR_1066", "ReplaceableTextures\\CommandButtons\\BTNSnazzyScrollPurple.blp")
-CreateQuestBJ(bj_QUESTTYPE_REQ_DISCOVERED, "TRIGSTR_1425", "TRIGSTR_1426", "ReplaceableTextures\\CommandButtons\\BTNSnazzyScrollPurple.blp")
-CreateQuestBJ(bj_QUESTTYPE_OPT_DISCOVERED, "TRIGSTR_539", "TRIGSTR_540", "ReplaceableTextures\\CommandButtons\\BTNSnazzyScroll.blp")
-CreateQuestBJ(bj_QUESTTYPE_OPT_DISCOVERED, "TRIGSTR_1411", "TRIGSTR_1412", "ReplaceableTextures\\CommandButtons\\BTNSnazzyScroll.blp")
+CreateQuestBJ(bj_QUESTTYPE_REQ_DISCOVERED, "TRIGSTR_1879", "TRIGSTR_1880", "ReplaceableTextures\\CommandButtons\\BTNSnazzyScrollPurple.blp")
+CreateQuestBJ(bj_QUESTTYPE_REQ_DISCOVERED, "TRIGSTR_1881", "TRIGSTR_1882", "ReplaceableTextures\\CommandButtons\\BTNSnazzyScrollPurple.blp")
+CreateQuestBJ(bj_QUESTTYPE_REQ_DISCOVERED, "TRIGSTR_1883", "TRIGSTR_1884", "ReplaceableTextures\\CommandButtons\\BTNSnazzyScrollPurple.blp")
+CreateQuestBJ(bj_QUESTTYPE_OPT_DISCOVERED, "TRIGSTR_1885", "TRIGSTR_1886", "ReplaceableTextures\\CommandButtons\\BTNSnazzyScroll.blp")
+CreateQuestBJ(bj_QUESTTYPE_OPT_DISCOVERED, "TRIGSTR_1887", "TRIGSTR_1888", "ReplaceableTextures\\CommandButtons\\BTNSnazzyScroll.blp")
 udg_AbilityCode_Array_AnomTowDummy[1] = FourCC("A02Z")
 udg_AbilityCode_Array_AnomTowDummy[2] = FourCC("A02F")
 udg_AbilityCode_Array_AnomTowDummy[3] = FourCC("A02O")
@@ -743,14 +676,14 @@ TriggerAddAction(gg_trg_Map_Initialization, Trig_Map_Initialization_Actions)
 end
 
 function Trig_Leaderboard_Func004Func001C()
-if (not (GetPlayerSlotState(ConvertedPlayer(GetForLoopIndexA())) == PLAYER_SLOT_STATE_PLAYING)) then
+if (not (udg_Integer_Array_ActivePlayer[GetForLoopIndexA()] == 1)) then
 return false
 end
 return true
 end
 
 function Trig_Leaderboard_Actions()
-CreateLeaderboardBJ(GetPlayersAll(), "TRIGSTR_038")
+CreateLeaderboardBJ(GetPlayersAll(), "TRIGSTR_1895")
 LeaderboardSetLabelBJ(GetLastCreatedLeaderboard(), (("|cffff9622Lives = " .. (("|cff8080ff" .. "100.000") .. "%|r ")) .. (("|cffff9622Diff = " .. "100") .. "%|r")))
 udg_LB_Info = GetLastCreatedLeaderboard()
 bj_forLoopAIndex = 1
@@ -760,11 +693,11 @@ if (bj_forLoopAIndex > bj_forLoopAIndexEnd) then break end
 if (Trig_Leaderboard_Func004Func001C()) then
 LeaderboardAddItemBJ(ConvertedPlayer(GetForLoopIndexA()), udg_LB_Info, GetPlayerName(ConvertedPlayer(GetForLoopIndexA())), udg_I_Kills[GetConvertedPlayerId(ConvertedPlayer(GetForLoopIndexA()))])
 else
-LeaderboardAddItemBJ(ConvertedPlayer(GetForLoopIndexA()), udg_LB_Info, "TRIGSTR_116", udg_I_Kills[GetConvertedPlayerId(ConvertedPlayer(GetForLoopIndexA()))])
+LeaderboardAddItemBJ(ConvertedPlayer(GetForLoopIndexA()), udg_LB_Info, "TRIGSTR_1893", udg_I_Kills[GetConvertedPlayerId(ConvertedPlayer(GetForLoopIndexA()))])
 end
 bj_forLoopAIndex = bj_forLoopAIndex + 1
 end
-LeaderboardAddItemBJ(Player(9), GetLastCreatedLeaderboard(), "TRIGSTR_040", udg_I_Round)
+LeaderboardAddItemBJ(Player(9), GetLastCreatedLeaderboard(), "TRIGSTR_1894", udg_I_Round)
 LeaderboardAddItemBJ(Player(8), GetLastCreatedLeaderboard(), ("Demons [Max " .. (I2S(udg_Integer_MaxCreeps) .. "]:")), udg_I_NumberOfCreeps)
 end
 
@@ -911,10 +844,10 @@ TriggerAddAction(gg_trg_Change_Max_Creeps, Trig_Change_Max_Creeps_Actions)
 end
 
 function Trig_Difficulty_Dialog_Start_Actions()
-DialogSetMessageBJ(udg_Dialog_Difficulty, "TRIGSTR_771")
-DialogAddButtonBJ(udg_Dialog_Difficulty, "TRIGSTR_768")
+DialogSetMessageBJ(udg_Dialog_Difficulty, "TRIGSTR_1903")
+DialogAddButtonBJ(udg_Dialog_Difficulty, "TRIGSTR_1901")
 udg_DialogButton_Array_Difficulty[1] = GetLastCreatedButtonBJ()
-DialogAddButtonBJ(udg_Dialog_Difficulty, "TRIGSTR_769")
+DialogAddButtonBJ(udg_Dialog_Difficulty, "TRIGSTR_1902")
 udg_DialogButton_Array_Difficulty[2] = GetLastCreatedButtonBJ()
 bj_forLoopAIndex = 1
 bj_forLoopAIndexEnd = udg_Integer_PlayerCount
@@ -958,7 +891,7 @@ udg_Real_WaveTimer = (udg_Real_WaveTimer - 1)
 else
 end
 if (Trig_Difficulty_Adjust_Func002C()) then
-DisplayTimedTextToForce(GetPlayersAll(), 5.00, (GetPlayerName(GetTriggerPlayer()) .. " decided not to increases difficulty."))
+DisplayTimedTextToForce(GetPlayersAll(), 5.00, (GetPlayerName(GetTriggerPlayer()) .. " decided not to increase difficulty."))
 else
 end
 end
@@ -987,9 +920,9 @@ bj_forLoopAIndex = bj_forLoopAIndex + 1
 end
 if (Trig_Difficulty_Dialog_Stop_Func003C()) then
 udg_Integer_EnemyHandicap = (udg_Integer_EnemyHandicap + 10)
-DisplayTimedTextToForce(GetPlayersAll(), 5.00, "TRIGSTR_780")
+DisplayTimedTextToForce(GetPlayersAll(), 5.00, "TRIGSTR_1889")
 DisplayTimedTextToForce(GetPlayersAll(), 5.00, ("Difficulty is now: " .. (I2S(udg_Integer_EnemyHandicap) .. "%")))
-DisplayTimedTextToForce(GetPlayersAll(), 10.00, "TRIGSTR_1440")
+DisplayTimedTextToForce(GetPlayersAll(), 10.00, "TRIGSTR_1890")
 SetPlayerHandicapBJ(Player(12), I2R(udg_Integer_EnemyHandicap))
 else
 end
@@ -1054,7 +987,7 @@ end
 
 function Trig_Next_Round_Actions()
 if (Trig_Next_Round_Func001C()) then
-DisplayTextToForce(GetPlayersAll(), "TRIGSTR_063")
+DisplayTextToForce(GetPlayersAll(), "TRIGSTR_1897")
 StartTimerBJ(udg_T_NextRound, false, 60.00)
 TriggerSleepAction(60.00)
 ForForce(GetPlayersAll(), Trig_Next_Round_Func001Func005A)
@@ -1069,7 +1002,7 @@ end
 end
 udg_Real_WaveHealthModifier = (udg_Real_WaveHealthModifier + (0.05 * I2R(udg_Integer_PlayerCount)))
 if (Trig_Next_Round_Func003C()) then
-DisplayTimedTextToForce(GetPlayersAll(), 10.00, "TRIGSTR_1450")
+DisplayTimedTextToForce(GetPlayersAll(), 10.00, "TRIGSTR_1898")
 else
 end
 if (Trig_Next_Round_Func004C()) then
@@ -1094,7 +1027,7 @@ TimerDialogDisplayBJ(true, GetLastCreatedTimerDialogBJ())
 udg_TW_NextRound = GetLastCreatedTimerDialogBJ()
 else
 DestroyTimerDialogBJ(udg_TW_NextRound)
-CreateTimerDialogBJ(GetLastCreatedTimerBJ(), "TRIGSTR_220")
+CreateTimerDialogBJ(GetLastCreatedTimerBJ(), "TRIGSTR_1899")
 TimerDialogDisplayBJ(true, GetLastCreatedTimerDialogBJ())
 udg_TW_NextRound = GetLastCreatedTimerDialogBJ()
 end
@@ -1114,7 +1047,7 @@ return true
 end
 
 function Trig_Wave_Spawning_Func003Func001C()
-if (not (GetPlayerSlotState(ConvertedPlayer(GetForLoopIndexA())) == PLAYER_SLOT_STATE_PLAYING)) then
+if (not (udg_Integer_Array_ActivePlayer[GetForLoopIndexA()] == 1)) then
 return false
 end
 return true
@@ -1183,7 +1116,7 @@ TriggerAddAction(gg_trg_Wave_Spawning, Trig_Wave_Spawning_Actions)
 end
 
 function Trig_Commander_Spawning_Func005Func001C()
-if (not (GetPlayerSlotState(ConvertedPlayer(GetForLoopIndexA())) == PLAYER_SLOT_STATE_PLAYING)) then
+if (not (udg_Integer_Array_ActivePlayer[GetForLoopIndexA()] == 1)) then
 return false
 end
 return true
@@ -1227,7 +1160,7 @@ end
 end
 
 function Trig_Commander_Spawning_Actions()
-udg_Real_CommanderHealth = (200.00 + (25.00 * I2R(udg_I_Round)))
+udg_Real_CommanderHealth = (300.00 + (50.00 * I2R(udg_I_Round)))
 udg_Real_CommanderHealth = (udg_Real_CommanderHealth * (GetPlayerHandicapBJ(Player(12)) / 100.00))
 udg_Real_CommanderHealth = (udg_Real_CommanderHealth * udg_Real_WaveHealthModifier)
 udg_Real_CommanderArmour = (5.00 + (I2R(udg_I_Round) * 0.10))
@@ -1358,7 +1291,7 @@ return true
 end
 
 function Trig_Lives_Func001Func003Func001A()
-CustomDefeatBJ(GetEnumPlayer(), "TRIGSTR_1424")
+CustomDefeatBJ(GetEnumPlayer(), "TRIGSTR_1896")
 end
 
 function Trig_Lives_Func001Func003C()
@@ -1523,18 +1456,19 @@ TriggerRegisterAnyUnitEventBJ(gg_trg_Unit_Die, EVENT_PLAYER_UNIT_DEATH)
 TriggerAddAction(gg_trg_Unit_Die, Trig_Unit_Die_Actions)
 end
 
-function Trig_Leaving_Players_Func006A()
+function Trig_Leaving_Players_Func007A()
 RemoveUnit(GetEnumUnit())
 end
 
 function Trig_Leaving_Players_Actions()
 udg_Integer_PlayerCount = (udg_Integer_PlayerCount - 1)
 udg_Integer_MaxCreeps = (udg_Integer_MaxCreeps - 60)
+udg_Integer_Array_ActivePlayer[GetConvertedPlayerId(GetTriggerPlayer())] = 0
 LeaderboardSetPlayerItemLabelBJ(Player(8), GetLastCreatedLeaderboard(), ("Demons [Max " .. (I2S(udg_Integer_MaxCreeps) .. "]:")))
 DisplayTextToForce(GetPlayersAll(), (("|cffffaa00" .. (" " .. GetPlayerName(GetTriggerPlayer()))) .. " has left the game!!|r"))
     bj_wantDestroyGroup = true
-ForGroupBJ(GetUnitsOfPlayerAll(GetTriggerPlayer()), Trig_Leaving_Players_Func006A)
-LeaderboardSetPlayerItemLabelBJ(GetTriggerPlayer(), udg_LB_Info, "TRIGSTR_112")
+ForGroupBJ(GetUnitsOfPlayerAll(GetTriggerPlayer()), Trig_Leaving_Players_Func007A)
+LeaderboardSetPlayerItemLabelBJ(GetTriggerPlayer(), udg_LB_Info, "TRIGSTR_1900")
 end
 
 function InitTrig_Leaving_Players()
@@ -1625,6 +1559,17 @@ function InitTrig_Lumber_Bounty()
 gg_trg_Lumber_Bounty = CreateTrigger()
 TriggerRegisterAnyUnitEventBJ(gg_trg_Lumber_Bounty, EVENT_PLAYER_UNIT_DEATH)
 TriggerAddAction(gg_trg_Lumber_Bounty, Trig_Lumber_Bounty_Actions)
+end
+
+function Trig_Invulnerable_Towers_Actions()
+SetUnitInvulnerable(GetTriggerUnit(), true)
+end
+
+function InitTrig_Invulnerable_Towers()
+gg_trg_Invulnerable_Towers = CreateTrigger()
+TriggerRegisterAnyUnitEventBJ(gg_trg_Invulnerable_Towers, EVENT_PLAYER_UNIT_CONSTRUCT_START)
+TriggerRegisterAnyUnitEventBJ(gg_trg_Invulnerable_Towers, EVENT_PLAYER_UNIT_UPGRADE_FINISH)
+TriggerAddAction(gg_trg_Invulnerable_Towers, Trig_Invulnerable_Towers_Actions)
 end
 
 function Trig_Remove_Ethereal_Conditions()
@@ -3284,85 +3229,6 @@ TriggerAddCondition(gg_trg_Hellfrost_Enchantment_Armor_Remove, Condition(Trig_He
 TriggerAddAction(gg_trg_Hellfrost_Enchantment_Armor_Remove, Trig_Hellfrost_Enchantment_Armor_Remove_Actions)
 end
 
-function Trig_Dichotomous_Box_Gold_Func001Func001Func002Func001Func002Func001Func002C()
-if (not (udg_Integer_Array_DicBoxGoldChance[GetConvertedPlayerId(GetOwningPlayer(GetEnumUnit()))] <= 50)) then
-return false
-end
-return true
-end
-
-function Trig_Dichotomous_Box_Gold_Func001Func001Func002Func001Func002Func001C()
-if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I00F"))) == 3)) then
-return false
-end
-return true
-end
-
-function Trig_Dichotomous_Box_Gold_Func001Func001Func002Func001Func002C()
-if (not (udg_Integer_Array_DicBoxGoldChance[GetConvertedPlayerId(GetOwningPlayer(GetEnumUnit()))] <= 50)) then
-return false
-end
-return true
-end
-
-function Trig_Dichotomous_Box_Gold_Func001Func001Func002Func001C()
-if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEnumUnit(), FourCC("I00F"))) == 2)) then
-return false
-end
-return true
-end
-
-function Trig_Dichotomous_Box_Gold_Func001Func001Func002C()
-if (not (udg_Integer_Array_DicBoxGoldChance[GetConvertedPlayerId(GetOwningPlayer(GetEnumUnit()))] <= 50)) then
-return false
-end
-return true
-end
-
-function Trig_Dichotomous_Box_Gold_Func001Func001C()
-if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEnumUnit(), FourCC("I00D"))) == 1)) then
-return false
-end
-return true
-end
-
-function Trig_Dichotomous_Box_Gold_Func001A()
-if (Trig_Dichotomous_Box_Gold_Func001Func001C()) then
-udg_Integer_Array_DicBoxGoldChance[GetConvertedPlayerId(GetOwningPlayer(GetEnumUnit()))] = GetRandomInt(1, 100)
-if (Trig_Dichotomous_Box_Gold_Func001Func001Func002C()) then
-AdjustPlayerStateBJ(GetRandomInt(-1, 1), GetOwningPlayer(GetEnumUnit()), PLAYER_STATE_RESOURCE_GOLD)
-else
-if (Trig_Dichotomous_Box_Gold_Func001Func001Func002Func001C()) then
-udg_Integer_Array_DicBoxGoldChance[GetConvertedPlayerId(GetOwningPlayer(GetEnumUnit()))] = GetRandomInt(1, 100)
-if (Trig_Dichotomous_Box_Gold_Func001Func001Func002Func001Func002C()) then
-AdjustPlayerStateBJ(GetRandomInt(-2, 2), GetOwningPlayer(GetEnumUnit()), PLAYER_STATE_RESOURCE_GOLD)
-else
-if (Trig_Dichotomous_Box_Gold_Func001Func001Func002Func001Func002Func001C()) then
-udg_Integer_Array_DicBoxGoldChance[GetConvertedPlayerId(GetOwningPlayer(GetEnumUnit()))] = GetRandomInt(1, 100)
-if (Trig_Dichotomous_Box_Gold_Func001Func001Func002Func001Func002Func001Func002C()) then
-AdjustPlayerStateBJ(GetRandomInt(-4, 4), GetOwningPlayer(GetEnumUnit()), PLAYER_STATE_RESOURCE_GOLD)
-else
-end
-else
-end
-end
-else
-end
-end
-else
-end
-end
-
-function Trig_Dichotomous_Box_Gold_Actions()
-ForGroupBJ(GetUnitsOfTypeIdAll(FourCC("u005")), Trig_Dichotomous_Box_Gold_Func001A)
-end
-
-function InitTrig_Dichotomous_Box_Gold()
-gg_trg_Dichotomous_Box_Gold = CreateTrigger()
-TriggerRegisterTimerEventPeriodic(gg_trg_Dichotomous_Box_Gold, 2.50)
-TriggerAddAction(gg_trg_Dichotomous_Box_Gold, Trig_Dichotomous_Box_Gold_Actions)
-end
-
 function Trig_Argent_Conduit_Func001C()
 if (not (GetUnitAbilityLevelSwapped(FourCC("A022"), GetManipulatingUnit()) ~= 1)) then
 return false
@@ -3613,48 +3479,18 @@ TriggerRegisterAnyUnitEventBJ(gg_trg_Pulsating_Flesh, EVENT_PLAYER_UNIT_PICKUP_I
 TriggerAddAction(gg_trg_Pulsating_Flesh, Trig_Pulsating_Flesh_Actions)
 end
 
-function Trig_Creep_Teleport_1_Func001Func001Func007Func007C()
-if (GetPlayerSlotState(Player(0)) == PLAYER_SLOT_STATE_EMPTY) then
-return true
-end
-if (GetPlayerSlotState(Player(0)) == PLAYER_SLOT_STATE_LEFT) then
-return true
-end
-return false
-end
-
 function Trig_Creep_Teleport_1_Func001Func001Func007C()
-if (not Trig_Creep_Teleport_1_Func001Func001Func007Func007C()) then
+if (not (udg_Integer_Array_ActivePlayer[1] == 0)) then
 return false
 end
 return true
-end
-
-function Trig_Creep_Teleport_1_Func001Func001Func008C()
-if (GetPlayerSlotState(Player(0)) == PLAYER_SLOT_STATE_EMPTY) then
-return true
-end
-if (GetPlayerSlotState(Player(0)) == PLAYER_SLOT_STATE_LEFT) then
-return true
-end
-return false
-end
-
-function Trig_Creep_Teleport_1_Func001Func001Func009C()
-if (GetPlayerSlotState(Player(1)) == PLAYER_SLOT_STATE_EMPTY) then
-return true
-end
-if (GetPlayerSlotState(Player(1)) == PLAYER_SLOT_STATE_LEFT) then
-return true
-end
-return false
 end
 
 function Trig_Creep_Teleport_1_Func001Func001C()
-if (not Trig_Creep_Teleport_1_Func001Func001Func008C()) then
+if (not (udg_Integer_Array_ActivePlayer[1] == 0)) then
 return false
 end
-if (not Trig_Creep_Teleport_1_Func001Func001Func009C()) then
+if (not (udg_Integer_Array_ActivePlayer[2] == 0)) then
 return false
 end
 return true
@@ -3664,7 +3500,7 @@ function Trig_Creep_Teleport_1_Func001C()
 if (not (udg_Integer_PlayerCount == 1)) then
 return false
 end
-if (not (GetPlayerSlotState(Player(7)) == PLAYER_SLOT_STATE_PLAYING)) then
+if (not (udg_Integer_Array_ActivePlayer[8] == 1)) then
 return false
 end
 return true
@@ -3708,48 +3544,18 @@ TriggerRegisterEnterRectSimple(gg_trg_Creep_Teleport_1, gg_rct_CreepSpawn1)
 TriggerAddAction(gg_trg_Creep_Teleport_1, Trig_Creep_Teleport_1_Actions)
 end
 
-function Trig_Creep_Teleport_2_Func001Func001Func007Func007C()
-if (GetPlayerSlotState(Player(1)) == PLAYER_SLOT_STATE_EMPTY) then
-return true
-end
-if (GetPlayerSlotState(Player(1)) == PLAYER_SLOT_STATE_LEFT) then
-return true
-end
-return false
-end
-
-function Trig_Creep_Teleport_2_Func001Func001Func007C()
-if (not Trig_Creep_Teleport_2_Func001Func001Func007Func007C()) then
-return false
-end
-return true
-end
-
-function Trig_Creep_Teleport_2_Func001Func001Func008C()
-if (GetPlayerSlotState(Player(1)) == PLAYER_SLOT_STATE_EMPTY) then
-return true
-end
-if (GetPlayerSlotState(Player(1)) == PLAYER_SLOT_STATE_LEFT) then
-return true
-end
-return false
-end
-
 function Trig_Creep_Teleport_2_Func001Func001Func009C()
-if (GetPlayerSlotState(Player(2)) == PLAYER_SLOT_STATE_EMPTY) then
-return true
-end
-if (GetPlayerSlotState(Player(2)) == PLAYER_SLOT_STATE_LEFT) then
-return true
-end
+if (not (udg_Integer_Array_ActivePlayer[2] == 0)) then
 return false
+end
+return true
 end
 
 function Trig_Creep_Teleport_2_Func001Func001C()
-if (not Trig_Creep_Teleport_2_Func001Func001Func008C()) then
+if (not (udg_Integer_Array_ActivePlayer[2] == 0)) then
 return false
 end
-if (not Trig_Creep_Teleport_2_Func001Func001Func009C()) then
+if (not (udg_Integer_Array_ActivePlayer[3] == 0)) then
 return false
 end
 return true
@@ -3759,7 +3565,7 @@ function Trig_Creep_Teleport_2_Func001C()
 if (not (udg_Integer_PlayerCount == 1)) then
 return false
 end
-if (not (GetPlayerSlotState(Player(0)) == PLAYER_SLOT_STATE_PLAYING)) then
+if (not (udg_Integer_Array_ActivePlayer[1] == 1)) then
 return false
 end
 return true
@@ -3782,7 +3588,7 @@ SetUnitPositionLocFacingLocBJ(GetTriggerUnit(), udg_Temp_PointA, udg_Temp_PointB
 IssuePointOrderLocBJ(GetTriggerUnit(), "move", udg_Temp_PointB)
             RemoveLocation(udg_Temp_PointB)
 else
-if (Trig_Creep_Teleport_2_Func001Func001Func007C()) then
+if (Trig_Creep_Teleport_2_Func001Func001Func009C()) then
 udg_Temp_PointA = GetRectCenter(gg_rct_Teleport_Blue_2)
 udg_Temp_PointB = GetRectCenter(gg_rct_Waypoint_3)
 SetUnitPositionLocFacingLocBJ(GetTriggerUnit(), udg_Temp_PointA, udg_Temp_PointB)
@@ -3803,48 +3609,18 @@ TriggerRegisterEnterRectSimple(gg_trg_Creep_Teleport_2, gg_rct_CreepSpawn2)
 TriggerAddAction(gg_trg_Creep_Teleport_2, Trig_Creep_Teleport_2_Actions)
 end
 
-function Trig_Creep_Teleport_3_Func001Func001Func007Func007C()
-if (GetPlayerSlotState(Player(2)) == PLAYER_SLOT_STATE_EMPTY) then
-return true
-end
-if (GetPlayerSlotState(Player(2)) == PLAYER_SLOT_STATE_LEFT) then
-return true
-end
-return false
-end
-
-function Trig_Creep_Teleport_3_Func001Func001Func007C()
-if (not Trig_Creep_Teleport_3_Func001Func001Func007Func007C()) then
-return false
-end
-return true
-end
-
-function Trig_Creep_Teleport_3_Func001Func001Func008C()
-if (GetPlayerSlotState(Player(2)) == PLAYER_SLOT_STATE_EMPTY) then
-return true
-end
-if (GetPlayerSlotState(Player(2)) == PLAYER_SLOT_STATE_LEFT) then
-return true
-end
-return false
-end
-
 function Trig_Creep_Teleport_3_Func001Func001Func009C()
-if (GetPlayerSlotState(Player(3)) == PLAYER_SLOT_STATE_EMPTY) then
-return true
-end
-if (GetPlayerSlotState(Player(3)) == PLAYER_SLOT_STATE_LEFT) then
-return true
-end
+if (not (udg_Integer_Array_ActivePlayer[3] == 0)) then
 return false
+end
+return true
 end
 
 function Trig_Creep_Teleport_3_Func001Func001C()
-if (not Trig_Creep_Teleport_3_Func001Func001Func008C()) then
+if (not (udg_Integer_Array_ActivePlayer[3] == 0)) then
 return false
 end
-if (not Trig_Creep_Teleport_3_Func001Func001Func009C()) then
+if (not (udg_Integer_Array_ActivePlayer[4] == 0)) then
 return false
 end
 return true
@@ -3854,7 +3630,7 @@ function Trig_Creep_Teleport_3_Func001C()
 if (not (udg_Integer_PlayerCount == 1)) then
 return false
 end
-if (not (GetPlayerSlotState(Player(1)) == PLAYER_SLOT_STATE_PLAYING)) then
+if (not (udg_Integer_Array_ActivePlayer[2] == 1)) then
 return false
 end
 return true
@@ -3877,7 +3653,7 @@ SetUnitPositionLocFacingLocBJ(GetTriggerUnit(), udg_Temp_PointA, udg_Temp_PointB
 IssuePointOrderLocBJ(GetTriggerUnit(), "move", udg_Temp_PointB)
             RemoveLocation(udg_Temp_PointB)
 else
-if (Trig_Creep_Teleport_3_Func001Func001Func007C()) then
+if (Trig_Creep_Teleport_3_Func001Func001Func009C()) then
 udg_Temp_PointA = GetRectCenter(gg_rct_Teleport_Teal_2)
 udg_Temp_PointB = GetRectCenter(gg_rct_Waypoint_4)
 SetUnitPositionLocFacingLocBJ(GetTriggerUnit(), udg_Temp_PointA, udg_Temp_PointB)
@@ -3898,48 +3674,18 @@ TriggerRegisterEnterRectSimple(gg_trg_Creep_Teleport_3, gg_rct_CreepSpawn3)
 TriggerAddAction(gg_trg_Creep_Teleport_3, Trig_Creep_Teleport_3_Actions)
 end
 
-function Trig_Creep_Teleport_4_Func001Func001Func007Func007C()
-if (GetPlayerSlotState(Player(3)) == PLAYER_SLOT_STATE_EMPTY) then
-return true
-end
-if (GetPlayerSlotState(Player(3)) == PLAYER_SLOT_STATE_LEFT) then
-return true
-end
-return false
-end
-
-function Trig_Creep_Teleport_4_Func001Func001Func007C()
-if (not Trig_Creep_Teleport_4_Func001Func001Func007Func007C()) then
-return false
-end
-return true
-end
-
-function Trig_Creep_Teleport_4_Func001Func001Func008C()
-if (GetPlayerSlotState(Player(3)) == PLAYER_SLOT_STATE_EMPTY) then
-return true
-end
-if (GetPlayerSlotState(Player(3)) == PLAYER_SLOT_STATE_LEFT) then
-return true
-end
-return false
-end
-
 function Trig_Creep_Teleport_4_Func001Func001Func009C()
-if (GetPlayerSlotState(Player(4)) == PLAYER_SLOT_STATE_EMPTY) then
-return true
-end
-if (GetPlayerSlotState(Player(4)) == PLAYER_SLOT_STATE_LEFT) then
-return true
-end
+if (not (udg_Integer_Array_ActivePlayer[4] == 0)) then
 return false
+end
+return true
 end
 
 function Trig_Creep_Teleport_4_Func001Func001C()
-if (not Trig_Creep_Teleport_4_Func001Func001Func008C()) then
+if (not (udg_Integer_Array_ActivePlayer[4] == 0)) then
 return false
 end
-if (not Trig_Creep_Teleport_4_Func001Func001Func009C()) then
+if (not (udg_Integer_Array_ActivePlayer[5] == 0)) then
 return false
 end
 return true
@@ -3949,7 +3695,7 @@ function Trig_Creep_Teleport_4_Func001C()
 if (not (udg_Integer_PlayerCount == 1)) then
 return false
 end
-if (not (GetPlayerSlotState(Player(2)) == PLAYER_SLOT_STATE_PLAYING)) then
+if (not (udg_Integer_Array_ActivePlayer[3] == 1)) then
 return false
 end
 return true
@@ -3972,7 +3718,7 @@ SetUnitPositionLocFacingLocBJ(GetTriggerUnit(), udg_Temp_PointA, udg_Temp_PointB
 IssuePointOrderLocBJ(GetTriggerUnit(), "move", udg_Temp_PointB)
             RemoveLocation(udg_Temp_PointB)
 else
-if (Trig_Creep_Teleport_4_Func001Func001Func007C()) then
+if (Trig_Creep_Teleport_4_Func001Func001Func009C()) then
 udg_Temp_PointA = GetRectCenter(gg_rct_Teleport_Purple_2)
 udg_Temp_PointB = GetRectCenter(gg_rct_Waypoint_5)
 SetUnitPositionLocFacingLocBJ(GetTriggerUnit(), udg_Temp_PointA, udg_Temp_PointB)
@@ -3993,48 +3739,18 @@ TriggerRegisterEnterRectSimple(gg_trg_Creep_Teleport_4, gg_rct_CreepSpawn4)
 TriggerAddAction(gg_trg_Creep_Teleport_4, Trig_Creep_Teleport_4_Actions)
 end
 
-function Trig_Creep_Teleport_5_Func001Func001Func007Func007C()
-if (GetPlayerSlotState(Player(4)) == PLAYER_SLOT_STATE_EMPTY) then
-return true
-end
-if (GetPlayerSlotState(Player(4)) == PLAYER_SLOT_STATE_LEFT) then
-return true
-end
-return false
-end
-
-function Trig_Creep_Teleport_5_Func001Func001Func007C()
-if (not Trig_Creep_Teleport_5_Func001Func001Func007Func007C()) then
-return false
-end
-return true
-end
-
-function Trig_Creep_Teleport_5_Func001Func001Func008C()
-if (GetPlayerSlotState(Player(4)) == PLAYER_SLOT_STATE_EMPTY) then
-return true
-end
-if (GetPlayerSlotState(Player(4)) == PLAYER_SLOT_STATE_LEFT) then
-return true
-end
-return false
-end
-
 function Trig_Creep_Teleport_5_Func001Func001Func009C()
-if (GetPlayerSlotState(Player(5)) == PLAYER_SLOT_STATE_EMPTY) then
-return true
-end
-if (GetPlayerSlotState(Player(5)) == PLAYER_SLOT_STATE_LEFT) then
-return true
-end
+if (not (udg_Integer_Array_ActivePlayer[5] == 0)) then
 return false
+end
+return true
 end
 
 function Trig_Creep_Teleport_5_Func001Func001C()
-if (not Trig_Creep_Teleport_5_Func001Func001Func008C()) then
+if (not (udg_Integer_Array_ActivePlayer[5] == 0)) then
 return false
 end
-if (not Trig_Creep_Teleport_5_Func001Func001Func009C()) then
+if (not (udg_Integer_Array_ActivePlayer[6] == 0)) then
 return false
 end
 return true
@@ -4044,7 +3760,7 @@ function Trig_Creep_Teleport_5_Func001C()
 if (not (udg_Integer_PlayerCount == 1)) then
 return false
 end
-if (not (GetPlayerSlotState(Player(3)) == PLAYER_SLOT_STATE_PLAYING)) then
+if (not (udg_Integer_Array_ActivePlayer[4] == 1)) then
 return false
 end
 return true
@@ -4067,7 +3783,7 @@ SetUnitPositionLocFacingLocBJ(GetTriggerUnit(), udg_Temp_PointA, udg_Temp_PointB
 IssuePointOrderLocBJ(GetTriggerUnit(), "move", udg_Temp_PointB)
             RemoveLocation(udg_Temp_PointB)
 else
-if (Trig_Creep_Teleport_5_Func001Func001Func007C()) then
+if (Trig_Creep_Teleport_5_Func001Func001Func009C()) then
 udg_Temp_PointA = GetRectCenter(gg_rct_Teleport_Yellow_2)
 udg_Temp_PointB = GetRectCenter(gg_rct_Waypoint_6)
 SetUnitPositionLocFacingLocBJ(GetTriggerUnit(), udg_Temp_PointA, udg_Temp_PointB)
@@ -4088,48 +3804,18 @@ TriggerRegisterEnterRectSimple(gg_trg_Creep_Teleport_5, gg_rct_CreepSpawn5)
 TriggerAddAction(gg_trg_Creep_Teleport_5, Trig_Creep_Teleport_5_Actions)
 end
 
-function Trig_Creep_Teleport_6_Func001Func001Func007Func007C()
-if (GetPlayerSlotState(Player(5)) == PLAYER_SLOT_STATE_EMPTY) then
-return true
-end
-if (GetPlayerSlotState(Player(5)) == PLAYER_SLOT_STATE_LEFT) then
-return true
-end
-return false
-end
-
-function Trig_Creep_Teleport_6_Func001Func001Func007C()
-if (not Trig_Creep_Teleport_6_Func001Func001Func007Func007C()) then
-return false
-end
-return true
-end
-
-function Trig_Creep_Teleport_6_Func001Func001Func008C()
-if (GetPlayerSlotState(Player(5)) == PLAYER_SLOT_STATE_EMPTY) then
-return true
-end
-if (GetPlayerSlotState(Player(5)) == PLAYER_SLOT_STATE_LEFT) then
-return true
-end
-return false
-end
-
 function Trig_Creep_Teleport_6_Func001Func001Func009C()
-if (GetPlayerSlotState(Player(6)) == PLAYER_SLOT_STATE_EMPTY) then
-return true
-end
-if (GetPlayerSlotState(Player(6)) == PLAYER_SLOT_STATE_LEFT) then
-return true
-end
+if (not (udg_Integer_Array_ActivePlayer[6] == 0)) then
 return false
+end
+return true
 end
 
 function Trig_Creep_Teleport_6_Func001Func001C()
-if (not Trig_Creep_Teleport_6_Func001Func001Func008C()) then
+if (not (udg_Integer_Array_ActivePlayer[6] == 0)) then
 return false
 end
-if (not Trig_Creep_Teleport_6_Func001Func001Func009C()) then
+if (not (udg_Integer_Array_ActivePlayer[7] == 0)) then
 return false
 end
 return true
@@ -4139,7 +3825,7 @@ function Trig_Creep_Teleport_6_Func001C()
 if (not (udg_Integer_PlayerCount == 1)) then
 return false
 end
-if (not (GetPlayerSlotState(Player(4)) == PLAYER_SLOT_STATE_PLAYING)) then
+if (not (udg_Integer_Array_ActivePlayer[5] == 1)) then
 return false
 end
 return true
@@ -4162,7 +3848,7 @@ SetUnitPositionLocFacingLocBJ(GetTriggerUnit(), udg_Temp_PointA, udg_Temp_PointB
 IssuePointOrderLocBJ(GetTriggerUnit(), "move", udg_Temp_PointB)
             RemoveLocation(udg_Temp_PointB)
 else
-if (Trig_Creep_Teleport_6_Func001Func001Func007C()) then
+if (Trig_Creep_Teleport_6_Func001Func001Func009C()) then
 udg_Temp_PointA = GetRectCenter(gg_rct_Teleport_Orange_2)
 udg_Temp_PointB = GetRectCenter(gg_rct_Waypoint_7)
 SetUnitPositionLocFacingLocBJ(GetTriggerUnit(), udg_Temp_PointA, udg_Temp_PointB)
@@ -4183,48 +3869,18 @@ TriggerRegisterEnterRectSimple(gg_trg_Creep_Teleport_6, gg_rct_CreepSpawn6)
 TriggerAddAction(gg_trg_Creep_Teleport_6, Trig_Creep_Teleport_6_Actions)
 end
 
-function Trig_Creep_Teleport_7_Func001Func001Func007Func007C()
-if (GetPlayerSlotState(Player(6)) == PLAYER_SLOT_STATE_EMPTY) then
-return true
-end
-if (GetPlayerSlotState(Player(6)) == PLAYER_SLOT_STATE_LEFT) then
-return true
-end
-return false
-end
-
-function Trig_Creep_Teleport_7_Func001Func001Func007C()
-if (not Trig_Creep_Teleport_7_Func001Func001Func007Func007C()) then
-return false
-end
-return true
-end
-
-function Trig_Creep_Teleport_7_Func001Func001Func008C()
-if (GetPlayerSlotState(Player(6)) == PLAYER_SLOT_STATE_EMPTY) then
-return true
-end
-if (GetPlayerSlotState(Player(6)) == PLAYER_SLOT_STATE_LEFT) then
-return true
-end
-return false
-end
-
 function Trig_Creep_Teleport_7_Func001Func001Func009C()
-if (GetPlayerSlotState(Player(7)) == PLAYER_SLOT_STATE_EMPTY) then
-return true
-end
-if (GetPlayerSlotState(Player(7)) == PLAYER_SLOT_STATE_LEFT) then
-return true
-end
+if (not (udg_Integer_Array_ActivePlayer[7] == 0)) then
 return false
+end
+return true
 end
 
 function Trig_Creep_Teleport_7_Func001Func001C()
-if (not Trig_Creep_Teleport_7_Func001Func001Func008C()) then
+if (not (udg_Integer_Array_ActivePlayer[7] == 0)) then
 return false
 end
-if (not Trig_Creep_Teleport_7_Func001Func001Func009C()) then
+if (not (udg_Integer_Array_ActivePlayer[8] == 0)) then
 return false
 end
 return true
@@ -4234,7 +3890,7 @@ function Trig_Creep_Teleport_7_Func001C()
 if (not (udg_Integer_PlayerCount == 1)) then
 return false
 end
-if (not (GetPlayerSlotState(Player(5)) == PLAYER_SLOT_STATE_PLAYING)) then
+if (not (udg_Integer_Array_ActivePlayer[6] == 1)) then
 return false
 end
 return true
@@ -4257,7 +3913,7 @@ SetUnitPositionLocFacingLocBJ(GetTriggerUnit(), udg_Temp_PointA, udg_Temp_PointB
 IssuePointOrderLocBJ(GetTriggerUnit(), "move", udg_Temp_PointB)
             RemoveLocation(udg_Temp_PointB)
 else
-if (Trig_Creep_Teleport_7_Func001Func001Func007C()) then
+if (Trig_Creep_Teleport_7_Func001Func001Func009C()) then
 udg_Temp_PointA = GetRectCenter(gg_rct_Teleport_Green_2)
 udg_Temp_PointB = GetRectCenter(gg_rct_Waypoint_8)
 SetUnitPositionLocFacingLocBJ(GetTriggerUnit(), udg_Temp_PointA, udg_Temp_PointB)
@@ -4278,48 +3934,18 @@ TriggerRegisterEnterRectSimple(gg_trg_Creep_Teleport_7, gg_rct_CreepSpawn7)
 TriggerAddAction(gg_trg_Creep_Teleport_7, Trig_Creep_Teleport_7_Actions)
 end
 
-function Trig_Creep_Teleport_8_Func001Func001Func007Func007C()
-if (GetPlayerSlotState(Player(7)) == PLAYER_SLOT_STATE_EMPTY) then
-return true
-end
-if (GetPlayerSlotState(Player(7)) == PLAYER_SLOT_STATE_LEFT) then
-return true
-end
-return false
-end
-
-function Trig_Creep_Teleport_8_Func001Func001Func007C()
-if (not Trig_Creep_Teleport_8_Func001Func001Func007Func007C()) then
-return false
-end
-return true
-end
-
-function Trig_Creep_Teleport_8_Func001Func001Func008C()
-if (GetPlayerSlotState(Player(7)) == PLAYER_SLOT_STATE_EMPTY) then
-return true
-end
-if (GetPlayerSlotState(Player(7)) == PLAYER_SLOT_STATE_LEFT) then
-return true
-end
-return false
-end
-
 function Trig_Creep_Teleport_8_Func001Func001Func009C()
-if (GetPlayerSlotState(Player(0)) == PLAYER_SLOT_STATE_EMPTY) then
-return true
-end
-if (GetPlayerSlotState(Player(0)) == PLAYER_SLOT_STATE_LEFT) then
-return true
-end
+if (not (udg_Integer_Array_ActivePlayer[8] == 0)) then
 return false
+end
+return true
 end
 
 function Trig_Creep_Teleport_8_Func001Func001C()
-if (not Trig_Creep_Teleport_8_Func001Func001Func008C()) then
+if (not (udg_Integer_Array_ActivePlayer[8] == 0)) then
 return false
 end
-if (not Trig_Creep_Teleport_8_Func001Func001Func009C()) then
+if (not (udg_Integer_Array_ActivePlayer[1] == 0)) then
 return false
 end
 return true
@@ -4329,7 +3955,7 @@ function Trig_Creep_Teleport_8_Func001C()
 if (not (udg_Integer_PlayerCount == 1)) then
 return false
 end
-if (not (GetPlayerSlotState(Player(6)) == PLAYER_SLOT_STATE_PLAYING)) then
+if (not (udg_Integer_Array_ActivePlayer[7] == 1)) then
 return false
 end
 return true
@@ -4352,7 +3978,7 @@ SetUnitPositionLocFacingLocBJ(GetTriggerUnit(), udg_Temp_PointA, udg_Temp_PointB
 IssuePointOrderLocBJ(GetTriggerUnit(), "move", udg_Temp_PointB)
             RemoveLocation(udg_Temp_PointB)
 else
-if (Trig_Creep_Teleport_8_Func001Func001Func007C()) then
+if (Trig_Creep_Teleport_8_Func001Func001Func009C()) then
 udg_Temp_PointA = GetRectCenter(gg_rct_Teleport_Pink_2)
 udg_Temp_PointB = GetRectCenter(gg_rct_Waypoint_1)
 SetUnitPositionLocFacingLocBJ(GetTriggerUnit(), udg_Temp_PointA, udg_Temp_PointB)
@@ -4704,6 +4330,7 @@ InitTrig_Unit_Die()
 InitTrig_Leaving_Players()
 InitTrig_Sell_Towers()
 InitTrig_Lumber_Bounty()
+InitTrig_Invulnerable_Towers()
 InitTrig_Remove_Ethereal()
 InitTrig_Anomaly_Tower_Limit()
 InitTrig_Anomaly_Tower_Limit_Copy()
@@ -4729,7 +4356,6 @@ InitTrig_Satans_Claw_Give()
 InitTrig_Satans_Claw_Remove()
 InitTrig_Satans_Claw_Upgrade()
 InitTrig_Hellfrost_Enchantment_Armor_Remove()
-InitTrig_Dichotomous_Box_Gold()
 InitTrig_Argent_Conduit()
 InitTrig_Satans_Claw()
 InitTrig_Ghastly_Vial()
@@ -4997,8 +4623,8 @@ RunInitializationTriggers()
 end
 
 function config()
-SetMapName("TRIGSTR_001")
-SetMapDescription("TRIGSTR_385")
+SetMapName("TRIGSTR_1904")
+SetMapDescription("TRIGSTR_1906")
 SetPlayers(9)
 SetTeams(9)
 SetGamePlacement(MAP_PLACEMENT_TEAMS_TOGETHER)
