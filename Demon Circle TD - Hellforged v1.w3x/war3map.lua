@@ -110,8 +110,7 @@ gg_rct_Teleport_Pink_2 = nil
 gg_rct_Teleport_Pink_1 = nil
 gg_rct_Teleport_Green_2 = nil
 gg_trg_Map_Initialization = nil
-gg_trg_Leaderboard = nil
-gg_trg_Starting_Locations = nil
+gg_trg_Map_Start = nil
 gg_trg_Change_Difficulty = nil
 gg_trg_Change_Lives = nil
 gg_trg_Change_Max_Creeps = nil
@@ -228,7 +227,7 @@ if ((i > 1)) then break end
 udg_Integer_Array_DicBoxGoldChance[i] = 0
 i = i + 1
 end
-udg_Integer_EnemyHandicap = 100
+udg_Integer_EnemyHandicap = 80
 udg_PlyGrp_SellTower = CreateForce()
 udg_Integer_EtherealChance = 0
 udg_Integer_ShieldChance = 0
@@ -444,35 +443,7 @@ gg_rct_Teleport_Pink_1 = Rect(-6144.0, 1792.0, -5760.0, 1920.0)
 gg_rct_Teleport_Green_2 = Rect(-5632.0, 512.0, -5248.0, 640.0)
 end
 
-function Trig_Map_Initialization_Func001Func001C()
-if (not (GetPlayerSlotState(ConvertedPlayer(GetForLoopIndexA())) == PLAYER_SLOT_STATE_PLAYING)) then
-return false
-end
-return true
-end
-
 function Trig_Map_Initialization_Actions()
-bj_forLoopAIndex = 1
-bj_forLoopAIndexEnd = 8
-while (true) do
-if (bj_forLoopAIndex > bj_forLoopAIndexEnd) then break end
-if (Trig_Map_Initialization_Func001Func001C()) then
-udg_Integer_Array_ActivePlayer[GetForLoopIndexA()] = 1
-udg_Integer_PlayerCount = (udg_Integer_PlayerCount + 1)
-udg_Temp_PointA = GetPlayerStartLocationLoc(ConvertedPlayer(GetForLoopIndexA()))
-CreateNUnitsAtLoc(1, FourCC("u005"), ConvertedPlayer(GetForLoopIndexA()), udg_Temp_PointA, bj_UNIT_FACING)
-            RemoveLocation(udg_Temp_PointA)
-SetPlayerStateBJ(ConvertedPlayer(GetForLoopIndexA()), PLAYER_STATE_RESOURCE_GOLD, 75)
-CreateFogModifierRectBJ(true, ConvertedPlayer(GetForLoopIndexA()), FOG_OF_WAR_VISIBLE, GetPlayableMapRect())
-SetPlayerTechMaxAllowedSwap(FourCC("u01J"), 1, ConvertedPlayer(GetForLoopIndexA()))
-SetPlayerTechMaxAllowedSwap(FourCC("u01K"), 1, ConvertedPlayer(GetForLoopIndexA()))
-SetPlayerTechMaxAllowedSwap(FourCC("u01L"), 1, ConvertedPlayer(GetForLoopIndexA()))
-else
-end
-bj_forLoopAIndex = bj_forLoopAIndex + 1
-end
-udg_Real_WaveHealthModifier = (udg_Real_WaveHealthModifier + (0.03 * I2R(udg_Integer_PlayerCount)))
-udg_Integer_MaxCreeps = (60 * udg_Integer_PlayerCount)
 SetPlayerFlagBJ(PLAYER_STATE_GIVES_BOUNTY, true, Player(10))
 SetPlayerFlagBJ(PLAYER_STATE_GIVES_BOUNTY, true, Player(11))
 SetPlayerAllianceStateBJ(Player(8), Player(10), bj_ALLIANCE_ALLIED_VISION)
@@ -675,49 +646,69 @@ gg_trg_Map_Initialization = CreateTrigger()
 TriggerAddAction(gg_trg_Map_Initialization, Trig_Map_Initialization_Actions)
 end
 
-function Trig_Leaderboard_Func004Func001C()
+function Trig_Map_Start_Func001Func001C()
+if (not (GetPlayerSlotState(ConvertedPlayer(GetForLoopIndexA())) == PLAYER_SLOT_STATE_PLAYING)) then
+return false
+end
+return true
+end
+
+function Trig_Map_Start_Func007Func001C()
 if (not (udg_Integer_Array_ActivePlayer[GetForLoopIndexA()] == 1)) then
 return false
 end
 return true
 end
 
-function Trig_Leaderboard_Actions()
-CreateLeaderboardBJ(GetPlayersAll(), "TRIGSTR_1895")
-LeaderboardSetLabelBJ(GetLastCreatedLeaderboard(), (("|cffff9622Lives = " .. (("|cff8080ff" .. "100.000") .. "%|r ")) .. (("|cffff9622Diff = " .. "100") .. "%|r")))
+function Trig_Map_Start_Actions()
+bj_forLoopAIndex = 1
+bj_forLoopAIndexEnd = 8
+while (true) do
+if (bj_forLoopAIndex > bj_forLoopAIndexEnd) then break end
+if (Trig_Map_Start_Func001Func001C()) then
+udg_Integer_Array_ActivePlayer[GetForLoopIndexA()] = 1
+udg_Integer_PlayerCount = (udg_Integer_PlayerCount + 1)
+udg_Temp_PointA = GetPlayerStartLocationLoc(ConvertedPlayer(GetForLoopIndexA()))
+CreateNUnitsAtLoc(1, FourCC("u005"), ConvertedPlayer(GetForLoopIndexA()), udg_Temp_PointA, bj_UNIT_FACING)
+GroupAddUnitSimple(GetLastCreatedUnit(), udg_Unit_Group_Demons)
+            RemoveLocation(udg_Temp_PointA)
+SetPlayerStateBJ(ConvertedPlayer(GetForLoopIndexA()), PLAYER_STATE_RESOURCE_GOLD, 75)
+CreateFogModifierRectBJ(true, ConvertedPlayer(GetForLoopIndexA()), FOG_OF_WAR_VISIBLE, GetPlayableMapRect())
+SetPlayerTechMaxAllowedSwap(FourCC("u01J"), 1, ConvertedPlayer(GetForLoopIndexA()))
+SetPlayerTechMaxAllowedSwap(FourCC("u01K"), 1, ConvertedPlayer(GetForLoopIndexA()))
+SetPlayerTechMaxAllowedSwap(FourCC("u01L"), 1, ConvertedPlayer(GetForLoopIndexA()))
+else
+end
+bj_forLoopAIndex = bj_forLoopAIndex + 1
+end
+udg_Real_WaveHealthModifier = (udg_Real_WaveHealthModifier + (0.03 * I2R(udg_Integer_PlayerCount)))
+udg_Integer_MaxCreeps = (60 * udg_Integer_PlayerCount)
+CreateLeaderboardBJ(GetPlayersAll(), "TRIGSTR_1910")
+LeaderboardSetLabelBJ(GetLastCreatedLeaderboard(), (("|cffff9622Lives = " .. (("|cff8080ff" .. "100.000") .. "%|r ")) .. (("|cffff9622Diff = " .. "80") .. "%|r")))
 udg_LB_Info = GetLastCreatedLeaderboard()
 bj_forLoopAIndex = 1
 bj_forLoopAIndexEnd = 8
 while (true) do
 if (bj_forLoopAIndex > bj_forLoopAIndexEnd) then break end
-if (Trig_Leaderboard_Func004Func001C()) then
+if (Trig_Map_Start_Func007Func001C()) then
 LeaderboardAddItemBJ(ConvertedPlayer(GetForLoopIndexA()), udg_LB_Info, GetPlayerName(ConvertedPlayer(GetForLoopIndexA())), udg_I_Kills[GetConvertedPlayerId(ConvertedPlayer(GetForLoopIndexA()))])
 else
-LeaderboardAddItemBJ(ConvertedPlayer(GetForLoopIndexA()), udg_LB_Info, "TRIGSTR_1893", udg_I_Kills[GetConvertedPlayerId(ConvertedPlayer(GetForLoopIndexA()))])
+LeaderboardAddItemBJ(ConvertedPlayer(GetForLoopIndexA()), udg_LB_Info, "TRIGSTR_1908", udg_I_Kills[GetConvertedPlayerId(ConvertedPlayer(GetForLoopIndexA()))])
 end
 bj_forLoopAIndex = bj_forLoopAIndex + 1
 end
-LeaderboardAddItemBJ(Player(9), GetLastCreatedLeaderboard(), "TRIGSTR_1894", udg_I_Round)
+LeaderboardAddItemBJ(Player(9), GetLastCreatedLeaderboard(), "TRIGSTR_1909", udg_I_Round)
 LeaderboardAddItemBJ(Player(8), GetLastCreatedLeaderboard(), ("Demons [Max " .. (I2S(udg_Integer_MaxCreeps) .. "]:")), udg_I_NumberOfCreeps)
-end
-
-function InitTrig_Leaderboard()
-gg_trg_Leaderboard = CreateTrigger()
-TriggerRegisterTimerEventSingle(gg_trg_Leaderboard, 0.00)
-TriggerAddAction(gg_trg_Leaderboard, Trig_Leaderboard_Actions)
-end
-
-function Trig_Starting_Locations_Actions()
 StartTimerBJ(udg_T_NextRound, false, 30.00)
 CreateTimerDialogBJ(GetLastCreatedTimerBJ(), ("Round " .. (I2S((udg_I_Round + 1)) .. " in:")))
 TimerDialogDisplayBJ(true, GetLastCreatedTimerDialogBJ())
 udg_TW_NextRound = GetLastCreatedTimerDialogBJ()
 end
 
-function InitTrig_Starting_Locations()
-gg_trg_Starting_Locations = CreateTrigger()
-TriggerRegisterTimerEventSingle(gg_trg_Starting_Locations, 0.00)
-TriggerAddAction(gg_trg_Starting_Locations, Trig_Starting_Locations_Actions)
+function InitTrig_Map_Start()
+gg_trg_Map_Start = CreateTrigger()
+TriggerRegisterTimerEventSingle(gg_trg_Map_Start, 0.00)
+TriggerAddAction(gg_trg_Map_Start, Trig_Map_Start_Actions)
 end
 
 function Trig_Change_Difficulty_Func004Func001Func001Func002C()
@@ -887,7 +878,7 @@ DisplayTimedTextToForce(GetPlayersAll(), 5.00, ("Difficulty is now: " .. (I2S(ud
 udg_Integer_MaxCreeps = (udg_Integer_MaxCreeps - 10)
 udg_Integer_Array_DifficultyVote[1] = (udg_Integer_Array_DifficultyVote[1] + 1)
 udg_Integer_MaxSpawncount = (udg_Integer_MaxSpawncount + 2)
-udg_Real_WaveTimer = (udg_Real_WaveTimer - 1)
+udg_Real_WaveTimer = (udg_Real_WaveTimer - 0.25)
 else
 end
 if (Trig_Difficulty_Adjust_Func002C()) then
@@ -975,7 +966,7 @@ return true
 end
 
 function Trig_Next_Round_Func007A()
-AdjustPlayerStateBJ(10, GetEnumPlayer(), PLAYER_STATE_RESOURCE_GOLD)
+AdjustPlayerStateBJ(15, GetEnumPlayer(), PLAYER_STATE_RESOURCE_GOLD)
 end
 
 function Trig_Next_Round_Func012C()
@@ -1046,6 +1037,13 @@ end
 return true
 end
 
+function Trig_Wave_Spawning_Func003Func001Func002C()
+if (not (GetForLoopIndexA() <= 4)) then
+return false
+end
+return true
+end
+
 function Trig_Wave_Spawning_Func003Func001C()
 if (not (udg_Integer_Array_ActivePlayer[GetForLoopIndexA()] == 1)) then
 return false
@@ -1081,7 +1079,11 @@ while (true) do
 if (bj_forLoopAIndex > bj_forLoopAIndexEnd) then break end
 if (Trig_Wave_Spawning_Func003Func001C()) then
 udg_Point_Array_WaveSpawnpoint[GetForLoopIndexA()] = GetRectCenter(udg_Region_Array_Spawns[GetForLoopIndexA()])
+if (Trig_Wave_Spawning_Func003Func001Func002C()) then
+CreateNUnitsAtLoc(1, udg_UT_UnitType[udg_I_Round], Player(10), udg_Point_Array_WaveSpawnpoint[GetForLoopIndexA()], udg_Real_Array_SpawnDegrees[GetForLoopIndexA()])
+else
 CreateNUnitsAtLoc(1, udg_UT_UnitType[udg_I_Round], Player(11), udg_Point_Array_WaveSpawnpoint[GetForLoopIndexA()], udg_Real_Array_SpawnDegrees[GetForLoopIndexA()])
+end
             RemoveLocation(udg_Point_Array_WaveSpawnpoint[GetForLoopIndexA()])
 UnitAddAbilityBJ(FourCC("A019"), GetLastCreatedUnit())
 SetUnitAbilityLevelSwapped(FourCC("A019"), GetLastCreatedUnit(), GetForLoopIndexA())
@@ -1160,7 +1162,7 @@ end
 end
 
 function Trig_Commander_Spawning_Actions()
-udg_Real_CommanderHealth = (300.00 + (50.00 * I2R(udg_I_Round)))
+udg_Real_CommanderHealth = (150.00 + (30.00 * I2R(udg_I_Round)))
 udg_Real_CommanderHealth = (udg_Real_CommanderHealth * (GetPlayerHandicapBJ(Player(12)) / 100.00))
 udg_Real_CommanderHealth = (udg_Real_CommanderHealth * udg_Real_WaveHealthModifier)
 udg_Real_CommanderArmour = (5.00 + (I2R(udg_I_Round) * 0.10))
@@ -3229,6 +3231,85 @@ TriggerAddCondition(gg_trg_Hellfrost_Enchantment_Armor_Remove, Condition(Trig_He
 TriggerAddAction(gg_trg_Hellfrost_Enchantment_Armor_Remove, Trig_Hellfrost_Enchantment_Armor_Remove_Actions)
 end
 
+function Trig_Dichotomous_Box_Gold_Func001Func001Func002Func001Func002Func001Func002C()
+if (not (udg_Integer_Array_DicBoxGoldChance[GetConvertedPlayerId(GetOwningPlayer(GetEnumUnit()))] <= 50)) then
+return false
+end
+return true
+end
+
+function Trig_Dichotomous_Box_Gold_Func001Func001Func002Func001Func002Func001C()
+if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I00F"))) == 3)) then
+return false
+end
+return true
+end
+
+function Trig_Dichotomous_Box_Gold_Func001Func001Func002Func001Func002C()
+if (not (udg_Integer_Array_DicBoxGoldChance[GetConvertedPlayerId(GetOwningPlayer(GetEnumUnit()))] <= 50)) then
+return false
+end
+return true
+end
+
+function Trig_Dichotomous_Box_Gold_Func001Func001Func002Func001C()
+if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEnumUnit(), FourCC("I00F"))) == 2)) then
+return false
+end
+return true
+end
+
+function Trig_Dichotomous_Box_Gold_Func001Func001Func002C()
+if (not (udg_Integer_Array_DicBoxGoldChance[GetConvertedPlayerId(GetOwningPlayer(GetEnumUnit()))] <= 50)) then
+return false
+end
+return true
+end
+
+function Trig_Dichotomous_Box_Gold_Func001Func001C()
+if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEnumUnit(), FourCC("I00D"))) == 1)) then
+return false
+end
+return true
+end
+
+function Trig_Dichotomous_Box_Gold_Func001A()
+if (Trig_Dichotomous_Box_Gold_Func001Func001C()) then
+udg_Integer_Array_DicBoxGoldChance[GetConvertedPlayerId(GetOwningPlayer(GetEnumUnit()))] = GetRandomInt(1, 100)
+if (Trig_Dichotomous_Box_Gold_Func001Func001Func002C()) then
+AdjustPlayerStateBJ(GetRandomInt(-1, 1), GetOwningPlayer(GetEnumUnit()), PLAYER_STATE_RESOURCE_GOLD)
+else
+if (Trig_Dichotomous_Box_Gold_Func001Func001Func002Func001C()) then
+udg_Integer_Array_DicBoxGoldChance[GetConvertedPlayerId(GetOwningPlayer(GetEnumUnit()))] = GetRandomInt(1, 100)
+if (Trig_Dichotomous_Box_Gold_Func001Func001Func002Func001Func002C()) then
+AdjustPlayerStateBJ(GetRandomInt(-2, 2), GetOwningPlayer(GetEnumUnit()), PLAYER_STATE_RESOURCE_GOLD)
+else
+if (Trig_Dichotomous_Box_Gold_Func001Func001Func002Func001Func002Func001C()) then
+udg_Integer_Array_DicBoxGoldChance[GetConvertedPlayerId(GetOwningPlayer(GetEnumUnit()))] = GetRandomInt(1, 100)
+if (Trig_Dichotomous_Box_Gold_Func001Func001Func002Func001Func002Func001Func002C()) then
+AdjustPlayerStateBJ(GetRandomInt(-4, 4), GetOwningPlayer(GetEnumUnit()), PLAYER_STATE_RESOURCE_GOLD)
+else
+end
+else
+end
+end
+else
+end
+end
+else
+end
+end
+
+function Trig_Dichotomous_Box_Gold_Actions()
+ForGroupBJ(udg_Unit_Group_Demons, Trig_Dichotomous_Box_Gold_Func001A)
+end
+
+function InitTrig_Dichotomous_Box_Gold()
+gg_trg_Dichotomous_Box_Gold = CreateTrigger()
+TriggerRegisterTimerEventPeriodic(gg_trg_Dichotomous_Box_Gold, 2.50)
+TriggerAddAction(gg_trg_Dichotomous_Box_Gold, Trig_Dichotomous_Box_Gold_Actions)
+end
+
 function Trig_Argent_Conduit_Func001C()
 if (not (GetUnitAbilityLevelSwapped(FourCC("A022"), GetManipulatingUnit()) ~= 1)) then
 return false
@@ -4313,8 +4394,7 @@ end
 
 function InitCustomTriggers()
 InitTrig_Map_Initialization()
-InitTrig_Leaderboard()
-InitTrig_Starting_Locations()
+InitTrig_Map_Start()
 InitTrig_Change_Difficulty()
 InitTrig_Change_Lives()
 InitTrig_Change_Max_Creeps()
@@ -4356,6 +4436,7 @@ InitTrig_Satans_Claw_Give()
 InitTrig_Satans_Claw_Remove()
 InitTrig_Satans_Claw_Upgrade()
 InitTrig_Hellfrost_Enchantment_Armor_Remove()
+InitTrig_Dichotomous_Box_Gold()
 InitTrig_Argent_Conduit()
 InitTrig_Satans_Claw()
 InitTrig_Ghastly_Vial()
