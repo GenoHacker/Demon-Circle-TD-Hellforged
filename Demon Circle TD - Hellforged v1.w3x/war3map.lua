@@ -410,23 +410,6 @@ SetSoundDuration(gg_snd_MapPing, 1636)
 SetSoundVolume(gg_snd_MapPing, 127)
 end
 
-function CreateNeutralHostile()
-local p = Player(PLAYER_NEUTRAL_AGGRESSIVE)
-local u
-local unitID
-local t
-local life
-
-u = BlzCreateUnitWithSkin(p, FourCC("uaco"), -5044.1, 3502.2, 306.407, FourCC("uaco"))
-u = BlzCreateUnitWithSkin(p, FourCC("uaco"), -5080.5, 3488.9, 42.189, FourCC("uaco"))
-u = BlzCreateUnitWithSkin(p, FourCC("uaco"), -5079.2, 3444.5, 236.213, FourCC("uaco"))
-u = BlzCreateUnitWithSkin(p, FourCC("uaco"), -5027.2, 3464.1, 129.335, FourCC("uaco"))
-u = BlzCreateUnitWithSkin(p, FourCC("uaco"), -4890.7, 3186.2, 353.375, FourCC("uaco"))
-u = BlzCreateUnitWithSkin(p, FourCC("uaco"), -4890.1, 3136.9, 347.058, FourCC("uaco"))
-u = BlzCreateUnitWithSkin(p, FourCC("uaco"), -4844.0, 3132.8, 40.903, FourCC("uaco"))
-u = BlzCreateUnitWithSkin(p, FourCC("uaco"), -4838.4, 3187.6, 300.661, FourCC("uaco"))
-end
-
 function CreateNeutralPassiveBuildings()
 local p = Player(PLAYER_NEUTRAL_PASSIVE)
 local u
@@ -459,7 +442,6 @@ end
 function CreateAllUnits()
 CreateNeutralPassiveBuildings()
 CreatePlayerBuildings()
-CreateNeutralHostile()
 CreateNeutralPassive()
 CreatePlayerUnits()
 end
