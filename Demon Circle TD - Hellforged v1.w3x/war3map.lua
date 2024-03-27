@@ -130,7 +130,6 @@ gg_rct_Teleport_Green_2 = nil
 gg_snd_MapPing = nil
 gg_trg_Map_Initialization = nil
 gg_trg_Map_Start = nil
-gg_trg_Untitled_Trigger_001 = nil
 gg_trg_Change_Difficulty = nil
 gg_trg_Change_Lives = nil
 gg_trg_Change_Max_Creeps = nil
@@ -161,7 +160,6 @@ gg_trg_Hellfire_Reagent_Give = nil
 gg_trg_Hellfire_Reagent_Remove = nil
 gg_trg_Hellfire_Reagent_Upgrade = nil
 gg_trg_Ghastly_Vial_Unit = nil
-gg_trg_Ghastly_Vial_Cast = nil
 gg_trg_Khorns_Gift_Dummys = nil
 gg_trg_Jar_of_Demonfire_Give = nil
 gg_trg_Jar_of_Demonfire_Remove = nil
@@ -200,6 +198,7 @@ gg_trg_Creep_Spawn_7 = nil
 gg_trg_Creep_Spawn_8 = nil
 gg_trg_Fluctuation_Tower_Ability = nil
 gg_trg_Fluctuation_Tower_Mana = nil
+gg_trg_Fluctuation_Tower_Add = nil
 function InitGlobals()
 local i = 0
 
@@ -1844,7 +1843,6 @@ SetUnitManaBJ(GetEventDamageSource(), 0.00)
 SetUnitUserData(GetEventDamageSource(), (GetUnitUserData(GetEventDamageSource()) + 1))
 if (Trig_Fluctuation_Tower_Ability_Func004C()) then
 BlzSetUnitAttackCooldown(GetEventDamageSource(), GetRandomReal((4.00 - BlzGetUnitRealField(GetEventDamageSource(), UNIT_RF_PRIORITY)), (3.00 + BlzGetUnitRealField(GetEventDamageSource(), UNIT_RF_PRIORITY))), (1 - 1))
-DisplayTextToForce(GetPlayersAll(), R2S(BlzGetUnitAttackCooldown(GetEventDamageSource(), 0)))
 SetUnitUserData(GetEventDamageSource(), 0)
 BlzSetUnitBaseDamage(GetEventDamageSource(), udg_Integer_Array_FluctuationDam[R2I(BlzGetUnitRealField(GetEventDamageSource(), UNIT_RF_PRIORITY))], 0)
 else
@@ -1871,6 +1869,25 @@ function InitTrig_Fluctuation_Tower_Mana()
 gg_trg_Fluctuation_Tower_Mana = CreateTrigger()
 TriggerRegisterTimerEventPeriodic(gg_trg_Fluctuation_Tower_Mana, 1.00)
 TriggerAddAction(gg_trg_Fluctuation_Tower_Mana, Trig_Fluctuation_Tower_Mana_Actions)
+end
+
+function Trig_Fluctuation_Tower_Add_Conditions()
+if (not (GetUnitAbilityLevelSwapped(FourCC("A022"), GetTriggerUnit()) == 1)) then
+return false
+end
+return true
+end
+
+function Trig_Fluctuation_Tower_Add_Actions()
+GroupAddUnitSimple(GetTriggerUnit(), udg_UnitGroup_FluctuationTowerMana)
+end
+
+function InitTrig_Fluctuation_Tower_Add()
+gg_trg_Fluctuation_Tower_Add = CreateTrigger()
+TriggerRegisterAnyUnitEventBJ(gg_trg_Fluctuation_Tower_Add, EVENT_PLAYER_UNIT_UPGRADE_FINISH)
+TriggerRegisterAnyUnitEventBJ(gg_trg_Fluctuation_Tower_Add, EVENT_PLAYER_UNIT_CONSTRUCT_FINISH)
+TriggerAddCondition(gg_trg_Fluctuation_Tower_Add, Condition(Trig_Fluctuation_Tower_Add_Conditions))
+TriggerAddAction(gg_trg_Fluctuation_Tower_Add, Trig_Fluctuation_Tower_Add_Actions)
 end
 
 function Trig_Sanguine_Stacks_Remove_Conditions()
@@ -2354,6 +2371,7 @@ if (Trig_Ghastly_Vial_Unit_Func002C()) then
 udg_Temp_PointA = GetUnitLoc(GetEventDamageSource())
 CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointA, bj_UNIT_FACING)
 UnitAddAbilityBJ(FourCC("A00V"), GetLastCreatedUnit())
+IssueTargetOrderBJ(GetLastCreatedUnit(), "chainlightning", BlzGetEventDamageTarget())
 SetUnitAbilityLevelSwapped(FourCC("A00V"), GetLastCreatedUnit(), GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I005"))))
 UnitApplyTimedLifeBJ(2.00, FourCC("BTLF"), GetLastCreatedUnit())
         RemoveLocation(udg_Temp_PointA)
@@ -2366,24 +2384,6 @@ gg_trg_Ghastly_Vial_Unit = CreateTrigger()
 TriggerRegisterAnyUnitEventBJ(gg_trg_Ghastly_Vial_Unit, EVENT_PLAYER_UNIT_DAMAGED)
 TriggerAddCondition(gg_trg_Ghastly_Vial_Unit, Condition(Trig_Ghastly_Vial_Unit_Conditions))
 TriggerAddAction(gg_trg_Ghastly_Vial_Unit, Trig_Ghastly_Vial_Unit_Actions)
-end
-
-function Trig_Ghastly_Vial_Cast_Conditions()
-if (not (GetUnitTypeId(GetAttacker()) == FourCC("h029"))) then
-return false
-end
-return true
-end
-
-function Trig_Ghastly_Vial_Cast_Actions()
-IssueTargetOrderBJ(GetAttacker(), "chainlightning", GetAttackedUnitBJ())
-end
-
-function InitTrig_Ghastly_Vial_Cast()
-gg_trg_Ghastly_Vial_Cast = CreateTrigger()
-TriggerRegisterAnyUnitEventBJ(gg_trg_Ghastly_Vial_Cast, EVENT_PLAYER_UNIT_ATTACKED)
-TriggerAddCondition(gg_trg_Ghastly_Vial_Cast, Condition(Trig_Ghastly_Vial_Cast_Conditions))
-TriggerAddAction(gg_trg_Ghastly_Vial_Cast, Trig_Ghastly_Vial_Cast_Actions)
 end
 
 function Trig_Khorns_Gift_Dummys_Conditions()
@@ -3828,6 +3828,7 @@ InitTrig_Anomaly_Tower()
 InitTrig_Hellfire_Tower()
 InitTrig_Fluctuation_Tower_Ability()
 InitTrig_Fluctuation_Tower_Mana()
+InitTrig_Fluctuation_Tower_Add()
 InitTrig_Sanguine_Stacks_Remove()
 InitTrig_Monstrosity_Tower_Sanguine_Stacks()
 InitTrig_Soul_Eater_and_Carrion_Tower()
@@ -3836,7 +3837,6 @@ InitTrig_Hellfire_Reagent_Give()
 InitTrig_Hellfire_Reagent_Remove()
 InitTrig_Hellfire_Reagent_Upgrade()
 InitTrig_Ghastly_Vial_Unit()
-InitTrig_Ghastly_Vial_Cast()
 InitTrig_Khorns_Gift_Dummys()
 InitTrig_Jar_of_Demonfire_Give()
 InitTrig_Jar_of_Demonfire_Remove()

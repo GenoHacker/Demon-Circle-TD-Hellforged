@@ -2582,17 +2582,6 @@ STRING 1308
 Fluctuating Energy
 }
 
-STRING 1309
-// Abilities: A026 (Fluctuating Energy), Ubertip (Tooltip - Normal - Extended)
-{
-Attack speed changes each time the tower deals damage.
-
-If the attack speed is 3.50 or below then the level of multishot will increase, if it is above then the level of critical strike will increase.
-
-If multishot is chosen then the tower will deal extra damage equal to 33% of current mana.
-If critical strike is chosen then the damage of the tower will gain damage equal to the current mana.
-}
-
 STRING 1310
 // Abilities: A026 (Fluctuating Energy), Tip (Tooltip - Normal)
 {
@@ -5127,7 +5116,7 @@ STRING 1916
 {
 Difficulty has a base value of 100%, at the start of the game players may choose to increase it or do nothing. Increasing the difficulty will increase the health of enemy units, the number of units spawned each wave, decrease the time between waves and lower the threshold that lives will start depleting at. If all players increased then the difficulty will be increased.
 
-Addtionally waves gain 3% extra health per active player.
+Addtionally waves gain 5% extra health per active player.
 
 The max unit count is determined by how many players their are, [50 x Player Count] and then adjusted if any player increased the difficulty, max unit count will decrease if a player leaves.
 
@@ -5347,5 +5336,28 @@ All items have 3 levels, you can give additional copies of the item to the tower
 Upon attacking an enemy their is a 12%/24%/36% chance to cast chain lightning.
 
 Chain lightning can target ethereal units, the tower cannot.
+}
+
+STRING 1948
+{
+Divine beings take 100% damage from Chaos attacks and 75% damage from non-chaos attacks.
+}
+
+STRING 1949
+{
+Divine beings take 100% damage from Chaos attacks and 75% damage from non-chaos attacks.
+}
+
+STRING 1950
+{
+Divine beings take 100% damage from Chaos attacks and 75% damage from non-chaos attacks.
+}
+
+STRING 1951
+// Abilities: A026 (Fluctuating Energy), Ubertip (Tooltip - Normal - Extended)
+{
+Attack speed changes each time the tower attacks
+
+Tower gains damage equal to its mana, tower loses all mana when attacking.
 }
 
