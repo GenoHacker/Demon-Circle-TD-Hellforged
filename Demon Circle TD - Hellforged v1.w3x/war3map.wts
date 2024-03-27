@@ -5231,18 +5231,6 @@ All items have 3 levels, you can give additional copies of the item to the tower
 40% Chance to deal 5 times damage, Upon killing an enemy the tower will gain 40%/75%/125% damage and 75%/150%/225% attack speed, can not trigger whilst it is active.
 }
 
-STRING 1936
-// Items: I005 (Ghastly Vial), Ubertip (Tooltip - Extended)
-{
-[Ghost Tower Only]
-
-All items have 3 levels, you can give additional copies of the item to the tower to level it up.
-
-Upon attacking an enemy their is a 12%/24%/36% chance to summon a Ghost that will cast chain lightning. Ghost last for 4/6/8 seconds, can not summon a Ghost whilst one is already summoned.
-
-Chain lightning can target ethereal units, the tower cannot.
-}
-
 STRING 1937
 // Items: I007 (Jar of Demon Fire), Ubertip (Tooltip - Extended)
 {
@@ -5347,5 +5335,17 @@ STRING 1946
 All items have 3 levels, you can give additional copies of the item to the tower to level it up.
 
 Increases the level of abilities by 1/2/3.
+}
+
+STRING 1947
+// Items: I005 (Ghastly Vial), Ubertip (Tooltip - Extended)
+{
+[Ghost Tower Only]
+
+All items have 3 levels, you can give additional copies of the item to the tower to level it up.
+
+Upon attacking an enemy their is a 12%/24%/36% chance to cast chain lightning.
+
+Chain lightning can target ethereal units, the tower cannot.
 }
 

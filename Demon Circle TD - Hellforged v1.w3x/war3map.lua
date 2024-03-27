@@ -148,9 +148,9 @@ gg_trg_Leaving_Players = nil
 gg_trg_Sell_Towers = nil
 gg_trg_Invulnerable_Towers = nil
 gg_trg_Remove_Ethereal = nil
-gg_trg_Anomaly_Tower_Limit = nil
+gg_trg_Anomaly_Tower_Limit_Upgrade = nil
 gg_trg_Anomaly_Tower_Level_Up_Ability = nil
-gg_trg_Anomaly_Tower_Limit_Copy = nil
+gg_trg_Anomaly_Tower_Limit_Cancel = nil
 gg_trg_Anomaly_Tower = nil
 gg_trg_Hellfire_Tower = nil
 gg_trg_Sanguine_Stacks_Remove = nil
@@ -178,7 +178,7 @@ gg_trg_Jar_of_Demon_Fire = nil
 gg_trg_Khorns_Gift = nil
 gg_trg_Hellfrost_Enchantment = nil
 gg_trg_Dichotomous_Box = nil
-gg_trg_Soul_Siphoner = nil
+gg_trg_Soul_Eater = nil
 gg_trg_Hellfire_Reagent = nil
 gg_trg_Pulsating_Flesh = nil
 gg_trg_Creep_Count = nil
@@ -1522,22 +1522,40 @@ TriggerAddCondition(gg_trg_Remove_Ethereal, Condition(Trig_Remove_Ethereal_Condi
 TriggerAddAction(gg_trg_Remove_Ethereal, Trig_Remove_Ethereal_Actions)
 end
 
-function Trig_Anomaly_Tower_Limit_Conditions()
+function Trig_Anomaly_Tower_Limit_Upgrade_Conditions()
 if (not (GetUnitAbilityLevelSwapped(FourCC("A01W"), GetTriggerUnit()) == 1)) then
 return false
 end
 return true
 end
 
-function Trig_Anomaly_Tower_Limit_Actions()
+function Trig_Anomaly_Tower_Limit_Upgrade_Actions()
 SetPlayerTechMaxAllowedSwap(FourCC("u01J"), 0, GetOwningPlayer(GetTriggerUnit()))
 end
 
-function InitTrig_Anomaly_Tower_Limit()
-gg_trg_Anomaly_Tower_Limit = CreateTrigger()
-TriggerRegisterAnyUnitEventBJ(gg_trg_Anomaly_Tower_Limit, EVENT_PLAYER_UNIT_UPGRADE_START)
-TriggerAddCondition(gg_trg_Anomaly_Tower_Limit, Condition(Trig_Anomaly_Tower_Limit_Conditions))
-TriggerAddAction(gg_trg_Anomaly_Tower_Limit, Trig_Anomaly_Tower_Limit_Actions)
+function InitTrig_Anomaly_Tower_Limit_Upgrade()
+gg_trg_Anomaly_Tower_Limit_Upgrade = CreateTrigger()
+TriggerRegisterAnyUnitEventBJ(gg_trg_Anomaly_Tower_Limit_Upgrade, EVENT_PLAYER_UNIT_UPGRADE_START)
+TriggerAddCondition(gg_trg_Anomaly_Tower_Limit_Upgrade, Condition(Trig_Anomaly_Tower_Limit_Upgrade_Conditions))
+TriggerAddAction(gg_trg_Anomaly_Tower_Limit_Upgrade, Trig_Anomaly_Tower_Limit_Upgrade_Actions)
+end
+
+function Trig_Anomaly_Tower_Limit_Cancel_Conditions()
+if (not (GetUnitTypeId(GetTriggerUnit()) == FourCC("u01K"))) then
+return false
+end
+return true
+end
+
+function Trig_Anomaly_Tower_Limit_Cancel_Actions()
+SetPlayerTechMaxAllowedSwap(FourCC("u01J"), 1, GetOwningPlayer(GetTriggerUnit()))
+end
+
+function InitTrig_Anomaly_Tower_Limit_Cancel()
+gg_trg_Anomaly_Tower_Limit_Cancel = CreateTrigger()
+TriggerRegisterAnyUnitEventBJ(gg_trg_Anomaly_Tower_Limit_Cancel, EVENT_PLAYER_UNIT_UPGRADE_CANCEL)
+TriggerAddCondition(gg_trg_Anomaly_Tower_Limit_Cancel, Condition(Trig_Anomaly_Tower_Limit_Cancel_Conditions))
+TriggerAddAction(gg_trg_Anomaly_Tower_Limit_Cancel, Trig_Anomaly_Tower_Limit_Cancel_Actions)
 end
 
 function Trig_Anomaly_Tower_Level_Up_Ability_Func003C()
@@ -1587,24 +1605,6 @@ gg_trg_Anomaly_Tower_Level_Up_Ability = CreateTrigger()
 TriggerRegisterAnyUnitEventBJ(gg_trg_Anomaly_Tower_Level_Up_Ability, EVENT_PLAYER_UNIT_UPGRADE_FINISH)
 TriggerAddCondition(gg_trg_Anomaly_Tower_Level_Up_Ability, Condition(Trig_Anomaly_Tower_Level_Up_Ability_Conditions))
 TriggerAddAction(gg_trg_Anomaly_Tower_Level_Up_Ability, Trig_Anomaly_Tower_Level_Up_Ability_Actions)
-end
-
-function Trig_Anomaly_Tower_Limit_Copy_Conditions()
-if (not (GetUnitTypeId(GetTriggerUnit()) == FourCC("u01K"))) then
-return false
-end
-return true
-end
-
-function Trig_Anomaly_Tower_Limit_Copy_Actions()
-SetPlayerTechMaxAllowedSwap(FourCC("u01J"), 1, GetOwningPlayer(GetTriggerUnit()))
-end
-
-function InitTrig_Anomaly_Tower_Limit_Copy()
-gg_trg_Anomaly_Tower_Limit_Copy = CreateTrigger()
-TriggerRegisterAnyUnitEventBJ(gg_trg_Anomaly_Tower_Limit_Copy, EVENT_PLAYER_UNIT_UPGRADE_CANCEL)
-TriggerAddCondition(gg_trg_Anomaly_Tower_Limit_Copy, Condition(Trig_Anomaly_Tower_Limit_Copy_Conditions))
-TriggerAddAction(gg_trg_Anomaly_Tower_Limit_Copy, Trig_Anomaly_Tower_Limit_Copy_Actions)
 end
 
 function Trig_Anomaly_Tower_Conditions()
@@ -2335,9 +2335,6 @@ function Trig_Ghastly_Vial_Unit_Conditions()
 if (not (GetUnitAbilityLevelSwapped(FourCC("A00X"), GetEventDamageSource()) == 1)) then
 return false
 end
-if (not (UnitHasBuffBJ(GetEventDamageSource(), FourCC("B000")) == false)) then
-return false
-end
 if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I005"))) >= 1)) then
 return false
 end
@@ -2355,15 +2352,10 @@ function Trig_Ghastly_Vial_Unit_Actions()
 udg_Integer_Array_GhastlyChance[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] = GetRandomInt(1, 100)
 if (Trig_Ghastly_Vial_Unit_Func002C()) then
 udg_Temp_PointA = GetUnitLoc(GetEventDamageSource())
-CreateNUnitsAtLoc(1, FourCC("h029"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointA, bj_UNIT_FACING)
+CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointA, bj_UNIT_FACING)
 UnitAddAbilityBJ(FourCC("A00V"), GetLastCreatedUnit())
 SetUnitAbilityLevelSwapped(FourCC("A00V"), GetLastCreatedUnit(), GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I005"))))
-UnitApplyTimedLifeBJ((2.00 + (2.00 * I2R(GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I005")))))), FourCC("BTLF"), GetLastCreatedUnit())
-CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointA, bj_UNIT_FACING)
-UnitAddAbilityBJ(FourCC("A01F"), GetLastCreatedUnit())
-SetUnitAbilityLevelSwapped(FourCC("A01F"), GetLastCreatedUnit(), GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I005"))))
-IssueTargetOrderBJ(GetLastCreatedUnit(), "innerfire", GetEventDamageSource())
-UnitApplyTimedLifeBJ(1.00, FourCC("BTLF"), GetLastCreatedUnit())
+UnitApplyTimedLifeBJ(2.00, FourCC("BTLF"), GetLastCreatedUnit())
         RemoveLocation(udg_Temp_PointA)
 else
 end
@@ -2906,7 +2898,7 @@ TriggerRegisterAnyUnitEventBJ(gg_trg_Hellfrost_Enchantment, EVENT_PLAYER_UNIT_PI
 TriggerAddAction(gg_trg_Hellfrost_Enchantment, Trig_Hellfrost_Enchantment_Actions)
 end
 
-function Trig_Soul_Siphoner_Func001C()
+function Trig_Soul_Eater_Func001C()
 if (not (GetUnitAbilityLevelSwapped(FourCC("A01D"), GetManipulatingUnit()) ~= 1)) then
 return false
 end
@@ -2916,8 +2908,8 @@ end
 return true
 end
 
-function Trig_Soul_Siphoner_Actions()
-if (Trig_Soul_Siphoner_Func001C()) then
+function Trig_Soul_Eater_Actions()
+if (Trig_Soul_Eater_Func001C()) then
 udg_Temp_PointA = GetUnitLoc(GetManipulatingUnit())
 UnitDropItemPointLoc(GetManipulatingUnit(), GetItemOfTypeFromUnitBJ(GetManipulatingUnit(), FourCC("I000")), udg_Temp_PointA)
         RemoveLocation(udg_Temp_PointA)
@@ -2925,10 +2917,10 @@ else
 end
 end
 
-function InitTrig_Soul_Siphoner()
-gg_trg_Soul_Siphoner = CreateTrigger()
-TriggerRegisterAnyUnitEventBJ(gg_trg_Soul_Siphoner, EVENT_PLAYER_UNIT_PICKUP_ITEM)
-TriggerAddAction(gg_trg_Soul_Siphoner, Trig_Soul_Siphoner_Actions)
+function InitTrig_Soul_Eater()
+gg_trg_Soul_Eater = CreateTrigger()
+TriggerRegisterAnyUnitEventBJ(gg_trg_Soul_Eater, EVENT_PLAYER_UNIT_PICKUP_ITEM)
+TriggerAddAction(gg_trg_Soul_Eater, Trig_Soul_Eater_Actions)
 end
 
 function Trig_Hellfire_Reagent_Func001C()
@@ -3829,9 +3821,9 @@ InitTrig_Leaving_Players()
 InitTrig_Sell_Towers()
 InitTrig_Invulnerable_Towers()
 InitTrig_Remove_Ethereal()
-InitTrig_Anomaly_Tower_Limit()
+InitTrig_Anomaly_Tower_Limit_Upgrade()
+InitTrig_Anomaly_Tower_Limit_Cancel()
 InitTrig_Anomaly_Tower_Level_Up_Ability()
-InitTrig_Anomaly_Tower_Limit_Copy()
 InitTrig_Anomaly_Tower()
 InitTrig_Hellfire_Tower()
 InitTrig_Fluctuation_Tower_Ability()
@@ -3859,7 +3851,7 @@ InitTrig_Ghastly_Vial()
 InitTrig_Jar_of_Demon_Fire()
 InitTrig_Khorns_Gift()
 InitTrig_Hellfrost_Enchantment()
-InitTrig_Soul_Siphoner()
+InitTrig_Soul_Eater()
 InitTrig_Hellfire_Reagent()
 InitTrig_Pulsating_Flesh()
 InitTrig_Creep_Count()
