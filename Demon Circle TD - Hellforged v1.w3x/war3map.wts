@@ -5260,12 +5260,7 @@ STRING 1896
 
 STRING 1897
 {
-Congratulations! You won!
-}
-
-STRING 1899
-{
-End in:
+Congratulations! You won! Ending game in 30 seconds!
 }
 
 STRING 1900
@@ -5311,11 +5306,6 @@ GenoHacker
 STRING 1908
 {
 is not playing
-}
-
-STRING 1909
-{
-Wave:
 }
 
 STRING 1910
@@ -5412,5 +5402,10 @@ You can buy items in the middle.
 STRING 1926
 {
 Waves now have a chance to spawn with modifiers, remember to get some magic/spell damage.
+}
+
+STRING 1927
+{
+Wave:
 }
 
