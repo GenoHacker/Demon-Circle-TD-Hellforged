@@ -4693,8 +4693,8 @@ STRING 1967
 // Units: u000 (Ghost Tower Level 1), Ubertip (Tooltip - Extended)
 {
 Pierce Damage
-Dmg: 35
-Cooldown: 0.50s
+Attack Damage: 35
+Attack Speed: 0.50s
 Range: 800
 }
 
@@ -4702,8 +4702,8 @@ STRING 1968
 // Units: u001 (Ghost Tower Level 6), Ubertip (Tooltip - Extended)
 {
 Pierce Damage
-Dmg: 210
-Cooldown: 0.45s
+Attack Damage: 210
+Attack Speed: 0.45s
 Range: 850
 }
 
@@ -4711,8 +4711,8 @@ STRING 1969
 // Units: u002 (Ghost Tower Level 2), Ubertip (Tooltip - Extended)
 {
 Pierce Damage
-Dmg: 50
-Cooldown: 0.49s
+Attack Damage: 50
+Attack Speed: 0.49s
 Range: 810
 }
 
@@ -4720,8 +4720,8 @@ STRING 1970
 // Units: u003 (Ghost Tower Level 3), Ubertip (Tooltip - Extended)
 {
 Pierce Damage
-Dmg: 70
-Cooldown: 0.48s
+Attack Damage: 70
+Attack Speed: 0.48s
 Range: 820
 }
 
@@ -4729,8 +4729,8 @@ STRING 1971
 // Units: u004 (Ghost Tower Level 4), Ubertip (Tooltip - Extended)
 {
 Pierce Damage
-Dmg: 100
-Cooldown: 0.47s
+Attack Damage: 100
+Attack Speed: 0.47s
 Range: 830
 }
 
@@ -4738,8 +4738,8 @@ STRING 1974
 // Units: u00D (Chaos Tower Level 4), Ubertip (Tooltip - Extended)
 {
 Normal Damage
-Dmg: 140
-Cooldown: 2.35s
+Attack Damage: 140
+Attack Speed: 2.35s
 Range: 1060
 
 Multishot (3)
@@ -4749,8 +4749,8 @@ STRING 1975
 // Units: u00E (Ghost Tower Level 8), Ubertip (Tooltip - Extended)
 {
 Pierce Damage
-Dmg: 360
-Cooldown: 0.43s
+Attack Damage: 360
+Attack Speed: 0.43s
 Range: 870
 }
 
@@ -4758,8 +4758,8 @@ STRING 1976
 // Units: u00F (Ghost Tower Level 7), Ubertip (Tooltip - Extended)
 {
 Pierce Damage
-Dmg: 280
-Cooldown: 0.44s
+Attack Damage: 280
+Attack Speed: 0.44s
 Range: 860
 }
 
@@ -4767,8 +4767,8 @@ STRING 1977
 // Units: u00G (Ghost Tower Level 5), Ubertip (Tooltip - Extended)
 {
 Pierce Damage
-Dmg: 150
-Cooldown: 0.46s
+Attack Damage: 150
+Attack Speed: 0.46s
 Range: 840
 }
 
@@ -4776,8 +4776,8 @@ STRING 1978
 // Units: u00K (Chaos Tower Level 3), Ubertip (Tooltip - Extended)
 {
 Normal Damage
-Dmg: 100
-Cooldown: 2.40s
+Attack Damage: 100
+Attack Speed: 2.40s
 Range: 1040
 
 Multishot (3)
@@ -4787,8 +4787,8 @@ STRING 1979
 // Units: u00L (Chaos Tower Level 2), Ubertip (Tooltip - Extended)
 {
 Normal Damage
-Dmg: 70
-Cooldown: 2.45s
+Attack Damage: 70
+Attack Speed: 2.45s
 Range: 1020
 
 Multishot (3)
@@ -4798,8 +4798,8 @@ STRING 1980
 // Units: u00M (Chaos Tower Level 1), Ubertip (Tooltip - Extended)
 {
 Normal Damage
-Dmg: 50
-Cooldown: 2.50s
+Attack Damage: 50
+Attack Speed: 2.50s
 Range: 1000
 
 Multishot (3)
@@ -4809,8 +4809,8 @@ STRING 1981
 // Units: u00N (Chaos Tower Level 7), Ubertip (Tooltip - Extended)
 {
 Normal Damage
-Dmg: 320
-Cooldown: 2.20s
+Attack Damage: 320
+Attack Speed: 2.20s
 Range: 1120
 
 Multishot (3)
@@ -4820,8 +4820,8 @@ STRING 1982
 // Units: u00O (Inferno Gate Level 3), Ubertip (Tooltip - Extended)
 {
 Chaos Damage
-Dmg: 300 - 900
-Cooldown: 4.0s
+Attack Damage: 300 - 900
+Attack Speed: 4.0s
 Range: 1000
 
 Incinerate
@@ -4831,8 +4831,8 @@ STRING 1983
 // Units: u00P (Inferno Gate Level 2), Ubertip (Tooltip - Extended)
 {
 Chaos Damage
-Dmg: 200 - 700
-Cooldown: 4.0s
+Attack Damage: 200 - 700
+Attack Speed: 4.0s
 Range: 1000
 
 Incinerate
@@ -4842,8 +4842,8 @@ STRING 1984
 // Units: u00Q (Inferno Gate Level 1), Ubertip (Tooltip - Extended)
 {
 Chaos Damage
-Dmg: 100 - 500
-Cooldown: 4.0s
+Attack Damage: 100 - 500
+Attack Speed: 4.0s
 Range: 1000
 
 Incinerate
@@ -4853,8 +4853,8 @@ STRING 1989
 // Units: u00W (Inferno Gate Level 5), Ubertip (Tooltip - Extended)
 {
 Chaos Damage
-Dmg: 700 - 1800
-Cooldown: 4.0s
+Attack Damage: 700 - 1800
+Attack Speed: 4.0s
 Range: 1000
 
 Incinerate
@@ -4864,8 +4864,8 @@ STRING 1990
 // Units: u00X (Inferno Gate Level 6), Ubertip (Tooltip - Extended)
 {
 Chaos Damage
-Dmg: 900 - 2100
-Cooldown: 4.0s
+Attack Damage: 900 - 2100
+Attack Speed: 4.0s
 Range: 1000
 
 Incinerate
@@ -4875,8 +4875,8 @@ STRING 1991
 // Units: u00Y (Inferno Gate Level 7), Ubertip (Tooltip - Extended)
 {
 Chaos Damage
-Dmg: 1200 - 2600
-Cooldown: 4.0s
+Attack Damage: 1200 - 2600
+Attack Speed: 4.0s
 Range: 1000
 
 Incinerate
@@ -4886,8 +4886,8 @@ STRING 1992
 // Units: u00Z (Inferno Gate Level 8), Ubertip (Tooltip - Extended)
 {
 Chaos Damage
-Dmg: 1500 - 3200
-Cooldown: 4.0s
+Attack Damage: 1500 - 3200
+Attack Speed: 4.0s
 Range: 1000
 
 Incinerate
@@ -4897,8 +4897,8 @@ STRING 1994
 // Units: u017 (Chaos Tower Level 5), Ubertip (Tooltip - Extended)
 {
 Normal Damage
-Dmg: 190
-Cooldown: 2.30s
+Attack Damage: 190
+Attack Speed: 2.30s
 Range: 1080
 
 Multishot (3)
@@ -4908,8 +4908,8 @@ STRING 1995
 // Units: u018 (Chaos Tower Level 6), Ubertip (Tooltip - Extended)
 {
 Normal Damage
-Dmg: 250
-Cooldown: 2.25s
+Attack Damage: 250
+Attack Speed: 2.25s
 Range: 1100
 
 Multishot (3)
@@ -4919,8 +4919,8 @@ STRING 1996
 // Units: u019 (Chaos Tower Level 8), Ubertip (Tooltip - Extended)
 {
 Normal Damage
-Dmg: 400
-Cooldown: 2.15s
+Attack Damage: 400
+Attack Speed: 2.15s
 Range: 1140
 
 Multishot (3)
@@ -4930,8 +4930,8 @@ STRING 2000
 // Units: u01G (Hellfire Tower Level 3), Ubertip (Tooltip - Extended)
 {
 Siege Damage
-Dmg: 800 - 1200
-Cooldown: 3.0s
+Attack Damage: 800 - 1200
+Attack Speed: 3.0s
 Range: 800
 
 Infernal Core: The hellfire tower gains 1 mana per attack. When dealing damage their is a 60% chance to trigger Infernal Core, this will deal damage to units within an area.
@@ -4941,8 +4941,8 @@ STRING 2001
 // Units: u01H (Hellfire Tower Level 1), Ubertip (Tooltip - Extended)
 {
 Siege Damage
-Dmg: 100 - 200
-Cooldown: 4.0s
+Attack Damage: 100 - 200
+Attack Speed: 4.0s
 Range: 600
 
 Infernal Core: The hellfire tower gains 1 mana per attack. When dealing damage their is a 60% chance to trigger Infernal Core, this will deal damage to units within an area.
@@ -4952,8 +4952,8 @@ STRING 2002
 // Units: u01I (Hellfire Tower Level 2), Ubertip (Tooltip - Extended)
 {
 Siege Damage
-Dmg: 400 - 600
-Cooldown: 3.5s
+Attack Damage: 400 - 600
+Attack Speed: 3.5s
 Range: 700
 
 Infernal Core: The hellfire tower gains 1 mana per attack. When dealing damage their is a 60% chance to trigger Infernal Core, this will deal damage to units within an area.
@@ -4977,8 +4977,8 @@ STRING 2004
 // Units: u01K (Anomaly Tower Level 2), Ubertip (Tooltip - Extended)
 {
 Magic Damage
-Dmg: 1 - 500
-Cooldown: 6.00s
+Attack Damage: 1 - 500
+Attack Speed: 6.00s
 Range: 700
 
 Resonance Cascade: The tower gains temporary abilities upon attacking at full mana and will use them, whilst regenerating mana subsequent attacks will reuse the previously gained abilities.
@@ -4988,8 +4988,8 @@ STRING 2005
 // Units: u01L (Anomaly Tower Level 3), Ubertip (Tooltip - Extended)
 {
 Magic Damage
-Dmg: 1 - 1000
-Cooldown: 4.50s
+Attack Damage: 1 - 1000
+Attack Speed: 4.50s
 Range: 800
 
 Resonance Cascade: The tower gains temporary abilities upon attacking at full mana and will use them, whilst regenerating mana subsequent attacks will reuse the previously gained abilities.
@@ -5041,8 +5041,8 @@ STRING 2011
 // Units: u016 (Monstrosity Tower Level 3), Ubertip (Tooltip - Extended)
 {
 Pierce Damage
-Dmg: 600
-Cooldown: 2.0s
+Attack Damage: 600
+Attack Speed: 2.0s
 Range: 800
 
 Sanguine Spike: A stacking bleeding attack that deals increasing damage for 8 seconds, gains stacks from tower attack and from damage over time.
@@ -5052,8 +5052,8 @@ STRING 2012
 // Units: u01B (Monstrosity Tower Level 1), Ubertip (Tooltip - Extended)
 {
 Pierce Damage
-Dmg: 200
-Cooldown: 3.0s
+Attack Damage: 200
+Attack Speed: 3.0s
 Range: 600
 
 Sanguine Spike: A stacking bleeding attack that deals increasing damage for 4 seconds, gains stacks from tower attack and from damage over time.
@@ -5063,8 +5063,8 @@ STRING 2013
 // Units: u01C (Monstrosity Tower Level 2), Ubertip (Tooltip - Extended)
 {
 Pierce Damage
-Dmg: 400
-Cooldown: 2.5s
+Attack Damage: 400
+Attack Speed: 2.5s
 Range: 700
 
 Sanguine Spike: A stacking bleeding attack that deals increasing damage for 6 seconds, gains stacks from tower attack and from damage over time.
@@ -5104,8 +5104,8 @@ STRING 2017
 // Units: u006 (Skull Tower Level 1), Ubertip (Tooltip - Extended)
 {
 Siege Damage
-Dmg: 40
-Cooldown: 2.00s
+Attack Damage: 40
+Attack Speed: 2.00s
 Range: 600
 
 Splash (150)
@@ -5115,8 +5115,8 @@ STRING 2018
 // Units: u007 (Skull Tower Level 2), Ubertip (Tooltip - Extended)
 {
 Siege Damage
-Dmg: 80
-Cooldown: 1.95s
+Attack Damage: 80
+Attack Speed: 1.95s
 Range: 620
 
 Splash (160)
@@ -5126,8 +5126,8 @@ STRING 2019
 // Units: u008 (Skull Tower Level 3), Ubertip (Tooltip - Extended)
 {
 Siege Damage
-Dmg: 120
-Cooldown: 1.90s
+Attack Damage: 120
+Attack Speed: 1.90s
 Range: 640
 
 Splash (170)
@@ -5137,8 +5137,8 @@ STRING 2020
 // Units: u009 (Skull Tower Level 4), Ubertip (Tooltip - Extended)
 {
 Siege Damage
-Dmg: 160
-Cooldown: 1.85s
+Attack Damage: 160
+Attack Speed: 1.85s
 Range: 660
 
 Splash (180)
@@ -5148,8 +5148,8 @@ STRING 2021
 // Units: u00A (Skull Tower Level 5), Ubertip (Tooltip - Extended)
 {
 Siege Damage
-Dmg: 200
-Cooldown: 1.80s
+Attack Damage: 200
+Attack Speed: 1.80s
 Range: 680
 
 Splash (190)
@@ -5159,8 +5159,8 @@ STRING 2022
 // Units: u00B (Frost Tower), Ubertip (Tooltip - Extended)
 {
 Magic Damage
-Dmg: 25 - 100
-Cooldown: 4.0s
+Attack Damage: 25 - 100
+Attack Speed: 4.0s
 Range: 600
 
 Frost (4s)
@@ -5173,8 +5173,8 @@ STRING 2023
 // Units: u00C (Freezer Tower), Ubertip (Tooltip - Extended)
 {
 Magic Damage
-Dmg: 100 - 200
-Cooldown: 3.0s
+Attack Damage: 100 - 200
+Attack Speed: 3.0s
 Range: 700
 
 Frost (3s)
@@ -5187,8 +5187,8 @@ STRING 2024
 // Units: u00H (Skull Tower Level 6), Ubertip (Tooltip - Extended)
 {
 Siege Damage
-Dmg: 240
-Cooldown: 1.75s
+Attack Damage: 240
+Attack Speed: 1.75s
 Range: 700
 
 Splash (200)
@@ -5198,8 +5198,8 @@ STRING 2025
 // Units: u00I (Skull Tower Level 7), Ubertip (Tooltip - Extended)
 {
 Siege Damage
-Dmg: 280
-Cooldown: 1.70s
+Attack Damage: 280
+Attack Speed: 1.70s
 Range: 720
 
 Splash (210)
@@ -5209,8 +5209,8 @@ STRING 2026
 // Units: u00J (Skull Tower Level 8), Ubertip (Tooltip - Extended)
 {
 Siege Damage
-Dmg: 320
-Cooldown: 1.65s
+Attack Damage: 320
+Attack Speed: 1.65s
 Range: 740
 
 Splash (220)
@@ -5220,8 +5220,8 @@ STRING 2027
 // Units: u00R (Inferno Gate Level 4), Ubertip (Tooltip - Extended)
 {
 Chaos Damage
-Dmg: 500 - 1500
-Cooldown: 4.0s
+Attack Damage: 500 - 1500
+Attack Speed: 4.0s
 Range: 1000
 
 Incinerate
@@ -5231,8 +5231,8 @@ STRING 2028
 // Units: u00S (Carrion Tower Level 2), Ubertip (Tooltip - Extended)
 {
 Chaos Damage
-Dmg: 400 - 600
-Cooldown: 1.75s
+Attack Damage: 400 - 600
+Attack Speed: 1.75s
 Range: 900
 
 Bouncing Attack (5)
@@ -5243,8 +5243,8 @@ STRING 2029
 // Units: u00T (Carrion Tower Level 1), Ubertip (Tooltip - Extended)
 {
 Chaos Damage
-Dmg: 100 - 200
-Cooldown: 2.0s
+Attack Damage: 100 - 200
+Attack Speed: 2.0s
 Range: 800
 
 Bouncing Attack (4)
@@ -5255,8 +5255,8 @@ STRING 2030
 // Units: u00U (Carrion Tower Level 3), Ubertip (Tooltip - Extended)
 {
 Chaos Damage
-Dmg: 800 - 1600
-Cooldown: 1.5s
+Attack Damage: 800 - 1600
+Attack Speed: 1.5s
 Range: 1000
 
 Bouncing Attack (6)
@@ -5267,8 +5267,8 @@ STRING 2031
 // Units: u00V (Ultimate Skull Tower), Ubertip (Tooltip - Extended)
 {
 Siege Damage
-Dmg: 500
-Cooldown: 1.50s
+Attack Damage: 500
+Attack Speed: 1.50s
 Range: 800
 
 Splash (250)
@@ -5278,8 +5278,8 @@ STRING 2032
 // Units: u010 (Ultimate Ghost Tower), Ubertip (Tooltip - Extended)
 {
 Pierce Damage
-Dmg: 500
-Cooldown: 0.40s
+Attack Damage: 500
+Attack Speed: 0.40s
 Range: 900
 }
 
@@ -5287,8 +5287,8 @@ STRING 2033
 // Units: u011 (Ultimate Inferno Gate), Ubertip (Tooltip - Extended)
 {
 Chaos Damage
-Dmg: 2000 - 4000
-Cooldown: 3.0s
+Attack Damage: 2000 - 4000
+Attack Speed: 3.0s
 Range: 1200
 
 Incinerate
@@ -5298,8 +5298,8 @@ STRING 2034
 // Units: u012 (Glacier Tower), Ubertip (Tooltip - Extended)
 {
 Magic Damage
-Dmg: 200 - 400
-Cooldown: 2.5s
+Attack Damage: 200 - 400
+Attack Speed: 2.5s
 Range: 800
 
 Frost (5s)
@@ -5312,8 +5312,8 @@ STRING 2035
 // Units: u01A (Ultimate Chaos Tower), Ubertip (Tooltip - Extended)
 {
 Normal Damage
-Dmg: 500
-Cooldown: 2.00s
+Attack Damage: 500
+Attack Speed: 2.00s
 Range: 1200
 
 Multishot (4)
@@ -5323,8 +5323,8 @@ STRING 2036
 // Units: u013 (Siphoning Tower Level 2), Ubertip (Tooltip - Extended)
 {
 Magic Damage
-Dmg: 200
-Cooldown: 0.45s
+Attack Damage: 200
+Attack Speed: 0.45s
 Range: 900
 
 Siphon: Gains mana on attack, releases a storm of lightning on full mana dealing damage to enemies in an area.
@@ -5336,8 +5336,8 @@ STRING 2037
 // Units: u014 (Siphoning Tower Level 1), Ubertip (Tooltip - Extended)
 {
 Magic Damage
-Dmg: 100
-Cooldown: 0.50s
+Attack Damage: 100
+Attack Speed: 0.50s
 Range: 800
 
 Siphon: Gains mana on attack, releases a storm of lightning on full mana dealing damage to enemies in an area.
@@ -5349,8 +5349,8 @@ STRING 2038
 // Units: u015 (Siphoning Tower Level 3), Ubertip (Tooltip - Extended)
 {
 Magic Damage
-Dmg: 400
-Cooldown: 0.40s
+Attack Damage: 400
+Attack Speed: 0.40s
 Range: 1000
 
 Siphon: Gains mana on attack, releases a storm of lightning on full mana dealing damage to enemies in an area.
@@ -5362,8 +5362,8 @@ STRING 2039
 // Units: u01D (Fluctuation Tower Level 2), Ubertip (Tooltip - Extended)
 {
 Normal Damage
-Dmg: 500
-Cooldown: 1s - 6s
+Attack Damage: 500
+Attack Speed: 1s - 6s
 Range: 800
 
 Multishot (3)
@@ -5374,8 +5374,8 @@ STRING 2040
 // Units: u01E (Fluctuation Tower Level 3), Ubertip (Tooltip - Extended)
 {
 Normal Damage
-Dmg: 500
-Cooldown: 1s - 6s
+Attack Damage: 500
+Attack Speed: 1s - 6s
 Range: 800
 
 Multishot (3)
@@ -5386,8 +5386,8 @@ STRING 2041
 // Units: u01F (Fluctuation Tower Level 1), Ubertip (Tooltip - Extended)
 {
 Normal Damage
-Dmg: 200
-Cooldown: 3s - 4s
+Attack Damage: 200
+Attack Speed: 3s - 4s
 Range: 800
 
 Multishot (3)
