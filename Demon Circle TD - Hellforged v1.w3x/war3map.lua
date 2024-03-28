@@ -70,9 +70,6 @@ udg_Integer_Array_AnomalyAbility3 = __jarray(0)
 udg_Integer_Array_AnomalyAbility4 = __jarray(0)
 udg_AbilityCode_Array_AnomTowDummy = __jarray(0)
 udg_UnitGroup_Array_AnomDummys1 = {}
-udg_UnitGroup_Array_AnomDummys2 = {}
-udg_UnitGroup_Array_AnomDummys3 = {}
-udg_UnitGroup_Array_AnomDummys4 = {}
 udg_Integer_WaveModPerSpawnChance = 0
 udg_Integer_WaveBuffRandomNum = 0
 udg_Unit_Group_Demons = nil
@@ -103,6 +100,9 @@ udg_Integer_Array_AnomTowPlayNum = __jarray(0)
 udg_Integer_AnomTowIndex = 0
 udg_Real_Array_FrostTowArmorReduce = __jarray(0.0)
 udg_UnitGroup_Array_FrostTower = {}
+udg_UnitGroup_Array_AnomDummys4 = {}
+udg_UnitGroup_Array_AnomDummys3 = {}
+udg_UnitGroup_Array_AnomDummys2 = {}
 gg_rct_CreepSpawn1 = nil
 gg_rct_CreepSpawn2 = nil
 gg_rct_CreepSpawn3 = nil
@@ -368,24 +368,6 @@ if ((i > 1)) then break end
 udg_UnitGroup_Array_AnomDummys1[i] = CreateGroup()
 i = i + 1
 end
-i = 0
-while (true) do
-if ((i > 1)) then break end
-udg_UnitGroup_Array_AnomDummys2[i] = CreateGroup()
-i = i + 1
-end
-i = 0
-while (true) do
-if ((i > 1)) then break end
-udg_UnitGroup_Array_AnomDummys3[i] = CreateGroup()
-i = i + 1
-end
-i = 0
-while (true) do
-if ((i > 1)) then break end
-udg_UnitGroup_Array_AnomDummys4[i] = CreateGroup()
-i = i + 1
-end
 udg_Integer_WaveModPerSpawnChance = 115
 udg_Integer_WaveBuffRandomNum = 0
 udg_Unit_Group_Demons = CreateGroup()
@@ -445,6 +427,24 @@ i = 0
 while (true) do
 if ((i > 1)) then break end
 udg_UnitGroup_Array_FrostTower[i] = CreateGroup()
+i = i + 1
+end
+i = 0
+while (true) do
+if ((i > 1)) then break end
+udg_UnitGroup_Array_AnomDummys4[i] = CreateGroup()
+i = i + 1
+end
+i = 0
+while (true) do
+if ((i > 1)) then break end
+udg_UnitGroup_Array_AnomDummys3[i] = CreateGroup()
+i = i + 1
+end
+i = 0
+while (true) do
+if ((i > 1)) then break end
+udg_UnitGroup_Array_AnomDummys2[i] = CreateGroup()
 i = i + 1
 end
 end
@@ -1835,6 +1835,7 @@ udg_UnitGroup_Array_AnomDummys2[GetConvertedPlayerId(GetOwningPlayer(GetEventDam
 ForGroupBJ(udg_UnitGroup_Array_AnomDummys1[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))], Trig_Anomaly_Tower_Func046A)
     RemoveLocation(udg_Temp_PointB)
     DestroyGroup(udg_UnitGroup_Array_AnomDummys1[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))])
+    DestroyGroup(udg_UnitGroup_Array_AnomDummys2[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))])
 end
 
 function InitTrig_Anomaly_Tower()
