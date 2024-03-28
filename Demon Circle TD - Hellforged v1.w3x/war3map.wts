@@ -1481,13 +1481,13 @@ Upgrade to Level 8
 }
 
 STRING 762
-// Abilities: A002 (Frost), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A001 (Frost), Ubertip (Tooltip - Normal - Extended)
 {
 Slows enemy units for 4 seconds.
 }
 
 STRING 763
-// Abilities: A003 (Frost), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A002 (Frost), Ubertip (Tooltip - Normal - Extended)
 {
 Slows enemy units for 5 seconds.
 }
@@ -1574,12 +1574,6 @@ STRING 882
 // Abilities: A00F (Demon Fire), Tip (Tooltip - Normal)
 {
 Demon Fire 2
-}
-
-STRING 922
-// Abilities: A001 (Frost), Ubertip (Tooltip - Normal - Extended)
-{
-Slows enemy units for 3 seconds.
 }
 
 STRING 923
@@ -4531,18 +4525,6 @@ All items have 3 levels, you can give additional copies of the item to the tower
 Gain or lose up to 0 to 1/2/4 gold every 2.5 seconds.
 }
 
-STRING 1940
-// Items: I00F (Hellfrost Enchantment), Ubertip (Tooltip - Extended)
-{
-[Frost Tower Only]
-
-All items have 3 levels, you can give additional copies of the item to the tower to level it up.
-
-Tower deals extra spell damage equal to 50% of damage dealt to an enemy unit.
-
-Upon attacking an enemy their is a 15%/20%/25% chance to reduce armor by 1/2/4, armour reduction is reduced if the target is spirit linked.
-}
-
 STRING 1941
 // Items: I000 (Soul Eater), Ubertip (Tooltip - Extended)
 {
@@ -5092,20 +5074,6 @@ Splash (125)
 Effective against ethereal units
 }
 
-STRING 2023
-// Units: u00C (Freezer Tower), Ubertip (Tooltip - Extended)
-{
-Magic Damage
-Attack Damage: 100 - 200
-Attack Speed: 3.0s
-Range: 700
-
-Frost (3s)
-Splash (175)
-
-Effective against ethereal units
-}
-
 STRING 2024
 // Units: u00H (Skull Tower Level 6), Ubertip (Tooltip - Extended)
 {
@@ -5193,20 +5161,6 @@ Pierce Damage
 Attack Damage: 500
 Attack Speed: 0.40s
 Range: 900
-}
-
-STRING 2034
-// Units: u012 (Glacier Tower), Ubertip (Tooltip - Extended)
-{
-Magic Damage
-Attack Damage: 200 - 400
-Attack Speed: 2.5s
-Range: 800
-
-Frost (5s)
-Splash (225)
-
-Effective against ethereal units
 }
 
 STRING 2035
@@ -5392,5 +5346,57 @@ Attack Speed: 3.0s
 Range: 1200
 
 Incinerate: If a unit dies while under this effect, it is incinerated, causing damage to all nearby hostile units.
+}
+
+STRING 2051
+// Units: u00C (Freezer Tower), Ubertip (Tooltip - Extended)
+{
+Magic Damage
+Attack Damage: 100 - 200
+Attack Speed: 3.0s
+Range: 700
+
+Frost (5s)
+Splash (175)
+
+Effective against ethereal units
+}
+
+STRING 2052
+// Units: u012 (Glacier Tower), Ubertip (Tooltip - Extended)
+{
+Magic Damage
+Attack Damage: 200 - 400
+Attack Speed: 2.5s
+Range: 800
+
+Frost (6s)
+Splash (225)
+
+Effective against ethereal units
+}
+
+STRING 2053
+// Abilities: A003 (Frost), Ubertip (Tooltip - Normal - Extended)
+{
+Slows enemy units for 6 seconds.
+}
+
+STRING 2054
+// Units: h029 (Bladestorm Dummy), Name (Name)
+{
+Bladestorm Dummy
+}
+
+STRING 2056
+// Items: I00F (Hellfrost Enchantment), Ubertip (Tooltip - Extended)
+{
+[Frost Tower Only]
+
+All items have 3 levels, you can give additional copies of the item to the tower to level it up.
+
+Tower deals extra spell damage equal to 50% of damage dealt to an enemy unit.
+
+Upon attacking an enemy their is a 10%/20%/30% chance to reduce armor by 1/2/4, armour reduction is reduced if the target is spirit linked.
 }
 
