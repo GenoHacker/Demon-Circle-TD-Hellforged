@@ -1540,12 +1540,6 @@ STRING 815
 Prop
 }
 
-STRING 816
-// Units: h029 (Ghost), Name (Name)
-{
-Ghost
-}
-
 STRING 817
 // Units: h02A (Dummy), Name (Name)
 {
@@ -1811,7 +1805,7 @@ S
 }
 
 STRING 1074
-// Abilities: A01F (Summoned Ghost), Name (Name)
+// Buffs/Effects: B000 (), Bufftip (Tooltip)
 {
 Summoned Ghost
 }
@@ -1970,64 +1964,10 @@ STRING 1113
 Siphoning Tower
 }
 
-STRING 1114
-// Abilities: A01O (Siphon 3), Name (Name)
-{
-Siphon 3
-}
-
-STRING 1115
-// Abilities: A01O (Siphon 3), Tip (Tooltip - Normal)
-{
-Siphon 3
-}
-
-STRING 1117
-// Abilities: A01P (Siphon 1), Name (Name)
-{
-Siphon 1
-}
-
-STRING 1118
-// Abilities: A01P (Siphon 1), Tip (Tooltip - Normal)
-{
-Siphon 1
-}
-
-STRING 1120
-// Abilities: A01Q (Siphon 2), Name (Name)
-{
-Siphon 2
-}
-
-STRING 1121
-// Abilities: A01Q (Siphon 2), Tip (Tooltip - Normal)
-{
-Siphon 2
-}
-
 STRING 1126
 // Units: u00Q (Inferno Gate Level 1), Hotkey (Hotkey)
 {
 D
-}
-
-STRING 1129
-// Abilities: A01O (Siphon 3), Tip (Tooltip - Normal)
-{
-Siphon 3
-}
-
-STRING 1131
-// Abilities: A01P (Siphon 1), Tip (Tooltip - Normal)
-{
-Siphon 1
-}
-
-STRING 1135
-// Abilities: A01Q (Siphon 2), Tip (Tooltip - Normal)
-{
-Siphon 2
 }
 
 STRING 1152
@@ -2097,7 +2037,7 @@ Allows the tower to destroy 100 mana per hit to all enemies within 125 area of e
 }
 
 STRING 1175
-// Units: uaco (Acolyte), EditorSuffix (Name - Editor Suffix)
+// Units: u01M (Acolyte), EditorSuffix (Name - Editor Suffix)
 {
 Testing Unit
 }
@@ -2523,7 +2463,7 @@ STRING 1297
 }
 
 STRING 1299
-// Abilities: A01K (Brilliance Aura), EditorSuffix (Editor Suffix)
+// Abilities: A01J (Devotion Aura), EditorSuffix (Editor Suffix)
 {
 [Commander]
 }
@@ -2741,42 +2681,6 @@ STRING 1410
 X
 }
 
-STRING 1414
-// Abilities: A01O (Siphon 3), Ubertip (Tooltip - Normal - Extended)
-{
-Gains mana equal to 20% of damage dealt, when reaching 99% total mana the tower will use 160 mana to release a storm of lightning, dealing 150 spell damage every 0.50 seconds to units within a 500 area of effect, this will cast each time the tower deals damage until it reachs 10% mana.
-}
-
-STRING 1415
-// Abilities: A01O (Siphon 3), Ubertip (Tooltip - Normal - Extended)
-{
-Gains mana equal to 20% of damage dealt, when reaching 99% total mana the tower will use 160 mana to release a storm of lightning, dealing 150 spell damage every 0.50 seconds to units within a 500 area of effect, this will cast each time the tower deals damage until it reachs 10% mana.
-}
-
-STRING 1416
-// Abilities: A01P (Siphon 1), Ubertip (Tooltip - Normal - Extended)
-{
-Gains mana equal to 10% of damage dealt, when reaching 99% total mana the tower will use 40 mana to release a storm of lightning, dealing 50 spell damage every 1 second to units within a 300 area of effect, this will cast each time the tower deals damage until it reachs 10% mana.
-}
-
-STRING 1417
-// Abilities: A01P (Siphon 1), Ubertip (Tooltip - Normal - Extended)
-{
-Gains mana equal to 10% of damage dealt, when reaching 99% total mana the tower will use 40 mana to release a storm of lightning, dealing 50 spell damage every 1 second to units within a 300 area of effect, this will cast each time the tower deals damage until it reachs 10% mana.
-}
-
-STRING 1418
-// Abilities: A01Q (Siphon 2), Ubertip (Tooltip - Normal - Extended)
-{
-Gains mana equal to 15% of damage dealt, when reaching 99% total mana the tower will use 80 mana to release a storm of lightning, dealing 100 spell damage every 0.75 seconds to units within a 400 area of effect, this will cast each time the tower deals damage until it reachs 10% mana.
-}
-
-STRING 1419
-// Abilities: A01Q (Siphon 2), Ubertip (Tooltip - Normal - Extended)
-{
-Gains mana equal to 15% of damage dealt, when reaching 99% total mana the tower will use 80 mana to release a storm of lightning, dealing 100 spell damage every 0.75 seconds to units within a 400 area of effect, this will cast each time the tower deals damage until it reachs 10% mana.
-}
-
 STRING 1430
 // Units: u00S (Carrion Tower Level 2), Ubertip (Tooltip - Extended)
 {
@@ -2903,12 +2807,6 @@ STRING 1454
 // Abilities: A00M (Stream of Chaos), Name (Name)
 {
 Stream of Chaos
-}
-
-STRING 1455
-// Buffs/Effects: B000 (), Bufftip (Tooltip)
-{
-Summoned Ghost
 }
 
 STRING 1456
@@ -5335,5 +5233,68 @@ STRING 1953
 // Abilities: A00Q (Khorns Gift Speed), Name (Name)
 {
 Khorns Gift Speed
+}
+
+STRING 1954
+// Abilities: A01P (Siphon), Name (Name)
+{
+Siphon
+}
+
+STRING 1955
+// Abilities: A01P (Siphon), Tip (Tooltip - Normal)
+{
+Siphon
+}
+
+STRING 1956
+// Abilities: A01P (Siphon), Ubertip (Tooltip - Normal - Extended)
+{
+Gains mana equal to 10/20/30% of damage dealt, when reaching 100% total mana the tower will use 40/80/160 mana to release a storm of lightning, dealing 50/100/200 spell damage every 1 second to units within a 300 area of effect, this will cast each time the tower deals damage until it reachs 0% mana.
+}
+
+STRING 1957
+// Abilities: A01P (Siphon), Tip (Tooltip - Normal)
+{
+Siphon
+}
+
+STRING 1958
+// Abilities: A01P (Siphon), Ubertip (Tooltip - Normal - Extended)
+{
+Gains mana equal to 10/20/30% of damage dealt, when reaching 100% total mana the tower will use 40/80/160 mana to release a storm of lightning, dealing 50/100/200 spell damage every 1 second to units within a 300 area of effect, this will cast each time the tower deals damage until it reachs 0% mana.
+}
+
+STRING 1959
+// Abilities: S000 (Endurance Aura), EditorSuffix (Editor Suffix)
+{
+[Commander]
+}
+
+STRING 1960
+// Abilities: A01K (Brilliance Aura), EditorSuffix (Editor Suffix)
+{
+[Commander]
+}
+
+STRING 1961
+// Abilities: A01L (Unholy Aura), EditorSuffix (Editor Suffix)
+{
+[Commander]
+}
+
+STRING 1962
+{
+Souls:
+}
+
+STRING 1963
+{
+Souls
+}
+
+STRING 1964
+{
+Souls are harvested from demons you slaughter.
 }
 

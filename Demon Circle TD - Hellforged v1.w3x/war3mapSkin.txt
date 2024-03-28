@@ -1,16 +1,20 @@
 [CustomSkin]
 IdlePeon=ReplaceableTextures\CommandButtons\BTNFelHound.blp
-InfoPanelIconDamageChaos=UI\Widgets\Console\Human\infocard-attack-chaos.blp
+InfoPanelIconDamageChaos=UI\Widgets\COnsole\Human\infocard-attack-chaos.blp
 InfoPanelIconDamageChaosNeutral=UI\Widgets\COnsole\Human\infocard-neutral-attack-chaos.blp
 InfoPanelIconDamageMelee=UI\Widgets\Console\Human\infocard-attack-melee.blp
 InfoPanelIconDamageMeleeNeutral=UI\Widgets\Console\Human\infocard-neutral-attack-melee.blp
 InfoPanelIconDamageNormal=UI\Widgets\Console\Human\infocard-attack-melee.blp
-InfoPanelIconDamageNormalNeutral=war3mapImported\info-card-attack-spell.blp
+InfoPanelIconDamageNormalNeutral=UI\Widgets\Console\Human\infocard-neutral-attack-melee.blp
 InfoPanelIconDamageUnknown=UI\Widgets\Console\Human\infocard-attack-melee.blp
 InfoPanelIconDamageUnknownNeutral=UI\Widgets\Console\Human\infocard-neutral-attack-melee.blp
+LumberIcon=ReplaceableTextures\CommandButtons\BTNOrbOfCorruption.blp
 
 [FrameDef]
 ARMORTIP_DIVINE=TRIGSTR_1948
 ARMORTIP_DIVINE_V0C=TRIGSTR_1949
 ARMORTIP_DIVINE_V0M=TRIGSTR_1950
+COLON_LUMBER=TRIGSTR_1962
+LUMBER=TRIGSTR_1963
+RESOURCE_UBERTIP_LUMBER=TRIGSTR_1964
 

@@ -95,7 +95,9 @@ udg_GameTime = 0
 udg_Integer_Timer = 0
 udg_Real_FlucTowAbility = 0.0
 udg_Real_Array_FlucTowAttackSpeed = __jarray(0.0)
-udg_Real_SiphoningAOE = __jarray(0.0)
+udg_Real_Array_SiphoningAOE = __jarray(0.0)
+udg_Real_Array_SiphonTowerManaGain = __jarray(0.0)
+udg_Real_Array_SiphonTowerManaLoss = __jarray(0.0)
 gg_rct_CreepSpawn1 = nil
 gg_rct_CreepSpawn2 = nil
 gg_rct_CreepSpawn3 = nil
@@ -405,7 +407,19 @@ end
 i = 0
 while (true) do
 if ((i > 1)) then break end
-udg_Real_SiphoningAOE[i] = 0.0
+udg_Real_Array_SiphoningAOE[i] = 0.0
+i = i + 1
+end
+i = 0
+while (true) do
+if ((i > 1)) then break end
+udg_Real_Array_SiphonTowerManaGain[i] = 0.0
+i = i + 1
+end
+i = 0
+while (true) do
+if ((i > 1)) then break end
+udg_Real_Array_SiphonTowerManaLoss[i] = 0.0
 i = i + 1
 end
 end
@@ -539,9 +553,15 @@ udg_Region_Array_Spawns[5] = gg_rct_CreepSpawn5
 udg_Region_Array_Spawns[6] = gg_rct_CreepSpawn6
 udg_Region_Array_Spawns[7] = gg_rct_CreepSpawn7
 udg_Region_Array_Spawns[8] = gg_rct_CreepSpawn8
-udg_Real_SiphoningAOE[1] = 75.00
-udg_Real_SiphoningAOE[2] = 100.00
-udg_Real_SiphoningAOE[3] = 125.00
+udg_Real_Array_SiphonTowerManaGain[1] = 0.10
+udg_Real_Array_SiphonTowerManaGain[2] = 0.20
+udg_Real_Array_SiphonTowerManaGain[3] = 0.30
+udg_Real_Array_SiphonTowerManaLoss[1] = 40.00
+udg_Real_Array_SiphonTowerManaLoss[2] = 80.00
+udg_Real_Array_SiphonTowerManaLoss[3] = 160.00
+udg_Real_Array_SiphoningAOE[1] = 75.00
+udg_Real_Array_SiphoningAOE[2] = 100.00
+udg_Real_Array_SiphoningAOE[3] = 125.00
 udg_Real_Array_SpawnDegrees[1] = 320.00
 udg_Real_Array_SpawnDegrees[2] = 270.00
 udg_Real_Array_SpawnDegrees[3] = 225.00
@@ -2002,81 +2022,33 @@ end
 return true
 end
 
-function Trig_Siphoning_Tower_Func003Func003A()
-SetUnitManaBJ(GetEnumUnit(), (GetUnitStateSwap(UNIT_STATE_MANA, GetEnumUnit()) - (udg_Real_SiphoningAOE[GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I001")))] - 25.00)))
+function Trig_Siphoning_Tower_Func005Func006A()
+SetUnitManaBJ(GetEnumUnit(), (GetUnitStateSwap(UNIT_STATE_MANA, GetEnumUnit()) - (udg_Real_Array_SiphoningAOE[GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I001")))] - 25.00)))
 end
 
-function Trig_Siphoning_Tower_Func003C()
+function Trig_Siphoning_Tower_Func005C()
 if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I001"))) >= 1)) then
 return false
 end
 return true
 end
 
-function Trig_Siphoning_Tower_Func006Func002C()
+function Trig_Siphoning_Tower_Func010Func002C()
 if (GetUnitAbilityLevelSwapped(FourCC("A01P"), GetEventDamageSource()) == 1) then
 return true
 end
 return false
 end
 
-function Trig_Siphoning_Tower_Func006Func003Func002C()
-if (GetUnitAbilityLevelSwapped(FourCC("A01Q"), GetEventDamageSource()) == 1) then
-return true
-end
-return false
-end
-
-function Trig_Siphoning_Tower_Func006Func003Func003Func002C()
-if (GetUnitAbilityLevelSwapped(FourCC("A01O"), GetEventDamageSource()) == 1) then
-return true
-end
-return false
-end
-
-function Trig_Siphoning_Tower_Func006Func003Func003C()
-if (not Trig_Siphoning_Tower_Func006Func003Func003Func002C()) then
+function Trig_Siphoning_Tower_Func010C()
+if (not Trig_Siphoning_Tower_Func010Func002C()) then
 return false
 end
 return true
 end
 
-function Trig_Siphoning_Tower_Func006Func003C()
-if (not Trig_Siphoning_Tower_Func006Func003Func002C()) then
-return false
-end
-return true
-end
-
-function Trig_Siphoning_Tower_Func006C()
-if (not Trig_Siphoning_Tower_Func006Func002C()) then
-return false
-end
-return true
-end
-
-function Trig_Siphoning_Tower_Func007Func001Func001C()
-if (not (GetUnitManaPercent(GetEventDamageSource()) <= 10.00)) then
-return false
-end
-if (not (GetUnitAbilityLevelSwapped(FourCC("A01O"), GetEventDamageSource()) == 2)) then
-return false
-end
-return true
-end
-
-function Trig_Siphoning_Tower_Func007Func001C()
-if (not (GetUnitManaPercent(GetEventDamageSource()) <= 10.00)) then
-return false
-end
-if (not (GetUnitAbilityLevelSwapped(FourCC("A01Q"), GetEventDamageSource()) == 2)) then
-return false
-end
-return true
-end
-
-function Trig_Siphoning_Tower_Func007C()
-if (not (GetUnitManaPercent(GetEventDamageSource()) <= 10.00)) then
+function Trig_Siphoning_Tower_Func014C()
+if (not (GetUnitManaPercent(GetEventDamageSource()) == 0.00)) then
 return false
 end
 if (not (GetUnitAbilityLevelSwapped(FourCC("A01P"), GetEventDamageSource()) == 2)) then
@@ -2085,28 +2057,8 @@ end
 return true
 end
 
-function Trig_Siphoning_Tower_Func008Func001Func001C()
-if (not (GetUnitManaPercent(GetEventDamageSource()) >= 99.00)) then
-return false
-end
-if (not (GetUnitAbilityLevelSwapped(FourCC("A01O"), GetEventDamageSource()) == 1)) then
-return false
-end
-return true
-end
-
-function Trig_Siphoning_Tower_Func008Func001C()
-if (not (GetUnitManaPercent(GetEventDamageSource()) >= 99.00)) then
-return false
-end
-if (not (GetUnitAbilityLevelSwapped(FourCC("A01Q"), GetEventDamageSource()) == 1)) then
-return false
-end
-return true
-end
-
-function Trig_Siphoning_Tower_Func008C()
-if (not (GetUnitManaPercent(GetEventDamageSource()) >= 99.00)) then
+function Trig_Siphoning_Tower_Func018C()
+if (not (GetUnitManaPercent(GetEventDamageSource()) >= 100.00)) then
 return false
 end
 if (not (GetUnitAbilityLevelSwapped(FourCC("A01P"), GetEventDamageSource()) == 1)) then
@@ -2115,112 +2067,49 @@ end
 return true
 end
 
-function Trig_Siphoning_Tower_Func009Func001Func001C()
-if (not (GetUnitAbilityLevelSwapped(FourCC("A01O"), GetEventDamageSource()) == 2)) then
-return false
-end
-if (not (GetUnitStateSwap(UNIT_STATE_MANA, GetEventDamageSource()) >= 160.00)) then
-return false
-end
-return true
-end
-
-function Trig_Siphoning_Tower_Func009Func001C()
-if (not (GetUnitAbilityLevelSwapped(FourCC("A01Q"), GetEventDamageSource()) == 2)) then
-return false
-end
-if (not (GetUnitStateSwap(UNIT_STATE_MANA, GetEventDamageSource()) >= 80.00)) then
-return false
-end
-return true
-end
-
-function Trig_Siphoning_Tower_Func009C()
+function Trig_Siphoning_Tower_Func022C()
 if (not (GetUnitAbilityLevelSwapped(FourCC("A01P"), GetEventDamageSource()) == 2)) then
 return false
 end
-if (not (GetUnitStateSwap(UNIT_STATE_MANA, GetEventDamageSource()) >= 40.00)) then
+if (not (GetUnitStateSwap(UNIT_STATE_MANA, GetEventDamageSource()) >= udg_Real_Array_SiphonTowerManaLoss[R2I(BlzGetUnitRealField(GetEventDamageSource(), UNIT_RF_PRIORITY))])) then
 return false
 end
 return true
 end
 
 function Trig_Siphoning_Tower_Actions()
-    bj_wantDestroyGroup = true
+if (Trig_Siphoning_Tower_Func005C()) then
+        bj_wantDestroyGroup = true
 udg_Temp_PointB = GetUnitLoc(BlzGetEventDamageTarget())
-if (Trig_Siphoning_Tower_Func003C()) then
-udg_UnitGroup_SiphoningTower[GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I001")))] = GetUnitsInRangeOfLocAll(udg_Real_SiphoningAOE[GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I001")))], udg_Temp_PointB)
+udg_UnitGroup_SiphoningTower[GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I001")))] = GetUnitsInRangeOfLocAll(udg_Real_Array_SiphoningAOE[GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I001")))], udg_Temp_PointB)
+        RemoveLocation(udg_Temp_PointB)
 GroupRemoveUnitSimple(BlzGetEventDamageTarget(), udg_UnitGroup_SiphoningTower[GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I001")))])
-ForGroupBJ(udg_UnitGroup_SiphoningTower[GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I001")))], Trig_Siphoning_Tower_Func003Func003A)
+ForGroupBJ(udg_UnitGroup_SiphoningTower[GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I001")))], Trig_Siphoning_Tower_Func005Func006A)
 else
 end
-    RemoveLocation(udg_Temp_PointB)
-if (Trig_Siphoning_Tower_Func006C()) then
-SetUnitManaBJ(GetEventDamageSource(), (GetUnitStateSwap(UNIT_STATE_MANA, GetEventDamageSource()) + (GetEventDamage() * 0.10)))
-else
-if (Trig_Siphoning_Tower_Func006Func003C()) then
-SetUnitManaBJ(GetEventDamageSource(), (GetUnitStateSwap(UNIT_STATE_MANA, GetEventDamageSource()) + (GetEventDamage() * 0.15)))
-else
-if (Trig_Siphoning_Tower_Func006Func003Func003C()) then
-SetUnitManaBJ(GetEventDamageSource(), (GetUnitStateSwap(UNIT_STATE_MANA, GetEventDamageSource()) + (GetEventDamage() * 0.20)))
+if (Trig_Siphoning_Tower_Func010C()) then
+SetUnitManaBJ(GetEventDamageSource(), (GetUnitStateSwap(UNIT_STATE_MANA, GetEventDamageSource()) + (GetEventDamage() * udg_Real_Array_SiphonTowerManaGain[R2I(BlzGetUnitRealField(GetEventDamageSource(), UNIT_RF_PRIORITY))])))
 else
 end
-end
-end
-if (Trig_Siphoning_Tower_Func007C()) then
+if (Trig_Siphoning_Tower_Func014C()) then
 SetUnitAbilityLevelSwapped(FourCC("A01P"), GetEventDamageSource(), 1)
 else
-if (Trig_Siphoning_Tower_Func007Func001C()) then
-SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetEventDamageSource(), 1)
-else
-if (Trig_Siphoning_Tower_Func007Func001Func001C()) then
-SetUnitAbilityLevelSwapped(FourCC("A01O"), GetEventDamageSource(), 1)
-else
 end
-end
-end
-if (Trig_Siphoning_Tower_Func008C()) then
+if (Trig_Siphoning_Tower_Func018C()) then
 SetUnitAbilityLevelSwapped(FourCC("A01P"), GetEventDamageSource(), 2)
 else
-if (Trig_Siphoning_Tower_Func008Func001C()) then
-SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetEventDamageSource(), 2)
-else
-if (Trig_Siphoning_Tower_Func008Func001Func001C()) then
-SetUnitAbilityLevelSwapped(FourCC("A01O"), GetEventDamageSource(), 2)
-else
 end
-end
-end
-if (Trig_Siphoning_Tower_Func009C()) then
+if (Trig_Siphoning_Tower_Func022C()) then
 udg_Temp_PointA = GetUnitLoc(BlzGetEventDamageTarget())
 CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointA, bj_UNIT_FACING)
 UnitAddAbilityBJ(FourCC("A027"), GetLastCreatedUnit())
+SetUnitAbilityLevelSwapped(FourCC("A027"), GetEventDamageSource(), R2I(BlzGetUnitRealField(GetEventDamageSource(), UNIT_RF_PRIORITY)))
 IssuePointOrderLocBJ(GetLastCreatedUnit(), "monsoon", udg_Temp_PointA)
 UnitApplyTimedLifeBJ(11.00, FourCC("BTLF"), GetLastCreatedUnit())
-SetUnitManaBJ(GetEventDamageSource(), (GetUnitStateSwap(UNIT_STATE_MANA, GetEventDamageSource()) - 40.00))
-else
-if (Trig_Siphoning_Tower_Func009Func001C()) then
-udg_Temp_PointA = GetUnitLoc(BlzGetEventDamageTarget())
-CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointA, bj_UNIT_FACING)
-UnitAddAbilityBJ(FourCC("A027"), GetLastCreatedUnit())
-SetUnitAbilityLevelSwapped(FourCC("A027"), GetTriggerUnit(), 2)
-IssuePointOrderLocBJ(GetLastCreatedUnit(), "monsoon", udg_Temp_PointA)
-UnitApplyTimedLifeBJ(11.00, FourCC("BTLF"), GetLastCreatedUnit())
-SetUnitManaBJ(GetEventDamageSource(), (GetUnitStateSwap(UNIT_STATE_MANA, GetEventDamageSource()) - 80.00))
-else
-if (Trig_Siphoning_Tower_Func009Func001Func001C()) then
-udg_Temp_PointA = GetUnitLoc(BlzGetEventDamageTarget())
-CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointA, bj_UNIT_FACING)
-UnitAddAbilityBJ(FourCC("A027"), GetLastCreatedUnit())
-SetUnitAbilityLevelSwapped(FourCC("A027"), GetTriggerUnit(), 3)
-IssuePointOrderLocBJ(GetLastCreatedUnit(), "monsoon", udg_Temp_PointA)
-UnitApplyTimedLifeBJ(11.00, FourCC("BTLF"), GetLastCreatedUnit())
-SetUnitManaBJ(GetEventDamageSource(), (GetUnitStateSwap(UNIT_STATE_MANA, GetEventDamageSource()) - 160.00))
+SetUnitManaBJ(GetEventDamageSource(), (GetUnitStateSwap(UNIT_STATE_MANA, GetEventDamageSource()) - udg_Real_Array_SiphonTowerManaLoss[R2I(BlzGetUnitRealField(GetEventDamageSource(), UNIT_RF_PRIORITY))]))
+        RemoveLocation(udg_Temp_PointA)
 else
 end
-end
-end
-    RemoveLocation(udg_Temp_PointA)
 end
 
 function InitTrig_Siphoning_Tower()
