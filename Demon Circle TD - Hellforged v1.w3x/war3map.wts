@@ -4816,83 +4816,6 @@ Range: 1120
 Multishot (3)
 }
 
-STRING 1982
-// Units: u00O (Inferno Gate Level 3), Ubertip (Tooltip - Extended)
-{
-Chaos Damage
-Attack Damage: 300 - 900
-Attack Speed: 4.0s
-Range: 1000
-
-Incinerate
-}
-
-STRING 1983
-// Units: u00P (Inferno Gate Level 2), Ubertip (Tooltip - Extended)
-{
-Chaos Damage
-Attack Damage: 200 - 700
-Attack Speed: 4.0s
-Range: 1000
-
-Incinerate
-}
-
-STRING 1984
-// Units: u00Q (Inferno Gate Level 1), Ubertip (Tooltip - Extended)
-{
-Chaos Damage
-Attack Damage: 100 - 500
-Attack Speed: 4.0s
-Range: 1000
-
-Incinerate
-}
-
-STRING 1989
-// Units: u00W (Inferno Gate Level 5), Ubertip (Tooltip - Extended)
-{
-Chaos Damage
-Attack Damage: 700 - 1800
-Attack Speed: 4.0s
-Range: 1000
-
-Incinerate
-}
-
-STRING 1990
-// Units: u00X (Inferno Gate Level 6), Ubertip (Tooltip - Extended)
-{
-Chaos Damage
-Attack Damage: 900 - 2100
-Attack Speed: 4.0s
-Range: 1000
-
-Incinerate
-}
-
-STRING 1991
-// Units: u00Y (Inferno Gate Level 7), Ubertip (Tooltip - Extended)
-{
-Chaos Damage
-Attack Damage: 1200 - 2600
-Attack Speed: 4.0s
-Range: 1000
-
-Incinerate
-}
-
-STRING 1992
-// Units: u00Z (Inferno Gate Level 8), Ubertip (Tooltip - Extended)
-{
-Chaos Damage
-Attack Damage: 1500 - 3200
-Attack Speed: 4.0s
-Range: 1000
-
-Incinerate
-}
-
 STRING 1994
 // Units: u017 (Chaos Tower Level 5), Ubertip (Tooltip - Extended)
 {
@@ -5216,17 +5139,6 @@ Range: 740
 Splash (220)
 }
 
-STRING 2027
-// Units: u00R (Inferno Gate Level 4), Ubertip (Tooltip - Extended)
-{
-Chaos Damage
-Attack Damage: 500 - 1500
-Attack Speed: 4.0s
-Range: 1000
-
-Incinerate
-}
-
 STRING 2028
 // Units: u00S (Carrion Tower Level 2), Ubertip (Tooltip - Extended)
 {
@@ -5281,17 +5193,6 @@ Pierce Damage
 Attack Damage: 500
 Attack Speed: 0.40s
 Range: 900
-}
-
-STRING 2033
-// Units: u011 (Ultimate Inferno Gate), Ubertip (Tooltip - Extended)
-{
-Chaos Damage
-Attack Damage: 2000 - 4000
-Attack Speed: 3.0s
-Range: 1200
-
-Incinerate
 }
 
 STRING 2034
@@ -5392,5 +5293,104 @@ Range: 800
 
 Multishot (3)
 Fluctuating Energy: Attack speed changes each time the tower attacks. Tower gains damage equal to its mana, tower loses all mana when attacking.
+}
+
+STRING 2042
+// Units: u00O (Inferno Gate Level 3), Ubertip (Tooltip - Extended)
+{
+Chaos Damage
+Attack Damage: 300 - 900
+Attack Speed: 4.0s
+Range: 1000
+
+Incinerate: If a unit dies while under this effect, it is incinerated, causing damage to all nearby hostile units.
+}
+
+STRING 2043
+// Units: u00P (Inferno Gate Level 2), Ubertip (Tooltip - Extended)
+{
+Chaos Damage
+Attack Damage: 200 - 700
+Attack Speed: 4.0s
+Range: 1000
+
+Incinerate: If a unit dies while under this effect, it is incinerated, causing damage to all nearby hostile units.
+}
+
+STRING 2044
+// Units: u00Q (Inferno Gate Level 1), Ubertip (Tooltip - Extended)
+{
+Chaos Damage
+Attack Damage: 100 - 500
+Attack Speed: 4.0s
+Range: 1000
+
+Incinerate: If a unit dies while under this effect, it is incinerated, causing damage to all nearby hostile units.
+}
+
+STRING 2045
+// Units: u00R (Inferno Gate Level 4), Ubertip (Tooltip - Extended)
+{
+Chaos Damage
+Attack Damage: 500 - 1500
+Attack Speed: 4.0s
+Range: 1000
+
+Incinerate: If a unit dies while under this effect, it is incinerated, causing damage to all nearby hostile units.
+}
+
+STRING 2046
+// Units: u00W (Inferno Gate Level 5), Ubertip (Tooltip - Extended)
+{
+Chaos Damage
+Attack Damage: 700 - 1800
+Attack Speed: 4.0s
+Range: 1000
+
+Incinerate: If a unit dies while under this effect, it is incinerated, causing damage to all nearby hostile units.
+}
+
+STRING 2047
+// Units: u00X (Inferno Gate Level 6), Ubertip (Tooltip - Extended)
+{
+Chaos Damage
+Attack Damage: 900 - 2100
+Attack Speed: 4.0s
+Range: 1000
+
+Incinerate: If a unit dies while under this effect, it is incinerated, causing damage to all nearby hostile units.
+}
+
+STRING 2048
+// Units: u00Y (Inferno Gate Level 7), Ubertip (Tooltip - Extended)
+{
+Chaos Damage
+Attack Damage: 1200 - 2600
+Attack Speed: 4.0s
+Range: 1000
+
+Incinerate: If a unit dies while under this effect, it is incinerated, causing damage to all nearby hostile units.
+}
+
+STRING 2049
+// Units: u00Z (Inferno Gate Level 8), Ubertip (Tooltip - Extended)
+{
+Chaos Damage
+Attack Damage: 1500 - 3200
+Attack Speed: 4.0s
+Range: 1000
+
+Incinerate: If a unit dies while under this effect, it is incinerated, causing damage to all nearby hostile units.
+}
+
+STRING 2050
+// Units: u011 (Ultimate Inferno Gate), Ubertip (Tooltip - Extended)
+{
+Chaos Damage
+Attack Damage: 2000 - 4000
+Attack Speed: 3.0s
+Range: 1200
+
+Incinerate: If a unit dies while under this effect, it is incinerated, causing damage to all nearby hostile units.
 }
 
