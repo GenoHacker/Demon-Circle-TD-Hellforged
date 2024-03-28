@@ -158,6 +158,7 @@ gg_trg_Remove_Ethereal = nil
 gg_trg_Anomaly_Tower_Limit_Upgrade = nil
 gg_trg_Anomaly_Tower_Limit_Cancel = nil
 gg_trg_Anomaly_Tower_Level_Up_Ability = nil
+gg_trg_Anomaly_Tower = nil
 gg_trg_Hellfire_Tower = nil
 gg_trg_Fluctuation_Tower_Ability = nil
 gg_trg_Fluctuation_Tower_Mana = nil
@@ -178,6 +179,7 @@ gg_trg_Satans_Claw_Give = nil
 gg_trg_Satans_Claw_Remove = nil
 gg_trg_Satans_Claw_Upgrade = nil
 gg_trg_Hellfrost_Enchantment_Armor_Remove = nil
+gg_trg_Hellfrost_Enchantment_Reset = nil
 gg_trg_Dichotomous_Box_Gold = nil
 gg_trg_Argent_Conduit = nil
 gg_trg_Satans_Claw = nil
@@ -206,8 +208,6 @@ gg_trg_Creep_Spawn_5 = nil
 gg_trg_Creep_Spawn_6 = nil
 gg_trg_Creep_Spawn_7 = nil
 gg_trg_Creep_Spawn_8 = nil
-gg_trg_Anomaly_Tower = nil
-gg_trg_Hellfrost_Enchantment_Reset = nil
 function InitGlobals()
 local i = 0
 
@@ -1049,6 +1049,7 @@ end
 udg_Creep = GetLastCreatedUnit()
 UnitAddAbilityBJ(FourCC("A019"), udg_Creep)
 SetUnitAbilityLevelSwapped(FourCC("A019"), udg_Creep, udg_Player_Number)
+DisplayTextToForce(GetPlayersAll(), I2S(GetUnitAbilityLevelSwapped(FourCC("A019"), udg_Creep)))
 udg_Real_WaveHealth = (GetUnitStateSwap(UNIT_STATE_MAX_LIFE, udg_Creep) * (I2R(udg_Integer_EnemyHandicap) / 100.00))
 udg_Real_WaveHealth = (udg_Real_WaveHealth * udg_Real_WaveHealthModifier)
 BlzSetUnitMaxHP(udg_Creep, R2I(udg_Real_WaveHealth))
@@ -1319,7 +1320,7 @@ function Trig_Unit_Dies_Func010Func004C()
 if (not (udg_Owner_Of_Killing_Unit ~= udg_Player_Extra)) then
 return false
 end
-if (not (GetUnitAbilityLevelSwapped(FourCC("A019"), udg_Dying_Unit) == udg_Player_Number)) then
+if (not (GetUnitAbilityLevelSwapped(FourCC("A019"), udg_Dying_Unit) == udg_Player_Number_Extra)) then
 return false
 end
 return true
