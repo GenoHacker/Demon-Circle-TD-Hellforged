@@ -570,7 +570,6 @@ udg_AbilityCode_Array_AnomalyTower[18] = FourCC("A02X")
 udg_AbilityCode_Array_AnomalyTower[19] = FourCC("A02V")
 udg_AbilityCode_Array_AnomalyTower[20] = FourCC("A01T")
 udg_Region_Array_Spawns[1] = gg_rct_CreepSpawn1
-udg_Region_Array_Spawns[1] = gg_rct_CreepSpawn1
 udg_Region_Array_Spawns[2] = gg_rct_CreepSpawn2
 udg_Region_Array_Spawns[3] = gg_rct_CreepSpawn3
 udg_Region_Array_Spawns[4] = gg_rct_CreepSpawn4
@@ -1062,7 +1061,7 @@ function Trig_Wave_Spawning_Func007C()
 if (not (udg_Integer_Spawncount == udg_Integer_MaxSpawncount)) then
 return false
 end
-if (not (udg_Integer_CommanderChance <= (50 + udg_I_Round))) then
+if (not (udg_Integer_CommanderChance <= (150 + udg_I_Round))) then
 return false
 end
 if (not (udg_I_Round >= 11)) then
@@ -1084,7 +1083,6 @@ udg_Integer_WaveModPerSpawnChance = (udg_Integer_WaveModPerSpawnChance - 5)
 ForForce(udg_PG_Users_Playing, Trig_Wave_Spawning_Func005A)
 if (Trig_Wave_Spawning_Func007C()) then
 ConditionalTriggerExecute(gg_trg_Commander_Spawning)
-DisableTrigger(gg_trg_Commander_Spawning)
 else
 end
 if (Trig_Wave_Spawning_Func008C()) then
@@ -1105,13 +1103,15 @@ end
 function Trig_Commander_Spawning_Func006A()
 udg_Player = GetEnumPlayer()
 udg_Player_Number = GetConvertedPlayerId(udg_Player)
+udg_Temp_PointCommander[udg_Player_Number] = udg_Point_Array_WaveSpawnpoint[udg_Player_Number]
 CreateNUnitsAtLoc(1, FourCC("n001"), Player(11), udg_Temp_PointCommander[udg_Player_Number], udg_Real_Array_SpawnDegrees[udg_Player_Number])
+    RemoveLocation(udg_Temp_PointCommander[udg_Temp_PointCommander[udg_Player_Number]])
 udg_Creep = GetLastCreatedUnit()
-GroupAddUnitSimple(GetLastCreatedUnit(), udg_UnitGroup_DoomCommanders)
-BlzSetUnitArmor(GetLastCreatedUnit(), udg_Real_CommanderArmour)
-BlzSetUnitMaxHP(GetLastCreatedUnit(), R2I(udg_Real_CommanderHealth))
-SetUnitLifePercentBJ(GetLastCreatedUnit(), 100)
-UnitAddAbilityBJ(FourCC("Aeth"), GetLastCreatedUnit())
+GroupAddUnitSimple(udg_Creep, udg_UnitGroup_DoomCommanders)
+BlzSetUnitArmor(udg_Creep, udg_Real_CommanderArmour)
+BlzSetUnitMaxHP(udg_Creep, R2I(udg_Real_CommanderHealth))
+SetUnitLifePercentBJ(udg_Creep, 100)
+UnitAddAbilityBJ(FourCC("Aeth"), udg_Creep)
 end
 
 function Trig_Commander_Spawning_Func008Func001Func002Func001C()
@@ -1187,14 +1187,14 @@ return true
 end
 
 function Trig_Wave_Buffs_Func003Func001C()
-if (not (udg_Integer_ShieldChance <= (100 + udg_I_Round))) then
+if (not (udg_Integer_ShieldChance <= (150 + udg_I_Round))) then
 return false
 end
 return true
 end
 
 function Trig_Wave_Buffs_Func003Func003C()
-if (not (udg_Integer_EtherealChance <= (100 + udg_I_Round))) then
+if (not (udg_Integer_EtherealChance <= (150 + udg_I_Round))) then
 return false
 end
 return true
@@ -1937,6 +1937,7 @@ end
 
 function InitTrig_Fluctuation_Tower_Mana()
 gg_trg_Fluctuation_Tower_Mana = CreateTrigger()
+DisableTrigger(gg_trg_Fluctuation_Tower_Mana)
 TriggerRegisterTimerEventPeriodic(gg_trg_Fluctuation_Tower_Mana, 1.00)
 TriggerAddAction(gg_trg_Fluctuation_Tower_Mana, Trig_Fluctuation_Tower_Mana_Actions)
 end
@@ -1949,6 +1950,7 @@ return true
 end
 
 function Trig_Fluctuation_Tower_Add_Actions()
+EnableTrigger(gg_trg_Fluctuation_Tower_Mana)
 GroupAddUnitSimple(GetTriggerUnit(), udg_UnitGroup_FluctuationTowerMana)
 end
 
