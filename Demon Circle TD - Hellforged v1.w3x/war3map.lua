@@ -95,6 +95,7 @@ udg_GameTime = 0
 udg_Integer_Timer = 0
 udg_Real_FlucTowAbility = 0.0
 udg_Real_Array_FlucTowAttackSpeed = __jarray(0.0)
+udg_Real_SiphoningAOE = __jarray(0.0)
 gg_rct_CreepSpawn1 = nil
 gg_rct_CreepSpawn2 = nil
 gg_rct_CreepSpawn3 = nil
@@ -148,10 +149,13 @@ gg_trg_Sell_Towers = nil
 gg_trg_Invulnerable_Towers = nil
 gg_trg_Remove_Ethereal = nil
 gg_trg_Anomaly_Tower_Limit_Upgrade = nil
-gg_trg_Anomaly_Tower_Level_Up_Ability = nil
 gg_trg_Anomaly_Tower_Limit_Cancel = nil
+gg_trg_Anomaly_Tower_Level_Up_Ability = nil
 gg_trg_Anomaly_Tower = nil
 gg_trg_Hellfire_Tower = nil
+gg_trg_Fluctuation_Tower_Ability = nil
+gg_trg_Fluctuation_Tower_Mana = nil
+gg_trg_Fluctuation_Tower_Add = nil
 gg_trg_Sanguine_Stacks_Remove = nil
 gg_trg_Monstrosity_Tower_Sanguine_Stacks = nil
 gg_trg_Soul_Eater_and_Carrion_Tower = nil
@@ -196,9 +200,6 @@ gg_trg_Creep_Spawn_5 = nil
 gg_trg_Creep_Spawn_6 = nil
 gg_trg_Creep_Spawn_7 = nil
 gg_trg_Creep_Spawn_8 = nil
-gg_trg_Fluctuation_Tower_Ability = nil
-gg_trg_Fluctuation_Tower_Mana = nil
-gg_trg_Fluctuation_Tower_Add = nil
 function InitGlobals()
 local i = 0
 
@@ -401,6 +402,12 @@ if ((i > 1)) then break end
 udg_Real_Array_FlucTowAttackSpeed[i] = 3.50
 i = i + 1
 end
+i = 0
+while (true) do
+if ((i > 1)) then break end
+udg_Real_SiphoningAOE[i] = 0.0
+i = i + 1
+end
 end
 
 function InitSounds()
@@ -532,6 +539,9 @@ udg_Region_Array_Spawns[5] = gg_rct_CreepSpawn5
 udg_Region_Array_Spawns[6] = gg_rct_CreepSpawn6
 udg_Region_Array_Spawns[7] = gg_rct_CreepSpawn7
 udg_Region_Array_Spawns[8] = gg_rct_CreepSpawn8
+udg_Real_SiphoningAOE[1] = 75.00
+udg_Real_SiphoningAOE[2] = 100.00
+udg_Real_SiphoningAOE[3] = 125.00
 udg_Real_Array_SpawnDegrees[1] = 320.00
 udg_Real_Array_SpawnDegrees[2] = 270.00
 udg_Real_Array_SpawnDegrees[3] = 225.00
@@ -1992,34 +2002,12 @@ end
 return true
 end
 
-function Trig_Siphoning_Tower_Func003Func001Func001Func003A()
-SetUnitManaBJ(GetEnumUnit(), (GetUnitStateSwap(UNIT_STATE_MANA, GetEnumUnit()) - 100.00))
-end
-
-function Trig_Siphoning_Tower_Func003Func001Func001C()
-if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I001"))) == 3)) then
-return false
-end
-return true
-end
-
-function Trig_Siphoning_Tower_Func003Func001Func004A()
-SetUnitManaBJ(GetEnumUnit(), (GetUnitStateSwap(UNIT_STATE_MANA, GetEnumUnit()) - 75.00))
-end
-
-function Trig_Siphoning_Tower_Func003Func001C()
-if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I001"))) == 2)) then
-return false
-end
-return true
-end
-
-function Trig_Siphoning_Tower_Func003Func004A()
-SetUnitManaBJ(GetEnumUnit(), (GetUnitStateSwap(UNIT_STATE_MANA, GetEnumUnit()) - 50.00))
+function Trig_Siphoning_Tower_Func003Func003A()
+SetUnitManaBJ(GetEnumUnit(), (GetUnitStateSwap(UNIT_STATE_MANA, GetEnumUnit()) - (udg_Real_SiphoningAOE[GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I001")))] - 25.00)))
 end
 
 function Trig_Siphoning_Tower_Func003C()
-if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I001"))) == 1)) then
+if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I001"))) >= 1)) then
 return false
 end
 return true
@@ -2161,22 +2149,10 @@ function Trig_Siphoning_Tower_Actions()
     bj_wantDestroyGroup = true
 udg_Temp_PointB = GetUnitLoc(BlzGetEventDamageTarget())
 if (Trig_Siphoning_Tower_Func003C()) then
-udg_UnitGroup_SiphoningTower[1] = GetUnitsInRangeOfLocAll(75.00, udg_Temp_PointB)
-GroupRemoveUnitSimple(BlzGetEventDamageTarget(), udg_UnitGroup_SiphoningTower[1])
-ForGroupBJ(udg_UnitGroup_SiphoningTower[1], Trig_Siphoning_Tower_Func003Func004A)
+udg_UnitGroup_SiphoningTower[GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I001")))] = GetUnitsInRangeOfLocAll(udg_Real_SiphoningAOE[GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I001")))], udg_Temp_PointB)
+GroupRemoveUnitSimple(BlzGetEventDamageTarget(), udg_UnitGroup_SiphoningTower[GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I001")))])
+ForGroupBJ(udg_UnitGroup_SiphoningTower[GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I001")))], Trig_Siphoning_Tower_Func003Func003A)
 else
-if (Trig_Siphoning_Tower_Func003Func001C()) then
-udg_UnitGroup_SiphoningTower[2] = GetUnitsInRangeOfLocAll(100.00, udg_Temp_PointB)
-GroupRemoveUnitSimple(BlzGetEventDamageTarget(), udg_UnitGroup_SiphoningTower[2])
-ForGroupBJ(udg_UnitGroup_SiphoningTower[2], Trig_Siphoning_Tower_Func003Func001Func004A)
-else
-if (Trig_Siphoning_Tower_Func003Func001Func001C()) then
-udg_UnitGroup_SiphoningTower[3] = GetUnitsInRangeOfLocAll(125.00, udg_Temp_PointB)
-GroupRemoveUnitSimple(BlzGetEventDamageTarget(), udg_UnitGroup_SiphoningTower[3])
-ForGroupBJ(udg_UnitGroup_SiphoningTower[3], Trig_Siphoning_Tower_Func003Func001Func001Func003A)
-else
-end
-end
 end
     RemoveLocation(udg_Temp_PointB)
 if (Trig_Siphoning_Tower_Func006C()) then
@@ -2375,69 +2351,31 @@ end
 if (not (GetUnitAbilityLevelSwapped(FourCC("A00W"), GetKillingUnitBJ()) == 1)) then
 return false
 end
-return true
-end
-
-function Trig_Khorns_Gift_Dummys_Func003Func001Func001C()
-if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetKillingUnitBJ(), FourCC("I002"))) == 3)) then
+if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetKillingUnitBJ(), FourCC("I002"))) >= 1)) then
 return false
 end
 return true
 end
 
-function Trig_Khorns_Gift_Dummys_Func003Func001C()
-if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetKillingUnitBJ(), FourCC("I002"))) == 2)) then
-return false
-end
-return true
-end
-
-function Trig_Khorns_Gift_Dummys_Func003C()
-if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetKillingUnitBJ(), FourCC("I002"))) == 1)) then
-return false
-end
+function Trig_Khorns_Gift_Dummys_Func004C()
 return true
 end
 
 function Trig_Khorns_Gift_Dummys_Actions()
-if (Trig_Khorns_Gift_Dummys_Func003C()) then
+if (Trig_Khorns_Gift_Dummys_Func004C()) then
 udg_Temp_PointA = GetUnitLoc(GetKillingUnitBJ())
 CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetKillingUnitBJ()), udg_Temp_PointA, bj_UNIT_FACING)
 UnitApplyTimedLifeBJ(1.00, FourCC("BTLF"), GetLastCreatedUnit())
 UnitAddAbilityBJ(FourCC("A00O"), GetLastCreatedUnit())
+SetUnitAbilityLevelSwapped(FourCC("A00O"), GetLastCreatedUnit(), GetItemCharges(GetItemOfTypeFromUnitBJ(GetKillingUnitBJ(), FourCC("I002"))))
 IssueTargetOrderBJ(GetLastCreatedUnit(), "innerfire", GetKillingUnitBJ())
 CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetKillingUnitBJ()), udg_Temp_PointA, bj_UNIT_FACING)
 UnitApplyTimedLifeBJ(1.00, FourCC("BTLF"), GetLastCreatedUnit())
 UnitAddAbilityBJ(FourCC("A00Q"), GetLastCreatedUnit())
+SetUnitAbilityLevelSwapped(FourCC("A00Q"), GetLastCreatedUnit(), GetItemCharges(GetItemOfTypeFromUnitBJ(GetKillingUnitBJ(), FourCC("I002"))))
 IssueTargetOrderBJ(GetLastCreatedUnit(), "bloodlust", GetKillingUnitBJ())
         RemoveLocation(udg_Temp_PointA)
 else
-if (Trig_Khorns_Gift_Dummys_Func003Func001C()) then
-udg_Temp_PointA = GetUnitLoc(GetKillingUnitBJ())
-CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetKillingUnitBJ()), udg_Temp_PointA, bj_UNIT_FACING)
-UnitApplyTimedLifeBJ(1.00, FourCC("BTLF"), GetLastCreatedUnit())
-UnitAddAbilityBJ(FourCC("A00P"), GetLastCreatedUnit())
-IssueTargetOrderBJ(GetLastCreatedUnit(), "innerfire", GetKillingUnitBJ())
-CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetKillingUnitBJ()), udg_Temp_PointA, bj_UNIT_FACING)
-UnitApplyTimedLifeBJ(1.00, FourCC("BTLF"), GetLastCreatedUnit())
-UnitAddAbilityBJ(FourCC("A00I"), GetLastCreatedUnit())
-IssueTargetOrderBJ(GetLastCreatedUnit(), "bloodlust", GetKillingUnitBJ())
-            RemoveLocation(udg_Temp_PointA)
-else
-if (Trig_Khorns_Gift_Dummys_Func003Func001Func001C()) then
-udg_Temp_PointA = GetUnitLoc(GetKillingUnitBJ())
-CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetKillingUnitBJ()), udg_Temp_PointA, bj_UNIT_FACING)
-UnitApplyTimedLifeBJ(1.00, FourCC("BTLF"), GetLastCreatedUnit())
-UnitAddAbilityBJ(FourCC("A00J"), GetLastCreatedUnit())
-IssueTargetOrderBJ(GetLastCreatedUnit(), "innerfire", GetKillingUnitBJ())
-CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetKillingUnitBJ()), udg_Temp_PointA, bj_UNIT_FACING)
-UnitApplyTimedLifeBJ(1.00, FourCC("BTLF"), GetLastCreatedUnit())
-UnitAddAbilityBJ(FourCC("A00R"), GetLastCreatedUnit())
-IssueTargetOrderBJ(GetLastCreatedUnit(), "bloodlust", GetKillingUnitBJ())
-                RemoveLocation(udg_Temp_PointA)
-else
-end
-end
 end
 end
 

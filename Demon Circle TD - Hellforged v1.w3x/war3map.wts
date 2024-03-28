@@ -1570,42 +1570,6 @@ STRING 874
 Demon Fire 1
 }
 
-STRING 875
-// Abilities: A00I (Khorns Gift Speed 2), Name (Name)
-{
-Khorns Gift Speed 2
-}
-
-STRING 876
-// Abilities: A00J (Khorns Gift Damage 3), Name (Name)
-{
-Khorns Gift Damage 3
-}
-
-STRING 877
-// Abilities: A00O (Khorns Gift Damage 1), Name (Name)
-{
-Khorns Gift Damage 1
-}
-
-STRING 878
-// Abilities: A00P (Khorns Gift Damage 2), Name (Name)
-{
-Khorns Gift Damage 2
-}
-
-STRING 879
-// Abilities: A00Q (Khorns Gift Speed 1), Name (Name)
-{
-Khorns Gift Speed 1
-}
-
-STRING 880
-// Abilities: A00R (Khorns Gift Speed 3), Name (Name)
-{
-Khorns Gift Speed 3
-}
-
 STRING 881
 // Abilities: A00F (Demon Fire), Tip (Tooltip - Normal)
 {
@@ -5359,5 +5323,17 @@ STRING 1951
 Attack speed changes each time the tower attacks
 
 Tower gains damage equal to its mana, tower loses all mana when attacking.
+}
+
+STRING 1952
+// Abilities: A00O (Khorns Gift Damage), Name (Name)
+{
+Khorns Gift Damage
+}
+
+STRING 1953
+// Abilities: A00Q (Khorns Gift Speed), Name (Name)
+{
+Khorns Gift Speed
 }
 

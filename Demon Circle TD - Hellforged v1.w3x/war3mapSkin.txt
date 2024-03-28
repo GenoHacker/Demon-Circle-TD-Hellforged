@@ -1,5 +1,4 @@
 [CustomSkin]
-DefeatMusic_V1=
 IdlePeon=ReplaceableTextures\CommandButtons\BTNFelHound.blp
 InfoPanelIconDamageChaos=UI\Widgets\Console\Human\infocard-attack-chaos.blp
 InfoPanelIconDamageChaosNeutral=UI\Widgets\COnsole\Human\infocard-neutral-attack-chaos.blp
@@ -9,7 +8,6 @@ InfoPanelIconDamageNormal=UI\Widgets\Console\Human\infocard-attack-melee.blp
 InfoPanelIconDamageNormalNeutral=war3mapImported\info-card-attack-spell.blp
 InfoPanelIconDamageUnknown=UI\Widgets\Console\Human\infocard-attack-melee.blp
 InfoPanelIconDamageUnknownNeutral=UI\Widgets\Console\Human\infocard-neutral-attack-melee.blp
-VictoryMusic_V1=
 
 [FrameDef]
 ARMORTIP_DIVINE=TRIGSTR_1948
