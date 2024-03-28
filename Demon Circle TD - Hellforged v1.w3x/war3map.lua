@@ -1452,25 +1452,26 @@ TriggerRegisterAnyUnitEventBJ(gg_trg_Unit_Dies, EVENT_PLAYER_UNIT_DEATH)
 TriggerAddAction(gg_trg_Unit_Dies, Trig_Unit_Dies_Actions)
 end
 
-function Trig_Leaving_Players_Func014A()
+function Trig_Leaving_Players_Func015A()
 RemoveUnit(GetEnumUnit())
 end
 
-function Trig_Leaving_Players_Func015A()
+function Trig_Leaving_Players_Func016A()
 RemoveUnit(GetEnumUnit())
 end
 
 function Trig_Leaving_Players_Actions()
 ForceRemovePlayerSimple(GetTriggerPlayer(), udg_PG_Users_Playing)
 ForceAddPlayerSimple(GetTriggerPlayer(), udg_PG_Users_Leavers)
+udg_Player_Is_Active[GetConvertedPlayerId(GetTriggerPlayer())] = false
 udg_Integer_PlayerCount = (udg_Integer_PlayerCount - 1)
 udg_Integer_MaxCreeps = (udg_Integer_MaxCreeps - 60)
 LeaderboardSetPlayerItemLabelBJ(Player(8), udg_LB_Info, ("Demons [Max " .. (I2S(udg_Integer_MaxCreeps) .. "]:")))
 LeaderboardSetPlayerItemLabelBJ(GetTriggerPlayer(), udg_LB_Info, "TRIGSTR_1900")
 DisplayTextToForce(GetPlayersAll(), (("|cffffaa00" .. (" " .. GetPlayerName(GetTriggerPlayer()))) .. " has left the game!!|r"))
     bj_wantDestroyGroup = true
-ForGroupBJ(GetUnitsOfPlayerAll(GetTriggerPlayer()), Trig_Leaving_Players_Func014A)
 ForGroupBJ(GetUnitsOfPlayerAll(GetTriggerPlayer()), Trig_Leaving_Players_Func015A)
+ForGroupBJ(GetUnitsOfPlayerAll(GetTriggerPlayer()), Trig_Leaving_Players_Func016A)
 end
 
 function InitTrig_Leaving_Players()
