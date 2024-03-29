@@ -5400,3 +5400,88 @@ Tower deals extra spell damage equal to 50% of damage dealt to an enemy unit.
 Upon attacking an enemy their is a 10%/20%/30% chance to reduce armor by 1/2/4, armour reduction is reduced if the target is spirit linked.
 }
 
+STRING 2060
+{
+Spawn Timer:
+}
+
+STRING 2062
+{
+Current Armor:
+}
+
+STRING 2063
+{
+Unarmored
+}
+
+STRING 2064
+{
+Next Armor:
+}
+
+STRING 2066
+{
+Light
+}
+
+STRING 2067
+{
+Current Modifier:
+}
+
+STRING 2068
+{
+[None]
+}
+
+STRING 2069
+{
+[None]
+}
+
+STRING 2070
+{
+Next Modifier:
+}
+
+STRING 2071
+{
+Difficulty: 
+}
+
+STRING 2075
+{
+Status:
+}
+
+STRING 2076
+{
+|cff00ff00Stable|r
+}
+
+STRING 2077
+{
+Demons:
+}
+
+STRING 2078
+{
+|cffff0000PANIC!|r
+}
+
+STRING 2079
+{
+|cff00ff00Stable|r
+}
+
+STRING 2080
+{
+Spawn Count: 
+}
+
+STRING 2086
+{
+|cff00ff00Stable|r
+}
+
