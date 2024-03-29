@@ -5402,57 +5402,57 @@ Upon attacking an enemy their is a 10%/20%/30% chance to reduce armor by 1/2/4, 
 
 STRING 2060
 {
-Spawn Timer:
+|cff80ff80Spawn Timer:|r
 }
 
 STRING 2062
 {
-Current Armor:
+|cff80ff80Armor:|r
 }
 
 STRING 2063
 {
-Unarmored
+|cff808080Unarmored|r
 }
 
 STRING 2064
 {
-Next Armor:
+|cffffff00Next Armor:|r
 }
 
 STRING 2066
 {
-Light
+|cff00ff00Light|r
 }
 
 STRING 2067
 {
-Current Modifier:
+|cff80ff80Modifier:|r
 }
 
 STRING 2068
 {
-[None]
+|cffc0c0c0[None]|r
 }
 
 STRING 2069
 {
-[None]
+|cffc0c0c0[None]|r
 }
 
 STRING 2070
 {
-Next Modifier:
+|cffffff00Next Modifier:|r
 }
 
 STRING 2071
 {
-Difficulty: 
+|cff80ff80Difficulty: |r
 }
 
 STRING 2075
 {
-Status:
+|cff80ff80Status:|r
 }
 
 STRING 2076
@@ -5462,7 +5462,7 @@ STRING 2076
 
 STRING 2077
 {
-Demons:
+|cffff0000Demons:|r
 }
 
 STRING 2078
@@ -5477,7 +5477,7 @@ STRING 2079
 
 STRING 2080
 {
-Spawn Count: 
+|cff80ff80Spawn Count: |r
 }
 
 STRING 2086

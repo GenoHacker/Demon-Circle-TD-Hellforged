@@ -144,6 +144,7 @@ gg_rct_Teleport_Green_2 = nil
 gg_snd_MapPing = nil
 gg_trg_Map_Initialization = nil
 gg_trg_Map_Start = nil
+gg_trg_Multiboard = nil
 gg_trg_Change_Difficulty = nil
 gg_trg_Change_Lives = nil
 gg_trg_Change_Max_Creeps = nil
@@ -214,7 +215,6 @@ gg_trg_Creep_Spawn_5 = nil
 gg_trg_Creep_Spawn_6 = nil
 gg_trg_Creep_Spawn_7 = nil
 gg_trg_Creep_Spawn_8 = nil
-gg_trg_Multiboard = nil
 function InitGlobals()
 local i = 0
 
@@ -605,7 +605,7 @@ bj_forLoopAIndex = 0
 bj_forLoopAIndexEnd = 10
 while (true) do
 if (bj_forLoopAIndex > bj_forLoopAIndexEnd) then break end
-udg_String_Array_Modifiers[GetForLoopIndexA()] = "[None]"
+udg_String_Array_Modifiers[GetForLoopIndexA()] = "|cffc0c0c0[None]|r"
 bj_forLoopAIndex = bj_forLoopAIndex + 1
 end
 bj_forLoopAIndex = 11
@@ -616,33 +616,33 @@ udg_Integer_Array_CommanderChance[GetForLoopIndexA()] = GetRandomInt(1, 1000)
 udg_Integer_Array_EtherealChance[GetForLoopIndexA()] = GetRandomInt(1, 1000)
 udg_Integer_Array_ShieldChance[GetForLoopIndexA()] = GetRandomInt(1, 1000)
 if (Trig_Map_Initialization_Func002Func004C()) then
-udg_String_Array_Modifiers[GetForLoopIndexA()] = "[Com] "
+udg_String_Array_Modifiers[GetForLoopIndexA()] = "|cffffff00[Com] |r"
 else
 end
 if (Trig_Map_Initialization_Func002Func005C()) then
-udg_String_Array_Modifiers[GetForLoopIndexA()] = (udg_String_Array_Modifiers[GetForLoopIndexA()] .. "[Eth] ")
+udg_String_Array_Modifiers[GetForLoopIndexA()] = (udg_String_Array_Modifiers[GetForLoopIndexA()] .. "|cff00ff00[Eth] |r")
 else
 end
 if (Trig_Map_Initialization_Func002Func006C()) then
-udg_String_Array_Modifiers[GetForLoopIndexA()] = (udg_String_Array_Modifiers[GetForLoopIndexA()] .. "[Shi] ")
+udg_String_Array_Modifiers[GetForLoopIndexA()] = (udg_String_Array_Modifiers[GetForLoopIndexA()] .. "|cff3232ff[Shi]|r")
 else
 end
 if (Trig_Map_Initialization_Func002Func007C()) then
-udg_String_Array_Modifiers[GetForLoopIndexA()] = "[None]"
+udg_String_Array_Modifiers[GetForLoopIndexA()] = "|cffc0c0c0[None]|r"
 else
 end
 bj_forLoopAIndex = bj_forLoopAIndex + 1
 end
-udg_String_Array_ArmourType[1] = "Unarmored"
-udg_String_Array_ArmourType[2] = "Light"
-udg_String_Array_ArmourType[3] = "Medium"
-udg_String_Array_ArmourType[4] = "Heavy"
-udg_String_Array_ArmourType[5] = "Fortified"
-udg_String_Array_ArmourType[6] = "Unarmored"
-udg_String_Array_ArmourType[7] = "Light"
-udg_String_Array_ArmourType[8] = "Medium"
-udg_String_Array_ArmourType[9] = "Heavy"
-udg_String_Array_ArmourType[10] = "Divine"
+udg_String_Array_ArmourType[1] = "|cff808080Unarmored|r"
+udg_String_Array_ArmourType[2] = "|cff00ff00Light|r"
+udg_String_Array_ArmourType[3] = "|cff00ffffMedium|r"
+udg_String_Array_ArmourType[4] = "|cff80ff80Heavy|r"
+udg_String_Array_ArmourType[5] = "|cffff4646Fortified|r"
+udg_String_Array_ArmourType[6] = "|cff808080Unarmored|r"
+udg_String_Array_ArmourType[7] = "|cff00ff00Light|r"
+udg_String_Array_ArmourType[8] = "|cff00ffffMedium|r"
+udg_String_Array_ArmourType[9] = "|cff80ff80Heavy|r"
+udg_String_Array_ArmourType[10] = "|cffff0000Divine|r"
 udg_AbilityCode_Array_AnomTowDummy[1] = FourCC("A02Z")
 udg_AbilityCode_Array_AnomTowDummy[2] = FourCC("A02F")
 udg_AbilityCode_Array_AnomTowDummy[3] = FourCC("A02O")
@@ -923,14 +923,14 @@ TriggerAddAction(gg_trg_Map_Start, Trig_Map_Start_Actions)
 end
 
 function Trig_Multiboard_Actions()
-CreateMultiboardBJ(4, 9, ("[Wave: " .. (I2S(udg_I_Round) .. ("/80] - " .. ("[Lives: |cff8080ff" .. (R2S(udg_Real_Lives) .. "|r%]"))))))
+CreateMultiboardBJ(2, 9, ("Wave: " .. (I2S(udg_I_Round) .. ("/80 - " .. ("Lives: |cff8080ff" .. (R2S(udg_Real_Lives) .. "|r%"))))))
 udg_Multiboard[9] = GetLastCreatedMultiboard()
 MultiboardSetItemValueBJ(udg_Multiboard[9], 1, 1, "TRIGSTR_2075")
 MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 1, "TRIGSTR_2076")
 MultiboardSetItemValueBJ(udg_Multiboard[9], 1, 2, "TRIGSTR_2060")
-MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 2, (I2S(udg_Integer_Timer) .. ("/" .. I2S(R2I(udg_Real_WaveTimer)))))
+MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 2, (("|cffffff00" .. I2S(udg_Integer_Timer)) .. ("/" .. I2S(R2I(udg_Real_WaveTimer)))))
 MultiboardSetItemValueBJ(udg_Multiboard[9], 1, 3, "TRIGSTR_2077")
-MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 3, (I2S(udg_I_NumberOfCreeps) .. ("/" .. I2S(udg_Integer_MaxCreeps))))
+MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 3, (("|cffffff00" .. I2S(udg_I_NumberOfCreeps)) .. ("/" .. I2S(udg_Integer_MaxCreeps))))
 MultiboardSetItemValueBJ(udg_Multiboard[9], 1, 4, "TRIGSTR_2062")
 MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 4, "TRIGSTR_2063")
 MultiboardSetItemValueBJ(udg_Multiboard[9], 1, 5, "TRIGSTR_2064")
@@ -940,14 +940,12 @@ MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 6, "TRIGSTR_2068")
 MultiboardSetItemValueBJ(udg_Multiboard[9], 1, 7, "TRIGSTR_2070")
 MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 7, "TRIGSTR_2069")
 MultiboardSetItemValueBJ(udg_Multiboard[9], 1, 8, "TRIGSTR_2071")
-MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 8, (I2S(udg_Integer_EnemyHandicap) .. ("% x " .. R2S(udg_Real_WaveHealthModifier))))
+MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 8, (("|cffffff00" .. I2S(udg_Integer_EnemyHandicap)) .. ("% x " .. R2S(udg_Real_WaveHealthModifier))))
 MultiboardSetItemValueBJ(udg_Multiboard[9], 1, 9, "TRIGSTR_2080")
-MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 9, (I2S(udg_Integer_MaxSpawncount) .. " per wave"))
+MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 9, (("|cffffff00" .. I2S(udg_Integer_MaxSpawncount)) .. " per wave"))
 MultiboardSetItemStyleBJ(udg_Multiboard[9], 0, 0, true, false)
 MultiboardSetItemWidthBJ(udg_Multiboard[9], 1, 0, 9.00)
-MultiboardSetItemWidthBJ(udg_Multiboard[9], 2, 0, 9.00)
-MultiboardSetItemWidthBJ(udg_Multiboard[9], 3, 0, 0.00)
-MultiboardSetItemWidthBJ(udg_Multiboard[9], 4, 0, 0.00)
+MultiboardSetItemWidthBJ(udg_Multiboard[9], 2, 0, 8.00)
 MultiboardDisplayBJ(true, udg_Multiboard[9])
 end
 
@@ -997,12 +995,12 @@ if (Trig_Difficulty_Adjust_Func001C()) then
 udg_Integer_EnemyHandicap = (udg_Integer_EnemyHandicap + 5)
 DisplayTextToForce(GetPlayersAll(), (GetPlayerName(GetTriggerPlayer()) .. " has decided to increase difficulty."))
 udg_Integer_MaxCreeps = (udg_Integer_MaxCreeps - 10)
-MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 3, (I2S(udg_I_NumberOfCreeps) .. ("/" .. I2S(udg_Integer_MaxCreeps))))
+MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 3, (("|cffffff00" .. I2S(udg_I_NumberOfCreeps)) .. ("/" .. I2S(udg_Integer_MaxCreeps))))
 udg_Integer_Array_DifficultyVote[9] = (udg_Integer_Array_DifficultyVote[9] + 1)
 udg_Integer_MaxSpawncount = (udg_Integer_MaxSpawncount + udg_Integer_SpawnIncreaseAmount)
 udg_Integer_Array_DifficultyVote[GetConvertedPlayerId(GetTriggerPlayer())] = 1
 udg_Real_WaveTimer = (udg_Real_WaveTimer - 1.00)
-MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 2, (I2S(udg_Integer_Timer) .. ("/" .. I2S(R2I(udg_Real_WaveTimer)))))
+MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 2, (("|cffffff00" .. I2S(udg_Integer_Timer)) .. ("/" .. I2S(R2I(udg_Real_WaveTimer)))))
 else
 end
 if (Trig_Difficulty_Adjust_Func002C()) then
@@ -1036,7 +1034,7 @@ udg_Integer_EnemyHandicap = (udg_Integer_EnemyHandicap + 10)
 DisplayTextToForce(GetPlayersAll(), "TRIGSTR_1922")
 else
 end
-MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 8, (I2S(udg_Integer_EnemyHandicap) .. ("% x " .. R2S(udg_Real_WaveHealthModifier))))
+MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 8, (("|cffffff00" .. I2S(udg_Integer_EnemyHandicap)) .. ("% x " .. R2S(udg_Real_WaveHealthModifier))))
 DisplayTextToForce(GetPlayersAll(), "TRIGSTR_1930")
 udg_Temp_PointA = GetRectCenter(GetPlayableMapRect())
 PingMinimapLocForForce(GetPlayersAll(), udg_Temp_PointA, 5.00)
@@ -1062,7 +1060,7 @@ end
 
 function Trig_Timer_Actions()
 udg_Integer_Timer = (udg_Integer_Timer + 1)
-MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 2, (I2S(udg_Integer_Timer) .. ("/" .. I2S(R2I(udg_Real_WaveTimer)))))
+MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 2, (("|cffffff00" .. I2S(udg_Integer_Timer)) .. ("/" .. I2S(R2I(udg_Real_WaveTimer)))))
 if (Trig_Timer_Func003C()) then
 TriggerExecute(gg_trg_Next_Wave)
 else
@@ -1109,6 +1107,34 @@ end
 
 function Trig_Next_Wave_Func006C()
 if (not (udg_I_Round == 10)) then
+return false
+end
+return true
+end
+
+function Trig_Next_Wave_Func013Func001Func001Func002C()
+if (not (udg_Real_Lives <= 29.99)) then
+return false
+end
+return true
+end
+
+function Trig_Next_Wave_Func013Func001Func001C()
+if (not (udg_Real_Lives >= 30.00)) then
+return false
+end
+return true
+end
+
+function Trig_Next_Wave_Func013Func001C()
+if (not (udg_Real_Lives >= 50.00)) then
+return false
+end
+return true
+end
+
+function Trig_Next_Wave_Func013C()
+if (not (udg_Real_Lives >= 75.00)) then
 return false
 end
 return true
@@ -1164,11 +1190,26 @@ else
 end
 end
 udg_Real_WaveHealthModifier = (1.00 + (0.05 * I2R(udg_Integer_PlayerCount)))
-MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 8, (I2S(udg_Integer_EnemyHandicap) .. ("% x " .. R2S(udg_Real_WaveHealthModifier))))
+MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 8, (("|cffffff00" .. I2S(udg_Integer_EnemyHandicap)) .. ("% x " .. R2S(udg_Real_WaveHealthModifier))))
 MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 6, udg_String_Array_Modifiers[udg_I_Round])
 MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 7, udg_String_Array_Modifiers[(udg_I_Round + 1)])
 EnableTrigger(gg_trg_Wave_Spawning)
-MultiboardSetTitleText(GetLastCreatedMultiboard(), ("[Wave: " .. (I2S(udg_I_Round) .. ("/80] - " .. ("[Lives: " .. (R2S(udg_Real_Lives) .. "%]"))))))
+if (Trig_Next_Wave_Func013C()) then
+MultiboardSetTitleText(GetLastCreatedMultiboard(), ("Wave: " .. (I2S(udg_I_Round) .. ("/80 - " .. ("Lives: |cff8080ff" .. (R2S(udg_Real_Lives) .. "|r%"))))))
+else
+if (Trig_Next_Wave_Func013Func001C()) then
+MultiboardSetTitleText(GetLastCreatedMultiboard(), ("Wave: " .. (I2S(udg_I_Round) .. ("/80 - " .. ("Lives: |cffffff00" .. (R2S(udg_Real_Lives) .. "|r%"))))))
+else
+if (Trig_Next_Wave_Func013Func001Func001C()) then
+MultiboardSetTitleText(GetLastCreatedMultiboard(), ("Wave: " .. (I2S(udg_I_Round) .. ("/80 - " .. ("Lives: |cffd45e19" .. (R2S(udg_Real_Lives) .. "|r%"))))))
+else
+if (Trig_Next_Wave_Func013Func001Func001Func002C()) then
+MultiboardSetTitleText(GetLastCreatedMultiboard(), ("Wave: " .. (I2S(udg_I_Round) .. ("/80 - " .. ("Lives: |cffff0000" .. (R2S(udg_Real_Lives) .. "|r%"))))))
+else
+end
+end
+end
+end
 udg_Integer_ArmourTypeCounter = (udg_Integer_ArmourTypeCounter + 1)
 if (Trig_Next_Wave_Func015C()) then
 MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 4, udg_String_Array_ArmourType[udg_Integer_ArmourTypeCounter])
@@ -1179,7 +1220,7 @@ MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 4, udg_String_Array_ArmourType[ud
 MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 5, udg_String_Array_ArmourType[(udg_Integer_ArmourTypeCounter + 1)])
 end
 ForForce(udg_PG_Users_Playing, Trig_Next_Wave_Func018A)
-DisplayTextToForce(GetPlayersAll(), ("|cffffcc00Level " .. (I2S(udg_I_Round) .. "!|r")))
+DisplayTextToForce(GetPlayersAll(), ("|cffffcc00Wave " .. (I2S(udg_I_Round) .. "!|r")))
 LeaderboardSetPlayerItemValueBJ(Player(9), udg_LB_Info, udg_I_Round)
 if (Trig_Next_Wave_Func023C()) then
 udg_Integer_Timer = 0
@@ -1458,19 +1499,19 @@ MultiboardSetTitleText(GetLastCreatedMultiboard(), ("[Wave: " .. (I2S(udg_I_Roun
 MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 1, "TRIGSTR_2078")
 if (Trig_Lives_Func001Func006C()) then
 LeaderboardSetLabelBJ(udg_LB_Info, (("|cffff9622Lives = " .. (("|cff8080ff" .. R2S(udg_Real_Lives)) .. "%|r ")) .. (("|cffff9622Diff = " .. I2S(udg_Integer_EnemyHandicap)) .. "%|r")))
-MultiboardSetTitleText(GetLastCreatedMultiboard(), ("[Wave: " .. (I2S(udg_I_Round) .. ("/80] - " .. ("[Lives: |cff8080ff" .. (R2S(udg_Real_Lives) .. "|r%]"))))))
+MultiboardSetTitleText(GetLastCreatedMultiboard(), ("Wave: " .. (I2S(udg_I_Round) .. ("/80 - " .. ("Lives: |cff8080ff" .. (R2S(udg_Real_Lives) .. "|r%"))))))
 else
 if (Trig_Lives_Func001Func006Func001C()) then
 LeaderboardSetLabelBJ(udg_LB_Info, (("|cffff9622Lives = " .. (("|cffffff00" .. R2S(udg_Real_Lives)) .. "%|r ")) .. (("|cffff9622Diff = " .. I2S(udg_Integer_EnemyHandicap)) .. "%|r")))
-MultiboardSetTitleText(GetLastCreatedMultiboard(), ("[Wave: " .. (I2S(udg_I_Round) .. ("/80] - " .. ("[Lives: |cffffff00" .. (R2S(udg_Real_Lives) .. "|r%]"))))))
+MultiboardSetTitleText(GetLastCreatedMultiboard(), ("Wave: " .. (I2S(udg_I_Round) .. ("/80 - " .. ("Lives: |cffffff00" .. (R2S(udg_Real_Lives) .. "|r%"))))))
 else
 if (Trig_Lives_Func001Func006Func001Func001C()) then
 LeaderboardSetLabelBJ(udg_LB_Info, (("|cffff9622Lives = " .. (("|cffd45e19" .. R2S(udg_Real_Lives)) .. "%|r ")) .. (("|cffff9622Diff = " .. I2S(udg_Integer_EnemyHandicap)) .. "%|r")))
-MultiboardSetTitleText(GetLastCreatedMultiboard(), ("[Wave: " .. (I2S(udg_I_Round) .. ("/80] - " .. ("[Lives: |cffd45e19" .. (R2S(udg_Real_Lives) .. "|r%]"))))))
+MultiboardSetTitleText(GetLastCreatedMultiboard(), ("Wave: " .. (I2S(udg_I_Round) .. ("/80 - " .. ("Lives: |cffd45e19" .. (R2S(udg_Real_Lives) .. "|r%"))))))
 else
 if (Trig_Lives_Func001Func006Func001Func001Func003C()) then
 LeaderboardSetLabelBJ(udg_LB_Info, (("|cffff9622Lives = " .. (("|cffff0000" .. R2S(udg_Real_Lives)) .. "%|r ")) .. (("|cffff9622Diff = " .. I2S(udg_Integer_EnemyHandicap)) .. "%|r")))
-MultiboardSetTitleText(GetLastCreatedMultiboard(), ("[Wave: " .. (I2S(udg_I_Round) .. ("/80] - " .. ("[Lives: |cffff0000" .. (R2S(udg_Real_Lives) .. "|r%]"))))))
+MultiboardSetTitleText(GetLastCreatedMultiboard(), ("Wave: " .. (I2S(udg_I_Round) .. ("/80 - " .. ("Lives: |cffff0000" .. (R2S(udg_Real_Lives) .. "|r%"))))))
 else
 end
 end
@@ -3034,7 +3075,7 @@ end
 function Trig_Creep_Count_Actions()
 udg_I_NumberOfCreeps = (udg_I_NumberOfCreeps + 1)
 LeaderboardSetPlayerItemValueBJ(Player(8), udg_LB_Info, udg_I_NumberOfCreeps)
-MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 3, (I2S(udg_I_NumberOfCreeps) .. ("/" .. I2S(udg_Integer_MaxCreeps))))
+MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 3, (("|cffffff00" .. I2S(udg_I_NumberOfCreeps)) .. ("/" .. I2S(udg_Integer_MaxCreeps))))
 if (Trig_Creep_Count_Func013C()) then
 EnableTrigger(gg_trg_Lives)
 else
