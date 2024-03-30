@@ -110,6 +110,20 @@ udg_Integer_ArmourTypeCounter = 0
 udg_Integer_ModifierChance = 0
 udg_String_Array_Modifiers = __jarray("")
 udg_Boolean_Leaderboard = false
+udg_Integer_Array_ModChance1 = __jarray(0)
+udg_Integer_Array_ModChance2 = __jarray(0)
+udg_Integer_Array_ModChance3 = __jarray(0)
+udg_Integer_Array_ModLevel1 = __jarray(0)
+udg_Integer_TotalModNumber = 0
+udg_Integer_ModType = 0
+udg_Integer_Array_ModLevel2 = __jarray(0)
+udg_Integer_Array_ModLevel3 = __jarray(0)
+udg_Integer_Array_ModType2 = __jarray(0)
+udg_String_Array_Mods = __jarray("")
+udg_String_Array_ModLevel = __jarray("")
+udg_Integer_Array_ModType1 = __jarray(0)
+udg_Integer_Array_ModType3 = __jarray(0)
+udg_Integer_CommanderMod = 0
 gg_rct_CreepSpawn1 = nil
 gg_rct_CreepSpawn2 = nil
 gg_rct_CreepSpawn3 = nil
@@ -149,6 +163,7 @@ gg_trg_Multiboard = nil
 gg_trg_Change_Difficulty = nil
 gg_trg_Change_Lives = nil
 gg_trg_Change_Max_Creeps = nil
+gg_trg_Show_or_Hide_Leaderboard = nil
 gg_trg_Difficulty_Dialog_Start = nil
 gg_trg_Difficulty_Adjust = nil
 gg_trg_Difficulty_Dialog_Stop = nil
@@ -156,7 +171,7 @@ gg_trg_Timer = nil
 gg_trg_Next_Wave = nil
 gg_trg_Wave_Spawning = nil
 gg_trg_Commander_Spawning = nil
-gg_trg_Wave_Buffs = nil
+gg_trg_Wave_Buffs_Old = nil
 gg_trg_Lives = nil
 gg_trg_Unit_Dies = nil
 gg_trg_Leaving_Players = nil
@@ -216,7 +231,8 @@ gg_trg_Creep_Spawn_5 = nil
 gg_trg_Creep_Spawn_6 = nil
 gg_trg_Creep_Spawn_7 = nil
 gg_trg_Creep_Spawn_8 = nil
-gg_trg_Show_or_Hide_Leaderboard = nil
+gg_trg_Untitled_Trigger_001 = nil
+gg_trg_Wave_Buffs_New = nil
 function InitGlobals()
 local i = 0
 
@@ -487,6 +503,75 @@ udg_String_Array_Modifiers[i] = ""
 i = i + 1
 end
 udg_Boolean_Leaderboard = false
+i = 0
+while (true) do
+if ((i > 1)) then break end
+udg_Integer_Array_ModChance1[i] = 0
+i = i + 1
+end
+i = 0
+while (true) do
+if ((i > 1)) then break end
+udg_Integer_Array_ModChance2[i] = 0
+i = i + 1
+end
+i = 0
+while (true) do
+if ((i > 1)) then break end
+udg_Integer_Array_ModChance3[i] = 0
+i = i + 1
+end
+i = 0
+while (true) do
+if ((i > 1)) then break end
+udg_Integer_Array_ModLevel1[i] = 0
+i = i + 1
+end
+udg_Integer_TotalModNumber = 3
+udg_Integer_ModType = 0
+i = 0
+while (true) do
+if ((i > 1)) then break end
+udg_Integer_Array_ModLevel2[i] = 0
+i = i + 1
+end
+i = 0
+while (true) do
+if ((i > 1)) then break end
+udg_Integer_Array_ModLevel3[i] = 0
+i = i + 1
+end
+i = 0
+while (true) do
+if ((i > 1)) then break end
+udg_Integer_Array_ModType2[i] = 0
+i = i + 1
+end
+i = 0
+while (true) do
+if ((i > 1)) then break end
+udg_String_Array_Mods[i] = ""
+i = i + 1
+end
+i = 0
+while (true) do
+if ((i > 1)) then break end
+udg_String_Array_ModLevel[i] = ""
+i = i + 1
+end
+i = 0
+while (true) do
+if ((i > 1)) then break end
+udg_Integer_Array_ModType1[i] = 0
+i = i + 1
+end
+i = 0
+while (true) do
+if ((i > 1)) then break end
+udg_Integer_Array_ModType3[i] = 0
+i = i + 1
+end
+udg_Integer_CommanderMod = 0
 end
 
 function InitSounds()
@@ -636,6 +721,13 @@ else
 end
 bj_forLoopAIndex = bj_forLoopAIndex + 1
 end
+udg_String_Array_ModLevel[1] = ""
+udg_String_Array_ModLevel[2] = "+"
+udg_String_Array_ModLevel[3] = "++"
+udg_String_Array_Mods[0] = "|cffc0c0c0[None]|r"
+udg_String_Array_Mods[1] = "|cffffff00[Com] |r"
+udg_String_Array_Mods[2] = "|cff00ff00[Eth] |r"
+udg_String_Array_Mods[3] = "|cff3232ff[Shi]|r"
 udg_String_Array_ArmourType[1] = "|cff808080Unarmored|r"
 udg_String_Array_ArmourType[2] = "|cff00ff00Light|r"
 udg_String_Array_ArmourType[3] = "|cff00ffffMedium|r"
@@ -1227,7 +1319,7 @@ PlaySoundBJ(gg_snd_MapPing)
 else
 if (Trig_Next_Wave_Func006Func001C()) then
 udg_Integer_WaveModPerSpawnChance = 115
-EnableTrigger(gg_trg_Wave_Buffs)
+EnableTrigger(gg_trg_Wave_Buffs_Old)
 EnableTrigger(gg_trg_Commander_Spawning)
 else
 end
@@ -1308,14 +1400,27 @@ BlzSetUnitArmor(udg_Creep, (BlzGetUnitArmor(udg_Creep) + (I2R(udg_I_Round) * 0.1
 UnitAddAbilityBJ(FourCC("Aeth"), udg_Creep)
 end
 
+function Trig_Wave_Spawning_Func007Func004C()
+if (udg_Integer_Array_ModType1[udg_I_Round] == 1) then
+return true
+end
+if (udg_Integer_Array_ModType2[udg_I_Round] == 1) then
+return true
+end
+if (udg_Integer_Array_ModType3[udg_I_Round] == 1) then
+return true
+end
+return false
+end
+
 function Trig_Wave_Spawning_Func007C()
 if (not (udg_Integer_Spawncount == udg_Integer_MaxSpawncount)) then
 return false
 end
-if (not (udg_Integer_Array_CommanderChance[udg_I_Round] <= (udg_Integer_ModifierChance + udg_I_Round))) then
+if (not (udg_I_Round >= 11)) then
 return false
 end
-if (not (udg_I_Round >= 11)) then
+if (not Trig_Wave_Spawning_Func007Func004C()) then
 return false
 end
 return true
@@ -1351,7 +1456,28 @@ TriggerAddCondition(gg_trg_Wave_Spawning, Condition(Trig_Wave_Spawning_Condition
 TriggerAddAction(gg_trg_Wave_Spawning, Trig_Wave_Spawning_Actions)
 end
 
-function Trig_Commander_Spawning_Func006A()
+function Trig_Commander_Spawning_Func001Func002Func002C()
+if (not (udg_Integer_Array_ModType3[udg_I_Round] == 1)) then
+return false
+end
+return true
+end
+
+function Trig_Commander_Spawning_Func001Func002C()
+if (not (udg_Integer_Array_ModType2[udg_I_Round] == 1)) then
+return false
+end
+return true
+end
+
+function Trig_Commander_Spawning_Func001C()
+if (not (udg_Integer_Array_ModType1[udg_I_Round] == 1)) then
+return false
+end
+return true
+end
+
+function Trig_Commander_Spawning_Func007A()
 udg_Player = GetEnumPlayer()
 udg_Player_Number = GetConvertedPlayerId(udg_Player)
 udg_Temp_PointCommander[udg_Player_Number] = udg_Point_Array_WaveSpawnpoint[udg_Player_Number]
@@ -1365,31 +1491,31 @@ SetUnitLifePercentBJ(udg_Creep, 100)
 UnitAddAbilityBJ(FourCC("Aeth"), udg_Creep)
 end
 
-function Trig_Commander_Spawning_Func008Func001Func002Func001C()
+function Trig_Commander_Spawning_Func009Func001Func002Func001C()
 if (not (udg_Commander_Loop == 5)) then
 return false
 end
 return true
 end
 
-function Trig_Commander_Spawning_Func008Func001Func002C()
+function Trig_Commander_Spawning_Func009Func001Func002C()
 if (not (udg_Integer_CommanderAbilityChance <= (100 + (udg_I_Round * 2)))) then
 return false
 end
 return true
 end
 
-function Trig_Commander_Spawning_Func008A()
+function Trig_Commander_Spawning_Func009A()
 udg_Commander_Loop = 1
 while (true) do
 if (udg_Commander_Loop > 5) then break end
 udg_Integer_CommanderAbilityChance = GetRandomInt(1, 1000)
-if (Trig_Commander_Spawning_Func008Func001Func002C()) then
-if (Trig_Commander_Spawning_Func008Func001Func002Func001C()) then
+if (Trig_Commander_Spawning_Func009Func001Func002C()) then
+if (Trig_Commander_Spawning_Func009Func001Func002Func001C()) then
 udg_Temp_PointCommander[9] = GetUnitLoc(GetEnumUnit())
 CreateNUnitsAtLoc(1, FourCC("h02A"), Player(8), udg_Temp_PointCommander[9], bj_UNIT_FACING)
                 RemoveLocation(udg_Temp_PointCommander[9])
-UnitApplyTimedLifeBJ(0.25, FourCC("BTLF"), GetLastCreatedUnit())
+UnitApplyTimedLifeBJ(1.00, FourCC("BTLF"), GetLastCreatedUnit())
 UnitAddAbilityBJ(FourCC("A01M"), GetLastCreatedUnit())
 IssueTargetOrderBJ(GetLastCreatedUnit(), "spiritlink", GetEnumUnit())
 else
@@ -1402,12 +1528,24 @@ end
 end
 
 function Trig_Commander_Spawning_Actions()
-udg_Real_CommanderHealth = (150.00 + (30.00 * I2R(udg_I_Round)))
+if (Trig_Commander_Spawning_Func001C()) then
+udg_Integer_CommanderMod = udg_Integer_Array_ModLevel1[udg_I_Round]
+else
+if (Trig_Commander_Spawning_Func001Func002C()) then
+udg_Integer_CommanderMod = udg_Integer_Array_ModLevel2[udg_I_Round]
+else
+if (Trig_Commander_Spawning_Func001Func002Func002C()) then
+udg_Integer_CommanderMod = udg_Integer_Array_ModLevel3[udg_I_Round]
+else
+end
+end
+end
+udg_Real_CommanderHealth = (150.00 + ((30.00 * I2R(udg_Integer_CommanderMod)) * I2R(udg_I_Round)))
 udg_Real_CommanderHealth = (udg_Real_CommanderHealth * (I2R(udg_Integer_EnemyHandicap) / 100.00))
 udg_Real_CommanderHealth = (udg_Real_CommanderHealth * udg_Real_WaveHealthModifier)
-udg_Real_CommanderArmour = (5.00 + (I2R(udg_I_Round) * 0.10))
-ForForce(udg_PG_Users_Playing, Trig_Commander_Spawning_Func006A)
-ForGroupBJ(udg_UnitGroup_DoomCommanders, Trig_Commander_Spawning_Func008A)
+udg_Real_CommanderArmour = ((5.00 * I2R(udg_Integer_CommanderMod)) + (I2R(udg_I_Round) * 0.10))
+ForForce(udg_PG_Users_Playing, Trig_Commander_Spawning_Func007A)
+ForGroupBJ(udg_UnitGroup_DoomCommanders, Trig_Commander_Spawning_Func009A)
     DestroyGroup(udg_UnitGroup_DoomCommanders)
 end
 
@@ -1417,7 +1555,7 @@ DisableTrigger(gg_trg_Commander_Spawning)
 TriggerAddAction(gg_trg_Commander_Spawning, Trig_Commander_Spawning_Actions)
 end
 
-function Trig_Wave_Buffs_Func005C()
+function Trig_Wave_Buffs_Old_Func005C()
 if (GetOwningPlayer(GetTriggerUnit()) == Player(10)) then
 return true
 end
@@ -1427,47 +1565,47 @@ end
 return false
 end
 
-function Trig_Wave_Buffs_Conditions()
+function Trig_Wave_Buffs_Old_Conditions()
 if (not (GetUnitTypeId(GetTriggerUnit()) ~= FourCC("n001"))) then
 return false
 end
-if (not Trig_Wave_Buffs_Func005C()) then
+if (not Trig_Wave_Buffs_Old_Func005C()) then
 return false
 end
 return true
 end
 
-function Trig_Wave_Buffs_Func003Func001C()
+function Trig_Wave_Buffs_Old_Func003Func001C()
 if (not (udg_Integer_Array_ShieldChance[udg_I_Round] <= (udg_Integer_ModifierChance + udg_I_Round))) then
 return false
 end
 return true
 end
 
-function Trig_Wave_Buffs_Func003Func003C()
+function Trig_Wave_Buffs_Old_Func003Func003C()
 if (not (udg_Integer_Array_EtherealChance[udg_I_Round] <= (udg_Integer_ModifierChance + udg_I_Round))) then
 return false
 end
 return true
 end
 
-function Trig_Wave_Buffs_Func003C()
+function Trig_Wave_Buffs_Old_Func003C()
 if (not (udg_Integer_WaveBuffRandomNum <= udg_Integer_WaveModPerSpawnChance)) then
 return false
 end
 return true
 end
 
-function Trig_Wave_Buffs_Actions()
+function Trig_Wave_Buffs_Old_Actions()
 udg_Integer_WaveBuffRandomNum = GetRandomInt(1, 100)
-if (Trig_Wave_Buffs_Func003C()) then
-if (Trig_Wave_Buffs_Func003Func001C()) then
+if (Trig_Wave_Buffs_Old_Func003C()) then
+if (Trig_Wave_Buffs_Old_Func003Func001C()) then
 UnitAddAbilityBJ(FourCC("A01I"), GetTriggerUnit())
 BlzSetUnitMaxMana(GetTriggerUnit(), ((BlzGetUnitMaxHP(GetTriggerUnit()) // 2) + 100))
 SetUnitManaPercentBJ(GetTriggerUnit(), 100)
 else
 end
-if (Trig_Wave_Buffs_Func003Func003C()) then
+if (Trig_Wave_Buffs_Old_Func003Func003C()) then
 udg_Temp_PointA = GetUnitLoc(GetTriggerUnit())
 CreateNUnitsAtLoc(1, FourCC("h02A"), Player(PLAYER_NEUTRAL_PASSIVE), udg_Temp_PointA, bj_UNIT_FACING)
 UnitApplyTimedLifeBJ(1.00, FourCC("BTLF"), GetLastCreatedUnit())
@@ -1480,12 +1618,12 @@ else
 end
 end
 
-function InitTrig_Wave_Buffs()
-gg_trg_Wave_Buffs = CreateTrigger()
-DisableTrigger(gg_trg_Wave_Buffs)
-TriggerRegisterEnterRectSimple(gg_trg_Wave_Buffs, GetPlayableMapRect())
-TriggerAddCondition(gg_trg_Wave_Buffs, Condition(Trig_Wave_Buffs_Conditions))
-TriggerAddAction(gg_trg_Wave_Buffs, Trig_Wave_Buffs_Actions)
+function InitTrig_Wave_Buffs_Old()
+gg_trg_Wave_Buffs_Old = CreateTrigger()
+DisableTrigger(gg_trg_Wave_Buffs_Old)
+TriggerRegisterEnterRectSimple(gg_trg_Wave_Buffs_Old, GetPlayableMapRect())
+TriggerAddCondition(gg_trg_Wave_Buffs_Old, Condition(Trig_Wave_Buffs_Old_Conditions))
+TriggerAddAction(gg_trg_Wave_Buffs_Old, Trig_Wave_Buffs_Old_Actions)
 end
 
 function Trig_Lives_Func001Func006Func001Func001Func002C()
@@ -1684,7 +1822,7 @@ udg_Player_Number_Extra = GetConvertedPlayerId(udg_Owner_Of_Killing_Unit)
 udg_I_Kills[udg_Player_Number_Extra] = (udg_I_Kills[udg_Player_Number_Extra] + 1)
 LeaderboardSetPlayerItemValueBJ(udg_Owner_Of_Killing_Unit, udg_LB_Info, udg_I_Kills[udg_Player_Number_Extra])
 udg_I_NumberOfCreeps = (udg_I_NumberOfCreeps - 1)
-MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 3, (I2S(udg_I_NumberOfCreeps) .. ("/" .. I2S(udg_Integer_MaxCreeps))))
+MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 3, (("|cffffff00" .. I2S(udg_I_NumberOfCreeps)) .. ("/" .. I2S(udg_Integer_MaxCreeps))))
 if (Trig_Unit_Dies_Func013Func012C()) then
 MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 1, "TRIGSTR_2086")
 DisableTrigger(gg_trg_Lives)
@@ -3927,7 +4065,7 @@ InitTrig_Timer()
 InitTrig_Next_Wave()
 InitTrig_Wave_Spawning()
 InitTrig_Commander_Spawning()
-InitTrig_Wave_Buffs()
+InitTrig_Wave_Buffs_Old()
 InitTrig_Lives()
 InitTrig_Unit_Dies()
 InitTrig_Leaving_Players()
