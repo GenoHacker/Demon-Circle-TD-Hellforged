@@ -1637,7 +1637,7 @@ A
 }
 
 STRING 992
-// Abilities: A010 (Demon), Name (Name)
+// Units: n006 (Demon), Name (Name)
 {
 Demon
 }
@@ -5522,5 +5522,59 @@ STRING 2096
 // Abilities: A00I (Leaderboard Show/Hide), Hotkey (Hotkey - Normal)
 {
 R
+}
+
+STRING 2097
+// Abilities: A01H ([Wave Mod] Banish), Name (Name)
+{
+[Wave Mod] Banish
+}
+
+STRING 2098
+// Abilities: A01I ([Wave Mod] Mana Shield), Name (Name)
+{
+[Wave Mod] Mana Shield
+}
+
+STRING 2099
+// Abilities: A00J ([Wave Mod] Evasion), Name (Name)
+{
+[Wave Mod] Evasion
+}
+
+STRING 2100
+// Abilities: A00P ([Wave Mod] Move Speed Bonus), Name (Name)
+{
+[Wave Mod] Move Speed Bonus
+}
+
+STRING 2103
+// Abilities: A01E ([Wave Mod] Spawn Demons), Name (Name)
+{
+[Wave Mod] Spawn Demons
+}
+
+STRING 2104
+// Units: n006 (Demon), EditorSuffix (Name - Editor Suffix)
+{
+[Wave Mod] 
+}
+
+STRING 2105
+// Abilities: A010 (Demon), Name (Name)
+{
+Demon
+}
+
+STRING 2106
+// Abilities: A00R ([Wave Mod] Life Regeneration), Name (Name)
+{
+[Wave Mod] Life Regeneration
+}
+
+STRING 2107
+// Abilities: A018 ([Wave Mod] Armor Bonus), Name (Name)
+{
+[Wave Mod] Armor Bonus
 }
 

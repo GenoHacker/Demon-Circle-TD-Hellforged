@@ -581,6 +581,16 @@ SetSoundDuration(gg_snd_MapPing, 1636)
 SetSoundVolume(gg_snd_MapPing, 127)
 end
 
+function CreateNeutralHostile()
+local p = Player(PLAYER_NEUTRAL_AGGRESSIVE)
+local u
+local unitID
+local t
+local life
+
+u = BlzCreateUnitWithSkin(p, FourCC("n006"), -4553.6, 3722.7, 80.038, FourCC("n006"))
+end
+
 function CreateNeutralPassiveBuildings()
 local p = Player(PLAYER_NEUTRAL_PASSIVE)
 local u
@@ -613,6 +623,7 @@ end
 function CreateAllUnits()
 CreateNeutralPassiveBuildings()
 CreatePlayerBuildings()
+CreateNeutralHostile()
 CreateNeutralPassive()
 CreatePlayerUnits()
 end
@@ -654,42 +665,42 @@ gg_rct_Teleport_Pink_1 = Rect(-6144.0, 1792.0, -5760.0, 1920.0)
 gg_rct_Teleport_Green_2 = Rect(-5632.0, 512.0, -5248.0, 640.0)
 end
 
-function Trig_Map_Initialization_Func012Func007C()
+function Trig_Map_Initialization_Func018Func007C()
 if (not (udg_Integer_Array_ModChance1[GetForLoopIndexA()] <= (udg_Integer_ModifierChance + GetForLoopIndexA()))) then
 return false
 end
 return true
 end
 
-function Trig_Map_Initialization_Func012Func009Func002C()
+function Trig_Map_Initialization_Func018Func009Func002C()
 if (not (udg_Integer_ModType == udg_Integer_Array_ModType1[GetForLoopIndexA()])) then
 return false
 end
 return true
 end
 
-function Trig_Map_Initialization_Func012Func009C()
+function Trig_Map_Initialization_Func018Func009C()
 if (not (udg_Integer_Array_ModChance2[GetForLoopIndexA()] <= (udg_Integer_ModifierChance + GetForLoopIndexA()))) then
 return false
 end
 return true
 end
 
-function Trig_Map_Initialization_Func012Func011Func010Func001C()
+function Trig_Map_Initialization_Func018Func011Func010Func001C()
 if (not (udg_Integer_ModType == udg_Integer_Array_ModType2[GetForLoopIndexA()])) then
 return false
 end
 return true
 end
 
-function Trig_Map_Initialization_Func012Func011Func010C()
+function Trig_Map_Initialization_Func018Func011Func010C()
 if (not (udg_Integer_ModType == udg_Integer_Array_ModType1[GetForLoopIndexA()])) then
 return false
 end
 return true
 end
 
-function Trig_Map_Initialization_Func012Func011C()
+function Trig_Map_Initialization_Func018Func011C()
 if (not (udg_Integer_Array_ModChance3[GetForLoopIndexA()] <= (udg_Integer_ModifierChance + GetForLoopIndexA()))) then
 return false
 end
@@ -697,10 +708,16 @@ return true
 end
 
 function Trig_Map_Initialization_Actions()
+udg_String_Array_Mods[0] = "|cffc0c0c0[None]|r|cffffff00[Com] |r|cff00ff00[Eth] |r|cff3232ff[Shi]|r|cff808080[Arm]|r|cffff0000[Fst]|r|cff80ff80[Rgn]|r|cff00ffff[Eva]|r|cffd45e19[Spl]|r"
 udg_String_Array_Mods[0] = "|cffc0c0c0[None]|r"
 udg_String_Array_Mods[1] = "|cffffff00[Com] |r"
 udg_String_Array_Mods[2] = "|cff00ff00[Eth] |r"
 udg_String_Array_Mods[3] = "|cff3232ff[Shi]|r"
+udg_String_Array_Mods[4] = "|cff808080[Arm]|r"
+udg_String_Array_Mods[5] = "|cffff0000[Fst]|r"
+udg_String_Array_Mods[6] = "|cff80ff80[Rgn]|r"
+udg_String_Array_Mods[7] = "|cff00ffff[Eva]|r"
+udg_String_Array_Mods[8] = "|cffd45e19[Spl]|r"
 udg_String_Array_ModLevel[1] = ""
 udg_String_Array_ModLevel[2] = "+"
 udg_String_Array_ModLevel[3] = "++"
@@ -718,7 +735,7 @@ if (bj_forLoopAIndex > bj_forLoopAIndexEnd) then break end
 udg_Integer_Array_ModChance1[GetForLoopIndexA()] = GetRandomInt(1, 1000)
 udg_Integer_Array_ModChance2[GetForLoopIndexA()] = GetRandomInt(1, 1000)
 udg_Integer_Array_ModChance3[GetForLoopIndexA()] = GetRandomInt(1, 1000)
-if (Trig_Map_Initialization_Func012Func007C()) then
+if (Trig_Map_Initialization_Func018Func007C()) then
 udg_Integer_ModType = GetRandomInt(1, udg_Integer_TotalModNumber)
 udg_Integer_Array_ModType1[GetForLoopIndexA()] = udg_Integer_ModType
 udg_Integer_Array_ModLevel1[GetForLoopIndexA()] = 1
@@ -727,9 +744,9 @@ else
 udg_Integer_Array_ModType1[GetForLoopIndexA()] = 0
 udg_String_Array_Modifiers[GetForLoopIndexA()] = (udg_String_Array_Modifiers[GetForLoopIndexA()] .. (udg_String_Array_Mods[udg_Integer_Array_ModType1[GetForLoopIndexA()]] .. udg_String_Array_ModLevel[udg_Integer_Array_ModLevel1[GetForLoopIndexA()]]))
 end
-if (Trig_Map_Initialization_Func012Func009C()) then
+if (Trig_Map_Initialization_Func018Func009C()) then
 udg_Integer_ModType = GetRandomInt(1, udg_Integer_TotalModNumber)
-if (Trig_Map_Initialization_Func012Func009Func002C()) then
+if (Trig_Map_Initialization_Func018Func009Func002C()) then
 udg_Integer_Array_ModLevel1[GetForLoopIndexA()] = (udg_Integer_Array_ModLevel1[GetForLoopIndexA()] + 1)
 udg_String_Array_Modifiers[GetForLoopIndexA()] = ("" .. (udg_String_Array_Mods[udg_Integer_Array_ModType1[GetForLoopIndexA()]] .. udg_String_Array_ModLevel[udg_Integer_Array_ModLevel1[GetForLoopIndexA()]]))
 else
@@ -742,13 +759,13 @@ else
 udg_Integer_ModType = 0
 udg_String_Array_Modifiers[GetForLoopIndexA()] = (udg_String_Array_Modifiers[GetForLoopIndexA()] .. (udg_String_Array_Mods[udg_Integer_ModType] .. udg_String_Array_ModLevel[udg_Integer_Array_ModLevel1[GetForLoopIndexA()]]))
 end
-if (Trig_Map_Initialization_Func012Func011C()) then
+if (Trig_Map_Initialization_Func018Func011C()) then
 udg_Integer_ModType = GetRandomInt(0, udg_Integer_TotalModNumber)
-if (Trig_Map_Initialization_Func012Func011Func010C()) then
+if (Trig_Map_Initialization_Func018Func011Func010C()) then
 udg_Integer_Array_ModLevel1[GetForLoopIndexA()] = (udg_Integer_Array_ModLevel1[GetForLoopIndexA()] + 1)
 udg_String_Array_Modifiers[GetForLoopIndexA()] = ("" .. (udg_String_Array_Mods[udg_Integer_Array_ModType1[GetForLoopIndexA()]] .. udg_String_Array_ModLevel[udg_Integer_Array_ModLevel1[GetForLoopIndexA()]]))
 else
-if (Trig_Map_Initialization_Func012Func011Func010Func001C()) then
+if (Trig_Map_Initialization_Func018Func011Func010Func001C()) then
 udg_Integer_Array_ModLevel2[GetForLoopIndexA()] = (udg_Integer_Array_ModLevel2[GetForLoopIndexA()] + 1)
 udg_String_Array_Modifiers[GetForLoopIndexA()] = ("" .. (udg_String_Array_Mods[udg_Integer_Array_ModType2[GetForLoopIndexA()]] .. udg_String_Array_ModLevel[udg_Integer_Array_ModLevel2[GetForLoopIndexA()]]))
 else
