@@ -4379,7 +4379,7 @@ is not playing
 
 STRING 1910
 {
-
+Kills
 }
 
 STRING 1911
@@ -4466,11 +4466,6 @@ Everyone chose to increase difficulty, it has been increased by an additional 10
 STRING 1926
 {
 Waves now have a chance to spawn with modifiers, remember to get some magic/spell damage.
-}
-
-STRING 1927
-{
-Wave:
 }
 
 STRING 1929
@@ -5402,7 +5397,7 @@ Upon attacking an enemy their is a 10%/20%/30% chance to reduce armor by 1/2/4, 
 
 STRING 2060
 {
-|cff80ff80Spawn Timer:|r
+|cffff3232Spawn Timer:|r
 }
 
 STRING 2062
@@ -5417,7 +5412,7 @@ STRING 2063
 
 STRING 2064
 {
-|cffffff00Next Armor:|r
+|cff00ff00Next Armor:|r
 }
 
 STRING 2066
@@ -5442,17 +5437,17 @@ STRING 2069
 
 STRING 2070
 {
-|cffffff00Next Modifier:|r
+|cff00ff00Next Modifier:|r
 }
 
 STRING 2071
 {
-|cff80ff80Difficulty: |r
+|cff00ffffDifficulty:|r
 }
 
 STRING 2075
 {
-|cff80ff80Status:|r
+|cffff3232Status:|r
 }
 
 STRING 2076
@@ -5462,7 +5457,7 @@ STRING 2076
 
 STRING 2077
 {
-|cffff0000Demons:|r
+|cffff3333Demons:|r
 }
 
 STRING 2078
@@ -5477,11 +5472,55 @@ STRING 2079
 
 STRING 2080
 {
-|cff80ff80Spawn Count: |r
+|cff00ffffSpawn Count:|r
 }
 
 STRING 2086
 {
 |cff00ff00Stable|r
+}
+
+STRING 2087
+{
+|cffffc800---------------|r
+}
+
+STRING 2088
+{
+|cffffc800-------------------------|r
+}
+
+STRING 2089
+{
+|cffffc800---------------|r
+}
+
+STRING 2090
+{
+|cffffc800---------------|r
+}
+
+STRING 2092
+// Abilities: A00I (Leaderboard Show/Hide), Name (Name)
+{
+Leaderboard Show/Hide
+}
+
+STRING 2093
+// Abilities: A00I (Leaderboard Show/Hide), Tip (Tooltip - Normal)
+{
+Show/Hide Leaderboard
+}
+
+STRING 2094
+// Abilities: A00I (Leaderboard Show/Hide), Ubertip (Tooltip - Normal - Extended)
+{
+Shows or Hides the leaderboard
+}
+
+STRING 2096
+// Abilities: A00I (Leaderboard Show/Hide), Hotkey (Hotkey - Normal)
+{
+R
 }
 

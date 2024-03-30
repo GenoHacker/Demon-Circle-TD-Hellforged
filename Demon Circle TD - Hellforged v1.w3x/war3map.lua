@@ -109,6 +109,7 @@ udg_String_Array_ArmourType = __jarray("")
 udg_Integer_ArmourTypeCounter = 0
 udg_Integer_ModifierChance = 0
 udg_String_Array_Modifiers = __jarray("")
+udg_Boolean_Leaderboard = false
 gg_rct_CreepSpawn1 = nil
 gg_rct_CreepSpawn2 = nil
 gg_rct_CreepSpawn3 = nil
@@ -215,6 +216,7 @@ gg_trg_Creep_Spawn_5 = nil
 gg_trg_Creep_Spawn_6 = nil
 gg_trg_Creep_Spawn_7 = nil
 gg_trg_Creep_Spawn_8 = nil
+gg_trg_Show_or_Hide_Leaderboard = nil
 function InitGlobals()
 local i = 0
 
@@ -484,6 +486,7 @@ if ((i > 1)) then break end
 udg_String_Array_Modifiers[i] = ""
 i = i + 1
 end
+udg_Boolean_Leaderboard = false
 end
 
 function InitSounds()
@@ -908,11 +911,9 @@ ForForce(GetPlayersAll(), Trig_Map_Start_Func015A)
 udg_Integer_MaxCreeps = (60 * udg_Integer_PlayerCount)
 CreateLeaderboardBJ(udg_PG_Users_Playing, "TRIGSTR_1910")
 udg_LB_Info = GetLastCreatedLeaderboard()
-LeaderboardSetLabelBJ(udg_LB_Info, (("|cffff9622Lives = " .. (("|cff8080ff" .. "100.000") .. "%|r ")) .. (("|cffff9622Diff = " .. I2S(udg_Integer_EnemyHandicap)) .. "%|r")))
+LeaderboardDisplayBJ(false, udg_LB_Info)
 ForForce(GetPlayersAll(), Trig_Map_Start_Func023A)
 LeaderboardRemovePlayerItemBJ(Player(11), udg_LB_Info)
-LeaderboardAddItemBJ(Player(9), udg_LB_Info, "TRIGSTR_1927", udg_I_Round)
-LeaderboardAddItemBJ(Player(8), udg_LB_Info, ("Demons [Max " .. (I2S(udg_Integer_MaxCreeps) .. "]:")), udg_I_NumberOfCreeps)
 EnableTrigger(gg_trg_Timer)
 end
 
@@ -923,7 +924,7 @@ TriggerAddAction(gg_trg_Map_Start, Trig_Map_Start_Actions)
 end
 
 function Trig_Multiboard_Actions()
-CreateMultiboardBJ(2, 9, ("Wave: " .. (I2S(udg_I_Round) .. ("/80 - " .. ("Lives: |cff8080ff" .. (R2S(udg_Real_Lives) .. "|r%"))))))
+CreateMultiboardBJ(2, 11, ("Wave: " .. (I2S(udg_I_Round) .. ("/80 - " .. ("Lives: |cff8080ff" .. (R2S(udg_Real_Lives) .. "|r%"))))))
 udg_Multiboard[9] = GetLastCreatedMultiboard()
 MultiboardSetItemValueBJ(udg_Multiboard[9], 1, 1, "TRIGSTR_2075")
 MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 1, "TRIGSTR_2076")
@@ -931,18 +932,22 @@ MultiboardSetItemValueBJ(udg_Multiboard[9], 1, 2, "TRIGSTR_2060")
 MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 2, (("|cffffff00" .. I2S(udg_Integer_Timer)) .. ("/" .. I2S(R2I(udg_Real_WaveTimer)))))
 MultiboardSetItemValueBJ(udg_Multiboard[9], 1, 3, "TRIGSTR_2077")
 MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 3, (("|cffffff00" .. I2S(udg_I_NumberOfCreeps)) .. ("/" .. I2S(udg_Integer_MaxCreeps))))
-MultiboardSetItemValueBJ(udg_Multiboard[9], 1, 4, "TRIGSTR_2062")
-MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 4, "TRIGSTR_2063")
-MultiboardSetItemValueBJ(udg_Multiboard[9], 1, 5, "TRIGSTR_2064")
-MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 5, "TRIGSTR_2066")
-MultiboardSetItemValueBJ(udg_Multiboard[9], 1, 6, "TRIGSTR_2067")
-MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 6, "TRIGSTR_2068")
-MultiboardSetItemValueBJ(udg_Multiboard[9], 1, 7, "TRIGSTR_2070")
-MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 7, "TRIGSTR_2069")
-MultiboardSetItemValueBJ(udg_Multiboard[9], 1, 8, "TRIGSTR_2071")
-MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 8, (("|cffffff00" .. I2S(udg_Integer_EnemyHandicap)) .. ("% x " .. R2S(udg_Real_WaveHealthModifier))))
-MultiboardSetItemValueBJ(udg_Multiboard[9], 1, 9, "TRIGSTR_2080")
-MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 9, (("|cffffff00" .. I2S(udg_Integer_MaxSpawncount)) .. " per wave"))
+MultiboardSetItemValueBJ(udg_Multiboard[9], 1, 4, "TRIGSTR_2089")
+MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 4, "TRIGSTR_2087")
+MultiboardSetItemValueBJ(udg_Multiboard[9], 1, 5, "TRIGSTR_2062")
+MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 5, "TRIGSTR_2063")
+MultiboardSetItemValueBJ(udg_Multiboard[9], 1, 6, "TRIGSTR_2064")
+MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 6, "TRIGSTR_2066")
+MultiboardSetItemValueBJ(udg_Multiboard[9], 1, 7, "TRIGSTR_2067")
+MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 7, "TRIGSTR_2068")
+MultiboardSetItemValueBJ(udg_Multiboard[9], 1, 8, "TRIGSTR_2070")
+MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 8, "TRIGSTR_2069")
+MultiboardSetItemValueBJ(udg_Multiboard[9], 1, 9, "TRIGSTR_2090")
+MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 9, "TRIGSTR_2088")
+MultiboardSetItemValueBJ(udg_Multiboard[9], 1, 10, "TRIGSTR_2071")
+MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 10, (("|cffffff00" .. I2S(udg_Integer_EnemyHandicap)) .. ("% x " .. R2S(udg_Real_WaveHealthModifier))))
+MultiboardSetItemValueBJ(udg_Multiboard[9], 1, 11, "TRIGSTR_2080")
+MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 11, (("|cffffff00" .. I2S(udg_Integer_MaxSpawncount)) .. " per wave"))
 MultiboardSetItemStyleBJ(udg_Multiboard[9], 0, 0, true, false)
 MultiboardSetItemWidthBJ(udg_Multiboard[9], 1, 0, 9.00)
 MultiboardSetItemWidthBJ(udg_Multiboard[9], 2, 0, 8.00)
@@ -953,6 +958,47 @@ function InitTrig_Multiboard()
 gg_trg_Multiboard = CreateTrigger()
 TriggerRegisterTimerEventSingle(gg_trg_Multiboard, 1.00)
 TriggerAddAction(gg_trg_Multiboard, Trig_Multiboard_Actions)
+end
+
+function Trig_Show_or_Hide_Leaderboard_Conditions()
+if (not (GetSpellAbilityId() == FourCC("A00I"))) then
+return false
+end
+return true
+end
+
+function Trig_Show_or_Hide_Leaderboard_Func001Func001C()
+if (not (udg_Boolean_Leaderboard == true)) then
+return false
+end
+return true
+end
+
+function Trig_Show_or_Hide_Leaderboard_Func001C()
+if (not (udg_Boolean_Leaderboard == false)) then
+return false
+end
+return true
+end
+
+function Trig_Show_or_Hide_Leaderboard_Actions()
+if (Trig_Show_or_Hide_Leaderboard_Func001C()) then
+udg_Boolean_Leaderboard = true
+LeaderboardDisplayBJ(true, udg_LB_Info)
+else
+if (Trig_Show_or_Hide_Leaderboard_Func001Func001C()) then
+udg_Boolean_Leaderboard = false
+LeaderboardDisplayBJ(false, udg_LB_Info)
+else
+end
+end
+end
+
+function InitTrig_Show_or_Hide_Leaderboard()
+gg_trg_Show_or_Hide_Leaderboard = CreateTrigger()
+TriggerRegisterAnyUnitEventBJ(gg_trg_Show_or_Hide_Leaderboard, EVENT_PLAYER_UNIT_SPELL_CAST)
+TriggerAddCondition(gg_trg_Show_or_Hide_Leaderboard, Condition(Trig_Show_or_Hide_Leaderboard_Conditions))
+TriggerAddAction(gg_trg_Show_or_Hide_Leaderboard, Trig_Show_or_Hide_Leaderboard_Actions)
 end
 
 function Trig_Difficulty_Dialog_Start_Actions()
@@ -1015,11 +1061,11 @@ TriggerRegisterDialogEventBJ(gg_trg_Difficulty_Adjust, udg_Dialog_Difficulty)
 TriggerAddAction(gg_trg_Difficulty_Adjust, Trig_Difficulty_Adjust_Actions)
 end
 
-function Trig_Difficulty_Dialog_Stop_Func002A()
+function Trig_Difficulty_Dialog_Stop_Func001A()
 DialogDisplayBJ(false, udg_Dialog_Difficulty, GetEnumPlayer())
 end
 
-function Trig_Difficulty_Dialog_Stop_Func003C()
+function Trig_Difficulty_Dialog_Stop_Func002C()
 if (not (udg_Integer_Array_DifficultyVote[9] == udg_Integer_PlayerCount)) then
 return false
 end
@@ -1027,22 +1073,19 @@ return true
 end
 
 function Trig_Difficulty_Dialog_Stop_Actions()
-LeaderboardAddItemBJ(Player(8), udg_LB_Info, ("Demons [Max " .. (I2S(udg_Integer_MaxCreeps) .. "]:")), udg_I_NumberOfCreeps)
-ForForce(GetPlayersAll(), Trig_Difficulty_Dialog_Stop_Func002A)
-if (Trig_Difficulty_Dialog_Stop_Func003C()) then
+ForForce(GetPlayersAll(), Trig_Difficulty_Dialog_Stop_Func001A)
+if (Trig_Difficulty_Dialog_Stop_Func002C()) then
 udg_Integer_EnemyHandicap = (udg_Integer_EnemyHandicap + 10)
 DisplayTextToForce(GetPlayersAll(), "TRIGSTR_1922")
 else
 end
-MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 8, (("|cffffff00" .. I2S(udg_Integer_EnemyHandicap)) .. ("% x " .. R2S(udg_Real_WaveHealthModifier))))
+MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 10, (("|cffffff00" .. I2S(udg_Integer_EnemyHandicap)) .. ("% x " .. R2S(udg_Real_WaveHealthModifier))))
 DisplayTextToForce(GetPlayersAll(), "TRIGSTR_1930")
 udg_Temp_PointA = GetRectCenter(GetPlayableMapRect())
 PingMinimapLocForForce(GetPlayersAll(), udg_Temp_PointA, 5.00)
     RemoveLocation(udg_Temp_PointA)
 PlaySoundBJ(gg_snd_MapPing)
 DisplayTextToForce(GetPlayersAll(), ("Difficulty is now: " .. (I2S(udg_Integer_EnemyHandicap) .. "%")))
-LeaderboardSetLabelBJ(udg_LB_Info, (("|cffff9622Lives = " .. (("|cff8080ff" .. R2S(udg_Real_Lives)) .. "%|r ")) .. (("|cffff9622Diff = " .. I2S(udg_Integer_EnemyHandicap)) .. "%|r")))
-LeaderboardAddItemBJ(Player(8), udg_LB_Info, ("Demons [Max " .. (I2S(udg_Integer_MaxCreeps) .. "]:")), udg_I_NumberOfCreeps)
 end
 
 function InitTrig_Difficulty_Dialog_Stop()
@@ -1151,7 +1194,7 @@ function Trig_Next_Wave_Func018A()
 AdjustPlayerStateBJ(15, GetEnumPlayer(), PLAYER_STATE_RESOURCE_GOLD)
 end
 
-function Trig_Next_Wave_Func023C()
+function Trig_Next_Wave_Func022C()
 if (not (udg_I_Round ~= 80)) then
 return false
 end
@@ -1190,21 +1233,21 @@ else
 end
 end
 udg_Real_WaveHealthModifier = (1.00 + (0.05 * I2R(udg_Integer_PlayerCount)))
-MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 8, (("|cffffff00" .. I2S(udg_Integer_EnemyHandicap)) .. ("% x " .. R2S(udg_Real_WaveHealthModifier))))
-MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 6, udg_String_Array_Modifiers[udg_I_Round])
-MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 7, udg_String_Array_Modifiers[(udg_I_Round + 1)])
+MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 10, (("|cffffff00" .. I2S(udg_Integer_EnemyHandicap)) .. ("% x " .. R2S(udg_Real_WaveHealthModifier))))
+MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 7, udg_String_Array_Modifiers[udg_I_Round])
+MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 8, udg_String_Array_Modifiers[(udg_I_Round + 1)])
 EnableTrigger(gg_trg_Wave_Spawning)
 if (Trig_Next_Wave_Func013C()) then
-MultiboardSetTitleText(GetLastCreatedMultiboard(), ("Wave: " .. (I2S(udg_I_Round) .. ("/80 - " .. ("Lives: |cff8080ff" .. (R2S(udg_Real_Lives) .. "|r%"))))))
+MultiboardSetTitleText(udg_Multiboard[9], ("Wave: " .. (I2S(udg_I_Round) .. ("/80 - " .. ("Lives: |cff8080ff" .. (R2S(udg_Real_Lives) .. "|r%"))))))
 else
 if (Trig_Next_Wave_Func013Func001C()) then
-MultiboardSetTitleText(GetLastCreatedMultiboard(), ("Wave: " .. (I2S(udg_I_Round) .. ("/80 - " .. ("Lives: |cffffff00" .. (R2S(udg_Real_Lives) .. "|r%"))))))
+MultiboardSetTitleText(udg_Multiboard[9], ("Wave: " .. (I2S(udg_I_Round) .. ("/80 - " .. ("Lives: |cffffff00" .. (R2S(udg_Real_Lives) .. "|r%"))))))
 else
 if (Trig_Next_Wave_Func013Func001Func001C()) then
-MultiboardSetTitleText(GetLastCreatedMultiboard(), ("Wave: " .. (I2S(udg_I_Round) .. ("/80 - " .. ("Lives: |cffd45e19" .. (R2S(udg_Real_Lives) .. "|r%"))))))
+MultiboardSetTitleText(udg_Multiboard[9], ("Wave: " .. (I2S(udg_I_Round) .. ("/80 - " .. ("Lives: |cffd45e19" .. (R2S(udg_Real_Lives) .. "|r%"))))))
 else
 if (Trig_Next_Wave_Func013Func001Func001Func002C()) then
-MultiboardSetTitleText(GetLastCreatedMultiboard(), ("Wave: " .. (I2S(udg_I_Round) .. ("/80 - " .. ("Lives: |cffff0000" .. (R2S(udg_Real_Lives) .. "|r%"))))))
+MultiboardSetTitleText(udg_Multiboard[9], ("Wave: " .. (I2S(udg_I_Round) .. ("/80 - " .. ("Lives: |cffff0000" .. (R2S(udg_Real_Lives) .. "|r%"))))))
 else
 end
 end
@@ -1212,17 +1255,16 @@ end
 end
 udg_Integer_ArmourTypeCounter = (udg_Integer_ArmourTypeCounter + 1)
 if (Trig_Next_Wave_Func015C()) then
-MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 4, udg_String_Array_ArmourType[udg_Integer_ArmourTypeCounter])
-MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 5, udg_String_Array_ArmourType[1])
+MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 5, udg_String_Array_ArmourType[udg_Integer_ArmourTypeCounter])
+MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 6, udg_String_Array_ArmourType[1])
 udg_Integer_ArmourTypeCounter = 0
 else
-MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 4, udg_String_Array_ArmourType[udg_Integer_ArmourTypeCounter])
-MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 5, udg_String_Array_ArmourType[(udg_Integer_ArmourTypeCounter + 1)])
+MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 5, udg_String_Array_ArmourType[udg_Integer_ArmourTypeCounter])
+MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 6, udg_String_Array_ArmourType[(udg_Integer_ArmourTypeCounter + 1)])
 end
 ForForce(udg_PG_Users_Playing, Trig_Next_Wave_Func018A)
 DisplayTextToForce(GetPlayersAll(), ("|cffffcc00Wave " .. (I2S(udg_I_Round) .. "!|r")))
-LeaderboardSetPlayerItemValueBJ(Player(9), udg_LB_Info, udg_I_Round)
-if (Trig_Next_Wave_Func023C()) then
+if (Trig_Next_Wave_Func022C()) then
 udg_Integer_Timer = 0
 else
 end
@@ -1446,7 +1488,7 @@ TriggerAddCondition(gg_trg_Wave_Buffs, Condition(Trig_Wave_Buffs_Conditions))
 TriggerAddAction(gg_trg_Wave_Buffs, Trig_Wave_Buffs_Actions)
 end
 
-function Trig_Lives_Func001Func006Func001Func001Func003C()
+function Trig_Lives_Func001Func006Func001Func001Func002C()
 if (not (udg_Real_Lives <= 29.99)) then
 return false
 end
@@ -1495,23 +1537,19 @@ end
 function Trig_Lives_Actions()
 if (Trig_Lives_Func001C()) then
 udg_Real_Lives = ((udg_Real_Lives - 1) - (I2R(udg_I_Round) * 0.05))
-MultiboardSetTitleText(GetLastCreatedMultiboard(), ("[Wave: " .. (I2S(udg_I_Round) .. ("/80] - " .. ("[Lives: " .. (R2S(udg_Real_Lives) .. "%]"))))))
+MultiboardSetTitleText(udg_Multiboard[9], ("[Wave: " .. (I2S(udg_I_Round) .. ("/80] - " .. ("[Lives: " .. (R2S(udg_Real_Lives) .. "%]"))))))
 MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 1, "TRIGSTR_2078")
 if (Trig_Lives_Func001Func006C()) then
-LeaderboardSetLabelBJ(udg_LB_Info, (("|cffff9622Lives = " .. (("|cff8080ff" .. R2S(udg_Real_Lives)) .. "%|r ")) .. (("|cffff9622Diff = " .. I2S(udg_Integer_EnemyHandicap)) .. "%|r")))
-MultiboardSetTitleText(GetLastCreatedMultiboard(), ("Wave: " .. (I2S(udg_I_Round) .. ("/80 - " .. ("Lives: |cff8080ff" .. (R2S(udg_Real_Lives) .. "|r%"))))))
+MultiboardSetTitleText(udg_Multiboard[9], ("Wave: " .. (I2S(udg_I_Round) .. ("/80 - " .. ("Lives: |cff8080ff" .. (R2S(udg_Real_Lives) .. "|r%"))))))
 else
 if (Trig_Lives_Func001Func006Func001C()) then
-LeaderboardSetLabelBJ(udg_LB_Info, (("|cffff9622Lives = " .. (("|cffffff00" .. R2S(udg_Real_Lives)) .. "%|r ")) .. (("|cffff9622Diff = " .. I2S(udg_Integer_EnemyHandicap)) .. "%|r")))
-MultiboardSetTitleText(GetLastCreatedMultiboard(), ("Wave: " .. (I2S(udg_I_Round) .. ("/80 - " .. ("Lives: |cffffff00" .. (R2S(udg_Real_Lives) .. "|r%"))))))
+MultiboardSetTitleText(udg_Multiboard[9], ("Wave: " .. (I2S(udg_I_Round) .. ("/80 - " .. ("Lives: |cffffff00" .. (R2S(udg_Real_Lives) .. "|r%"))))))
 else
 if (Trig_Lives_Func001Func006Func001Func001C()) then
-LeaderboardSetLabelBJ(udg_LB_Info, (("|cffff9622Lives = " .. (("|cffd45e19" .. R2S(udg_Real_Lives)) .. "%|r ")) .. (("|cffff9622Diff = " .. I2S(udg_Integer_EnemyHandicap)) .. "%|r")))
-MultiboardSetTitleText(GetLastCreatedMultiboard(), ("Wave: " .. (I2S(udg_I_Round) .. ("/80 - " .. ("Lives: |cffd45e19" .. (R2S(udg_Real_Lives) .. "|r%"))))))
+MultiboardSetTitleText(udg_Multiboard[9], ("Wave: " .. (I2S(udg_I_Round) .. ("/80 - " .. ("Lives: |cffd45e19" .. (R2S(udg_Real_Lives) .. "|r%"))))))
 else
-if (Trig_Lives_Func001Func006Func001Func001Func003C()) then
-LeaderboardSetLabelBJ(udg_LB_Info, (("|cffff9622Lives = " .. (("|cffff0000" .. R2S(udg_Real_Lives)) .. "%|r ")) .. (("|cffff9622Diff = " .. I2S(udg_Integer_EnemyHandicap)) .. "%|r")))
-MultiboardSetTitleText(GetLastCreatedMultiboard(), ("Wave: " .. (I2S(udg_I_Round) .. ("/80 - " .. ("Lives: |cffff0000" .. (R2S(udg_Real_Lives) .. "|r%"))))))
+if (Trig_Lives_Func001Func006Func001Func001Func002C()) then
+MultiboardSetTitleText(udg_Multiboard[9], ("Wave: " .. (I2S(udg_I_Round) .. ("/80 - " .. ("Lives: |cffff0000" .. (R2S(udg_Real_Lives) .. "|r%"))))))
 else
 end
 end
@@ -1552,14 +1590,14 @@ else
 end
 end
 
-function Trig_Unit_Dies_Func013Func013C()
+function Trig_Unit_Dies_Func013Func012C()
 if (not (udg_I_NumberOfCreeps < udg_Integer_MaxCreeps)) then
 return false
 end
 return true
 end
 
-function Trig_Unit_Dies_Func013Func014C()
+function Trig_Unit_Dies_Func013Func013C()
 if (udg_Owner_Of_Dying_Unit == Player(10)) then
 return true
 end
@@ -1570,7 +1608,7 @@ return false
 end
 
 function Trig_Unit_Dies_Func013C()
-if (not Trig_Unit_Dies_Func013Func014C()) then
+if (not Trig_Unit_Dies_Func013Func013C()) then
 return false
 end
 return true
@@ -1646,9 +1684,8 @@ udg_Player_Number_Extra = GetConvertedPlayerId(udg_Owner_Of_Killing_Unit)
 udg_I_Kills[udg_Player_Number_Extra] = (udg_I_Kills[udg_Player_Number_Extra] + 1)
 LeaderboardSetPlayerItemValueBJ(udg_Owner_Of_Killing_Unit, udg_LB_Info, udg_I_Kills[udg_Player_Number_Extra])
 udg_I_NumberOfCreeps = (udg_I_NumberOfCreeps - 1)
-LeaderboardSetPlayerItemValueBJ(Player(8), udg_LB_Info, udg_I_NumberOfCreeps)
 MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 3, (I2S(udg_I_NumberOfCreeps) .. ("/" .. I2S(udg_Integer_MaxCreeps))))
-if (Trig_Unit_Dies_Func013Func013C()) then
+if (Trig_Unit_Dies_Func013Func012C()) then
 MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 1, "TRIGSTR_2086")
 DisableTrigger(gg_trg_Lives)
 else
@@ -1678,11 +1715,11 @@ end
 return true
 end
 
-function Trig_Leaving_Players_Func017A()
+function Trig_Leaving_Players_Func016A()
 RemoveUnit(GetEnumUnit())
 end
 
-function Trig_Leaving_Players_Func018A()
+function Trig_Leaving_Players_Func017A()
 RemoveUnit(GetEnumUnit())
 end
 
@@ -1695,15 +1732,14 @@ udg_Integer_MaxCreeps = (udg_Integer_MaxCreeps - 60)
 MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 3, (I2S(udg_I_NumberOfCreeps) .. ("/" .. I2S(udg_Integer_MaxCreeps))))
 if (Trig_Leaving_Players_Func009C()) then
 udg_Integer_MaxSpawncount = (udg_Integer_MaxSpawncount - udg_Integer_SpawnIncreaseAmount)
-MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 9, I2S(udg_Integer_MaxSpawncount))
+MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 11, I2S(udg_Integer_MaxSpawncount))
 else
 end
-LeaderboardSetPlayerItemLabelBJ(Player(8), udg_LB_Info, ("Demons [Max " .. (I2S(udg_Integer_MaxCreeps) .. "]:")))
 LeaderboardSetPlayerItemLabelBJ(GetTriggerPlayer(), udg_LB_Info, "TRIGSTR_1900")
 DisplayTextToForce(GetPlayersAll(), (("|cffffaa00" .. (" " .. GetPlayerName(GetTriggerPlayer()))) .. " has left the game!!|r"))
     bj_wantDestroyGroup = true
+ForGroupBJ(GetUnitsOfPlayerAll(GetTriggerPlayer()), Trig_Leaving_Players_Func016A)
 ForGroupBJ(GetUnitsOfPlayerAll(GetTriggerPlayer()), Trig_Leaving_Players_Func017A)
-ForGroupBJ(GetUnitsOfPlayerAll(GetTriggerPlayer()), Trig_Leaving_Players_Func018A)
 end
 
 function InitTrig_Leaving_Players()
@@ -3065,7 +3101,7 @@ end
 return true
 end
 
-function Trig_Creep_Count_Func013C()
+function Trig_Creep_Count_Func012C()
 if (not (udg_I_NumberOfCreeps > udg_Integer_MaxCreeps)) then
 return false
 end
@@ -3074,9 +3110,8 @@ end
 
 function Trig_Creep_Count_Actions()
 udg_I_NumberOfCreeps = (udg_I_NumberOfCreeps + 1)
-LeaderboardSetPlayerItemValueBJ(Player(8), udg_LB_Info, udg_I_NumberOfCreeps)
 MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 3, (("|cffffff00" .. I2S(udg_I_NumberOfCreeps)) .. ("/" .. I2S(udg_Integer_MaxCreeps))))
-if (Trig_Creep_Count_Func013C()) then
+if (Trig_Creep_Count_Func012C()) then
 EnableTrigger(gg_trg_Lives)
 else
 end
@@ -3884,6 +3919,7 @@ function InitCustomTriggers()
 InitTrig_Map_Initialization()
 InitTrig_Map_Start()
 InitTrig_Multiboard()
+InitTrig_Show_or_Hide_Leaderboard()
 InitTrig_Difficulty_Dialog_Start()
 InitTrig_Difficulty_Adjust()
 InitTrig_Difficulty_Dialog_Stop()
