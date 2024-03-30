@@ -360,7 +360,7 @@ udg_Real_Array_SiphoningTowerItem[i] = 0.0
 i = i + 1
 end
 udg_Real_Lives = 100.00
-udg_Real_WaveTimer = 30.00
+udg_Real_WaveTimer = 15.00
 udg_Real_WaveHealthModifier = 1.00
 udg_Real_CommanderHealth = 0.0
 udg_Real_CommanderArmour = 0.0
@@ -527,7 +527,7 @@ if ((i > 1)) then break end
 udg_Integer_Array_ModLevel1[i] = 0
 i = i + 1
 end
-udg_Integer_TotalModNumber = 3
+udg_Integer_TotalModNumber = 8
 udg_Integer_ModType = 0
 i = 0
 while (true) do
@@ -715,9 +715,9 @@ udg_AbilityCode_Array_ModAbilities[5] = FourCC("A00P")
 udg_AbilityCode_Array_ModAbilities[6] = FourCC("A00R")
 udg_AbilityCode_Array_ModAbilities[7] = FourCC("A00J")
 udg_AbilityCode_Array_ModAbilities[8] = FourCC("A01E")
-udg_String_Array_Mods[0] = "|cffc0c0c0[None]|r"
-udg_String_Array_Mods[1] = "|cffffff00[Com] |r"
-udg_String_Array_Mods[2] = "|cff00ff00[Eth] |r"
+udg_String_Array_Mods[0] = "|cffc0c0c0[N]|r"
+udg_String_Array_Mods[1] = "|cffffff00[Com]|r"
+udg_String_Array_Mods[2] = "|cff00ff00[Eth]|r"
 udg_String_Array_Mods[3] = "|cff3232ff[Shi]|r"
 udg_String_Array_Mods[4] = "|cff808080[Arm]|r"
 udg_String_Array_Mods[5] = "|cffff0000[Fst]|r"
@@ -1195,6 +1195,7 @@ udg_Integer_MaxCreeps = (udg_Integer_MaxCreeps - 10)
 MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 3, (("|cffffff00" .. I2S(udg_I_NumberOfCreeps)) .. ("/" .. I2S(udg_Integer_MaxCreeps))))
 udg_Integer_Array_DifficultyVote[9] = (udg_Integer_Array_DifficultyVote[9] + 1)
 udg_Integer_MaxSpawncount = (udg_Integer_MaxSpawncount + udg_Integer_SpawnIncreaseAmount)
+MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 11, (("|cffffff00" .. I2S(udg_Integer_MaxSpawncount)) .. " per wave"))
 udg_Integer_Array_DifficultyVote[GetConvertedPlayerId(GetTriggerPlayer())] = 1
 udg_Real_WaveTimer = (udg_Real_WaveTimer - 1.00)
 MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 2, (("|cffffff00" .. I2S(udg_Integer_Timer)) .. ("/" .. I2S(R2I(udg_Real_WaveTimer)))))
