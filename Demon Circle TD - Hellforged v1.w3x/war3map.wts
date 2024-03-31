@@ -5578,3 +5578,29 @@ STRING 2107
 [Wave Mod] Armor Bonus
 }
 
+STRING 2108
+// Abilities: A01F (Wave Modifiers), Name (Name)
+{
+Wave Modifiers
+}
+
+STRING 2109
+// Abilities: A01F (Wave Modifiers), Tip (Tooltip - Normal)
+{
+Wave Modifiers
+}
+
+STRING 2110
+// Abilities: A01F (Wave Modifiers), Ubertip (Tooltip - Normal - Extended)
+{
+|cffc0c0c0[None]|r
+|cffffff00[Doom Commander]|r - A unit that will give various benefits to the wave mostly via auras, but may also cast Spirit Link.
+|cff00ff00[Ethereal]|r - Causes a unit to become ethereal, the affected unit will move slower but can only be damaged by magic and spell damage, generally removed when the unit is hit at or below 50% total health.
+|cff3232ff[Mana Shield]|r - Affected units gain mana equal to roughly 50% total health, the shield that will absorb a significant portion of the damage dealt to the unit.
+|cff808080[Armored]|r - Units will have bonus armour, reducing attack damage taken.
+|cffff0000[Fast]|r - Units will move faster
+|cff80ff80[Health Regeneration]|r - Unit will gain a large increase to health regeneration
+|cff00ffff[Evasion]|r - Units will have a chance to evade attacks
+|cffd45e19[Splitter]|r - Upon death a unit will spawn 1 or multiple demons.
+}
+
