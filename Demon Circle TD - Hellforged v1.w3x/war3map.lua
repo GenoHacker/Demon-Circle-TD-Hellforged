@@ -112,6 +112,12 @@ udg_Integer_Array_ModType1 = __jarray(0)
 udg_Integer_Array_ModType3 = __jarray(0)
 udg_Integer_CommanderMod = 0
 udg_AbilityCode_Array_ModAbilities = __jarray(0)
+udg_String_Array_ModName = __jarray("")
+udg_String_Array_ModLevelText = __jarray("")
+udg_Integer_Slot = 0
+udg_Integer_Array_WaveMod = __jarray(0)
+udg_Integer_Array_WaveModLevel = __jarray(0)
+udg_String_Array_WaveText = __jarray("")
 gg_rct_CreepSpawn1 = nil
 gg_rct_CreepSpawn2 = nil
 gg_rct_CreepSpawn3 = nil
@@ -148,10 +154,10 @@ gg_snd_MapPing = nil
 gg_trg_Map_Initialization = nil
 gg_trg_Map_Start = nil
 gg_trg_Multiboard = nil
-gg_trg_Show_Mods = nil
 gg_trg_Change_Difficulty = nil
 gg_trg_Change_Lives = nil
 gg_trg_Change_Max_Creeps = nil
+gg_trg_Show_Mods = nil
 gg_trg_Show_or_Hide_Leaderboard = nil
 gg_trg_Difficulty_Dialog_Start = nil
 gg_trg_Difficulty_Adjust = nil
@@ -316,7 +322,7 @@ udg_Real_Array_SoulEaterDamage[i] = 0.0
 i = i + 1
 end
 udg_Real_Lives = 100.00
-udg_Real_WaveTimer = 15.00
+udg_Real_WaveTimer = 10.00
 udg_Real_WaveHealthModifier = 1.00
 udg_Real_CommanderHealth = 0.0
 udg_Real_CommanderArmour = 0.0
@@ -507,6 +513,37 @@ udg_Integer_Array_ModType3[i] = 0
 i = i + 1
 end
 udg_Integer_CommanderMod = 0
+i = 0
+while (true) do
+if ((i > 1)) then break end
+udg_String_Array_ModName[i] = ""
+i = i + 1
+end
+i = 0
+while (true) do
+if ((i > 1)) then break end
+udg_String_Array_ModLevelText[i] = ""
+i = i + 1
+end
+udg_Integer_Slot = 0
+i = 0
+while (true) do
+if ((i > 1)) then break end
+udg_Integer_Array_WaveMod[i] = 0
+i = i + 1
+end
+i = 0
+while (true) do
+if ((i > 1)) then break end
+udg_Integer_Array_WaveModLevel[i] = 0
+i = i + 1
+end
+i = 0
+while (true) do
+if ((i > 1)) then break end
+udg_String_Array_WaveText[i] = ""
+i = i + 1
+end
 end
 
 function InitSounds()
@@ -610,56 +647,46 @@ gg_rct_Teleport_Pink_1 = Rect(-6144.0, 1792.0, -5760.0, 1920.0)
 gg_rct_Teleport_Green_2 = Rect(-5632.0, 512.0, -5248.0, 640.0)
 end
 
-function Trig_Map_Initialization_Func027Func007C()
-if (not (udg_Integer_Array_ModChance1[GetForLoopIndexA()] <= (udg_Integer_ModifierChance + GetForLoopIndexA()))) then
+function Trig_Map_Initialization_Func026Func001Func001C()
+if (not (GetRandomInt(1, 1000) <= (udg_Integer_ModifierChance + GetForLoopIndexA()))) then
 return false
 end
 return true
 end
 
-function Trig_Map_Initialization_Func027Func009Func002C()
-if (not (udg_Integer_ModType == udg_Integer_Array_ModType1[GetForLoopIndexA()])) then
+function Trig_Map_Initialization_Func026Func004Func003C()
+if (udg_Integer_Array_WaveMod[(udg_Integer_Slot + 3)] == udg_Integer_Array_WaveMod[(udg_Integer_Slot + 2)]) then
+return true
+end
+if (udg_Integer_Array_WaveMod[(udg_Integer_Slot + 3)] == udg_Integer_Array_WaveMod[(udg_Integer_Slot + 1)]) then
+return true
+end
+return false
+end
+
+function Trig_Map_Initialization_Func026Func004C()
+if (not Trig_Map_Initialization_Func026Func004Func003C()) then
 return false
 end
 return true
 end
 
-function Trig_Map_Initialization_Func027Func009C()
-if (not (udg_Integer_Array_ModChance2[GetForLoopIndexA()] <= (udg_Integer_ModifierChance + GetForLoopIndexA()))) then
+function Trig_Map_Initialization_Func026Func005C()
+if (not (udg_Integer_Array_WaveMod[(udg_Integer_Slot + 2)] == udg_Integer_Array_WaveMod[(udg_Integer_Slot + 1)])) then
 return false
 end
 return true
 end
 
-function Trig_Map_Initialization_Func027Func011Func010Func001C()
-if (not (udg_Integer_ModType == udg_Integer_Array_ModType2[GetForLoopIndexA()])) then
+function Trig_Map_Initialization_Func028Func003Func001C()
+if (not (udg_Integer_Array_WaveMod[(udg_Integer_Slot + GetForLoopIndexB())] ~= 0)) then
 return false
 end
 return true
 end
 
-function Trig_Map_Initialization_Func027Func011Func010C()
-if (not (udg_Integer_ModType == udg_Integer_Array_ModType1[GetForLoopIndexA()])) then
-return false
-end
-return true
-end
-
-function Trig_Map_Initialization_Func027Func011C()
-if (not (udg_Integer_Array_ModChance3[GetForLoopIndexA()] <= (udg_Integer_ModifierChance + GetForLoopIndexA()))) then
-return false
-end
-return true
-end
-
-function Trig_Map_Initialization_Func027Func013C()
-if (not (udg_Integer_Array_ModType1[GetForLoopIndexA()] == 0)) then
-return false
-end
-if (not (udg_Integer_Array_ModType2[GetForLoopIndexA()] == 0)) then
-return false
-end
-if (not (udg_Integer_Array_ModType3[GetForLoopIndexA()] == 0)) then
+function Trig_Map_Initialization_Func028Func004C()
+if (not (udg_String_Array_WaveText[GetForLoopIndexA()] == "")) then
 return false
 end
 return true
@@ -673,78 +700,69 @@ udg_AbilityCode_Array_ModAbilities[5] = FourCC("A00P")
 udg_AbilityCode_Array_ModAbilities[6] = FourCC("A00R")
 udg_AbilityCode_Array_ModAbilities[7] = FourCC("A00J")
 udg_AbilityCode_Array_ModAbilities[8] = FourCC("A01E")
-udg_String_Array_Mods[0] = "|cffc0c0c0[None"
-udg_String_Array_Mods[1] = "|cffffff00[Com"
-udg_String_Array_Mods[2] = "|cff00ff00[Eth"
-udg_String_Array_Mods[3] = "|cff3232ff[Shi"
-udg_String_Array_Mods[4] = "|cff808080[Arm"
-udg_String_Array_Mods[5] = "|cffff0000[Fst"
-udg_String_Array_Mods[6] = "|cff80ff80[Rgn"
-udg_String_Array_Mods[7] = "|cff00ffff[Eva"
-udg_String_Array_Mods[8] = "|cffd45e19[Spl"
-udg_String_Array_ModLevel[1] = "]|r"
-udg_String_Array_ModLevel[2] = "+]|r"
-udg_String_Array_ModLevel[3] = "++]|r"
-bj_forLoopAIndex = 0
-bj_forLoopAIndexEnd = 10
-while (true) do
-if (bj_forLoopAIndex > bj_forLoopAIndexEnd) then break end
-udg_String_Array_Modifiers[GetForLoopIndexA()] = "|cffc0c0c0[None]"
-bj_forLoopAIndex = bj_forLoopAIndex + 1
-end
+udg_String_Array_ModName[0] = "|cffc0c0c0[None"
+udg_String_Array_ModName[1] = "|cffffff00[Com"
+udg_String_Array_ModName[2] = "|cff00ff00[Eth"
+udg_String_Array_ModName[3] = "|cff3232ff[Shi"
+udg_String_Array_ModName[4] = "|cff808080[Arm"
+udg_String_Array_ModName[5] = "|cffff0000[Fst"
+udg_String_Array_ModName[6] = "|cff80ff80[Rgn"
+udg_String_Array_ModName[7] = "|cff00ffff[Eva"
+udg_String_Array_ModName[8] = "|cffd45e19[Spl"
+udg_String_Array_ModLevelText[0] = "]|r"
+udg_String_Array_ModLevelText[1] = "]|r"
+udg_String_Array_ModLevelText[2] = "+]|r"
+udg_String_Array_ModLevelText[3] = "++]|r"
 bj_forLoopAIndex = 11
 bj_forLoopAIndexEnd = 80
 while (true) do
 if (bj_forLoopAIndex > bj_forLoopAIndexEnd) then break end
-udg_Integer_Array_ModChance1[GetForLoopIndexA()] = GetRandomInt(1, 1000)
-udg_Integer_Array_ModChance2[GetForLoopIndexA()] = GetRandomInt(1, 1000)
-udg_Integer_Array_ModChance3[GetForLoopIndexA()] = GetRandomInt(1, 1000)
-if (Trig_Map_Initialization_Func027Func007C()) then
-udg_Integer_ModType = GetRandomInt(1, udg_Integer_TotalModNumber)
-udg_Integer_Array_ModType1[GetForLoopIndexA()] = udg_Integer_ModType
-udg_Integer_Array_ModLevel1[GetForLoopIndexA()] = 1
-udg_String_Array_Modifiers[GetForLoopIndexA()] = ("" .. (udg_String_Array_Mods[udg_Integer_Array_ModType1[GetForLoopIndexA()]] .. udg_String_Array_ModLevel[udg_Integer_Array_ModLevel1[GetForLoopIndexA()]]))
+bj_forLoopBIndex = 1
+bj_forLoopBIndexEnd = 3
+while (true) do
+if (bj_forLoopBIndex > bj_forLoopBIndexEnd) then break end
+if (Trig_Map_Initialization_Func026Func001Func001C()) then
+udg_Integer_Slot = ((GetForLoopIndexA() - 1) * 3)
+udg_Integer_Array_WaveMod[(udg_Integer_Slot + GetForLoopIndexB())] = GetRandomInt(1, udg_Integer_TotalModNumber)
+udg_Integer_Array_WaveModLevel[(udg_Integer_Slot + GetForLoopIndexB())] = GetRandomInt(1, 3)
 else
-udg_Integer_Array_ModType1[GetForLoopIndexA()] = 0
-udg_Integer_Array_ModLevel1[GetForLoopIndexA()] = 1
 end
-if (Trig_Map_Initialization_Func027Func009C()) then
-udg_Integer_ModType = GetRandomInt(1, udg_Integer_TotalModNumber)
-if (Trig_Map_Initialization_Func027Func009Func002C()) then
-udg_Integer_Array_ModLevel1[GetForLoopIndexA()] = (udg_Integer_Array_ModLevel1[GetForLoopIndexA()] + 1)
-udg_String_Array_Modifiers[GetForLoopIndexA()] = ("" .. (udg_String_Array_Mods[udg_Integer_Array_ModType1[GetForLoopIndexA()]] .. udg_String_Array_ModLevel[udg_Integer_Array_ModLevel1[GetForLoopIndexA()]]))
+bj_forLoopBIndex = bj_forLoopBIndex + 1
+end
+udg_Integer_Slot = ((GetForLoopIndexA() - 1) * 3)
+if (Trig_Map_Initialization_Func026Func004C()) then
+udg_Integer_Array_WaveMod[(udg_Integer_Slot + 3)] = 0
+udg_Integer_Array_WaveModLevel[(udg_Integer_Slot + 3)] = 0
 else
-udg_Integer_ModType = GetRandomInt(1, udg_Integer_TotalModNumber)
-udg_Integer_Array_ModType2[GetForLoopIndexA()] = udg_Integer_ModType
-udg_Integer_Array_ModLevel2[GetForLoopIndexA()] = 1
-udg_String_Array_Modifiers[GetForLoopIndexA()] = (udg_String_Array_Modifiers[GetForLoopIndexA()] .. (udg_String_Array_Mods[udg_Integer_Array_ModType2[GetForLoopIndexA()]] .. udg_String_Array_ModLevel[udg_Integer_Array_ModLevel2[GetForLoopIndexA()]]))
 end
+if (Trig_Map_Initialization_Func026Func005C()) then
+udg_Integer_Array_WaveMod[(udg_Integer_Slot + 2)] = udg_Integer_Array_WaveMod[(udg_Integer_Slot + 3)]
+udg_Integer_Array_WaveModLevel[(udg_Integer_Slot + 2)] = udg_Integer_Array_WaveModLevel[(udg_Integer_Slot + 3)]
+udg_Integer_Array_WaveMod[(udg_Integer_Slot + 3)] = 0
+udg_Integer_Array_WaveModLevel[(udg_Integer_Slot + 3)] = 0
 else
-udg_Integer_Array_ModType2[GetForLoopIndexA()] = 0
-udg_Integer_Array_ModLevel2[GetForLoopIndexA()] = 1
 end
-if (Trig_Map_Initialization_Func027Func011C()) then
-udg_Integer_ModType = GetRandomInt(1, udg_Integer_TotalModNumber)
-if (Trig_Map_Initialization_Func027Func011Func010C()) then
-udg_Integer_Array_ModLevel1[GetForLoopIndexA()] = (udg_Integer_Array_ModLevel1[GetForLoopIndexA()] + 1)
-udg_String_Array_Modifiers[GetForLoopIndexA()] = ("" .. (udg_String_Array_Mods[udg_Integer_Array_ModType1[GetForLoopIndexA()]] .. udg_String_Array_ModLevel[udg_Integer_Array_ModLevel1[GetForLoopIndexA()]]))
+bj_forLoopAIndex = bj_forLoopAIndex + 1
+end
+bj_forLoopAIndex = 1
+bj_forLoopAIndexEnd = 80
+while (true) do
+if (bj_forLoopAIndex > bj_forLoopAIndexEnd) then break end
+udg_Integer_Slot = ((GetForLoopIndexA() - 1) * 3)
+udg_String_Array_WaveText[GetForLoopIndexA()] = ""
+bj_forLoopBIndex = 1
+bj_forLoopBIndexEnd = 3
+while (true) do
+if (bj_forLoopBIndex > bj_forLoopBIndexEnd) then break end
+if (Trig_Map_Initialization_Func028Func003Func001C()) then
+udg_String_Array_WaveText[GetForLoopIndexA()] = (udg_String_Array_WaveText[GetForLoopIndexA()] .. udg_String_Array_ModName[udg_Integer_Array_WaveMod[(udg_Integer_Slot + GetForLoopIndexB())]])
+udg_String_Array_WaveText[GetForLoopIndexA()] = (udg_String_Array_WaveText[GetForLoopIndexA()] .. udg_String_Array_ModLevelText[udg_Integer_Array_WaveModLevel[(udg_Integer_Slot + GetForLoopIndexB())]])
 else
-if (Trig_Map_Initialization_Func027Func011Func010Func001C()) then
-udg_Integer_Array_ModLevel2[GetForLoopIndexA()] = (udg_Integer_Array_ModLevel2[GetForLoopIndexA()] + 1)
-udg_String_Array_Modifiers[GetForLoopIndexA()] = ("" .. (udg_String_Array_Mods[udg_Integer_Array_ModType2[GetForLoopIndexA()]] .. udg_String_Array_ModLevel[udg_Integer_Array_ModLevel2[GetForLoopIndexA()]]))
-else
-udg_Integer_ModType = GetRandomInt(1, udg_Integer_TotalModNumber)
-udg_Integer_Array_ModType3[GetForLoopIndexA()] = udg_Integer_ModType
-udg_Integer_Array_ModLevel3[GetForLoopIndexA()] = 1
-udg_String_Array_Modifiers[GetForLoopIndexA()] = (udg_String_Array_Modifiers[GetForLoopIndexA()] .. (udg_String_Array_Mods[udg_Integer_Array_ModType3[GetForLoopIndexA()]] .. udg_String_Array_ModLevel[udg_Integer_Array_ModLevel3[GetForLoopIndexA()]]))
 end
+bj_forLoopBIndex = bj_forLoopBIndex + 1
 end
-else
-udg_Integer_Array_ModType3[GetForLoopIndexA()] = 0
-udg_Integer_Array_ModLevel3[GetForLoopIndexA()] = 1
-end
-if (Trig_Map_Initialization_Func027Func013C()) then
-udg_String_Array_Modifiers[GetForLoopIndexA()] = ("" .. (udg_String_Array_Mods[0] .. udg_String_Array_ModLevel[1]))
+if (Trig_Map_Initialization_Func028Func004C()) then
+udg_String_Array_WaveText[GetForLoopIndexA()] = (udg_String_Array_ModName[0] .. udg_String_Array_ModLevelText[1])
 else
 end
 bj_forLoopAIndex = bj_forLoopAIndex + 1
@@ -1074,8 +1092,8 @@ TriggerAddAction(gg_trg_Multiboard, Trig_Multiboard_Actions)
 end
 
 function Trig_Show_Mods_Actions()
-bj_forLoopAIndex = udg_Integer_Wave
-bj_forLoopAIndexEnd = (udg_Integer_Wave + 15)
+bj_forLoopAIndex = 1
+bj_forLoopAIndexEnd = 80
 while (true) do
 if (bj_forLoopAIndex > bj_forLoopAIndexEnd) then break end
 DisplayTimedTextToForce(GetForceOfPlayer(GetTriggerPlayer()), 15.00, ("Wave " .. (I2S(GetForLoopIndexA()) .. (": " .. udg_String_Array_Modifiers[GetForLoopIndexA()]))))
@@ -1278,60 +1296,60 @@ end
 return true
 end
 
-function Trig_Next_Wave_Func006Func001C()
+function Trig_Next_Wave_Func009Func001C()
 if (not (udg_Integer_Wave >= 11)) then
 return false
 end
 return true
 end
 
-function Trig_Next_Wave_Func006C()
+function Trig_Next_Wave_Func009C()
 if (not (udg_Integer_Wave == 10)) then
 return false
 end
 return true
 end
 
-function Trig_Next_Wave_Func013Func001Func001Func002C()
+function Trig_Next_Wave_Func016Func001Func001Func002C()
 if (not (udg_Real_Lives <= 29.99)) then
 return false
 end
 return true
 end
 
-function Trig_Next_Wave_Func013Func001Func001C()
+function Trig_Next_Wave_Func016Func001Func001C()
 if (not (udg_Real_Lives >= 30.00)) then
 return false
 end
 return true
 end
 
-function Trig_Next_Wave_Func013Func001C()
+function Trig_Next_Wave_Func016Func001C()
 if (not (udg_Real_Lives >= 50.00)) then
 return false
 end
 return true
 end
 
-function Trig_Next_Wave_Func013C()
+function Trig_Next_Wave_Func016C()
 if (not (udg_Real_Lives >= 75.00)) then
 return false
 end
 return true
 end
 
-function Trig_Next_Wave_Func015C()
+function Trig_Next_Wave_Func018C()
 if (not (udg_Integer_ArmourTypeCounter == 10)) then
 return false
 end
 return true
 end
 
-function Trig_Next_Wave_Func018A()
+function Trig_Next_Wave_Func021A()
 AdjustPlayerStateBJ(15, GetEnumPlayer(), PLAYER_STATE_RESOURCE_GOLD)
 end
 
-function Trig_Next_Wave_Func022C()
+function Trig_Next_Wave_Func025C()
 if (not (udg_Integer_Wave ~= 80)) then
 return false
 end
@@ -1354,7 +1372,10 @@ else
 end
 end
 udg_Integer_Wave = (udg_Integer_Wave + 1)
-if (Trig_Next_Wave_Func006C()) then
+DisplayTextToForce(GetPlayersAll(), ("Mod 1:" .. (udg_String_Array_Mods[udg_Integer_Array_ModType1[udg_Integer_Wave]] .. udg_String_Array_ModLevel[udg_Integer_Array_ModLevel1[udg_Integer_Wave]])))
+DisplayTextToForce(GetPlayersAll(), ("Mod 2:" .. (udg_String_Array_Mods[udg_Integer_Array_ModType2[udg_Integer_Wave]] .. udg_String_Array_ModLevel[udg_Integer_Array_ModLevel2[udg_Integer_Wave]])))
+DisplayTextToForce(GetPlayersAll(), ("Mod 3:" .. (udg_String_Array_Mods[udg_Integer_Array_ModType3[udg_Integer_Wave]] .. udg_String_Array_ModLevel[udg_Integer_Array_ModLevel3[udg_Integer_Wave]])))
+if (Trig_Next_Wave_Func009C()) then
 DisplayTextToForce(GetPlayersAll(), "TRIGSTR_1926")
 DisplayTextToForce(GetPlayersAll(), "TRIGSTR_1929")
 udg_Temp_PointA = GetRectCenter(GetPlayableMapRect())
@@ -1362,7 +1383,7 @@ PingMinimapLocForForce(GetPlayersAll(), udg_Temp_PointA, 5.00)
         RemoveLocation(udg_Temp_PointA)
 PlaySoundBJ(gg_snd_MapPing)
 else
-if (Trig_Next_Wave_Func006Func001C()) then
+if (Trig_Next_Wave_Func009Func001C()) then
 udg_Integer_WaveModPerSpawnChance = 115
 EnableTrigger(gg_trg_Wave_Buffs_New)
 EnableTrigger(gg_trg_Commander_Spawning)
@@ -1374,16 +1395,16 @@ MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 10, (("|cffffff00" .. I2S(udg_Int
 MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 7, udg_String_Array_Modifiers[udg_Integer_Wave])
 MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 8, udg_String_Array_Modifiers[(udg_Integer_Wave + 1)])
 EnableTrigger(gg_trg_Wave_Spawning)
-if (Trig_Next_Wave_Func013C()) then
+if (Trig_Next_Wave_Func016C()) then
 MultiboardSetTitleText(udg_Multiboard[9], ("Wave: " .. (I2S(udg_Integer_Wave) .. ("/80 - " .. ("Lives: |cff8080ff" .. (R2S(udg_Real_Lives) .. "|r%"))))))
 else
-if (Trig_Next_Wave_Func013Func001C()) then
+if (Trig_Next_Wave_Func016Func001C()) then
 MultiboardSetTitleText(udg_Multiboard[9], ("Wave: " .. (I2S(udg_Integer_Wave) .. ("/80 - " .. ("Lives: |cffffff00" .. (R2S(udg_Real_Lives) .. "|r%"))))))
 else
-if (Trig_Next_Wave_Func013Func001Func001C()) then
+if (Trig_Next_Wave_Func016Func001Func001C()) then
 MultiboardSetTitleText(udg_Multiboard[9], ("Wave: " .. (I2S(udg_Integer_Wave) .. ("/80 - " .. ("Lives: |cffd45e19" .. (R2S(udg_Real_Lives) .. "|r%"))))))
 else
-if (Trig_Next_Wave_Func013Func001Func001Func002C()) then
+if (Trig_Next_Wave_Func016Func001Func001Func002C()) then
 MultiboardSetTitleText(udg_Multiboard[9], ("Wave: " .. (I2S(udg_Integer_Wave) .. ("/80 - " .. ("Lives: |cffff0000" .. (R2S(udg_Real_Lives) .. "|r%"))))))
 else
 end
@@ -1391,7 +1412,7 @@ end
 end
 end
 udg_Integer_ArmourTypeCounter = (udg_Integer_ArmourTypeCounter + 1)
-if (Trig_Next_Wave_Func015C()) then
+if (Trig_Next_Wave_Func018C()) then
 MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 5, udg_String_Array_ArmourType[udg_Integer_ArmourTypeCounter])
 MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 6, udg_String_Array_ArmourType[1])
 udg_Integer_ArmourTypeCounter = 0
@@ -1399,9 +1420,9 @@ else
 MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 5, udg_String_Array_ArmourType[udg_Integer_ArmourTypeCounter])
 MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 6, udg_String_Array_ArmourType[(udg_Integer_ArmourTypeCounter + 1)])
 end
-ForForce(udg_PG_Users_Playing, Trig_Next_Wave_Func018A)
+ForForce(udg_PG_Users_Playing, Trig_Next_Wave_Func021A)
 DisplayTextToForce(GetPlayersAll(), ("|cffffcc00Wave " .. (I2S(udg_Integer_Wave) .. "!|r")))
-if (Trig_Next_Wave_Func022C()) then
+if (Trig_Next_Wave_Func025C()) then
 udg_Integer_Timer = 0
 else
 end
