@@ -34,7 +34,7 @@ udg_Temp_PointCommander = {}
 udg_Integer_MaxSpawncount = 0
 udg_UnitGroup_SiphoningTower = {}
 udg_UnitGroup_SanguineStacks = nil
-udg_Temp_PointC = {}
+udg_Temp_PointAnomaly = {}
 udg_UnitGroup_FluctuationTowerMana = nil
 udg_Integer_Array_HellfireTower = __jarray(0)
 udg_Integer_Array_SoulfireChance = __jarray(0)
@@ -120,6 +120,8 @@ udg_Integer_Array_WaveModLevel = __jarray(0)
 udg_String_Array_WaveText = __jarray("")
 udg_Integer_ModToGive = 0
 udg_Integer_ModLevelToGive = 0
+udg_Temp_PointC = nil
+udg_Unit_DivineShield = nil
 gg_rct_CreepSpawn1 = nil
 gg_rct_CreepSpawn2 = nil
 gg_rct_CreepSpawn3 = nil
@@ -174,7 +176,8 @@ gg_trg_Unit_Dies = nil
 gg_trg_Leaving_Players = nil
 gg_trg_Sell_Towers = nil
 gg_trg_Invulnerable_Towers = nil
-gg_trg_Remove_Ethereal = nil
+gg_trg_Wave_Mod_Divine_Shield = nil
+gg_trg_Wave_Mod_Remove_Ethereal = nil
 gg_trg_Anomaly_Tower_Limit_Upgrade = nil
 gg_trg_Anomaly_Tower_Limit_Cancel = nil
 gg_trg_Anomaly_Tower_Level_Up_Ability = nil
@@ -438,7 +441,7 @@ udg_String_Array_ArmourType[i] = ""
 i = i + 1
 end
 udg_Integer_ArmourTypeCounter = 0
-udg_Integer_ModifierChance = 150
+udg_Integer_ModifierChance = 200
 i = 0
 while (true) do
 if ((i > 1)) then break end
@@ -470,7 +473,7 @@ if ((i > 1)) then break end
 udg_Integer_Array_ModLevel1[i] = 0
 i = i + 1
 end
-udg_Integer_TotalModNumber = 8
+udg_Integer_TotalModNumber = 9
 udg_Integer_ModType = 0
 i = 0
 while (true) do
@@ -557,16 +560,6 @@ SetSoundDuration(gg_snd_MapPing, 1636)
 SetSoundVolume(gg_snd_MapPing, 127)
 end
 
-function CreateNeutralHostile()
-local p = Player(PLAYER_NEUTRAL_AGGRESSIVE)
-local u
-local unitID
-local t
-local life
-
-u = BlzCreateUnitWithSkin(p, FourCC("n006"), -4553.6, 3722.7, 80.038, FourCC("n006"))
-end
-
 function CreateNeutralPassiveBuildings()
 local p = Player(PLAYER_NEUTRAL_PASSIVE)
 local u
@@ -609,7 +602,6 @@ end
 function CreateAllUnits()
 CreateNeutralPassiveBuildings()
 CreatePlayerBuildings()
-CreateNeutralHostile()
 CreateNeutralPassive()
 CreatePlayerUnits()
 end
@@ -651,14 +643,14 @@ gg_rct_Teleport_Pink_1 = Rect(-6144.0, 1792.0, -5760.0, 1920.0)
 gg_rct_Teleport_Green_2 = Rect(-5632.0, 512.0, -5248.0, 640.0)
 end
 
-function Trig_Map_Initialization_Func026Func001Func001C()
-if (not (GetRandomInt(1, 1000) <= (udg_Integer_ModifierChance + GetForLoopIndexA()))) then
+function Trig_Map_Initialization_Func028Func001Func001C()
+if (not (GetRandomInt(1, 1000) <= (udg_Integer_ModifierChance + (GetForLoopIndexA() * 2)))) then
 return false
 end
 return true
 end
 
-function Trig_Map_Initialization_Func026Func004Func003C()
+function Trig_Map_Initialization_Func028Func004Func003C()
 if (udg_Integer_Array_WaveMod[(udg_Integer_Slot + 3)] == udg_Integer_Array_WaveMod[(udg_Integer_Slot + 2)]) then
 return true
 end
@@ -668,28 +660,28 @@ end
 return false
 end
 
-function Trig_Map_Initialization_Func026Func004C()
-if (not Trig_Map_Initialization_Func026Func004Func003C()) then
+function Trig_Map_Initialization_Func028Func004C()
+if (not Trig_Map_Initialization_Func028Func004Func003C()) then
 return false
 end
 return true
 end
 
-function Trig_Map_Initialization_Func026Func005C()
+function Trig_Map_Initialization_Func028Func005C()
 if (not (udg_Integer_Array_WaveMod[(udg_Integer_Slot + 2)] == udg_Integer_Array_WaveMod[(udg_Integer_Slot + 1)])) then
 return false
 end
 return true
 end
 
-function Trig_Map_Initialization_Func028Func003Func001C()
+function Trig_Map_Initialization_Func030Func003Func001C()
 if (not (udg_Integer_Array_WaveMod[(udg_Integer_Slot + GetForLoopIndexB())] ~= 0)) then
 return false
 end
 return true
 end
 
-function Trig_Map_Initialization_Func028Func004C()
+function Trig_Map_Initialization_Func030Func004C()
 if (not (udg_String_Array_WaveText[GetForLoopIndexA()] == "")) then
 return false
 end
@@ -697,6 +689,7 @@ return true
 end
 
 function Trig_Map_Initialization_Actions()
+udg_String_Array_Mods[0] = "0 |cffc0c0c0[None]|r 1 |cff6f2583[Com]|r 2 |cff00ff00[Eth]|r 3 |cff3232ff[Shi]|r 4 |cff808080[Arm]|r 5 |cffff0000[Fst]|r 6 |cff80ff80[Rgn]|r 7 |cff00ffff[Eva]|r 8 |cffd45e19[Spl]|r 9 |cffffd700[Div]|r"
 udg_AbilityCode_Array_ModAbilities[2] = FourCC("A01H")
 udg_AbilityCode_Array_ModAbilities[3] = FourCC("A01I")
 udg_AbilityCode_Array_ModAbilities[4] = FourCC("A018")
@@ -704,8 +697,9 @@ udg_AbilityCode_Array_ModAbilities[5] = FourCC("A00P")
 udg_AbilityCode_Array_ModAbilities[6] = FourCC("A00R")
 udg_AbilityCode_Array_ModAbilities[7] = FourCC("A00J")
 udg_AbilityCode_Array_ModAbilities[8] = FourCC("A01E")
+udg_AbilityCode_Array_ModAbilities[9] = FourCC("A01E")
 udg_String_Array_ModName[0] = "|cffc0c0c0[None"
-udg_String_Array_ModName[1] = "|cffffff00[Com"
+udg_String_Array_ModName[1] = "|cff6f2583[Com"
 udg_String_Array_ModName[2] = "|cff00ff00[Eth"
 udg_String_Array_ModName[3] = "|cff3232ff[Shi"
 udg_String_Array_ModName[4] = "|cff808080[Arm"
@@ -713,6 +707,7 @@ udg_String_Array_ModName[5] = "|cffff0000[Fst"
 udg_String_Array_ModName[6] = "|cff80ff80[Rgn"
 udg_String_Array_ModName[7] = "|cff00ffff[Eva"
 udg_String_Array_ModName[8] = "|cffd45e19[Spl"
+udg_String_Array_ModName[9] = "|cffffd700[Inv"
 udg_String_Array_ModLevelText[0] = "]|r"
 udg_String_Array_ModLevelText[1] = "]|r"
 udg_String_Array_ModLevelText[2] = "+]|r"
@@ -725,7 +720,7 @@ bj_forLoopBIndex = 1
 bj_forLoopBIndexEnd = 3
 while (true) do
 if (bj_forLoopBIndex > bj_forLoopBIndexEnd) then break end
-if (Trig_Map_Initialization_Func026Func001Func001C()) then
+if (Trig_Map_Initialization_Func028Func001Func001C()) then
 udg_Integer_Slot = ((GetForLoopIndexA() - 1) * 3)
 udg_Integer_Array_WaveMod[(udg_Integer_Slot + GetForLoopIndexB())] = GetRandomInt(1, udg_Integer_TotalModNumber)
 udg_Integer_Array_WaveModLevel[(udg_Integer_Slot + GetForLoopIndexB())] = GetRandomInt(1, 3)
@@ -734,12 +729,12 @@ end
 bj_forLoopBIndex = bj_forLoopBIndex + 1
 end
 udg_Integer_Slot = ((GetForLoopIndexA() - 1) * 3)
-if (Trig_Map_Initialization_Func026Func004C()) then
+if (Trig_Map_Initialization_Func028Func004C()) then
 udg_Integer_Array_WaveMod[(udg_Integer_Slot + 3)] = 0
 udg_Integer_Array_WaveModLevel[(udg_Integer_Slot + 3)] = 0
 else
 end
-if (Trig_Map_Initialization_Func026Func005C()) then
+if (Trig_Map_Initialization_Func028Func005C()) then
 udg_Integer_Array_WaveMod[(udg_Integer_Slot + 2)] = udg_Integer_Array_WaveMod[(udg_Integer_Slot + 3)]
 udg_Integer_Array_WaveModLevel[(udg_Integer_Slot + 2)] = udg_Integer_Array_WaveModLevel[(udg_Integer_Slot + 3)]
 udg_Integer_Array_WaveMod[(udg_Integer_Slot + 3)] = 0
@@ -758,14 +753,14 @@ bj_forLoopBIndex = 1
 bj_forLoopBIndexEnd = 3
 while (true) do
 if (bj_forLoopBIndex > bj_forLoopBIndexEnd) then break end
-if (Trig_Map_Initialization_Func028Func003Func001C()) then
+if (Trig_Map_Initialization_Func030Func003Func001C()) then
 udg_String_Array_WaveText[GetForLoopIndexA()] = (udg_String_Array_WaveText[GetForLoopIndexA()] .. udg_String_Array_ModName[udg_Integer_Array_WaveMod[(udg_Integer_Slot + GetForLoopIndexB())]])
 udg_String_Array_WaveText[GetForLoopIndexA()] = (udg_String_Array_WaveText[GetForLoopIndexA()] .. udg_String_Array_ModLevelText[udg_Integer_Array_WaveModLevel[(udg_Integer_Slot + GetForLoopIndexB())]])
 else
 end
 bj_forLoopBIndex = bj_forLoopBIndex + 1
 end
-if (Trig_Map_Initialization_Func028Func004C()) then
+if (Trig_Map_Initialization_Func030Func004C()) then
 udg_String_Array_WaveText[GetForLoopIndexA()] = (udg_String_Array_ModName[0] .. udg_String_Array_ModLevelText[1])
 else
 end
@@ -875,15 +870,6 @@ udg_AbilityCode_Array_Commander[2] = FourCC("A01J")
 udg_AbilityCode_Array_Commander[3] = FourCC("S000")
 udg_AbilityCode_Array_Commander[4] = FourCC("A01L")
 udg_AbilityCode_Array_Commander[5] = FourCC("A01M")
-udg_Region_Array_Teleport[1] = gg_rct_Teleport_Red_2
-udg_Region_Array_Teleport[2] = gg_rct_Teleport_Blue_2
-udg_Region_Array_Teleport[3] = gg_rct_Teleport_Teal_2
-udg_Region_Array_Teleport[4] = gg_rct_Teleport_Purple_2
-udg_Region_Array_Teleport[5] = gg_rct_Teleport_Yellow_2
-udg_Region_Array_Teleport[6] = gg_rct_Teleport_Orange_2
-udg_Region_Array_Teleport[7] = gg_rct_Teleport_Green_2
-udg_Region_Array_Teleport[8] = gg_rct_Teleport_Pink_2
-udg_Region_Array_Teleport[9] = gg_rct_Teleport_Red_2
 udg_Region_Array_Waypoints[1] = gg_rct_Waypoint_1
 udg_Region_Array_Waypoints[2] = gg_rct_Waypoint_2
 udg_Region_Array_Waypoints[3] = gg_rct_Waypoint_3
@@ -1099,7 +1085,7 @@ end
 
 function Trig_Show_Mods_Actions()
 bj_forLoopAIndex = (udg_Integer_Wave + 2)
-bj_forLoopAIndexEnd = (udg_Integer_Wave + 17)
+bj_forLoopAIndexEnd = 80
 while (true) do
 if (bj_forLoopAIndex > bj_forLoopAIndexEnd) then break end
 DisplayTimedTextToForce(GetForceOfPlayer(GetTriggerPlayer()), 15.00, ("Wave " .. (I2S(GetForLoopIndexA()) .. (": " .. udg_String_Array_WaveText[GetForLoopIndexA()]))))
@@ -1459,6 +1445,8 @@ else
 CreateNUnitsAtLoc(1, udg_UT_UnitType[udg_Integer_Wave], Player(11), udg_Point_Array_WaveSpawnpoint[udg_Player_Number], udg_Real_Array_SpawnDegrees[udg_Player_Number])
 end
 udg_Creep = GetLastCreatedUnit()
+UnitAddAbilityBJ(FourCC("A01Q"), udg_Creep)
+SetUnitAbilityLevelSwapped(FourCC("A01Q"), udg_Creep, udg_Player_Number)
 UnitAddAbilityBJ(FourCC("A019"), udg_Creep)
 SetUnitAbilityLevelSwapped(FourCC("A019"), udg_Creep, udg_Player_Number)
 udg_Real_WaveHealth = (GetUnitStateSwap(UNIT_STATE_MAX_LIFE, udg_Creep) * (I2R(udg_Integer_EnemyHandicap) / 100.00))
@@ -1590,7 +1578,7 @@ DisableTrigger(gg_trg_Commander_Spawning)
 TriggerAddAction(gg_trg_Commander_Spawning, Trig_Commander_Spawning_Actions)
 end
 
-function Trig_Wave_Buffs_New_Func005C()
+function Trig_Wave_Buffs_New_Func007C()
 if (GetOwningPlayer(GetTriggerUnit()) == Player(10)) then
 return true
 end
@@ -1604,7 +1592,13 @@ function Trig_Wave_Buffs_New_Conditions()
 if (not (GetUnitTypeId(GetTriggerUnit()) ~= FourCC("n001"))) then
 return false
 end
-if (not Trig_Wave_Buffs_New_Func005C()) then
+if (not (GetUnitTypeId(GetTriggerUnit()) ~= FourCC("n006"))) then
+return false
+end
+if (not (GetUnitTypeId(GetTriggerUnit()) ~= FourCC("h02A"))) then
+return false
+end
+if (not Trig_Wave_Buffs_New_Func007C()) then
 return false
 end
 return true
@@ -2155,25 +2149,60 @@ TriggerRegisterAnyUnitEventBJ(gg_trg_Invulnerable_Towers, EVENT_PLAYER_UNIT_UPGR
 TriggerAddAction(gg_trg_Invulnerable_Towers, Trig_Invulnerable_Towers_Actions)
 end
 
-function Trig_Remove_Ethereal_Conditions()
-if (not (UnitHasBuffBJ(BlzGetEventDamageTarget(), FourCC("BHbn")) == true)) then
-return false
-end
-if (not (GetUnitLifePercent(BlzGetEventDamageTarget()) <= 51.00)) then
+function Trig_Wave_Mod_Divine_Shield_Conditions()
+if (not (GetUnitAbilityLevelSwapped(FourCC("A01O"), BlzGetEventDamageTarget()) >= 1)) then
 return false
 end
 return true
 end
 
-function Trig_Remove_Ethereal_Actions()
+function Trig_Wave_Mod_Divine_Shield_Func001C()
+if (not (GetUnitAbilityLevelSwapped(FourCC("A01Q"), BlzGetEventDamageTarget()) == GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource())))) then
+return false
+end
+return true
+end
+
+function Trig_Wave_Mod_Divine_Shield_Actions()
+if (Trig_Wave_Mod_Divine_Shield_Func001C()) then
+udg_Temp_PointA = GetRectCenter(udg_Region_Array_Waypoints[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))])
+IssueImmediateOrderBJ(BlzGetEventDamageTarget(), "divineshield")
+IssuePointOrderLocBJ(BlzGetEventDamageTarget(), "move", udg_Temp_PointA)
+        RemoveLocation(udg_Temp_PointA)
+else
+udg_Temp_PointA = GetRectCenter(udg_Region_Array_Waypoints[(GetUnitAbilityLevelSwapped(FourCC("A01O"), BlzGetEventDamageTarget()) + 1)])
+IssueImmediateOrderBJ(BlzGetEventDamageTarget(), "divineshield")
+IssuePointOrderLocBJ(BlzGetEventDamageTarget(), "move", udg_Temp_PointA)
+        RemoveLocation(udg_Temp_PointA)
+end
+end
+
+function InitTrig_Wave_Mod_Divine_Shield()
+gg_trg_Wave_Mod_Divine_Shield = CreateTrigger()
+TriggerRegisterAnyUnitEventBJ(gg_trg_Wave_Mod_Divine_Shield, EVENT_PLAYER_UNIT_DAMAGED)
+TriggerAddCondition(gg_trg_Wave_Mod_Divine_Shield, Condition(Trig_Wave_Mod_Divine_Shield_Conditions))
+TriggerAddAction(gg_trg_Wave_Mod_Divine_Shield, Trig_Wave_Mod_Divine_Shield_Actions)
+end
+
+function Trig_Wave_Mod_Remove_Ethereal_Conditions()
+if (not (UnitHasBuffBJ(BlzGetEventDamageTarget(), FourCC("BHbn")) == true)) then
+return false
+end
+if (not (GetUnitLifePercent(BlzGetEventDamageTarget()) <= 50.00)) then
+return false
+end
+return true
+end
+
+function Trig_Wave_Mod_Remove_Ethereal_Actions()
 UnitRemoveBuffBJ(FourCC("BHbn"), BlzGetEventDamageTarget())
 end
 
-function InitTrig_Remove_Ethereal()
-gg_trg_Remove_Ethereal = CreateTrigger()
-TriggerRegisterAnyUnitEventBJ(gg_trg_Remove_Ethereal, EVENT_PLAYER_UNIT_DAMAGED)
-TriggerAddCondition(gg_trg_Remove_Ethereal, Condition(Trig_Remove_Ethereal_Conditions))
-TriggerAddAction(gg_trg_Remove_Ethereal, Trig_Remove_Ethereal_Actions)
+function InitTrig_Wave_Mod_Remove_Ethereal()
+gg_trg_Wave_Mod_Remove_Ethereal = CreateTrigger()
+TriggerRegisterAnyUnitEventBJ(gg_trg_Wave_Mod_Remove_Ethereal, EVENT_PLAYER_UNIT_DAMAGED)
+TriggerAddCondition(gg_trg_Wave_Mod_Remove_Ethereal, Condition(Trig_Wave_Mod_Remove_Ethereal_Conditions))
+TriggerAddAction(gg_trg_Wave_Mod_Remove_Ethereal, Trig_Wave_Mod_Remove_Ethereal_Actions)
 end
 
 function Trig_Anomaly_Tower_Limit_Upgrade_Conditions()
@@ -2371,8 +2400,8 @@ else
 end
 udg_UnitGroup_Array_AnomDummys1[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] = GetUnitsSelectedAll(Player(PLAYER_NEUTRAL_PASSIVE))
 if (Trig_Anomaly_Tower_Func011C()) then
-udg_Temp_PointC[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] = GetUnitLoc(BlzGetEventDamageTarget())
-CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointC[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))], bj_UNIT_FACING)
+udg_Temp_PointAnomaly[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] = GetUnitLoc(BlzGetEventDamageTarget())
+CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointAnomaly[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))], bj_UNIT_FACING)
 udg_Unit_Array_AnomalyDummyUnit[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] = GetLastCreatedUnit()
         RemoveLocation(udg_Temp_PointC[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))])
 else
@@ -2388,8 +2417,8 @@ UnitAddAbilityBJ(udg_AbilityCode_Array_AnomTowDummy[udg_Integer_Array_AnomalyAbi
 SetUnitAbilityLevelSwapped(udg_AbilityCode_Array_AnomalyTower[udg_Integer_Array_AnomalyAbility1[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))]], udg_Unit_Array_AnomalyDummyUnit[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))], (1 + GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I008")))))
 SetUnitAbilityLevelSwapped(udg_AbilityCode_Array_AnomTowDummy[udg_Integer_Array_AnomalyAbility1[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))]], GetEventDamageSource(), (1 + GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I008")))))
 if (Trig_Anomaly_Tower_Func022C()) then
-udg_Temp_PointC[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] = GetUnitLoc(BlzGetEventDamageTarget())
-CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointC[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))], bj_UNIT_FACING)
+udg_Temp_PointAnomaly[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] = GetUnitLoc(BlzGetEventDamageTarget())
+CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointAnomaly[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))], bj_UNIT_FACING)
 udg_Unit_Array_AnomalyDummyUnit[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] = GetLastCreatedUnit()
         RemoveLocation(udg_Temp_PointC[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))])
 else
@@ -2419,14 +2448,14 @@ else
 end
 if (Trig_Anomaly_Tower_Func042C()) then
 if (Trig_Anomaly_Tower_Func042Func004C()) then
-udg_Temp_PointC[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] = GetUnitLoc(BlzGetEventDamageTarget())
-CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointC[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))], bj_UNIT_FACING)
+udg_Temp_PointAnomaly[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] = GetUnitLoc(BlzGetEventDamageTarget())
+CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointAnomaly[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))], bj_UNIT_FACING)
 udg_Unit_Array_AnomalyDummyUnit[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] = GetLastCreatedUnit()
             RemoveLocation(udg_Temp_PointC[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))])
 else
 if (Trig_Anomaly_Tower_Func042Func004Func002C()) then
-udg_Temp_PointC[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] = GetUnitLoc(BlzGetEventDamageTarget())
-CreateNUnitsAtLoc(1, FourCC("h029"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointC[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))], bj_UNIT_FACING)
+udg_Temp_PointAnomaly[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] = GetUnitLoc(BlzGetEventDamageTarget())
+CreateNUnitsAtLoc(1, FourCC("h029"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointAnomaly[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))], bj_UNIT_FACING)
 udg_Unit_Array_AnomalyDummyUnit[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] = GetLastCreatedUnit()
                 RemoveLocation(udg_Temp_PointC[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))])
 else
@@ -3486,14 +3515,14 @@ end
 return true
 end
 
-function Trig_Creep_Teleport_1_Func002Func001Func009C()
+function Trig_Creep_Teleport_1_Func002Func002Func016C()
 if (not (udg_Player_Is_Active[1] == false)) then
 return false
 end
 return true
 end
 
-function Trig_Creep_Teleport_1_Func002Func001C()
+function Trig_Creep_Teleport_1_Func002Func002C()
 if (not (udg_Player_Is_Active[1] == false)) then
 return false
 end
@@ -3515,26 +3544,47 @@ end
 
 function Trig_Creep_Teleport_1_Actions()
 if (Trig_Creep_Teleport_1_Func002C()) then
+SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 7)
 udg_Temp_PointA = GetRectCenter(gg_rct_Teleport_Green_2)
 udg_Temp_PointB = GetRectCenter(gg_rct_Waypoint_8)
+udg_Temp_PointC = GetUnitLoc(GetTriggerUnit())
 SetUnitPositionLocFacingLocBJ(GetTriggerUnit(), udg_Temp_PointA, udg_Temp_PointB)
         RemoveLocation(udg_Temp_PointA)
+AddSpecialEffectLocBJ(udg_Temp_PointC, "Abilities\\Spells\\NightElf\\Blink\\BlinkCaster.mdl")
+DestroyEffectBJ(GetLastCreatedEffectBJ())
+        RemoveLocation(udg_Temp_PointC)
+AddSpecialEffectLocBJ(udg_Temp_PointA, "Abilities\\Spells\\NightElf\\Blink\\BlinkTarget.mdl")
+DestroyEffectBJ(GetLastCreatedEffectBJ())
 IssuePointOrderLocBJ(GetTriggerUnit(), "move", udg_Temp_PointB)
         RemoveLocation(udg_Temp_PointB)
 else
-if (Trig_Creep_Teleport_1_Func002Func001C()) then
+if (Trig_Creep_Teleport_1_Func002Func002C()) then
+SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 2)
 udg_Temp_PointA = GetRectCenter(gg_rct_Teleport_Blue_2)
 udg_Temp_PointB = GetRectCenter(gg_rct_Waypoint_3)
+udg_Temp_PointC = GetUnitLoc(GetTriggerUnit())
 SetUnitPositionLocFacingLocBJ(GetTriggerUnit(), udg_Temp_PointA, udg_Temp_PointB)
+AddSpecialEffectLocBJ(udg_Temp_PointA, "Abilities\\Spells\\NightElf\\Blink\\BlinkTarget.mdl")
             RemoveLocation(udg_Temp_PointA)
+AddSpecialEffectLocBJ(udg_Temp_PointC, "Abilities\\Spells\\NightElf\\Blink\\BlinkCaster.mdl")
+DestroyEffectBJ(GetLastCreatedEffectBJ())
+            RemoveLocation(udg_Temp_PointC)
+DestroyEffectBJ(GetLastCreatedEffectBJ())
 IssuePointOrderLocBJ(GetTriggerUnit(), "move", udg_Temp_PointB)
             RemoveLocation(udg_Temp_PointB)
 else
-if (Trig_Creep_Teleport_1_Func002Func001Func009C()) then
+if (Trig_Creep_Teleport_1_Func002Func002Func016C()) then
+SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 1)
 udg_Temp_PointA = GetRectCenter(gg_rct_Teleport_Red_2)
 udg_Temp_PointB = GetRectCenter(gg_rct_Waypoint_2)
+udg_Temp_PointC = GetUnitLoc(GetTriggerUnit())
 SetUnitPositionLocFacingLocBJ(GetTriggerUnit(), udg_Temp_PointA, udg_Temp_PointB)
+AddSpecialEffectLocBJ(udg_Temp_PointA, "Abilities\\Spells\\NightElf\\Blink\\BlinkTarget.mdl")
                 RemoveLocation(udg_Temp_PointA)
+AddSpecialEffectLocBJ(udg_Temp_PointC, "Abilities\\Spells\\NightElf\\Blink\\BlinkCaster.mdl")
+DestroyEffectBJ(GetLastCreatedEffectBJ())
+                RemoveLocation(udg_Temp_PointC)
+DestroyEffectBJ(GetLastCreatedEffectBJ())
 IssuePointOrderLocBJ(GetTriggerUnit(), "move", udg_Temp_PointB)
                 RemoveLocation(udg_Temp_PointB)
 else
@@ -3559,7 +3609,7 @@ end
 return true
 end
 
-function Trig_Creep_Teleport_2_Func002Func003Func010C()
+function Trig_Creep_Teleport_2_Func002Func004Func017C()
 if (not (udg_Player_Is_Active[2] == false)) then
 return false
 end
@@ -3569,7 +3619,7 @@ end
 return true
 end
 
-function Trig_Creep_Teleport_2_Func002Func003C()
+function Trig_Creep_Teleport_2_Func002Func004C()
 if (not (udg_Player_Is_Active[2] == false)) then
 return false
 end
@@ -3597,26 +3647,47 @@ end
 
 function Trig_Creep_Teleport_2_Actions()
 if (Trig_Creep_Teleport_2_Func002C()) then
+SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 8)
 udg_Temp_PointA = GetRectCenter(gg_rct_Teleport_Pink_2)
 udg_Temp_PointB = GetRectCenter(gg_rct_Waypoint_1)
+udg_Temp_PointC = GetUnitLoc(GetTriggerUnit())
 SetUnitPositionLocFacingLocBJ(GetTriggerUnit(), udg_Temp_PointA, udg_Temp_PointB)
+AddSpecialEffectLocBJ(udg_Temp_PointA, "Abilities\\Spells\\NightElf\\Blink\\BlinkTarget.mdl")
         RemoveLocation(udg_Temp_PointA)
+AddSpecialEffectLocBJ(udg_Temp_PointC, "Abilities\\Spells\\NightElf\\Blink\\BlinkCaster.mdl")
+DestroyEffectBJ(GetLastCreatedEffectBJ())
+        RemoveLocation(udg_Temp_PointC)
+DestroyEffectBJ(GetLastCreatedEffectBJ())
 IssuePointOrderLocBJ(GetTriggerUnit(), "move", udg_Temp_PointB)
         RemoveLocation(udg_Temp_PointB)
 else
-if (Trig_Creep_Teleport_2_Func002Func003C()) then
+if (Trig_Creep_Teleport_2_Func002Func004C()) then
+SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 3)
 udg_Temp_PointA = GetRectCenter(gg_rct_Teleport_Teal_2)
 udg_Temp_PointB = GetRectCenter(gg_rct_Waypoint_4)
+udg_Temp_PointC = GetUnitLoc(GetTriggerUnit())
 SetUnitPositionLocFacingLocBJ(GetTriggerUnit(), udg_Temp_PointA, udg_Temp_PointB)
+AddSpecialEffectLocBJ(udg_Temp_PointA, "Abilities\\Spells\\NightElf\\Blink\\BlinkTarget.mdl")
             RemoveLocation(udg_Temp_PointA)
+AddSpecialEffectLocBJ(udg_Temp_PointC, "Abilities\\Spells\\NightElf\\Blink\\BlinkCaster.mdl")
+DestroyEffectBJ(GetLastCreatedEffectBJ())
+            RemoveLocation(udg_Temp_PointC)
+DestroyEffectBJ(GetLastCreatedEffectBJ())
 IssuePointOrderLocBJ(GetTriggerUnit(), "move", udg_Temp_PointB)
             RemoveLocation(udg_Temp_PointB)
 else
-if (Trig_Creep_Teleport_2_Func002Func003Func010C()) then
+if (Trig_Creep_Teleport_2_Func002Func004Func017C()) then
+SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 2)
 udg_Temp_PointA = GetRectCenter(gg_rct_Teleport_Blue_2)
 udg_Temp_PointB = GetRectCenter(gg_rct_Waypoint_3)
+udg_Temp_PointC = GetUnitLoc(GetTriggerUnit())
 SetUnitPositionLocFacingLocBJ(GetTriggerUnit(), udg_Temp_PointA, udg_Temp_PointB)
+AddSpecialEffectLocBJ(udg_Temp_PointA, "Abilities\\Spells\\NightElf\\Blink\\BlinkTarget.mdl")
                 RemoveLocation(udg_Temp_PointA)
+AddSpecialEffectLocBJ(udg_Temp_PointC, "Abilities\\Spells\\NightElf\\Blink\\BlinkCaster.mdl")
+DestroyEffectBJ(GetLastCreatedEffectBJ())
+                RemoveLocation(udg_Temp_PointC)
+DestroyEffectBJ(GetLastCreatedEffectBJ())
 IssuePointOrderLocBJ(GetTriggerUnit(), "move", udg_Temp_PointB)
                 RemoveLocation(udg_Temp_PointB)
 else
@@ -3641,14 +3712,14 @@ end
 return true
 end
 
-function Trig_Creep_Teleport_3_Func002Func002Func009C()
+function Trig_Creep_Teleport_3_Func002Func003Func017C()
 if (not (udg_Player_Is_Active[3] == false)) then
 return false
 end
 return true
 end
 
-function Trig_Creep_Teleport_3_Func002Func002C()
+function Trig_Creep_Teleport_3_Func002Func003C()
 if (not (udg_Player_Is_Active[3] == false)) then
 return false
 end
@@ -3670,26 +3741,48 @@ end
 
 function Trig_Creep_Teleport_3_Actions()
 if (Trig_Creep_Teleport_3_Func002C()) then
+SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 1)
 udg_Temp_PointA = GetRectCenter(gg_rct_Teleport_Red_2)
 udg_Temp_PointB = GetRectCenter(gg_rct_Waypoint_2)
+udg_Temp_PointC = GetUnitLoc(GetTriggerUnit())
 SetUnitPositionLocFacingLocBJ(GetTriggerUnit(), udg_Temp_PointA, udg_Temp_PointB)
+AddSpecialEffectLocBJ(udg_Temp_PointA, "Abilities\\Spells\\NightElf\\Blink\\BlinkTarget.mdl")
         RemoveLocation(udg_Temp_PointA)
+AddSpecialEffectLocBJ(udg_Temp_PointC, "Abilities\\Spells\\NightElf\\Blink\\BlinkCaster.mdl")
+DestroyEffectBJ(GetLastCreatedEffectBJ())
+        RemoveLocation(udg_Temp_PointC)
+DestroyEffectBJ(GetLastCreatedEffectBJ())
 IssuePointOrderLocBJ(GetTriggerUnit(), "move", udg_Temp_PointB)
         RemoveLocation(udg_Temp_PointB)
 else
-if (Trig_Creep_Teleport_3_Func002Func002C()) then
+if (Trig_Creep_Teleport_3_Func002Func003C()) then
+SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 4)
 udg_Temp_PointA = GetRectCenter(gg_rct_Teleport_Purple_2)
 udg_Temp_PointB = GetRectCenter(gg_rct_Waypoint_5)
 SetUnitPositionLocFacingLocBJ(GetTriggerUnit(), udg_Temp_PointA, udg_Temp_PointB)
+udg_Temp_PointC = GetUnitLoc(GetTriggerUnit())
+SetUnitPositionLocFacingLocBJ(GetTriggerUnit(), udg_Temp_PointA, udg_Temp_PointB)
+AddSpecialEffectLocBJ(udg_Temp_PointA, "Abilities\\Spells\\NightElf\\Blink\\BlinkTarget.mdl")
             RemoveLocation(udg_Temp_PointA)
+AddSpecialEffectLocBJ(udg_Temp_PointC, "Abilities\\Spells\\NightElf\\Blink\\BlinkCaster.mdl")
+DestroyEffectBJ(GetLastCreatedEffectBJ())
+            RemoveLocation(udg_Temp_PointC)
+DestroyEffectBJ(GetLastCreatedEffectBJ())
 IssuePointOrderLocBJ(GetTriggerUnit(), "move", udg_Temp_PointB)
             RemoveLocation(udg_Temp_PointB)
 else
-if (Trig_Creep_Teleport_3_Func002Func002Func009C()) then
+if (Trig_Creep_Teleport_3_Func002Func003Func017C()) then
+SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 3)
 udg_Temp_PointA = GetRectCenter(gg_rct_Teleport_Teal_2)
 udg_Temp_PointB = GetRectCenter(gg_rct_Waypoint_4)
+udg_Temp_PointC = GetUnitLoc(GetTriggerUnit())
 SetUnitPositionLocFacingLocBJ(GetTriggerUnit(), udg_Temp_PointA, udg_Temp_PointB)
+AddSpecialEffectLocBJ(udg_Temp_PointA, "Abilities\\Spells\\NightElf\\Blink\\BlinkTarget.mdl")
                 RemoveLocation(udg_Temp_PointA)
+AddSpecialEffectLocBJ(udg_Temp_PointC, "Abilities\\Spells\\NightElf\\Blink\\BlinkCaster.mdl")
+DestroyEffectBJ(GetLastCreatedEffectBJ())
+                RemoveLocation(udg_Temp_PointC)
+DestroyEffectBJ(GetLastCreatedEffectBJ())
 IssuePointOrderLocBJ(GetTriggerUnit(), "move", udg_Temp_PointB)
                 RemoveLocation(udg_Temp_PointB)
 else
@@ -3714,14 +3807,14 @@ end
 return true
 end
 
-function Trig_Creep_Teleport_4_Func002Func002Func009C()
+function Trig_Creep_Teleport_4_Func002Func003Func016C()
 if (not (udg_Player_Is_Active[4] == false)) then
 return false
 end
 return true
 end
 
-function Trig_Creep_Teleport_4_Func002Func002C()
+function Trig_Creep_Teleport_4_Func002Func003C()
 if (not (udg_Player_Is_Active[4] == false)) then
 return false
 end
@@ -3743,26 +3836,47 @@ end
 
 function Trig_Creep_Teleport_4_Actions()
 if (Trig_Creep_Teleport_4_Func002C()) then
+SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 2)
 udg_Temp_PointA = GetRectCenter(gg_rct_Teleport_Blue_2)
 udg_Temp_PointB = GetRectCenter(gg_rct_Waypoint_3)
+udg_Temp_PointC = GetUnitLoc(GetTriggerUnit())
 SetUnitPositionLocFacingLocBJ(GetTriggerUnit(), udg_Temp_PointA, udg_Temp_PointB)
         RemoveLocation(udg_Temp_PointA)
+AddSpecialEffectLocBJ(udg_Temp_PointC, "Abilities\\Spells\\NightElf\\Blink\\BlinkCaster.mdl")
+DestroyEffectBJ(GetLastCreatedEffectBJ())
+        RemoveLocation(udg_Temp_PointC)
+AddSpecialEffectLocBJ(udg_Temp_PointA, "Abilities\\Spells\\NightElf\\Blink\\BlinkTarget.mdl")
+DestroyEffectBJ(GetLastCreatedEffectBJ())
 IssuePointOrderLocBJ(GetTriggerUnit(), "move", udg_Temp_PointB)
         RemoveLocation(udg_Temp_PointB)
 else
-if (Trig_Creep_Teleport_4_Func002Func002C()) then
+if (Trig_Creep_Teleport_4_Func002Func003C()) then
+SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 5)
 udg_Temp_PointA = GetRectCenter(gg_rct_Teleport_Yellow_2)
 udg_Temp_PointB = GetRectCenter(gg_rct_Waypoint_6)
+udg_Temp_PointC = GetUnitLoc(GetTriggerUnit())
 SetUnitPositionLocFacingLocBJ(GetTriggerUnit(), udg_Temp_PointA, udg_Temp_PointB)
+AddSpecialEffectLocBJ(udg_Temp_PointA, "Abilities\\Spells\\NightElf\\Blink\\BlinkTarget.mdl")
             RemoveLocation(udg_Temp_PointA)
+AddSpecialEffectLocBJ(udg_Temp_PointC, "Abilities\\Spells\\NightElf\\Blink\\BlinkCaster.mdl")
+DestroyEffectBJ(GetLastCreatedEffectBJ())
+            RemoveLocation(udg_Temp_PointC)
+DestroyEffectBJ(GetLastCreatedEffectBJ())
 IssuePointOrderLocBJ(GetTriggerUnit(), "move", udg_Temp_PointB)
             RemoveLocation(udg_Temp_PointB)
 else
-if (Trig_Creep_Teleport_4_Func002Func002Func009C()) then
+if (Trig_Creep_Teleport_4_Func002Func003Func016C()) then
+SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 4)
 udg_Temp_PointA = GetRectCenter(gg_rct_Teleport_Purple_2)
 udg_Temp_PointB = GetRectCenter(gg_rct_Waypoint_5)
+udg_Temp_PointC = GetUnitLoc(GetTriggerUnit())
 SetUnitPositionLocFacingLocBJ(GetTriggerUnit(), udg_Temp_PointA, udg_Temp_PointB)
+AddSpecialEffectLocBJ(udg_Temp_PointA, "Abilities\\Spells\\NightElf\\Blink\\BlinkTarget.mdl")
                 RemoveLocation(udg_Temp_PointA)
+AddSpecialEffectLocBJ(udg_Temp_PointC, "Abilities\\Spells\\NightElf\\Blink\\BlinkCaster.mdl")
+DestroyEffectBJ(GetLastCreatedEffectBJ())
+                RemoveLocation(udg_Temp_PointC)
+DestroyEffectBJ(GetLastCreatedEffectBJ())
 IssuePointOrderLocBJ(GetTriggerUnit(), "move", udg_Temp_PointB)
                 RemoveLocation(udg_Temp_PointB)
 else
@@ -3787,14 +3901,14 @@ end
 return true
 end
 
-function Trig_Creep_Teleport_5_Func002Func002Func009C()
+function Trig_Creep_Teleport_5_Func002Func003Func016C()
 if (not (udg_Player_Is_Active[5] == false)) then
 return false
 end
 return true
 end
 
-function Trig_Creep_Teleport_5_Func002Func002C()
+function Trig_Creep_Teleport_5_Func002Func003C()
 if (not (udg_Player_Is_Active[5] == false)) then
 return false
 end
@@ -3816,26 +3930,47 @@ end
 
 function Trig_Creep_Teleport_5_Actions()
 if (Trig_Creep_Teleport_5_Func002C()) then
+SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 3)
 udg_Temp_PointA = GetRectCenter(gg_rct_Teleport_Teal_2)
 udg_Temp_PointB = GetRectCenter(gg_rct_Waypoint_4)
+udg_Temp_PointC = GetUnitLoc(GetTriggerUnit())
 SetUnitPositionLocFacingLocBJ(GetTriggerUnit(), udg_Temp_PointA, udg_Temp_PointB)
+AddSpecialEffectLocBJ(udg_Temp_PointA, "Abilities\\Spells\\NightElf\\Blink\\BlinkTarget.mdl")
         RemoveLocation(udg_Temp_PointA)
+AddSpecialEffectLocBJ(udg_Temp_PointC, "Abilities\\Spells\\NightElf\\Blink\\BlinkCaster.mdl")
+DestroyEffectBJ(GetLastCreatedEffectBJ())
+        RemoveLocation(udg_Temp_PointC)
+DestroyEffectBJ(GetLastCreatedEffectBJ())
 IssuePointOrderLocBJ(GetTriggerUnit(), "move", udg_Temp_PointB)
         RemoveLocation(udg_Temp_PointB)
 else
-if (Trig_Creep_Teleport_5_Func002Func002C()) then
+if (Trig_Creep_Teleport_5_Func002Func003C()) then
+SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 6)
 udg_Temp_PointA = GetRectCenter(gg_rct_Teleport_Orange_2)
 udg_Temp_PointB = GetRectCenter(gg_rct_Waypoint_7)
+udg_Temp_PointC = GetUnitLoc(GetTriggerUnit())
 SetUnitPositionLocFacingLocBJ(GetTriggerUnit(), udg_Temp_PointA, udg_Temp_PointB)
+AddSpecialEffectLocBJ(udg_Temp_PointA, "Abilities\\Spells\\NightElf\\Blink\\BlinkTarget.mdl")
             RemoveLocation(udg_Temp_PointA)
+AddSpecialEffectLocBJ(udg_Temp_PointC, "Abilities\\Spells\\NightElf\\Blink\\BlinkCaster.mdl")
+DestroyEffectBJ(GetLastCreatedEffectBJ())
+            RemoveLocation(udg_Temp_PointC)
+DestroyEffectBJ(GetLastCreatedEffectBJ())
 IssuePointOrderLocBJ(GetTriggerUnit(), "move", udg_Temp_PointB)
             RemoveLocation(udg_Temp_PointB)
 else
-if (Trig_Creep_Teleport_5_Func002Func002Func009C()) then
+if (Trig_Creep_Teleport_5_Func002Func003Func016C()) then
+SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 5)
 udg_Temp_PointA = GetRectCenter(gg_rct_Teleport_Yellow_2)
 udg_Temp_PointB = GetRectCenter(gg_rct_Waypoint_6)
+udg_Temp_PointC = GetUnitLoc(GetTriggerUnit())
 SetUnitPositionLocFacingLocBJ(GetTriggerUnit(), udg_Temp_PointA, udg_Temp_PointB)
+AddSpecialEffectLocBJ(udg_Temp_PointA, "Abilities\\Spells\\NightElf\\Blink\\BlinkTarget.mdl")
                 RemoveLocation(udg_Temp_PointA)
+AddSpecialEffectLocBJ(udg_Temp_PointC, "Abilities\\Spells\\NightElf\\Blink\\BlinkCaster.mdl")
+DestroyEffectBJ(GetLastCreatedEffectBJ())
+                RemoveLocation(udg_Temp_PointC)
+DestroyEffectBJ(GetLastCreatedEffectBJ())
 IssuePointOrderLocBJ(GetTriggerUnit(), "move", udg_Temp_PointB)
                 RemoveLocation(udg_Temp_PointB)
 else
@@ -3860,14 +3995,14 @@ end
 return true
 end
 
-function Trig_Creep_Teleport_6_Func002Func002Func009C()
+function Trig_Creep_Teleport_6_Func002Func003Func016C()
 if (not (udg_Player_Is_Active[6] == false)) then
 return false
 end
 return true
 end
 
-function Trig_Creep_Teleport_6_Func002Func002C()
+function Trig_Creep_Teleport_6_Func002Func003C()
 if (not (udg_Player_Is_Active[6] == false)) then
 return false
 end
@@ -3889,26 +4024,47 @@ end
 
 function Trig_Creep_Teleport_6_Actions()
 if (Trig_Creep_Teleport_6_Func002C()) then
+SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 4)
 udg_Temp_PointA = GetRectCenter(gg_rct_Teleport_Purple_2)
 udg_Temp_PointB = GetRectCenter(gg_rct_Waypoint_5)
+udg_Temp_PointC = GetUnitLoc(GetTriggerUnit())
 SetUnitPositionLocFacingLocBJ(GetTriggerUnit(), udg_Temp_PointA, udg_Temp_PointB)
         RemoveLocation(udg_Temp_PointA)
+AddSpecialEffectLocBJ(udg_Temp_PointC, "Abilities\\Spells\\NightElf\\Blink\\BlinkCaster.mdl")
+DestroyEffectBJ(GetLastCreatedEffectBJ())
+        RemoveLocation(udg_Temp_PointC)
+AddSpecialEffectLocBJ(udg_Temp_PointB, "Abilities\\Spells\\NightElf\\Blink\\BlinkTarget.mdl")
+DestroyEffectBJ(GetLastCreatedEffectBJ())
 IssuePointOrderLocBJ(GetTriggerUnit(), "move", udg_Temp_PointB)
         RemoveLocation(udg_Temp_PointB)
 else
-if (Trig_Creep_Teleport_6_Func002Func002C()) then
+if (Trig_Creep_Teleport_6_Func002Func003C()) then
+SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 7)
 udg_Temp_PointA = GetRectCenter(gg_rct_Teleport_Green_2)
 udg_Temp_PointB = GetRectCenter(gg_rct_Waypoint_8)
+udg_Temp_PointC = GetUnitLoc(GetTriggerUnit())
 SetUnitPositionLocFacingLocBJ(GetTriggerUnit(), udg_Temp_PointA, udg_Temp_PointB)
+AddSpecialEffectLocBJ(udg_Temp_PointA, "Abilities\\Spells\\NightElf\\Blink\\BlinkTarget.mdl")
             RemoveLocation(udg_Temp_PointA)
+AddSpecialEffectLocBJ(udg_Temp_PointC, "Abilities\\Spells\\NightElf\\Blink\\BlinkCaster.mdl")
+DestroyEffectBJ(GetLastCreatedEffectBJ())
+            RemoveLocation(udg_Temp_PointC)
+DestroyEffectBJ(GetLastCreatedEffectBJ())
 IssuePointOrderLocBJ(GetTriggerUnit(), "move", udg_Temp_PointB)
             RemoveLocation(udg_Temp_PointB)
 else
-if (Trig_Creep_Teleport_6_Func002Func002Func009C()) then
+if (Trig_Creep_Teleport_6_Func002Func003Func016C()) then
+SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 6)
 udg_Temp_PointA = GetRectCenter(gg_rct_Teleport_Orange_2)
 udg_Temp_PointB = GetRectCenter(gg_rct_Waypoint_7)
+udg_Temp_PointC = GetUnitLoc(GetTriggerUnit())
 SetUnitPositionLocFacingLocBJ(GetTriggerUnit(), udg_Temp_PointA, udg_Temp_PointB)
+AddSpecialEffectLocBJ(udg_Temp_PointA, "Abilities\\Spells\\NightElf\\Blink\\BlinkTarget.mdl")
                 RemoveLocation(udg_Temp_PointA)
+AddSpecialEffectLocBJ(udg_Temp_PointC, "Abilities\\Spells\\NightElf\\Blink\\BlinkCaster.mdl")
+DestroyEffectBJ(GetLastCreatedEffectBJ())
+                RemoveLocation(udg_Temp_PointC)
+DestroyEffectBJ(GetLastCreatedEffectBJ())
 IssuePointOrderLocBJ(GetTriggerUnit(), "move", udg_Temp_PointB)
                 RemoveLocation(udg_Temp_PointB)
 else
@@ -3933,14 +4089,14 @@ end
 return true
 end
 
-function Trig_Creep_Teleport_7_Func002Func002Func009C()
+function Trig_Creep_Teleport_7_Func002Func003Func016C()
 if (not (udg_Player_Is_Active[7] == false)) then
 return false
 end
 return true
 end
 
-function Trig_Creep_Teleport_7_Func002Func002C()
+function Trig_Creep_Teleport_7_Func002Func003C()
 if (not (udg_Player_Is_Active[7] == false)) then
 return false
 end
@@ -3962,26 +4118,47 @@ end
 
 function Trig_Creep_Teleport_7_Actions()
 if (Trig_Creep_Teleport_7_Func002C()) then
+SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 5)
 udg_Temp_PointA = GetRectCenter(gg_rct_Teleport_Yellow_2)
 udg_Temp_PointB = GetRectCenter(gg_rct_Waypoint_6)
+udg_Temp_PointC = GetUnitLoc(GetTriggerUnit())
 SetUnitPositionLocFacingLocBJ(GetTriggerUnit(), udg_Temp_PointA, udg_Temp_PointB)
         RemoveLocation(udg_Temp_PointA)
+AddSpecialEffectLocBJ(udg_Temp_PointA, "Abilities\\Spells\\NightElf\\Blink\\BlinkTarget.mdl")
+AddSpecialEffectLocBJ(udg_Temp_PointC, "Abilities\\Spells\\NightElf\\Blink\\BlinkCaster.mdl")
+DestroyEffectBJ(GetLastCreatedEffectBJ())
+        RemoveLocation(udg_Temp_PointC)
+DestroyEffectBJ(GetLastCreatedEffectBJ())
 IssuePointOrderLocBJ(GetTriggerUnit(), "move", udg_Temp_PointB)
         RemoveLocation(udg_Temp_PointB)
 else
-if (Trig_Creep_Teleport_7_Func002Func002C()) then
+if (Trig_Creep_Teleport_7_Func002Func003C()) then
+SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 8)
 udg_Temp_PointA = GetRectCenter(gg_rct_Teleport_Pink_2)
 udg_Temp_PointB = GetRectCenter(gg_rct_Waypoint_1)
+udg_Temp_PointC = GetUnitLoc(GetTriggerUnit())
 SetUnitPositionLocFacingLocBJ(GetTriggerUnit(), udg_Temp_PointA, udg_Temp_PointB)
+AddSpecialEffectLocBJ(udg_Temp_PointA, "Abilities\\Spells\\NightElf\\Blink\\BlinkTarget.mdl")
             RemoveLocation(udg_Temp_PointA)
+AddSpecialEffectLocBJ(udg_Temp_PointC, "Abilities\\Spells\\NightElf\\Blink\\BlinkCaster.mdl")
+DestroyEffectBJ(GetLastCreatedEffectBJ())
+            RemoveLocation(udg_Temp_PointC)
+DestroyEffectBJ(GetLastCreatedEffectBJ())
 IssuePointOrderLocBJ(GetTriggerUnit(), "move", udg_Temp_PointB)
             RemoveLocation(udg_Temp_PointB)
 else
-if (Trig_Creep_Teleport_7_Func002Func002Func009C()) then
+if (Trig_Creep_Teleport_7_Func002Func003Func016C()) then
+SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 7)
 udg_Temp_PointA = GetRectCenter(gg_rct_Teleport_Green_2)
 udg_Temp_PointB = GetRectCenter(gg_rct_Waypoint_8)
+udg_Temp_PointC = GetUnitLoc(GetTriggerUnit())
 SetUnitPositionLocFacingLocBJ(GetTriggerUnit(), udg_Temp_PointA, udg_Temp_PointB)
+AddSpecialEffectLocBJ(udg_Temp_PointA, "Abilities\\Spells\\NightElf\\Blink\\BlinkTarget.mdl")
                 RemoveLocation(udg_Temp_PointA)
+AddSpecialEffectLocBJ(udg_Temp_PointC, "Abilities\\Spells\\NightElf\\Blink\\BlinkCaster.mdl")
+DestroyEffectBJ(GetLastCreatedEffectBJ())
+                RemoveLocation(udg_Temp_PointC)
+DestroyEffectBJ(GetLastCreatedEffectBJ())
 IssuePointOrderLocBJ(GetTriggerUnit(), "move", udg_Temp_PointB)
                 RemoveLocation(udg_Temp_PointB)
 else
@@ -4006,14 +4183,14 @@ end
 return true
 end
 
-function Trig_Creep_Teleport_8_Func002Func002Func009C()
+function Trig_Creep_Teleport_8_Func002Func003Func016C()
 if (not (udg_Player_Is_Active[8] == false)) then
 return false
 end
 return true
 end
 
-function Trig_Creep_Teleport_8_Func002Func002C()
+function Trig_Creep_Teleport_8_Func002Func003C()
 if (not (udg_Player_Is_Active[8] == false)) then
 return false
 end
@@ -4035,26 +4212,47 @@ end
 
 function Trig_Creep_Teleport_8_Actions()
 if (Trig_Creep_Teleport_8_Func002C()) then
+SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 6)
 udg_Temp_PointA = GetRectCenter(gg_rct_Teleport_Orange_2)
 udg_Temp_PointB = GetRectCenter(gg_rct_Waypoint_7)
+udg_Temp_PointC = GetUnitLoc(GetTriggerUnit())
 SetUnitPositionLocFacingLocBJ(GetTriggerUnit(), udg_Temp_PointA, udg_Temp_PointB)
+AddSpecialEffectLocBJ(udg_Temp_PointA, "Abilities\\Spells\\NightElf\\Blink\\BlinkTarget.mdl")
         RemoveLocation(udg_Temp_PointA)
+AddSpecialEffectLocBJ(udg_Temp_PointC, "Abilities\\Spells\\NightElf\\Blink\\BlinkCaster.mdl")
+DestroyEffectBJ(GetLastCreatedEffectBJ())
+        RemoveLocation(udg_Temp_PointC)
+DestroyEffectBJ(GetLastCreatedEffectBJ())
 IssuePointOrderLocBJ(GetTriggerUnit(), "move", udg_Temp_PointB)
         RemoveLocation(udg_Temp_PointB)
 else
-if (Trig_Creep_Teleport_8_Func002Func002C()) then
+if (Trig_Creep_Teleport_8_Func002Func003C()) then
+SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 1)
 udg_Temp_PointA = GetRectCenter(gg_rct_Teleport_Red_2)
 udg_Temp_PointB = GetRectCenter(gg_rct_Waypoint_2)
+udg_Temp_PointC = GetUnitLoc(GetTriggerUnit())
 SetUnitPositionLocFacingLocBJ(GetTriggerUnit(), udg_Temp_PointA, udg_Temp_PointB)
+AddSpecialEffectLocBJ(udg_Temp_PointA, "Abilities\\Spells\\NightElf\\Blink\\BlinkTarget.mdl")
             RemoveLocation(udg_Temp_PointA)
+AddSpecialEffectLocBJ(udg_Temp_PointC, "Abilities\\Spells\\NightElf\\Blink\\BlinkCaster.mdl")
+DestroyEffectBJ(GetLastCreatedEffectBJ())
+            RemoveLocation(udg_Temp_PointC)
+DestroyEffectBJ(GetLastCreatedEffectBJ())
 IssuePointOrderLocBJ(GetTriggerUnit(), "move", udg_Temp_PointB)
             RemoveLocation(udg_Temp_PointB)
 else
-if (Trig_Creep_Teleport_8_Func002Func002Func009C()) then
+if (Trig_Creep_Teleport_8_Func002Func003Func016C()) then
+SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 8)
 udg_Temp_PointA = GetRectCenter(gg_rct_Teleport_Pink_2)
 udg_Temp_PointB = GetRectCenter(gg_rct_Waypoint_1)
+udg_Temp_PointC = GetUnitLoc(GetTriggerUnit())
 SetUnitPositionLocFacingLocBJ(GetTriggerUnit(), udg_Temp_PointA, udg_Temp_PointB)
+AddSpecialEffectLocBJ(udg_Temp_PointA, "Abilities\\Spells\\NightElf\\Blink\\BlinkTarget.mdl")
                 RemoveLocation(udg_Temp_PointA)
+AddSpecialEffectLocBJ(udg_Temp_PointC, "Abilities\\Spells\\NightElf\\Blink\\BlinkCaster.mdl")
+DestroyEffectBJ(GetLastCreatedEffectBJ())
+                RemoveLocation(udg_Temp_PointC)
+DestroyEffectBJ(GetLastCreatedEffectBJ())
 IssuePointOrderLocBJ(GetTriggerUnit(), "move", udg_Temp_PointB)
                 RemoveLocation(udg_Temp_PointB)
 else
@@ -4072,7 +4270,7 @@ TriggerAddCondition(gg_trg_Creep_Teleport_8, Condition(Trig_Creep_Teleport_8_Con
 TriggerAddAction(gg_trg_Creep_Teleport_8, Trig_Creep_Teleport_8_Actions)
 end
 
-function Trig_Creep_Spawn_1_Func007C()
+function Trig_Creep_Spawn_1_Func008C()
 if (GetOwningPlayer(GetTriggerUnit()) == Player(11)) then
 return true
 end
@@ -4086,7 +4284,7 @@ function Trig_Creep_Spawn_1_Conditions()
 if (not (GetUnitTypeId(GetTriggerUnit()) ~= FourCC("n007"))) then
 return false
 end
-if (not Trig_Creep_Spawn_1_Func007C()) then
+if (not Trig_Creep_Spawn_1_Func008C()) then
 return false
 end
 return true
@@ -4094,6 +4292,7 @@ end
 
 function Trig_Creep_Spawn_1_Actions()
 TriggerSleepAction(0.00)
+SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 1)
 IssueImmediateOrderBJ(GetTriggerUnit(), "manashieldon")
 udg_Temp_PointSpawn1 = GetRectCenter(gg_rct_Waypoint_1)
 IssuePointOrderLocBJ(GetTriggerUnit(), "move", udg_Temp_PointSpawn1)
@@ -4108,7 +4307,7 @@ TriggerAddCondition(gg_trg_Creep_Spawn_1, Condition(Trig_Creep_Spawn_1_Condition
 TriggerAddAction(gg_trg_Creep_Spawn_1, Trig_Creep_Spawn_1_Actions)
 end
 
-function Trig_Creep_Spawn_2_Func007C()
+function Trig_Creep_Spawn_2_Func008C()
 if (GetOwningPlayer(GetTriggerUnit()) == Player(11)) then
 return true
 end
@@ -4122,13 +4321,14 @@ function Trig_Creep_Spawn_2_Conditions()
 if (not (GetUnitTypeId(GetTriggerUnit()) ~= FourCC("n007"))) then
 return false
 end
-if (not Trig_Creep_Spawn_2_Func007C()) then
+if (not Trig_Creep_Spawn_2_Func008C()) then
 return false
 end
 return true
 end
 
 function Trig_Creep_Spawn_2_Actions()
+SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 2)
 TriggerSleepAction(0.00)
 IssueImmediateOrderBJ(GetTriggerUnit(), "manashieldon")
 udg_Temp_PointSpawn2 = GetRectCenter(gg_rct_Waypoint_2)
@@ -4158,9 +4358,6 @@ function Trig_Creep_Spawn_3_Conditions()
 if (not (GetUnitTypeId(GetTriggerUnit()) ~= FourCC("n007"))) then
 return false
 end
-if (not (GetUnitTypeId(GetTriggerUnit()) ~= FourCC("n007"))) then
-return false
-end
 if (not Trig_Creep_Spawn_3_Func008C()) then
 return false
 end
@@ -4168,6 +4365,7 @@ return true
 end
 
 function Trig_Creep_Spawn_3_Actions()
+SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 3)
 TriggerSleepAction(0.00)
 IssueImmediateOrderBJ(GetTriggerUnit(), "manashieldon")
 udg_Temp_PointSpawn3 = GetRectCenter(gg_rct_Waypoint_3)
@@ -4183,7 +4381,7 @@ TriggerAddCondition(gg_trg_Creep_Spawn_3, Condition(Trig_Creep_Spawn_3_Condition
 TriggerAddAction(gg_trg_Creep_Spawn_3, Trig_Creep_Spawn_3_Actions)
 end
 
-function Trig_Creep_Spawn_4_Func007C()
+function Trig_Creep_Spawn_4_Func008C()
 if (GetOwningPlayer(GetTriggerUnit()) == Player(11)) then
 return true
 end
@@ -4197,13 +4395,14 @@ function Trig_Creep_Spawn_4_Conditions()
 if (not (GetUnitTypeId(GetTriggerUnit()) ~= FourCC("n007"))) then
 return false
 end
-if (not Trig_Creep_Spawn_4_Func007C()) then
+if (not Trig_Creep_Spawn_4_Func008C()) then
 return false
 end
 return true
 end
 
 function Trig_Creep_Spawn_4_Actions()
+SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 4)
 TriggerSleepAction(0.00)
 IssueImmediateOrderBJ(GetTriggerUnit(), "manashieldon")
 udg_Temp_PointSpawn4 = GetRectCenter(gg_rct_Waypoint_4)
@@ -4219,7 +4418,7 @@ TriggerAddCondition(gg_trg_Creep_Spawn_4, Condition(Trig_Creep_Spawn_4_Condition
 TriggerAddAction(gg_trg_Creep_Spawn_4, Trig_Creep_Spawn_4_Actions)
 end
 
-function Trig_Creep_Spawn_5_Func007C()
+function Trig_Creep_Spawn_5_Func008C()
 if (GetOwningPlayer(GetTriggerUnit()) == Player(11)) then
 return true
 end
@@ -4233,13 +4432,14 @@ function Trig_Creep_Spawn_5_Conditions()
 if (not (GetUnitTypeId(GetTriggerUnit()) ~= FourCC("n007"))) then
 return false
 end
-if (not Trig_Creep_Spawn_5_Func007C()) then
+if (not Trig_Creep_Spawn_5_Func008C()) then
 return false
 end
 return true
 end
 
 function Trig_Creep_Spawn_5_Actions()
+SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 5)
 TriggerSleepAction(0.00)
 IssueImmediateOrderBJ(GetTriggerUnit(), "manashieldon")
 udg_Temp_PointSpawn5 = GetRectCenter(gg_rct_Waypoint_5)
@@ -4255,7 +4455,7 @@ TriggerAddCondition(gg_trg_Creep_Spawn_5, Condition(Trig_Creep_Spawn_5_Condition
 TriggerAddAction(gg_trg_Creep_Spawn_5, Trig_Creep_Spawn_5_Actions)
 end
 
-function Trig_Creep_Spawn_6_Func007C()
+function Trig_Creep_Spawn_6_Func008C()
 if (GetOwningPlayer(GetTriggerUnit()) == Player(11)) then
 return true
 end
@@ -4269,13 +4469,14 @@ function Trig_Creep_Spawn_6_Conditions()
 if (not (GetUnitTypeId(GetTriggerUnit()) ~= FourCC("n007"))) then
 return false
 end
-if (not Trig_Creep_Spawn_6_Func007C()) then
+if (not Trig_Creep_Spawn_6_Func008C()) then
 return false
 end
 return true
 end
 
 function Trig_Creep_Spawn_6_Actions()
+SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 6)
 TriggerSleepAction(0.00)
 IssueImmediateOrderBJ(GetTriggerUnit(), "manashieldon")
 udg_Temp_PointSpawn6 = GetRectCenter(gg_rct_Waypoint_6)
@@ -4291,7 +4492,7 @@ TriggerAddCondition(gg_trg_Creep_Spawn_6, Condition(Trig_Creep_Spawn_6_Condition
 TriggerAddAction(gg_trg_Creep_Spawn_6, Trig_Creep_Spawn_6_Actions)
 end
 
-function Trig_Creep_Spawn_7_Func007C()
+function Trig_Creep_Spawn_7_Func008C()
 if (GetOwningPlayer(GetTriggerUnit()) == Player(11)) then
 return true
 end
@@ -4305,13 +4506,14 @@ function Trig_Creep_Spawn_7_Conditions()
 if (not (GetUnitTypeId(GetTriggerUnit()) ~= FourCC("n007"))) then
 return false
 end
-if (not Trig_Creep_Spawn_7_Func007C()) then
+if (not Trig_Creep_Spawn_7_Func008C()) then
 return false
 end
 return true
 end
 
 function Trig_Creep_Spawn_7_Actions()
+SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 7)
 TriggerSleepAction(0.00)
 IssueImmediateOrderBJ(GetTriggerUnit(), "manashieldon")
 udg_Temp_PointSpawn7 = GetRectCenter(gg_rct_Waypoint_7)
@@ -4327,7 +4529,7 @@ TriggerAddCondition(gg_trg_Creep_Spawn_7, Condition(Trig_Creep_Spawn_7_Condition
 TriggerAddAction(gg_trg_Creep_Spawn_7, Trig_Creep_Spawn_7_Actions)
 end
 
-function Trig_Creep_Spawn_8_Func007C()
+function Trig_Creep_Spawn_8_Func008C()
 if (GetOwningPlayer(GetTriggerUnit()) == Player(11)) then
 return true
 end
@@ -4341,13 +4543,14 @@ function Trig_Creep_Spawn_8_Conditions()
 if (not (GetUnitTypeId(GetTriggerUnit()) ~= FourCC("n007"))) then
 return false
 end
-if (not Trig_Creep_Spawn_8_Func007C()) then
+if (not Trig_Creep_Spawn_8_Func008C()) then
 return false
 end
 return true
 end
 
 function Trig_Creep_Spawn_8_Actions()
+SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 8)
 TriggerSleepAction(0.00)
 IssueImmediateOrderBJ(GetTriggerUnit(), "manashieldon")
 udg_Temp_PointSpawn8 = GetRectCenter(gg_rct_Waypoint_8)
@@ -4382,7 +4585,8 @@ InitTrig_Unit_Dies()
 InitTrig_Leaving_Players()
 InitTrig_Sell_Towers()
 InitTrig_Invulnerable_Towers()
-InitTrig_Remove_Ethereal()
+InitTrig_Wave_Mod_Divine_Shield()
+InitTrig_Wave_Mod_Remove_Ethereal()
 InitTrig_Anomaly_Tower_Limit_Upgrade()
 InitTrig_Anomaly_Tower_Limit_Cancel()
 InitTrig_Anomaly_Tower_Level_Up_Ability()
