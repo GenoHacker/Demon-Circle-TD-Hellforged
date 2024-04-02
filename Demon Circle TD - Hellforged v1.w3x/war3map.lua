@@ -699,15 +699,15 @@ udg_AbilityCode_Array_ModAbilities[7] = FourCC("A00J")
 udg_AbilityCode_Array_ModAbilities[8] = FourCC("A01E")
 udg_AbilityCode_Array_ModAbilities[9] = FourCC("A01E")
 udg_String_Array_ModName[0] = "|cffc0c0c0[None"
-udg_String_Array_ModName[1] = "|cff6f2583[Com"
-udg_String_Array_ModName[2] = "|cff00ff00[Eth"
-udg_String_Array_ModName[3] = "|cff3232ff[Shi"
-udg_String_Array_ModName[4] = "|cff808080[Arm"
-udg_String_Array_ModName[5] = "|cffff0000[Fst"
-udg_String_Array_ModName[6] = "|cff80ff80[Rgn"
-udg_String_Array_ModName[7] = "|cff00ffff[Eva"
-udg_String_Array_ModName[8] = "|cffd45e19[Spl"
-udg_String_Array_ModName[9] = "|cffffd700[Inv"
+udg_String_Array_ModName[1] = "|cff6f2583[Lord"
+udg_String_Array_ModName[2] = "|cff00ff00[Ether"
+udg_String_Array_ModName[3] = "|cff3232ff[M.Shield"
+udg_String_Array_ModName[4] = "|cff808080[Armor"
+udg_String_Array_ModName[5] = "|cffff0000[Fast"
+udg_String_Array_ModName[6] = "|cff80ff80[Regen"
+udg_String_Array_ModName[7] = "|cff00ffff[Evade"
+udg_String_Array_ModName[8] = "|cffd45e19[Split"
+udg_String_Array_ModName[9] = "|cffffd700[D.Shield"
 udg_String_Array_ModLevelText[0] = "]|r"
 udg_String_Array_ModLevelText[1] = "]|r"
 udg_String_Array_ModLevelText[2] = "+]|r"
@@ -1070,7 +1070,7 @@ MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 10, (("|cffffff00" .. I2S(udg_Int
 MultiboardSetItemValueBJ(udg_Multiboard[9], 1, 11, "TRIGSTR_2080")
 MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 11, (("|cffffff00" .. I2S(udg_Integer_MaxSpawncount)) .. " per wave"))
 MultiboardSetItemStyleBJ(udg_Multiboard[9], 0, 0, true, false)
-MultiboardSetItemWidthBJ(udg_Multiboard[9], 1, 0, 9.00)
+MultiboardSetItemWidthBJ(udg_Multiboard[9], 1, 0, 7.75)
 MultiboardSetItemWidthBJ(udg_Multiboard[9], 2, 0, 8.00)
 MultiboardDisplayBJ(true, udg_Multiboard[9])
 DisplayTimedTextToForce(GetForceOfPlayer(GetTriggerPlayer()), 15.00, (("Wave " .. (I2S(GetForLoopIndexA()) .. ": M1: ")) .. (I2S(udg_Integer_Array_WaveMod[(((GetForLoopIndexA() - 1) * 3) + 1)]) .. (" M2: " .. (I2S(udg_Integer_Array_WaveMod[(((GetForLoopIndexA() - 1) * 3) + 2)]) .. (" M3: " .. I2S(udg_Integer_Array_WaveMod[(((GetForLoopIndexA() - 1) * 3) + 3)])))))))

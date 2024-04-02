@@ -5635,3 +5635,15 @@ STRING 2118
 |cffffd700[Divine Shield] - Becomes invulnerable for a short period when taking damage.
 }
 
+STRING 2119
+// Abilities: S001 ([Wave Mod] Sluggish Aura), Name (Name)
+{
+[Wave Mod] Sluggish Aura
+}
+
+STRING 2120
+// Abilities: A024 ([Wave Mod] Weakening Aura), Name (Name)
+{
+[Wave Mod] Weakening Aura
+}
+
