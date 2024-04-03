@@ -704,14 +704,14 @@ udg_AbilityCode_Array_ModAbilities[11] = FourCC("A024")
 udg_AbilityCode_Array_ModAbilities[12] = FourCC("A030")
 udg_String_Array_ModName[0] = "|cffc0c0c0[None"
 udg_String_Array_ModName[1] = "|cff6f2583[Lord"
-udg_String_Array_ModName[2] = "|cff00ff00[Ether"
-udg_String_Array_ModName[3] = "|cff3232ff[M.Shield"
-udg_String_Array_ModName[4] = "|cff808080[Armor"
+udg_String_Array_ModName[2] = "|cff00ff00[Eth"
+udg_String_Array_ModName[3] = "|cff3232ff[M.Shi"
+udg_String_Array_ModName[4] = "|cff808080[Arm"
 udg_String_Array_ModName[5] = "|cffff0000[Fast"
-udg_String_Array_ModName[6] = "|cff80ff80[Regen"
-udg_String_Array_ModName[7] = "|cff00ffff[Evade"
-udg_String_Array_ModName[8] = "|cffd45e19[Split"
-udg_String_Array_ModName[9] = "|cffffd700[D.Shield"
+udg_String_Array_ModName[6] = "|cff80ff80[Reg"
+udg_String_Array_ModName[7] = "|cff00ffff[Eva"
+udg_String_Array_ModName[8] = "|cffd45e19[Spl"
+udg_String_Array_ModName[9] = "|cffffd700[D.Shi"
 udg_String_Array_ModName[10] = "|cff6464ff[Slow"
 udg_String_Array_ModName[11] = "|cff333396[Weak"
 udg_String_Array_ModName[12] = "|cffffffff[Wind"
@@ -1077,11 +1077,15 @@ MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 10, (("|cffffff00" .. I2S(udg_Int
 MultiboardSetItemValueBJ(udg_Multiboard[9], 1, 11, "TRIGSTR_2080")
 MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 11, (("|cffffff00" .. I2S(udg_Integer_MaxSpawncount)) .. " per wave"))
 MultiboardSetItemStyleBJ(udg_Multiboard[9], 0, 0, true, false)
-MultiboardSetItemWidthBJ(udg_Multiboard[9], 1, 0, 7.75)
+MultiboardSetItemWidthBJ(udg_Multiboard[9], 1, 0, 8.00)
 MultiboardSetItemWidthBJ(udg_Multiboard[9], 2, 0, 8.00)
+MultiboardSetItemWidthBJ(udg_Multiboard[9], 1, 5, 5.00)
+MultiboardSetItemWidthBJ(udg_Multiboard[9], 1, 6, 5.00)
+MultiboardSetItemWidthBJ(udg_Multiboard[9], 1, 7, 5.00)
+MultiboardSetItemWidthBJ(udg_Multiboard[9], 1, 8, 5.00)
+MultiboardSetItemWidthBJ(udg_Multiboard[9], 2, 7, 12.00)
+MultiboardSetItemWidthBJ(udg_Multiboard[9], 2, 8, 12.00)
 MultiboardDisplayBJ(true, udg_Multiboard[9])
-DisplayTimedTextToForce(GetForceOfPlayer(GetTriggerPlayer()), 15.00, (("Wave " .. (I2S(GetForLoopIndexA()) .. ": M1: ")) .. (I2S(udg_Integer_Array_WaveMod[(((GetForLoopIndexA() - 1) * 3) + 1)]) .. (" M2: " .. (I2S(udg_Integer_Array_WaveMod[(((GetForLoopIndexA() - 1) * 3) + 2)]) .. (" M3: " .. I2S(udg_Integer_Array_WaveMod[(((GetForLoopIndexA() - 1) * 3) + 3)])))))))
-DisplayTimedTextToForce(GetForceOfPlayer(GetTriggerPlayer()), 15.00, (("Wave " .. (I2S(GetForLoopIndexA()) .. ": M1: ")) .. (I2S(udg_Integer_Array_WaveMod[(((GetForLoopIndexA() - 1) * 3) + 1)]) .. (" M2: " .. (I2S(udg_Integer_Array_WaveMod[(((GetForLoopIndexA() - 1) * 3) + 2)]) .. (" M3: " .. I2S(udg_Integer_Array_WaveMod[(((GetForLoopIndexA() - 1) * 3) + 3)])))))))
 end
 
 function InitTrig_Multiboard()
@@ -2192,7 +2196,7 @@ TriggerAddAction(gg_trg_Wave_Mod_Divine_Shield, Trig_Wave_Mod_Divine_Shield_Acti
 end
 
 function Trig_Wave_Mod_Wind_Walk_Conditions()
-if (not (GetUnitAbilityLevelSwapped(FourCC("A030"), BlzGetEventDamageTarget()) == GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource())))) then
+if (not (GetUnitAbilityLevelSwapped(FourCC("A030"), BlzGetEventDamageTarget()) >= 1)) then
 return false
 end
 return true

@@ -5410,7 +5410,7 @@ STRING 2063
 
 STRING 2064
 {
-|cff00ff00Next Armor:|r
+|cff00ff00Next:|r
 }
 
 STRING 2066
@@ -5435,7 +5435,7 @@ STRING 2069
 
 STRING 2070
 {
-|cff00ff00Next Modifier:|r
+|cff00ff00Next:|r
 }
 
 STRING 2071
@@ -5480,22 +5480,22 @@ STRING 2086
 
 STRING 2087
 {
-|cffffc800---------------|r
+|cffffc800---------------------|r
 }
 
 STRING 2088
 {
-|cffffc800-------------------------|r
+|cffffc800------------------------|r
 }
 
 STRING 2089
 {
-|cffffc800---------------|r
+|cffffc800---------------------|r
 }
 
 STRING 2090
 {
-|cffffc800---------------|r
+|cffffc800------------------------|r
 }
 
 STRING 2092
@@ -5671,14 +5671,14 @@ STRING 2133
 6 - |cff80ff80[Health Regeneration] - Unit will gain a large increase to health regeneration.|r
 }
 
-STRING 2134
+STRING 2135
 // Abilities: A031 (Wave Modifiers 2), Ubertip (Tooltip - Normal - Extended)
 {
 7 - |cff00ffff[Evasion] - Units will have a chance to evade attacks.|r
 8 - |cffd45e19[Splitter] - Upon death a unit will spawn 1 or multiple demons.|r
 9 - |cffffd700[Divine Shield] - Becomes invulnerable for a short period when taking damage.|r
-10 - |cff6464ff[Slow] - Decreases the attack speed of towers.|r
-11 - |cff333396[Weak] - Decreases the attack damage of towers.|r
-12 - |cffffffff[Wind] - Becomes invisible for a short period when taking damage.|r
+10 - |cff6464ff[Slow Aura] - Decreases the attack speed of towers.|r
+11 - |cff333396[Weakening Aura] - Decreases the attack damage of towers.|r
+12 - |cffffffff[Wind Walk] - Becomes invisible for a short period when taking damage.|r
 }
 
