@@ -158,6 +158,7 @@ gg_snd_MapPing = nil
 gg_trg_Map_Initialization = nil
 gg_trg_Map_Start = nil
 gg_trg_Multiboard = nil
+gg_trg_Misc = nil
 gg_trg_Change_Difficulty = nil
 gg_trg_Change_Lives = nil
 gg_trg_Change_Max_Creeps = nil
@@ -177,7 +178,6 @@ gg_trg_Leaving_Players = nil
 gg_trg_Sell_Towers = nil
 gg_trg_Invulnerable_Towers = nil
 gg_trg_Wave_Mod_Divine_Shield = nil
-gg_trg_Wave_Mod_Wind_Walk = nil
 gg_trg_Wave_Mod_Remove_Ethereal = nil
 gg_trg_Anomaly_Tower_Limit_Upgrade = nil
 gg_trg_Anomaly_Tower_Limit_Cancel = nil
@@ -232,7 +232,6 @@ gg_trg_Creep_Spawn_5 = nil
 gg_trg_Creep_Spawn_6 = nil
 gg_trg_Creep_Spawn_7 = nil
 gg_trg_Creep_Spawn_8 = nil
-gg_trg_Misc = nil
 function InitGlobals()
 local i = 0
 
@@ -2160,57 +2159,69 @@ TriggerRegisterAnyUnitEventBJ(gg_trg_Invulnerable_Towers, EVENT_PLAYER_UNIT_UPGR
 TriggerAddAction(gg_trg_Invulnerable_Towers, Trig_Invulnerable_Towers_Actions)
 end
 
-function Trig_Wave_Mod_Divine_Shield_Conditions()
-if (not (GetUnitAbilityLevelSwapped(FourCC("A01O"), BlzGetEventDamageTarget()) >= 1)) then
-return false
-end
-return true
-end
-
-function Trig_Wave_Mod_Divine_Shield_Func002C()
+function Trig_Wave_Mod_Divine_Shield_Func001Func001C()
 if (not (GetUnitAbilityLevelSwapped(FourCC("A01Q"), BlzGetEventDamageTarget()) == GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource())))) then
 return false
 end
 return true
 end
 
-function Trig_Wave_Mod_Divine_Shield_Actions()
-if (Trig_Wave_Mod_Divine_Shield_Func002C()) then
-udg_Temp_PointA = GetRectCenter(udg_Region_Array_Waypoints[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))])
-IssueImmediateOrderBJ(BlzGetEventDamageTarget(), "divineshield")
-IssuePointOrderLocBJ(BlzGetEventDamageTarget(), "move", udg_Temp_PointA)
-        RemoveLocation(udg_Temp_PointA)
-else
-udg_Temp_PointA = GetRectCenter(udg_Region_Array_Waypoints[(GetUnitAbilityLevelSwapped(FourCC("A01Q"), BlzGetEventDamageTarget()) + 1)])
-IssueImmediateOrderBJ(BlzGetEventDamageTarget(), "divineshield")
-IssuePointOrderLocBJ(BlzGetEventDamageTarget(), "move", udg_Temp_PointA)
-        RemoveLocation(udg_Temp_PointA)
-end
-end
-
-function InitTrig_Wave_Mod_Divine_Shield()
-gg_trg_Wave_Mod_Divine_Shield = CreateTrigger()
-TriggerRegisterAnyUnitEventBJ(gg_trg_Wave_Mod_Divine_Shield, EVENT_PLAYER_UNIT_DAMAGED)
-TriggerAddCondition(gg_trg_Wave_Mod_Divine_Shield, Condition(Trig_Wave_Mod_Divine_Shield_Conditions))
-TriggerAddAction(gg_trg_Wave_Mod_Divine_Shield, Trig_Wave_Mod_Divine_Shield_Actions)
-end
-
-function Trig_Wave_Mod_Wind_Walk_Conditions()
+function Trig_Wave_Mod_Divine_Shield_Func001C()
 if (not (GetUnitAbilityLevelSwapped(FourCC("A030"), BlzGetEventDamageTarget()) >= 1)) then
 return false
 end
 return true
 end
 
-function Trig_Wave_Mod_Wind_Walk_Actions()
-IssueImmediateOrderBJ(BlzGetEventDamageTarget(), "windwalk")
+function Trig_Wave_Mod_Divine_Shield_Func002Func001C()
+if (not (GetUnitAbilityLevelSwapped(FourCC("A01Q"), BlzGetEventDamageTarget()) == GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource())))) then
+return false
+end
+return true
 end
 
-function InitTrig_Wave_Mod_Wind_Walk()
-gg_trg_Wave_Mod_Wind_Walk = CreateTrigger()
-TriggerRegisterAnyUnitEventBJ(gg_trg_Wave_Mod_Wind_Walk, EVENT_PLAYER_UNIT_DAMAGED)
-TriggerAddCondition(gg_trg_Wave_Mod_Wind_Walk, Condition(Trig_Wave_Mod_Wind_Walk_Conditions))
-TriggerAddAction(gg_trg_Wave_Mod_Wind_Walk, Trig_Wave_Mod_Wind_Walk_Actions)
+function Trig_Wave_Mod_Divine_Shield_Func002C()
+if (not (GetUnitAbilityLevelSwapped(FourCC("A01O"), BlzGetEventDamageTarget()) >= 1)) then
+return false
+end
+return true
+end
+
+function Trig_Wave_Mod_Divine_Shield_Actions()
+if (Trig_Wave_Mod_Divine_Shield_Func001C()) then
+if (Trig_Wave_Mod_Divine_Shield_Func001Func001C()) then
+udg_Temp_PointA = GetRectCenter(udg_Region_Array_Waypoints[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))])
+IssueImmediateOrderBJ(BlzGetEventDamageTarget(), "windwalk")
+IssuePointOrderLocBJ(BlzGetEventDamageTarget(), "move", udg_Temp_PointA)
+            RemoveLocation(udg_Temp_PointA)
+else
+udg_Temp_PointA = GetRectCenter(udg_Region_Array_Waypoints[(GetUnitAbilityLevelSwapped(FourCC("A01Q"), BlzGetEventDamageTarget()) + 1)])
+IssueImmediateOrderBJ(BlzGetEventDamageTarget(), "windwalk")
+IssuePointOrderLocBJ(BlzGetEventDamageTarget(), "move", udg_Temp_PointA)
+            RemoveLocation(udg_Temp_PointA)
+end
+else
+end
+if (Trig_Wave_Mod_Divine_Shield_Func002C()) then
+if (Trig_Wave_Mod_Divine_Shield_Func002Func001C()) then
+udg_Temp_PointA = GetRectCenter(udg_Region_Array_Waypoints[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))])
+IssueImmediateOrderBJ(BlzGetEventDamageTarget(), "divineshield")
+IssuePointOrderLocBJ(BlzGetEventDamageTarget(), "move", udg_Temp_PointA)
+            RemoveLocation(udg_Temp_PointA)
+else
+udg_Temp_PointA = GetRectCenter(udg_Region_Array_Waypoints[(GetUnitAbilityLevelSwapped(FourCC("A01Q"), BlzGetEventDamageTarget()) + 1)])
+IssueImmediateOrderBJ(BlzGetEventDamageTarget(), "divineshield")
+IssuePointOrderLocBJ(BlzGetEventDamageTarget(), "move", udg_Temp_PointA)
+            RemoveLocation(udg_Temp_PointA)
+end
+else
+end
+end
+
+function InitTrig_Wave_Mod_Divine_Shield()
+gg_trg_Wave_Mod_Divine_Shield = CreateTrigger()
+TriggerRegisterAnyUnitEventBJ(gg_trg_Wave_Mod_Divine_Shield, EVENT_PLAYER_UNIT_DAMAGED)
+TriggerAddAction(gg_trg_Wave_Mod_Divine_Shield, Trig_Wave_Mod_Divine_Shield_Actions)
 end
 
 function Trig_Wave_Mod_Remove_Ethereal_Conditions()
@@ -4615,7 +4626,6 @@ InitTrig_Leaving_Players()
 InitTrig_Sell_Towers()
 InitTrig_Invulnerable_Towers()
 InitTrig_Wave_Mod_Divine_Shield()
-InitTrig_Wave_Mod_Wind_Walk()
 InitTrig_Wave_Mod_Remove_Ethereal()
 InitTrig_Anomaly_Tower_Limit_Upgrade()
 InitTrig_Anomaly_Tower_Limit_Cancel()
