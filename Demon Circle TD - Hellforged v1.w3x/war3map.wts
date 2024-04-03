@@ -1810,12 +1810,6 @@ STRING 1075
 The Ghost Tower has summoned a Ghost, it can not summon another.
 }
 
-STRING 1094
-// Units: n001 (Doom Commander), Name (Name)
-{
-Doom Commander
-}
-
 STRING 1097
 // Items: I000 (Soul Eater), Name (Name)
 {
@@ -5618,23 +5612,6 @@ STRING 2117
 Waypoints
 }
 
-STRING 2118
-// Abilities: A01F (Wave Modifiers), Ubertip (Tooltip - Normal - Extended)
-{
-|cff6f2583[Doom Commander] - A unit that will give various benefits to the wave mostly via auras, but may also cast Spirit Link.
-
-|cff00ff00[Ethereal] - Causes a unit to become ethereal, the affected unit will move slower but can only be damaged by magic and spell damage, generally removed when the unit is hit at or below 50% total health.
-
-|cff3232ff[Mana Shield] - Affected units gain mana equal to roughly 50% total health, the shield that will absorb a significant portion of the damage dealt to the unit.
-
-|cff808080[Armored] - Units will have bonus armour, reducing attack damage taken.
-|cffff0000[Fast] - Units will move faster.
-|cff80ff80[Health Regeneration] - Unit will gain a large increase to health regeneration.
-|cff00ffff[Evasion] - Units will have a chance to evade attacks.
-|cffd45e19[Splitter] - Upon death a unit will spawn 1 or multiple demons.
-|cffffd700[Divine Shield] - Becomes invulnerable for a short period when taking damage.
-}
-
 STRING 2120
 // Abilities: A024 ([Wave Mod] Weakening Aura), Name (Name)
 {
@@ -5651,5 +5628,57 @@ STRING 2122
 // Abilities: A030 ([Wave Mod] Wind Walk), Name (Name)
 {
 [Wave Mod] Wind Walk
+}
+
+STRING 2124
+// Abilities: A031 (Wave Modifiers 2), Name (Name)
+{
+Wave Modifiers 2
+}
+
+STRING 2125
+// Abilities: A031 (Wave Modifiers 2), Tip (Tooltip - Normal)
+{
+Wave Modifiers 2
+}
+
+STRING 2128
+// Abilities: A031 (Wave Modifiers 2), Ubertip (Tooltip - Normal - Extended)
+{
+|cff00ffff[Evasion] - Units will have a chance to evade attacks.
+|cffd45e19[Splitter] - Upon death a unit will spawn 1 or multiple demons.
+|cffffd700[Divine Shield] - Becomes invulnerable for a short period when taking damage.
+|cff6464ff[Slow] - Decreases the attack speed of towers.
+|cff333396[Weak] - Decreases the attack damage of towers.
+|cffffffff[Wind] - Becomes invisible for a short period when taking damage.
+}
+
+STRING 2129
+// Units: n001 (Demon Lord), Name (Name)
+{
+Demon Lord
+}
+
+STRING 2130
+// Units: u005 (Demon), EditorSuffix (Name - Editor Suffix)
+{
+[Builder]
+}
+
+STRING 2131
+// Abilities: A032 (True Sight), EditorSuffix (Editor Suffix)
+{
+[Demon]
+}
+
+STRING 2132
+// Abilities: A01F (Wave Modifiers), Ubertip (Tooltip - Normal - Extended)
+{
+|cff6f2583[Demon Lord] - A unit that will give various benefits to the wave mostly auras, but may also cast Spirit Link.
+|cff00ff00[Ethereal] - Causes a unit to become ethereal, the affected unit will move slower but can only be damaged by magic and spell damage.
+|cff3232ff[Mana Shield] - Affected units gain mana equal to 50% total health, the shield absorbs a significant portion of the damage they take.
+|cff808080[Armored] - Units will have bonus armour, reducing attack damage taken.
+|cffff0000[Fast] - Units will move faster.
+|cff80ff80[Health Regeneration] - Unit will gain a large increase to health regeneration.
 }
 

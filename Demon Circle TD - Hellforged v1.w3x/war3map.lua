@@ -177,6 +177,7 @@ gg_trg_Leaving_Players = nil
 gg_trg_Sell_Towers = nil
 gg_trg_Invulnerable_Towers = nil
 gg_trg_Wave_Mod_Divine_Shield = nil
+gg_trg_Wave_Mod_Wind_Walk = nil
 gg_trg_Wave_Mod_Remove_Ethereal = nil
 gg_trg_Anomaly_Tower_Limit_Upgrade = nil
 gg_trg_Anomaly_Tower_Limit_Cancel = nil
@@ -231,6 +232,7 @@ gg_trg_Creep_Spawn_5 = nil
 gg_trg_Creep_Spawn_6 = nil
 gg_trg_Creep_Spawn_7 = nil
 gg_trg_Creep_Spawn_8 = nil
+gg_trg_Misc = nil
 function InitGlobals()
 local i = 0
 
@@ -473,7 +475,7 @@ if ((i > 1)) then break end
 udg_Integer_Array_ModLevel1[i] = 0
 i = i + 1
 end
-udg_Integer_TotalModNumber = 11
+udg_Integer_TotalModNumber = 12
 udg_Integer_ModType = 0
 i = 0
 while (true) do
@@ -560,30 +562,6 @@ SetSoundDuration(gg_snd_MapPing, 1636)
 SetSoundVolume(gg_snd_MapPing, 127)
 end
 
-function CreateUnitsForPlayer0()
-local p = Player(0)
-local u
-local unitID
-local t
-local life
-
-u = BlzCreateUnitWithSkin(p, FourCC("Obla"), -4474.8, 3757.7, 207.250, FourCC("Obla"))
-SetHeroLevel(u, 10, false)
-SetHeroStr(u, 99999, true)
-SetHeroAgi(u, 99999, true)
-SetHeroInt(u, 99999, true)
-SelectHeroSkill(u, FourCC("AOwk"))
-SelectHeroSkill(u, FourCC("AOwk"))
-SelectHeroSkill(u, FourCC("AOwk"))
-SelectHeroSkill(u, FourCC("AOmi"))
-SelectHeroSkill(u, FourCC("AOmi"))
-SelectHeroSkill(u, FourCC("AOmi"))
-SelectHeroSkill(u, FourCC("AOcr"))
-SelectHeroSkill(u, FourCC("AOcr"))
-SelectHeroSkill(u, FourCC("AOcr"))
-SelectHeroSkill(u, FourCC("AOww"))
-end
-
 function CreateNeutralPassiveBuildings()
 local p = Player(PLAYER_NEUTRAL_PASSIVE)
 local u
@@ -621,7 +599,6 @@ function CreatePlayerBuildings()
 end
 
 function CreatePlayerUnits()
-CreateUnitsForPlayer0()
 end
 
 function CreateAllUnits()
@@ -668,14 +645,14 @@ gg_rct_Teleport_Pink_1 = Rect(-6144.0, 1792.0, -5760.0, 1920.0)
 gg_rct_Teleport_Green_2 = Rect(-5632.0, 512.0, -5248.0, 640.0)
 end
 
-function Trig_Map_Initialization_Func033Func001Func001C()
+function Trig_Map_Initialization_Func032Func001Func001C()
 if (not (GetRandomInt(1, 1000) <= (udg_Integer_ModifierChance + (GetForLoopIndexA() * 2)))) then
 return false
 end
 return true
 end
 
-function Trig_Map_Initialization_Func033Func004Func003C()
+function Trig_Map_Initialization_Func032Func004Func003C()
 if (udg_Integer_Array_WaveMod[(udg_Integer_Slot + 3)] == udg_Integer_Array_WaveMod[(udg_Integer_Slot + 2)]) then
 return true
 end
@@ -685,28 +662,28 @@ end
 return false
 end
 
-function Trig_Map_Initialization_Func033Func004C()
-if (not Trig_Map_Initialization_Func033Func004Func003C()) then
+function Trig_Map_Initialization_Func032Func004C()
+if (not Trig_Map_Initialization_Func032Func004Func003C()) then
 return false
 end
 return true
 end
 
-function Trig_Map_Initialization_Func033Func005C()
+function Trig_Map_Initialization_Func032Func005C()
 if (not (udg_Integer_Array_WaveMod[(udg_Integer_Slot + 2)] == udg_Integer_Array_WaveMod[(udg_Integer_Slot + 1)])) then
 return false
 end
 return true
 end
 
-function Trig_Map_Initialization_Func035Func003Func001C()
+function Trig_Map_Initialization_Func034Func003Func001C()
 if (not (udg_Integer_Array_WaveMod[(udg_Integer_Slot + GetForLoopIndexB())] ~= 0)) then
 return false
 end
 return true
 end
 
-function Trig_Map_Initialization_Func035Func004C()
+function Trig_Map_Initialization_Func034Func004C()
 if (not (udg_String_Array_WaveText[GetForLoopIndexA()] == "")) then
 return false
 end
@@ -724,6 +701,7 @@ udg_AbilityCode_Array_ModAbilities[8] = FourCC("A01E")
 udg_AbilityCode_Array_ModAbilities[9] = FourCC("A01O")
 udg_AbilityCode_Array_ModAbilities[10] = FourCC("S001")
 udg_AbilityCode_Array_ModAbilities[11] = FourCC("A024")
+udg_AbilityCode_Array_ModAbilities[12] = FourCC("A030")
 udg_String_Array_ModName[0] = "|cffc0c0c0[None"
 udg_String_Array_ModName[1] = "|cff6f2583[Lord"
 udg_String_Array_ModName[2] = "|cff00ff00[Ether"
@@ -749,7 +727,7 @@ bj_forLoopBIndex = 1
 bj_forLoopBIndexEnd = 3
 while (true) do
 if (bj_forLoopBIndex > bj_forLoopBIndexEnd) then break end
-if (Trig_Map_Initialization_Func033Func001Func001C()) then
+if (Trig_Map_Initialization_Func032Func001Func001C()) then
 udg_Integer_Slot = ((GetForLoopIndexA() - 1) * 3)
 udg_Integer_Array_WaveMod[(udg_Integer_Slot + GetForLoopIndexB())] = GetRandomInt(1, udg_Integer_TotalModNumber)
 udg_Integer_Array_WaveModLevel[(udg_Integer_Slot + GetForLoopIndexB())] = GetRandomInt(1, 3)
@@ -758,12 +736,12 @@ end
 bj_forLoopBIndex = bj_forLoopBIndex + 1
 end
 udg_Integer_Slot = ((GetForLoopIndexA() - 1) * 3)
-if (Trig_Map_Initialization_Func033Func004C()) then
+if (Trig_Map_Initialization_Func032Func004C()) then
 udg_Integer_Array_WaveMod[(udg_Integer_Slot + 3)] = 0
 udg_Integer_Array_WaveModLevel[(udg_Integer_Slot + 3)] = 0
 else
 end
-if (Trig_Map_Initialization_Func033Func005C()) then
+if (Trig_Map_Initialization_Func032Func005C()) then
 udg_Integer_Array_WaveMod[(udg_Integer_Slot + 2)] = udg_Integer_Array_WaveMod[(udg_Integer_Slot + 3)]
 udg_Integer_Array_WaveModLevel[(udg_Integer_Slot + 2)] = udg_Integer_Array_WaveModLevel[(udg_Integer_Slot + 3)]
 udg_Integer_Array_WaveMod[(udg_Integer_Slot + 3)] = 0
@@ -782,14 +760,14 @@ bj_forLoopBIndex = 1
 bj_forLoopBIndexEnd = 3
 while (true) do
 if (bj_forLoopBIndex > bj_forLoopBIndexEnd) then break end
-if (Trig_Map_Initialization_Func035Func003Func001C()) then
+if (Trig_Map_Initialization_Func034Func003Func001C()) then
 udg_String_Array_WaveText[GetForLoopIndexA()] = (udg_String_Array_WaveText[GetForLoopIndexA()] .. udg_String_Array_ModName[udg_Integer_Array_WaveMod[(udg_Integer_Slot + GetForLoopIndexB())]])
 udg_String_Array_WaveText[GetForLoopIndexA()] = (udg_String_Array_WaveText[GetForLoopIndexA()] .. udg_String_Array_ModLevelText[udg_Integer_Array_WaveModLevel[(udg_Integer_Slot + GetForLoopIndexB())]])
 else
 end
 bj_forLoopBIndex = bj_forLoopBIndex + 1
 end
-if (Trig_Map_Initialization_Func035Func004C()) then
+if (Trig_Map_Initialization_Func034Func004C()) then
 udg_String_Array_WaveText[GetForLoopIndexA()] = (udg_String_Array_ModName[0] .. udg_String_Array_ModLevelText[1])
 else
 end
@@ -2178,7 +2156,14 @@ TriggerRegisterAnyUnitEventBJ(gg_trg_Invulnerable_Towers, EVENT_PLAYER_UNIT_UPGR
 TriggerAddAction(gg_trg_Invulnerable_Towers, Trig_Invulnerable_Towers_Actions)
 end
 
-function Trig_Wave_Mod_Divine_Shield_Func001C()
+function Trig_Wave_Mod_Divine_Shield_Conditions()
+if (not (GetUnitAbilityLevelSwapped(FourCC("A01O"), BlzGetEventDamageTarget()) >= 1)) then
+return false
+end
+return true
+end
+
+function Trig_Wave_Mod_Divine_Shield_Func002C()
 if (not (GetUnitAbilityLevelSwapped(FourCC("A01Q"), BlzGetEventDamageTarget()) == GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource())))) then
 return false
 end
@@ -2186,13 +2171,13 @@ return true
 end
 
 function Trig_Wave_Mod_Divine_Shield_Actions()
-if (Trig_Wave_Mod_Divine_Shield_Func001C()) then
+if (Trig_Wave_Mod_Divine_Shield_Func002C()) then
 udg_Temp_PointA = GetRectCenter(udg_Region_Array_Waypoints[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))])
 IssueImmediateOrderBJ(BlzGetEventDamageTarget(), "divineshield")
 IssuePointOrderLocBJ(BlzGetEventDamageTarget(), "move", udg_Temp_PointA)
         RemoveLocation(udg_Temp_PointA)
 else
-udg_Temp_PointA = GetRectCenter(udg_Region_Array_Waypoints[(GetUnitAbilityLevelSwapped(FourCC("A01O"), BlzGetEventDamageTarget()) + 1)])
+udg_Temp_PointA = GetRectCenter(udg_Region_Array_Waypoints[(GetUnitAbilityLevelSwapped(FourCC("A01Q"), BlzGetEventDamageTarget()) + 1)])
 IssueImmediateOrderBJ(BlzGetEventDamageTarget(), "divineshield")
 IssuePointOrderLocBJ(BlzGetEventDamageTarget(), "move", udg_Temp_PointA)
         RemoveLocation(udg_Temp_PointA)
@@ -2202,7 +2187,26 @@ end
 function InitTrig_Wave_Mod_Divine_Shield()
 gg_trg_Wave_Mod_Divine_Shield = CreateTrigger()
 TriggerRegisterAnyUnitEventBJ(gg_trg_Wave_Mod_Divine_Shield, EVENT_PLAYER_UNIT_DAMAGED)
+TriggerAddCondition(gg_trg_Wave_Mod_Divine_Shield, Condition(Trig_Wave_Mod_Divine_Shield_Conditions))
 TriggerAddAction(gg_trg_Wave_Mod_Divine_Shield, Trig_Wave_Mod_Divine_Shield_Actions)
+end
+
+function Trig_Wave_Mod_Wind_Walk_Conditions()
+if (not (GetUnitAbilityLevelSwapped(FourCC("A030"), BlzGetEventDamageTarget()) == GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource())))) then
+return false
+end
+return true
+end
+
+function Trig_Wave_Mod_Wind_Walk_Actions()
+IssueImmediateOrderBJ(BlzGetEventDamageTarget(), "windwalk")
+end
+
+function InitTrig_Wave_Mod_Wind_Walk()
+gg_trg_Wave_Mod_Wind_Walk = CreateTrigger()
+TriggerRegisterAnyUnitEventBJ(gg_trg_Wave_Mod_Wind_Walk, EVENT_PLAYER_UNIT_DAMAGED)
+TriggerAddCondition(gg_trg_Wave_Mod_Wind_Walk, Condition(Trig_Wave_Mod_Wind_Walk_Conditions))
+TriggerAddAction(gg_trg_Wave_Mod_Wind_Walk, Trig_Wave_Mod_Wind_Walk_Actions)
 end
 
 function Trig_Wave_Mod_Remove_Ethereal_Conditions()
@@ -4607,6 +4611,7 @@ InitTrig_Leaving_Players()
 InitTrig_Sell_Towers()
 InitTrig_Invulnerable_Towers()
 InitTrig_Wave_Mod_Divine_Shield()
+InitTrig_Wave_Mod_Wind_Walk()
 InitTrig_Wave_Mod_Remove_Ethereal()
 InitTrig_Anomaly_Tower_Limit_Upgrade()
 InitTrig_Anomaly_Tower_Limit_Cancel()
