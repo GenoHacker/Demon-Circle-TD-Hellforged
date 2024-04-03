@@ -5642,17 +5642,6 @@ STRING 2125
 Wave Modifiers 2
 }
 
-STRING 2128
-// Abilities: A031 (Wave Modifiers 2), Ubertip (Tooltip - Normal - Extended)
-{
-|cff00ffff[Evasion] - Units will have a chance to evade attacks.
-|cffd45e19[Splitter] - Upon death a unit will spawn 1 or multiple demons.
-|cffffd700[Divine Shield] - Becomes invulnerable for a short period when taking damage.
-|cff6464ff[Slow] - Decreases the attack speed of towers.
-|cff333396[Weak] - Decreases the attack damage of towers.
-|cffffffff[Wind] - Becomes invisible for a short period when taking damage.
-}
-
 STRING 2129
 // Units: n001 (Demon Lord), Name (Name)
 {
@@ -5671,14 +5660,25 @@ STRING 2131
 [Demon]
 }
 
-STRING 2132
+STRING 2133
 // Abilities: A01F (Wave Modifiers), Ubertip (Tooltip - Normal - Extended)
 {
-|cff6f2583[Demon Lord] - A unit that will give various benefits to the wave mostly auras, but may also cast Spirit Link.
-|cff00ff00[Ethereal] - Causes a unit to become ethereal, the affected unit will move slower but can only be damaged by magic and spell damage.
-|cff3232ff[Mana Shield] - Affected units gain mana equal to 50% total health, the shield absorbs a significant portion of the damage they take.
-|cff808080[Armored] - Units will have bonus armour, reducing attack damage taken.
-|cffff0000[Fast] - Units will move faster.
-|cff80ff80[Health Regeneration] - Unit will gain a large increase to health regeneration.
+1 - |cff6f2583[Demon Lord] - A unit that will give various benefits to the wave mostly auras, but may also cast Spirit Link.|r
+2 - |cff00ff00[Ethereal] - Causes a unit to become ethereal, the affected unit will move slower but can only be damaged by magic and spell damage.|r
+3 - |cff3232ff[Mana Shield] - Affected units gain mana equal to 50% total health, the shield absorbs a significant portion of the damage they take.|r
+4 - |cff808080[Armored] - Units will have bonus armour, reducing attack damage taken.|r
+5 - |cffff0000[Fast] - Units will move faster.|r
+6 - |cff80ff80[Health Regeneration] - Unit will gain a large increase to health regeneration.|r
+}
+
+STRING 2134
+// Abilities: A031 (Wave Modifiers 2), Ubertip (Tooltip - Normal - Extended)
+{
+7 - |cff00ffff[Evasion] - Units will have a chance to evade attacks.|r
+8 - |cffd45e19[Splitter] - Upon death a unit will spawn 1 or multiple demons.|r
+9 - |cffffd700[Divine Shield] - Becomes invulnerable for a short period when taking damage.|r
+10 - |cff6464ff[Slow] - Decreases the attack speed of towers.|r
+11 - |cff333396[Weak] - Decreases the attack damage of towers.|r
+12 - |cffffffff[Wind] - Becomes invisible for a short period when taking damage.|r
 }
 
