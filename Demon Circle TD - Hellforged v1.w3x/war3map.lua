@@ -473,7 +473,7 @@ if ((i > 1)) then break end
 udg_Integer_Array_ModLevel1[i] = 0
 i = i + 1
 end
-udg_Integer_TotalModNumber = 9
+udg_Integer_TotalModNumber = 11
 udg_Integer_ModType = 0
 i = 0
 while (true) do
@@ -560,6 +560,30 @@ SetSoundDuration(gg_snd_MapPing, 1636)
 SetSoundVolume(gg_snd_MapPing, 127)
 end
 
+function CreateUnitsForPlayer0()
+local p = Player(0)
+local u
+local unitID
+local t
+local life
+
+u = BlzCreateUnitWithSkin(p, FourCC("Obla"), -4474.8, 3757.7, 207.250, FourCC("Obla"))
+SetHeroLevel(u, 10, false)
+SetHeroStr(u, 99999, true)
+SetHeroAgi(u, 99999, true)
+SetHeroInt(u, 99999, true)
+SelectHeroSkill(u, FourCC("AOwk"))
+SelectHeroSkill(u, FourCC("AOwk"))
+SelectHeroSkill(u, FourCC("AOwk"))
+SelectHeroSkill(u, FourCC("AOmi"))
+SelectHeroSkill(u, FourCC("AOmi"))
+SelectHeroSkill(u, FourCC("AOmi"))
+SelectHeroSkill(u, FourCC("AOcr"))
+SelectHeroSkill(u, FourCC("AOcr"))
+SelectHeroSkill(u, FourCC("AOcr"))
+SelectHeroSkill(u, FourCC("AOww"))
+end
+
 function CreateNeutralPassiveBuildings()
 local p = Player(PLAYER_NEUTRAL_PASSIVE)
 local u
@@ -597,6 +621,7 @@ function CreatePlayerBuildings()
 end
 
 function CreatePlayerUnits()
+CreateUnitsForPlayer0()
 end
 
 function CreateAllUnits()
@@ -643,14 +668,14 @@ gg_rct_Teleport_Pink_1 = Rect(-6144.0, 1792.0, -5760.0, 1920.0)
 gg_rct_Teleport_Green_2 = Rect(-5632.0, 512.0, -5248.0, 640.0)
 end
 
-function Trig_Map_Initialization_Func028Func001Func001C()
+function Trig_Map_Initialization_Func033Func001Func001C()
 if (not (GetRandomInt(1, 1000) <= (udg_Integer_ModifierChance + (GetForLoopIndexA() * 2)))) then
 return false
 end
 return true
 end
 
-function Trig_Map_Initialization_Func028Func004Func003C()
+function Trig_Map_Initialization_Func033Func004Func003C()
 if (udg_Integer_Array_WaveMod[(udg_Integer_Slot + 3)] == udg_Integer_Array_WaveMod[(udg_Integer_Slot + 2)]) then
 return true
 end
@@ -660,28 +685,28 @@ end
 return false
 end
 
-function Trig_Map_Initialization_Func028Func004C()
-if (not Trig_Map_Initialization_Func028Func004Func003C()) then
+function Trig_Map_Initialization_Func033Func004C()
+if (not Trig_Map_Initialization_Func033Func004Func003C()) then
 return false
 end
 return true
 end
 
-function Trig_Map_Initialization_Func028Func005C()
+function Trig_Map_Initialization_Func033Func005C()
 if (not (udg_Integer_Array_WaveMod[(udg_Integer_Slot + 2)] == udg_Integer_Array_WaveMod[(udg_Integer_Slot + 1)])) then
 return false
 end
 return true
 end
 
-function Trig_Map_Initialization_Func030Func003Func001C()
+function Trig_Map_Initialization_Func035Func003Func001C()
 if (not (udg_Integer_Array_WaveMod[(udg_Integer_Slot + GetForLoopIndexB())] ~= 0)) then
 return false
 end
 return true
 end
 
-function Trig_Map_Initialization_Func030Func004C()
+function Trig_Map_Initialization_Func035Func004C()
 if (not (udg_String_Array_WaveText[GetForLoopIndexA()] == "")) then
 return false
 end
@@ -689,7 +714,6 @@ return true
 end
 
 function Trig_Map_Initialization_Actions()
-udg_String_Array_Mods[0] = "0 |cffc0c0c0[None]|r 1 |cff6f2583[Com]|r 2 |cff00ff00[Eth]|r 3 |cff3232ff[Shi]|r 4 |cff808080[Arm]|r 5 |cffff0000[Fst]|r 6 |cff80ff80[Rgn]|r 7 |cff00ffff[Eva]|r 8 |cffd45e19[Spl]|r 9 |cffffd700[Div]|r"
 udg_AbilityCode_Array_ModAbilities[2] = FourCC("A01H")
 udg_AbilityCode_Array_ModAbilities[3] = FourCC("A01I")
 udg_AbilityCode_Array_ModAbilities[4] = FourCC("A018")
@@ -697,7 +721,9 @@ udg_AbilityCode_Array_ModAbilities[5] = FourCC("A00P")
 udg_AbilityCode_Array_ModAbilities[6] = FourCC("A00R")
 udg_AbilityCode_Array_ModAbilities[7] = FourCC("A00J")
 udg_AbilityCode_Array_ModAbilities[8] = FourCC("A01E")
-udg_AbilityCode_Array_ModAbilities[9] = FourCC("A01E")
+udg_AbilityCode_Array_ModAbilities[9] = FourCC("A01O")
+udg_AbilityCode_Array_ModAbilities[10] = FourCC("S001")
+udg_AbilityCode_Array_ModAbilities[11] = FourCC("A024")
 udg_String_Array_ModName[0] = "|cffc0c0c0[None"
 udg_String_Array_ModName[1] = "|cff6f2583[Lord"
 udg_String_Array_ModName[2] = "|cff00ff00[Ether"
@@ -708,6 +734,9 @@ udg_String_Array_ModName[6] = "|cff80ff80[Regen"
 udg_String_Array_ModName[7] = "|cff00ffff[Evade"
 udg_String_Array_ModName[8] = "|cffd45e19[Split"
 udg_String_Array_ModName[9] = "|cffffd700[D.Shield"
+udg_String_Array_ModName[10] = "|cff6464ff[Slow"
+udg_String_Array_ModName[11] = "|cff333396[Weak"
+udg_String_Array_ModName[12] = "|cffffffff[Wind"
 udg_String_Array_ModLevelText[0] = "]|r"
 udg_String_Array_ModLevelText[1] = "]|r"
 udg_String_Array_ModLevelText[2] = "+]|r"
@@ -720,7 +749,7 @@ bj_forLoopBIndex = 1
 bj_forLoopBIndexEnd = 3
 while (true) do
 if (bj_forLoopBIndex > bj_forLoopBIndexEnd) then break end
-if (Trig_Map_Initialization_Func028Func001Func001C()) then
+if (Trig_Map_Initialization_Func033Func001Func001C()) then
 udg_Integer_Slot = ((GetForLoopIndexA() - 1) * 3)
 udg_Integer_Array_WaveMod[(udg_Integer_Slot + GetForLoopIndexB())] = GetRandomInt(1, udg_Integer_TotalModNumber)
 udg_Integer_Array_WaveModLevel[(udg_Integer_Slot + GetForLoopIndexB())] = GetRandomInt(1, 3)
@@ -729,12 +758,12 @@ end
 bj_forLoopBIndex = bj_forLoopBIndex + 1
 end
 udg_Integer_Slot = ((GetForLoopIndexA() - 1) * 3)
-if (Trig_Map_Initialization_Func028Func004C()) then
+if (Trig_Map_Initialization_Func033Func004C()) then
 udg_Integer_Array_WaveMod[(udg_Integer_Slot + 3)] = 0
 udg_Integer_Array_WaveModLevel[(udg_Integer_Slot + 3)] = 0
 else
 end
-if (Trig_Map_Initialization_Func028Func005C()) then
+if (Trig_Map_Initialization_Func033Func005C()) then
 udg_Integer_Array_WaveMod[(udg_Integer_Slot + 2)] = udg_Integer_Array_WaveMod[(udg_Integer_Slot + 3)]
 udg_Integer_Array_WaveModLevel[(udg_Integer_Slot + 2)] = udg_Integer_Array_WaveModLevel[(udg_Integer_Slot + 3)]
 udg_Integer_Array_WaveMod[(udg_Integer_Slot + 3)] = 0
@@ -753,14 +782,14 @@ bj_forLoopBIndex = 1
 bj_forLoopBIndexEnd = 3
 while (true) do
 if (bj_forLoopBIndex > bj_forLoopBIndexEnd) then break end
-if (Trig_Map_Initialization_Func030Func003Func001C()) then
+if (Trig_Map_Initialization_Func035Func003Func001C()) then
 udg_String_Array_WaveText[GetForLoopIndexA()] = (udg_String_Array_WaveText[GetForLoopIndexA()] .. udg_String_Array_ModName[udg_Integer_Array_WaveMod[(udg_Integer_Slot + GetForLoopIndexB())]])
 udg_String_Array_WaveText[GetForLoopIndexA()] = (udg_String_Array_WaveText[GetForLoopIndexA()] .. udg_String_Array_ModLevelText[udg_Integer_Array_WaveModLevel[(udg_Integer_Slot + GetForLoopIndexB())]])
 else
 end
 bj_forLoopBIndex = bj_forLoopBIndex + 1
 end
-if (Trig_Map_Initialization_Func030Func004C()) then
+if (Trig_Map_Initialization_Func035Func004C()) then
 udg_String_Array_WaveText[GetForLoopIndexA()] = (udg_String_Array_ModName[0] .. udg_String_Array_ModLevelText[1])
 else
 end
@@ -2149,13 +2178,6 @@ TriggerRegisterAnyUnitEventBJ(gg_trg_Invulnerable_Towers, EVENT_PLAYER_UNIT_UPGR
 TriggerAddAction(gg_trg_Invulnerable_Towers, Trig_Invulnerable_Towers_Actions)
 end
 
-function Trig_Wave_Mod_Divine_Shield_Conditions()
-if (not (GetUnitAbilityLevelSwapped(FourCC("A01O"), BlzGetEventDamageTarget()) >= 1)) then
-return false
-end
-return true
-end
-
 function Trig_Wave_Mod_Divine_Shield_Func001C()
 if (not (GetUnitAbilityLevelSwapped(FourCC("A01Q"), BlzGetEventDamageTarget()) == GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource())))) then
 return false
@@ -2180,7 +2202,6 @@ end
 function InitTrig_Wave_Mod_Divine_Shield()
 gg_trg_Wave_Mod_Divine_Shield = CreateTrigger()
 TriggerRegisterAnyUnitEventBJ(gg_trg_Wave_Mod_Divine_Shield, EVENT_PLAYER_UNIT_DAMAGED)
-TriggerAddCondition(gg_trg_Wave_Mod_Divine_Shield, Condition(Trig_Wave_Mod_Divine_Shield_Conditions))
 TriggerAddAction(gg_trg_Wave_Mod_Divine_Shield, Trig_Wave_Mod_Divine_Shield_Actions)
 end
 
