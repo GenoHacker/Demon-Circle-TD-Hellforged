@@ -2560,78 +2560,6 @@ STRING 1495
 Q
 }
 
-STRING 1496
-// Abilities: A004 (Anomaly Tower - Breath of Frost), Name (Name)
-{
-Anomaly Tower - Breath of Frost
-}
-
-STRING 1497
-// Abilities: A00H (Anomaly Tower - Lightning Shield), Name (Name)
-{
-Anomaly Tower - Lightning Shield
-}
-
-STRING 1498
-// Abilities: A00N (Anomaly Tower - Shadow Strike), Name (Name)
-{
-Anomaly Tower - Shadow Strike
-}
-
-STRING 1499
-// Abilities: A00S (Anomaly Tower - Death Coil), Name (Name)
-{
-Anomaly Tower - Death Coil
-}
-
-STRING 1501
-// Abilities: A00U (Anomaly Tower - Forked Lightning), Name (Name)
-{
-Anomaly Tower - Forked Lightning
-}
-
-STRING 1502
-// Abilities: A012 (Anomaly Tower - Finger of Pain), Name (Name)
-{
-Anomaly Tower - Finger of Pain
-}
-
-STRING 1503
-// Abilities: A013 (Anomaly Tower - Chain Lightning), Name (Name)
-{
-Anomaly Tower - Chain Lightning
-}
-
-STRING 1505
-// Abilities: A016 (Anomaly Tower - Frost Armor), Name (Name)
-{
-Anomaly Tower - Frost Armor
-}
-
-STRING 1506
-// Abilities: A015 (Anomaly Tower - Frost Nova), Name (Name)
-{
-Anomaly Tower - Frost Nova
-}
-
-STRING 1512
-// Abilities: A01G (Anomaly Tower - Flame Strike), Name (Name)
-{
-Anomaly Tower - Flame Strike
-}
-
-STRING 1513
-// Abilities: A01T (Anomaly Tower - Bladestorm), Name (Name)
-{
-Anomaly Tower - Bladestorm
-}
-
-STRING 1514
-// Abilities: A01U (Anomaly Tower - Starfall), Name (Name)
-{
-Anomaly Tower - Starfall
-}
-
 STRING 1515
 // Abilities: A01W (Anomaly Tower), Name (Name)
 {
@@ -2656,24 +2584,6 @@ STRING 1518
 Anomaly Tower Level 3
 }
 
-STRING 1519
-// Abilities: A029 (Starfall), Name (Name)
-{
-Starfall
-}
-
-STRING 1521
-// Abilities: A02R (PLACEHOLDER), EditorSuffix (Editor Suffix)
-{
-- Anomaly Tower Dummy
-}
-
-STRING 1522
-// Abilities: A02B (Shadow Strike), Name (Name)
-{
-Shadow Strike
-}
-
 STRING 1525
 // Abilities: A02R (PLACEHOLDER), Name (Name)
 {
@@ -2684,84 +2594,6 @@ STRING 1526
 // Abilities: A02R (PLACEHOLDER), Tip (Tooltip - Normal)
 {
 PLACEHOLDER
-}
-
-STRING 1528
-// Abilities: A02F (Lightning Shield), Name (Name)
-{
-Lightning Shield
-}
-
-STRING 1532
-// Abilities: A02A (Bladestorm), Name (Name)
-{
-Bladestorm
-}
-
-STRING 1534
-// Abilities: A02H (Frost Nova), Name (Name)
-{
-Frost Nova
-}
-
-STRING 1537
-// Abilities: A02I (Frost Armour), Name (Name)
-{
-Frost Armour
-}
-
-STRING 1540
-// Abilities: A02J (Forked Lightning), Name (Name)
-{
-Forked Lightning
-}
-
-STRING 1543
-// Abilities: A02K (Flame Strike), Name (Name)
-{
-Flame Strike
-}
-
-STRING 1546
-// Abilities: A02L (Finger of Pain), Name (Name)
-{
-Finger of Pain
-}
-
-STRING 1549
-// Abilities: A02M (Death Coil), Name (Name)
-{
-Death Coil
-}
-
-STRING 1555
-// Abilities: A02O (Chain Lightning), Name (Name)
-{
-Chain Lightning
-}
-
-STRING 1558
-// Abilities: A02P (Breath of Frost), Name (Name)
-{
-Breath of Frost
-}
-
-STRING 1566
-// Abilities: A02C (Anomaly Tower - Corruption Aura), Name (Name)
-{
-Anomaly Tower - Corruption Aura
-}
-
-STRING 1572
-// Abilities: A00T (Anomaly Tower - Dispel Magic), Name (Name)
-{
-Anomaly Tower - Dispel Magic
-}
-
-STRING 1573
-// Abilities: A02D (Dispel Magic), Name (Name)
-{
-Dispel Magic
 }
 
 STRING 1576
@@ -2782,656 +2614,362 @@ STRING 1579
 [Anomaly Tower]
 }
 
-STRING 1581
-// Abilities: A02E (Thunder Clap), Name (Name)
-{
-Thunder Clap
-}
-
-STRING 1583
-// Abilities: A02Q (Anomaly Tower - Thunder Clap), Name (Name)
-{
-Anomaly Tower - Thunder Clap
-}
-
-STRING 1585
-// Abilities: A02S (Anomaly Tower - Acid Bomb), Name (Name)
-{
-Anomaly Tower - Acid Bomb
-}
-
-STRING 1586
-// Abilities: A02T (Acid Bomb), Name (Name)
-{
-Acid Bomb
-}
-
-STRING 1589
-// Abilities: A02U (Anomaly Tower - Rain of Fire), Name (Name)
-{
-Anomaly Tower - Rain of Fire
-}
-
-STRING 1590
-// Abilities: A02V (Anomaly Tower - Inferno), Name (Name)
-{
-Anomaly Tower - Inferno
-}
-
-STRING 1591
-// Abilities: A02W (Inferno), Name (Name)
-{
-Inferno
-}
-
-STRING 1594
-// Abilities: A02X (Anomaly Tower - Feral Spirit), Name (Name)
-{
-Anomaly Tower - Feral Spirit
-}
-
-STRING 1595
-// Abilities: A02Y (Feral Spirit), Name (Name)
-{
-Feral Spirit
-}
-
-STRING 1598
-// Abilities: A004 (Anomaly Tower - Breath of Frost), EditorSuffix (Editor Suffix)
-{
-[Level 2]
-}
-
-STRING 1599
-// Abilities: A00H (Anomaly Tower - Lightning Shield), EditorSuffix (Editor Suffix)
-{
-[Level 1 1st]
-}
-
-STRING 1600
-// Abilities: A00N (Anomaly Tower - Shadow Strike), EditorSuffix (Editor Suffix)
-{
-[Level 1 2nd]
-}
-
-STRING 1601
-// Abilities: A00S (Anomaly Tower - Death Coil), EditorSuffix (Editor Suffix)
-{
-[Level 2]
-}
-
-STRING 1602
-// Abilities: A00U (Anomaly Tower - Forked Lightning), EditorSuffix (Editor Suffix)
-{
-[Level 1 2nd]
-}
-
-STRING 1603
-// Abilities: A012 (Anomaly Tower - Finger of Pain), EditorSuffix (Editor Suffix)
-{
-[Level 3]
-}
-
-STRING 1604
-// Abilities: A013 (Anomaly Tower - Chain Lightning), EditorSuffix (Editor Suffix)
-{
-[Level 1 1st]
-}
-
-STRING 1605
-// Abilities: A014 (Anomaly Tower - Crushing Wave), EditorSuffix (Editor Suffix)
-{
-[Level 1 1st]
-}
-
-STRING 1606
-// Abilities: A015 (Anomaly Tower - Frost Nova), EditorSuffix (Editor Suffix)
-{
-[Level 1 1st]
-}
-
-STRING 1607
-// Abilities: A016 (Anomaly Tower - Frost Armor), EditorSuffix (Editor Suffix)
-{
-[Level 2]
-}
-
-STRING 1608
-// Abilities: A02C (Anomaly Tower - Corruption Aura), EditorSuffix (Editor Suffix)
-{
-[Level 1 1st]
-}
-
-STRING 1609
-// Abilities: A01G (Anomaly Tower - Flame Strike), EditorSuffix (Editor Suffix)
-{
-[Level 1 2nd]
-}
-
-STRING 1610
-// Abilities: A02Q (Anomaly Tower - Thunder Clap), EditorSuffix (Editor Suffix)
-{
-[Level 1 2nd]
-}
-
-STRING 1611
-// Abilities: A01T (Anomaly Tower - Bladestorm), EditorSuffix (Editor Suffix)
-{
-[Level 3]
-}
-
-STRING 1612
-// Abilities: A01U (Anomaly Tower - Starfall), EditorSuffix (Editor Suffix)
-{
-[Level 3]
-}
-
-STRING 1613
-// Abilities: A029 (Starfall), EditorSuffix (Editor Suffix)
-{
-- Anomaly Tower Dummy [Level 3]
-}
-
-STRING 1614
-// Abilities: A02B (Shadow Strike), EditorSuffix (Editor Suffix)
-{
-- Anomaly Tower Dummy [Level 1 2nd]
-}
-
-STRING 1615
-// Abilities: A02E (Thunder Clap), EditorSuffix (Editor Suffix)
-{
-- Anomaly Tower Dummy [Level 1 2nd]
-}
-
-STRING 1616
-// Abilities: A02F (Lightning Shield), EditorSuffix (Editor Suffix)
-{
-- Anomaly Tower Dummy [Level 1 1st]
-}
-
-STRING 1617
-// Abilities: A02L (Finger of Pain), EditorSuffix (Editor Suffix)
-{
-- Anomaly Tower Dummy [Level 3]
-}
-
-STRING 1618
-// Abilities: A02G ([UNUSED] Corruption Aura), EditorSuffix (Editor Suffix)
-{
-- Anomaly Tower Dummy [Level 1 1st]
-}
-
-STRING 1619
-// Abilities: A02I (Frost Armour), EditorSuffix (Editor Suffix)
-{
-- Anomaly Tower Dummy [Level 2]
-}
-
-STRING 1620
-// Abilities: A02J (Forked Lightning), EditorSuffix (Editor Suffix)
-{
-- Anomaly Tower Dummy [Level 1 2nd]
-}
-
-STRING 1621
-// Abilities: A02K (Flame Strike), EditorSuffix (Editor Suffix)
-{
-- Anomaly Tower Dummy [Level 1 2nd]
-}
-
-STRING 1622
-// Abilities: A02A (Bladestorm), EditorSuffix (Editor Suffix)
-{
-- Anomaly Tower Dummy [Level 3]
-}
-
-STRING 1623
-// Abilities: A02M (Death Coil), EditorSuffix (Editor Suffix)
-{
-- Anomaly Tower Dummy [Level 2]
-}
-
-STRING 1624
-// Abilities: A02H (Frost Nova), EditorSuffix (Editor Suffix)
-{
-- Anomaly Tower Dummy [Level 1 1st]
-}
-
-STRING 1625
-// Abilities: A02O (Chain Lightning), EditorSuffix (Editor Suffix)
-{
-- Anomaly Tower Dummy [Level 1 1st]
-}
-
-STRING 1626
-// Abilities: A02P (Breath of Frost), EditorSuffix (Editor Suffix)
-{
-- Anomaly Tower Dummy [Level 2]
-}
-
-STRING 1627
-// Abilities: A02W (Inferno), EditorSuffix (Editor Suffix)
-{
-- Anomaly Tower Dummy [Level 3]
-}
-
-STRING 1629
-// Abilities: A00T (Anomaly Tower - Dispel Magic), EditorSuffix (Editor Suffix)
-{
-[Level 2]
-}
-
-STRING 1630
-// Abilities: A02D (Dispel Magic), EditorSuffix (Editor Suffix)
-{
-- Anomaly Tower Dummy [Level 2]
-}
-
-STRING 1631
-// Abilities: A02U (Anomaly Tower - Rain of Fire), EditorSuffix (Editor Suffix)
-{
-[Level 1 2nd]
-}
-
-STRING 1632
-// Abilities: A02S (Anomaly Tower - Acid Bomb), EditorSuffix (Editor Suffix)
-{
-[Level 2]
-}
-
-STRING 1633
-// Abilities: A02T (Acid Bomb), EditorSuffix (Editor Suffix)
-{
-- Anomaly Tower Dummy [Level 2]
-}
-
-STRING 1635
-// Abilities: A02V (Anomaly Tower - Inferno), EditorSuffix (Editor Suffix)
-{
-[Level 3]
-}
-
-STRING 1636
-// Abilities: A02Y (Feral Spirit), EditorSuffix (Editor Suffix)
-{
-- Anomaly Tower Dummy [Level 3]
-}
-
-STRING 1637
-// Abilities: A02X (Anomaly Tower - Feral Spirit), EditorSuffix (Editor Suffix)
-{
-[Level 3]
-}
-
-STRING 1639
-// Abilities: A02Z (Rain of Fire), Name (Name)
-{
-Rain of Fire
-}
-
-STRING 1641
-// Abilities: A02N (Crushing Wave), EditorSuffix (Editor Suffix)
-{
-- Anomaly Tower Dummy [Level 1 2nd]
-}
-
 STRING 1653
-// Abilities: A029 (Starfall), Tip (Tooltip - Normal)
+// Abilities: A029 ([Level 3, Ability 4] - Dummy Starfall), Tip (Tooltip - Normal)
 {
 Starfall - Level 1
 }
 
 STRING 1654
-// Abilities: A029 (Starfall), Tip (Tooltip - Normal)
+// Abilities: A029 ([Level 3, Ability 4] - Dummy Starfall), Tip (Tooltip - Normal)
 {
 Starfall - Level 2
 }
 
 STRING 1655
-// Abilities: A029 (Starfall), Tip (Tooltip - Normal)
+// Abilities: A029 ([Level 3, Ability 4] - Dummy Starfall), Tip (Tooltip - Normal)
 {
 Starfall - Level 3
 }
 
 STRING 1656
-// Abilities: A029 (Starfall), Tip (Tooltip - Normal)
+// Abilities: A029 ([Level 3, Ability 4] - Dummy Starfall), Tip (Tooltip - Normal)
 {
 Starfall - Level 4
 }
 
 STRING 1657
-// Abilities: A02B (Shadow Strike), Tip (Tooltip - Normal)
+// Abilities: A02B ([Level 1, Ability 2] - Dummy Shadow Strike), Tip (Tooltip - Normal)
 {
 Shadow Strike - Level 1
 }
 
 STRING 1658
-// Abilities: A02B (Shadow Strike), Tip (Tooltip - Normal)
+// Abilities: A02B ([Level 1, Ability 2] - Dummy Shadow Strike), Tip (Tooltip - Normal)
 {
 Shadow Strike - Level 2
 }
 
 STRING 1659
-// Abilities: A02B (Shadow Strike), Tip (Tooltip - Normal)
+// Abilities: A02B ([Level 1, Ability 2] - Dummy Shadow Strike), Tip (Tooltip - Normal)
 {
 Shadow Strike - Level 3
 }
 
 STRING 1660
-// Abilities: A02B (Shadow Strike), Tip (Tooltip - Normal)
+// Abilities: A02B ([Level 1, Ability 2] - Dummy Shadow Strike), Tip (Tooltip - Normal)
 {
 Shadow Strike - Level 4
 }
 
 STRING 1661
-// Abilities: A02E (Thunder Clap), Tip (Tooltip - Normal)
+// Abilities: A02E ([Level 1, Ability 1] - Dummy Thunder Clap), Tip (Tooltip - Normal)
 {
 Thunder Clap - Level 1
 }
 
 STRING 1662
-// Abilities: A02E (Thunder Clap), Tip (Tooltip - Normal)
+// Abilities: A02E ([Level 1, Ability 1] - Dummy Thunder Clap), Tip (Tooltip - Normal)
 {
 Thunder Clap - Level 2
 }
 
 STRING 1663
-// Abilities: A02E (Thunder Clap), Tip (Tooltip - Normal)
+// Abilities: A02E ([Level 1, Ability 1] - Dummy Thunder Clap), Tip (Tooltip - Normal)
 {
 Thunder Clap - Level 3
 }
 
 STRING 1664
-// Abilities: A02E (Thunder Clap), Tip (Tooltip - Normal)
+// Abilities: A02E ([Level 1, Ability 1] - Dummy Thunder Clap), Tip (Tooltip - Normal)
 {
 Thunder Clap - Level 4
 }
 
 STRING 1665
-// Abilities: A02F (Lightning Shield), Tip (Tooltip - Normal)
+// Abilities: A02F ([Level 1, Ability 1] - Dummy Immolation), Tip (Tooltip - Normal)
 {
 Lightning Shield - Level 1
 }
 
 STRING 1666
-// Abilities: A02F (Lightning Shield), Tip (Tooltip - Normal)
+// Abilities: A02F ([Level 1, Ability 1] - Dummy Immolation), Tip (Tooltip - Normal)
 {
 Lightning Shield - Level 2
 }
 
 STRING 1667
-// Abilities: A02F (Lightning Shield), Tip (Tooltip - Normal)
+// Abilities: A02F ([Level 1, Ability 1] - Dummy Immolation), Tip (Tooltip - Normal)
 {
 Lightning Shield - Level 3
 }
 
 STRING 1668
-// Abilities: A02F (Lightning Shield), Tip (Tooltip - Normal)
+// Abilities: A02F ([Level 1, Ability 1] - Dummy Immolation), Tip (Tooltip - Normal)
 {
 Lightning Shield - Level 4
 }
 
 STRING 1669
-// Abilities: A02G ([UNUSED] Corruption Aura), Tip (Tooltip - Normal)
+// Abilities: A02G ([Level 1, Ability 2] - Dummy Anomaly Tower - Corruption Aura), Tip (Tooltip - Normal)
 {
 Corruption Aura - Level 1
 }
 
 STRING 1670
-// Abilities: A02G ([UNUSED] Corruption Aura), Tip (Tooltip - Normal)
+// Abilities: A02G ([Level 1, Ability 2] - Dummy Anomaly Tower - Corruption Aura), Tip (Tooltip - Normal)
 {
 Corruption Aura - Level 2
 }
 
 STRING 1671
-// Abilities: A02G ([UNUSED] Corruption Aura), Tip (Tooltip - Normal)
+// Abilities: A02G ([Level 1, Ability 2] - Dummy Anomaly Tower - Corruption Aura), Tip (Tooltip - Normal)
 {
 Corruption Aura - Level 3
 }
 
 STRING 1672
-// Abilities: A02G ([UNUSED] Corruption Aura), Tip (Tooltip - Normal)
+// Abilities: A02G ([Level 1, Ability 2] - Dummy Anomaly Tower - Corruption Aura), Tip (Tooltip - Normal)
 {
 Corruption Aura - Level 4
 }
 
 STRING 1673
-// Abilities: A02H (Frost Nova), Tip (Tooltip - Normal)
+// Abilities: A02H ([Level 1, Ability 1] - Dummy Frost Nova), Tip (Tooltip - Normal)
 {
 Frost Nova - Level 1
 }
 
 STRING 1674
-// Abilities: A02H (Frost Nova), Tip (Tooltip - Normal)
+// Abilities: A02H ([Level 1, Ability 1] - Dummy Frost Nova), Tip (Tooltip - Normal)
 {
 Frost Nova - Level 2
 }
 
 STRING 1675
-// Abilities: A02H (Frost Nova), Tip (Tooltip - Normal)
+// Abilities: A02H ([Level 1, Ability 1] - Dummy Frost Nova), Tip (Tooltip - Normal)
 {
 Frost Nova - Level 3
 }
 
 STRING 1676
-// Abilities: A02H (Frost Nova), Tip (Tooltip - Normal)
+// Abilities: A02H ([Level 1, Ability 1] - Dummy Frost Nova), Tip (Tooltip - Normal)
 {
 Frost Nova - Level 4
 }
 
 STRING 1677
-// Abilities: A02I (Frost Armour), Tip (Tooltip - Normal)
+// Abilities: A02I ([Level 2, Ability 3] - Dummy Frost Armour), Tip (Tooltip - Normal)
 {
 Frost Armour - Level 1
 }
 
 STRING 1678
-// Abilities: A02I (Frost Armour), Tip (Tooltip - Normal)
+// Abilities: A02I ([Level 2, Ability 3] - Dummy Frost Armour), Tip (Tooltip - Normal)
 {
 Frost Armour - Level 2
 }
 
 STRING 1679
-// Abilities: A02I (Frost Armour), Tip (Tooltip - Normal)
+// Abilities: A02I ([Level 2, Ability 3] - Dummy Frost Armour), Tip (Tooltip - Normal)
 {
 Frost Armour - Level 3
 }
 
 STRING 1680
-// Abilities: A02I (Frost Armour), Tip (Tooltip - Normal)
+// Abilities: A02I ([Level 2, Ability 3] - Dummy Frost Armour), Tip (Tooltip - Normal)
 {
 Frost Armour - Level 4
 }
 
 STRING 1681
-// Abilities: A02J (Forked Lightning), Tip (Tooltip - Normal)
+// Abilities: A02J ([Level 1, Ability 2] - Dummy Forked Lightning), Tip (Tooltip - Normal)
 {
 Forked Lightning - Level 1
 }
 
 STRING 1682
-// Abilities: A02J (Forked Lightning), Tip (Tooltip - Normal)
+// Abilities: A02J ([Level 1, Ability 2] - Dummy Forked Lightning), Tip (Tooltip - Normal)
 {
 Forked Lightning - Level 2
 }
 
 STRING 1683
-// Abilities: A02J (Forked Lightning), Tip (Tooltip - Normal)
+// Abilities: A02J ([Level 1, Ability 2] - Dummy Forked Lightning), Tip (Tooltip - Normal)
 {
 Forked Lightning - Level 3
 }
 
 STRING 1684
-// Abilities: A02J (Forked Lightning), Tip (Tooltip - Normal)
+// Abilities: A02J ([Level 1, Ability 2] - Dummy Forked Lightning), Tip (Tooltip - Normal)
 {
 Forked Lightning - Level 4
 }
 
 STRING 1685
-// Abilities: A02K (Flame Strike), Tip (Tooltip - Normal)
+// Abilities: A02K ([Level 1, Ability 2] - Dummy Flame Strike), Tip (Tooltip - Normal)
 {
 Flame Strike - Level 1
 }
 
 STRING 1686
-// Abilities: A02K (Flame Strike), Tip (Tooltip - Normal)
+// Abilities: A02K ([Level 1, Ability 2] - Dummy Flame Strike), Tip (Tooltip - Normal)
 {
 Flame Strike - Level 2
 }
 
 STRING 1687
-// Abilities: A02K (Flame Strike), Tip (Tooltip - Normal)
+// Abilities: A02K ([Level 1, Ability 2] - Dummy Flame Strike), Tip (Tooltip - Normal)
 {
 Flame Strike - Level 3
 }
 
 STRING 1688
-// Abilities: A02K (Flame Strike), Tip (Tooltip - Normal)
+// Abilities: A02K ([Level 1, Ability 2] - Dummy Flame Strike), Tip (Tooltip - Normal)
 {
 Flame Strike - Level 4
 }
 
 STRING 1689
-// Abilities: A02L (Finger of Pain), Tip (Tooltip - Normal)
+// Abilities: A02L ([Level 1, Ability 4] - Dummy Finger of Pain), Tip (Tooltip - Normal)
 {
 Finger of Pain - Level 1
 }
 
 STRING 1690
-// Abilities: A02L (Finger of Pain), Tip (Tooltip - Normal)
+// Abilities: A02L ([Level 1, Ability 4] - Dummy Finger of Pain), Tip (Tooltip - Normal)
 {
 Finger of Pain - Level 2
 }
 
 STRING 1691
-// Abilities: A02L (Finger of Pain), Tip (Tooltip - Normal)
+// Abilities: A02L ([Level 1, Ability 4] - Dummy Finger of Pain), Tip (Tooltip - Normal)
 {
 Finger of Pain - Level 3
 }
 
 STRING 1692
-// Abilities: A02L (Finger of Pain), Tip (Tooltip - Normal)
+// Abilities: A02L ([Level 1, Ability 4] - Dummy Finger of Pain), Tip (Tooltip - Normal)
 {
 Finger of Pain - Level 4
 }
 
 STRING 1693
-// Abilities: A02M (Death Coil), Tip (Tooltip - Normal)
+// Abilities: A02M ([Level 2, Ability 3] - Dummy Death Coil), Tip (Tooltip - Normal)
 {
 Death Coil - Level 1
 }
 
 STRING 1694
-// Abilities: A02M (Death Coil), Tip (Tooltip - Normal)
+// Abilities: A02M ([Level 2, Ability 3] - Dummy Death Coil), Tip (Tooltip - Normal)
 {
 Death Coil - Level 2
 }
 
 STRING 1695
-// Abilities: A02M (Death Coil), Tip (Tooltip - Normal)
+// Abilities: A02M ([Level 2, Ability 3] - Dummy Death Coil), Tip (Tooltip - Normal)
 {
 Death Coil - Level 3
 }
 
 STRING 1696
-// Abilities: A02M (Death Coil), Tip (Tooltip - Normal)
+// Abilities: A02M ([Level 2, Ability 3] - Dummy Death Coil), Tip (Tooltip - Normal)
 {
 Death Coil - Level 4
 }
 
 STRING 1701
-// Abilities: A02O (Chain Lightning), Tip (Tooltip - Normal)
+// Abilities: A02O ([Level 1, Ability 1] - Dummy Chain Lightning), Tip (Tooltip - Normal)
 {
 Chain Lightning - Level 1
 }
 
 STRING 1702
-// Abilities: A02O (Chain Lightning), Tip (Tooltip - Normal)
+// Abilities: A02O ([Level 1, Ability 1] - Dummy Chain Lightning), Tip (Tooltip - Normal)
 {
 Chain Lightning - Level 2
 }
 
 STRING 1703
-// Abilities: A02O (Chain Lightning), Tip (Tooltip - Normal)
+// Abilities: A02O ([Level 1, Ability 1] - Dummy Chain Lightning), Tip (Tooltip - Normal)
 {
 Chain Lightning - Level 3
 }
 
 STRING 1704
-// Abilities: A02O (Chain Lightning), Tip (Tooltip - Normal)
+// Abilities: A02O ([Level 1, Ability 1] - Dummy Chain Lightning), Tip (Tooltip - Normal)
 {
 Chain Lightning - Level 4
 }
 
 STRING 1705
-// Abilities: A02P (Breath of Frost), Tip (Tooltip - Normal)
+// Abilities: A02P ([Level 2, Ability 3] - Dummy Breath of Frost), Tip (Tooltip - Normal)
 {
 Breath of Frost - Level 1
 }
 
 STRING 1706
-// Abilities: A02P (Breath of Frost), Tip (Tooltip - Normal)
+// Abilities: A02P ([Level 2, Ability 3] - Dummy Breath of Frost), Tip (Tooltip - Normal)
 {
 Breath of Frost - Level 2
 }
 
 STRING 1707
-// Abilities: A02P (Breath of Frost), Tip (Tooltip - Normal)
+// Abilities: A02P ([Level 2, Ability 3] - Dummy Breath of Frost), Tip (Tooltip - Normal)
 {
 Breath of Frost - Level 3
 }
 
 STRING 1708
-// Abilities: A02P (Breath of Frost), Tip (Tooltip - Normal)
+// Abilities: A02P ([Level 2, Ability 3] - Dummy Breath of Frost), Tip (Tooltip - Normal)
 {
 Breath of Frost - Level 4
 }
 
 STRING 1709
-// Abilities: A02A (Bladestorm), Tip (Tooltip - Normal)
+// Abilities: A02A ([Level 3, Ability 4] - Dummy Bladestorm), Tip (Tooltip - Normal)
 {
 Bladestorm - Level 1
 }
 
 STRING 1710
-// Abilities: A02A (Bladestorm), Tip (Tooltip - Normal)
+// Abilities: A02A ([Level 3, Ability 4] - Dummy Bladestorm), Tip (Tooltip - Normal)
 {
 Bladestorm - Level 2
 }
 
 STRING 1711
-// Abilities: A02A (Bladestorm), Tip (Tooltip - Normal)
+// Abilities: A02A ([Level 3, Ability 4] - Dummy Bladestorm), Tip (Tooltip - Normal)
 {
 Bladestorm - Level 3
 }
 
 STRING 1712
-// Abilities: A02A (Bladestorm), Tip (Tooltip - Normal)
+// Abilities: A02A ([Level 3, Ability 4] - Dummy Bladestorm), Tip (Tooltip - Normal)
 {
 Bladestorm - Level 4
 }
 
 STRING 1713
-// Abilities: A02D (Dispel Magic), Tip (Tooltip - Normal)
+// Abilities: A02D ([Level 2, Ability 3] - Dummy Dispel Magic), Tip (Tooltip - Normal)
 {
 Dispel Magic - Level 1
 }
 
 STRING 1714
-// Abilities: A02D (Dispel Magic), Tip (Tooltip - Normal)
+// Abilities: A02D ([Level 2, Ability 3] - Dummy Dispel Magic), Tip (Tooltip - Normal)
 {
 Dispel Magic - Level 2
 }
 
 STRING 1715
-// Abilities: A02D (Dispel Magic), Tip (Tooltip - Normal)
+// Abilities: A02D ([Level 2, Ability 3] - Dummy Dispel Magic), Tip (Tooltip - Normal)
 {
 Dispel Magic - Level 3
 }
 
 STRING 1716
-// Abilities: A02D (Dispel Magic), Tip (Tooltip - Normal)
+// Abilities: A02D ([Level 2, Ability 3] - Dummy Dispel Magic), Tip (Tooltip - Normal)
 {
 Dispel Magic - Level 4
 }
@@ -3443,133 +2981,121 @@ The tower gains temporary abilities upon attacking at full mana and will use the
 }
 
 STRING 1718
-// Abilities: A02W (Inferno), Tip (Tooltip - Normal)
+// Abilities: A02W ([Level 3, Ability 4] - Dummy Inferno), Tip (Tooltip - Normal)
 {
 Inferno - Level 1
 }
 
 STRING 1719
-// Abilities: A02W (Inferno), Tip (Tooltip - Normal)
+// Abilities: A02W ([Level 3, Ability 4] - Dummy Inferno), Tip (Tooltip - Normal)
 {
 Inferno - Level 2
 }
 
 STRING 1720
-// Abilities: A02W (Inferno), Tip (Tooltip - Normal)
+// Abilities: A02W ([Level 3, Ability 4] - Dummy Inferno), Tip (Tooltip - Normal)
 {
 Inferno - Level 3
 }
 
 STRING 1721
-// Abilities: A02W (Inferno), Tip (Tooltip - Normal)
+// Abilities: A02W ([Level 3, Ability 4] - Dummy Inferno), Tip (Tooltip - Normal)
 {
 Inferno - Level 4
 }
 
 STRING 1722
-// Abilities: A02Y (Feral Spirit), Tip (Tooltip - Normal)
+// Abilities: A02Y ([Level 3, Ability 4] - Dummy Feral Spirit), Tip (Tooltip - Normal)
 {
 Feral Spirit - Level 1
 }
 
 STRING 1723
-// Abilities: A02Y (Feral Spirit), Tip (Tooltip - Normal)
+// Abilities: A02Y ([Level 3, Ability 4] - Dummy Feral Spirit), Tip (Tooltip - Normal)
 {
 Feral Spirit - Level 2
 }
 
 STRING 1724
-// Abilities: A02Y (Feral Spirit), Tip (Tooltip - Normal)
+// Abilities: A02Y ([Level 3, Ability 4] - Dummy Feral Spirit), Tip (Tooltip - Normal)
 {
 Feral Spirit - Level 3
 }
 
 STRING 1725
-// Abilities: A02Y (Feral Spirit), Tip (Tooltip - Normal)
+// Abilities: A02Y ([Level 3, Ability 4] - Dummy Feral Spirit), Tip (Tooltip - Normal)
 {
 Feral Spirit - Level 4
 }
 
 STRING 1726
-// Abilities: A02Z (Rain of Fire), Tip (Tooltip - Normal)
+// Abilities: A02Z ([Level 1, Ability 1] - Dummy Rain of Fire), Tip (Tooltip - Normal)
 {
 Rain of Fire - Level 1
 }
 
 STRING 1727
-// Abilities: A02Z (Rain of Fire), Tip (Tooltip - Normal)
+// Abilities: A02Z ([Level 1, Ability 1] - Dummy Rain of Fire), Tip (Tooltip - Normal)
 {
 Rain of Fire - Level 2
 }
 
 STRING 1728
-// Abilities: A02Z (Rain of Fire), Tip (Tooltip - Normal)
+// Abilities: A02Z ([Level 1, Ability 1] - Dummy Rain of Fire), Tip (Tooltip - Normal)
 {
 Rain of Fire - Level 3
 }
 
 STRING 1729
-// Abilities: A02Z (Rain of Fire), Tip (Tooltip - Normal)
+// Abilities: A02Z ([Level 1, Ability 1] - Dummy Rain of Fire), Tip (Tooltip - Normal)
 {
 Rain of Fire - Level 4
 }
 
-STRING 1730
-// Abilities: A014 (Anomaly Tower - Crushing Wave), Name (Name)
-{
-Anomaly Tower - Crushing Wave
-}
-
 STRING 1731
-// Abilities: A02N (Crushing Wave), Tip (Tooltip - Normal)
+// Abilities: A02N ([Level 1, Ability 2] - Dummy Shockwave), Tip (Tooltip - Normal)
 {
 Crushing Wave - Level 2
 }
 
 STRING 1732
-// Abilities: A02N (Crushing Wave), Tip (Tooltip - Normal)
+// Abilities: A02N ([Level 1, Ability 2] - Dummy Shockwave), Tip (Tooltip - Normal)
 {
 Crushing Wave - Level 3
 }
 
 STRING 1733
-// Abilities: A02N (Crushing Wave), Tip (Tooltip - Normal)
+// Abilities: A02N ([Level 1, Ability 2] - Dummy Shockwave), Tip (Tooltip - Normal)
 {
 Crushing Wave - Level 4
 }
 
-STRING 1734
-// Abilities: A02N (Crushing Wave), Name (Name)
-{
-Crushing Wave
-}
-
 STRING 1735
-// Abilities: A02N (Crushing Wave), Tip (Tooltip - Normal)
+// Abilities: A02N ([Level 1, Ability 2] - Dummy Shockwave), Tip (Tooltip - Normal)
 {
 Crushing Wave - Level 1
 }
 
 STRING 1736
-// Abilities: A02T (Acid Bomb), Tip (Tooltip - Normal)
+// Abilities: A02T ([Level 2, Ability 3] - Dummy Acid Bomb), Tip (Tooltip - Normal)
 {
 Acid Bomb - Level 1
 }
 
 STRING 1737
-// Abilities: A02T (Acid Bomb), Tip (Tooltip - Normal)
+// Abilities: A02T ([Level 2, Ability 3] - Dummy Acid Bomb), Tip (Tooltip - Normal)
 {
 Acid Bomb - Level 2
 }
 
 STRING 1738
-// Abilities: A02T (Acid Bomb), Tip (Tooltip - Normal)
+// Abilities: A02T ([Level 2, Ability 3] - Dummy Acid Bomb), Tip (Tooltip - Normal)
 {
 Acid Bomb - Level 3
 }
 
 STRING 1739
-// Abilities: A02T (Acid Bomb), Tip (Tooltip - Normal)
+// Abilities: A02T ([Level 2, Ability 3] - Dummy Acid Bomb), Tip (Tooltip - Normal)
 {
 Acid Bomb - Level 4
 }
@@ -3671,73 +3197,73 @@ STRING 1759
 }
 
 STRING 1760
-// Abilities: A02G ([UNUSED] Corruption Aura), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02G ([Level 1, Ability 2] - Dummy Anomaly Tower - Corruption Aura), Ubertip (Tooltip - Normal - Extended)
 {
 Decreases armour of enemies unit in a 600 area of effect by 1.
 }
 
 STRING 1761
-// Abilities: A02G ([UNUSED] Corruption Aura), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02G ([Level 1, Ability 2] - Dummy Anomaly Tower - Corruption Aura), Ubertip (Tooltip - Normal - Extended)
 {
 Decreases armour of enemies unit in a 700 area of effect by 2.
 }
 
 STRING 1762
-// Abilities: A02G ([UNUSED] Corruption Aura), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02G ([Level 1, Ability 2] - Dummy Anomaly Tower - Corruption Aura), Ubertip (Tooltip - Normal - Extended)
 {
 Decreases armour of enemies unit in a 800 area of effect by 4.
 }
 
 STRING 1763
-// Abilities: A02G ([UNUSED] Corruption Aura), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02G ([Level 1, Ability 2] - Dummy Anomaly Tower - Corruption Aura), Ubertip (Tooltip - Normal - Extended)
 {
 Decreases armour of enemies unit in a 900 area of effect by 8.
 }
 
 STRING 1764
-// Abilities: A02O (Chain Lightning), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02O ([Level 1, Ability 1] - Dummy Chain Lightning), Ubertip (Tooltip - Normal - Extended)
 {
 Hurls a bolt of lightning that bounces up to 4 times, dealing 100 damage to the primary target. Each jump deals 25% less damage.
 }
 
 STRING 1765
-// Abilities: A02O (Chain Lightning), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02O ([Level 1, Ability 1] - Dummy Chain Lightning), Ubertip (Tooltip - Normal - Extended)
 {
 Hurls a bolt of lightning that bounces up to 6 times, dealing 200 damage to the primary target. Each jump deals 20% less damage.
 }
 
 STRING 1766
-// Abilities: A02O (Chain Lightning), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02O ([Level 1, Ability 1] - Dummy Chain Lightning), Ubertip (Tooltip - Normal - Extended)
 {
 Hurls a bolt of lightning that bounces up to 8 times, dealing 300 damage to the primary target. Each jump deals 15% less damage.
 }
 
 STRING 1767
-// Abilities: A02O (Chain Lightning), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02O ([Level 1, Ability 1] - Dummy Chain Lightning), Ubertip (Tooltip - Normal - Extended)
 {
 Hurls a bolt of lightning that bounces up to 10 times, dealing 400 damage to the primary target. Each jump deals 10% less damage.
 }
 
 STRING 1768
-// Abilities: A02P (Breath of Frost), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02P ([Level 2, Ability 3] - Dummy Breath of Frost), Ubertip (Tooltip - Normal - Extended)
 {
 Breathes a cone of frost at enemy units that deals 100 initial damage, and 50 damage per second over 4 seconds.
 }
 
 STRING 1769
-// Abilities: A02P (Breath of Frost), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02P ([Level 2, Ability 3] - Dummy Breath of Frost), Ubertip (Tooltip - Normal - Extended)
 {
 Breathes a cone of frost at enemy units that deals 200 initial damage, and 100 damage per second over 4 seconds.
 }
 
 STRING 1771
-// Abilities: A02P (Breath of Frost), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02P ([Level 2, Ability 3] - Dummy Breath of Frost), Ubertip (Tooltip - Normal - Extended)
 {
 Breathes a cone of frost at enemy units that deals 400 initial damage, and 200 damage per second over 4 seconds.
 }
 
 STRING 1772
-// Abilities: A02A (Bladestorm), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02A ([Level 3, Ability 4] - Dummy Bladestorm), Ubertip (Tooltip - Normal - Extended)
 {
 Creates a bladestorm around the damaged enemy dealing 100 damage per second to enemies within a 150 area of effect.
 
@@ -3745,7 +3271,7 @@ Lasts 4 seconds.
 }
 
 STRING 1776
-// Abilities: A02T (Acid Bomb), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02T ([Level 2, Ability 3] - Dummy Acid Bomb), Ubertip (Tooltip - Normal - Extended)
 {
 Hurls a flask of acid at a target. Decreases armor by 2; deals 100 damage per second to the primary target; deals 50 damage per second to enemies within 150 area of effect.
 
@@ -3753,129 +3279,105 @@ Lasts 4 seconds.
 }
 
 STRING 1777
-// Abilities: A02T (Acid Bomb), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02T ([Level 2, Ability 3] - Dummy Acid Bomb), Ubertip (Tooltip - Normal - Extended)
 {
 Hurls a flask of acid at a target. Decreases armor by 4; deals 200 damage per second to the primary target; deals 100 damage per second to enemies within 200 area of effect.
 
 Lasts 4 seconds.
 }
 
-STRING 1780
-// Abilities: A02N (Crushing Wave), Ubertip (Tooltip - Normal - Extended)
-{
-Sends a gigantic wave which deals 150 damage to each enemy land unit in a line.
-}
-
-STRING 1781
-// Abilities: A02N (Crushing Wave), Ubertip (Tooltip - Normal - Extended)
-{
-Sends a gigantic wave which deals 300 damage to each enemy land unit in a line.
-}
-
-STRING 1782
-// Abilities: A02N (Crushing Wave), Ubertip (Tooltip - Normal - Extended)
-{
-Sends a gigantic wave which deals 450 damage to each enemy land unit in a line.
-}
-
-STRING 1783
-// Abilities: A02N (Crushing Wave), Ubertip (Tooltip - Normal - Extended)
-{
-Sends a gigantic wave which deals 600 damage to each enemy land unit in a line.
-}
-
 STRING 1784
-// Abilities: A02M (Death Coil), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02M ([Level 2, Ability 3] - Dummy Death Coil), Ubertip (Tooltip - Normal - Extended)
 {
 A coil of death that deals 500 damage to an enemy unit.
 }
 
 STRING 1785
-// Abilities: A02D (Dispel Magic), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02D ([Level 2, Ability 3] - Dummy Dispel Magic), Ubertip (Tooltip - Normal - Extended)
 {
 Removes all buffs from units in a 100 area of effect.
 }
 
 STRING 1786
-// Abilities: A02D (Dispel Magic), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02D ([Level 2, Ability 3] - Dummy Dispel Magic), Ubertip (Tooltip - Normal - Extended)
 {
 Removes all buffs from units in a 200 area of effect.
 }
 
 STRING 1787
-// Abilities: A02D (Dispel Magic), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02D ([Level 2, Ability 3] - Dummy Dispel Magic), Ubertip (Tooltip - Normal - Extended)
 {
 Removes all buffs from units in a 300 area of effect.
 }
 
 STRING 1788
-// Abilities: A02D (Dispel Magic), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02D ([Level 2, Ability 3] - Dummy Dispel Magic), Ubertip (Tooltip - Normal - Extended)
 {
 Removes all buffs from units in a 400 area of effect.
 }
 
 STRING 1789
-// Abilities: A02L (Finger of Pain), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02L ([Level 1, Ability 4] - Dummy Finger of Pain), Ubertip (Tooltip - Normal - Extended)
 {
 Horribly cripples the innards of a creature dealing 2500 damage.
 }
 
 STRING 1791
-// Abilities: A02L (Finger of Pain), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02L ([Level 1, Ability 4] - Dummy Finger of Pain), Ubertip (Tooltip - Normal - Extended)
 {
 Horribly cripples the innards of a creature dealing 7500 damage.
 }
 
 STRING 1793
-// Abilities: A02K (Flame Strike), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02K ([Level 1, Ability 2] - Dummy Flame Strike), Ubertip (Tooltip - Normal - Extended)
 {
 Conjures a pillar of flame in a 150 area of effect that burns ground units for 100 damage a second for 1 second. As the pillar of flame subsides, units within the fire continue to take 50 damage per second for 4 seconds.
 }
 
 STRING 1794
-// Abilities: A02K (Flame Strike), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02K ([Level 1, Ability 2] - Dummy Flame Strike), Ubertip (Tooltip - Normal - Extended)
 {
 Conjures a pillar of flame in a 200 area of effect that burns ground units for 200 damage a second for 1 second. As the pillar of flame subsides, units within the fire continue to take 100 damage per second for 4 seconds.
 }
 
 STRING 1795
-// Abilities: A02K (Flame Strike), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02K ([Level 1, Ability 2] - Dummy Flame Strike), Ubertip (Tooltip - Normal - Extended)
 {
 Conjures a pillar of flame in a 250 area of effect that burns ground units for 300 damage a second for 1 second. As the pillar of flame subsides, units within the fire continue to take 150 damage per second for 4 seconds.
 }
 
 STRING 1797
-// Abilities: A02K (Flame Strike), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02K ([Level 1, Ability 2] - Dummy Flame Strike), Ubertip (Tooltip - Normal - Extended)
 {
 Conjures a pillar of flame in a 300 area of effect that burns ground units for 400 damage a second for 1 second. As the pillar of flame subsides, units within the fire continue to take 200 damage per second for 4 seconds.
 }
 
 STRING 1798
-// Abilities: A02J (Forked Lightning), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02J ([Level 1, Ability 2] - Dummy Forked Lightning), Ubertip (Tooltip - Normal - Extended)
 {
 Calls forth a cone of lightning on a target enemy unit, hitting up to 3 enemy units for 150 damage.
 }
 
 STRING 1799
-// Abilities: A02J (Forked Lightning), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02J ([Level 1, Ability 2] - Dummy Forked Lightning), Ubertip (Tooltip - Normal - Extended)
 {
 Calls forth a cone of lightning on a target enemy unit, hitting up to 5 enemy units for 300 damage.
 }
 
 STRING 1800
-// Abilities: A02J (Forked Lightning), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02J ([Level 1, Ability 2] - Dummy Forked Lightning), Ubertip (Tooltip - Normal - Extended)
 {
 Calls forth a cone of lightning on a target enemy unit, hitting up to 7 enemy units for 450 damage.
 }
 
 STRING 1801
-// Abilities: A02J (Forked Lightning), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02J ([Level 1, Ability 2] - Dummy Forked Lightning), Ubertip (Tooltip - Normal - Extended)
 {
 Calls forth a cone of lightning on a target enemy unit, hitting up to 9 enemy units for 600 damage.
 }
 
 STRING 1802
-// Abilities: A02I (Frost Armour), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02I ([Level 2, Ability 3] - Dummy Frost Armour), Ubertip (Tooltip - Normal - Extended)
 {
 Surrounds an enemy unit with frost, reducing their armour by 4.
 
@@ -3883,7 +3385,7 @@ Lasts 4 seconds.
 }
 
 STRING 1803
-// Abilities: A02I (Frost Armour), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02I ([Level 2, Ability 3] - Dummy Frost Armour), Ubertip (Tooltip - Normal - Extended)
 {
 Surrounds an enemy unit with frost, reducing their armour by 8.
 
@@ -3891,7 +3393,7 @@ Lasts 6 seconds.
 }
 
 STRING 1804
-// Abilities: A02I (Frost Armour), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02I ([Level 2, Ability 3] - Dummy Frost Armour), Ubertip (Tooltip - Normal - Extended)
 {
 Surrounds an enemy unit with frost, reducing their armour by 16.
 
@@ -3899,7 +3401,7 @@ Lasts 8 seconds.
 }
 
 STRING 1805
-// Abilities: A02I (Frost Armour), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02I ([Level 2, Ability 3] - Dummy Frost Armour), Ubertip (Tooltip - Normal - Extended)
 {
 Surrounds an enemy unit with frost, reducing their armour by 32.
 
@@ -3907,39 +3409,31 @@ Lasts 10 seconds.
 }
 
 STRING 1806
-// Abilities: A02H (Frost Nova), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02H ([Level 1, Ability 1] - Dummy Frost Nova), Ubertip (Tooltip - Normal - Extended)
 {
 Blasts enemy units within 200 area of effect with frost that deals 200 damage to the target, and 100 nova damage.
 }
 
 STRING 1807
-// Abilities: A02H (Frost Nova), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02H ([Level 1, Ability 1] - Dummy Frost Nova), Ubertip (Tooltip - Normal - Extended)
 {
 Blasts enemy units within 250 area of effect with frost that deals 300 damage to the target, and 150 nova damage.
 }
 
 STRING 1808
-// Abilities: A02H (Frost Nova), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02H ([Level 1, Ability 1] - Dummy Frost Nova), Ubertip (Tooltip - Normal - Extended)
 {
 Blasts enemy units within 300 area of effect with frost that deals 400 damage to the target, and 200 nova damage.
 }
 
 STRING 1809
-// Abilities: A02H (Frost Nova), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02H ([Level 1, Ability 1] - Dummy Frost Nova), Ubertip (Tooltip - Normal - Extended)
 {
 Blasts enemy units within 350 area of effect with frost that deals 500 damage to the target, and 250 nova damage.
 }
 
 STRING 1810
-// Abilities: A00H (Anomaly Tower - Lightning Shield), Ubertip (Tooltip - Normal - Extended)
-{
-Forms a shield of electricity around a target unit, dealing 50 damage per second to units in a 150 area of effect.
-
-Lasts 4 seconds.
-}
-
-STRING 1811
-// Abilities: A02F (Lightning Shield), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02F ([Level 1, Ability 1] - Dummy Immolation), Ubertip (Tooltip - Normal - Extended)
 {
 Forms a shield of electricity around a target unit, dealing 50 damage per second to units in a 150 area of effect.
 
@@ -3947,7 +3441,7 @@ Lasts 4 seconds.
 }
 
 STRING 1812
-// Abilities: A02F (Lightning Shield), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02F ([Level 1, Ability 1] - Dummy Immolation), Ubertip (Tooltip - Normal - Extended)
 {
 Forms a shield of electricity around a target unit, dealing 100 damage per second to units in a 200 area of effect.
 
@@ -3955,7 +3449,7 @@ Lasts 4 seconds.
 }
 
 STRING 1813
-// Abilities: A02F (Lightning Shield), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02F ([Level 1, Ability 1] - Dummy Immolation), Ubertip (Tooltip - Normal - Extended)
 {
 Forms a shield of electricity around a target unit, dealing 150 damage per second to units in a 250 area of effect.
 
@@ -3963,7 +3457,7 @@ Lasts 4 seconds.
 }
 
 STRING 1814
-// Abilities: A02F (Lightning Shield), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02F ([Level 1, Ability 1] - Dummy Immolation), Ubertip (Tooltip - Normal - Extended)
 {
 Forms a shield of electricity around a target unit, dealing 200 damage per second to units in a 300 area of effect.
 
@@ -3971,7 +3465,7 @@ Lasts 4 seconds.
 }
 
 STRING 1815
-// Abilities: A02U (Anomaly Tower - Rain of Fire), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02U ([Level 1, Ability 1] - Anomaly Tower - Rain of Fire), Ubertip (Tooltip - Normal - Extended)
 {
 Calls down waves of fire that damage units in an area. Each wave deals 50 initial damage and 25 damage per second for 2 seconds.
 
@@ -3979,7 +3473,7 @@ Lasts for 1 waves.
 }
 
 STRING 1817
-// Abilities: A02Z (Rain of Fire), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02Z ([Level 1, Ability 1] - Dummy Rain of Fire), Ubertip (Tooltip - Normal - Extended)
 {
 Calls down waves of fire that damage units in an area. Each wave deals 100 initial damage and 50 damage per second for 2 seconds.
 
@@ -3987,7 +3481,7 @@ Lasts for 2 waves.
 }
 
 STRING 1818
-// Abilities: A02Z (Rain of Fire), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02Z ([Level 1, Ability 1] - Dummy Rain of Fire), Ubertip (Tooltip - Normal - Extended)
 {
 Calls down waves of fire that damage units in an area. Each wave deals 150 initial damage and 75 damage per second for 2 seconds.
 
@@ -3995,7 +3489,7 @@ Lasts for 3 waves.
 }
 
 STRING 1819
-// Abilities: A02Z (Rain of Fire), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02Z ([Level 1, Ability 1] - Dummy Rain of Fire), Ubertip (Tooltip - Normal - Extended)
 {
 Calls down waves of fire that damage units in an area. Each wave deals 200 initial damage and 100 damage per second for 2 seconds.
 
@@ -4003,13 +3497,13 @@ Lasts for 4 waves.
 }
 
 STRING 1820
-// Abilities: A00N (Anomaly Tower - Shadow Strike), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A00N ([Level 1, Ability 2] - Anomaly Tower - Shadow Strike), Ubertip (Tooltip - Normal - Extended)
 {
 Hurls a poisoned dagger with incredible force at an enemy, dealing 100 initial damage, and 50 damage every 1 second for 4 seconds. The poison slows the movement speed of the enemy for 4 seconds.
 }
 
 STRING 1821
-// Abilities: A01U (Anomaly Tower - Starfall), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A01U ([Level 3, Ability 4] - Anomaly Tower - Starfall), Ubertip (Tooltip - Normal - Extended)
 {
 Calls down waves of falling stars that damage nearby enemy units. Each wave deals 50 damage in a 300 area of effect. 
 
@@ -4017,7 +3511,7 @@ Lasts for 4 seconds.
 }
 
 STRING 1822
-// Abilities: A029 (Starfall), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A029 ([Level 3, Ability 4] - Dummy Starfall), Ubertip (Tooltip - Normal - Extended)
 {
 Calls down waves of falling stars that damage nearby enemy units. Each wave deals 50 damage in a 300 area of effect. 
 
@@ -4025,73 +3519,73 @@ Lasts for 4 seconds.
 }
 
 STRING 1826
-// Abilities: A02B (Shadow Strike), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02B ([Level 1, Ability 2] - Dummy Shadow Strike), Ubertip (Tooltip - Normal - Extended)
 {
 Hurls a poisoned dagger with incredible force at an enemy, dealing 100 initial damage, and 50 damage every 1 second for 4 seconds.
 }
 
 STRING 1827
-// Abilities: A02B (Shadow Strike), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02B ([Level 1, Ability 2] - Dummy Shadow Strike), Ubertip (Tooltip - Normal - Extended)
 {
 Hurls a poisoned dagger with incredible force at an enemy, dealing 200 initial damage, and 100 damage every 0.80 seconds for 4 seconds.
 }
 
 STRING 1828
-// Abilities: A02B (Shadow Strike), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02B ([Level 1, Ability 2] - Dummy Shadow Strike), Ubertip (Tooltip - Normal - Extended)
 {
 Hurls a poisoned dagger with incredible force at an enemy, dealing 300 initial damage, and 150 damage every 0.65 seconds for 4 seconds.
 }
 
 STRING 1829
-// Abilities: A02B (Shadow Strike), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02B ([Level 1, Ability 2] - Dummy Shadow Strike), Ubertip (Tooltip - Normal - Extended)
 {
 Hurls a poisoned dagger with incredible force at an enemy, dealing 400 initial damage, and 200 damage every 0.55 seconds for 4 seconds.
 }
 
 STRING 1830
-// Abilities: A02E (Thunder Clap), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02E ([Level 1, Ability 1] - Dummy Thunder Clap), Ubertip (Tooltip - Normal - Extended)
 {
 Slams the ground, dealing 100 damage to enemy units in a 150 area of effect and slowing their movement by 25%.
 }
 
 STRING 1831
-// Abilities: A02E (Thunder Clap), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02E ([Level 1, Ability 1] - Dummy Thunder Clap), Ubertip (Tooltip - Normal - Extended)
 {
 Slams the ground, dealing 200 damage to enemy units in a 200 area of effect and slowing their movement by 30%.
 }
 
 STRING 1832
-// Abilities: A02E (Thunder Clap), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02E ([Level 1, Ability 1] - Dummy Thunder Clap), Ubertip (Tooltip - Normal - Extended)
 {
 Slams the ground, dealing 300 damage to enemy units in a 250 area of effect and slowing their movement by 35%.
 }
 
 STRING 1833
-// Abilities: A02E (Thunder Clap), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02E ([Level 1, Ability 1] - Dummy Thunder Clap), Ubertip (Tooltip - Normal - Extended)
 {
 Slams the ground, dealing 400 damage to enemy units in a 300 area of effect and slowing their movement by 40%.
 }
 
 STRING 1834
-// Abilities: A02Q (Anomaly Tower - Thunder Clap), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02Q ([Level 1, Ability 1] - Anomaly Tower - Thunder Clap), Ubertip (Tooltip - Normal - Extended)
 {
 Slams the ground, dealing 100 damage to enemy units in a 150 area of effect and slowing their movement by 25%. 
 }
 
 STRING 1835
-// Abilities: A02V (Anomaly Tower - Inferno), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02V ([Level 3, Ability 4] - Anomaly Tower - Inferno), Ubertip (Tooltip - Normal - Extended)
 {
 Summons an Infernal from the sky for 4 seconds, causing 200 area effect damage where it lands.
 }
 
 STRING 1836
-// Abilities: A02W (Inferno), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02W ([Level 3, Ability 4] - Dummy Inferno), Ubertip (Tooltip - Normal - Extended)
 {
 Summons an Infernal from the sky for 4 seconds, causing 200 area effect damage where it lands.
 }
 
 STRING 1840
-// Abilities: A02X (Anomaly Tower - Feral Spirit), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02X ([Level 3, Ability 4] - Anomaly Tower - Feral Spirit), Ubertip (Tooltip - Normal - Extended)
 {
 Summons 1 Spirit Wolf companion.
 
@@ -4099,7 +3593,7 @@ Lasts 4 seconds.
 }
 
 STRING 1841
-// Abilities: A02Y (Feral Spirit), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02Y ([Level 3, Ability 4] - Dummy Feral Spirit), Ubertip (Tooltip - Normal - Extended)
 {
 Summons 1 Spirit Wolf companion.
 
@@ -4107,7 +3601,7 @@ Lasts 4 seconds.
 }
 
 STRING 1842
-// Abilities: A02Y (Feral Spirit), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02Y ([Level 3, Ability 4] - Dummy Feral Spirit), Ubertip (Tooltip - Normal - Extended)
 {
 Summons 2 Dire Wolf companions.
 
@@ -4115,7 +3609,7 @@ Lasts 8 seconds.
 }
 
 STRING 1843
-// Abilities: A02Y (Feral Spirit), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02Y ([Level 3, Ability 4] - Dummy Feral Spirit), Ubertip (Tooltip - Normal - Extended)
 {
 Summons 3 Shadow Wolf companions.
 
@@ -4123,7 +3617,7 @@ Lasts 12 seconds.
 }
 
 STRING 1844
-// Abilities: A02Y (Feral Spirit), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02Y ([Level 3, Ability 4] - Dummy Feral Spirit), Ubertip (Tooltip - Normal - Extended)
 {
 Summons 4 Demonic Wolf companions.
 
@@ -4131,55 +3625,55 @@ Lasts 16 seconds.
 }
 
 STRING 1845
-// Abilities: A02C (Anomaly Tower - Corruption Aura), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02C ([Level 1, Ability 2] - Anomaly Tower - Corruption Aura), Ubertip (Tooltip - Normal - Extended)
 {
 Decreases armour of enemies unit in a 600 area of effect by 1.
 }
 
 STRING 1846
-// Abilities: A02C (Anomaly Tower - Corruption Aura), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02C ([Level 1, Ability 2] - Anomaly Tower - Corruption Aura), Ubertip (Tooltip - Normal - Extended)
 {
 Decreases armour of enemies unit in a 700 area of effect by 2.
 }
 
 STRING 1847
-// Abilities: A02C (Anomaly Tower - Corruption Aura), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02C ([Level 1, Ability 2] - Anomaly Tower - Corruption Aura), Ubertip (Tooltip - Normal - Extended)
 {
 Decreases armour of enemies unit in a 800 area of effect by 4.
 }
 
 STRING 1848
-// Abilities: A02C (Anomaly Tower - Corruption Aura), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02C ([Level 1, Ability 2] - Anomaly Tower - Corruption Aura), Ubertip (Tooltip - Normal - Extended)
 {
 Decreases armour of enemies unit in a 900 area of effect by 8.
 }
 
 STRING 1849
-// Abilities: A02C (Anomaly Tower - Corruption Aura), Tip (Tooltip - Normal)
+// Abilities: A02C ([Level 1, Ability 2] - Anomaly Tower - Corruption Aura), Tip (Tooltip - Normal)
 {
 Corruption Aura - Level 1
 }
 
 STRING 1850
-// Abilities: A02C (Anomaly Tower - Corruption Aura), Tip (Tooltip - Normal)
+// Abilities: A02C ([Level 1, Ability 2] - Anomaly Tower - Corruption Aura), Tip (Tooltip - Normal)
 {
 Corruption Aura - Level 2
 }
 
 STRING 1851
-// Abilities: A02C (Anomaly Tower - Corruption Aura), Tip (Tooltip - Normal)
+// Abilities: A02C ([Level 1, Ability 2] - Anomaly Tower - Corruption Aura), Tip (Tooltip - Normal)
 {
 Corruption Aura - Level 3
 }
 
 STRING 1852
-// Abilities: A02C (Anomaly Tower - Corruption Aura), Tip (Tooltip - Normal)
+// Abilities: A02C ([Level 1, Ability 2] - Anomaly Tower - Corruption Aura), Tip (Tooltip - Normal)
 {
 Corruption Aura - Level 4
 }
 
 STRING 1853
-// Abilities: A02Z (Rain of Fire), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02Z ([Level 1, Ability 1] - Dummy Rain of Fire), Ubertip (Tooltip - Normal - Extended)
 {
 Calls down waves of fire that damage units in an area. Each wave deals 50 initial damage and 25 damage per second for 2 seconds.
 
@@ -4187,19 +3681,19 @@ Lasts for 1 wave.
 }
 
 STRING 1858
-// Abilities: A02M (Death Coil), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02M ([Level 2, Ability 3] - Dummy Death Coil), Ubertip (Tooltip - Normal - Extended)
 {
 A coil of death that deals 1000 damage to an enemy unit.
 }
 
 STRING 1860
-// Abilities: A02M (Death Coil), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02M ([Level 2, Ability 3] - Dummy Death Coil), Ubertip (Tooltip - Normal - Extended)
 {
 A coil of death that deals 2000 damage to an enemy unit.
 }
 
 STRING 1861
-// Abilities: A029 (Starfall), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A029 ([Level 3, Ability 4] - Dummy Starfall), Ubertip (Tooltip - Normal - Extended)
 {
 Calls down waves of falling stars that damage nearby enemy units. Each wave deals 150 damage in a 400 area of effect. 
 
@@ -4207,7 +3701,7 @@ Lasts for 4 seconds.
 }
 
 STRING 1862
-// Abilities: A029 (Starfall), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A029 ([Level 3, Ability 4] - Dummy Starfall), Ubertip (Tooltip - Normal - Extended)
 {
 Calls down waves of falling stars that damage nearby enemy units. Each wave deals 450 damage in a 500 area of effect. 
 
@@ -4215,7 +3709,7 @@ Lasts for 4 seconds.
 }
 
 STRING 1863
-// Abilities: A029 (Starfall), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A029 ([Level 3, Ability 4] - Dummy Starfall), Ubertip (Tooltip - Normal - Extended)
 {
 Calls down waves of falling stars that damage nearby enemy units. Each wave deals 1350 damage in a 600 area of effect. 
 
@@ -4223,25 +3717,25 @@ Lasts for 4 seconds.
 }
 
 STRING 1864
-// Abilities: A02W (Inferno), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02W ([Level 3, Ability 4] - Dummy Inferno), Ubertip (Tooltip - Normal - Extended)
 {
 Summons an Fiery Infernal from the sky for 8 seconds, causing 600 area effect damage where it lands.
 }
 
 STRING 1865
-// Abilities: A02W (Inferno), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02W ([Level 3, Ability 4] - Dummy Inferno), Ubertip (Tooltip - Normal - Extended)
 {
 Summons an Fiery Demonic Infernal from the sky for 16 seconds, causing 5400 area effect damage where it lands.
 }
 
 STRING 1866
-// Abilities: A02W (Inferno), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02W ([Level 3, Ability 4] - Dummy Inferno), Ubertip (Tooltip - Normal - Extended)
 {
 Summons an Demonic Infernal from the sky for 12 seconds, causing 1800 area effect damage where it lands.
 }
 
 STRING 1867
-// Abilities: A02A (Bladestorm), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02A ([Level 3, Ability 4] - Dummy Bladestorm), Ubertip (Tooltip - Normal - Extended)
 {
 Creates a bladestorm around the damaged enemy dealing 250 damage per second to enemies within a 200 area of effect.
 
@@ -4249,7 +3743,7 @@ Lasts 4 seconds.
 }
 
 STRING 1868
-// Abilities: A02A (Bladestorm), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02A ([Level 3, Ability 4] - Dummy Bladestorm), Ubertip (Tooltip - Normal - Extended)
 {
 Creates a bladestorm around the damaged enemy dealing 750 damage per second to enemies within a 250 area of effect.
 
@@ -4257,7 +3751,7 @@ Lasts 4 seconds.
 }
 
 STRING 1869
-// Abilities: A02A (Bladestorm), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02A ([Level 3, Ability 4] - Dummy Bladestorm), Ubertip (Tooltip - Normal - Extended)
 {
 Creates a bladestorm around the damaged enemy dealing 2250 damage per second to enemies within a 300 area of effect.
 
@@ -4265,7 +3759,7 @@ Lasts 4 seconds.
 }
 
 STRING 1870
-// Abilities: A02T (Acid Bomb), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02T ([Level 2, Ability 3] - Dummy Acid Bomb), Ubertip (Tooltip - Normal - Extended)
 {
 Hurls a flask of acid at a target. Decreases armor by 8; deals 400 damage per second to the primary target; deals 200 damage per second to enemies within 250 area of effect.
 
@@ -4273,7 +3767,7 @@ Lasts 4 seconds.
 }
 
 STRING 1871
-// Abilities: A02T (Acid Bomb), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02T ([Level 2, Ability 3] - Dummy Acid Bomb), Ubertip (Tooltip - Normal - Extended)
 {
 Hurls a flask of acid at a target. Decreases armor by 16; deals 800 damage per second to the primary target; deals 400 damage per second to enemies within 300 area of effect.
 
@@ -4281,39 +3775,27 @@ Lasts 4 seconds.
 }
 
 STRING 1872
-// Abilities: A02L (Finger of Pain), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02L ([Level 1, Ability 4] - Dummy Finger of Pain), Ubertip (Tooltip - Normal - Extended)
 {
 Horribly cripples the innards of a creature dealing 22500 damage.
 }
 
 STRING 1873
-// Abilities: A02L (Finger of Pain), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02L ([Level 1, Ability 4] - Dummy Finger of Pain), Ubertip (Tooltip - Normal - Extended)
 {
 Horribly cripples the innards of a creature dealing 62500 damage.
 }
 
 STRING 1874
-// Abilities: A02M (Death Coil), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02M ([Level 2, Ability 3] - Dummy Death Coil), Ubertip (Tooltip - Normal - Extended)
 {
 A coil of death that deals 4000 damage to an enemy unit.
 }
 
 STRING 1875
-// Abilities: A02P (Breath of Frost), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A02P ([Level 2, Ability 3] - Dummy Breath of Frost), Ubertip (Tooltip - Normal - Extended)
 {
 Breathes a cone of frost at enemy units that deals 800 initial damage, and 400 damage per second over 4 seconds.
-}
-
-STRING 1876
-// Abilities: A02Z (Rain of Fire), EditorSuffix (Editor Suffix)
-{
-- Anomaly Tower Dummy [Level 1 1st]
-}
-
-STRING 1877
-// Abilities: A02G ([UNUSED] Corruption Aura), Name (Name)
-{
-[UNUSED] Corruption Aura
 }
 
 STRING 1896
@@ -5680,5 +5162,298 @@ STRING 2135
 10 - |cff6464ff[Slow Aura] - Decreases the attack speed of towers.|r
 11 - |cff333396[Weakening Aura] - Decreases the attack damage of towers.|r
 12 - |cffffffff[Wind Walk] - Becomes invisible for a short period when taking damage.|r
+}
+
+STRING 2138
+// Abilities: A00N ([Level 1, Ability 2] - Anomaly Tower - Shadow Strike), Name (Name)
+{
+[Level 1, Ability 2] - Anomaly Tower - Shadow Strike
+}
+
+STRING 2139
+// Abilities: A00U ([Level 1, Ability 2] - Anomaly Tower - Forked Lightning), Name (Name)
+{
+[Level 1, Ability 2] - Anomaly Tower - Forked Lightning
+}
+
+STRING 2140
+// Abilities: A013 ([Level 1, Ability 1] - Anomaly Tower - Chain Lightning), Name (Name)
+{
+[Level 1, Ability 1] - Anomaly Tower - Chain Lightning
+}
+
+STRING 2141
+// Abilities: A015 ([Level 1, Ability 1] - Anomaly Tower - Frost Nova), Name (Name)
+{
+[Level 1, Ability 1] - Anomaly Tower - Frost Nova
+}
+
+STRING 2142
+// Abilities: A016 ([Level 2, Ability 3] - Anomaly Tower - Frost Armor), Name (Name)
+{
+[Level 2, Ability 3] - Anomaly Tower - Frost Armor
+}
+
+STRING 2143
+// Abilities: A01U ([Level 3, Ability 4] - Anomaly Tower - Starfall), Name (Name)
+{
+[Level 3, Ability 4] - Anomaly Tower - Starfall
+}
+
+STRING 2159
+// Abilities: A02Q ([Level 1, Ability 1] - Anomaly Tower - Thunder Clap), Name (Name)
+{
+[Level 1, Ability 1] - Anomaly Tower - Thunder Clap
+}
+
+STRING 2160
+// Abilities: A02U ([Level 1, Ability 1] - Anomaly Tower - Rain of Fire), Name (Name)
+{
+[Level 1, Ability 1] - Anomaly Tower - Rain of Fire
+}
+
+STRING 2161
+// Abilities: A02V ([Level 3, Ability 4] - Anomaly Tower - Inferno), Name (Name)
+{
+[Level 3, Ability 4] - Anomaly Tower - Inferno
+}
+
+STRING 2165
+// Abilities: A004 ([Level 2, Ability 3] - Anomaly Tower - Breath of Frost), Name (Name)
+{
+[Level 2, Ability 3] - Anomaly Tower - Breath of Frost
+}
+
+STRING 2166
+// Abilities: A00S ([Level 2, Ability 3] - Anomaly Tower - Death Coil), Name (Name)
+{
+[Level 2, Ability 3] - Anomaly Tower - Death Coil
+}
+
+STRING 2167
+// Abilities: A012 ([Level 3, Ability 4] - Anomaly Tower - Finger of Pain), Name (Name)
+{
+[Level 3, Ability 4] - Anomaly Tower - Finger of Pain
+}
+
+STRING 2169
+// Abilities: A01G ([Level 1, Ability 2] - Anomaly Tower - Flame Strike), Name (Name)
+{
+[Level 1, Ability 2] - Anomaly Tower - Flame Strike
+}
+
+STRING 2170
+// Abilities: A01T ([Level 3, Ability 4] - Anomaly Tower - Bladestorm), Name (Name)
+{
+[Level 3, Ability 4] - Anomaly Tower - Bladestorm
+}
+
+STRING 2171
+// Abilities: A02C ([Level 1, Ability 2] - Anomaly Tower - Corruption Aura), Name (Name)
+{
+[Level 1, Ability 2] - Anomaly Tower - Corruption Aura
+}
+
+STRING 2172
+// Abilities: A00T ([Level 2, Ability 3] - Anomaly Tower - Dispel Magic), Name (Name)
+{
+[Level 2, Ability 3] - Anomaly Tower - Dispel Magic
+}
+
+STRING 2173
+// Abilities: A02S ([Level 2, Ability 3] - Anomaly Tower - Acid Bomb), Name (Name)
+{
+[Level 2, Ability 3] - Anomaly Tower - Acid Bomb
+}
+
+STRING 2175
+// Abilities: A02X ([Level 3, Ability 4] - Anomaly Tower - Feral Spirit), Name (Name)
+{
+[Level 3, Ability 4] - Anomaly Tower - Feral Spirit
+}
+
+STRING 2201
+// Abilities: A01W (Anomaly Tower), Tip (Tooltip - Normal)
+{
+[|cffffcc00Level 1|r]
+}
+
+STRING 2202
+// Abilities: A01W (Anomaly Tower), Tip (Tooltip - Normal)
+{
+[|cffffcc00Level 2|r]
+}
+
+STRING 2203
+// Abilities: A01W (Anomaly Tower), Tip (Tooltip - Normal)
+{
+[|cffffcc00Level 3|r]
+}
+
+STRING 2205
+// Abilities: A033 ([Level 1, Ability 1] - Anomaly Tower - Immolation), Name (Name)
+{
+[Level 1, Ability 1] - Anomaly Tower - Immolation
+}
+
+STRING 2206
+{
+BROKEN OR NOT
+}
+
+STRING 2207
+// Abilities: A029 ([Level 3, Ability 4] - Dummy Starfall), Name (Name)
+{
+[Level 3, Ability 4] - Dummy Starfall
+}
+
+STRING 2208
+// Abilities: A02B ([Level 1, Ability 2] - Dummy Shadow Strike), Name (Name)
+{
+[Level 1, Ability 2] - Dummy Shadow Strike
+}
+
+STRING 2209
+// Abilities: A02E ([Level 1, Ability 1] - Dummy Thunder Clap), Name (Name)
+{
+[Level 1, Ability 1] - Dummy Thunder Clap
+}
+
+STRING 2210
+// Abilities: A02F ([Level 1, Ability 1] - Dummy Immolation), Name (Name)
+{
+[Level 1, Ability 1] - Dummy Immolation
+}
+
+STRING 2211
+// Abilities: A02G ([Level 1, Ability 2] - Dummy Anomaly Tower - Corruption Aura), Name (Name)
+{
+[Level 1, Ability 2] - Dummy Anomaly Tower - Corruption Aura
+}
+
+STRING 2212
+// Abilities: A02G ([Level 1, Ability 2] - Dummy Anomaly Tower - Corruption Aura), EditorSuffix (Editor Suffix)
+{
+- UNUSED
+}
+
+STRING 2213
+// Abilities: A02H ([Level 1, Ability 1] - Dummy Frost Nova), Name (Name)
+{
+[Level 1, Ability 1] - Dummy Frost Nova
+}
+
+STRING 2214
+// Abilities: A02I ([Level 2, Ability 3] - Dummy Frost Armour), Name (Name)
+{
+[Level 2, Ability 3] - Dummy Frost Armour
+}
+
+STRING 2215
+// Abilities: A02J ([Level 1, Ability 2] - Dummy Forked Lightning), Name (Name)
+{
+[Level 1, Ability 2] - Dummy Forked Lightning
+}
+
+STRING 2216
+// Abilities: A02K ([Level 1, Ability 2] - Dummy Flame Strike), Name (Name)
+{
+[Level 1, Ability 2] - Dummy Flame Strike
+}
+
+STRING 2217
+// Abilities: A02L ([Level 1, Ability 4] - Dummy Finger of Pain), Name (Name)
+{
+[Level 1, Ability 4] - Dummy Finger of Pain
+}
+
+STRING 2218
+// Abilities: A02M ([Level 2, Ability 3] - Dummy Death Coil), Name (Name)
+{
+[Level 2, Ability 3] - Dummy Death Coil
+}
+
+STRING 2220
+// Abilities: A02O ([Level 1, Ability 1] - Dummy Chain Lightning), Name (Name)
+{
+[Level 1, Ability 1] - Dummy Chain Lightning
+}
+
+STRING 2221
+// Abilities: A02P ([Level 2, Ability 3] - Dummy Breath of Frost), Name (Name)
+{
+[Level 2, Ability 3] - Dummy Breath of Frost
+}
+
+STRING 2222
+// Abilities: A02A ([Level 3, Ability 4] - Dummy Bladestorm), Name (Name)
+{
+[Level 3, Ability 4] - Dummy Bladestorm
+}
+
+STRING 2223
+// Abilities: A02D ([Level 2, Ability 3] - Dummy Dispel Magic), Name (Name)
+{
+[Level 2, Ability 3] - Dummy Dispel Magic
+}
+
+STRING 2224
+// Abilities: A02T ([Level 2, Ability 3] - Dummy Acid Bomb), Name (Name)
+{
+[Level 2, Ability 3] - Dummy Acid Bomb
+}
+
+STRING 2225
+// Abilities: A02W ([Level 3, Ability 4] - Dummy Inferno), Name (Name)
+{
+[Level 3, Ability 4] - Dummy Inferno
+}
+
+STRING 2226
+// Abilities: A02Y ([Level 3, Ability 4] - Dummy Feral Spirit), Name (Name)
+{
+[Level 3, Ability 4] - Dummy Feral Spirit
+}
+
+STRING 2227
+// Abilities: A02Z ([Level 1, Ability 1] - Dummy Rain of Fire), Name (Name)
+{
+[Level 1, Ability 1] - Dummy Rain of Fire
+}
+
+STRING 2228
+// Abilities: A014 ([Level 1, Ability 1] - Anomaly Tower - Shockwave), Name (Name)
+{
+[Level 1, Ability 1] - Anomaly Tower - Shockwave
+}
+
+STRING 2229
+// Abilities: A02N ([Level 1, Ability 2] - Dummy Shockwave), Ubertip (Tooltip - Normal - Extended)
+{
+A wave of force that ripples outward, causing 150 damage to land units in a line.
+}
+
+STRING 2230
+// Abilities: A02N ([Level 1, Ability 2] - Dummy Shockwave), Name (Name)
+{
+[Level 1, Ability 2] - Dummy Shockwave
+}
+
+STRING 2231
+// Abilities: A02N ([Level 1, Ability 2] - Dummy Shockwave), Ubertip (Tooltip - Normal - Extended)
+{
+A wave of force that ripples outward, causing 300 damage to land units in a line.
+}
+
+STRING 2232
+// Abilities: A02N ([Level 1, Ability 2] - Dummy Shockwave), Ubertip (Tooltip - Normal - Extended)
+{
+A wave of force that ripples outward, causing 450 damage to land units in a line.
+}
+
+STRING 2233
+// Abilities: A02N ([Level 1, Ability 2] - Dummy Shockwave), Ubertip (Tooltip - Normal - Extended)
+{
+A wave of force that ripples outward, causing 600 damage to land units in a line.
 }
 

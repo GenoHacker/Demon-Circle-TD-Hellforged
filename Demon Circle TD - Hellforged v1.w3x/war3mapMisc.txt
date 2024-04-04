@@ -9,6 +9,7 @@ DamageBonusSpells=1.00,1.00,1.00,1.00,1.00,0.75,1.00,1.00
 DropItemRange=400.0
 FrostMoveSpeedDecrease=0.25
 GiveItemRange=600.0
+InvisibleUnitsBestowAuras=1
 ItemStackingEnabled=1
 MaxBldgSpeed=522.0
 MaxUnitSpeed=522.0
