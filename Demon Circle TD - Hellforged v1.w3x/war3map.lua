@@ -175,7 +175,10 @@ gg_trg_Wave_Mod_Remove_Ethereal = nil
 gg_trg_Anomaly_Tower_Limit_Upgrade = nil
 gg_trg_Anomaly_Tower_Limit_Cancel = nil
 gg_trg_Anomaly_Tower_Level_Up_Ability = nil
+gg_trg_Anomaly_Tower = nil
+gg_trg_Bladestorm_Dummy_Fix = nil
 gg_trg_Anomaly_Tower_BROKE = nil
+gg_trg_Anomaly_Tower_ALSO_BROKE = nil
 gg_trg_Hellfire_Tower = nil
 gg_trg_Fluctuation_Tower_Ability = nil
 gg_trg_Fluctuation_Tower_Mana = nil
@@ -208,6 +211,7 @@ gg_trg_Dichotomous_Box = nil
 gg_trg_Soul_Eater = nil
 gg_trg_Hellfire_Reagent = nil
 gg_trg_Pulsating_Flesh = nil
+gg_trg_Demonic_Artefact = nil
 gg_trg_Creep_Count = nil
 gg_trg_Creep_Teleport_1 = nil
 gg_trg_Creep_Teleport_2 = nil
@@ -225,10 +229,6 @@ gg_trg_Creep_Spawn_5 = nil
 gg_trg_Creep_Spawn_6 = nil
 gg_trg_Creep_Spawn_7 = nil
 gg_trg_Creep_Spawn_8 = nil
-gg_trg_Anomaly_Tower_ALSO_BROKE = nil
-gg_trg_Anomaly_Tower = nil
-gg_trg_Demonic_Artefact = nil
-gg_trg_Bladestorm_Dummy_Fix = nil
 function InitGlobals()
 local i = 0
 
@@ -505,16 +505,6 @@ SetSoundDuration(gg_snd_MapPing, 1636)
 SetSoundVolume(gg_snd_MapPing, 127)
 end
 
-function CreateNeutralHostile()
-local p = Player(PLAYER_NEUTRAL_AGGRESSIVE)
-local u
-local unitID
-local t
-local life
-
-u = BlzCreateUnitWithSkin(p, FourCC("u01M"), -4776.9, 3559.8, 145.160, FourCC("u01M"))
-end
-
 function CreateNeutralPassiveBuildings()
 local p = Player(PLAYER_NEUTRAL_PASSIVE)
 local u
@@ -557,7 +547,6 @@ end
 function CreateAllUnits()
 CreateNeutralPassiveBuildings()
 CreatePlayerBuildings()
-CreateNeutralHostile()
 CreateNeutralPassive()
 CreatePlayerUnits()
 end
@@ -1118,8 +1107,10 @@ DialogAddButtonBJ(udg_Dialog_Difficulty, "TRIGSTR_1901")
 udg_DialogButton_Array_Difficulty[1] = GetLastCreatedButtonBJ()
 DialogAddButtonBJ(udg_Dialog_Difficulty, "TRIGSTR_1902")
 udg_DialogButton_Array_Difficulty[2] = GetLastCreatedButtonBJ()
+DialogAddButtonBJ(udg_Dialog_Difficulty, "TRIGSTR_2254")
+udg_DialogButton_Array_Difficulty[3] = GetLastCreatedButtonBJ()
 bj_forLoopAIndex = 1
-bj_forLoopAIndexEnd = udg_Integer_PlayerCount
+bj_forLoopAIndexEnd = 8
 while (true) do
 if (bj_forLoopAIndex > bj_forLoopAIndexEnd) then break end
 DialogDisplayBJ(true, udg_Dialog_Difficulty, ConvertedPlayer(GetForLoopIndexA()))
@@ -1147,11 +1138,18 @@ end
 return true
 end
 
+function Trig_Difficulty_Adjust_Func003C()
+if (not (GetClickedButtonBJ() == udg_DialogButton_Array_Difficulty[2])) then
+return false
+end
+return true
+end
+
 function Trig_Difficulty_Adjust_Actions()
 if (Trig_Difficulty_Adjust_Func001C()) then
-udg_Integer_EnemyHandicap = (udg_Integer_EnemyHandicap + 5)
-DisplayTextToForce(GetPlayersAll(), (GetPlayerName(GetTriggerPlayer()) .. " has decided to increase difficulty."))
-udg_Integer_MaxCreeps = (udg_Integer_MaxCreeps - 10)
+udg_Integer_EnemyHandicap = (udg_Integer_EnemyHandicap + 10)
+DisplayTextToForce(GetPlayersAll(), (GetPlayerName(GetTriggerPlayer()) .. " has selected ++Difficulty++"))
+udg_Integer_MaxCreeps = (udg_Integer_MaxCreeps - 20)
 MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 3, (("|cffffff00" .. I2S(udg_Integer_NumberOfCreeps)) .. ("/" .. I2S(udg_Integer_MaxCreeps))))
 udg_Integer_Array_DifficultyVote[9] = (udg_Integer_Array_DifficultyVote[9] + 1)
 udg_Integer_MaxSpawncount = (udg_Integer_MaxSpawncount + udg_Integer_SpawnIncreaseAmount)
@@ -1162,6 +1160,19 @@ MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 2, (("|cffffff00" .. I2S(udg_Inte
 else
 end
 if (Trig_Difficulty_Adjust_Func002C()) then
+udg_Integer_EnemyHandicap = (udg_Integer_EnemyHandicap + 5)
+DisplayTextToForce(GetPlayersAll(), (GetPlayerName(GetTriggerPlayer()) .. " has selected +Difficulty+"))
+udg_Integer_MaxCreeps = (udg_Integer_MaxCreeps - 10)
+MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 3, (("|cffffff00" .. I2S(udg_Integer_NumberOfCreeps)) .. ("/" .. I2S(udg_Integer_MaxCreeps))))
+udg_Integer_Array_DifficultyVote[9] = (udg_Integer_Array_DifficultyVote[9] + 1)
+udg_Integer_MaxSpawncount = (udg_Integer_MaxSpawncount + udg_Integer_SpawnIncreaseAmount)
+MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 11, (("|cffffff00" .. I2S(udg_Integer_MaxSpawncount)) .. " per wave"))
+udg_Integer_Array_DifficultyVote[GetConvertedPlayerId(GetTriggerPlayer())] = 1
+udg_Real_WaveTimer = (udg_Real_WaveTimer - 1.00)
+MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 2, (("|cffffff00" .. I2S(udg_Integer_Timer)) .. ("/" .. I2S(R2I(udg_Real_WaveTimer)))))
+else
+end
+if (Trig_Difficulty_Adjust_Func003C()) then
 DisplayTextToForce(GetPlayersAll(), (GetPlayerName(GetTriggerPlayer()) .. " has decided not to increase difficulty."))
 else
 end
@@ -1187,7 +1198,7 @@ end
 function Trig_Difficulty_Dialog_Stop_Actions()
 ForForce(GetPlayersAll(), Trig_Difficulty_Dialog_Stop_Func001A)
 if (Trig_Difficulty_Dialog_Stop_Func002C()) then
-udg_Integer_EnemyHandicap = (udg_Integer_EnemyHandicap + 10)
+udg_Integer_EnemyHandicap = (udg_Integer_EnemyHandicap + 20)
 DisplayTextToForce(GetPlayersAll(), "TRIGSTR_1922")
 else
 end
@@ -2299,7 +2310,7 @@ end
 return true
 end
 
-function Trig_Anomaly_Tower_Func008Func012Func001C()
+function Trig_Anomaly_Tower_Func008Func011Func001C()
 if (udg_Integer_Array_AnomalyAbility1[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] == 2) then
 return true
 end
@@ -2309,28 +2320,42 @@ end
 return false
 end
 
-function Trig_Anomaly_Tower_Func008Func012C()
-if (not Trig_Anomaly_Tower_Func008Func012Func001C()) then
+function Trig_Anomaly_Tower_Func008Func011Func003Func003C()
+if (not (udg_Integer_Array_AnomalyAbility1[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] == 5)) then
 return false
 end
 return true
 end
 
-function Trig_Anomaly_Tower_Func008Func028C()
+function Trig_Anomaly_Tower_Func008Func011Func003C()
+if (not (udg_Integer_Array_AnomalyAbility1[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] == 2)) then
+return false
+end
+return true
+end
+
+function Trig_Anomaly_Tower_Func008Func011C()
+if (not Trig_Anomaly_Tower_Func008Func011Func001C()) then
+return false
+end
+return true
+end
+
+function Trig_Anomaly_Tower_Func008Func027C()
 if (not (GetUnitAbilityLevelSwapped(FourCC("A01W"), GetEventDamageSource()) >= 2)) then
 return false
 end
 return true
 end
 
-function Trig_Anomaly_Tower_Func008Func032Func002Func004C()
+function Trig_Anomaly_Tower_Func008Func031Func002Func004C()
 if (not (udg_Integer_Array_AnomalyAbility4[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] == 20)) then
 return false
 end
 return true
 end
 
-function Trig_Anomaly_Tower_Func008Func032Func002Func005C()
+function Trig_Anomaly_Tower_Func008Func031Func002Func005C()
 if (udg_Integer_Array_AnomalyAbility4[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] == 16) then
 return true
 end
@@ -2340,21 +2365,21 @@ end
 return false
 end
 
-function Trig_Anomaly_Tower_Func008Func032Func002C()
-if (not Trig_Anomaly_Tower_Func008Func032Func002Func005C()) then
+function Trig_Anomaly_Tower_Func008Func031Func002C()
+if (not Trig_Anomaly_Tower_Func008Func031Func002Func005C()) then
 return false
 end
 return true
 end
 
-function Trig_Anomaly_Tower_Func008Func032C()
+function Trig_Anomaly_Tower_Func008Func031C()
 if (not (GetUnitAbilityLevelSwapped(FourCC("A01W"), GetEventDamageSource()) >= 3)) then
 return false
 end
 return true
 end
 
-function Trig_Anomaly_Tower_Func008Func051Func001C()
+function Trig_Anomaly_Tower_Func008Func050Func001C()
 if (udg_Integer_Array_AnomalyAbility1[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] == 2) then
 return true
 end
@@ -2364,28 +2389,28 @@ end
 return false
 end
 
-function Trig_Anomaly_Tower_Func008Func051C()
-if (not Trig_Anomaly_Tower_Func008Func051Func001C()) then
+function Trig_Anomaly_Tower_Func008Func050C()
+if (not Trig_Anomaly_Tower_Func008Func050Func001C()) then
 return false
 end
 return true
 end
 
-function Trig_Anomaly_Tower_Func008Func067C()
+function Trig_Anomaly_Tower_Func008Func066C()
 if (not (GetUnitAbilityLevelSwapped(FourCC("A01W"), GetEventDamageSource()) >= 2)) then
 return false
 end
 return true
 end
 
-function Trig_Anomaly_Tower_Func008Func071Func002Func004C()
+function Trig_Anomaly_Tower_Func008Func070Func002Func004C()
 if (not (udg_Integer_Array_AnomalyAbility4[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] == 20)) then
 return false
 end
 return true
 end
 
-function Trig_Anomaly_Tower_Func008Func071Func002Func005C()
+function Trig_Anomaly_Tower_Func008Func070Func002Func005C()
 if (udg_Integer_Array_AnomalyAbility4[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] == 16) then
 return true
 end
@@ -2395,14 +2420,14 @@ end
 return false
 end
 
-function Trig_Anomaly_Tower_Func008Func071Func002C()
-if (not Trig_Anomaly_Tower_Func008Func071Func002Func005C()) then
+function Trig_Anomaly_Tower_Func008Func070Func002C()
+if (not Trig_Anomaly_Tower_Func008Func070Func002Func005C()) then
 return false
 end
 return true
 end
 
-function Trig_Anomaly_Tower_Func008Func071C()
+function Trig_Anomaly_Tower_Func008Func070C()
 if (not (GetUnitAbilityLevelSwapped(FourCC("A01W"), GetEventDamageSource()) >= 3)) then
 return false
 end
@@ -2456,7 +2481,7 @@ udg_Integer_Array_AnomalyAbility1[GetConvertedPlayerId(GetOwningPlayer(GetEventD
 udg_Integer_Array_AnomalyAbility2[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] = GetRandomInt(6, 10)
 udg_Integer_Array_AnomalyAbility3[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] = GetRandomInt(11, 15)
 udg_Integer_Array_AnomalyAbility4[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] = GetRandomInt(16, 20)
-if (Trig_Anomaly_Tower_Func008Func051C()) then
+if (Trig_Anomaly_Tower_Func008Func050C()) then
 udg_Temp_PointAnomaly[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] = GetUnitLoc(BlzGetEventDamageTarget())
 CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointAnomaly[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))], bj_UNIT_FACING)
 UnitApplyTimedLifeBJ(4.00, FourCC("BTLF"), GetLastCreatedUnit())
@@ -2476,7 +2501,7 @@ UnitAddAbilityBJ(udg_AbilityCode_Array_AnomalyTower[udg_Integer_Array_AnomalyAbi
 UnitAddAbilityBJ(udg_AbilityCode_Array_AnomTowDummy[udg_Integer_Array_AnomalyAbility2[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))]], GetEventDamageSource())
 SetUnitAbilityLevelSwapped(udg_AbilityCode_Array_AnomalyTower[udg_Integer_Array_AnomalyAbility2[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))]], GetLastCreatedUnit(), (1 + GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I008")))))
 SetUnitAbilityLevelSwapped(udg_AbilityCode_Array_AnomTowDummy[udg_Integer_Array_AnomalyAbility2[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))]], GetEventDamageSource(), (1 + GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I008")))))
-if (Trig_Anomaly_Tower_Func008Func067C()) then
+if (Trig_Anomaly_Tower_Func008Func066C()) then
 CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointA, bj_UNIT_FACING)
 UnitApplyTimedLifeBJ(4.00, FourCC("BTLF"), GetLastCreatedUnit())
 GroupAddUnitSimple(GetLastCreatedUnit(), udg_UnitGroup_Array_AnomDummys1[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))])
@@ -2486,13 +2511,13 @@ SetUnitAbilityLevelSwapped(udg_AbilityCode_Array_AnomalyTower[udg_Integer_Array_
 SetUnitAbilityLevelSwapped(udg_AbilityCode_Array_AnomTowDummy[udg_Integer_Array_AnomalyAbility3[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))]], GetEventDamageSource(), (1 + GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I008")))))
 else
 end
-if (Trig_Anomaly_Tower_Func008Func071C()) then
-if (Trig_Anomaly_Tower_Func008Func071Func002C()) then
+if (Trig_Anomaly_Tower_Func008Func070C()) then
+if (Trig_Anomaly_Tower_Func008Func070Func002C()) then
 udg_Temp_PointAnomaly[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] = GetUnitLoc(BlzGetEventDamageTarget())
 CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointAnomaly[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))], bj_UNIT_FACING)
 UnitApplyTimedLifeBJ(4.00, FourCC("BTLF"), GetLastCreatedUnit())
 else
-if (Trig_Anomaly_Tower_Func008Func071Func002Func004C()) then
+if (Trig_Anomaly_Tower_Func008Func070Func002Func004C()) then
 udg_Temp_PointAnomaly[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] = GetUnitLoc(BlzGetEventDamageTarget())
 CreateNUnitsAtLoc(1, FourCC("h029"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointAnomaly[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))], bj_UNIT_FACING)
 UnitApplyTimedLifeBJ(4.00, FourCC("BTLF"), GetLastCreatedUnit())
@@ -2510,15 +2535,24 @@ SetUnitAbilityLevelSwapped(udg_AbilityCode_Array_AnomTowDummy[udg_Integer_Array_
 else
 end
 else
-DisplayTextToForce(GetPlayersAll(), "TRIGSTR_2206")
 UnitRemoveAbilityBJ(udg_AbilityCode_Array_AnomTowDummy[udg_Integer_Array_AnomalyAbility1[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))]], GetEventDamageSource())
 UnitRemoveAbilityBJ(udg_AbilityCode_Array_AnomTowDummy[udg_Integer_Array_AnomalyAbility2[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))]], GetEventDamageSource())
 UnitRemoveAbilityBJ(udg_AbilityCode_Array_AnomTowDummy[udg_Integer_Array_AnomalyAbility3[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))]], GetEventDamageSource())
 UnitRemoveAbilityBJ(udg_AbilityCode_Array_AnomTowDummy[udg_Integer_Array_AnomalyAbility4[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))]], GetEventDamageSource())
-if (Trig_Anomaly_Tower_Func008Func012C()) then
+if (Trig_Anomaly_Tower_Func008Func011C()) then
 udg_Temp_PointAnomaly[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] = GetUnitLoc(BlzGetEventDamageTarget())
+if (Trig_Anomaly_Tower_Func008Func011Func003C()) then
+CreateNUnitsAtLoc(1, FourCC("h02B"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointAnomaly[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))], bj_UNIT_FACING)
+UnitApplyTimedLifeBJ(4.00, FourCC("BTLF"), GetLastCreatedUnit())
+else
+if (Trig_Anomaly_Tower_Func008Func011Func003Func003C()) then
 CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointAnomaly[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))], bj_UNIT_FACING)
 UnitApplyTimedLifeBJ(4.00, FourCC("BTLF"), GetLastCreatedUnit())
+AddSpecialEffectLocBJ(udg_Temp_PointAnomaly[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))], "Abilities\\Spells\\Human\\ThunderClap\\ThunderClapCaster.mdl")
+DestroyEffectBJ(GetLastCreatedEffectBJ())
+else
+end
+end
 else
 CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointA, bj_UNIT_FACING)
 UnitApplyTimedLifeBJ(4.00, FourCC("BTLF"), GetLastCreatedUnit())
@@ -2535,7 +2569,7 @@ UnitAddAbilityBJ(udg_AbilityCode_Array_AnomalyTower[udg_Integer_Array_AnomalyAbi
 UnitAddAbilityBJ(udg_AbilityCode_Array_AnomTowDummy[udg_Integer_Array_AnomalyAbility2[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))]], GetEventDamageSource())
 SetUnitAbilityLevelSwapped(udg_AbilityCode_Array_AnomalyTower[udg_Integer_Array_AnomalyAbility2[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))]], GetLastCreatedUnit(), (1 + GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I008")))))
 SetUnitAbilityLevelSwapped(udg_AbilityCode_Array_AnomTowDummy[udg_Integer_Array_AnomalyAbility2[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))]], GetEventDamageSource(), (1 + GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I008")))))
-if (Trig_Anomaly_Tower_Func008Func028C()) then
+if (Trig_Anomaly_Tower_Func008Func027C()) then
 CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointA, bj_UNIT_FACING)
 UnitApplyTimedLifeBJ(4.00, FourCC("BTLF"), GetLastCreatedUnit())
 GroupAddUnitSimple(GetLastCreatedUnit(), udg_UnitGroup_Array_AnomDummys1[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))])
@@ -2545,13 +2579,13 @@ SetUnitAbilityLevelSwapped(udg_AbilityCode_Array_AnomalyTower[udg_Integer_Array_
 SetUnitAbilityLevelSwapped(udg_AbilityCode_Array_AnomTowDummy[udg_Integer_Array_AnomalyAbility3[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))]], GetEventDamageSource(), (1 + GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I008")))))
 else
 end
-if (Trig_Anomaly_Tower_Func008Func032C()) then
-if (Trig_Anomaly_Tower_Func008Func032Func002C()) then
+if (Trig_Anomaly_Tower_Func008Func031C()) then
+if (Trig_Anomaly_Tower_Func008Func031Func002C()) then
 udg_Temp_PointAnomaly[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] = GetUnitLoc(BlzGetEventDamageTarget())
 CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointAnomaly[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))], bj_UNIT_FACING)
 UnitApplyTimedLifeBJ(4.00, FourCC("BTLF"), GetLastCreatedUnit())
 else
-if (Trig_Anomaly_Tower_Func008Func032Func002Func004C()) then
+if (Trig_Anomaly_Tower_Func008Func031Func002Func004C()) then
 udg_Temp_PointAnomaly[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] = GetUnitLoc(BlzGetEventDamageTarget())
 CreateNUnitsAtLoc(1, FourCC("h029"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointAnomaly[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))], bj_UNIT_FACING)
 UnitApplyTimedLifeBJ(4.00, FourCC("BTLF"), GetLastCreatedUnit())
@@ -2633,7 +2667,7 @@ udg_Integer_Array_HellfireTower[GetConvertedPlayerId(GetOwningPlayer(GetEventDam
 if (Trig_Hellfire_Tower_Func002C()) then
 udg_Temp_PointB = GetUnitLoc(BlzGetEventDamageTarget())
 CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointB, bj_UNIT_FACING)
-UnitDamagePointLoc(GetLastCreatedUnit(), 0, udg_Real_Array_HellfireTowerDamage[R2I(GetUnitStateSwap(UNIT_STATE_MANA, GetEventDamageSource()))], udg_Temp_PointB, udg_Real_Array_HellfireTowerDamage[R2I(GetUnitStateSwap(UNIT_STATE_MANA, GetEventDamageSource()))], ATTACK_TYPE_SIEGE, DAMAGE_TYPE_UNIVERSAL)
+UnitDamagePointLoc(GetLastCreatedUnit(), 0, udg_Real_Array_HellfireTowerDamage[R2I(GetUnitStateSwap(UNIT_STATE_MANA, GetEventDamageSource()))], udg_Temp_PointB, (udg_Real_Array_HellfireTowerDamage[R2I(GetUnitStateSwap(UNIT_STATE_MANA, GetEventDamageSource()))] * 2.00), ATTACK_TYPE_SIEGE, DAMAGE_TYPE_UNIVERSAL)
         RemoveLocation(udg_Temp_PointB)
 UnitApplyTimedLifeBJ(1.00, FourCC("BTLF"), GetLastCreatedUnit())
 SetUnitManaBJ(GetEventDamageSource(), 0.00)
@@ -3684,7 +3718,7 @@ end
 
 function Trig_Creep_Teleport_1_Actions()
 if (Trig_Creep_Teleport_1_Func002C()) then
-SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 7)
+SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 8)
 udg_Temp_PointA = GetRectCenter(gg_rct_Teleport_Green_2)
 udg_Temp_PointB = GetRectCenter(gg_rct_Waypoint_8)
 udg_Temp_PointC = GetUnitLoc(GetTriggerUnit())
@@ -3699,7 +3733,7 @@ IssuePointOrderLocBJ(GetTriggerUnit(), "move", udg_Temp_PointB)
         RemoveLocation(udg_Temp_PointB)
 else
 if (Trig_Creep_Teleport_1_Func002Func002C()) then
-SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 2)
+SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 3)
 udg_Temp_PointA = GetRectCenter(gg_rct_Teleport_Blue_2)
 udg_Temp_PointB = GetRectCenter(gg_rct_Waypoint_3)
 udg_Temp_PointC = GetUnitLoc(GetTriggerUnit())
@@ -3714,7 +3748,7 @@ IssuePointOrderLocBJ(GetTriggerUnit(), "move", udg_Temp_PointB)
             RemoveLocation(udg_Temp_PointB)
 else
 if (Trig_Creep_Teleport_1_Func002Func002Func016C()) then
-SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 1)
+SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 2)
 udg_Temp_PointA = GetRectCenter(gg_rct_Teleport_Red_2)
 udg_Temp_PointB = GetRectCenter(gg_rct_Waypoint_2)
 udg_Temp_PointC = GetUnitLoc(GetTriggerUnit())
@@ -3787,7 +3821,7 @@ end
 
 function Trig_Creep_Teleport_2_Actions()
 if (Trig_Creep_Teleport_2_Func002C()) then
-SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 8)
+SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 1)
 udg_Temp_PointA = GetRectCenter(gg_rct_Teleport_Pink_2)
 udg_Temp_PointB = GetRectCenter(gg_rct_Waypoint_1)
 udg_Temp_PointC = GetUnitLoc(GetTriggerUnit())
@@ -3802,7 +3836,7 @@ IssuePointOrderLocBJ(GetTriggerUnit(), "move", udg_Temp_PointB)
         RemoveLocation(udg_Temp_PointB)
 else
 if (Trig_Creep_Teleport_2_Func002Func004C()) then
-SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 3)
+SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 4)
 udg_Temp_PointA = GetRectCenter(gg_rct_Teleport_Teal_2)
 udg_Temp_PointB = GetRectCenter(gg_rct_Waypoint_4)
 udg_Temp_PointC = GetUnitLoc(GetTriggerUnit())
@@ -3817,7 +3851,7 @@ IssuePointOrderLocBJ(GetTriggerUnit(), "move", udg_Temp_PointB)
             RemoveLocation(udg_Temp_PointB)
 else
 if (Trig_Creep_Teleport_2_Func002Func004Func017C()) then
-SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 2)
+SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 3)
 udg_Temp_PointA = GetRectCenter(gg_rct_Teleport_Blue_2)
 udg_Temp_PointB = GetRectCenter(gg_rct_Waypoint_3)
 udg_Temp_PointC = GetUnitLoc(GetTriggerUnit())
@@ -3881,7 +3915,7 @@ end
 
 function Trig_Creep_Teleport_3_Actions()
 if (Trig_Creep_Teleport_3_Func002C()) then
-SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 1)
+SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 3)
 udg_Temp_PointA = GetRectCenter(gg_rct_Teleport_Red_2)
 udg_Temp_PointB = GetRectCenter(gg_rct_Waypoint_2)
 udg_Temp_PointC = GetUnitLoc(GetTriggerUnit())
@@ -3896,7 +3930,7 @@ IssuePointOrderLocBJ(GetTriggerUnit(), "move", udg_Temp_PointB)
         RemoveLocation(udg_Temp_PointB)
 else
 if (Trig_Creep_Teleport_3_Func002Func003C()) then
-SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 4)
+SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 5)
 udg_Temp_PointA = GetRectCenter(gg_rct_Teleport_Purple_2)
 udg_Temp_PointB = GetRectCenter(gg_rct_Waypoint_5)
 SetUnitPositionLocFacingLocBJ(GetTriggerUnit(), udg_Temp_PointA, udg_Temp_PointB)
@@ -3912,7 +3946,7 @@ IssuePointOrderLocBJ(GetTriggerUnit(), "move", udg_Temp_PointB)
             RemoveLocation(udg_Temp_PointB)
 else
 if (Trig_Creep_Teleport_3_Func002Func003Func017C()) then
-SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 3)
+SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 4)
 udg_Temp_PointA = GetRectCenter(gg_rct_Teleport_Teal_2)
 udg_Temp_PointB = GetRectCenter(gg_rct_Waypoint_4)
 udg_Temp_PointC = GetUnitLoc(GetTriggerUnit())
@@ -3976,7 +4010,7 @@ end
 
 function Trig_Creep_Teleport_4_Actions()
 if (Trig_Creep_Teleport_4_Func002C()) then
-SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 2)
+SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 4)
 udg_Temp_PointA = GetRectCenter(gg_rct_Teleport_Blue_2)
 udg_Temp_PointB = GetRectCenter(gg_rct_Waypoint_3)
 udg_Temp_PointC = GetUnitLoc(GetTriggerUnit())
@@ -3991,7 +4025,7 @@ IssuePointOrderLocBJ(GetTriggerUnit(), "move", udg_Temp_PointB)
         RemoveLocation(udg_Temp_PointB)
 else
 if (Trig_Creep_Teleport_4_Func002Func003C()) then
-SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 5)
+SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 6)
 udg_Temp_PointA = GetRectCenter(gg_rct_Teleport_Yellow_2)
 udg_Temp_PointB = GetRectCenter(gg_rct_Waypoint_6)
 udg_Temp_PointC = GetUnitLoc(GetTriggerUnit())
@@ -4006,7 +4040,7 @@ IssuePointOrderLocBJ(GetTriggerUnit(), "move", udg_Temp_PointB)
             RemoveLocation(udg_Temp_PointB)
 else
 if (Trig_Creep_Teleport_4_Func002Func003Func016C()) then
-SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 4)
+SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 5)
 udg_Temp_PointA = GetRectCenter(gg_rct_Teleport_Purple_2)
 udg_Temp_PointB = GetRectCenter(gg_rct_Waypoint_5)
 udg_Temp_PointC = GetUnitLoc(GetTriggerUnit())
@@ -4070,7 +4104,7 @@ end
 
 function Trig_Creep_Teleport_5_Actions()
 if (Trig_Creep_Teleport_5_Func002C()) then
-SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 3)
+SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 5)
 udg_Temp_PointA = GetRectCenter(gg_rct_Teleport_Teal_2)
 udg_Temp_PointB = GetRectCenter(gg_rct_Waypoint_4)
 udg_Temp_PointC = GetUnitLoc(GetTriggerUnit())
@@ -4164,7 +4198,7 @@ end
 
 function Trig_Creep_Teleport_6_Actions()
 if (Trig_Creep_Teleport_6_Func002C()) then
-SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 4)
+SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 6)
 udg_Temp_PointA = GetRectCenter(gg_rct_Teleport_Purple_2)
 udg_Temp_PointB = GetRectCenter(gg_rct_Waypoint_5)
 udg_Temp_PointC = GetUnitLoc(GetTriggerUnit())
@@ -4179,7 +4213,7 @@ IssuePointOrderLocBJ(GetTriggerUnit(), "move", udg_Temp_PointB)
         RemoveLocation(udg_Temp_PointB)
 else
 if (Trig_Creep_Teleport_6_Func002Func003C()) then
-SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 7)
+SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 8)
 udg_Temp_PointA = GetRectCenter(gg_rct_Teleport_Green_2)
 udg_Temp_PointB = GetRectCenter(gg_rct_Waypoint_8)
 udg_Temp_PointC = GetUnitLoc(GetTriggerUnit())
@@ -4194,7 +4228,7 @@ IssuePointOrderLocBJ(GetTriggerUnit(), "move", udg_Temp_PointB)
             RemoveLocation(udg_Temp_PointB)
 else
 if (Trig_Creep_Teleport_6_Func002Func003Func016C()) then
-SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 6)
+SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 7)
 udg_Temp_PointA = GetRectCenter(gg_rct_Teleport_Orange_2)
 udg_Temp_PointB = GetRectCenter(gg_rct_Waypoint_7)
 udg_Temp_PointC = GetUnitLoc(GetTriggerUnit())
@@ -4258,7 +4292,7 @@ end
 
 function Trig_Creep_Teleport_7_Actions()
 if (Trig_Creep_Teleport_7_Func002C()) then
-SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 5)
+SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 7)
 udg_Temp_PointA = GetRectCenter(gg_rct_Teleport_Yellow_2)
 udg_Temp_PointB = GetRectCenter(gg_rct_Waypoint_6)
 udg_Temp_PointC = GetUnitLoc(GetTriggerUnit())
@@ -4273,7 +4307,7 @@ IssuePointOrderLocBJ(GetTriggerUnit(), "move", udg_Temp_PointB)
         RemoveLocation(udg_Temp_PointB)
 else
 if (Trig_Creep_Teleport_7_Func002Func003C()) then
-SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 8)
+SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 1)
 udg_Temp_PointA = GetRectCenter(gg_rct_Teleport_Pink_2)
 udg_Temp_PointB = GetRectCenter(gg_rct_Waypoint_1)
 udg_Temp_PointC = GetUnitLoc(GetTriggerUnit())
@@ -4288,7 +4322,7 @@ IssuePointOrderLocBJ(GetTriggerUnit(), "move", udg_Temp_PointB)
             RemoveLocation(udg_Temp_PointB)
 else
 if (Trig_Creep_Teleport_7_Func002Func003Func016C()) then
-SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 7)
+SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 8)
 udg_Temp_PointA = GetRectCenter(gg_rct_Teleport_Green_2)
 udg_Temp_PointB = GetRectCenter(gg_rct_Waypoint_8)
 udg_Temp_PointC = GetUnitLoc(GetTriggerUnit())
@@ -4352,7 +4386,7 @@ end
 
 function Trig_Creep_Teleport_8_Actions()
 if (Trig_Creep_Teleport_8_Func002C()) then
-SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 6)
+SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 8)
 udg_Temp_PointA = GetRectCenter(gg_rct_Teleport_Orange_2)
 udg_Temp_PointB = GetRectCenter(gg_rct_Waypoint_7)
 udg_Temp_PointC = GetUnitLoc(GetTriggerUnit())
@@ -4367,7 +4401,7 @@ IssuePointOrderLocBJ(GetTriggerUnit(), "move", udg_Temp_PointB)
         RemoveLocation(udg_Temp_PointB)
 else
 if (Trig_Creep_Teleport_8_Func002Func003C()) then
-SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 1)
+SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 2)
 udg_Temp_PointA = GetRectCenter(gg_rct_Teleport_Red_2)
 udg_Temp_PointB = GetRectCenter(gg_rct_Waypoint_2)
 udg_Temp_PointC = GetUnitLoc(GetTriggerUnit())
@@ -4382,7 +4416,7 @@ IssuePointOrderLocBJ(GetTriggerUnit(), "move", udg_Temp_PointB)
             RemoveLocation(udg_Temp_PointB)
 else
 if (Trig_Creep_Teleport_8_Func002Func003Func016C()) then
-SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 8)
+SetUnitAbilityLevelSwapped(FourCC("A01Q"), GetTriggerUnit(), 1)
 udg_Temp_PointA = GetRectCenter(gg_rct_Teleport_Pink_2)
 udg_Temp_PointB = GetRectCenter(gg_rct_Waypoint_1)
 udg_Temp_PointC = GetUnitLoc(GetTriggerUnit())

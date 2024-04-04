@@ -8,7 +8,7 @@ InfoPanelIconDamageNormal=UI\Widgets\Console\Human\infocard-attack-melee.blp
 InfoPanelIconDamageNormalNeutral=UI\Widgets\Console\Human\infocard-neutral-attack-melee.blp
 InfoPanelIconDamageUnknown=UI\Widgets\Console\Human\infocard-attack-melee.blp
 InfoPanelIconDamageUnknownNeutral=UI\Widgets\Console\Human\infocard-neutral-attack-melee.blp
-LumberIcon=war3mapImported\PASSouls.blp
+LumberIcon=ReplaceableTextures\CommandButtons\PASSouls.blp
 
 [FrameDef]
 ARMORTIP_DIVINE=TRIGSTR_1948

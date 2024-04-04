@@ -1798,18 +1798,6 @@ STRING 1062
 S
 }
 
-STRING 1074
-// Buffs/Effects: B000 (), Bufftip (Tooltip)
-{
-Summoned Ghost
-}
-
-STRING 1075
-// Buffs/Effects: B000 (), Buffubertip (Tooltip - Extended)
-{
-The Ghost Tower has summoned a Ghost, it can not summon another.
-}
-
 STRING 1097
 // Items: I000 (Soul Eater), Name (Name)
 {
@@ -3432,38 +3420,6 @@ STRING 1809
 Blasts enemy units within 350 area of effect with frost that deals 500 damage to the target, and 250 nova damage.
 }
 
-STRING 1810
-// Abilities: A02F ([Level 1, Ability 1] - Dummy Immolation), Ubertip (Tooltip - Normal - Extended)
-{
-Forms a shield of electricity around a target unit, dealing 50 damage per second to units in a 150 area of effect.
-
-Lasts 4 seconds.
-}
-
-STRING 1812
-// Abilities: A02F ([Level 1, Ability 1] - Dummy Immolation), Ubertip (Tooltip - Normal - Extended)
-{
-Forms a shield of electricity around a target unit, dealing 100 damage per second to units in a 200 area of effect.
-
-Lasts 4 seconds.
-}
-
-STRING 1813
-// Abilities: A02F ([Level 1, Ability 1] - Dummy Immolation), Ubertip (Tooltip - Normal - Extended)
-{
-Forms a shield of electricity around a target unit, dealing 150 damage per second to units in a 250 area of effect.
-
-Lasts 4 seconds.
-}
-
-STRING 1814
-// Abilities: A02F ([Level 1, Ability 1] - Dummy Immolation), Ubertip (Tooltip - Normal - Extended)
-{
-Forms a shield of electricity around a target unit, dealing 200 damage per second to units in a 300 area of effect.
-
-Lasts 4 seconds.
-}
-
 STRING 1815
 // Abilities: A02U ([Level 1, Ability 1] - Anomaly Tower - Rain of Fire), Ubertip (Tooltip - Normal - Extended)
 {
@@ -3622,30 +3578,6 @@ STRING 1844
 Summons 4 Demonic Wolf companions.
 
 Lasts 16 seconds.
-}
-
-STRING 1845
-// Abilities: A02C ([Level 1, Ability 2] - Anomaly Tower - Corruption Aura), Ubertip (Tooltip - Normal - Extended)
-{
-Decreases armour of enemies unit in a 600 area of effect by 1.
-}
-
-STRING 1846
-// Abilities: A02C ([Level 1, Ability 2] - Anomaly Tower - Corruption Aura), Ubertip (Tooltip - Normal - Extended)
-{
-Decreases armour of enemies unit in a 700 area of effect by 2.
-}
-
-STRING 1847
-// Abilities: A02C ([Level 1, Ability 2] - Anomaly Tower - Corruption Aura), Ubertip (Tooltip - Normal - Extended)
-{
-Decreases armour of enemies unit in a 800 area of effect by 4.
-}
-
-STRING 1848
-// Abilities: A02C ([Level 1, Ability 2] - Anomaly Tower - Corruption Aura), Ubertip (Tooltip - Normal - Extended)
-{
-Decreases armour of enemies unit in a 900 area of effect by 8.
 }
 
 STRING 1849
@@ -3815,17 +3747,17 @@ Left.
 
 STRING 1901
 {
-Increase Difficulty
+Yes / ++Difficulty++
 }
 
 STRING 1902
 {
-No Increase
+Yes / +Difficulty+
 }
 
 STRING 1903
 {
-Difficulty
+Increase Difficulty?
 }
 
 STRING 1904
@@ -3940,7 +3872,7 @@ dzbHsCc
 
 STRING 1922
 {
-Everyone chose to increase difficulty, it has been increased by an additional 10%.
+Everyone chose to increase difficulty, it has been increased by an additional 20%.
 }
 
 STRING 1926
@@ -4383,16 +4315,6 @@ Attack speed changes each time the tower attacks.
 Tower gains damage equal to its mana, tower loses all mana when attacking.
 }
 
-STRING 2007
-// Abilities: A01S (Infernal Core), Ubertip (Tooltip - Normal - Extended)
-{
-The hellfire tower gains 1 mana per attack. When dealing damage their is a 60% chance to trigger Infernal Core, this will deal damage to units within an area.
-
-At 1 mana the damage and area of effect is 150. At 2, 250. At 3, 400. At 4, 600. At 5, 800.
-
-Infernal Core will always trigger when the tower deals damage with 5 mana, the damage dealt is pure siege damage.
-}
-
 STRING 2008
 // Abilities: A01X (Sanguine Spike 3), Ubertip (Tooltip - Normal - Extended)
 {
@@ -4415,17 +4337,6 @@ STRING 2010
 A stacking bleeding attack that deals increasing damage for 6 seconds, gains stacks from tower attack and from damage over time.
 
 Each attack from the tower will also deal extra piercing damage based on the amount of stacks.
-}
-
-STRING 2011
-// Units: u016 (Monstrosity Tower Level 3), Ubertip (Tooltip - Extended)
-{
-Pierce Damage
-Attack Damage: 600
-Attack Speed: 2.0s
-Range: 800
-
-Sanguine Spike: A stacking bleeding attack that deals increasing damage for 8 seconds, gains stacks from tower attack and from damage over time.
 }
 
 STRING 2012
@@ -4533,20 +4444,6 @@ Attack Speed: 1.80s
 Range: 680
 
 Splash (190)
-}
-
-STRING 2022
-// Units: u00B (Frost Tower), Ubertip (Tooltip - Extended)
-{
-Magic Damage
-Attack Damage: 25 - 100
-Attack Speed: 4.0s
-Range: 600
-
-Frost (4s)
-Splash (125)
-
-Effective against ethereal units
 }
 
 STRING 2024
@@ -4688,42 +4585,6 @@ Siphon: Gains mana on attack, releases a storm of lightning on full mana dealing
 Effective against ethereal units
 }
 
-STRING 2039
-// Units: u01D (Fluctuation Tower Level 2), Ubertip (Tooltip - Extended)
-{
-Normal Damage
-Attack Damage: 500
-Attack Speed: 1s - 6s
-Range: 800
-
-Multishot (3)
-Fluctuating Energy: Attack speed changes each time the tower attacks. Tower gains damage equal to its mana, tower loses all mana when attacking.
-}
-
-STRING 2040
-// Units: u01E (Fluctuation Tower Level 3), Ubertip (Tooltip - Extended)
-{
-Normal Damage
-Attack Damage: 500
-Attack Speed: 1s - 6s
-Range: 800
-
-Multishot (3)
-Fluctuating Energy: Attack speed changes each time the tower attacks. Tower gains damage equal to its mana, tower loses all mana when attacking.
-}
-
-STRING 2041
-// Units: u01F (Fluctuation Tower Level 1), Ubertip (Tooltip - Extended)
-{
-Normal Damage
-Attack Damage: 200
-Attack Speed: 3s - 4s
-Range: 800
-
-Multishot (3)
-Fluctuating Energy: Attack speed changes each time the tower attacks. Tower gains damage equal to its mana, tower loses all mana when attacking.
-}
-
 STRING 2042
 // Units: u00O (Inferno Gate Level 3), Ubertip (Tooltip - Extended)
 {
@@ -4821,34 +4682,6 @@ Attack Speed: 3.0s
 Range: 1200
 
 Incinerate: If a unit dies while under this effect, it is incinerated, causing damage to all nearby hostile units.
-}
-
-STRING 2051
-// Units: u00C (Freezer Tower), Ubertip (Tooltip - Extended)
-{
-Magic Damage
-Attack Damage: 100 - 200
-Attack Speed: 3.0s
-Range: 700
-
-Frost (5s)
-Splash (175)
-
-Effective against ethereal units
-}
-
-STRING 2052
-// Units: u012 (Glacier Tower), Ubertip (Tooltip - Extended)
-{
-Magic Damage
-Attack Damage: 200 - 400
-Attack Speed: 2.5s
-Range: 800
-
-Frost (6s)
-Splash (225)
-
-Effective against ethereal units
 }
 
 STRING 2053
@@ -5296,11 +5129,6 @@ STRING 2205
 [Level 1, Ability 1] - Anomaly Tower - Immolation
 }
 
-STRING 2206
-{
-BROKEN OR NOT
-}
-
 STRING 2207
 // Abilities: A029 ([Level 3, Ability 4] - Dummy Starfall), Name (Name)
 {
@@ -5455,5 +5283,183 @@ STRING 2233
 // Abilities: A02N ([Level 1, Ability 2] - Dummy Shockwave), Ubertip (Tooltip - Normal - Extended)
 {
 A wave of force that ripples outward, causing 600 damage to land units in a line.
+}
+
+STRING 2235
+// Abilities: A02C ([Level 1, Ability 2] - Anomaly Tower - Corruption Aura), Ubertip (Tooltip - Normal - Extended)
+{
+Decreases armour of enemies unit in a 600 area of effect by 4.
+}
+
+STRING 2236
+// Abilities: A02C ([Level 1, Ability 2] - Anomaly Tower - Corruption Aura), Ubertip (Tooltip - Normal - Extended)
+{
+Decreases armour of enemies unit in a 700 area of effect by 6.
+}
+
+STRING 2237
+// Abilities: A02C ([Level 1, Ability 2] - Anomaly Tower - Corruption Aura), Ubertip (Tooltip - Normal - Extended)
+{
+Decreases armour of enemies unit in a 800 area of effect by 8.
+}
+
+STRING 2238
+// Abilities: A02C ([Level 1, Ability 2] - Anomaly Tower - Corruption Aura), Ubertip (Tooltip - Normal - Extended)
+{
+Decreases armour of enemies unit in a 900 area of effect by 10.
+}
+
+STRING 2239
+// Buffs/Effects: B000 (), Bufftip (Tooltip)
+{
+Corruption Aura
+}
+
+STRING 2240
+// Buffs/Effects: B000 (), Buffubertip (Tooltip - Extended)
+{
+This unit is under the effects of Corruption Aura; it has decreased armor.
+}
+
+STRING 2241
+// Abilities: A02F ([Level 1, Ability 1] - Dummy Immolation), Ubertip (Tooltip - Normal - Extended)
+{
+Summon a sphere of fire, dealing 50 damage per second to units in a 150 area of effect.
+
+Lasts 4 seconds.
+}
+
+STRING 2242
+// Abilities: A02F ([Level 1, Ability 1] - Dummy Immolation), Ubertip (Tooltip - Normal - Extended)
+{
+Summon a sphere of fire, dealing 100 damage per second to units in a 200 area of effect.
+
+Lasts 4 seconds.
+}
+
+STRING 2243
+// Abilities: A02F ([Level 1, Ability 1] - Dummy Immolation), Ubertip (Tooltip - Normal - Extended)
+{
+Summon a sphere of fire, dealing 150 damage per second to units in a 250 area of effect.
+
+Lasts 4 seconds.
+}
+
+STRING 2244
+// Abilities: A02F ([Level 1, Ability 1] - Dummy Immolation), Ubertip (Tooltip - Normal - Extended)
+{
+Summon a sphere of fire, dealing 200 damage per second to units in a 300 area of effect.
+
+Lasts 4 seconds.
+}
+
+STRING 2246
+// Units: h02B (Immolation Dummy), Name (Name)
+{
+Immolation Dummy
+}
+
+STRING 2247
+// Units: u01D (Fluctuation Tower Level 2), Ubertip (Tooltip - Extended)
+{
+Normal Damage
+Attack Damage: 500
+Attack Speed: 2s - 5s
+Range: 800
+
+Multishot (3)
+Fluctuating Energy: Attack speed changes each time the tower attacks. Tower gains damage equal to its mana, tower loses all mana when attacking.
+}
+
+STRING 2248
+// Units: u01E (Fluctuation Tower Level 3), Ubertip (Tooltip - Extended)
+{
+Normal Damage
+Attack Damage: 1000
+Attack Speed: 1s - 6s
+Range: 800
+
+Multishot (3)
+Fluctuating Energy: Attack speed changes each time the tower attacks. Tower gains damage equal to its mana, tower loses all mana when attacking.
+}
+
+STRING 2249
+// Units: u01F (Fluctuation Tower Level 1), Ubertip (Tooltip - Extended)
+{
+Normal Damage
+Attack Damage: 300
+Attack Speed: 3s - 4s
+Range: 250
+
+Multishot (3)
+Fluctuating Energy: Attack speed changes each time the tower attacks. Tower gains damage equal to its mana, tower loses all mana when attacking.
+}
+
+STRING 2250
+// Units: u00B (Frost Tower), Ubertip (Tooltip - Extended)
+{
+Magic Damage
+Attack Damage: 50 - 125
+Attack Speed: 4.0s
+Range: 600
+
+Frost (4s)
+Splash (175)
+
+Effective against ethereal units
+}
+
+STRING 2251
+// Units: u00C (Freezer Tower), Ubertip (Tooltip - Extended)
+{
+Magic Damage
+Attack Damage: 100 - 250
+Attack Speed: 3.0s
+Range: 700
+
+Frost (5s)
+Splash (225)
+
+Effective against ethereal units
+}
+
+STRING 2252
+// Units: u012 (Glacier Tower), Ubertip (Tooltip - Extended)
+{
+Magic Damage
+Attack Damage: 200 - 500
+Attack Speed: 2.5s
+Range: 800
+
+Frost (6s)
+Splash (275)
+
+Effective against ethereal units
+}
+
+STRING 2253
+// Abilities: A01S (Infernal Core), Ubertip (Tooltip - Normal - Extended)
+{
+The hellfire tower gains 1 mana per attack. When dealing damage their is a 60% chance to trigger Infernal Core, this will deal damage to units within an area.
+
+At 1 mana the area of effect is 150. At 2, 250. At 3, 400. At 4, 600. At 5, 800. Damage dealt is these values doubled
+
+Infernal Core will always trigger when the tower deals damage with 5 mana, the damage dealt is pure siege damage.
+}
+
+STRING 2254
+{
+No
+}
+
+STRING 2255
+// Units: u016 (Monstrosity Tower Level 3), Ubertip (Tooltip - Extended)
+{
+Pierce Damage
+Attack Damage: 800
+Attack Speed: 2.0s
+Range: 800
+
+Sanguine Spike: A stacking bleeding attack that deals increasing damage for 8 seconds, gains stacks from tower attack and from damage over time.
 }
 
