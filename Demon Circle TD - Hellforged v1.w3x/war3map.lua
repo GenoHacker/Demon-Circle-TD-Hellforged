@@ -1517,7 +1517,6 @@ end
 
 function InitTrig_Demon_Lord_Spawning()
 gg_trg_Demon_Lord_Spawning = CreateTrigger()
-DisableTrigger(gg_trg_Demon_Lord_Spawning)
 TriggerAddAction(gg_trg_Demon_Lord_Spawning, Trig_Demon_Lord_Spawning_Actions)
 end
 
