@@ -4271,20 +4271,6 @@ Range: 700
 Infernal Core: The hellfire tower gains 1 mana per attack. When dealing damage their is a 60% chance to trigger Infernal Core, this will deal damage to units within an area.
 }
 
-STRING 2003
-// Units: u01J (Anomaly Tower Level 1), Ubertip (Tooltip - Extended)
-{
-Magic Damage
-Damage: 1 - 250
-Attack Speed: 7.50s
-Range: 600
-
-Resonance Cascade: The tower gains temporary abilities upon attacking at full mana and will use them, whilst regenerating mana subsequent attacks will reuse the previously gained abilities.
-
-Effective against ethereal units
-Limited to 1
-}
-
 STRING 2004
 // Units: u01K (Anomaly Tower Level 2), Ubertip (Tooltip - Extended)
 {
@@ -5512,5 +5498,18 @@ Source map was "Demon Circle TD - Better by |cffff0000Siryan|r with a minor edit
 STRING 2269
 {
 Demon Circle TD originally created by |cff76dbf8Varimathras|r
+}
+
+STRING 2270
+// Units: u01J (Anomaly Tower Level 1), Ubertip (Tooltip - Extended)
+{
+|cffffcc00Damage:|r 1 - 250 Magic
+|cffffcc00Attack Speed:|r 7.50s
+|cffffcc00Range:|r 600
+
+|cffffcc00Resonance Cascade:|r The tower gains temporary abilities upon attacking at full mana and will use them, whilst regenerating mana subsequent attacks will reuse the previously gained abilities.
+
+Effective against ethereal units
+Limited to 1
 }
 
