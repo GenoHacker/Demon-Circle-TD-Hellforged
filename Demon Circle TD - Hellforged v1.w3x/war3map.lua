@@ -100,6 +100,8 @@ udg_String_Array_WaveText = __jarray("")
 udg_Integer_ModToGive = 0
 udg_Integer_ModLevelToGive = 0
 udg_Temp_PointC = nil
+udg_Integer_Array_DichBoxGold = __jarray(0)
+udg_String_Array_DichBoxMsg = __jarray("")
 gg_rct_CreepSpawn1 = nil
 gg_rct_CreepSpawn2 = nil
 gg_rct_CreepSpawn3 = nil
@@ -444,6 +446,18 @@ i = i + 1
 end
 udg_Integer_ModToGive = 0
 udg_Integer_ModLevelToGive = 0
+i = 0
+while (true) do
+if ((i > 1)) then break end
+udg_Integer_Array_DichBoxGold[i] = 0
+i = i + 1
+end
+i = 0
+while (true) do
+if ((i > 1)) then break end
+udg_String_Array_DichBoxMsg[i] = ""
+i = i + 1
+end
 end
 
 function InitSounds()
@@ -451,6 +465,12 @@ gg_snd_MapPing = CreateSound("Sound/Interface/MapPing.flac", false, false, false
 SetSoundParamsFromLabel(gg_snd_MapPing, "MapPing")
 SetSoundDuration(gg_snd_MapPing, 1636)
 SetSoundVolume(gg_snd_MapPing, 127)
+end
+
+function CreateAllItems()
+local itemID
+
+BlzCreateItemWithSkin(FourCC("I00D"), -4309.6, 3862.2, FourCC("I00D"))
 end
 
 function CreateNeutralPassiveBuildings()
@@ -1273,11 +1293,11 @@ end
 return true
 end
 
-function Trig_Next_Wave_Func017A()
+function Trig_Next_Wave_Func018A()
 AdjustPlayerStateBJ(15, GetEnumPlayer(), PLAYER_STATE_RESOURCE_GOLD)
 end
 
-function Trig_Next_Wave_Func021C()
+function Trig_Next_Wave_Func022C()
 if (not (udg_Integer_Wave ~= 80)) then
 return false
 end
@@ -1345,9 +1365,10 @@ else
 MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 5, udg_String_Array_ArmourType[udg_Integer_ArmourTypeCounter])
 MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 6, udg_String_Array_ArmourType[(udg_Integer_ArmourTypeCounter + 1)])
 end
-ForForce(udg_PG_Users_Playing, Trig_Next_Wave_Func017A)
+TriggerExecute(gg_trg_Dichotomous_Box_Gold)
+ForForce(udg_PG_Users_Playing, Trig_Next_Wave_Func018A)
 DisplayTextToForce(GetPlayersAll(), ("|cffffcc00Wave " .. (I2S(udg_Integer_Wave) .. "!|r")))
-if (Trig_Next_Wave_Func021C()) then
+if (Trig_Next_Wave_Func022C()) then
 udg_Integer_Timer = 0
 else
 end
@@ -3374,6 +3395,58 @@ TriggerAddCondition(gg_trg_Hellfrost_Enchantment_Reset, Condition(Trig_Hellfrost
 TriggerAddAction(gg_trg_Hellfrost_Enchantment_Reset, Trig_Hellfrost_Enchantment_Reset_Actions)
 end
 
+function Trig_Dichotomous_Box_Gold_Func001Func002Func001Func004C()
+if (not (udg_Integer_Array_DichBoxGold[GetConvertedPlayerId(GetOwningPlayer(GetEnumUnit()))] >= 1)) then
+return false
+end
+return true
+end
+
+function Trig_Dichotomous_Box_Gold_Func001Func002Func001C()
+if (not (GetItemCharges(GetItemOfTypeFromUnitBJ(GetEnumUnit(), FourCC("I00D"))) >= 1)) then
+return false
+end
+return true
+end
+
+function Trig_Dichotomous_Box_Gold_Func001Func002C()
+if (not (udg_Integer_Array_DicBoxGoldChance[GetConvertedPlayerId(GetOwningPlayer(GetEnumUnit()))] <= 50)) then
+return false
+end
+return true
+end
+
+function Trig_Dichotomous_Box_Gold_Func001A()
+udg_Integer_Array_DicBoxGoldChance[GetConvertedPlayerId(GetOwningPlayer(GetEnumUnit()))] = GetRandomInt(1, 100)
+if (Trig_Dichotomous_Box_Gold_Func001Func002C()) then
+if (Trig_Dichotomous_Box_Gold_Func001Func002Func001C()) then
+udg_Integer_Array_DichBoxGold[GetConvertedPlayerId(GetOwningPlayer(GetEnumUnit()))] = GetRandomInt((-10 * GetItemCharges(GetItemOfTypeFromUnitBJ(GetEnumUnit(), FourCC("I00D")))), (10 * GetItemCharges(GetItemOfTypeFromUnitBJ(GetEnumUnit(), FourCC("I00D")))))
+AdjustPlayerStateBJ(udg_Integer_Array_DichBoxGold[GetConvertedPlayerId(GetOwningPlayer(GetEnumUnit()))], GetOwningPlayer(GetEnumUnit()), PLAYER_STATE_RESOURCE_GOLD)
+udg_Temp_PointA = GetUnitLoc(GetEnumUnit())
+if (Trig_Dichotomous_Box_Gold_Func001Func002Func001Func004C()) then
+udg_String_Array_DichBoxMsg[GetConvertedPlayerId(GetOwningPlayer(GetEnumUnit()))] = ("+" .. I2S(udg_Integer_Array_DichBoxGold[GetConvertedPlayerId(GetOwningPlayer(GetEnumUnit()))]))
+else
+udg_String_Array_DichBoxMsg[GetConvertedPlayerId(GetOwningPlayer(GetEnumUnit()))] = I2S(udg_Integer_Array_DichBoxGold[GetConvertedPlayerId(GetOwningPlayer(GetEnumUnit()))])
+end
+CreateTextTagLocBJ(udg_String_Array_DichBoxMsg[GetConvertedPlayerId(GetOwningPlayer(GetEnumUnit()))], udg_Temp_PointA, 0, 10, 100, 100, 0.00, 0)
+SetTextTagLifespanBJ(GetLastCreatedTextTag(), 1.00)
+SetTextTagPermanentBJ(GetLastCreatedTextTag(), false)
+            RemoveLocation(udg_Temp_PointA)
+else
+end
+else
+end
+end
+
+function Trig_Dichotomous_Box_Gold_Actions()
+ForGroupBJ(udg_Unit_Group_Demons, Trig_Dichotomous_Box_Gold_Func001A)
+end
+
+function InitTrig_Dichotomous_Box_Gold()
+gg_trg_Dichotomous_Box_Gold = CreateTrigger()
+TriggerAddAction(gg_trg_Dichotomous_Box_Gold, Trig_Dichotomous_Box_Gold_Actions)
+end
+
 function Trig_Argent_Conduit_Func001C()
 if (not (GetUnitAbilityLevelSwapped(FourCC("A022"), GetManipulatingUnit()) ~= 1)) then
 return false
@@ -3522,6 +3595,31 @@ function InitTrig_Hellfrost_Enchantment()
 gg_trg_Hellfrost_Enchantment = CreateTrigger()
 TriggerRegisterAnyUnitEventBJ(gg_trg_Hellfrost_Enchantment, EVENT_PLAYER_UNIT_PICKUP_ITEM)
 TriggerAddAction(gg_trg_Hellfrost_Enchantment, Trig_Hellfrost_Enchantment_Actions)
+end
+
+function Trig_Dichotomous_Box_Func001C()
+if (not (GetUnitAbilityLevelSwapped(FourCC("A010"), GetManipulatingUnit()) ~= 1)) then
+return false
+end
+if (not (GetItemTypeId(GetManipulatedItem()) == FourCC("I00D"))) then
+return false
+end
+return true
+end
+
+function Trig_Dichotomous_Box_Actions()
+if (Trig_Dichotomous_Box_Func001C()) then
+udg_Temp_PointA = GetUnitLoc(GetManipulatingUnit())
+UnitDropItemPointLoc(GetManipulatingUnit(), GetItemOfTypeFromUnitBJ(GetManipulatingUnit(), FourCC("I00D")), udg_Temp_PointA)
+        RemoveLocation(udg_Temp_PointA)
+else
+end
+end
+
+function InitTrig_Dichotomous_Box()
+gg_trg_Dichotomous_Box = CreateTrigger()
+TriggerRegisterAnyUnitEventBJ(gg_trg_Dichotomous_Box, EVENT_PLAYER_UNIT_PICKUP_ITEM)
+TriggerAddAction(gg_trg_Dichotomous_Box, Trig_Dichotomous_Box_Actions)
 end
 
 function Trig_Soul_Eater_Func001C()
@@ -4779,12 +4877,14 @@ InitTrig_Satans_Claw_Remove()
 InitTrig_Satans_Claw_Upgrade()
 InitTrig_Hellfrost_Enchantment_Armor_Remove()
 InitTrig_Hellfrost_Enchantment_Reset()
+InitTrig_Dichotomous_Box_Gold()
 InitTrig_Argent_Conduit()
 InitTrig_Satans_Claw()
 InitTrig_Ghastly_Vial()
 InitTrig_Jar_of_Demon_Fire()
 InitTrig_Khorns_Gift()
 InitTrig_Hellfrost_Enchantment()
+InitTrig_Dichotomous_Box()
 InitTrig_Soul_Eater()
 InitTrig_Hellfire_Reagent()
 InitTrig_Pulsating_Flesh()
@@ -5038,6 +5138,7 @@ SetAmbientNightSound("DungeonNight")
 SetMapMusic("Music", true, 0)
 InitSounds()
 CreateRegions()
+CreateAllItems()
 CreateAllUnits()
 InitBlizzard()
 InitGlobals()

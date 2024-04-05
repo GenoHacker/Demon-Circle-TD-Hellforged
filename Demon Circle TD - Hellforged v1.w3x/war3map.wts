@@ -3914,16 +3914,6 @@ Streams of demonic energy emanate from the tower dealing 50/80/110 damage on hit
 Effective against ethereal units.
 }
 
-STRING 1939
-// Items: I00D (Dichotomous Box), Ubertip (Tooltip - Extended)
-{
-[Demon Only]
-
-All items have 3 levels, you can give additional copies of the item to the tower to level it up.
-
-Gain or lose up to 0 to 1/2/4 gold every 2.5 seconds.
-}
-
 STRING 1941
 // Items: I000 (Soul Eater), Ubertip (Tooltip - Extended)
 {
@@ -5449,5 +5439,15 @@ Every 10th wave has Spell Damage Reduction and Hardened Skin.
 STRING 2333
 {
 v1.00.0 Released XX/XX/XXXX
+}
+
+STRING 2335
+// Items: I00D (Dichotomous Box), Ubertip (Tooltip - Extended)
+{
+[Demon Only]
+
+All items have 3 levels, you can give additional copies of the item to the tower to level it up.
+
+Gain or lose up to 10 x Item Level gold per wave
 }
 
