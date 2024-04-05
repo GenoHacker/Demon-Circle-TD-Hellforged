@@ -1,7 +1,5 @@
 udg_Integer_Wave = 0
 udg_Integer_NumberOfCreeps = 0
-udg_T_NextRound = nil
-udg_TW_NextRound = nil
 udg_Integer_Kills = __jarray(0)
 udg_UT_UnitType = __jarray(0)
 udg_LeaderBoard_Kills = nil
@@ -14,7 +12,6 @@ udg_Temp_PointSpawn6 = nil
 udg_Temp_PointSpawn7 = nil
 udg_Temp_PointSpawn8 = nil
 udg_Temp_PointSpawn1 = nil
-udg_Temp_Integer = 0
 udg_Integer_Spawncount = 0
 udg_Dialog_Difficulty = nil
 udg_DialogButton_Array_Difficulty = {}
@@ -25,12 +22,11 @@ udg_Integer_Array_FrostChance = __jarray(0)
 udg_Integer_Array_DicBoxGoldChance = __jarray(0)
 udg_Integer_EnemyHandicap = 0
 udg_PlayerGroup_SellTower = nil
-udg_Region_Array_Teleport = {}
 udg_Region_Array_Waypoints = {}
 udg_Temp_PointB = nil
-udg_AbilityCode_Array_Commander = __jarray(0)
-udg_Integer_CommanderAbilityChance = 0
-udg_Temp_PointCommander = {}
+udg_AbilityCode_Array_DemonLord = __jarray(0)
+udg_Integer_DemonLordAbilityChance = 0
+udg_Temp_PointDemonLord = {}
 udg_Integer_MaxSpawncount = 0
 udg_UnitGroup_SiphoningTower = {}
 udg_UnitGroup_SanguineStacks = nil
@@ -48,13 +44,13 @@ udg_Real_Array_SoulEaterDamage = __jarray(0.0)
 udg_Real_Lives = 0.0
 udg_Real_WaveTimer = 0.0
 udg_Real_WaveHealthModifier = 0.0
-udg_Real_CommanderHealth = 0.0
-udg_Real_CommanderArmour = 0.0
+udg_Real_DemonLordHealth = 0.0
+udg_Real_DemonLordArmour = 0.0
 udg_Real_Array_SpawnDegrees = __jarray(0.0)
 udg_Region_Array_Spawns = {}
 udg_Point_Array_WaveSpawnpoint = {}
 udg_Real_WaveHealth = 0.0
-udg_UnitGroup_DoomCommanders = nil
+udg_UnitGroup_DemonLord = nil
 udg_AbilityCode_Array_AnomalyTower = __jarray(0)
 udg_Integer_Array_AnomalyAbility1 = __jarray(0)
 udg_Integer_Array_AnomalyAbility2 = __jarray(0)
@@ -71,7 +67,7 @@ udg_PG_Users_All = nil
 udg_Player_Number = 0
 udg_Player = nil
 udg_Creep = nil
-udg_Commander_Loop = 0
+udg_DemonLord_Loop = 0
 udg_Player_Extra = nil
 udg_Player_Number_Extra = 0
 udg_Owner_Of_Killing_Unit = nil
@@ -84,24 +80,18 @@ udg_Integer_Timer = 0
 udg_Real_Array_SiphoningAOE = __jarray(0.0)
 udg_Real_Array_SiphonTowerManaGain = __jarray(0.0)
 udg_Real_Array_SiphonTowerManaLoss = __jarray(0.0)
-udg_Unit_Array_AnomalyDummyUnit = {}
 udg_Real_Array_FrostTowArmorReduce = __jarray(0.0)
-udg_UnitGroup_Array_FrostTower = {}
-udg_UnitGroup_Array_AnomDummys4 = {}
-udg_UnitGroup_Array_AnomDummys3 = {}
 udg_UnitGroup_Array_AnomDummys2 = {}
 udg_Multiboard = {}
 udg_Integer_SpawnIncreaseAmount = 0
 udg_String_Array_ArmourType = __jarray("")
 udg_Integer_ArmourTypeCounter = 0
 udg_Integer_ModifierChance = 0
-udg_String_Array_Modifiers = __jarray("")
 udg_Boolean_Leaderboard = false
 udg_Integer_TotalModNumber = 0
 udg_Integer_ModType = 0
 udg_String_Array_Mods = __jarray("")
-udg_String_Array_ModLevel = __jarray("")
-udg_Integer_CommanderMod = 0
+udg_Integer_DemonLordMod = 0
 udg_AbilityCode_Array_ModAbilities = __jarray(0)
 udg_String_Array_ModName = __jarray("")
 udg_String_Array_ModLevelText = __jarray("")
@@ -112,8 +102,6 @@ udg_String_Array_WaveText = __jarray("")
 udg_Integer_ModToGive = 0
 udg_Integer_ModLevelToGive = 0
 udg_Temp_PointC = nil
-udg_Unit_DivineShield = nil
-udg_Unit_Anomaly = nil
 udg_Integer_AnomPlyNum = 0
 gg_rct_CreepSpawn1 = nil
 gg_rct_CreepSpawn2 = nil
@@ -163,7 +151,7 @@ gg_trg_Difficulty_Dialog_Stop = nil
 gg_trg_Timer = nil
 gg_trg_Next_Wave = nil
 gg_trg_Wave_Spawning = nil
-gg_trg_Commander_Spawning = nil
+gg_trg_Demon_Lord_Spawning = nil
 gg_trg_Wave_Buffs_New = nil
 gg_trg_Lives = nil
 gg_trg_Unit_Dies = nil
@@ -177,8 +165,6 @@ gg_trg_Anomaly_Tower_Limit_Cancel = nil
 gg_trg_Anomaly_Tower_Level_Up_Ability = nil
 gg_trg_Anomaly_Tower = nil
 gg_trg_Bladestorm_Dummy_Fix = nil
-gg_trg_Anomaly_Tower_BROKE = nil
-gg_trg_Anomaly_Tower_ALSO_BROKE = nil
 gg_trg_Hellfire_Tower = nil
 gg_trg_Fluctuation_Tower_Ability = nil
 gg_trg_Fluctuation_Tower_Mana = nil
@@ -234,14 +220,12 @@ local i = 0
 
 udg_Integer_Wave = 0
 udg_Integer_NumberOfCreeps = 0
-udg_T_NextRound = CreateTimer()
 i = 0
 while (true) do
 if ((i > 1)) then break end
 udg_Integer_Kills[i] = 0
 i = i + 1
 end
-udg_Temp_Integer = 0
 udg_Integer_Spawncount = 0
 udg_Dialog_Difficulty = DialogCreate()
 i = 0
@@ -271,7 +255,7 @@ i = i + 1
 end
 udg_Integer_EnemyHandicap = 100
 udg_PlayerGroup_SellTower = CreateForce()
-udg_Integer_CommanderAbilityChance = 0
+udg_Integer_DemonLordAbilityChance = 0
 udg_Integer_MaxSpawncount = 10
 i = 0
 while (true) do
@@ -327,8 +311,8 @@ end
 udg_Real_Lives = 100.00
 udg_Real_WaveTimer = 25.00
 udg_Real_WaveHealthModifier = 1.00
-udg_Real_CommanderHealth = 0.0
-udg_Real_CommanderArmour = 0.0
+udg_Real_DemonLordHealth = 0.0
+udg_Real_DemonLordArmour = 0.0
 i = 0
 while (true) do
 if ((i > 1)) then break end
@@ -336,7 +320,7 @@ udg_Real_Array_SpawnDegrees[i] = 0.0
 i = i + 1
 end
 udg_Real_WaveHealth = 0.0
-udg_UnitGroup_DoomCommanders = CreateGroup()
+udg_UnitGroup_DemonLord = CreateGroup()
 i = 0
 while (true) do
 if ((i > 1)) then break end
@@ -374,7 +358,7 @@ udg_PG_Users_Playing = CreateForce()
 udg_PG_Users_Leavers = CreateForce()
 udg_PG_Users_All = CreateForce()
 udg_Player_Number = 0
-udg_Commander_Loop = 0
+udg_DemonLord_Loop = 0
 udg_Player_Number_Extra = 0
 i = 0
 while (true) do
@@ -410,24 +394,6 @@ end
 i = 0
 while (true) do
 if ((i > 1)) then break end
-udg_UnitGroup_Array_FrostTower[i] = CreateGroup()
-i = i + 1
-end
-i = 0
-while (true) do
-if ((i > 1)) then break end
-udg_UnitGroup_Array_AnomDummys4[i] = CreateGroup()
-i = i + 1
-end
-i = 0
-while (true) do
-if ((i > 1)) then break end
-udg_UnitGroup_Array_AnomDummys3[i] = CreateGroup()
-i = i + 1
-end
-i = 0
-while (true) do
-if ((i > 1)) then break end
 udg_UnitGroup_Array_AnomDummys2[i] = CreateGroup()
 i = i + 1
 end
@@ -440,12 +406,6 @@ i = i + 1
 end
 udg_Integer_ArmourTypeCounter = 0
 udg_Integer_ModifierChance = 200
-i = 0
-while (true) do
-if ((i > 1)) then break end
-udg_String_Array_Modifiers[i] = ""
-i = i + 1
-end
 udg_Boolean_Leaderboard = false
 udg_Integer_TotalModNumber = 12
 udg_Integer_ModType = 0
@@ -455,13 +415,7 @@ if ((i > 1)) then break end
 udg_String_Array_Mods[i] = ""
 i = i + 1
 end
-i = 0
-while (true) do
-if ((i > 1)) then break end
-udg_String_Array_ModLevel[i] = ""
-i = i + 1
-end
-udg_Integer_CommanderMod = 0
+udg_Integer_DemonLordMod = 0
 i = 0
 while (true) do
 if ((i > 1)) then break end
@@ -815,11 +769,11 @@ udg_Integer_Array_SoulfireChance[0] = 0
 udg_Integer_Array_SoulfireChance[1] = 10
 udg_Integer_Array_SoulfireChance[2] = 20
 udg_Integer_Array_SoulfireChance[3] = 40
-udg_AbilityCode_Array_Commander[1] = FourCC("A01K")
-udg_AbilityCode_Array_Commander[2] = FourCC("A01J")
-udg_AbilityCode_Array_Commander[3] = FourCC("S000")
-udg_AbilityCode_Array_Commander[4] = FourCC("A01L")
-udg_AbilityCode_Array_Commander[5] = FourCC("A01M")
+udg_AbilityCode_Array_DemonLord[1] = FourCC("A01K")
+udg_AbilityCode_Array_DemonLord[2] = FourCC("A01J")
+udg_AbilityCode_Array_DemonLord[3] = FourCC("S000")
+udg_AbilityCode_Array_DemonLord[4] = FourCC("A01L")
+udg_AbilityCode_Array_DemonLord[5] = FourCC("A01M")
 udg_Region_Array_Waypoints[1] = gg_rct_Waypoint_1
 udg_Region_Array_Waypoints[2] = gg_rct_Waypoint_2
 udg_Region_Array_Waypoints[3] = gg_rct_Waypoint_3
@@ -919,7 +873,7 @@ gg_trg_Map_Initialization = CreateTrigger()
 TriggerAddAction(gg_trg_Map_Initialization, Trig_Map_Initialization_Actions)
 end
 
-function Trig_Map_Start_Func022Func002C()
+function Trig_Map_Start_Func027Func002C()
 if (not (GetPlayerController(udg_Player) == MAP_CONTROL_USER)) then
 return false
 end
@@ -929,9 +883,9 @@ end
 return true
 end
 
-function Trig_Map_Start_Func022A()
+function Trig_Map_Start_Func027A()
 udg_Player = GetEnumPlayer()
-if (Trig_Map_Start_Func022Func002C()) then
+if (Trig_Map_Start_Func027Func002C()) then
 udg_Player_Number = GetConvertedPlayerId(udg_Player)
 udg_Player_Is_Active[udg_Player_Number] = true
 ForceAddPlayerSimple(udg_Player, udg_PG_Users_All)
@@ -951,16 +905,16 @@ else
 end
 end
 
-function Trig_Map_Start_Func030Func002C()
+function Trig_Map_Start_Func035Func002C()
 if (not (GetPlayerSlotState(udg_Player) == PLAYER_SLOT_STATE_PLAYING)) then
 return false
 end
 return true
 end
 
-function Trig_Map_Start_Func030A()
+function Trig_Map_Start_Func035A()
 udg_Player = GetEnumPlayer()
-if (Trig_Map_Start_Func030Func002C()) then
+if (Trig_Map_Start_Func035Func002C()) then
 udg_Player_Number = GetConvertedPlayerId(udg_Player)
 LeaderboardAddItemBJ(udg_Player, udg_LeaderBoard_Kills, GetPlayerName(udg_Player), udg_Integer_Kills[udg_Player_Number])
 else
@@ -974,10 +928,14 @@ SetTimeOfDay(12)
 SetPlayerFlagBJ(PLAYER_STATE_GIVES_BOUNTY, true, Player(10))
 SetPlayerFlagBJ(PLAYER_STATE_GIVES_BOUNTY, true, Player(11))
 CreateQuestBJ(bj_QUESTTYPE_REQ_DISCOVERED, "TRIGSTR_1913", "TRIGSTR_1914", "ReplaceableTextures\\CommandButtons\\BTNSnazzyScrollGreen.blp")
+CreateQuestItemBJ(GetLastCreatedQuestBJ(), "TRIGSTR_2331")
+CreateQuestItemBJ(GetLastCreatedQuestBJ(), "TRIGSTR_2332")
 CreateQuestBJ(bj_QUESTTYPE_REQ_DISCOVERED, "TRIGSTR_1915", "TRIGSTR_1916", "ReplaceableTextures\\CommandButtons\\BTNSnazzyScrollGreen.blp")
+CreateQuestItemBJ(GetLastCreatedQuestBJ(), "TRIGSTR_2330")
 CreateQuestBJ(bj_QUESTTYPE_REQ_DISCOVERED, "TRIGSTR_2257", "TRIGSTR_2258", "ReplaceableTextures\\CommandButtons\\BTNSnazzyScrollGreen.blp")
 CreateQuestItemBJ(GetLastCreatedQuestBJ(), "TRIGSTR_2264")
 CreateQuestBJ(bj_QUESTTYPE_REQ_DISCOVERED, "TRIGSTR_2259", "TRIGSTR_2260", "ReplaceableTextures\\CommandButtons\\BTNSnazzyScrollGreen.blp")
+CreateQuestItemBJ(GetLastCreatedQuestBJ(), "TRIGSTR_2329")
 CreateQuestBJ(bj_QUESTTYPE_OPT_DISCOVERED, "TRIGSTR_1917", "TRIGSTR_1918", "ReplaceableTextures\\CommandButtons\\BTNSnazzyScroll.blp")
 CreateQuestItemBJ(GetLastCreatedQuestBJ(), "TRIGSTR_2268")
 CreateQuestItemBJ(GetLastCreatedQuestBJ(), "TRIGSTR_2269")
@@ -985,12 +943,13 @@ CreateQuestBJ(bj_QUESTTYPE_OPT_DISCOVERED, "TRIGSTR_1919", "TRIGSTR_1920", "Repl
 CreateQuestItemBJ(GetLastCreatedQuestBJ(), "TRIGSTR_2267")
 CreateQuestBJ(bj_QUESTTYPE_OPT_DISCOVERED, "TRIGSTR_1911", "TRIGSTR_1912", "ReplaceableTextures\\CommandButtons\\BTNSnazzyScrollGreen.blp")
 QuestSetTitleBJ(GetLastCreatedQuestBJ(), "TRIGSTR_2266")
-ForForce(GetPlayersAll(), Trig_Map_Start_Func022A)
+CreateQuestItemBJ(GetLastCreatedQuestBJ(), "TRIGSTR_2333")
+ForForce(GetPlayersAll(), Trig_Map_Start_Func027A)
 udg_Integer_MaxCreeps = (60 * udg_Integer_PlayerCount)
 CreateLeaderboardBJ(udg_PG_Users_Playing, "TRIGSTR_1910")
 udg_LeaderBoard_Kills = GetLastCreatedLeaderboard()
 LeaderboardDisplayBJ(false, udg_LeaderBoard_Kills)
-ForForce(GetPlayersAll(), Trig_Map_Start_Func030A)
+ForForce(GetPlayersAll(), Trig_Map_Start_Func035A)
 LeaderboardRemovePlayerItemBJ(Player(11), udg_LeaderBoard_Kills)
 EnableTrigger(gg_trg_Timer)
 end
@@ -1358,7 +1317,7 @@ else
 if (Trig_Next_Wave_Func005Func001C()) then
 udg_Integer_WaveModPerSpawnChance = 115
 EnableTrigger(gg_trg_Wave_Buffs_New)
-EnableTrigger(gg_trg_Commander_Spawning)
+EnableTrigger(gg_trg_Demon_Lord_Spawning)
 else
 end
 end
@@ -1482,7 +1441,7 @@ udg_Integer_Spawncount = (udg_Integer_Spawncount + 1)
 udg_Integer_WaveModPerSpawnChance = (udg_Integer_WaveModPerSpawnChance - 5)
 ForForce(udg_PG_Users_Playing, Trig_Wave_Spawning_Func005A)
 if (Trig_Wave_Spawning_Func007C()) then
-EnableTrigger(gg_trg_Commander_Spawning)
+ConditionalTriggerExecute(gg_trg_Demon_Lord_Spawning)
 udg_Integer_Spawncount = 0
 DisableTrigger(GetTriggeringTrigger())
 else
@@ -1502,70 +1461,70 @@ TriggerAddCondition(gg_trg_Wave_Spawning, Condition(Trig_Wave_Spawning_Condition
 TriggerAddAction(gg_trg_Wave_Spawning, Trig_Wave_Spawning_Actions)
 end
 
-function Trig_Commander_Spawning_Func006A()
+function Trig_Demon_Lord_Spawning_Func006A()
 udg_Player = GetEnumPlayer()
 udg_Player_Number = GetConvertedPlayerId(udg_Player)
-udg_Temp_PointCommander[udg_Player_Number] = udg_Point_Array_WaveSpawnpoint[udg_Player_Number]
-CreateNUnitsAtLoc(1, FourCC("n001"), Player(11), udg_Temp_PointCommander[udg_Player_Number], udg_Real_Array_SpawnDegrees[udg_Player_Number])
-    RemoveLocation(udg_Temp_PointCommander[udg_Temp_PointCommander[udg_Player_Number]])
+udg_Temp_PointDemonLord[udg_Player_Number] = udg_Point_Array_WaveSpawnpoint[udg_Player_Number]
+CreateNUnitsAtLoc(1, FourCC("n001"), Player(11), udg_Temp_PointDemonLord[udg_Player_Number], udg_Real_Array_SpawnDegrees[udg_Player_Number])
+    RemoveLocation(udg_Temp_PointDemonLord[udg_Temp_PointDemonLord[udg_Player_Number]])
 udg_Creep = GetLastCreatedUnit()
-GroupAddUnitSimple(udg_Creep, udg_UnitGroup_DoomCommanders)
-BlzSetUnitArmor(udg_Creep, udg_Real_CommanderArmour)
-BlzSetUnitMaxHP(udg_Creep, R2I(udg_Real_CommanderHealth))
+GroupAddUnitSimple(udg_Creep, udg_UnitGroup_DemonLord)
+BlzSetUnitArmor(udg_Creep, udg_Real_DemonLordArmour)
+BlzSetUnitMaxHP(udg_Creep, R2I(udg_Real_DemonLordHealth))
 SetUnitLifePercentBJ(udg_Creep, 100)
 UnitAddAbilityBJ(FourCC("Aeth"), udg_Creep)
 end
 
-function Trig_Commander_Spawning_Func008Func001Func002Func001C()
-if (not (udg_Commander_Loop == 5)) then
+function Trig_Demon_Lord_Spawning_Func008Func001Func002Func001C()
+if (not (udg_DemonLord_Loop == 5)) then
 return false
 end
 return true
 end
 
-function Trig_Commander_Spawning_Func008Func001Func002C()
-if (not (udg_Integer_CommanderAbilityChance <= (100 + (udg_Integer_Wave * 2)))) then
+function Trig_Demon_Lord_Spawning_Func008Func001Func002C()
+if (not (udg_Integer_DemonLordAbilityChance <= (100 + (udg_Integer_Wave * 2)))) then
 return false
 end
 return true
 end
 
-function Trig_Commander_Spawning_Func008A()
-udg_Commander_Loop = 1
+function Trig_Demon_Lord_Spawning_Func008A()
+udg_DemonLord_Loop = 1
 while (true) do
-if (udg_Commander_Loop > 5) then break end
-udg_Integer_CommanderAbilityChance = GetRandomInt(1, 1000)
-if (Trig_Commander_Spawning_Func008Func001Func002C()) then
-if (Trig_Commander_Spawning_Func008Func001Func002Func001C()) then
-udg_Temp_PointCommander[9] = GetUnitLoc(GetEnumUnit())
-CreateNUnitsAtLoc(1, FourCC("h02A"), Player(8), udg_Temp_PointCommander[9], bj_UNIT_FACING)
-                RemoveLocation(udg_Temp_PointCommander[9])
+if (udg_DemonLord_Loop > 5) then break end
+udg_Integer_DemonLordAbilityChance = GetRandomInt(1, 1000)
+if (Trig_Demon_Lord_Spawning_Func008Func001Func002C()) then
+if (Trig_Demon_Lord_Spawning_Func008Func001Func002Func001C()) then
+udg_Temp_PointDemonLord[9] = GetUnitLoc(GetEnumUnit())
+CreateNUnitsAtLoc(1, FourCC("h02A"), Player(8), udg_Temp_PointDemonLord[9], bj_UNIT_FACING)
+                RemoveLocation(udg_Temp_PointDemonLord[9])
 UnitApplyTimedLifeBJ(1.00, FourCC("BTLF"), GetLastCreatedUnit())
 UnitAddAbilityBJ(FourCC("A01M"), GetLastCreatedUnit())
 IssueTargetOrderBJ(GetLastCreatedUnit(), "spiritlink", GetEnumUnit())
 else
-UnitAddAbilityBJ(udg_AbilityCode_Array_Commander[udg_Commander_Loop], GetEnumUnit())
+UnitAddAbilityBJ(udg_AbilityCode_Array_DemonLord[udg_DemonLord_Loop], GetEnumUnit())
 end
 else
 end
-udg_Commander_Loop = udg_Commander_Loop + 1
+udg_DemonLord_Loop = udg_DemonLord_Loop + 1
 end
 end
 
-function Trig_Commander_Spawning_Actions()
-udg_Real_CommanderHealth = (150.00 + ((30.00 * I2R(udg_Integer_ModLevelToGive)) * I2R(udg_Integer_Wave)))
-udg_Real_CommanderHealth = (udg_Real_CommanderHealth * (I2R(udg_Integer_EnemyHandicap) / 100.00))
-udg_Real_CommanderHealth = (udg_Real_CommanderHealth * udg_Real_WaveHealthModifier)
-udg_Real_CommanderArmour = ((5.00 * I2R(udg_Integer_ModLevelToGive)) + (I2R(udg_Integer_Wave) * 0.10))
-ForForce(udg_PG_Users_Playing, Trig_Commander_Spawning_Func006A)
-ForGroupBJ(udg_UnitGroup_DoomCommanders, Trig_Commander_Spawning_Func008A)
-    DestroyGroup(udg_UnitGroup_DoomCommanders)
+function Trig_Demon_Lord_Spawning_Actions()
+udg_Real_DemonLordHealth = (150.00 + ((30.00 * I2R(udg_Integer_ModLevelToGive)) * I2R(udg_Integer_Wave)))
+udg_Real_DemonLordHealth = (udg_Real_DemonLordHealth * (I2R(udg_Integer_EnemyHandicap) / 100.00))
+udg_Real_DemonLordHealth = (udg_Real_DemonLordHealth * udg_Real_WaveHealthModifier)
+udg_Real_DemonLordArmour = ((5.00 * I2R(udg_Integer_ModLevelToGive)) + (I2R(udg_Integer_Wave) * 0.10))
+ForForce(udg_PG_Users_Playing, Trig_Demon_Lord_Spawning_Func006A)
+ForGroupBJ(udg_UnitGroup_DemonLord, Trig_Demon_Lord_Spawning_Func008A)
+    DestroyGroup(udg_UnitGroup_DemonLord)
 end
 
-function InitTrig_Commander_Spawning()
-gg_trg_Commander_Spawning = CreateTrigger()
-DisableTrigger(gg_trg_Commander_Spawning)
-TriggerAddAction(gg_trg_Commander_Spawning, Trig_Commander_Spawning_Actions)
+function InitTrig_Demon_Lord_Spawning()
+gg_trg_Demon_Lord_Spawning = CreateTrigger()
+DisableTrigger(gg_trg_Demon_Lord_Spawning)
+TriggerAddAction(gg_trg_Demon_Lord_Spawning, Trig_Demon_Lord_Spawning_Actions)
 end
 
 function Trig_Wave_Buffs_New_Func007C()
@@ -1713,7 +1672,7 @@ udg_Integer_ModToGive = udg_Integer_Array_WaveMod[(((udg_Integer_Wave - 1) * 3) 
 udg_Integer_ModLevelToGive = udg_Integer_Array_WaveModLevel[(((udg_Integer_Wave - 1) * 3) + 1)]
 if (Trig_Wave_Buffs_New_Func003Func004C()) then
 if (Trig_Wave_Buffs_New_Func003Func004Func001C()) then
-udg_Integer_CommanderMod = udg_Integer_ModLevelToGive
+udg_Integer_DemonLordMod = udg_Integer_ModLevelToGive
 else
 if (Trig_Wave_Buffs_New_Func003Func004Func001Func003C()) then
 udg_Temp_PointA = GetUnitLoc(GetTriggerUnit())
@@ -1744,7 +1703,7 @@ udg_Integer_ModToGive = udg_Integer_Array_WaveMod[(((udg_Integer_Wave - 1) * 3) 
 udg_Integer_ModLevelToGive = udg_Integer_Array_WaveModLevel[(((udg_Integer_Wave - 1) * 3) + 2)]
 if (Trig_Wave_Buffs_New_Func003Func008C()) then
 if (Trig_Wave_Buffs_New_Func003Func008Func001C()) then
-udg_Integer_CommanderMod = udg_Integer_ModLevelToGive
+udg_Integer_DemonLordMod = udg_Integer_ModLevelToGive
 else
 if (Trig_Wave_Buffs_New_Func003Func008Func001Func003C()) then
 udg_Temp_PointA = GetUnitLoc(GetTriggerUnit())
@@ -1775,7 +1734,7 @@ udg_Integer_ModToGive = udg_Integer_Array_WaveMod[(((udg_Integer_Wave - 1) * 3) 
 udg_Integer_ModLevelToGive = udg_Integer_Array_WaveModLevel[(((udg_Integer_Wave - 1) * 3) + 3)]
 if (Trig_Wave_Buffs_New_Func003Func012C()) then
 if (Trig_Wave_Buffs_New_Func003Func012Func001C()) then
-udg_Integer_CommanderMod = udg_Integer_ModLevelToGive
+udg_Integer_DemonLordMod = udg_Integer_ModLevelToGive
 else
 if (Trig_Wave_Buffs_New_Func003Func012Func001Func003C()) then
 udg_Temp_PointA = GetUnitLoc(GetTriggerUnit())
@@ -4792,7 +4751,7 @@ InitTrig_Difficulty_Dialog_Stop()
 InitTrig_Timer()
 InitTrig_Next_Wave()
 InitTrig_Wave_Spawning()
-InitTrig_Commander_Spawning()
+InitTrig_Demon_Lord_Spawning()
 InitTrig_Wave_Buffs_New()
 InitTrig_Lives()
 InitTrig_Unit_Dies()
