@@ -3747,12 +3747,12 @@ Left.
 
 STRING 1901
 {
-Yes / ++Difficulty++
+Yes / Difficulty++
 }
 
 STRING 1902
 {
-Yes / +Difficulty+
+Yes / Difficulty+
 }
 
 STRING 1903
@@ -3792,7 +3792,7 @@ Kills
 
 STRING 1911
 {
-Hellforged Changes
+|cffffcc00Hellforged
 }
 
 STRING 1912
@@ -3801,22 +3801,22 @@ STRING 1912
 -- Completely remade terrain
 -- Reworked all towers
 -- Overhauled wave spawning
--- Fixed memory leaks
--- Trigger Optimizations
 -- Changes to all waves
 -- Changes to leaderboard
 -- Changes to defeat conditions
+-- Added creep teleporting if a player is inactive or has left
 -- Added wave modifiers
 -- Added new towers
 -- Added Items for each tower
--- Added ability to increase or decrease difficulty
+-- Added options to increase difficulty
+-- Many other changes that ive probably forgotten about or simply dont think need an entry into this changelog
 
 
 }
 
 STRING 1913
 {
-Information
+|cffffcc00Information
 }
 
 STRING 1914
@@ -3824,20 +3824,20 @@ STRING 1914
 Every 5th wave has Spell Damage Reduction.
 Every 10th wave has Spell Damage Reduction and Hardened Skin.
 You gain 1 gold when another player kills your creeps.
-Each wave after 10 will gain 10% of wave number as armour and has a chance to spawn banished, have mana shield and/or spawn a commander that has a chance to have 1, multiple or no auras, it may also cast spirit link on itself and the wave.
-Killing a demon commander will give all players gold and lumber.
+Each wave after 10 will gain 10% of wave number as armour.
+Killing a demon lord will give all players some gold and lumber.
 }
 
 STRING 1915
 {
-Information 2
+|cffffcc00Difficulty
 }
 
 STRING 1916
 {
-Difficulty has a base value of 100%, at the start of the game players may choose to increase it or do nothing. Increasing the difficulty will increase the health of enemy units, the number of units spawned each wave, decrease the time between waves and lower the threshold that lives will start depleting at. If all players increased then the difficulty will be increased.
+Difficulty has a base value of 100%, at the start of the game players may choose to increase it or do nothing. Increasing the difficulty will increase the health of enemy units, the number of units spawned each wave, decrease the time between waves and lower the threshold that lives will start depleting at. If all players increased then the difficulty will be increased once again.
 
-Addtionally waves gain 5% extra health per active player.
+Additionally, waves gain 5% extra health per active player, the calculation for this uses the health of the unit after the difficulty is applied.
 
 The max unit count is determined by how many players their are, [50 x Player Count] and then adjusted if any player increased the difficulty, max unit count will decrease if a player leaves.
 
@@ -3867,7 +3867,7 @@ STRING 1919
 
 STRING 1920
 {
-dzbHsCc
+Hello, their is a discord for the map. Please join, its lonely in here.
 }
 
 STRING 1922
@@ -5383,18 +5383,6 @@ Multishot (3)
 Fluctuating Energy: Attack speed changes each time the tower attacks. Tower gains damage equal to its mana, tower loses all mana when attacking.
 }
 
-STRING 2249
-// Units: u01F (Fluctuation Tower Level 1), Ubertip (Tooltip - Extended)
-{
-Normal Damage
-Attack Damage: 300
-Attack Speed: 3s - 4s
-Range: 250
-
-Multishot (3)
-Fluctuating Energy: Attack speed changes each time the tower attacks. Tower gains damage equal to its mana, tower loses all mana when attacking.
-}
-
 STRING 2250
 // Units: u00B (Frost Tower), Ubertip (Tooltip - Extended)
 {
@@ -5461,5 +5449,68 @@ Attack Speed: 2.0s
 Range: 800
 
 Sanguine Spike: A stacking bleeding attack that deals increasing damage for 8 seconds, gains stacks from tower attack and from damage over time.
+}
+
+STRING 2256
+// Units: u01F (Fluctuation Tower Level 1), Ubertip (Tooltip - Extended)
+{
+Normal Damage
+Attack Damage: 250
+Attack Speed: 3s - 4s
+Range: 800
+
+Multishot (3)
+Fluctuating Energy: Attack speed changes each time the tower attacks. Tower gains damage equal to its mana, tower loses all mana when attacking.
+}
+
+STRING 2257
+{
+|cffffcc00Armour Types
+}
+
+STRING 2258
+{
+This cycle is as follows: Unarmored, Light, Medium, Heavy, Fortified, Unarmored, Light, Medium, Heavy, Divine
+
+You can consider Fortified and Divine waves as pseudo-boss waves.
+}
+
+STRING 2259
+{
+|cffffcc00Modifiers
+}
+
+STRING 2260
+{
+Modifiers for each wave are generated at the start of the game, a list of modifiers can be found on your builder.
+
+The base chance for a wave to have modifiers is 20% an additional 0.10% is added per wave, waves may have up to 3 modifers and each modifier has 3 levels, both the number of mods and their levels are random, nothing influences the chances of them.
+
+You can use the command -mod to see a list of the next 25 wave modifiers, the current and next modifier also appear on the multiboard.
+}
+
+STRING 2264
+{
+The armour type of each wave is fixed to a 10 wave cycle.
+}
+
+STRING 2266
+{
+|cffffcc00Hellforged Changes
+}
+
+STRING 2267
+{
+Discord: dzbHsCc
+}
+
+STRING 2268
+{
+Source map was "Demon Circle TD - Better by |cffff0000Siryan|r with a minor edit by Stutt"
+}
+
+STRING 2269
+{
+Demon Circle TD originally created by |cff76dbf8Varimathras|r
 }
 
