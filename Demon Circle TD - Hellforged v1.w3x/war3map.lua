@@ -29,7 +29,6 @@ udg_Integer_DemonLordAbilityChance = 0
 udg_Temp_PointDemonLord = {}
 udg_Integer_MaxSpawncount = 0
 udg_UnitGroup_SiphoningTower = {}
-udg_UnitGroup_SanguineStacks = nil
 udg_Temp_PointAnomaly = {}
 udg_UnitGroup_FluctuationTowerMana = nil
 udg_Integer_Array_HellfireTower = __jarray(0)
@@ -89,7 +88,6 @@ udg_Integer_ArmourTypeCounter = 0
 udg_Integer_ModifierChance = 0
 udg_Boolean_Leaderboard = false
 udg_Integer_TotalModNumber = 0
-udg_Integer_ModType = 0
 udg_String_Array_Mods = __jarray("")
 udg_Integer_DemonLordMod = 0
 udg_AbilityCode_Array_ModAbilities = __jarray(0)
@@ -102,7 +100,6 @@ udg_String_Array_WaveText = __jarray("")
 udg_Integer_ModToGive = 0
 udg_Integer_ModLevelToGive = 0
 udg_Temp_PointC = nil
-udg_Integer_AnomPlyNum = 0
 gg_rct_CreepSpawn1 = nil
 gg_rct_CreepSpawn2 = nil
 gg_rct_CreepSpawn3 = nil
@@ -263,7 +260,6 @@ if ((i > 1)) then break end
 udg_UnitGroup_SiphoningTower[i] = CreateGroup()
 i = i + 1
 end
-udg_UnitGroup_SanguineStacks = CreateGroup()
 udg_UnitGroup_FluctuationTowerMana = CreateGroup()
 i = 0
 while (true) do
@@ -408,7 +404,6 @@ udg_Integer_ArmourTypeCounter = 0
 udg_Integer_ModifierChance = 200
 udg_Boolean_Leaderboard = false
 udg_Integer_TotalModNumber = 12
-udg_Integer_ModType = 0
 i = 0
 while (true) do
 if ((i > 1)) then break end
@@ -449,7 +444,6 @@ i = i + 1
 end
 udg_Integer_ModToGive = 0
 udg_Integer_ModLevelToGive = 0
-udg_Integer_AnomPlyNum = 0
 end
 
 function InitSounds()
