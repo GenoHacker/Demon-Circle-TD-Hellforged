@@ -474,12 +474,6 @@ SetSoundVolume(gg_snd_ReceiveGold, 127)
 SetSoundDistances(gg_snd_ReceiveGold, 0.0, 3000.0)
 end
 
-function CreateAllItems()
-local itemID
-
-BlzCreateItemWithSkin(FourCC("I00D"), -4309.6, 3862.2, FourCC("I00D"))
-end
-
 function CreateNeutralPassiveBuildings()
 local p = Player(PLAYER_NEUTRAL_PASSIVE)
 local u
@@ -2247,7 +2241,7 @@ TriggerAddCondition(gg_trg_Anomaly_Tower_Limit_Cancel, Condition(Trig_Anomaly_To
 TriggerAddAction(gg_trg_Anomaly_Tower_Limit_Cancel, Trig_Anomaly_Tower_Limit_Cancel_Actions)
 end
 
-function Trig_Anomaly_Tower_Level_Up_Ability_Func004C()
+function Trig_Anomaly_Tower_Level_Up_Ability_Func002C()
 if (GetUnitTypeId(GetTriggerUnit()) == FourCC("u01K")) then
 return true
 end
@@ -2258,21 +2252,7 @@ return false
 end
 
 function Trig_Anomaly_Tower_Level_Up_Ability_Conditions()
-if (not Trig_Anomaly_Tower_Level_Up_Ability_Func004C()) then
-return false
-end
-return true
-end
-
-function Trig_Anomaly_Tower_Level_Up_Ability_Func002C()
-if (not (GetUnitTypeId(GetTriggerUnit()) == FourCC("u01K"))) then
-return false
-end
-return true
-end
-
-function Trig_Anomaly_Tower_Level_Up_Ability_Func003C()
-if (not (GetUnitTypeId(GetTriggerUnit()) == FourCC("u01L"))) then
+if (not Trig_Anomaly_Tower_Level_Up_Ability_Func002C()) then
 return false
 end
 return true
@@ -2280,14 +2260,6 @@ end
 
 function Trig_Anomaly_Tower_Level_Up_Ability_Actions()
 SetUnitManaPercentBJ(GetTriggerUnit(), 100)
-if (Trig_Anomaly_Tower_Level_Up_Ability_Func002C()) then
-SetUnitAbilityLevelSwapped(FourCC("A01W"), GetTriggerUnit(), 2)
-else
-end
-if (Trig_Anomaly_Tower_Level_Up_Ability_Func003C()) then
-SetUnitAbilityLevelSwapped(FourCC("A01W"), GetTriggerUnit(), 3)
-else
-end
 end
 
 function InitTrig_Anomaly_Tower_Level_Up_Ability()
@@ -2338,8 +2310,18 @@ end
 return true
 end
 
+function Trig_Anomaly_Tower_Func007Func027Func001C()
+if (GetUnitTypeId(GetEventDamageSource()) == FourCC("u01K")) then
+return true
+end
+if (GetUnitTypeId(GetEventDamageSource()) == FourCC("u01L")) then
+return true
+end
+return false
+end
+
 function Trig_Anomaly_Tower_Func007Func027C()
-if (not (GetUnitAbilityLevelSwapped(FourCC("A01W"), GetEventDamageSource()) >= 2)) then
+if (not Trig_Anomaly_Tower_Func007Func027Func001C()) then
 return false
 end
 return true
@@ -2370,7 +2352,7 @@ return true
 end
 
 function Trig_Anomaly_Tower_Func007Func031C()
-if (not (GetUnitAbilityLevelSwapped(FourCC("A01W"), GetEventDamageSource()) >= 3)) then
+if (not (GetUnitTypeId(GetEventDamageSource()) == FourCC("u01L"))) then
 return false
 end
 return true
@@ -2407,8 +2389,18 @@ end
 return true
 end
 
+function Trig_Anomaly_Tower_Func007Func066Func001C()
+if (GetUnitTypeId(GetEventDamageSource()) == FourCC("u01K")) then
+return true
+end
+if (GetUnitTypeId(GetEventDamageSource()) == FourCC("u01L")) then
+return true
+end
+return false
+end
+
 function Trig_Anomaly_Tower_Func007Func066C()
-if (not (GetUnitAbilityLevelSwapped(FourCC("A01W"), GetEventDamageSource()) >= 2)) then
+if (not Trig_Anomaly_Tower_Func007Func066Func001C()) then
 return false
 end
 return true
@@ -2439,7 +2431,7 @@ return true
 end
 
 function Trig_Anomaly_Tower_Func007Func070C()
-if (not (GetUnitAbilityLevelSwapped(FourCC("A01W"), GetEventDamageSource()) >= 3)) then
+if (not (GetUnitTypeId(GetEventDamageSource()) == FourCC("u01L"))) then
 return false
 end
 return true
@@ -5148,7 +5140,6 @@ SetAmbientNightSound("DungeonNight")
 SetMapMusic("Music", true, 0)
 InitSounds()
 CreateRegions()
-CreateAllItems()
 CreateAllUnits()
 InitBlizzard()
 InitGlobals()

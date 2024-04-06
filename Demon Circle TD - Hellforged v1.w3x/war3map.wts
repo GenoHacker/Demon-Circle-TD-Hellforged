@@ -628,18 +628,6 @@ STRING 253
 Level 41 (Gargoyle)
 }
 
-STRING 255
-// Units: h00R (Level 29 (Dark |cffffcc00Range:|rr)), Name (Name)
-{
-Level 29 (Dark |cffffcc00Range:|rr)
-}
-
-STRING 256
-// Units: h00S (Level 30 (Black |cffffcc00Range:|rr)), Name (Name)
-{
-Level 30 (Black |cffffcc00Range:|rr)
-}
-
 STRING 257
 // Units: h01C (Level 51 (Ghost)), Name (Name)
 {
@@ -2674,30 +2662,6 @@ STRING 1664
 Thunder Clap - Level 4
 }
 
-STRING 1665
-// Abilities: A02F ([Level 1, Ability 1] - Dummy Immolation), Tip (Tooltip - Normal)
-{
-Lightning Shield - Level 1
-}
-
-STRING 1666
-// Abilities: A02F ([Level 1, Ability 1] - Dummy Immolation), Tip (Tooltip - Normal)
-{
-Lightning Shield - Level 2
-}
-
-STRING 1667
-// Abilities: A02F ([Level 1, Ability 1] - Dummy Immolation), Tip (Tooltip - Normal)
-{
-Lightning Shield - Level 3
-}
-
-STRING 1668
-// Abilities: A02F ([Level 1, Ability 1] - Dummy Immolation), Tip (Tooltip - Normal)
-{
-Lightning Shield - Level 4
-}
-
 STRING 1669
 // Abilities: A02G ([Level 1, Ability 2] - Dummy Anomaly Tower - Corruption Aura), Tip (Tooltip - Normal)
 {
@@ -4543,12 +4507,6 @@ STRING 2175
 [Level 3, Ability 4] - Anomaly Tower - Feral Spirit
 }
 
-STRING 2201
-// Abilities: A01W (Anomaly Tower), Tip (Tooltip - Normal)
-{
-[|cffffcc00Level 1|r]
-}
-
 STRING 2202
 // Abilities: A01W (Anomaly Tower), Tip (Tooltip - Normal)
 {
@@ -4757,38 +4715,6 @@ STRING 2240
 // Buffs/Effects: B000 (), Buffubertip (Tooltip - Extended)
 {
 This unit is under the effects of Corruption Aura; it has decreased armor.
-}
-
-STRING 2241
-// Abilities: A02F ([Level 1, Ability 1] - Dummy Immolation), Ubertip (Tooltip - Normal - Extended)
-{
-Summon a sphere of fire, dealing 50 damage per second to units in a 150 area of effect.
-
-Lasts 4 seconds.
-}
-
-STRING 2242
-// Abilities: A02F ([Level 1, Ability 1] - Dummy Immolation), Ubertip (Tooltip - Normal - Extended)
-{
-Summon a sphere of fire, dealing 100 damage per second to units in a 200 area of effect.
-
-Lasts 4 seconds.
-}
-
-STRING 2243
-// Abilities: A02F ([Level 1, Ability 1] - Dummy Immolation), Ubertip (Tooltip - Normal - Extended)
-{
-Summon a sphere of fire, dealing 150 damage per second to units in a 250 area of effect.
-
-Lasts 4 seconds.
-}
-
-STRING 2244
-// Abilities: A02F ([Level 1, Ability 1] - Dummy Immolation), Ubertip (Tooltip - Normal - Extended)
-{
-Summon a sphere of fire, dealing 200 damage per second to units in a 300 area of effect.
-
-Lasts 4 seconds.
 }
 
 STRING 2246
@@ -5449,5 +5375,73 @@ STRING 2335
 All items have 3 levels, you can give additional copies of the item to the tower to level it up.
 
 Gain or lose up to 10 x Item Level gold per wave
+}
+
+STRING 2336
+// Units: h00R (Level 29 (Dark Ranger)), Name (Name)
+{
+Level 29 (Dark Ranger)
+}
+
+STRING 2337
+// Units: h00S (Level 30 (Black Ranger)), Name (Name)
+{
+Level 30 (Black Ranger)
+}
+
+STRING 2338
+// Abilities: A02F ([Level 1, Ability 1] - Dummy Immolation), Tip (Tooltip - Normal)
+{
+Immolation - Level 1
+}
+
+STRING 2339
+// Abilities: A02F ([Level 1, Ability 1] - Dummy Immolation), Ubertip (Tooltip - Normal - Extended)
+{
+Summons a sphere of fire, dealing 50 damage per second to units in a 150 area of effect.
+
+Lasts 4 seconds.
+}
+
+STRING 2340
+// Abilities: A02F ([Level 1, Ability 1] - Dummy Immolation), Tip (Tooltip - Normal)
+{
+Immolation - Level 2
+}
+
+STRING 2341
+// Abilities: A02F ([Level 1, Ability 1] - Dummy Immolation), Tip (Tooltip - Normal)
+{
+Immolation - Level 3
+}
+
+STRING 2342
+// Abilities: A02F ([Level 1, Ability 1] - Dummy Immolation), Tip (Tooltip - Normal)
+{
+Immolation - Level 4
+}
+
+STRING 2343
+// Abilities: A02F ([Level 1, Ability 1] - Dummy Immolation), Ubertip (Tooltip - Normal - Extended)
+{
+Summons a sphere of fire, dealing 100 damage per second to units in a 200 area of effect.
+
+Lasts 4 seconds.
+}
+
+STRING 2344
+// Abilities: A02F ([Level 1, Ability 1] - Dummy Immolation), Ubertip (Tooltip - Normal - Extended)
+{
+Summons a sphere of fire, dealing 150 damage per second to units in a 250 area of effect.
+
+Lasts 4 seconds.
+}
+
+STRING 2345
+// Abilities: A02F ([Level 1, Ability 1] - Dummy Immolation), Ubertip (Tooltip - Normal - Extended)
+{
+Summons a sphere of fire, dealing 200 damage per second to units in a 300 area of effect.
+
+Lasts 4 seconds.
 }
 
