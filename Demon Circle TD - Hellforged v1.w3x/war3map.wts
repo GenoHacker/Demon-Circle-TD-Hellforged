@@ -1132,144 +1132,6 @@ STRING 665
 [Ultimate Chaos Tower]
 }
 
-STRING 678
-// Abilities: A007 (Incinerate 2), Tip (Tooltip - Normal)
-{
-Incinerate
-}
-
-STRING 679
-// Abilities: A008 (Incinerate 3), Ubertip (Tooltip - Normal - Extended)
-{
-If a unit dies while under this effect, it is incinerated, causing up to 200 damage to all nearby hostile units.
-}
-
-STRING 680
-// Abilities: A007 (Incinerate 2), Name (Name)
-{
-Incinerate 2
-}
-
-STRING 681
-// Abilities: A008 (Incinerate 3), Tip (Tooltip - Normal)
-{
-Incinerate
-}
-
-STRING 682
-// Abilities: A00A (Incinerate 5), Ubertip (Tooltip - Normal - Extended)
-{
-If a unit dies while under this effect, it is incinerated, causing up to 300 damage to all nearby hostile units.
-}
-
-STRING 683
-// Abilities: A008 (Incinerate 3), Name (Name)
-{
-Incinerate 3
-}
-
-STRING 684
-// Abilities: A009 (Incinerate 4), Tip (Tooltip - Normal)
-{
-Incinerate
-}
-
-STRING 685
-// Abilities: A00C (Incinerate 7), Ubertip (Tooltip - Normal - Extended)
-{
-If a unit dies while under this effect, it is incinerated, causing up to 400 damage to all nearby hostile units.
-}
-
-STRING 686
-// Abilities: A009 (Incinerate 4), Name (Name)
-{
-Incinerate 4
-}
-
-STRING 687
-// Abilities: A00A (Incinerate 5), Tip (Tooltip - Normal)
-{
-Incinerate
-}
-
-STRING 689
-// Abilities: A00A (Incinerate 5), Name (Name)
-{
-Incinerate 5
-}
-
-STRING 690
-// Abilities: A00B (Incinerate 1), Tip (Tooltip - Normal)
-{
-Incinerate
-}
-
-STRING 691
-// Abilities: A00B (Incinerate 1), Ubertip (Tooltip - Normal - Extended)
-{
-If a unit dies while under this effect, it is incinerated, causing up to 100 damage to all nearby hostile units.
-}
-
-STRING 692
-// Abilities: A00B (Incinerate 1), Name (Name)
-{
-Incinerate 1
-}
-
-STRING 693
-// Abilities: A00C (Incinerate 7), Tip (Tooltip - Normal)
-{
-Incinerate
-}
-
-STRING 695
-// Abilities: A00C (Incinerate 7), Name (Name)
-{
-Incinerate 7
-}
-
-STRING 696
-// Abilities: A00D (Incinerate 8), Tip (Tooltip - Normal)
-{
-Incinerate
-}
-
-STRING 698
-// Abilities: A00D (Incinerate 8), Name (Name)
-{
-Incinerate 8
-}
-
-STRING 699
-// Abilities: A00E (Incinerate 9), Tip (Tooltip - Normal)
-{
-Incinerate
-}
-
-STRING 701
-// Abilities: A00E (Incinerate 9), Name (Name)
-{
-Incinerate 9
-}
-
-STRING 702
-// Abilities: A00G (Incinerate 6), Tip (Tooltip - Normal)
-{
-Incinerate
-}
-
-STRING 703
-// Abilities: A00E (Incinerate 9), Ubertip (Tooltip - Normal - Extended)
-{
-If a unit dies while under this effect, it is incinerated, causing up to 600 damage to all nearby hostile units.
-}
-
-STRING 704
-// Abilities: A00G (Incinerate 6), Name (Name)
-{
-Incinerate 6
-}
-
 STRING 706
 // Units: u009 (Skull Tower Level 4), Tip (Tooltip - Basic)
 {
@@ -1562,30 +1424,6 @@ STRING 882
 // Abilities: A00F (Demon Fire), Tip (Tooltip - Normal)
 {
 Demon Fire 2
-}
-
-STRING 923
-// Abilities: A007 (Incinerate 2), Ubertip (Tooltip - Normal - Extended)
-{
-If a unit dies while under this effect, it is incinerated, causing up to 150 damage to all nearby hostile units.
-}
-
-STRING 924
-// Abilities: A009 (Incinerate 4), Ubertip (Tooltip - Normal - Extended)
-{
-If a unit dies while under this effect, it is incinerated, causing up to 250 damage to all nearby hostile units.
-}
-
-STRING 925
-// Abilities: A00D (Incinerate 8), Ubertip (Tooltip - Normal - Extended)
-{
-If a unit dies while under this effect, it is incinerated, causing up to 450 damage to all nearby hostile units.
-}
-
-STRING 926
-// Abilities: A00G (Incinerate 6), Ubertip (Tooltip - Normal - Extended)
-{
-If a unit dies while under this effect, it is incinerated, causing up to 350 damage to all nearby hostile units.
 }
 
 STRING 931
@@ -3846,16 +3684,6 @@ STRING 1930
 You can buy items in the middle.
 }
 
-STRING 1935
-// Items: I002 (Khorns Gift), Ubertip (Tooltip - Extended)
-{
-[Inferno Gate Only]
-
-All items have 3 levels, you can give additional copies of the item to the tower to level it up.
-
-40% Chance to deal 5 times damage, Upon killing an enemy the tower will gain 40%/75%/125% damage and 75%/150%/225% attack speed, can not trigger whilst it is active.
-}
-
 STRING 1937
 // Items: I007 (Jar of Demon Fire), Ubertip (Tooltip - Extended)
 {
@@ -4943,16 +4771,6 @@ STRING 2288
 |cffffcc00Multishot:|r 3 Projectiles
 }
 
-STRING 2289
-// Units: u00Q (Inferno Gate Level 1), Ubertip (Tooltip - Extended)
-{
-|cffffcc00Damage:|r 100 - 500 Chaos
-|cffffcc00Attack Speed:|r 4.0s
-|cffffcc00Range:|r 1000
-
-|cffffcc00|cffffcc00Incinerate:|r|r If a unit dies while under this effect, it is incinerated, causing damage to all nearby hostile units.
-}
-
 STRING 2290
 // Units: u00S (Carrion Tower Level 2), Ubertip (Tooltip - Extended)
 {
@@ -5170,36 +4988,6 @@ STRING 2311
 |cffffcc00Splash:|r 220 area
 }
 
-STRING 2312
-// Units: u00O (Inferno Gate Level 3), Ubertip (Tooltip - Extended)
-{
-|cffffcc00Damage:|r 300 - 900 Chaos
-|cffffcc00Attack Speed:|r 4.0s
-|cffffcc00Range:|r 1000
-
-|cffffcc00Incinerate:|r If a unit dies while under this effect, it is incinerated, causing damage to all nearby hostile units.
-}
-
-STRING 2313
-// Units: u00P (Inferno Gate Level 2), Ubertip (Tooltip - Extended)
-{
-|cffffcc00Damage:|r 200 - 700 Chaos
-|cffffcc00Attack Speed:|r 4.0s
-|cffffcc00Range:|r 1000
-
-|cffffcc00Incinerate:|r If a unit dies while under this effect, it is incinerated, causing damage to all nearby hostile units.
-}
-
-STRING 2314
-// Units: u00R (Inferno Gate Level 4), Ubertip (Tooltip - Extended)
-{
-|cffffcc00Damage:|r 500 - 1500 Chaos
-|cffffcc00Attack Speed:|r 4.0s
-|cffffcc00Range:|r 1000
-
-|cffffcc00Incinerate:|r If a unit dies while under this effect, it is incinerated, causing damage to all nearby hostile units.
-}
-
 STRING 2315
 // Units: u00V (Ultimate Skull Tower), Ubertip (Tooltip - Extended)
 {
@@ -5209,62 +4997,12 @@ STRING 2315
 |cffffcc00Splash:|r 250 area
 }
 
-STRING 2316
-// Units: u00W (Inferno Gate Level 5), Ubertip (Tooltip - Extended)
-{
-|cffffcc00Damage:|r 700 - 1800 Chaos
-|cffffcc00Attack Speed:|r 4.0s
-|cffffcc00Range:|r 1000
-
-|cffffcc00Incinerate:|r If a unit dies while under this effect, it is incinerated, causing damage to all nearby hostile units.
-}
-
-STRING 2317
-// Units: u00X (Inferno Gate Level 6), Ubertip (Tooltip - Extended)
-{
-|cffffcc00Damage:|r 900 - 2100 Chaos
-|cffffcc00Attack Speed:|r 4.0s
-|cffffcc00Range:|r 1000
-
-|cffffcc00Incinerate:|r If a unit dies while under this effect, it is incinerated, causing damage to all nearby hostile units.
-}
-
-STRING 2318
-// Units: u00Y (Inferno Gate Level 7), Ubertip (Tooltip - Extended)
-{
-|cffffcc00Damage:|r 1200 - 2600 Chaos
-|cffffcc00Attack Speed:|r 4.0s
-|cffffcc00Range:|r 1000
-
-|cffffcc00Incinerate:|r If a unit dies while under this effect, it is incinerated, causing damage to all nearby hostile units.
-}
-
-STRING 2319
-// Units: u00Z (Inferno Gate Level 8), Ubertip (Tooltip - Extended)
-{
-|cffffcc00Damage:|r 1500 - 3200 Chaos
-|cffffcc00Attack Speed:|r 4.0s
-|cffffcc00Range:|r 1000
-
-|cffffcc00Incinerate:|r If a unit dies while under this effect, it is incinerated, causing damage to all nearby hostile units.
-}
-
 STRING 2320
 // Units: u010 (Ultimate Ghost Tower), Ubertip (Tooltip - Extended)
 {
 |cffffcc00Damage:|r 500 Pierce
 |cffffcc00Attack Speed:|r 0.40s
 |cffffcc00Range:|r 900
-}
-
-STRING 2321
-// Units: u011 (Ultimate Inferno Gate), Ubertip (Tooltip - Extended)
-{
-|cffffcc00Damage:|r 2000 - 4000 Chaos
-|cffffcc00Attack Speed:|r 3.0s
-|cffffcc00Range:|r 1200
-
-|cffffcc00Incinerate:|r If a unit dies while under this effect, it is incinerated, causing damage to all nearby hostile units.
 }
 
 STRING 2322
@@ -5443,5 +5181,150 @@ STRING 2345
 Summons a sphere of fire, dealing 200 damage per second to units in a 300 area of effect.
 
 Lasts 4 seconds.
+}
+
+STRING 2346
+// Buffs/Effects: B001 (), Bufftip (Tooltip)
+{
+Demonic Aura
+}
+
+STRING 2350
+// Buffs/Effects: B001 (), Buffubertip (Tooltip - Extended)
+{
+This unit is under the effects of Corruption Aura; it has a chance to spawn a demon on death.
+}
+
+STRING 2351
+// Abilities: A00H (Soul Burn), Name (Name)
+{
+Soul Burn
+}
+
+STRING 2352
+// Abilities: A00H (Soul Burn), Tip (Tooltip - Normal)
+{
+Soul Burn
+}
+
+STRING 2353
+// Abilities: A00H (Soul Burn), Ubertip (Tooltip - Normal - Extended)
+{
+Upon killing an enemy up to 4 units will become affected by soul burn, units affected by soul burn will take damage over time for 4 seconds.
+}
+
+STRING 2354
+// Abilities: A00H (Soul Burn), EditorSuffix (Editor Suffix)
+{
+[Inferno Gate]
+}
+
+STRING 2355
+// Abilities: A034 (Soul Burn), EditorSuffix (Editor Suffix)
+{
+[Dummy Unit]
+}
+
+STRING 2356
+// Units: u00O (Inferno Gate Level 3), Ubertip (Tooltip - Extended)
+{
+|cffffcc00Damage:|r 300 - 900 Chaos
+|cffffcc00Attack Speed:|r 4.0s
+|cffffcc00Range:|r 1000
+
+|cffffcc00Soul Burn:|r Upon killing an enemy up to 4 units will become affected by soul burn.
+}
+
+STRING 2357
+// Units: u00P (Inferno Gate Level 2), Ubertip (Tooltip - Extended)
+{
+|cffffcc00Damage:|r 200 - 700 Chaos
+|cffffcc00Attack Speed:|r 4.0s
+|cffffcc00Range:|r 1000
+
+|cffffcc00Soul Burn:|r Upon killing an enemy up to 4 units will become affected by soul burn.
+}
+
+STRING 2358
+// Units: u00Q (Inferno Gate Level 1), Ubertip (Tooltip - Extended)
+{
+|cffffcc00Damage:|r 100 - 500 Chaos
+|cffffcc00Attack Speed:|r 4.0s
+|cffffcc00Range:|r 1000
+
+|cffffcc00Soul Burn:|r Upon killing an enemy up to 4 units will become affected by soul burn.
+}
+
+STRING 2359
+// Units: u00R (Inferno Gate Level 4), Ubertip (Tooltip - Extended)
+{
+|cffffcc00Damage:|r 500 - 1500 Chaos
+|cffffcc00Attack Speed:|r 4.0s
+|cffffcc00Range:|r 1000
+
+|cffffcc00Soul Burn:|r Upon killing an enemy up to 4 units will become affected by soul burn.
+}
+
+STRING 2360
+// Units: u00W (Inferno Gate Level 5), Ubertip (Tooltip - Extended)
+{
+|cffffcc00Damage:|r 700 - 1800 Chaos
+|cffffcc00Attack Speed:|r 4.0s
+|cffffcc00Range:|r 1000
+
+|cffffcc00Soul Burn:|r Upon killing an enemy up to 4 units will become affected by soul burn.
+}
+
+STRING 2361
+// Units: u00X (Inferno Gate Level 6), Ubertip (Tooltip - Extended)
+{
+|cffffcc00Damage:|r 900 - 2100 Chaos
+|cffffcc00Attack Speed:|r 4.0s
+|cffffcc00Range:|r 1000
+
+|cffffcc00Soul Burn:|r Upon killing an enemy up to 4 units will become affected by soul burn.
+}
+
+STRING 2362
+// Units: u00Y (Inferno Gate Level 7), Ubertip (Tooltip - Extended)
+{
+|cffffcc00Damage:|r 1200 - 2600 Chaos
+|cffffcc00Attack Speed:|r 4.0s
+|cffffcc00Range:|r 1000
+
+|cffffcc00Soul Burn:|r Upon killing an enemy up to 4 units will become affected by soul burn.
+}
+
+STRING 2363
+// Units: u00Z (Inferno Gate Level 8), Ubertip (Tooltip - Extended)
+{
+|cffffcc00Damage:|r 1500 - 3200 Chaos
+|cffffcc00Attack Speed:|r 4.0s
+|cffffcc00Range:|r 1000
+
+|cffffcc00Soul Burn:|r Upon killing an enemy up to 4 units will become affected by soul burn.
+}
+
+STRING 2364
+// Units: u011 (Ultimate Inferno Gate), Ubertip (Tooltip - Extended)
+{
+|cffffcc00Damage:|r 2000 - 4000 Chaos
+|cffffcc00Attack Speed:|r 3.0s
+|cffffcc00Range:|r 1200
+
+|cffffcc00Soul Burn:|r Upon killing an enemy up to 4 units will become affected by soul burn.
+}
+
+STRING 2365
+// Items: I002 (Khorns Gift), Ubertip (Tooltip - Extended)
+{
+[Inferno Gate Only]
+
+All items have 3 levels, you can give additional copies of the item to the tower to level it up.
+
+40% Chance to deal 5 times damage.
+
+Increases the number of targets affeceted by soul burn by 1/2/3.
+Upon killing an enemy the tower will gain 40%/75%/125% damage and 75%/150%/225% attack speed, can not trigger whilst it is active.
 }
 

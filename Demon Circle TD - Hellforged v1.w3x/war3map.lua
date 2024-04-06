@@ -102,6 +102,9 @@ udg_Integer_ModLevelToGive = 0
 udg_Temp_PointC = nil
 udg_Integer_Array_DichBoxGold = __jarray(0)
 udg_String_Array_DichBoxMsg = __jarray("")
+udg_Integer_Array_InfernoGateSoulB = __jarray(0)
+udg_UnitGroup_Array_InfernoGateSB = {}
+udg_Unit_Array_SoulBurn = {}
 gg_rct_CreepSpawn1 = nil
 gg_rct_CreepSpawn2 = nil
 gg_rct_CreepSpawn3 = nil
@@ -215,6 +218,7 @@ gg_trg_Creep_Spawn_6 = nil
 gg_trg_Creep_Spawn_7 = nil
 gg_trg_Creep_Spawn_8 = nil
 gg_snd_ReceiveGold = nil
+gg_trg_Soul_Fire = nil
 function InitGlobals()
 local i = 0
 
@@ -457,6 +461,18 @@ i = 0
 while (true) do
 if ((i > 1)) then break end
 udg_String_Array_DichBoxMsg[i] = ""
+i = i + 1
+end
+i = 0
+while (true) do
+if ((i > 1)) then break end
+udg_Integer_Array_InfernoGateSoulB[i] = 0
+i = i + 1
+end
+i = 0
+while (true) do
+if ((i > 1)) then break end
+udg_UnitGroup_Array_InfernoGateSB[i] = CreateGroup()
 i = i + 1
 end
 end
@@ -3126,6 +3142,53 @@ TriggerAddCondition(gg_trg_Khorns_Gift_Dummys, Condition(Trig_Khorns_Gift_Dummys
 TriggerAddAction(gg_trg_Khorns_Gift_Dummys, Trig_Khorns_Gift_Dummys_Actions)
 end
 
+function Trig_Soul_Fire_Conditions()
+if (not (GetUnitAbilityLevelSwapped(FourCC("A00W"), GetKillingUnitBJ()) == 1)) then
+return false
+end
+if (not (GetUnitTypeId(GetKillingUnitBJ()) ~= FourCC("u005"))) then
+return false
+end
+return true
+end
+
+function Trig_Soul_Fire_Func002002003001()
+return (IsUnitAliveBJ(GetFilterUnit()) == true)
+end
+
+function Trig_Soul_Fire_Func002002003002()
+return (IsUnitEnemy(GetFilterUnit(), GetOwningPlayer(GetKillingUnitBJ())) == true)
+end
+
+function Trig_Soul_Fire_Func002002003()
+return GetBooleanAnd(Trig_Soul_Fire_Func002002003001(), Trig_Soul_Fire_Func002002003002())
+end
+
+function Trig_Soul_Fire_Actions()
+udg_Temp_PointA = GetUnitLoc(GetDyingUnit())
+udg_UnitGroup_Array_InfernoGateSB[GetConvertedPlayerId(GetOwningPlayer(GetKillingUnitBJ()))] = GetUnitsInRangeOfLocMatching(400.00, udg_Temp_PointA, Condition(Trig_Soul_Fire_Func002002003))
+bj_forLoopAIndex = 1
+bj_forLoopAIndexEnd = (4 + GetItemCharges(GetItemOfTypeFromUnitBJ(GetKillingUnitBJ(), FourCC("I002"))))
+while (true) do
+if (bj_forLoopAIndex > bj_forLoopAIndexEnd) then break end
+udg_Unit_Array_SoulBurn[GetConvertedPlayerId(GetOwningPlayer(GetKillingUnitBJ()))] = GroupPickRandomUnit(udg_UnitGroup_Array_InfernoGateSB[GetConvertedPlayerId(GetOwningPlayer(GetKillingUnitBJ()))])
+CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetKillingUnitBJ()), udg_Temp_PointA, bj_UNIT_FACING)
+UnitAddAbilityBJ(FourCC("A034"), GetLastCreatedUnit())
+SetUnitAbilityLevelSwapped(FourCC("A034"), GetLastCreatedUnit(), R2I(BlzGetUnitRealField(GetKillingUnitBJ(), UNIT_RF_PRIORITY)))
+IssueTargetOrderBJ(GetLastCreatedUnit(), "soulburn", udg_Unit_Array_SoulBurn[GetConvertedPlayerId(GetOwningPlayer(GetKillingUnitBJ()))])
+UnitApplyTimedLifeBJ(4.10, FourCC("BTLF"), GetLastCreatedUnit())
+bj_forLoopAIndex = bj_forLoopAIndex + 1
+end
+    RemoveLocation(udg_Temp_PointA)
+end
+
+function InitTrig_Soul_Fire()
+gg_trg_Soul_Fire = CreateTrigger()
+TriggerRegisterAnyUnitEventBJ(gg_trg_Soul_Fire, EVENT_PLAYER_UNIT_DEATH)
+TriggerAddCondition(gg_trg_Soul_Fire, Condition(Trig_Soul_Fire_Conditions))
+TriggerAddAction(gg_trg_Soul_Fire, Trig_Soul_Fire_Actions)
+end
+
 function Trig_Jar_of_Demonfire_Give_Conditions()
 if (not (GetUnitAbilityLevelSwapped(FourCC("A00Y"), GetTriggerUnit()) == 1)) then
 return false
@@ -4871,6 +4934,7 @@ InitTrig_Hellfire_Reagent_Remove()
 InitTrig_Hellfire_Reagent_Upgrade()
 InitTrig_Ghastly_Vial_Unit()
 InitTrig_Khorns_Gift_Dummys()
+InitTrig_Soul_Fire()
 InitTrig_Jar_of_Demonfire_Give()
 InitTrig_Jar_of_Demonfire_Remove()
 InitTrig_Jar_of_Demonfire_Upgrade()
