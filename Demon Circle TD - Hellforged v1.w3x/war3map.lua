@@ -105,6 +105,7 @@ udg_String_Array_DichBoxMsg = __jarray("")
 udg_Integer_Array_InfernoGateSoulB = __jarray(0)
 udg_UnitGroup_Array_InfernoGateSB = {}
 udg_Unit_Array_SoulBurn = {}
+udg_Real_Array_HellfireMana = __jarray(0.0)
 gg_rct_CreepSpawn1 = nil
 gg_rct_CreepSpawn2 = nil
 gg_rct_CreepSpawn3 = nil
@@ -138,6 +139,7 @@ gg_rct_Teleport_Pink_2 = nil
 gg_rct_Teleport_Pink_1 = nil
 gg_rct_Teleport_Green_2 = nil
 gg_snd_MapPing = nil
+gg_snd_ReceiveGold = nil
 gg_trg_Map_Initialization = nil
 gg_trg_Map_Start = nil
 gg_trg_Multiboard = nil
@@ -180,6 +182,7 @@ gg_trg_Hellfire_Reagent_Remove = nil
 gg_trg_Hellfire_Reagent_Upgrade = nil
 gg_trg_Ghastly_Vial_Unit = nil
 gg_trg_Khorns_Gift_Dummys = nil
+gg_trg_Soul_Fire = nil
 gg_trg_Jar_of_Demonfire_Give = nil
 gg_trg_Jar_of_Demonfire_Remove = nil
 gg_trg_Jar_of_Demonfire_Upgrade = nil
@@ -217,8 +220,6 @@ gg_trg_Creep_Spawn_5 = nil
 gg_trg_Creep_Spawn_6 = nil
 gg_trg_Creep_Spawn_7 = nil
 gg_trg_Creep_Spawn_8 = nil
-gg_snd_ReceiveGold = nil
-gg_trg_Soul_Fire = nil
 function InitGlobals()
 local i = 0
 
@@ -473,6 +474,12 @@ i = 0
 while (true) do
 if ((i > 1)) then break end
 udg_UnitGroup_Array_InfernoGateSB[i] = CreateGroup()
+i = i + 1
+end
+i = 0
+while (true) do
+if ((i > 1)) then break end
+udg_Real_Array_HellfireMana[i] = 0.0
 i = i + 1
 end
 end
@@ -781,12 +788,12 @@ udg_Real_Array_SpawnDegrees[8] = 0.00
 udg_Real_Array_SoulEaterDamage[1] = 0.33
 udg_Real_Array_SoulEaterDamage[2] = 0.66
 udg_Real_Array_SoulEaterDamage[3] = 1.00
-udg_Real_Array_MonsterTRadius[1] = 100.00
-udg_Real_Array_MonsterTRadius[2] = 150.00
-udg_Real_Array_MonsterTRadius[3] = 200.00
+udg_Real_Array_MonsterTRadius[1] = 150.00
+udg_Real_Array_MonsterTRadius[2] = 200.00
+udg_Real_Array_MonsterTRadius[3] = 250.00
 udg_Real_Array_MonsterTDamage[1] = 20.00
-udg_Real_Array_MonsterTDamage[2] = 25.00
-udg_Real_Array_MonsterTDamage[3] = 30.00
+udg_Real_Array_MonsterTDamage[2] = 30.00
+udg_Real_Array_MonsterTDamage[3] = 40.00
 udg_Real_Array_HellfireTowerDamage[0] = 100.00
 udg_Real_Array_HellfireTowerDamage[1] = 150.00
 udg_Real_Array_HellfireTowerDamage[2] = 250.00
@@ -2671,8 +2678,15 @@ end
 return true
 end
 
-function Trig_Hellfire_Tower_Func002Func001C()
-if (GetUnitStateSwap(UNIT_STATE_MANA, GetEventDamageSource()) == 5.00) then
+function Trig_Hellfire_Tower_Func002C()
+if (not (GetUnitStateSwap(UNIT_STATE_MANA, GetEventDamageSource()) > 5.00)) then
+return false
+end
+return true
+end
+
+function Trig_Hellfire_Tower_Func003Func001C()
+if (udg_Real_Array_HellfireMana[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] == 5.00) then
 return true
 end
 if (udg_Integer_Array_HellfireTower[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] <= (60 - udg_Integer_Array_SoulfireChance[GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I006")))])) then
@@ -2681,8 +2695,8 @@ end
 return false
 end
 
-function Trig_Hellfire_Tower_Func002C()
-if (not Trig_Hellfire_Tower_Func002Func001C()) then
+function Trig_Hellfire_Tower_Func003C()
+if (not Trig_Hellfire_Tower_Func003Func001C()) then
 return false
 end
 return true
@@ -2691,16 +2705,21 @@ end
 function Trig_Hellfire_Tower_Actions()
 udg_Integer_Array_HellfireTower[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] = GetRandomInt(1, 100)
 if (Trig_Hellfire_Tower_Func002C()) then
+udg_Real_Array_HellfireMana[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] = 5.00
+else
+udg_Real_Array_HellfireMana[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))] = GetUnitStateSwap(UNIT_STATE_MANA, GetEventDamageSource())
+end
+if (Trig_Hellfire_Tower_Func003C()) then
 udg_Temp_PointB = GetUnitLoc(BlzGetEventDamageTarget())
 CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointB, bj_UNIT_FACING)
-UnitDamagePointLoc(GetLastCreatedUnit(), 0, udg_Real_Array_HellfireTowerDamage[R2I(GetUnitStateSwap(UNIT_STATE_MANA, GetEventDamageSource()))], udg_Temp_PointB, (udg_Real_Array_HellfireTowerDamage[R2I(GetUnitStateSwap(UNIT_STATE_MANA, GetEventDamageSource()))] * 2.00), ATTACK_TYPE_SIEGE, DAMAGE_TYPE_UNIVERSAL)
-        RemoveLocation(udg_Temp_PointB)
+UnitDamagePointLoc(GetLastCreatedUnit(), 0, udg_Real_Array_HellfireTowerDamage[R2I(udg_Real_Array_HellfireMana[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))])], udg_Temp_PointB, (udg_Real_Array_HellfireTowerDamage[R2I(udg_Real_Array_HellfireMana[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))])] * 2.00), ATTACK_TYPE_SIEGE, DAMAGE_TYPE_NORMAL)
 UnitApplyTimedLifeBJ(1.00, FourCC("BTLF"), GetLastCreatedUnit())
-SetUnitManaBJ(GetEventDamageSource(), 0.00)
+        RemoveLocation(udg_Temp_PointB)
+SetUnitManaBJ(GetEventDamageSource(), (GetUnitStateSwap(UNIT_STATE_MANA, GetEventDamageSource()) - udg_Real_Array_HellfireMana[GetConvertedPlayerId(GetOwningPlayer(GetEventDamageSource()))]))
 return 
 else
 end
-SetUnitManaBJ(GetEventDamageSource(), (GetUnitStateSwap(UNIT_STATE_MANA, GetEventDamageSource()) + 1))
+SetUnitManaBJ(GetEventDamageSource(), (GetUnitStateSwap(UNIT_STATE_MANA, GetEventDamageSource()) + (1 + (0.50 * I2R(GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I006"))))))))
 end
 
 function InitTrig_Hellfire_Tower()
@@ -2844,12 +2863,17 @@ if (Trig_Monstrosity_Tower_Sanguine_Stacks_Func003C()) then
 CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointA, bj_UNIT_FACING)
 UnitApplyTimedLifeBJ(1.00, FourCC("BTLF"), GetLastCreatedUnit())
 UnitDamagePointLoc(GetLastCreatedUnit(), 0, udg_Real_Array_MonsterTRadius[GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I003")))], udg_Temp_PointA, (udg_Real_Array_MonsterTDamage[GetItemCharges(GetItemOfTypeFromUnitBJ(GetEventDamageSource(), FourCC("I003")))] * I2R(GetUnitUserData(BlzGetEventDamageTarget()))), ATTACK_TYPE_NORMAL, DAMAGE_TYPE_NORMAL)
+AddSpecialEffectLocBJ(udg_Temp_PointA, "Abilities\\Spells\\Undead\\Impale\\ImpaleHitTarget.mdl")
+BlzSetSpecialEffectScale(GetLastCreatedEffectBJ(), 1.50)
+DestroyEffectBJ(GetLastCreatedEffectBJ())
 else
 end
 CreateNUnitsAtLoc(1, FourCC("h02A"), GetOwningPlayer(GetEventDamageSource()), udg_Temp_PointA, bj_UNIT_FACING)
     RemoveLocation(udg_Temp_PointA)
 UnitDamageTargetBJ(GetLastCreatedUnit(), BlzGetEventDamageTarget(), (25.00 * I2R(GetUnitUserData(BlzGetEventDamageTarget()))), ATTACK_TYPE_PIERCE, DAMAGE_TYPE_NORMAL)
 UnitApplyTimedLifeBJ(1.00, FourCC("BTLF"), GetLastCreatedUnit())
+AddSpecialEffectTargetUnitBJ("origin", BlzGetEventDamageTarget(), "Objects\\Spawnmodels\\Orc\\Orcblood\\BattrollBlood.mdl")
+DestroyEffectBJ(GetLastCreatedEffectBJ())
 end
 
 function InitTrig_Monstrosity_Tower_Sanguine_Stacks()
