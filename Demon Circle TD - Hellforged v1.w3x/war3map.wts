@@ -1576,24 +1576,6 @@ STRING 1031
 [Frost Tower Only] Hellfrost Enchantment
 }
 
-STRING 1033
-// Abilities: A00F (Demon Fire), Ubertip (Tooltip - Normal - Extended)
-{
-Covers the projectiles of the tower in demon fire, causing them to set the ground alight, enemies that pass through the fire will take 40 damage per second.
-}
-
-STRING 1034
-// Abilities: A00F (Demon Fire), Ubertip (Tooltip - Normal - Extended)
-{
-Covers the projectiles of the tower in demon fire, causing them to set the ground alight, enemies that pass through the fire will take 160 damage per second.
-}
-
-STRING 1036
-// Abilities: A00F (Demon Fire), Ubertip (Tooltip - Normal - Extended)
-{
-Covers the projectiles of the tower in demon fire, causing them to set the ground alight, enemies that pass through the fire will take 80 damage per second.
-}
-
 STRING 1046
 // Abilities: A01A (Spell Damage Reduction), EditorSuffix (Editor Suffix)
 {
@@ -3564,7 +3546,7 @@ Increase Difficulty?
 
 STRING 1904
 {
-Demon Circle TD: Hellforged TEST
+Demon Circle TD: Hellforged TEST2400
 }
 
 STRING 1905
@@ -3682,28 +3664,6 @@ You can buy items in the middle.
 STRING 1930
 {
 You can buy items in the middle.
-}
-
-STRING 1937
-// Items: I007 (Jar of Demon Fire), Ubertip (Tooltip - Extended)
-{
-[Skull Tower Only]
-
-All items have 3 levels, you can give additional copies of the item to the tower to level it up.
-
-Covers the projectiles of the tower in demon fire, causing them to set the ground alight, enemies that pass through the fire will take 40/80/160 damage per second.
-}
-
-STRING 1938
-// Items: I00A (Satans Claw), Ubertip (Tooltip - Extended)
-{
-[Chaos Tower Only]
-
-All items have 3 levels, you can give additional copies of the item to the tower to level it up.
-
-Streams of demonic energy emanate from the tower dealing 50/80/110 damage on hit and 25/40/55 damage per second for 4/6/8 seconds.
-
-Effective against ethereal units.
 }
 
 STRING 1941
@@ -4707,39 +4667,6 @@ STRING 2288
 |cffffcc00Multishot:|r 3 Projectiles
 }
 
-STRING 2290
-// Units: u00S (Carrion Tower Level 2), Ubertip (Tooltip - Extended)
-{
-|cffffcc00Damage:|r 400 - 600 Chaos
-|cffffcc00Attack Speed:|r 1.75s
-|cffffcc00Range:|r 900
-|cffffcc00Bouncing Attack:|r 5 Targets
-
-Disables Health Regen
-}
-
-STRING 2291
-// Units: u00T (Carrion Tower Level 1), Ubertip (Tooltip - Extended)
-{
-|cffffcc00Damage:|r 100 - 200 Chaos
-|cffffcc00Attack Speed:|r 2.0s
-|cffffcc00Range:|r 800
-|cffffcc00Bouncing Attack:|r 4 Targets
-
-Disables Health Regen
-}
-
-STRING 2292
-// Units: u00U (Carrion Tower Level 3), Ubertip (Tooltip - Extended)
-{
-|cffffcc00Damage:|r 800 - 1600 Chaos
-|cffffcc00Attack Speed:|r 1.5s
-|cffffcc00Range:|r 1000
-|cffffcc00Bouncing Attack:|r 6 Targets
-
-Disables Health Regen
-}
-
 STRING 2293
 // Units: u012 (Glacier Tower), Ubertip (Tooltip - Extended)
 {
@@ -4777,39 +4704,6 @@ STRING 2296
 |cffffcc00Attack Speed:|r 2.15s
 |cffffcc00Range:|r 1140
 |cffffcc00Multishot:|r 3 Projectiles
-}
-
-STRING 2297
-// Units: u01D (Fluctuation Tower Level 2), Ubertip (Tooltip - Extended)
-{
-|cffffcc00Damage:|r 500 Normal
-|cffffcc00Attack Speed:|r 2s - 5s
-|cffffcc00Range:|r 800
-|cffffcc00Multishot:|r 3 Projectiles
-
-|cffffcc00Fluctuating Energy:|r Attack speed changes each time the tower attacks. Tower gains damage equal to its mana, tower loses all mana when attacking.
-}
-
-STRING 2298
-// Units: u01E (Fluctuation Tower Level 3), Ubertip (Tooltip - Extended)
-{
-|cffffcc00Damage:|r 1000 Normal
-|cffffcc00Attack Speed:|r 1s - 6s
-|cffffcc00Range:|r 800
-|cffffcc00Multishot:|r 3 Projectiles
-
-|cffffcc00Fluctuating Energy:|r Attack speed changes each time the tower attacks. Tower gains damage equal to its mana, tower loses all mana when attacking.
-}
-
-STRING 2299
-// Units: u01F (Fluctuation Tower Level 1), Ubertip (Tooltip - Extended)
-{
-|cffffcc00Damage:|r 250 Normal
-|cffffcc00Attack Speed:|r 3s - 4s
-|cffffcc00Range:|r 800
-|cffffcc00Multishot:|r 3 Projectiles
-
-|cffffcc00Fluctuating Energy:|r Attack speed changes each time the tower attacks. Tower gains damage equal to its mana, tower loses all mana when attacking.
 }
 
 STRING 2300
@@ -5331,5 +5225,111 @@ STRING 2375
 A stacking bleeding attack that slows and deals increasing damage for 6 seconds, gains stacks from tower attack and from damage over time.
 
 Each attack from the tower will also deal extra piercing damage based on the amount of stacks.
+}
+
+STRING 2376
+// Units: u00S (Carrion Tower Level 2), Ubertip (Tooltip - Extended)
+{
+|cffffcc00Damage:|r 600 - 800 Chaos
+|cffffcc00Attack Speed:|r 3.0s
+|cffffcc00Range:|r 900
+|cffffcc00Bouncing Attack:|r 5 Targets
+
+Disables Health Regen
+}
+
+STRING 2377
+// Units: u00T (Carrion Tower Level 1), Ubertip (Tooltip - Extended)
+{
+|cffffcc00Damage:|r 200 - 400 Chaos
+|cffffcc00Attack Speed:|r 4.0s
+|cffffcc00Range:|r 800
+|cffffcc00Bouncing Attack:|r 4 Targets
+
+Disables Health Regen
+}
+
+STRING 2378
+// Units: u00U (Carrion Tower Level 3), Ubertip (Tooltip - Extended)
+{
+|cffffcc00Damage:|r 1000 - 1200 Chaos
+|cffffcc00Attack Speed:|r 2.0s
+|cffffcc00Range:|r 1000
+|cffffcc00Bouncing Attack:|r 6 Targets
+
+Disables Health Regen
+}
+
+STRING 2379
+// Units: u01D (Fluctuation Tower Level 2), Ubertip (Tooltip - Extended)
+{
+|cffffcc00Damage:|r 800 Normal
+|cffffcc00Attack Speed:|r 2s - 5s
+|cffffcc00Range:|r 800
+|cffffcc00Multishot:|r 3 Projectiles
+
+|cffffcc00Fluctuating Energy:|r Attack speed changes each time the tower attacks. Tower gains damage equal to its mana, tower loses all mana when attacking.
+}
+
+STRING 2380
+// Units: u01E (Fluctuation Tower Level 3), Ubertip (Tooltip - Extended)
+{
+|cffffcc00Damage:|r 1200 Normal
+|cffffcc00Attack Speed:|r 1s - 6s
+|cffffcc00Range:|r 800
+|cffffcc00Multishot:|r 3 Projectiles
+
+|cffffcc00Fluctuating Energy:|r Attack speed changes each time the tower attacks. Tower gains damage equal to its mana, tower loses all mana when attacking.
+}
+
+STRING 2381
+// Units: u01F (Fluctuation Tower Level 1), Ubertip (Tooltip - Extended)
+{
+|cffffcc00Damage:|r 400 Normal
+|cffffcc00Attack Speed:|r 3s - 4s
+|cffffcc00Range:|r 800
+|cffffcc00Multishot:|r 3 Projectiles
+
+|cffffcc00Fluctuating Energy:|r Attack speed changes each time the tower attacks. Tower gains damage equal to its mana, tower loses all mana when attacking.
+}
+
+STRING 2382
+// Items: I007 (Jar of Demon Fire), Ubertip (Tooltip - Extended)
+{
+[Skull Tower Only]
+
+All items have 3 levels, you can give additional copies of the item to the tower to level it up.
+
+Covers the projectiles of the tower in demon fire, causing them to set the ground alight, enemies that pass through the fire will take 80/120/200 damage per second.
+}
+
+STRING 2383
+// Items: I00A (Satans Claw), Ubertip (Tooltip - Extended)
+{
+[Chaos Tower Only]
+
+All items have 3 levels, you can give additional copies of the item to the tower to level it up.
+
+Streams of demonic energy emanate from the tower dealing 25/40/55 damage on hit and 50/80/110 damage per second for 6/8/10 seconds.
+
+Effective against ethereal units.
+}
+
+STRING 2384
+// Abilities: A00F (Demon Fire), Ubertip (Tooltip - Normal - Extended)
+{
+Covers the projectiles of the tower in demon fire, causing them to set the ground alight, enemies that pass through the fire will take 60 damage per second.
+}
+
+STRING 2385
+// Abilities: A00F (Demon Fire), Ubertip (Tooltip - Normal - Extended)
+{
+Covers the projectiles of the tower in demon fire, causing them to set the ground alight, enemies that pass through the fire will take 120 damage per second.
+}
+
+STRING 2386
+// Abilities: A00F (Demon Fire), Ubertip (Tooltip - Normal - Extended)
+{
+Covers the projectiles of the tower in demon fire, causing them to set the ground alight, enemies that pass through the fire will take 200 damage per second.
 }
 

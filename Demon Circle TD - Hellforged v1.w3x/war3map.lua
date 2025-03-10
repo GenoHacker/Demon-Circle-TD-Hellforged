@@ -106,6 +106,11 @@ udg_Integer_Array_InfernoGateSoulB = __jarray(0)
 udg_UnitGroup_Array_InfernoGateSB = {}
 udg_Unit_Array_SoulBurn = {}
 udg_Real_Array_HellfireMana = __jarray(0.0)
+udg_Integer_Array_GreedEnabled = __jarray(0)
+udg_Integer_GreedGoldLimit = 0
+udg_Integer_GreedKillGold = 0
+udg_Integer_Array_EnvyEnabled = __jarray(0)
+udg_Integer_EnvyCount = 0
 gg_rct_CreepSpawn1 = nil
 gg_rct_CreepSpawn2 = nil
 gg_rct_CreepSpawn3 = nil
@@ -164,10 +169,10 @@ gg_trg_Sell_Towers = nil
 gg_trg_Invulnerable_Towers = nil
 gg_trg_Wave_Mod_Divine_Shield = nil
 gg_trg_Wave_Mod_Remove_Ethereal = nil
+gg_trg_Anomaly_Tower_Main = nil
 gg_trg_Anomaly_Tower_Limit_Upgrade = nil
 gg_trg_Anomaly_Tower_Limit_Cancel = nil
 gg_trg_Anomaly_Tower_Level_Up_Ability = nil
-gg_trg_Anomaly_Tower_Main = nil
 gg_trg_Bladestorm_Dummy_Fix = nil
 gg_trg_Infernal_Core_and_Volatile_Catalyst = nil
 gg_trg_Fluctuation_Tower_Ability = nil
@@ -482,6 +487,21 @@ if ((i > 1)) then break end
 udg_Real_Array_HellfireMana[i] = 0.0
 i = i + 1
 end
+i = 0
+while (true) do
+if ((i > 0)) then break end
+udg_Integer_Array_GreedEnabled[i] = 0
+i = i + 1
+end
+udg_Integer_GreedGoldLimit = 0
+udg_Integer_GreedKillGold = 0
+i = 0
+while (true) do
+if ((i > 0)) then break end
+udg_Integer_Array_EnvyEnabled[i] = 0
+i = i + 1
+end
+udg_Integer_EnvyCount = 0
 end
 
 function InitSounds()
@@ -800,9 +820,9 @@ udg_Real_Array_HellfireTowerDamage[2] = 250.00
 udg_Real_Array_HellfireTowerDamage[3] = 400.00
 udg_Real_Array_HellfireTowerDamage[4] = 600.00
 udg_Real_Array_HellfireTowerDamage[5] = 800.00
-udg_Integer_Array_FluctuationDam[1] = 250
-udg_Integer_Array_FluctuationDam[2] = 500
-udg_Integer_Array_FluctuationDam[3] = 1000
+udg_Integer_Array_FluctuationDam[1] = 400
+udg_Integer_Array_FluctuationDam[2] = 800
+udg_Integer_Array_FluctuationDam[3] = 1200
 udg_Integer_Array_SoulfireChance[0] = 0
 udg_Integer_Array_SoulfireChance[1] = 10
 udg_Integer_Array_SoulfireChance[2] = 20
@@ -1268,60 +1288,71 @@ end
 return true
 end
 
-function Trig_Next_Wave_Func005Func001C()
+function Trig_Next_Wave_Func008Func001C()
 if (not (udg_Integer_Wave >= 11)) then
 return false
 end
 return true
 end
 
-function Trig_Next_Wave_Func005C()
+function Trig_Next_Wave_Func008C()
 if (not (udg_Integer_Wave == 10)) then
 return false
 end
 return true
 end
 
-function Trig_Next_Wave_Func012Func001Func001Func002C()
+function Trig_Next_Wave_Func015Func001Func001Func002C()
 if (not (udg_Real_Lives <= 29.99)) then
 return false
 end
 return true
 end
 
-function Trig_Next_Wave_Func012Func001Func001C()
+function Trig_Next_Wave_Func015Func001Func001C()
 if (not (udg_Real_Lives >= 30.00)) then
 return false
 end
 return true
 end
 
-function Trig_Next_Wave_Func012Func001C()
+function Trig_Next_Wave_Func015Func001C()
 if (not (udg_Real_Lives >= 50.00)) then
 return false
 end
 return true
 end
 
-function Trig_Next_Wave_Func012C()
+function Trig_Next_Wave_Func015C()
 if (not (udg_Real_Lives >= 75.00)) then
 return false
 end
 return true
 end
 
-function Trig_Next_Wave_Func014C()
+function Trig_Next_Wave_Func017C()
 if (not (udg_Integer_ArmourTypeCounter == 10)) then
 return false
 end
 return true
 end
 
-function Trig_Next_Wave_Func018A()
-AdjustPlayerStateBJ(15, GetEnumPlayer(), PLAYER_STATE_RESOURCE_GOLD)
+function Trig_Next_Wave_Func021Func001C()
+if (not (GetPlayerState(GetEnumPlayer(), PLAYER_STATE_RESOURCE_GOLD) >= udg_Integer_GreedGoldLimit)) then
+return false
+end
+return true
 end
 
-function Trig_Next_Wave_Func022C()
+function Trig_Next_Wave_Func021A()
+if (Trig_Next_Wave_Func021Func001C()) then
+SetPlayerStateBJ(GetEnumPlayer(), PLAYER_STATE_RESOURCE_GOLD, udg_Integer_GreedGoldLimit)
+else
+AdjustPlayerStateBJ(15, GetEnumPlayer(), PLAYER_STATE_RESOURCE_GOLD)
+end
+end
+
+function Trig_Next_Wave_Func025C()
 if (not (udg_Integer_Wave ~= 80)) then
 return false
 end
@@ -1344,7 +1375,9 @@ else
 end
 end
 udg_Integer_Wave = (udg_Integer_Wave + 1)
-if (Trig_Next_Wave_Func005C()) then
+udg_Integer_GreedKillGold = (1 + (udg_Integer_Wave // 2))
+udg_Integer_GreedGoldLimit = (75 + (15 * udg_Integer_Wave))
+if (Trig_Next_Wave_Func008C()) then
 DisplayTextToForce(GetPlayersAll(), "TRIGSTR_1926")
 DisplayTextToForce(GetPlayersAll(), "TRIGSTR_1929")
 udg_Temp_PointA = GetRectCenter(GetPlayableMapRect())
@@ -1352,7 +1385,7 @@ PingMinimapLocForForce(GetPlayersAll(), udg_Temp_PointA, 5.00)
         RemoveLocation(udg_Temp_PointA)
 PlaySoundBJ(gg_snd_MapPing)
 else
-if (Trig_Next_Wave_Func005Func001C()) then
+if (Trig_Next_Wave_Func008Func001C()) then
 udg_Integer_WaveModPerSpawnChance = 115
 EnableTrigger(gg_trg_Wave_Buffs_New)
 EnableTrigger(gg_trg_Demon_Lord_Spawning)
@@ -1364,16 +1397,16 @@ MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 10, (("|cffffff00" .. I2S(udg_Int
 MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 7, udg_String_Array_WaveText[udg_Integer_Wave])
 MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 8, udg_String_Array_WaveText[(udg_Integer_Wave + 1)])
 EnableTrigger(gg_trg_Wave_Spawning)
-if (Trig_Next_Wave_Func012C()) then
+if (Trig_Next_Wave_Func015C()) then
 MultiboardSetTitleText(udg_Multiboard[9], ("Wave: " .. (I2S(udg_Integer_Wave) .. ("/80 - " .. ("Lives: |cff8080ff" .. (R2S(udg_Real_Lives) .. "|r%"))))))
 else
-if (Trig_Next_Wave_Func012Func001C()) then
+if (Trig_Next_Wave_Func015Func001C()) then
 MultiboardSetTitleText(udg_Multiboard[9], ("Wave: " .. (I2S(udg_Integer_Wave) .. ("/80 - " .. ("Lives: |cffffff00" .. (R2S(udg_Real_Lives) .. "|r%"))))))
 else
-if (Trig_Next_Wave_Func012Func001Func001C()) then
+if (Trig_Next_Wave_Func015Func001Func001C()) then
 MultiboardSetTitleText(udg_Multiboard[9], ("Wave: " .. (I2S(udg_Integer_Wave) .. ("/80 - " .. ("Lives: |cffd45e19" .. (R2S(udg_Real_Lives) .. "|r%"))))))
 else
-if (Trig_Next_Wave_Func012Func001Func001Func002C()) then
+if (Trig_Next_Wave_Func015Func001Func001Func002C()) then
 MultiboardSetTitleText(udg_Multiboard[9], ("Wave: " .. (I2S(udg_Integer_Wave) .. ("/80 - " .. ("Lives: |cffff0000" .. (R2S(udg_Real_Lives) .. "|r%"))))))
 else
 end
@@ -1381,7 +1414,7 @@ end
 end
 end
 udg_Integer_ArmourTypeCounter = (udg_Integer_ArmourTypeCounter + 1)
-if (Trig_Next_Wave_Func014C()) then
+if (Trig_Next_Wave_Func017C()) then
 MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 5, udg_String_Array_ArmourType[udg_Integer_ArmourTypeCounter])
 MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 6, udg_String_Array_ArmourType[1])
 udg_Integer_ArmourTypeCounter = 0
@@ -1390,9 +1423,9 @@ MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 5, udg_String_Array_ArmourType[ud
 MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 6, udg_String_Array_ArmourType[(udg_Integer_ArmourTypeCounter + 1)])
 end
 TriggerExecute(gg_trg_Dichotomous_Box_Gold)
-ForForce(udg_PG_Users_Playing, Trig_Next_Wave_Func018A)
+ForForce(udg_PG_Users_Playing, Trig_Next_Wave_Func021A)
 DisplayTextToForce(GetPlayersAll(), ("|cffffcc00Wave " .. (I2S(udg_Integer_Wave) .. "!|r")))
-if (Trig_Next_Wave_Func022C()) then
+if (Trig_Next_Wave_Func025C()) then
 udg_Integer_Timer = 0
 else
 end
@@ -1904,11 +1937,43 @@ end
 return true
 end
 
+function Trig_Unit_Dies_Func010Func005Func001C()
+if (not (udg_Integer_Array_EnvyEnabled[GetConvertedPlayerId(udg_Player_Extra)] == 1)) then
+return false
+end
+return true
+end
+
+function Trig_Unit_Dies_Func010Func005Func002C()
+if (not (udg_Owner_Of_Killing_Unit == udg_Player_Extra)) then
+return false
+end
+return true
+end
+
+function Trig_Unit_Dies_Func010Func005C()
+if (not (udg_Integer_EnvyCount >= 1)) then
+return false
+end
+return true
+end
+
 function Trig_Unit_Dies_Func010A()
 udg_Player_Extra = GetEnumPlayer()
 udg_Player_Number_Extra = GetConvertedPlayerId(udg_Player_Extra)
 if (Trig_Unit_Dies_Func010Func004C()) then
 AdjustPlayerStateBJ(1, udg_Player_Extra, PLAYER_STATE_RESOURCE_GOLD)
+else
+end
+if (Trig_Unit_Dies_Func010Func005C()) then
+if (Trig_Unit_Dies_Func010Func005Func001C()) then
+AdjustPlayerStateBJ(5, udg_Player_Extra, PLAYER_STATE_RESOURCE_LUMBER)
+else
+end
+if (Trig_Unit_Dies_Func010Func005Func002C()) then
+AdjustPlayerStateBJ((-1 * udg_Integer_EnvyCount), udg_Player_Extra, PLAYER_STATE_RESOURCE_LUMBER)
+else
+end
 else
 end
 end
@@ -2003,6 +2068,20 @@ end
 return true
 end
 
+function Trig_Unit_Dies_Func017Func001C()
+if (not (GetPlayerState(udg_Owner_Of_Killing_Unit, PLAYER_STATE_RESOURCE_GOLD) >= udg_Integer_GreedGoldLimit)) then
+return false
+end
+return true
+end
+
+function Trig_Unit_Dies_Func017C()
+if (not (udg_Integer_Array_GreedEnabled[GetConvertedPlayerId(udg_Owner_Of_Killing_Unit)] == 1)) then
+return false
+end
+return true
+end
+
 function Trig_Unit_Dies_Actions()
 udg_Dying_Unit = GetTriggerUnit()
 udg_Killing_Unit = GetKillingUnitBJ()
@@ -2031,6 +2110,14 @@ if (Trig_Unit_Dies_Func016Func001C()) then
 ForForce(udg_PG_Users_Playing, Trig_Unit_Dies_Func016Func001Func001A)
 else
 end
+end
+if (Trig_Unit_Dies_Func017C()) then
+if (Trig_Unit_Dies_Func017Func001C()) then
+SetPlayerStateBJ(udg_Owner_Of_Killing_Unit, PLAYER_STATE_RESOURCE_GOLD, udg_Integer_GreedGoldLimit)
+else
+AdjustPlayerStateBJ((1 + (udg_Integer_Wave // 2)), udg_Owner_Of_Killing_Unit, PLAYER_STATE_RESOURCE_GOLD)
+end
+else
 end
 end
 
@@ -3527,8 +3614,29 @@ else
 end
 end
 
+function Trig_Dichotomous_Box_Gold_Func002Func001C()
+if (not (GetPlayerState(GetOwningPlayer(GetEnumUnit()), PLAYER_STATE_RESOURCE_GOLD) >= udg_Integer_GreedGoldLimit)) then
+return false
+end
+return true
+end
+
+function Trig_Dichotomous_Box_Gold_Func002C()
+if (not (udg_Integer_Array_GreedEnabled[GetConvertedPlayerId(GetEnumPlayer())] == 1)) then
+return false
+end
+return true
+end
+
 function Trig_Dichotomous_Box_Gold_Actions()
 ForGroupBJ(udg_Unit_Group_Demons, Trig_Dichotomous_Box_Gold_Func001A)
+if (Trig_Dichotomous_Box_Gold_Func002C()) then
+if (Trig_Dichotomous_Box_Gold_Func002Func001C()) then
+SetPlayerStateBJ(GetOwningPlayer(GetEnumUnit()), PLAYER_STATE_RESOURCE_GOLD, udg_Integer_GreedGoldLimit)
+else
+end
+else
+end
 end
 
 function InitTrig_Dichotomous_Box_Gold()
