@@ -1937,43 +1937,11 @@ end
 return true
 end
 
-function Trig_Unit_Dies_Func010Func005Func001C()
-if (not (udg_Integer_Array_EnvyEnabled[GetConvertedPlayerId(udg_Player_Extra)] == 1)) then
-return false
-end
-return true
-end
-
-function Trig_Unit_Dies_Func010Func005Func002C()
-if (not (udg_Owner_Of_Killing_Unit == udg_Player_Extra)) then
-return false
-end
-return true
-end
-
-function Trig_Unit_Dies_Func010Func005C()
-if (not (udg_Integer_EnvyCount >= 1)) then
-return false
-end
-return true
-end
-
 function Trig_Unit_Dies_Func010A()
 udg_Player_Extra = GetEnumPlayer()
 udg_Player_Number_Extra = GetConvertedPlayerId(udg_Player_Extra)
 if (Trig_Unit_Dies_Func010Func004C()) then
 AdjustPlayerStateBJ(1, udg_Player_Extra, PLAYER_STATE_RESOURCE_GOLD)
-else
-end
-if (Trig_Unit_Dies_Func010Func005C()) then
-if (Trig_Unit_Dies_Func010Func005Func001C()) then
-AdjustPlayerStateBJ(5, udg_Player_Extra, PLAYER_STATE_RESOURCE_LUMBER)
-else
-end
-if (Trig_Unit_Dies_Func010Func005Func002C()) then
-AdjustPlayerStateBJ((-1 * udg_Integer_EnvyCount), udg_Player_Extra, PLAYER_STATE_RESOURCE_LUMBER)
-else
-end
 else
 end
 end
@@ -2068,20 +2036,6 @@ end
 return true
 end
 
-function Trig_Unit_Dies_Func017Func001C()
-if (not (GetPlayerState(udg_Owner_Of_Killing_Unit, PLAYER_STATE_RESOURCE_GOLD) >= udg_Integer_GreedGoldLimit)) then
-return false
-end
-return true
-end
-
-function Trig_Unit_Dies_Func017C()
-if (not (udg_Integer_Array_GreedEnabled[GetConvertedPlayerId(udg_Owner_Of_Killing_Unit)] == 1)) then
-return false
-end
-return true
-end
-
 function Trig_Unit_Dies_Actions()
 udg_Dying_Unit = GetTriggerUnit()
 udg_Killing_Unit = GetKillingUnitBJ()
@@ -2110,14 +2064,6 @@ if (Trig_Unit_Dies_Func016Func001C()) then
 ForForce(udg_PG_Users_Playing, Trig_Unit_Dies_Func016Func001Func001A)
 else
 end
-end
-if (Trig_Unit_Dies_Func017C()) then
-if (Trig_Unit_Dies_Func017Func001C()) then
-SetPlayerStateBJ(udg_Owner_Of_Killing_Unit, PLAYER_STATE_RESOURCE_GOLD, udg_Integer_GreedGoldLimit)
-else
-AdjustPlayerStateBJ((1 + (udg_Integer_Wave // 2)), udg_Owner_Of_Killing_Unit, PLAYER_STATE_RESOURCE_GOLD)
-end
-else
 end
 end
 
