@@ -106,11 +106,10 @@ udg_Integer_Array_InfernoGateSoulB = __jarray(0)
 udg_UnitGroup_Array_InfernoGateSB = {}
 udg_Unit_Array_SoulBurn = {}
 udg_Real_Array_HellfireMana = __jarray(0.0)
-udg_Integer_Array_GreedEnabled = __jarray(0)
 udg_Integer_GreedGoldLimit = 0
 udg_Integer_GreedKillGold = 0
 udg_Integer_Array_EnvyEnabled = __jarray(0)
-udg_Integer_EnvyCount = 0
+udg_Integer_Array_GreedEnabled = __jarray(0)
 gg_rct_CreepSpawn1 = nil
 gg_rct_CreepSpawn2 = nil
 gg_rct_CreepSpawn3 = nil
@@ -487,12 +486,6 @@ if ((i > 1)) then break end
 udg_Real_Array_HellfireMana[i] = 0.0
 i = i + 1
 end
-i = 0
-while (true) do
-if ((i > 0)) then break end
-udg_Integer_Array_GreedEnabled[i] = 0
-i = i + 1
-end
 udg_Integer_GreedGoldLimit = 0
 udg_Integer_GreedKillGold = 0
 i = 0
@@ -501,7 +494,12 @@ if ((i > 0)) then break end
 udg_Integer_Array_EnvyEnabled[i] = 0
 i = i + 1
 end
-udg_Integer_EnvyCount = 0
+i = 0
+while (true) do
+if ((i > 0)) then break end
+udg_Integer_Array_GreedEnabled[i] = 0
+i = i + 1
+end
 end
 
 function InitSounds()
@@ -1019,7 +1017,7 @@ TriggerAddAction(gg_trg_Map_Start, Trig_Map_Start_Actions)
 end
 
 function Trig_Multiboard_Actions()
-CreateMultiboardBJ(2, 11, ("Wave: " .. (I2S(udg_Integer_Wave) .. ("/80 - " .. ("Lives: |cff8080ff" .. (R2S(udg_Real_Lives) .. "|r%"))))))
+CreateMultiboardBJ(2, 11, ("Wave: " .. (I2S(udg_Integer_Wave) .. ("/80 - " .. ("Lives: |cff8080ff" .. (R2SW(udg_Real_Lives, 1, 1) .. "|r%"))))))
 udg_Multiboard[9] = GetLastCreatedMultiboard()
 MultiboardSetItemValueBJ(udg_Multiboard[9], 1, 1, "TRIGSTR_2075")
 MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 1, "TRIGSTR_2076")
@@ -1040,7 +1038,7 @@ MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 8, "TRIGSTR_2069")
 MultiboardSetItemValueBJ(udg_Multiboard[9], 1, 9, "TRIGSTR_2090")
 MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 9, "TRIGSTR_2088")
 MultiboardSetItemValueBJ(udg_Multiboard[9], 1, 10, "TRIGSTR_2071")
-MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 10, (("|cffffff00" .. I2S(udg_Integer_EnemyHandicap)) .. ("% x " .. R2S(udg_Real_WaveHealthModifier))))
+MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 10, (("|cffffff00" .. I2S(udg_Integer_EnemyHandicap)) .. ("% x " .. R2SW(udg_Real_WaveHealthModifier, 1, 2))))
 MultiboardSetItemValueBJ(udg_Multiboard[9], 1, 11, "TRIGSTR_2080")
 MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 11, (("|cffffff00" .. I2S(udg_Integer_MaxSpawncount)) .. " per wave"))
 MultiboardSetItemStyleBJ(udg_Multiboard[9], 0, 0, true, false)
@@ -1226,7 +1224,7 @@ udg_Integer_EnemyHandicap = (udg_Integer_EnemyHandicap + 20)
 DisplayTextToForce(GetPlayersAll(), "TRIGSTR_1922")
 else
 end
-MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 10, (("|cffffff00" .. I2S(udg_Integer_EnemyHandicap)) .. ("% x " .. R2S(udg_Real_WaveHealthModifier))))
+MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 10, (("|cffffff00" .. I2S(udg_Integer_EnemyHandicap)) .. ("% x " .. R2SW(udg_Real_WaveHealthModifier, 1, 2))))
 DisplayTextToForce(GetPlayersAll(), "TRIGSTR_1930")
 udg_Temp_PointA = GetRectCenter(GetPlayableMapRect())
 PingMinimapLocForForce(GetPlayersAll(), udg_Temp_PointA, 5.00)
@@ -1302,57 +1300,57 @@ end
 return true
 end
 
-function Trig_Next_Wave_Func015Func001Func001Func002C()
+function Trig_Next_Wave_Func016Func001Func001Func002C()
 if (not (udg_Real_Lives <= 29.99)) then
 return false
 end
 return true
 end
 
-function Trig_Next_Wave_Func015Func001Func001C()
+function Trig_Next_Wave_Func016Func001Func001C()
 if (not (udg_Real_Lives >= 30.00)) then
 return false
 end
 return true
 end
 
-function Trig_Next_Wave_Func015Func001C()
+function Trig_Next_Wave_Func016Func001C()
 if (not (udg_Real_Lives >= 50.00)) then
 return false
 end
 return true
 end
 
-function Trig_Next_Wave_Func015C()
+function Trig_Next_Wave_Func016C()
 if (not (udg_Real_Lives >= 75.00)) then
 return false
 end
 return true
 end
 
-function Trig_Next_Wave_Func017C()
+function Trig_Next_Wave_Func018C()
 if (not (udg_Integer_ArmourTypeCounter == 10)) then
 return false
 end
 return true
 end
 
-function Trig_Next_Wave_Func021Func001C()
+function Trig_Next_Wave_Func022Func001C()
 if (not (GetPlayerState(GetEnumPlayer(), PLAYER_STATE_RESOURCE_GOLD) >= udg_Integer_GreedGoldLimit)) then
 return false
 end
 return true
 end
 
-function Trig_Next_Wave_Func021A()
-if (Trig_Next_Wave_Func021Func001C()) then
+function Trig_Next_Wave_Func022A()
+if (Trig_Next_Wave_Func022Func001C()) then
 SetPlayerStateBJ(GetEnumPlayer(), PLAYER_STATE_RESOURCE_GOLD, udg_Integer_GreedGoldLimit)
 else
 AdjustPlayerStateBJ(15, GetEnumPlayer(), PLAYER_STATE_RESOURCE_GOLD)
 end
 end
 
-function Trig_Next_Wave_Func025C()
+function Trig_Next_Wave_Func026C()
 if (not (udg_Integer_Wave ~= 80)) then
 return false
 end
@@ -1393,28 +1391,28 @@ else
 end
 end
 udg_Real_WaveHealthModifier = (1.00 + (0.05 * I2R(udg_Integer_PlayerCount)))
-MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 10, (("|cffffff00" .. I2S(udg_Integer_EnemyHandicap)) .. ("% x " .. R2S(udg_Real_WaveHealthModifier))))
+MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 10, (("|cffffff00" .. I2S(udg_Integer_EnemyHandicap)) .. ("% x " .. R2SW(udg_Real_WaveHealthModifier, 1, 2))))
 MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 7, udg_String_Array_WaveText[udg_Integer_Wave])
 MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 8, udg_String_Array_WaveText[(udg_Integer_Wave + 1)])
 EnableTrigger(gg_trg_Wave_Spawning)
-if (Trig_Next_Wave_Func015C()) then
-MultiboardSetTitleText(udg_Multiboard[9], ("Wave: " .. (I2S(udg_Integer_Wave) .. ("/80 - " .. ("Lives: |cff8080ff" .. (R2S(udg_Real_Lives) .. "|r%"))))))
+if (Trig_Next_Wave_Func016C()) then
+MultiboardSetTitleText(udg_Multiboard[9], ("Wave: " .. (I2S(udg_Integer_Wave) .. ("/80 - " .. ("Lives: |cff8080ff" .. (R2SW(udg_Real_Lives, 1, 1) .. "|r%"))))))
 else
-if (Trig_Next_Wave_Func015Func001C()) then
-MultiboardSetTitleText(udg_Multiboard[9], ("Wave: " .. (I2S(udg_Integer_Wave) .. ("/80 - " .. ("Lives: |cffffff00" .. (R2S(udg_Real_Lives) .. "|r%"))))))
+if (Trig_Next_Wave_Func016Func001C()) then
+MultiboardSetTitleText(udg_Multiboard[9], ("Wave: " .. (I2S(udg_Integer_Wave) .. ("/80 - " .. ("Lives: |cffffff00" .. (R2SW(udg_Real_Lives, 1, 1) .. "|r%"))))))
 else
-if (Trig_Next_Wave_Func015Func001Func001C()) then
-MultiboardSetTitleText(udg_Multiboard[9], ("Wave: " .. (I2S(udg_Integer_Wave) .. ("/80 - " .. ("Lives: |cffd45e19" .. (R2S(udg_Real_Lives) .. "|r%"))))))
+if (Trig_Next_Wave_Func016Func001Func001C()) then
+MultiboardSetTitleText(udg_Multiboard[9], ("Wave: " .. (I2S(udg_Integer_Wave) .. ("/80 - " .. ("Lives: |cffd45e19" .. (R2SW(udg_Real_Lives, 1, 1) .. "|r%"))))))
 else
-if (Trig_Next_Wave_Func015Func001Func001Func002C()) then
-MultiboardSetTitleText(udg_Multiboard[9], ("Wave: " .. (I2S(udg_Integer_Wave) .. ("/80 - " .. ("Lives: |cffff0000" .. (R2S(udg_Real_Lives) .. "|r%"))))))
+if (Trig_Next_Wave_Func016Func001Func001Func002C()) then
+MultiboardSetTitleText(udg_Multiboard[9], ("Wave: " .. (I2S(udg_Integer_Wave) .. ("/80 - " .. ("Lives: |cffff0000" .. (R2SW(udg_Real_Lives, 1, 1) .. "|r%"))))))
 else
 end
 end
 end
 end
 udg_Integer_ArmourTypeCounter = (udg_Integer_ArmourTypeCounter + 1)
-if (Trig_Next_Wave_Func017C()) then
+if (Trig_Next_Wave_Func018C()) then
 MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 5, udg_String_Array_ArmourType[udg_Integer_ArmourTypeCounter])
 MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 6, udg_String_Array_ArmourType[1])
 udg_Integer_ArmourTypeCounter = 0
@@ -1423,9 +1421,9 @@ MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 5, udg_String_Array_ArmourType[ud
 MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 6, udg_String_Array_ArmourType[(udg_Integer_ArmourTypeCounter + 1)])
 end
 TriggerExecute(gg_trg_Dichotomous_Box_Gold)
-ForForce(udg_PG_Users_Playing, Trig_Next_Wave_Func021A)
+ForForce(udg_PG_Users_Playing, Trig_Next_Wave_Func022A)
 DisplayTextToForce(GetPlayersAll(), ("|cffffcc00Wave " .. (I2S(udg_Integer_Wave) .. "!|r")))
-if (Trig_Next_Wave_Func025C()) then
+if (Trig_Next_Wave_Func026C()) then
 udg_Integer_Timer = 0
 else
 end
@@ -1893,19 +1891,19 @@ end
 function Trig_Lives_Actions()
 if (Trig_Lives_Func001C()) then
 udg_Real_Lives = ((udg_Real_Lives - 1) - (I2R(udg_Integer_Wave) * 0.05))
-MultiboardSetTitleText(udg_Multiboard[9], ("[Wave: " .. (I2S(udg_Integer_Wave) .. ("/80] - " .. ("[Lives: " .. (R2S(udg_Real_Lives) .. "%]"))))))
+MultiboardSetTitleText(udg_Multiboard[9], ("[Wave: " .. (I2S(udg_Integer_Wave) .. ("/80] - " .. ("[Lives: " .. (R2SW(udg_Real_Lives, 1, 1) .. "%]"))))))
 MultiboardSetItemValueBJ(udg_Multiboard[9], 2, 1, "TRIGSTR_2078")
 if (Trig_Lives_Func001Func006C()) then
-MultiboardSetTitleText(udg_Multiboard[9], ("Wave: " .. (I2S(udg_Integer_Wave) .. ("/80 - " .. ("Lives: |cff8080ff" .. (R2S(udg_Real_Lives) .. "|r%"))))))
+MultiboardSetTitleText(udg_Multiboard[9], ("Wave: " .. (I2S(udg_Integer_Wave) .. ("/80 - " .. ("Lives: |cff8080ff" .. (R2SW(udg_Real_Lives, 1, 1) .. "|r%"))))))
 else
 if (Trig_Lives_Func001Func006Func001C()) then
-MultiboardSetTitleText(udg_Multiboard[9], ("Wave: " .. (I2S(udg_Integer_Wave) .. ("/80 - " .. ("Lives: |cffffff00" .. (R2S(udg_Real_Lives) .. "|r%"))))))
+MultiboardSetTitleText(udg_Multiboard[9], ("Wave: " .. (I2S(udg_Integer_Wave) .. ("/80 - " .. ("Lives: |cffffff00" .. (R2SW(udg_Real_Lives, 1, 1) .. "|r%"))))))
 else
 if (Trig_Lives_Func001Func006Func001Func001C()) then
-MultiboardSetTitleText(udg_Multiboard[9], ("Wave: " .. (I2S(udg_Integer_Wave) .. ("/80 - " .. ("Lives: |cffd45e19" .. (R2S(udg_Real_Lives) .. "|r%"))))))
+MultiboardSetTitleText(udg_Multiboard[9], ("Wave: " .. (I2S(udg_Integer_Wave) .. ("/80 - " .. ("Lives: |cffd45e19" .. (R2SW(udg_Real_Lives, 1, 1) .. "|r%"))))))
 else
 if (Trig_Lives_Func001Func006Func001Func001Func002C()) then
-MultiboardSetTitleText(udg_Multiboard[9], ("Wave: " .. (I2S(udg_Integer_Wave) .. ("/80 - " .. ("Lives: |cffff0000" .. (R2S(udg_Real_Lives) .. "|r%"))))))
+MultiboardSetTitleText(udg_Multiboard[9], ("Wave: " .. (I2S(udg_Integer_Wave) .. ("/80 - " .. ("Lives: |cffff0000" .. (R2SW(udg_Real_Lives, 1, 1) .. "|r%"))))))
 else
 end
 end
@@ -5061,54 +5059,63 @@ SetPlayerStartLocation(Player(0), 0)
 ForcePlayerStartLocation(Player(0), 0)
 SetPlayerColor(Player(0), ConvertPlayerColor(0))
 SetPlayerRacePreference(Player(0), RACE_PREF_UNDEAD)
+SetPlayerRaceSkin(Player(0), RACE_PREF_USER_SELECTABLE)
 SetPlayerRaceSelectable(Player(0), false)
 SetPlayerController(Player(0), MAP_CONTROL_USER)
 SetPlayerStartLocation(Player(1), 1)
 ForcePlayerStartLocation(Player(1), 1)
 SetPlayerColor(Player(1), ConvertPlayerColor(1))
 SetPlayerRacePreference(Player(1), RACE_PREF_UNDEAD)
+SetPlayerRaceSkin(Player(1), RACE_PREF_USER_SELECTABLE)
 SetPlayerRaceSelectable(Player(1), false)
 SetPlayerController(Player(1), MAP_CONTROL_USER)
 SetPlayerStartLocation(Player(2), 2)
 ForcePlayerStartLocation(Player(2), 2)
 SetPlayerColor(Player(2), ConvertPlayerColor(2))
 SetPlayerRacePreference(Player(2), RACE_PREF_UNDEAD)
+SetPlayerRaceSkin(Player(2), RACE_PREF_USER_SELECTABLE)
 SetPlayerRaceSelectable(Player(2), false)
 SetPlayerController(Player(2), MAP_CONTROL_USER)
 SetPlayerStartLocation(Player(3), 3)
 ForcePlayerStartLocation(Player(3), 3)
 SetPlayerColor(Player(3), ConvertPlayerColor(3))
 SetPlayerRacePreference(Player(3), RACE_PREF_UNDEAD)
+SetPlayerRaceSkin(Player(3), RACE_PREF_USER_SELECTABLE)
 SetPlayerRaceSelectable(Player(3), false)
 SetPlayerController(Player(3), MAP_CONTROL_USER)
 SetPlayerStartLocation(Player(4), 4)
 ForcePlayerStartLocation(Player(4), 4)
 SetPlayerColor(Player(4), ConvertPlayerColor(4))
 SetPlayerRacePreference(Player(4), RACE_PREF_UNDEAD)
+SetPlayerRaceSkin(Player(4), RACE_PREF_USER_SELECTABLE)
 SetPlayerRaceSelectable(Player(4), false)
 SetPlayerController(Player(4), MAP_CONTROL_USER)
 SetPlayerStartLocation(Player(5), 5)
 ForcePlayerStartLocation(Player(5), 5)
 SetPlayerColor(Player(5), ConvertPlayerColor(5))
 SetPlayerRacePreference(Player(5), RACE_PREF_UNDEAD)
+SetPlayerRaceSkin(Player(5), RACE_PREF_USER_SELECTABLE)
 SetPlayerRaceSelectable(Player(5), false)
 SetPlayerController(Player(5), MAP_CONTROL_USER)
 SetPlayerStartLocation(Player(6), 6)
 ForcePlayerStartLocation(Player(6), 6)
 SetPlayerColor(Player(6), ConvertPlayerColor(6))
 SetPlayerRacePreference(Player(6), RACE_PREF_UNDEAD)
+SetPlayerRaceSkin(Player(6), RACE_PREF_USER_SELECTABLE)
 SetPlayerRaceSelectable(Player(6), false)
 SetPlayerController(Player(6), MAP_CONTROL_USER)
 SetPlayerStartLocation(Player(7), 7)
 ForcePlayerStartLocation(Player(7), 7)
 SetPlayerColor(Player(7), ConvertPlayerColor(7))
 SetPlayerRacePreference(Player(7), RACE_PREF_UNDEAD)
+SetPlayerRaceSkin(Player(7), RACE_PREF_USER_SELECTABLE)
 SetPlayerRaceSelectable(Player(7), false)
 SetPlayerController(Player(7), MAP_CONTROL_USER)
 SetPlayerStartLocation(Player(11), 8)
 ForcePlayerStartLocation(Player(11), 8)
 SetPlayerColor(Player(11), ConvertPlayerColor(11))
 SetPlayerRacePreference(Player(11), RACE_PREF_UNDEAD)
+SetPlayerRaceSkin(Player(11), RACE_PREF_USER_SELECTABLE)
 SetPlayerRaceSelectable(Player(11), false)
 SetPlayerController(Player(11), MAP_CONTROL_COMPUTER)
 end
@@ -5276,6 +5283,7 @@ end
 function main()
 SetCameraBounds(-7680.0 + GetCameraMargin(CAMERA_MARGIN_LEFT), -3072.0 + GetCameraMargin(CAMERA_MARGIN_BOTTOM), 2560.0 - GetCameraMargin(CAMERA_MARGIN_RIGHT), 7168.0 - GetCameraMargin(CAMERA_MARGIN_TOP), -7680.0 + GetCameraMargin(CAMERA_MARGIN_LEFT), 7168.0 - GetCameraMargin(CAMERA_MARGIN_TOP), 2560.0 - GetCameraMargin(CAMERA_MARGIN_RIGHT), -3072.0 + GetCameraMargin(CAMERA_MARGIN_BOTTOM))
 SetDayNightModels("Environment\\DNC\\DNCDungeon\\DNCDungeonTerrain\\DNCDungeonTerrain.mdl", "Environment\\DNC\\DNCDungeon\\DNCDungeonUnit\\DNCDungeonUnit.mdl")
+SetHDWaterParamsEx(0, 0, 0, false, 20, 0, 100, 10, 0, 50, 100, 100)
 NewSoundEnvironment("Default")
 SetAmbientDaySound("DungeonDay")
 SetAmbientNightSound("DungeonNight")

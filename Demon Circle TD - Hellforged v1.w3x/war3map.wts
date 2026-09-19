@@ -2273,7 +2273,7 @@ STRING 1372
 }
 
 STRING 1373
-// Abilities: A028 (Item Attack Speed Bonus), EditorSuffix (Editor Suffix)
+// Abilities: A028 (), EditorSuffix (Editor Suffix)
 {
 [Hellfire Tower]
 }
@@ -3546,7 +3546,7 @@ Increase Difficulty?
 
 STRING 1904
 {
-Demon Circle TD: Hellforged TEST2400
+Demon Circle TD: Hellforged v1.00
 }
 
 STRING 1905
@@ -3556,12 +3556,12 @@ STRING 1905
 
 STRING 1906
 {
-Hellforged version by GenoHacker
+Hellforged version by GenoHacker#2987 / v1.00 Released 19/09/2026
 }
 
 STRING 1907
 {
-GenoHacker
+GenoHacker#2987
 }
 
 STRING 1908
@@ -3664,48 +3664,6 @@ You can buy items in the middle.
 STRING 1930
 {
 You can buy items in the middle.
-}
-
-STRING 1941
-// Items: I000 (Soul Eater), Ubertip (Tooltip - Extended)
-{
-[Carrion Tower Only]
-
-All items have 3 levels, you can give additional copies of the item to the tower to level it up.
-
-Attacks deal 33%/66%/100% additional pure chaos damage.
-}
-
-STRING 1942
-// Items: I001 (Hellfire Reagent), Ubertip (Tooltip - Extended)
-{
-[Siphoning Tower Only]
-
-All items have 3 levels, you can give additional copies of the item to the tower to level it up.
-
-Allows the tower to destroy 50/75/100 mana per hit to all enemies within 75/100/125 area of effect, dealing 100%/150%/200% of mana destroyed as damage to the primary target only.
-}
-
-STRING 1946
-// Items: I008 (Demonic Artefact), Ubertip (Tooltip - Extended)
-{
-[Anomaly Tower Only]
-
-All items have 3 levels, you can give additional copies of the item to the tower to level it up.
-
-Increases the level of abilities by 1/2/3.
-}
-
-STRING 1947
-// Items: I005 (Ghastly Vial), Ubertip (Tooltip - Extended)
-{
-[Ghost Tower Only]
-
-All items have 3 levels, you can give additional copies of the item to the tower to level it up.
-
-Upon attacking an enemy their is a 12%/24%/36% chance to cast chain lightning.
-
-Chain lightning can target ethereal units, the tower cannot.
 }
 
 STRING 1948
@@ -3828,18 +3786,6 @@ STRING 2054
 // Units: h029 (Bladestorm Dummy), Name (Name)
 {
 Bladestorm Dummy
-}
-
-STRING 2056
-// Items: I00F (Hellfrost Enchantment), Ubertip (Tooltip - Extended)
-{
-[Frost Tower Only]
-
-All items have 3 levels, you can give additional copies of the item to the tower to level it up.
-
-Tower deals extra spell damage equal to 50% of damage dealt to an enemy unit.
-
-Upon attacking an enemy their is a 10%/20%/30% chance to reduce armor by 1/2/4, armour reduction is reduced if the target is spirit linked.
 }
 
 STRING 2060
@@ -4499,6 +4445,7 @@ STRING 2266
 STRING 2267
 {
 Discord: dzbHsCc
+- Developer Genohacker#2987
 }
 
 STRING 2268
@@ -4902,17 +4849,7 @@ Every 10th wave has Spell Damage Reduction and Hardened Skin.
 
 STRING 2333
 {
-v1.00.0 Released XX/XX/XXXX
-}
-
-STRING 2335
-// Items: I00D (Dichotomous Box), Ubertip (Tooltip - Extended)
-{
-[Demon Only]
-
-All items have 3 levels, you can give additional copies of the item to the tower to level it up.
-
-Gain or lose up to 10 x Item Level gold per wave
+v1.00 Released 19/09/2026
 }
 
 STRING 2336
@@ -5115,44 +5052,6 @@ STRING 2364
 |cffffcc00Soul Burn:|r Upon killing an enemy up to 4 units will become affected by soul burn.
 }
 
-STRING 2365
-// Items: I002 (Khorns Gift), Ubertip (Tooltip - Extended)
-{
-[Inferno Gate Only]
-
-All items have 3 levels, you can give additional copies of the item to the tower to level it up.
-
-40% Chance to deal 5 times damage.
-
-Increases the number of targets affeceted by soul burn by 1/2/3.
-Upon killing an enemy the tower will gain 40%/75%/125% damage and 75%/150%/225% attack speed, can not trigger whilst it is active.
-}
-
-STRING 2366
-// Items: I004 (Argent Conduit), Ubertip (Tooltip - Extended)
-{
-[Fluctuation Tower Only]
-
-All items have 3 levels, you can give additional copies of the item to the tower to level it up.
-
-Increases mana regeneration by 50%.
-
-Increases the level of Multishot by 1/2/3.
-}
-
-STRING 2367
-// Items: I006 (Volatile Catalyst), Ubertip (Tooltip - Extended)
-{
-[Hellfire Tower Only]
-
-All items have 3 levels, you can give additional copies of the item to the tower to level it up.
-
-25% increased attack speed.
-
-Increases mana gain by 0.5/1/1.5 per attack.
-10%/20%/40% less chance to trigger Infernal Core reset.
-}
-
 STRING 2368
 // Units: u016 (Monstrosity Tower Level 3), Ubertip (Tooltip - Extended)
 {
@@ -5181,16 +5080,6 @@ STRING 2370
 |cffffcc00Range:|r 700
 
 |cffffcc00Sanguine Spike:|r A stacking bleeding attack that slows and deals increasing damage for 4 seconds, gains stacks from tower attack and damage over time caused by this effect.
-}
-
-STRING 2371
-// Items: I003 (Pulsating Flesh), Ubertip (Tooltip - Extended)
-{
-[Monstrosity Tower Only]
-
-All items have 3 levels, you can give additional copies of the item to the tower to level it up.
-
-When the tower deals damage, either through attack or damage over time, enemies within 150/200/250 aoe of the point of damage will take 20/30/40 x number of stacks spell damage.
 }
 
 STRING 2372
@@ -5293,28 +5182,6 @@ STRING 2381
 |cffffcc00Fluctuating Energy:|r Attack speed changes each time the tower attacks. Tower gains damage equal to its mana, tower loses all mana when attacking.
 }
 
-STRING 2382
-// Items: I007 (Jar of Demon Fire), Ubertip (Tooltip - Extended)
-{
-[Skull Tower Only]
-
-All items have 3 levels, you can give additional copies of the item to the tower to level it up.
-
-Covers the projectiles of the tower in demon fire, causing them to set the ground alight, enemies that pass through the fire will take 80/120/200 damage per second.
-}
-
-STRING 2383
-// Items: I00A (Satans Claw), Ubertip (Tooltip - Extended)
-{
-[Chaos Tower Only]
-
-All items have 3 levels, you can give additional copies of the item to the tower to level it up.
-
-Streams of demonic energy emanate from the tower dealing 25/40/55 damage on hit and 50/80/110 damage per second for 6/8/10 seconds.
-
-Effective against ethereal units.
-}
-
 STRING 2384
 // Abilities: A00F (Demon Fire), Ubertip (Tooltip - Normal - Extended)
 {
@@ -5331,5 +5198,150 @@ STRING 2386
 // Abilities: A00F (Demon Fire), Ubertip (Tooltip - Normal - Extended)
 {
 Covers the projectiles of the tower in demon fire, causing them to set the ground alight, enemies that pass through the fire will take 200 damage per second.
+}
+
+STRING 2399
+// Items: I002 (Khorns Gift), Ubertip (Tooltip - Extended)
+{
+|cffff0000[Inferno Gate Only]|r
+
+All items have 3 levels, you can give additional copies of the item to the tower to level it up.
+
+|cffffff00Provided Benefit:|r
+|cff00ffff40%|r Chance to deal 5 times damage.
+
+Increases the number of targets affeceted by soul burn by |cff00ffff1/2/3|r.
+Upon killing an enemy the tower will gain |cff00ffff40%/75%/125%|r damage and |cff00ffff75%/150%/225%|r attack speed, can not trigger whilst it is active.
+}
+
+STRING 2400
+// Items: I005 (Ghastly Vial), Ubertip (Tooltip - Extended)
+{
+|cffff0000[Ghost Tower Only]|r
+
+All items have 3 levels, you can give additional copies of the item to the tower to level it up.
+
+|cffffff00Provided Benefit:|r
+Upon attacking an enemy their is a |cff00ffff12%/24%/36%|r chance to cast chain lightning.
+
+Chain lightning can target ethereal units, the tower cannot.
+}
+
+STRING 2401
+// Items: I007 (Jar of Demon Fire), Ubertip (Tooltip - Extended)
+{
+|cffff0000[Skull Tower Only]|r
+
+All items have 3 levels, you can give additional copies of the item to the tower to level it up.
+
+|cffffff00Provided Benefit:|r
+Covers the projectiles of the tower in demon fire, causing them to set the ground alight, enemies that pass through the fire will take |cff00ffff80/120/200|r damage per second.
+}
+
+STRING 2402
+// Items: I00A (Satans Claw), Ubertip (Tooltip - Extended)
+{
+|cffff0000[Chaos Tower Only]|r
+
+All items have 3 levels, you can give additional copies of the item to the tower to level it up.
+
+|cffffff00Provided Benefit:|r
+Streams of demonic energy emanate from the tower dealing |cff00ffff25/40/55|r damage on hit and |cff00ffff50/80/110|r damage per second for |cff00ffff6/8/10|r seconds.
+
+Effective against ethereal units.
+}
+
+STRING 2403
+// Items: I00D (Dichotomous Box), Ubertip (Tooltip - Extended)
+{
+|cffff0000[Demon Only]|r
+
+All items have 3 levels, you can give additional copies of the item to the tower to level it up.
+
+|cffffff00Provided Benefit:|r
+Gain or lose up to |cff00ffff10 x Item Level Gold|r per wave
+}
+
+STRING 2404
+// Items: I00F (Hellfrost Enchantment), Ubertip (Tooltip - Extended)
+{
+|cffff0000[Frost Tower Only]|r
+
+All items have 3 levels, you can give additional copies of the item to the tower to level it up.
+
+|cffffff00Provided Benefit:|r
+Tower deals extra spell damage equal to |cff00ffff50%|r of damage dealt to an enemy unit.
+
+Upon attacking an enemy their is a |cff00ffff10%/20%/30%|r chance to reduce armor by |cff00ffff1/2/4|r, armour reduction is reduced if the target is spirit linked.
+}
+
+STRING 2405
+// Items: I000 (Soul Eater), Ubertip (Tooltip - Extended)
+{
+|cffff0000[Carrion Tower Only]|r
+
+All items have 3 levels, you can give additional copies of the item to the tower to level it up.
+
+|cffffff00Provided Benefit:|r
+Attacks deal |cff00ffff33%/66%/100%|r additional pure chaos damage.
+}
+
+STRING 2406
+// Items: I001 (Hellfire Reagent), Ubertip (Tooltip - Extended)
+{
+|cffff0000[Siphoning Tower Only]|r
+
+All items have 3 levels, you can give additional copies of the item to the tower to level it up.
+
+|cffffff00Provided Benefit:|r
+Allows the tower to destroy |cff00ffff50/75/100|r mana per hit to all enemies within |cff00ffff75/100/125|r area of effect, dealing |cff00ffff100%/150%/200%|r of mana destroyed as damage to the primary target only.
+}
+
+STRING 2407
+// Items: I003 (Pulsating Flesh), Ubertip (Tooltip - Extended)
+{
+|cffff0000[Monstrosity Tower Only]|r
+
+All items have 3 levels, you can give additional copies of the item to the tower to level it up.
+
+|cffffff00Provided Benefit:|r
+When the tower deals damage, either through attack or damage over time, enemies within |cff00ffff150/200/250|r aoe of the point of damage will take |cff00ffff20/30/40|r x number of stacks spell damage.
+}
+
+STRING 2408
+// Items: I004 (Argent Conduit), Ubertip (Tooltip - Extended)
+{
+|cffff0000[Fluctuation Tower Only]|r
+
+All items have 3 levels, you can give additional copies of the item to the tower to level it up.
+
+|cffffff00Provided Benefit:|r
+Increases mana regeneration by |cff00ffff50%|r.
+Increases the level of Multishot by |cff00ffff1/2/3|r.
+}
+
+STRING 2409
+// Items: I006 (Volatile Catalyst), Ubertip (Tooltip - Extended)
+{
+|cffff0000[Hellfire Tower Only]|r
+
+All items have 3 levels, you can give additional copies of the item to the tower to level it up.
+
+|cffffff00Provided Benefit:|r
+|cff00ffff25%|r increased attack speed.
+
+Increases mana gain by |cff00ffff0.5/1/1.5|r per attack.
+|cff00ffff10%/20%/40%|r less chance to trigger Infernal Core reset.
+}
+
+STRING 2410
+// Items: I008 (Demonic Artefact), Ubertip (Tooltip - Extended)
+{
+|cffff0000[Anomaly Tower Only]|r
+
+All items have 3 levels, you can give additional copies of the item to the tower to level it up.
+
+|cffffff00Provided Benefit:|r
+Increases the level of abilities by |cff00ffff1/2/3|r.
 }
 
